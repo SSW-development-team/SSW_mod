@@ -782,4 +782,43 @@ fate_of_countries_category_western_europe = {
 		complete_effect = { country_event = { id = ssw_foc_western_europe.11 } }
 		ai_will_do = { factor = 200 }
 	}
+	fate_of_czech = { #É`ÉFÉRÇÃâ^ñΩ
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = CZE }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				is_core_of = CZE
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+					has_state_flag = maybe_core_CZE
+					has_state_flag = maybe_core_claim_SLO_GAMESTART
+				}
+			}
+			CZE = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_czech }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				country_exists = CZE
+				CZE = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_czech }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.12 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_czech
+		}
+		ai_will_do = { factor = 100 }
+	}
 }
