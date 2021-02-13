@@ -1,0 +1,75 @@
+#########################
+#    ETHIOPIA EVENTS    #
+#########################
+#namespaces
+add_namespace = Ethiopia_Independence
+
+######  ##    ##  #####    #######  ######   #######  ##    ##  #####    #######  ##    ##   #####   #######
+  ##    ###   ##  ##  ##   ##       ##   ##  ##       ###   ##  ##  ##   ##       ###   ##  ##   ##  ##
+  ##    ####  ##  ##   ##  ##       ##   ##  ##       ####  ##  ##   ##  ##       ####  ##  ##       ##
+  ##    ##### ##  ##   ##  ######   ######   ######   ##### ##  ##   ##  ######   ##### ##  ##       ######
+  ##    ## #####  ##   ##  ##       ##       ##       ## #####  ##   ##  ##       ## #####  ##       ##
+  ##    ##  ####  ##  ##   ##       ##       ##       ##  ####  ##  ##   ##       ##  ####  ##   ##  ##
+######  ##   ###  #####    #######  ##       #######  ##   ###  #####    #######  ##   ###   #####   #######
+
+country_event = {#start independ war sidamo
+	id = Ethiopia_Independence.1
+	title = Ethiopia_Independence.1.t
+	desc = Ethiopia_Independence.1.desc
+	picture = GFX_report_event_spr_spanish_civil_war2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = Ethiopia_Independence.1.a
+		1070 = {
+			add_building = { type = arms_factory level = 1 instant_build = yes }
+		}
+		set_global_flag = ETH_start_indep_war
+		ETH = {
+			transfer_state = 1070
+			division_template = {
+				name = "Milishiya"
+				is_locked = yes
+				division_names_group = ETH_INF_01
+				priority = 0
+				template_counter = 0
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+    			    infantry = { x = 0 y = 3 }
+				} 
+			}
+			change_tag_from = NEA
+			unlock_decision_category_tooltip = ETH_volunteer_recruit
+		}
+		declare_war_on = {
+			target = ETH
+			type = annex_everything
+		}
+		hidden_effect = {
+			country_event = {
+				id = Ethiopia_Independence.2
+				days = 20
+			}
+		}
+	}
+}
+
+country_event = { #afar uprising
+	id = Ethiopia_Independence.2
+	title = Ethiopia_Independence.2.t
+	desc = Ethiopia_Independence.2.desc
+	picture = GFX_report_event_spr_spanish_civil_war2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = Ethiopia_Independence.2.a
+		1068 = {
+			add_building = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		transfer_state = 1068
+	}
+}

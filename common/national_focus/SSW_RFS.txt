@@ -1,0 +1,401 @@
+focus_tree = {
+	id = SSW_RFS
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = RBL
+		}
+	}
+	continuous_focus_position = { x = 820 y = 1800 }
+	default = no
+	focus = {
+		id = RFS_Main
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 2.00
+		x = 8
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			swap_ideas = {
+					remove_idea = RFS_coherent_scientist_idea
+					add_idea = RFS_coherent_scientist_idea_2
+				}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_2
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main
+		}
+		x = 8
+		y = 1
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			swap_ideas = {
+					remove_idea = RFS_coherent_scientist_idea_2
+					add_idea = RFS_coherent_scientist_idea_3
+				}
+		}
+	
+
+	}
+	focus = {
+		id = RFS_Main_1
+		icon = GFX_focus_hol_war_on_pacifism
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_2
+		}
+		x = 8
+		y = 2
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_political_power = 100
+		}
+
+	}
+	focus = {
+		id = RFS_Main_3
+		icon = GFX_goal_generic_major_alliance
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_1
+		}
+		x = 6
+		y = 3
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_stability = 0.2
+			add_war_support = 0.25
+		}
+
+	}
+	focus = {
+		id = RFS_Main_4
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_1
+		}
+		x = 10
+		y = 3
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			custom_effect_tooltip = RFS_NKVD_tooltip
+			add_ideas = RFS_NKVD_support
+			hidden_effect ={
+			division_template = {
+				name = "NKVD division"
+				regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				artillery_brigade = { x = 2 y = 1 }
+				artillery_brigade = { x = 2 y = 2 }
+				}
+				support = {
+				military_police = { x = 0 y = 0 } 
+				}
+			}
+			random_controlled_state = {
+				create_unit = {
+					division = "name = \"1. NKVD division\" division_template = \"NKVD division\" start_experience_factor = 5 start_equipment_factor = 1"
+					owner = Root
+					allow_spawning_on_enemy_provs = yes
+				}
+				create_unit = {
+					division = "name = \"1. NKVD division\" division_template = \"NKVD division\" start_experience_factor = 5 start_equipment_factor = 1"
+					owner = Root
+					allow_spawning_on_enemy_provs = yes
+				}
+				create_unit = {
+					division = "name = \"1. NKVD division\" division_template = \"NKVD division\" start_experience_factor = 5 start_equipment_factor = 1"
+					owner = Root
+					allow_spawning_on_enemy_provs = yes
+				}
+			}
+		}
+			
+		}
+	}
+
+	focus = {
+		id = RFS_Main_5
+		icon = GFX_goal_generic_army_tanks
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_4
+		}
+		prerequisite = {
+			focus = RFS_Main_3
+		}
+		x = 8
+		y = 4
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment
+				amount = 250
+				producer = GER
+			}
+
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 250
+				producer = GER
+			}
+
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 500
+				producer = GER
+			}
+
+		}
+
+	}
+	focus = {
+		id = RFS_Main_6
+		icon = GFX_goal_generic_position_armies
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_5
+		}
+		x = 8
+		y = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			country_event = {
+				id = sswrfs.1
+			}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_7
+		icon = GFX_goal_generic_position_armies
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_6
+		}
+		mutually_exclusive = {
+			focus = RFS_Main_10
+		}
+		x = 6
+		y = 6
+		available = {
+			has_global_flag = kamisine
+		}
+		ai_will_do = {
+			factor = 10
+		}
+			available_if_capitulated = no
+			completion_reward = {
+			add_ideas = RFS_Gods_denial
+		}
+	}
+	focus = {
+		id = RFS_Main_8
+		icon = GFX_focus_AST_squander_bug
+		cost = 5.00
+		prerequisite = {
+			focus = RFS_Main_7
+		}
+		x = 6
+		y = 7
+
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = { 
+			NOT = {
+				223 = {is_owned_and_controlled_by = TOA	}
+			}
+		}
+			available_if_capitulated = no
+			completion_reward = {
+				declare_war_on = {
+					target = TOA
+					type = annex_everything
+				}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_9
+		icon = GFX_focus_SAF_colonialist_crusade
+		cost = 5.00
+		prerequisite = {
+			focus = RFS_Main_8
+		}
+		x = 6
+		y = 8
+
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = { 
+			NOT = {
+				248 = {is_owned_and_controlled_by = ACO	}
+			}
+		}
+			available_if_capitulated = no
+			completion_reward = {
+				declare_war_on = {
+					target = ACO
+					type = annex_everything
+				}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_10
+		icon = GFX_goal_generic_position_armies
+		cost = 2.00
+		prerequisite = {
+			focus = RFS_Main_6
+		}
+		mutually_exclusive = {
+			focus = RFS_Main_7
+		}
+		x = 10
+		y = 6
+
+		available = {
+			has_global_flag = kizokusine
+		}
+		ai_will_do = {
+			factor = 10
+		}
+			available_if_capitulated = no
+			completion_reward = {
+			add_ideas = RFS_blood_denial
+		}
+
+	}
+	focus = {
+		id = RFS_Main_11
+		icon = GFX_focus_AST_squander_bug
+		cost = 5.00
+		prerequisite = {
+			focus = RFS_Main_10
+		}
+		x = 10
+		y = 7
+
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = { 
+			NOT = {
+				248 = {is_owned_and_controlled_by = ACO	}
+			}
+		}
+			available_if_capitulated = no
+			completion_reward = {
+				declare_war_on = {
+					target = ACO
+					type = annex_everything
+				}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_12
+		icon = GFX_focus_SAF_colonialist_crusade
+		cost = 5.00
+		prerequisite = {
+			focus = RFS_Main_11
+		}
+		x = 10
+		y = 8
+
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = { 
+			NOT = {
+				223 = {is_owned_and_controlled_by = TOA	}
+			}
+		}
+			available_if_capitulated = no
+			completion_reward = {
+				declare_war_on = {
+					target = TOA
+					type = annex_everything
+				}
+		}
+
+	}
+	focus = {
+		id = RFS_Main_13
+		icon = GFX_goal_continuous_research
+		cost = 10.00
+		prerequisite = {
+			focus = RFS_Main_12
+		}
+		prerequisite = {
+			focus = RFS_Main_9
+		}
+		x = 8
+		y = 9
+
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			country_event = {
+				id = sswrfs.2
+			}
+		}
+
+	}
+}

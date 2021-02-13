@@ -740,13 +740,10 @@ focus_tree = {
 				name = fighter_bonus
 				bonus = 1.0
 				uses = 2
-				technology = early_fighter
-				technology = fighter1
-				technology = fighter2
-				technology = fighter3
-				technology = heavy_fighter1
-				technology = heavy_fighter2
-				technology = heavy_fighter3
+				technology = fighter_1936
+				technology = fighter_1940
+				technology = heavy_fighter_1936
+				technology = heavy_fighter_1940
 			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1849,7 +1846,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = ATL
 				}
 			}
@@ -1861,7 +1858,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = PAC
 				}
 			}
@@ -1873,7 +1870,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = ARG
 				}
 			}
@@ -1885,7 +1882,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = BOL
 				}
 			}
@@ -1897,7 +1894,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = BRA
 				}
 			}
@@ -1909,8 +1906,20 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = CHL
+				}
+			}
+			if = {
+				limit = {
+					CMB = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = CMB
 				}
 			}
 			if = {
@@ -1921,7 +1930,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = COL
 				}
 			}
@@ -1933,8 +1942,20 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = COS
+				}
+			}
+			if = {
+				limit = {
+					CSB = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = CSB
 				}
 			}
 			if = {
@@ -1945,7 +1966,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = CUB
 				}
 			}
@@ -1957,7 +1978,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = DOM
 				}
 			}
@@ -1969,7 +1990,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = ECU
 				}
 			}
@@ -1981,7 +2002,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = ELS
 				}
 			}
@@ -1993,7 +2014,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = GUA
 				}
 			}
@@ -2005,7 +2026,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = HAI
 				}
 			}
@@ -2017,7 +2038,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = HON
 				}
 			}
@@ -2029,7 +2050,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = JAM
 				}
 			}
@@ -2041,7 +2062,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = NIC
 				}
 			}
@@ -2053,7 +2074,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = PAN
 				}
 			}
@@ -2065,7 +2086,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = PAR
 				}
 			}
@@ -2077,7 +2098,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = PRU
 				}
 			}
@@ -2089,7 +2110,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = URG
 				}
 			}
@@ -2116,8 +2137,40 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = SPR
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 100
+				}
+			}
+			if = {
+				limit = {
+					SPA = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SPA
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 100
+				}
+			}
+			if = {
+				limit = {
+					SPX = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SPX
 				}
 				else = {
 					add_war_support = 0.05
@@ -2147,7 +2200,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = JAP
 				}
 				else = { add_political_power = 50 }
@@ -2160,7 +2213,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = PHI
 				}
 				else = { add_political_power = 50 }
@@ -2173,7 +2226,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = AST
 				}
 				else = { add_political_power = 50 }
@@ -2186,7 +2239,7 @@ focus_tree = {
 					}
 				}
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = NZL
 				}
 				else = { add_political_power = 50 }
@@ -3296,8 +3349,30 @@ focus_tree = {
 			if = {
 				limit = { SPR = { exists = yes } }
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = SPR
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 50
+				}
+			}
+			if = {
+				limit = { SPA = { exists = yes } }
+				create_wargoal = {
+					type = annex_everything
+					target = SPA
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 50
+				}
+			}
+			if = {
+				limit = { SPX = { exists = yes } }
+				create_wargoal = {
+					type = annex_everything
+					target = SPX
 				}
 				else = {
 					add_war_support = 0.05
@@ -3307,7 +3382,7 @@ focus_tree = {
 			if = {
 				limit = { POR = { exists = yes } }
 				create_wargoal = {
-					type = puppet_wargoal_focus
+					type = annex_everything
 					target = POR
 				}
 				else = {
@@ -3441,6 +3516,8 @@ focus_tree = {
 						original_tag = ANS
 						original_tag = OKL
 						original_tag = TEX
+						original_tag = LUI
+						original_tag = BLS
 					}
 				}
 				MEX = {
@@ -3451,101 +3528,20 @@ focus_tree = {
 					}
 				}
 			}
-			if = {
-				limit = { NOT = { 374 = { is_core_of = MEX } } }
-				add_state_core = 374
-			}
-			if = {
-				limit = { NOT = { 375 = { is_core_of = MEX } } }
-				add_state_core = 375
-			}
-			if = {
-				limit = { NOT = { 376 = { is_core_of = MEX } } }
-				add_state_core = 376
-			}
-			if = {
-				limit = { NOT = { 377 = { is_core_of = MEX } } }
-				add_state_core = 377
-			}
-			if = {
-				limit = { NOT = { 378 = { is_core_of = MEX } } }
-				add_state_core = 378
-			}
-			if = {
-				limit = { NOT = { 379 = { is_core_of = MEX } } }
-				add_state_core = 379
-			}
-			if = {
-				limit = { NOT = { 380 = { is_core_of = MEX } } }
-				add_state_core = 380
-			}
-			if = {
-				limit = { NOT = { 382 = { is_core_of = MEX } } }
-				add_state_core = 382
-			}
-			if = {
-				limit = { NOT = { 383 = { is_core_of = MEX } } }
-				add_state_core = 383
-			}
-			if = {
-				limit = { NOT = { 385 = { is_core_of = MEX } } }
-				add_state_core = 385
-			}
-			if = {
-				limit = { NOT = { 386 = { is_core_of = MEX } } }
-				add_state_core = 386
-			}
-			if = {
-				limit = { NOT = { 387 = { is_core_of = MEX } } }
-				add_state_core = 387
-			}
-			if = {
-				limit = { NOT = { 813 = { is_core_of = MEX } } }
-				add_state_core = 813
-			}
-			if = {
-				limit = { NOT = { 895 = { is_core_of = MEX } } }
-				add_state_core = 895
-			}
-			if = {
-				limit = { NOT = { 896 = { is_core_of = MEX } } }
-				add_state_core = 896
-			}
-			if = {
-				limit = { NOT = { 897 = { is_core_of = MEX } } }
-				add_state_core = 897
-			}
-			if = {
-				limit = { NOT = { 898 = { is_core_of = MEX } } }
-				add_state_core = 898
-			}
-			if = {
-				limit = { NOT = { 899 = { is_core_of = MEX } } }
-				add_state_core = 899
-			}
-			if = {
-				limit = { NOT = { 900 = { is_core_of = MEX } } }
-				add_state_core = 900
-			}
-			if = {
-				limit = { NOT = { 901 = { is_core_of = MEX } } }
-				add_state_core = 901
-			}
-			if = {
-				limit = { NOT = { 902 = { is_core_of = MEX } } }
-				add_state_core = 902
-			}
-			if = {
-				limit = { NOT = { 903 = { is_core_of = MEX } } }
-				add_state_core = 903
-			}
-			if = {
-				limit = { NOT = { 904 = { is_core_of = MEX } } }
-				add_state_core = 904
-			}
-			if = {
-				limit = { NOT = { 905 = { is_core_of = MEX } } }
-				add_state_core = 905
+			every_state = {
+				limit = {
+					NOT = { is_core_of = MEX }
+					OR = {
+						has_state_flag = maybe_core_ALF_GAMESTART
+						has_state_flag = maybe_core_LFF_GAMESTART
+						has_state_flag = maybe_core_TEX_GAMESTART
+						has_state_flag = maybe_core_BLS_GAMESTART
+						has_state_flag = maybe_core_OKL_GAMESTART
+						has_state_flag = maybe_core_ANS_GAMESTART
+						has_state_flag = maybe_core_LUI_GAMESTART
+					}
+				}
+				add_core_of = MEX
 			}
 		}
 	}
@@ -3607,7 +3603,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			create_wargoal = {
-				type = puppet_wargoal_focus
+				type = annex_everything
 				target = ENG
 				expire = 0
 			}
@@ -3633,7 +3629,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			create_wargoal = {
-				type = puppet_wargoal_focus
+				type = annex_everything
 				target = JAP
 				expire = 0
 			}
