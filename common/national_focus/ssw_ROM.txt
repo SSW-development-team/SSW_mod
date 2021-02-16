@@ -12,6 +12,8 @@ focus_tree = {
 	
 	default = no
 
+#political tree
+
 	focus = {
 		id = Antonescu's_speech
 		icon = GFX_goal_unknown
@@ -19,23 +21,15 @@ focus_tree = {
 		x = 19
 		y = 0
 
+		completion_reward = {
+			country_event = {
+				id = SSW_ROM.1
+			}
+		}
 	}
-	focus = {
-		id = Restart_navy
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 35
-		y = 2
 
-	}
-	focus = {
-		id = Reorganaized_the_air_force
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 41
-		y = 2
 
-	}
+#The military route
 	focus = {
 		id = MIlitary_unity
 		icon = GFX_goal_unknown
@@ -53,182 +47,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = Reorganaized_the_army
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = MIlitary_unity
-		}
-		available = {
-			has_idea = Military_unity
-		}
-		x = 10
-		y = 2
-
-	}
-	focus = {
-		id = Traditionalism
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Reorganaized_the_army
-		}
-		mutually_exclusive = {
-			focus = Total_war
-		}
-		x = 9
-		y = 3
-
-	}
-	focus = {
-		id = Plan_of_great_army
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Traditionalism
-		}
-		x = 6
-		y = 4
-
-	}
-	focus = {
-		id = Training_aristocratic_officer
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Traditionalism
-		}
-		x = 8
-		y = 4
-
-	}
-	focus = {
-		id = Total_war
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Reorganaized_the_army
-		}
-		mutually_exclusive = {
-			focus = Traditionalism
-		}
-		x = 11
-		y = 3
-
-	}
-	focus = {
-		id = Secure_war_expenditures
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Traditionalism
-			focus = Total_war
-		}
-		x = 10
-		y = 4
-
-	}
-	focus = {
-		id = Remember_Marasesti
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Total_war
-		}
-		x = 12
-		y = 4
-
-	}
-	focus = {
-		id = Supremacy_of_firepower
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Remember_Marasesti
-		}
-		x = 12
-		y = 5
-
-	}
-	focus = {
-		id = Forcible_motorizing
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Total_war
-		}
-		x = 14
-		y = 4
-
-	}
-	focus = {
-		id = Armor_supremacy
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Forcible_motorizing
-		}
-		x = 14
-		y = 5
-
-	}
-	focus = {
-		id = Start_the_General_Staff_Office
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Armor_supremacy
-			focus = Supremacy_of_firepower
-		}
-		x = 12
-		y = 6
-
-	}
-	focus = {
-		id = Strengthen_conscripiton
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Start_the_General_Staff_Office
-		}
-		x = 11
-		y = 7
-
-	}
-	focus = {
-		id = Forceing_home_front
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Start_the_General_Staff_Office
-		}
-		x = 13
-		y = 7
-
-	}
-	focus = {
-		id = Improve_Ploeisti_field
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Armor_supremacy
-		}
-		x = 14
-		y = 6
-
-	}
-	focus = {
-		id = More_oil
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Improve_Ploeisti_field
-		}
-		x = 15
-		y = 7
-
-	}
-	focus = {
 		id = Negotiate_with_the_opposition
 		icon = GFX_goal_unknown
 		cost = 10.00
@@ -237,7 +55,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = National_governmet
@@ -248,7 +68,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = New_leader
@@ -259,7 +81,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Confirm_relationship_with_Germany
@@ -270,7 +94,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Authoritative_nation
@@ -284,8 +110,38 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
+	focus = {
+		id = Improve_Ploeisti_field
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Armor_supremacy
+		}
+		x = 14
+		y = 6
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = More_oil
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Improve_Ploeisti_field
+		}
+		x = 15
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+
+#Iron Gurad route
 	focus = {
 		id = Codreanu's_children
 		icon = GFX_goal_unknown
@@ -311,7 +167,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Return_Sima
@@ -322,7 +180,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Going_to_the_people
@@ -333,7 +193,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Agricultural_Guarantee_Fund
@@ -344,7 +206,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = With_Archangel
@@ -358,20 +222,11 @@ focus_tree = {
 		}
 		x = 21
 		y = 4
-
-	}
-	focus = {
-		id = Romania_revanchism
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = With_Archangel
-			focus = Authoritative_nation
+		completion_reward = {
+			
 		}
-		x = 19
-		y = 6
-
 	}
+#Iron Gurad renew
 	focus = {
 		id = Reorganaized_Nest
 		icon = GFX_goal_unknown
@@ -384,7 +239,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Legion_school
@@ -395,7 +252,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = reeducate_movement
@@ -406,7 +265,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Transform_sickle_into_guns
@@ -417,7 +278,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Spirit_of_work
@@ -428,7 +291,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = NEW_HUMAN
@@ -442,7 +307,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 6
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = committee_of_ROMANIANZATION
@@ -453,7 +320,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Patriotism_propaganda
@@ -464,7 +333,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Army_learning_to_the_right
@@ -475,7 +346,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Raise_capability_of_mobilization
@@ -486,7 +359,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Waves_of_people
@@ -500,7 +375,325 @@ focus_tree = {
 		}
 		x = 27
 		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Fraternity_of_Cross
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Waves_of_people
+		}
+		x = 27
+		y = 6
+		completion_reward = {
+			
+		}
+	}
 
+#Army tree
+	focus = {
+		id = Reorganaized_the_army
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = MIlitary_unity
+		}
+		available = {
+			has_idea = Military_unity
+		}
+		x = 10
+		y = 2
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Traditionalism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Reorganaized_the_army
+		}
+		mutually_exclusive = {
+			focus = Total_war
+		}
+		x = 9
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Plan_of_great_army
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Traditionalism
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Training_aristocratic_officer
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Traditionalism
+		}
+		x = 8
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Total_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Reorganaized_the_army
+		}
+		mutually_exclusive = {
+			focus = Traditionalism
+		}
+		x = 11
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Secure_war_expenditures
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Traditionalism
+			focus = Total_war
+		}
+		x = 10
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Remember_Marasesti
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Total_war
+		}
+		x = 12
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Supremacy_of_firepower
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Remember_Marasesti
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Forcible_motorizing
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Total_war
+		}
+		x = 14
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Armor_supremacy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Forcible_motorizing
+		}
+		x = 14
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Start_the_General_Staff_Office
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Armor_supremacy
+			focus = Supremacy_of_firepower
+		}
+		x = 12
+		y = 6
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Strengthen_conscripiton
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Start_the_General_Staff_Office
+		}
+		x = 11
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Forceing_home_front
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Start_the_General_Staff_Office
+		}
+		x = 13
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = legacy_of_mountain_warfare
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Training_aristocratic_officer
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Increace_the_numbar_of_artillery
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Plan_of_great_army
+		}
+		prerequisite = {
+			focus = Training_aristocratic_officer
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Take_advantage_of_mountaingun
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = legacy_of_mountain_warfare
+		}
+		x = 8
+		y = 6
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Detailed_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Increace_the_numbar_of_artillery
+		}
+		x = 6
+		y = 6
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Reforming_Marele_Cartier_General
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Take_advantage_of_mountaingun
+			focus = Detailed_plan
+		}
+		x = 9
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = The_reenact_battles_from_the_Kharkiv
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Detailed_plan
+		}
+		x = 7
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Use_river
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = The_reenact_battles_from_the_Kharkiv
+		}
+		x = 7
+		y = 8
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Maneuver_in_the_Timisoara
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Reforming_Marele_Cartier_General
+			focus = Strengthen_conscripiton
+		}
+		x = 10
+		y = 8
+		completion_reward = {
+			
+		}
+	}
+
+#navy tree
+	focus = {
+		id = Restart_navy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 35
+		y = 2
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Black_sea_submarin
@@ -511,7 +704,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Buy_Uboat
@@ -522,7 +717,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Efficient_production
@@ -533,7 +730,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Ambition_of_Great_navy
@@ -544,7 +743,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Averescu_class_battleship
@@ -557,8 +758,9 @@ focus_tree = {
 			focus = Hire_Italian_engineer
 		}
 		x = 34
-		y = 4
-
+		y = 4completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Rule_of_Black_sea
@@ -569,7 +771,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Hire_Italian_engineer
@@ -583,7 +787,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Thousands_of_navalship
@@ -594,7 +800,21 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
+		completion_reward = {
+			
+		}
+	}
 
+#Air-force tree
+	focus = {
+		id = Reorganaized_the_air_force
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 41
+		y = 2
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Expention_base
@@ -605,7 +825,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Focus_doctrine
@@ -616,7 +838,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Lisence
@@ -633,7 +857,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Large_investment_in_the_aviation_industry
@@ -650,7 +876,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 4
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Factory_of_yassy
@@ -662,7 +890,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Focus_product
@@ -676,7 +906,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 6
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = State_run_enterprise
@@ -690,7 +922,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 6
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Galati_test_airfield
@@ -701,7 +935,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 5
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Private_enterprise
@@ -718,7 +954,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 6
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = High_altitude_fighter
@@ -732,110 +970,24 @@ focus_tree = {
 		y = 7
 
 	}
+	
+#Extend political tree
+	
 	focus = {
-		id = legacy_of_mountain_warfare
+		id = Romania_revanchism
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Training_aristocratic_officer
+			focus = With_Archangel
+			focus = Authoritative_nation
 		}
-		x = 8
-		y = 5
-
-	}
-	focus = {
-		id = Increace_the_numbar_of_artillery
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Plan_of_great_army
-		}
-		prerequisite = {
-			focus = Training_aristocratic_officer
-		}
-		x = 6
-		y = 5
-
-	}
-	focus = {
-		id = Take_advantage_of_mountaingun
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = legacy_of_mountain_warfare
-		}
-		x = 8
+		x = 19
 		y = 6
-
-	}
-	focus = {
-		id = Detailed_plan
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Increace_the_numbar_of_artillery
+		completion_reward = {
+			
 		}
-		x = 6
-		y = 6
-
 	}
-	focus = {
-		id = Reforming_Marele_Cartier_General
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Take_advantage_of_mountaingun
-			focus = Detailed_plan
-		}
-		x = 9
-		y = 7
-
-	}
-	focus = {
-		id = The_reenact_battles_from_the_Kharkiv
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Detailed_plan
-		}
-		x = 7
-		y = 7
-
-	}
-	focus = {
-		id = Use_river
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = The_reenact_battles_from_the_Kharkiv
-		}
-		x = 7
-		y = 8
-
-	}
-	focus = {
-		id = Maneuver_in_the_Timisoara
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Reforming_Marele_Cartier_General
-			focus = Strengthen_conscripiton
-		}
-		x = 10
-		y = 8
-
-	}
-	focus = {
-		id = Fraternity_of_Cross
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Waves_of_people
-		}
-		x = 27
-		y = 6
-
-	}
+	
 	focus = {
 		id = Destroy_Holy_Crown!
 		icon = GFX_goal_unknown
@@ -845,22 +997,187 @@ focus_tree = {
 		}
 		x = 19
 		y = 7
-
+		completion_reward = {
+			
+		}
 	}
+
+#Reconstraction tree
+
 	focus = {
-		id = Win
+		id = Reconstruction_plan
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Destroy_Holy_Crown!
-		}
-		mutually_exclusive = {
 			focus = Lose
+			focus = Win
 		}
-		x = 18
-		y = 9
+		x = 19
+		y = 10
 
 	}
+	focus = {
+		id = Do_all_that_nation_have_got
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Reconstruction_plan
+		}
+		x = 19
+		y = 11
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Mordern_agriculture
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Investment_in_rural_communities
+		}
+		x = 18
+		y = 13
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Investment_in_rural_communities
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Do_all_that_nation_have_got
+		}
+		mutually_exclusive = {
+			focus = Strengthen_relations_with_finance
+		}
+		x = 18
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Relief_fund
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Investment_in_rural_communities
+		}
+		x = 16
+		y = 13
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Strengthen_relations_with_finance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Do_all_that_nation_have_got
+		}
+		mutually_exclusive = {
+			focus = Investment_in_rural_communities
+		}
+		x = 20
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Redeveropment_Bucarest
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Strengthen_relations_with_finance
+		}
+		x = 20
+		y = 13
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Support_Bank
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Strengthen_relations_with_finance
+		}
+		x = 22
+		y = 13
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Revived_land
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Support_Bank
+		}
+		prerequisite = {
+			focus = Redeveropment_Bucarest
+		}
+		prerequisite = {
+			focus = Mordern_agriculture
+		}
+		prerequisite = {
+			focus = Relief_fund
+		}
+		x = 19
+		y = 14
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Protect_romanian_refugee
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Revived_land
+		}
+		x = 18
+		y = 15
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = For_lackland
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Revived_land
+		}
+		x = 20
+		y = 15
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Romanian_expansionism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = For_lackland
+			focus = Protect_romanian_refugee
+		}
+		x = 19
+		y = 16
+		completion_reward = {
+			
+		}
+	}
+
+#Restration route
+
 	focus = {
 		id = Lose
 		icon = GFX_goal_unknown
@@ -892,119 +1209,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = Reconstruction_plan
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Lose
-			focus = Win
-		}
-		x = 19
-		y = 10
-
-	}
-	focus = {
-		id = Do_all_that_nation_have_got
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Reconstruction_plan
-		}
-		x = 19
-		y = 11
-
-	}
-	focus = {
-		id = Strengthen_relations_with_finance
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Do_all_that_nation_have_got
-		}
-		mutually_exclusive = {
-			focus = Investment_in_rural_communities
-		}
-		x = 20
-		y = 12
-
-	}
-	focus = {
-		id = Redeveropment_Bucarest
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Strengthen_relations_with_finance
-		}
-		x = 20
-		y = 13
-
-	}
-	focus = {
-		id = Support_Bank
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Strengthen_relations_with_finance
-		}
-		x = 22
-		y = 13
-
-	}
-	focus = {
-		id = Revived_land
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Support_Bank
-		}
-		prerequisite = {
-			focus = Redeveropment_Bucarest
-		}
-		prerequisite = {
-			focus = Mordern_agriculture
-		}
-		prerequisite = {
-			focus = Relief_fund
-		}
-		x = 19
-		y = 14
-
-	}
-	focus = {
-		id = Protect_romanian_refugee
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Revived_land
-		}
-		x = 18
-		y = 15
-
-	}
-	focus = {
-		id = For_lackland
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Revived_land
-		}
-		x = 20
-		y = 15
-
-	}
-	focus = {
-		id = Romanian_expansionism
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = For_lackland
-			focus = Protect_romanian_refugee
-		}
-		x = 19
-		y = 16
-
-	}
-	focus = {
 		id = Return_Carol2
 		icon = GFX_goal_unknown
 		cost = 10.00
@@ -1013,7 +1217,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Royal_fortune
@@ -1024,7 +1230,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Form_a_cabnet_by_carlist
@@ -1038,7 +1246,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 10
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = The_Royal_Dictatorship
@@ -1052,7 +1262,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = 1938_Constitution_adoptin
@@ -1064,7 +1276,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = National_Renaissance_Front
@@ -1078,7 +1292,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Planning_rearmament
@@ -1089,7 +1305,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = The_collusion_with_capitalist
@@ -1100,7 +1318,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Yang_liberal
@@ -1115,7 +1335,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 10
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Jassy_trials
@@ -1129,7 +1351,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Eradicate_Iron_Guard_remaining
@@ -1140,7 +1364,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = 1923_Constitution_adoptin
@@ -1152,7 +1378,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Old_liberal
@@ -1167,7 +1395,22 @@ focus_tree = {
 		}
 		x = 32
 		y = 10
-
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = Grasp_of_foreign_capital
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Old_liberal
+		}
+		x = 32
+		y = 12
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Election
@@ -1184,7 +1427,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Spirit_of_TitulescuDiplomacy
@@ -1195,7 +1440,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Election_law_amendment
@@ -1206,7 +1453,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Thorough_land_reform
@@ -1217,7 +1466,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Steer_cource_liberalism
@@ -1234,7 +1485,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = National_Peasants'_Party
@@ -1248,8 +1501,14 @@ focus_tree = {
 		}
 		x = 36
 		y = 10
-
+		completion_reward = {
+			
+		}
 	}
+
+	
+#Diplomacy with other country
+
 	focus = {
 		id = Support_new_germany
 		icon = GFX_goal_unknown
@@ -1265,7 +1524,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Ngotiatie_with_UK
@@ -1283,7 +1544,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = A_deal_with_the_devil
@@ -1301,7 +1564,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Approach_to_Latin
@@ -1318,7 +1583,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Treatly_of_commerce_between_romania_and_germany
@@ -1329,7 +1596,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Treaty_of_London
@@ -1340,7 +1609,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Romania_Russia_Treaty_of_Mutual_Assistance
@@ -1351,7 +1622,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Compromise_to_Facist
@@ -1362,7 +1635,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Allies_in_Balkan
@@ -1373,7 +1648,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Surprise_attack_Germany
@@ -1384,7 +1661,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = The_Romania_Russia_Axis
@@ -1395,7 +1674,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Like_the_prosperous_Roma
@@ -1406,7 +1687,28 @@ focus_tree = {
 		}
 		x = 34
 		y = 16
+		completion_reward = {
+			
+		}
+	}
 
+#Keep government
+
+	focus = {
+		id = Win
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = Destroy_Holy_Crown!
+		}
+		mutually_exclusive = {
+			focus = Lose
+		}
+		x = 18
+		y = 9
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Enabling_act_of_Sima
@@ -1455,7 +1757,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Messenger_from_Archangel_Michael
@@ -1466,7 +1770,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Greater_Romania
@@ -1478,7 +1784,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Maneuver_in_the_Transylvania
@@ -1489,7 +1797,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Cerebrated_nation
@@ -1503,7 +1813,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Legion_revolution
@@ -1514,7 +1826,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Confirm_relationship_with_Serbia
@@ -1525,7 +1839,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Negotiation_with_Loser
@@ -1536,7 +1852,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Plan_of_Balkan_Pact
@@ -1553,7 +1871,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Balkans_dominance
@@ -1570,7 +1890,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Defend_constitutional_monarchy
@@ -1584,7 +1906,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Establish_council
@@ -1595,7 +1919,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 11
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Puppet_king
@@ -1609,7 +1935,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 12
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Compromise_with_Roylaist
@@ -1620,7 +1948,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Deportation_Roylaist
@@ -1631,7 +1961,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 13
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Change_policy
@@ -1643,7 +1975,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Isolationism
@@ -1655,7 +1989,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 14
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Compromise_with_Hungary
@@ -1666,7 +2002,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Frendship_with_Blugaria
@@ -1677,7 +2015,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 15
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Attack_Germany
@@ -1691,7 +2031,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 16
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = Attack_Russia
@@ -1705,53 +2047,8 @@ focus_tree = {
 		}
 		x = 9
 		y = 16
-
-	}
-	focus = {
-		id = Mordern_agriculture
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Investment_in_rural_communities
+		completion_reward = {
+			
 		}
-		x = 18
-		y = 13
-
-	}
-	focus = {
-		id = Investment_in_rural_communities
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Do_all_that_nation_have_got
-		}
-		mutually_exclusive = {
-			focus = Strengthen_relations_with_finance
-		}
-		x = 18
-		y = 12
-
-	}
-	focus = {
-		id = Relief_fund
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Investment_in_rural_communities
-		}
-		x = 16
-		y = 13
-
-	}
-	focus = {
-		id = Grasp_of_foreign_capital
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = Old_liberal
-		}
-		x = 32
-		y = 12
-
 	}
 }

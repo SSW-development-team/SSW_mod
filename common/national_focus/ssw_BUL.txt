@@ -1,0 +1,649 @@
+focus_tree={
+    id = ssw_BUL
+
+    country = {
+      factor = 0
+
+      modifier = {
+          add = 10
+          tag = BUL
+      }
+    }
+
+    focus = { #東欧の優等生
+        id = BUL_industry_1
+        icon = GFX_goal_unknown
+        cost = 10
+        search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+        x = 7
+        y = 0
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_political_power = 150
+        }
+    }
+
+    focus = { #工業化の推進
+        id = BUL_industry_2
+        icon = GFX_goal_generic_construct_civ_factory
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 5
+        y = 1
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_industry_1
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = industry
+            }
+        }
+    }
+
+    focus = { #国立銀行を再国営化
+        id = BUL_bank
+        icon = GFX_focus_generic_self_management
+        cost = 10
+        search_filters ={
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 4
+        y = 2
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_industry_2
+        }
+        completion_reward = {
+            add_ideas = BUL_bank_Renatio
+        }
+    }
+
+    focus = { #必需品の普及
+        id = BUL_neces
+        icon = GFX_goal_generic_consumer_goods
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 4
+        y = 3
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_bank
+        }
+        bypass = {
+            custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    focus = { #イタリア式軍拡
+        id = BUL_add_army_Itali
+        icon = GFX_focus_befriend_italy
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 6
+        y = 2
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_industry_2
+        }
+        bypass = {
+            custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+        }
+        completion_reward = {
+            random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+            random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+    }
+
+    focus = { #南部の重工業化
+        id = BUL_south_heavy_industry
+        icon = GFX_focus_generic_industry_1
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 6
+        y = 3
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_add_army_Itali
+        }
+        completion_reward = {
+            106 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            212 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            if = {
+                limit = {
+                    owns_state = 731
+                }
+                731 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owns_state = 184
+                }
+                184 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+
+    focus = { #イタリアの機材を導入
+        id = BUL_Itali_equip
+        icon = GFX_goal_generic_production
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 5
+        y = 4
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_neces
+        }
+        prerequisite = {
+            focus = BUL_south_heavy_industry
+        }
+        completion_reward = {
+            add_ideas = BUL_Italian_equip
+        }
+    }
+
+    focus = { #イタリア人技術者の招待
+        id = BUL_invite_ita_engineer
+        icon = GFX_goal_generic_intelligence_exchange
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 9
+        y = 1
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_industry_1
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = construction_tech
+            }
+        }
+    }
+
+    focus = { #日本の投資
+        id = BUL_invest_from_Japan
+        icon = GFX_focus_chi_collaboration_with_the_japanese
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 8
+        y = 2
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_invite_ita_engineer
+        }
+        bypass = {
+            custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 1
+                 add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            if = {
+                limit = {
+                    JAP = {
+                        has_opinion = {
+                            target = BUL
+                            value > 99
+                        }
+                    }
+                }
+                random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            }
+        }
+    }
+
+    focus = { #消費財生産の効率化
+        id = BUL_consumer_effi
+        icon = GFX_focus_generic_the_giant_wakes
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 8
+        y = 3
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_invest_from_Japan
+        }
+        completion_reward = {
+            add_ideas = BUL_consum_effic
+        }
+    }
+
+    focus = { #給料問題の解決
+        id = BUL_solve_salary_problem
+        icon = GFX_focus_generic_concessions
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 10
+        y = 2
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_invite_ita_engineer
+        }
+        completion_reward = {
+            add_stability = 0.1
+            add_ideas = BUL_solve_labor_problem
+        }
+    }
+
+    focus = { #ハンガリー人労働者の募集
+        id = BUL_Hun_worker_recruit
+        icon = GFX_focus_eng_concessions_to_the_trade_unions
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 10
+        y = 3
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_solve_salary_problem
+        }
+        completion_reward = {
+            random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+            swap_ideas = {
+                remove_idea = BUL_solve_labor_problem
+                add_idea = BUL_expand_workers
+            }
+        }
+    }
+
+    focus = { #ブルガリア労働組合
+        id = BUL_worker_union
+        icon = GFX_focus_generic_self_management
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 9
+        y = 4
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_consumer_effi
+        }
+        prerequisite = {
+            focus = BUL_Hun_worker_recruit
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_expand_workers
+                add_idea = BUL_worker_right
+            }
+        }
+    }
+
+    focus = {
+        id = BUL_east_europe_major_power
+        icon = GFX_focus_BUL_promote_bulgarian_nationalism
+        cost = 10
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 7
+        y = 5
+        ai_will_do = {
+            factor = 10
+        }
+        prerequisite = {
+            focus = BUL_Itali_equip
+        }
+        prerequisite = {
+            focus = BUL_worker_union
+        }
+        completion_reward = {
+            every_owned_state = {
+                limit = {
+                    free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+                }
+                add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+            }
+        }
+    }
+}
