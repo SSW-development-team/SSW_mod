@@ -4,6 +4,7 @@ scripted_gui = {
         context_type = player_context
         visible = {
         is_debug = yes
+        is_ai = no
         }
         effects = {
             ssw_debug_menu_open_button_button_click = {
@@ -25,19 +26,29 @@ scripted_gui = {
                 ROOT = {
                 set_global_flag = big_event_custom_American_civil_war
                 }
-                log = "Debug Menu:Play Superevent Second American Civil War"
+                log = "[GetDateText]: Debug Menu:Play Superevent Second American Civil War"
             }
             ssw_debug_play_super_event_Anpo_protets_button_click = {
                 ROOT = {
                 set_country_flag = big_event_custom_anpo_protets
                 }
-                log = "Debug Menu:Play Superevent Anpo Protests"
+                log = "[GetDateText]: Debug Menu:Play Superevent Anpo Protests"
             }
             ssw_debug_play_super_event_German_civil_war_button_click = {
                 ROOT = {
                 set_global_flag = big_event_custom_german_civil_war
                 }
-                log = "Debug Menu:Play Superevent German Civil War"
+                log = "[GetDateText]: Debug Menu:Play Superevent German Civil War"
+            }
+            ssw_debug_world_event_Hitler_kill_button = {
+                GER = {
+                news_event = { id = SSW_Hitler.1 }
+                }
+            }
+            ssw_debug_world_event_Donau_war_button_click = {
+                ROM = {
+                country_event = { id = Danubian_war.1 }
+                }
             }
         }
 
@@ -54,6 +65,35 @@ scripted_gui = {
             ssw_debug_menu_close_button_click = {
                 ROOT = {
                 clr_country_flag = ssw_debug_menu_opened
+                }
+            }
+            ssw_debug_tab_country_event_page_open_button_click = {
+                ROOT = {
+                set_country_flag = ssw_debug_menu_country_event_page_opend
+                }
+            }
+        }
+    }
+
+    ssw_debug_menu_country_event_page = {
+        window_name = "ssw_debug_menu_country_event_page_container"
+        context_type = player_context
+        visible = {
+        has_country_flag = ssw_debug_menu_country_event_page_opend
+        }
+        effects = {
+        }
+    }
+    ssw_debug_menu_country_event_page_select_tab = {
+        window_name = "ssw_debug_menu_country_event_page_select_tab_container"
+        context_type = player_context
+        visible = {
+        has_country_flag = ssw_debug_menu_country_event_page_opend
+        }
+        effects = {
+            ssw_debug_menu_country_event_page_close_button_click = {
+                ROOT = {
+                clr_country_flag = ssw_debug_menu_country_event_page_opend
                 }
             }
         }

@@ -1,6 +1,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
+##############################   中核州(一部)   ##############################
 			#スイス
 			3 = { set_state_flag = maybe_core_SWI }
 			151 = { set_state_flag = maybe_core_SWI }
@@ -54,6 +55,8 @@ on_actions = {
 			812 = { set_state_flag = maybe_core_DEN }
 			#キプロス
 			183 = { set_state_flag = maybe_core_CYP }
+			#マルタ
+			166 = { set_state_flag = maybe_core_MLT }
 			#ギリシャ
 			164 = { set_state_flag = maybe_core_GRE }
 			182 = { set_state_flag = maybe_core_GRE }
@@ -74,10 +77,21 @@ on_actions = {
 				}
 				set_state_flag = maybe_core_RUSSIA
 			}
+##############################   中核州(全体)   ##############################
 			#北フランス(中核州)(ゲーム開始時)
 			every_state = {
 				limit = { is_core_of = NFR }
 				set_state_flag = maybe_core_NFR_GAMESTART
+			}
+			#モスクワ(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = MOS }
+				set_state_flag = maybe_core_MOS_GAMESTART
+			}
+			#ベラルーシ(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = BLR }
+				set_state_flag = maybe_core_BLR_GAMESTART
 			}
 			#イタリア(中核州)(ゲーム開始時)
 			every_state = {
@@ -169,6 +183,19 @@ on_actions = {
 				limit = { is_core_of = LUI }
 				set_state_flag = maybe_core_LUI_GAMESTART
 			}
+			#アルジェリア(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = ALG }
+				set_state_flag = maybe_core_ALG_GAMESTART
+			}
+			#メキシコ(中核州)(ゲーム開始時)
+			every_state = {
+				limit = {
+					is_core_of = MEX
+					NOT = { state = 311 }
+				}
+				set_state_flag = maybe_core_MEX_GAMESTART
+			}
 			#スロヴァキア(請求権)(中核州)(ゲーム開始時)
 			every_state = {
 				limit = {
@@ -179,6 +206,32 @@ on_actions = {
 				}
 				set_state_flag = maybe_core_claim_SLO_GAMESTART
 			}
+##############################   中核州(削除済み)   ##############################
+			#ヴュルテンベルク(中核州)(ゲーム開始時)
+			50 = { set_state_flag = maybe_core_WUR }
+			#バイエルン(中核州)(ゲーム開始時)
+			52 = { set_state_flag = maybe_core_BAY }
+			53 = { set_state_flag = maybe_core_BAY }
+			54 = { set_state_flag = maybe_core_BAY }
+			#ハノーファー(中核州)(ゲーム開始時)
+			51 = { set_state_flag = maybe_core_HAN }
+			55 = { set_state_flag = maybe_core_HAN }
+			56 = { set_state_flag = maybe_core_HAN }
+			57 = { set_state_flag = maybe_core_HAN }
+			59 = { set_state_flag = maybe_core_HAN }
+			#シュレースヴィヒ(中核州)(ゲーム開始時)
+			58 = { set_state_flag = maybe_core_SHL }
+			#メクレンブルク(中核州)(ゲーム開始時)
+			61 = { set_state_flag = maybe_core_MEK }
+			62 = { set_state_flag = maybe_core_MEK }
+			#ザクセン(中核州)(ゲーム開始時)
+			60 = { set_state_flag = maybe_core_SAX }
+			65 = { set_state_flag = maybe_core_SAX }
+			#プロイセン(中核州)(ゲーム開始時)
+			64 = { set_state_flag = maybe_core_PRE }
+			965 = { set_state_flag = maybe_core_PRE }
+			966 = { set_state_flag = maybe_core_PRE }
+			978 = { set_state_flag = maybe_core_PRE }
 		}
 	}
 }

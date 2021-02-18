@@ -1,0 +1,60 @@
+add_namespace = ssw_bul
+add_namespace = ssw_bul_hide
+country_event = {
+    id = ssw_bul_hide.1
+    hidden = yes
+    fire_only_once = yes
+    trigger = {
+        country_exists = BUL
+        date > 1950.1.21
+    }
+    immediate = {
+        BUL = {
+            country_event = {id = ssw_bul.1}
+        }
+    }
+    option = {
+        name = ssw_bul_hide.1.a
+    }
+}
+country_event = { #暗黒の日曜日
+    id = ssw_bul.1
+    title = ssw_bul.1.t
+    desc = ssw_bul.1.d
+    picture = GFX_report_event_generic_battle
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #戒厳令を発令する
+        name = ssw_bul.1.a
+        BUL = {
+            add_ideas = BUL_political_instability
+            add_ideas = BUL_martial_law_0
+            complete_national_focus = BUL_Black_Sunday
+            complete_national_focus = BUL_martial_law
+        }
+    }
+    option = { #王室の保護を優先する
+        name = ssw_bul.1.b
+        BUL = {
+            add_ideas = BUL_political_instability
+            complete_national_focus = BUL_Black_Sunday
+            complete_national_focus = BUL_protect_the_royal_family
+        }
+    }
+}
+
+country_event = { #会議
+    id = ssw_bul.2
+    title = ssw_bul.2.t
+    desc = ssw_bul.2.d
+    picture = GFX_report_event_generic_conference
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #親ドイツ派を支持
+        name = ssw_bul.2.a
+        set_country_flag = BUL_support_pro_german
+    }
+    option = { #マケドニアから来た男を支持
+        name = ssw_bul.2.b
+    }
+}

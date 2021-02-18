@@ -35,6 +35,90 @@ country_event = {
 		name = sswrfs.2.a
 		ai_chance = { factor = 1}
 		load_focus_tree = SSW_RFS_2
+		complete_national_focus = RFS_SecondPhase_1
 	}
 
+}
+
+##Event:権力闘争の開始
+country_event = {
+	id = sswrfs.3
+	title = sswrfs.3.title
+	desc = sswrfs.3.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = sswrfs.3.a
+		ai_chance = { factor = 1}
+		add_ideas = RFS_political_strife
+		set_variable = {
+			var = political_strife_kor
+			value = 50
+		}
+		set_variable = {
+			var = political_strife_lys
+			value = 25
+		}
+		set_variable = {
+			var = political_influence_kor
+			value = midium_influence
+		}
+		set_variable = {
+			var = political_influence_lys
+			value = low_influence
+		}
+	}
+
+}
+
+##コロリョフの勝利
+country_event = {
+	id = sswrfs.4
+	title = sswrfs.4.title
+	desc = sswrfs.4.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = RBL
+		check_variable = {
+			political_strife_kor > 120
+		}
+	}
+
+	option = {
+		remove_ideas = RFS_political_strife
+		add_political_power = 100
+		hidden_effect = {
+			set_country_flag = win_kor
+		}
+	}
+}
+
+##ルイセンコの勝利
+country_event = {
+	id = sswrfs.5
+	title = sswrfs.5.title
+	desc = sswrfs.5.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = RBL
+		check_variable = {
+			political_strife_lys > 120
+		}
+	}
+
+	option = {
+		remove_ideas = RFS_political_strife
+		add_political_power = -50
+		hidden_effect = {
+			set_country_flag = win_lys
+		}
+	}
 }

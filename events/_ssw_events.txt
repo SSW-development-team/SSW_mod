@@ -354,6 +354,7 @@ news_event = {
 	picture = GFX_news_event_german_reichstag_ruins
 	major = yes
 	is_triggered_only = yes
+	immediate = { set_country_flag = end_nazism }
 	option = {
 		name = ssw.16.a
 		trigger = { 
@@ -383,6 +384,7 @@ news_event = {
 	picture = GFX_news_event_german_reichstag_ruins
 	major = yes
 	is_triggered_only = yes
+	immediate = { set_country_flag = end_vorbeck }
 	option = {
 		name = ssw.17.a
 		trigger = { 
@@ -412,6 +414,7 @@ news_event = {
 	picture = GFX_news_event_german_reichstag_ruins
 	major = yes
 	is_triggered_only = yes
+	immediate = { set_country_flag = end_himmler }
 	option = {
 		name = ssw.18.a
 		trigger = { 
@@ -441,6 +444,7 @@ news_event = {
 	picture = GFX_news_event_german_reichstag_ruins
 	major = yes
 	is_triggered_only = yes
+	immediate = { set_country_flag = end_goring }
 	option = {
 		name = ssw.19.a
 		trigger = { 
@@ -624,6 +628,10 @@ country_event = {
 	hidden = yes
 	trigger = {
 		has_global_flag = GER_civil_war
+		has_country_flag = end_nazism
+		has_country_flag = end_vorbeck
+		has_country_flag = end_himmler
+		has_country_flag = end_goring
 		OR = {
 			AND = {
 				country_exists = GER
@@ -664,6 +672,74 @@ country_event = {
 	immediate = {
 		set_global_flag = GER_civil_war_end
 		news_event = { id = ssw.25 hours = 6 }
+		if = {
+			limit = {
+				country_exists = GER
+				NOT = {
+					country_exists = LTV
+					country_exists = HLH
+					country_exists = HGR
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = GER
+					NOT = { is_fully_controlled_by = GER }
+				}
+				GER = { transfer_state = PREV }
+			}
+		}
+		if = {
+			limit = {
+				country_exists = LTV
+				NOT = {
+					country_exists = GER
+					country_exists = HLH
+					country_exists = HGR
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = LTV
+					NOT = { is_fully_controlled_by = LTV }
+				}
+				LTV = { transfer_state = PREV }
+			}
+		}
+		if = {
+			limit = {
+				country_exists = HLH
+				NOT = {
+					country_exists = GER
+					country_exists = LTV
+					country_exists = HGR
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = HLH
+					NOT = { is_fully_controlled_by = HLH }
+				}
+				HLH = { transfer_state = PREV }
+			}
+		}
+		if = {
+			limit = {
+				country_exists = HGR
+				NOT = {
+					country_exists = GER
+					country_exists = HLH
+					country_exists = LTV
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = HGR
+					NOT = { is_fully_controlled_by = HGR }
+				}
+				HGR = { transfer_state = PREV }
+			}
+		}
 	}
 	option = { name = ssw.24.a }
 }
