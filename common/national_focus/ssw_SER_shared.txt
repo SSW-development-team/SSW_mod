@@ -414,8 +414,708 @@ shared_focus = {
     continue_if_invalid = no
     available_if_capitulated = no
     search_filters = { FOCUS_FILTER_POLITICAL }
-    x = 8
+    x = 10
     y = 0
+    completion_reward = {
+        country_event = {
+            id = SSW_SER.1
+        }
+    }
+}
+#軍事政権の確立
+shared_focus = {
+    id = SER_Establishment_of_military_government
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Military_coup
+        }
+    mutually_exclusive = {
+        }
+    available = {
+        custom_effect_tooltip = SSW_SER_Establishment_of_military_government_tooltip
+        hidden_trigger = {
+            has_country_flag = SSW_SER_Establishment_of_military_government
+            NOT = {
+                has_country_flag = SSW_SER_Building_democratic_government
+            }
+        }
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 11
+    y = 1
+    completion_reward = {
+    }
+}
+#アレクサンダル皇太子への禅譲
+shared_focus = {
+    id = SER_Zen_to_Crown_Prince_Aleksandar
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Establishment_of_military_government
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 11
+    y = 2
+    completion_reward = {
+    }
+}
+#王党派の拠点の排除
+shared_focus = {
+    id = SER_Elimination_of_Royalist_strongholds
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Zen_to_Crown_Prince_Aleksandar
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 11
+    y = 3
+    completion_reward = {
+    }
+}
+#新たな役人の派遣
+shared_focus = {
+    id = SER_Dispatch_of_New_Officials
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Elimination_of_Royalist_strongholds
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 11
+    y = 4
+    completion_reward = {
+    }
+}
+#強固な政府
+shared_focus = {
+    id = SER_Strong_government
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Dispatch_of_New_Officials
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 11
+    y = 5
+    completion_reward = {
+    }
+}
+#統制経済
+shared_focus = {
+    id = SER_controlled_economy
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Elimination_of_Royalist_strongholds
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 13
+    y = 4
+    completion_reward = {
+    }
+}
+#予算の見直し
+shared_focus = {
+    id = SER_Budget_Review
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_controlled_economy
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 13
+    y = 5
+    completion_reward = {
+    }
+}
+#戒厳令の段階的緩和
+shared_focus = {
+    id = SER_Gradual_Easing_of_Martial_Law
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Strong_government
+        }
+        prerequisite = {
+            focus = SER_Budget_Review
+            }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 12
+    y = 6
+    completion_reward = {
+    }
+}
+#共和政の建設
+shared_focus = {
+    id = SER_Building_a_Republic
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Military_coup
+        }
+    mutually_exclusive = {
+        }
+    available = {
+        custom_effect_tooltip = SSW_SER_Building_a_Republic_tooltip
+        hidden_trigger = {
+            has_country_flag = SSW_SER_Building_democratic_government
+            NOT = {
+                has_country_flag = SSW_SER_Establishment_of_military_government
+            }
+        }
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 9
+    y = 1
+    completion_reward = {
+    }
+}
+#選挙委員会の設置
+shared_focus = {
+    id = SER_Establishment_of_the_Election_Committee
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Building_a_Republic
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 9
+    y = 2
+    completion_reward = {
+    }
+}
+#暫定政府の招集
+shared_focus = {
+    id = SER_Convening_a_transitional_government
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Building_a_Republic
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 7
+    y = 2
+    completion_reward = {
+    }
+}
+#王党派への対応
+shared_focus = {
+    id = SER_Response_to_the_Royalists
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Convening_a_transitional_government
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 7
+    y = 3
+    completion_reward = {
+    }
+}
+#憲法改定委員会
+shared_focus = {
+    id = SER_Constitution_Revision_Commission
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Response_to_the_Royalists
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 7
+    y = 4
+    completion_reward = {
+    }
+}
+#国王の処遇
+shared_focus = {
+    id = SER_Treatment_of_the_King
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Response_to_the_Royalists
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 5
+    y = 4
+    completion_reward = {
+    }
+}
+#真に自由で公正な選挙
+shared_focus = {
+    id = SER_Truly_free_and_fair_elections
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Establishment_of_the_Election_Committee
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 9
+    y = 3
+    completion_reward = {
+    }
+}
+#内閣の組織
+shared_focus = {
+    id = SER_Organization_of_Cabinet
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Truly_free_and_fair_elections
+        }
+    prerequisite = {
+        focus = SER_Constitution_Revision_Commission
+    }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 5
+    completion_reward = {
+    }
+}
+#不況への対処
+shared_focus = {
+    id = SER_Coping_with_Recession
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 20
+    y = 0
+    completion_reward = {
+    }
+}
+#ヤリーロ計画
+shared_focus = {
+    id = SER_Yalilo_Project
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Coping_with_Recession
+        }
+    mutually_exclusive = {
+        }
+    available = {
+        focus = SER_industrialization_policy
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 19
+    y = 1
+    completion_reward = {
+    }
+}
+#工業化政策
+shared_focus = {
+    id = SER_industrialization_policy
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Coping_with_Recession
+        }
+    mutually_exclusive = {
+        focus = SER_Yalilo_Project
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 21
+    y = 1
+    completion_reward = {
+    }
+}
+#品種改良の奨励
+shared_focus = {
+    id = SER_Encouragement_of_breed_improvement
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Yalilo_Project
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 19
+    y = 2
+    completion_reward = {
+    }
+}
+#技術者の招致
+shared_focus = {
+    id = SER_Invite_engineers
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Encouragement_of_breed_improvement
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 19
+    y = 3
+    completion_reward = {
+    }
+}
+#手厚い保障
+shared_focus = {
+    id = SER_Generous_coverage
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Encouragement_of_breed_improvement
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 17
+    y = 3
+    completion_reward = {
+    }
+}
+#開墾キャンペーン
+shared_focus = {
+    id = SER_Cultivation_Campaign
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Generous_coverage
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 17
+    y = 4
+    completion_reward = {
+    }
+}
+#作物研究所
+shared_focus = {
+    id = SER_Crop_Research_Institute
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Cultivation_Campaign
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 17
+    y = 5
+    completion_reward = {
+    }
+}
+#働くか食うか滅びるか
+shared_focus = {
+    id = SER_work_or_eat_or_perish
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Cultivation_Campaign
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 15
+    y = 5
+    completion_reward = {
+    }
+}
+#大学への補助金
+shared_focus = {
+    id = SER_Grants_to_universities
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Invite_engineers
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 19
+    y = 4
     completion_reward = {
     }
 }

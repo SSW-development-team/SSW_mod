@@ -1,0 +1,462 @@
+add_namespace = ssw_fin
+
+country_event = {
+	id = ssw_fin.1 #É}ÉìÉlÉãÉwÉCÉÄÇÃéÄãé
+	title = ssw_fin.1.t
+	desc = ssw_fin.1.d
+	picture = unknown
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 100
+	}
+
+	trigger = {
+		original_tag = FIN
+		date > 1950.11.1
+	}	
+	
+	option = {
+		name = ssw_fin.1.a
+		if = {
+			limit = { has_idea = FIN_carl_mannerheim }
+			remove_ideas = FIN_carl_mannerheim
+		}
+		every_country = {
+	 		limit = {
+				has_unit_leader = 20001 #É}ÉìÉlÉãÉwÉCÉÄ(âº)
+			}
+	 		remove_unit_leader = 20001
+	 	}
+		#custom_effect_tooltip = add_Pro_German_Stance_tt
+		#add_to_variable = { var = Ver_Pro_German_Stance value = 1 }
+	}
+}
+
+country_event = {
+	id = ssw_fin.2 #éÂóÕäÕÇÃçwì¸
+	title = ssw_fin.2.t
+	desc = ssw_fin.2.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.2.ger
+		trigger = {
+			OR = {
+				NOT = { has_war_with = GER }
+				NOT = { has_global_flag = GER_FIN_Rejected_capital_ship }
+			}
+		}
+        GER = { country_event = { id = ssw_fin.3 } }
+	}
+	option = {
+		name = ssw_fin.2.eng
+		trigger = {
+			OR = {
+				NOT = { has_war_with = ENG }
+				NOT = { has_global_flag = ENG_FIN_Rejected_capital_ship }
+			}
+		}
+        ENG = { country_event = { id = ssw_fin.3 } }
+	}
+	option = {
+		name = ssw_fin.2.jap
+		trigger = {
+			OR = {
+				NOT = { has_war_with = JAP }
+				NOT = { has_global_flag = JAP_FIN_Rejected_capital_ship }
+			}
+		}
+        JAP = { country_event = { id = ssw_fin.3 } }
+	}
+}
+
+country_event = {
+	id = ssw_fin.3 #çwì¸Ç÷ÇÃï‘ìö
+	title = ssw_fin.3.t
+	desc = ssw_fin.3.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.3.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = GER }
+		set_global_flag = GER_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.4 } }
+	}
+	option = {
+		name = ssw_fin.3.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = ENG }
+		set_global_flag = ENG_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.4 } }
+	}
+	option = {
+		name = ssw_fin.3.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = JAP }
+		set_global_flag = JAP_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.4 } }
+	}
+	option = {
+		name = ssw_fin.3.b
+		ai_chance = { factor = 0 }
+		add_political_power = -25
+		if = {
+			limit = { tag = GER }
+			set_global_flag = GER_FIN_Rejected_capital_ship
+		}
+		if = {
+			limit = { tag = ENG }
+			set_global_flag = ENG_FIN_Rejected_capital_ship
+		}
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = JAP_FIN_Rejected_capital_ship
+		}
+        FIN = { country_event = { id = ssw_fin.5 } }
+	}
+}
+
+country_event = {
+	id = ssw_fin.4 #éÂóÕäÕÇÃçwì¸/OK
+	title = ssw_fin.4.t
+	desc = ssw_fin.4.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.4.a
+		custom_effect_tooltip = ssw_fin.4.tt
+		hidden_effect = {
+			FIN = { country_event = { days = 100 id = ssw_fin.6 } }
+			FROM = { country_event = { days = 100 id = ssw_fin.7 } }
+		}
+	}
+}
+
+country_event = {
+	id = ssw_fin.5 #éÂóÕäÕÇÃçwì¸/NO
+	title = ssw_fin.5.t
+	desc = ssw_fin.5.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.5.a
+		ai_chance = { factor = 0 }
+		FIN = { country_event = { id = ssw_fin.2 } }
+	}
+	option = {
+		name = ssw_fin.5.b
+		ai_chance = { factor = 100 }
+		add_political_power = 70
+	}
+}
+
+country_event = {
+	id = ssw_fin.6 #éÂóÕäÕÇÃçwì¸/äÆê¨
+	title = ssw_fin.6.t
+	desc = ssw_fin.6.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.6.a
+		if = {
+			limit = { has_global_flag = GER_FIN_agree_capital_ship }
+			create_equipment_variant = {
+				name = "Bismarck Class" 
+				type = ship_hull_heavy_4
+				modules = {
+					fixed_ship_battery_slot = ship_heavy_battery_1
+					fixed_ship_anti_air_slot = ship_anti_air_2
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = heavy_ship_engine_1
+					fixed_ship_secondaries_slot = ship_secondaries_1
+					fixed_ship_armor_slot = ship_armor_bb_1
+					front_1_custom_slot = ship_heavy_battery_1
+					mid_1_custom_slot = empty
+					mid_2_custom_slot = empty
+					rear_1_custom_slot = empty
+				}
+			}
+			create_ship = {
+				type = ship_hull_heavy_4
+				equipment_variant = "Bismarck Class"
+				creator = GER
+			}
+		}
+		if = {
+			limit = { has_global_flag = ENG_FIN_agree_capital_ship }
+			create_equipment_variant = {
+				name = "King George V Class"
+				type = ship_hull_heavy_2
+				name_group = ENG_BB_HISTORICAL
+				parent_version = 0
+				modules = {
+					fixed_ship_battery_slot = ship_heavy_battery_2
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = heavy_ship_engine_2
+					fixed_ship_secondaries_slot = dp_ship_secondaries
+					fixed_ship_armor_slot = ship_armor_bb_2
+					front_1_custom_slot = ship_anti_air_1
+					mid_1_custom_slot = ship_airplane_launcher_1
+					mid_2_custom_slot = dp_ship_secondaries
+					rear_1_custom_slot = ship_heavy_battery_2
+				}
+			}
+			create_ship = {
+				type = ship_hull_heavy_2
+				equipment_variant = "King George V Class"
+				creator = ENG
+			}
+		}
+		if = {
+			limit = { has_global_flag = GER_JAP_agree_capital_ship }
+			create_equipment_variant = {
+				name = "Taiho Class"
+				type = ship_hull_carrier_2
+				modules = {
+					fixed_ship_deck_slot_1 = ship_deck_space
+					fixed_ship_deck_slot_2 = ship_deck_space
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = carrier_ship_engine_2
+					fixed_ship_secondaries_slot = ship_secondaries_2
+					front_1_custom_slot = ship_deck_space
+				}
+			}
+			create_ship = {
+				type = ship_hull_carrier_2
+				equipment_variant = "Taiho Class"
+				creator = JAP
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ssw_fin.7 #éÂóÕäÕÇÃçwì¸/à¯Ç´ìnÇµ
+	title = ssw_fin.7.t
+	desc = ssw_fin.7.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.7.a
+	}
+}
+
+country_event = {
+	id = ssw_fin.8 #êèî∫äÕÇÃçwì¸
+	title = ssw_fin.8.t
+	desc = ssw_fin.8.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.8.ger
+		trigger = {
+			OR = {
+				NOT = { has_war_with = GER }
+				NOT = { has_global_flag = GER_FIN_Rejected_capital_ship }
+			}
+		}
+        GER = { country_event = { id = ssw_fin.9} }
+	}
+	option = {
+		name = ssw_fin.8.eng
+		trigger = {
+			OR = {
+				NOT = { has_war_with = ENG }
+				NOT = { has_global_flag = ENG_FIN_Rejected_capital_ship }
+			}
+		}
+        ENG = { country_event = { id = ssw_fin.9 } }
+	}
+	option = {
+		name = ssw_fin.8.jap
+		trigger = {
+			OR = {
+				NOT = { has_war_with = JAP }
+				NOT = { has_global_flag = JAP_FIN_Rejected_capital_ship }
+			}
+		}
+        JAP = { country_event = { id = ssw_fin.9 } }
+	}
+}
+
+country_event = {
+	id = ssw_fin.9 #çwì¸Ç÷ÇÃï‘ìö
+	title = ssw_fin.9.t
+	desc = ssw_fin.9.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.9.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = GER }
+		set_global_flag = GER_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.10 } }
+	}
+	option = {
+		name = ssw_fin.9.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = ENG }
+		set_global_flag = ENG_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.10 } }
+	}
+	option = {
+		name = ssw_fin.9.a
+		ai_chance = { factor = 100 }
+		trigger = { tag = JAP }
+		set_global_flag = JAP_FIN_agree_capital_ship
+		add_offsite_building = { type = industrial_complex level = 2 }
+        FIN = { country_event = { id = ssw_fin.10 } }
+	}
+	option = {
+		name = ssw_fin.9.b
+		ai_chance = { factor = 0 }
+		add_political_power = -25
+		if = {
+			limit = { tag = GER }
+			set_global_flag = GER_FIN_Rejected_capital_ship
+		}
+		if = {
+			limit = { tag = ENG }
+			set_global_flag = ENG_FIN_Rejected_capital_ship
+		}
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = JAP_FIN_Rejected_capital_ship
+		}
+        FIN = { country_event = { id = ssw_fin.11 } }
+	}
+}
+
+country_event = {
+	id = ssw_fin.10 #êèî∫äÕÇÃçwì¸/OK
+	title = ssw_fin.10.t
+	desc = ssw_fin.10.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.10.a
+		custom_effect_tooltip = ssw_fin.10.tt
+		hidden_effect = {
+			FIN = { country_event = { days = 75 id = ssw_fin.12 } }
+			FROM = { country_event = { days = 75 id = ssw_fin.13 } }
+		}
+	}
+}
+
+country_event = {
+	id = ssw_fin.11 #êèî∫äÕÇÃçwì¸/NO
+	title = ssw_fin.11.t
+	desc = ssw_fin.11.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.11.a
+		ai_chance = { factor = 0 }
+		FIN = { country_event = { id = ssw_fin.8 } }
+	}
+	option = {
+		name = ssw_fin.11.b
+		ai_chance = { factor = 100 }
+		add_political_power = 70
+	}
+}
+
+country_event = {
+	id = ssw_fin.12 #êèî∫äÕÇÃçwì¸/äÆê¨
+	title = ssw_fin.12.t
+	desc = ssw_fin.12.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.12.a
+		#if = {
+		#	limit = { has_global_flag = GER_FIN_agree_capital_ship }
+		#	create_equipment_variant = {
+		#		name = "Bismarck Class" 
+		#		type = ship_hull_heavy_4
+		#		modules = {
+		#		}
+		#	}
+		#	create_ship = {
+		#		type = ship_hull_heavy_4
+		#		equipment_variant = "Bismarck Class"
+		#		creator = GER
+		#	}
+		#}
+		#if = {
+		#	limit = { has_global_flag = ENG_FIN_agree_capital_ship }
+		#	create_equipment_variant = {
+		#		name = "King George V Class"
+		#		type = ship_hull_heavy_2
+		#		name_group = ENG_BB_HISTORICAL
+		#		parent_version = 0
+		#		modules = {
+		#		}
+		#	}
+		#	create_ship = {
+		#		type = ship_hull_heavy_2
+		#		equipment_variant = "King George V Class"
+		#		creator = ENG
+		#	}
+		#}
+		#if = {
+		#	limit = { has_global_flag = GER_JAP_agree_capital_ship }
+		#	create_equipment_variant = {
+		#		name = "Taiho Class"
+		#		type = ship_hull_carrier_2
+		#		modules = {
+		#		}
+		#	}
+		#	create_ship = {
+		#		type = ship_hull_carrier_2
+		#		equipment_variant = "Taiho Class"
+		#		creator = JAP
+		#	}
+		#}
+	}
+}
+
+country_event = {
+	id = ssw_fin.13 #êèî∫äÕÇÃçwì¸/à¯Ç´ìnÇµ
+	title = ssw_fin.13.t
+	desc = ssw_fin.13.d
+	picture = unknown
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ssw_fin.13.a
+	}
+}
