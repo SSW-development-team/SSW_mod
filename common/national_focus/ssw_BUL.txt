@@ -663,7 +663,7 @@ focus_tree={
         available = {
             always = no
         }
-        x = 16
+        x = 19
         y = 0
         cost = 0
         ai_will_do = {
@@ -1424,7 +1424,7 @@ focus_tree={
     focus = { #王室の保護
         id = BUL_protect_the_royal_family
         icon = GFX_focus_generic_home_defense
-        x = 20
+        x = 23
         y = 1
         search_filters = {
             FOCUS_FILTER_POLITICAL
@@ -1444,6 +1444,119 @@ focus_tree={
         }
         completion_reward = {
 
+        }
+    }
+
+    focus = { #都市の統制
+        id = BUL_city_control
+        icon = GFX_focus_generic_the_giant_wakes
+        x = 22
+        y = 2
+        prerequisite = {
+            focus = BUL_protect_the_royal_family
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #地方の統制
+        id = BUL_local_control
+        icon = GFX_focus_focus_fra_maquis
+        x = 22
+        y = 3
+        prerequisite = {
+            focus = BUL_city_control
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #政治権限の調整
+        id = BUL_coodination_political_authority
+        icon = GFX_goal_generic_neutrality_focus
+        x = 24
+        y = 2
+        prerequisite = {
+            focus = BUL_protect_the_royal_family
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #扇動者の対処
+        id = BUL_deal_with_agitators
+        icon = GFX_focus_spr_crush_the_revolution
+        x = 24
+        y = 3
+        prerequisite = {
+            focus = BUL_coodination_political_authority
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #政権の安定
+        id = BUL_regime_stability
+        icon = GFX_focus_BUL_promote_bulgarian_nationalism
+        x = 23
+        y = 4
+        prerequisite = {
+            focus = BUL_local_control
+        }
+        prerequisite = {
+            focus = BUL_deal_with_agitators
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #国民を支援
+        id = BUL_support_the_people
+        icon = GFX_focus_generic_concessions
+        x = 22
+        y = 5
+        prerequisite = {
+            focus = BUL_regime_stability
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #イギリス側との交渉
+        id = BUL_negotiation_with_British
+        icon = GFX_focus_chi_british_cooperation
+        x = 24
+        y = 5
+        prerequisite = {
+            focus = BUL_regime_stability
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
         }
     }
 
