@@ -1394,6 +1394,62 @@ shared_focus = {
 		add_ideas = ITA_idea_37
 	}
 }
+#酷暑地帯での戦闘
+shared_focus = {
+	id = ITA_focus_balbo_Fighting_in_the_heat_zone
+	icon = GFX_ITA_Italian_Army
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Advanced_command_of_troops
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Combat_in_the_Cold_Zone
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 42
+	y = 3
+	completion_reward = {
+		add_ideas = ITA_idea_58
+	}
+}
+#寒冷地帯での戦闘
+shared_focus = {
+	id = ITA_focus_balbo_Combat_in_the_Cold_Zone
+	icon = GFX_ITA_Italian_Army
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Advanced_command_of_troops
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Fighting_in_the_heat_zone
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 44
+	y = 3
+	completion_reward = {
+		add_ideas = ITA_idea_59
+	}
+}
 #徴兵の効率化
 shared_focus = {
 	id = ITA_focus_balbo_Improving_the_efficiency_of_conscription

@@ -162,6 +162,12 @@ shared_focus = {
     x = 8
     y = 1
     completion_reward = {
+        army_experience = 50
+        add_tech_bonus = {
+            bonus = 1.5
+            uses = 2
+            category = land_doctrine
+        }
     }
 }
 #ゲリラ戦への特化
@@ -188,6 +194,10 @@ shared_focus = {
     x = 6
     y = 2
     completion_reward = {
+        swap_ideas= {
+            remove_idea = VIN_idea_1
+            add_idea = VIN_idea_3
+        }
     }
 }
 #ベトナム式軍事教育
@@ -214,6 +224,7 @@ shared_focus = {
     x = 8
     y = 2
     completion_reward = {
+        add_ideas = VIN_idea_4
     }
 }
 #青年民族運動の開催
@@ -240,6 +251,8 @@ shared_focus = {
     x = 8
     y = 3
     completion_reward = {
+        add_war_support = 0.10
+        add_ideas = VIN_idea_5
     }
 }
 #軍隊への理解
@@ -266,6 +279,9 @@ shared_focus = {
     x = 8
     y = 4
     completion_reward = {
+        add_stability = 0.20
+        add_war_support = 0.20
+        add_ideas = VIN_idea_6
     }
 }
 #国民との支え合い
@@ -725,7 +741,7 @@ shared_focus = {
 #最低限のコストで
 shared_focus = {
     id = VIN_focus_Minimal_cost
-    icon = GFX_goal_continuous_naval_production
+    icon = GFX_focus_hol_the_foundations_of_defense
     cost = 5.00
     prerequisite = {
         focus = VIN_focus_Auxiliary_role
@@ -800,6 +816,138 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_POLITICAL }
     x = 5
     y = 7
+    completion_reward = {
+    }
+}
+#選挙の実施
+shared_focus = {
+    id = VIN_Conducting_election
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_change_to_constitutional_system
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 17
+    y = 1
+    completion_reward = {
+    }
+}
+#与党の勝利
+shared_focus = {
+    id = VIN_Ruling_party_wins
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_Conducting_election
+    }
+    mutually_exclusive = {
+        focus = VIN_Opposition_wins
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 15
+    y = 2
+    completion_reward = {
+    }
+}
+#帝国制の維持
+shared_focus = {
+    id = VIN_Maintaining_the_Empire
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = {
+        focus = VIN_change_to_constitutional_system
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 23
+    y = 0
+    completion_reward = {
+    }
+}
+#立憲制への移行
+shared_focus = {
+    id = VIN_change_to_constitutional_system
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = {
+        focus = VIN_Maintaining_the_Empire
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 19
+    y = 0
+    completion_reward = {
+    }
+}
+#野党の勝利
+shared_focus = {
+    id = VIN_Opposition_wins
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_Conducting_election
+    }
+    mutually_exclusive = {
+        focus = VIN_Ruling_party_wins
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 19
+    y = 2
     completion_reward = {
     }
 }
