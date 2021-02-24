@@ -394,9 +394,71 @@ ideas = {
     }
     #軍需品の設計社
     materiel_manufacturer = {
+        BUL_Arsenal = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_materiel_Arsenal
+            research_bonus = {
+                infantry_tech = 0.15
+            }
+            equipment_bonus = {
+                infantry_equipment = {
+                    soft_attack = 0.05
+                    defense = 0.05
+                    reliability = 0.1
+                }
+            }
+            traits = {infantry_equipment_manufacturer}
+        }
+
+        BUL_Balkan = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_aircraft_Balkan
+            research_bonus = {
+                motorized_equipment = 0.15
+            }
+            equipment_bonus = {
+                mechanized_equipment = {
+                    reliability = 0.1
+                    build_cost_ic = -0.10
+                }
+            }
+            traits = {motorized_equipment_manufacturer}
+        }
     }
     #航空機設計社
     aircraft_manufacturer = {
+        BUL_air_Balkan = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_aircraft_Balkan
+            research_bonus = {
+                air_equipment = 0.15
+            }
+            equipment_bonus = {
+                fighter_equipment = {
+				    air_agility = 0.1
+                    maximum_speed = 0.1
+			    }
+			    CAS_equipment  = {
+				    air_agility = 0.1
+                    maximum_speed = 0.1
+			    }
+                jet_fighter_equipment = {
+                    air_agility = 0.1
+                    maximum_speed = 0.1
+                }
+                jet_CAS_equipment  = {
+                    air_agility = 0.1
+                    maximum_speed = 0.1
+                }
+            }
+            traits = {aircraft_manufacturer}
+        }
     }
     #工業会社
     industrial_concern = {
@@ -408,15 +470,55 @@ ideas = {
             research_bonus = {
                 industry = 0.15
             }
-            modifier = {
-                production_speed_infrastructure_factor = 0.1
-            }
+            traits = {construction_company}
+        }
 
+        BUL_Gorubso = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_industry_Gorubso
+            research_bonus = {
+                industry = 0.15
+            }
+            modifier = {
+                local_resources_factor = 0.1
+            }
             traits = {industrial_concern}
         }
     }
     #艦船設計社
     naval_manufacturer = {
+        BUL_ship_yard_Burgas = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_naval_ship_yard_Burgas
+            research_bonus = {
+                naval_equipment = 0.15
+            }
+            modifier = {
+                Industrial_capacity_dockyard = 0.1
+            }
+            traits = {naval_manufacturer}
+        }
+
+        BUL_ship_yard_Varna = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_naval_ship_yard_Varna
+            research_bonus = {
+                naval_equipment = 0.15
+            }
+            equipment_bonus = {
+                naval_equipment = {
+                    reliability = 0.1
+                    build_cost_ic = -0.08
+                }
+            }
+            traits = {naval_manufacturer}
+        }
     }
     #理論家
     theorist = {
