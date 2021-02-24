@@ -1158,7 +1158,39 @@ RUS_dec_milita = {#民兵の徴募
 
 }
 
-RUS_dec_last_war = {
+RUS_dec_last_war = {#最終決戦
+	RUS_united = {
+		available = {
+			ROOT = {
+				owns_state = 195
+				owns_state = 219
+				owns_state = 249
+				owns_state = 566
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 0
+		days_remove = 5
+		modifier = {
+	
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					original_tag = RBL
+				}
+				if = {
+					limit = {
+						has_country_flag = win_kor
+					}
+					country_event = sswrfs.6
+				}
+				country_event = sswrfs.7
+			}
+		}
+	}
 	RUS_last_battle = {
 		icon = decision_generic_form_nation
 		fire_only_once = yes
@@ -1284,7 +1316,7 @@ RUS_dec_last_war = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 0
+		cost = 70
 		days_remove = 100
 		modifier = {
 	
@@ -1296,6 +1328,52 @@ RUS_dec_last_war = {
 				category = armor
 			}
 			set_country_flag = last_battle_4
+		}
+	}
+}
+
+RUS_dec_german = {#ドイツ人の対処
+	RUS_atack_MOS = {
+		visible = {
+			is_neighbor_of = MOS
+		}
+		icon = decision_generic_form_nation
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 0
+		days_remove = 7
+		modifier = {
+	
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = MOS
+				type = annex_everything
+			}
+		}
+	}
+
+	RUS_atack_PET = {
+		icon = decision_generic_form_nation
+		fire_only_once = yes
+		visible = {
+			is_neighbor_of = PET
+		}
+		ai_will_do = {
+			factor = 70
+		}
+		cost = 100
+		days_remove = 35
+		modifier = {
+	
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = PET
+				type = annex_everything
+			}
 		}
 	}
 }
