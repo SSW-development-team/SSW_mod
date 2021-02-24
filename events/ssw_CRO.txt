@@ -1,0 +1,48 @@
+add_namespace = SSW_CRO
+
+country_event = {
+    id = SSW_CRO.1
+    title = SSW_CRO.1.t
+    desc = SSW_CRO.1.d
+    picture = #あとで！
+
+    trigger = {
+        tag = CRO
+    }
+
+    is_triggered_only = yes
+
+    option = {
+        name = SSW_CRO.1.a
+        ai_chance = { factor = 100 }
+    }
+}
+country_event = {
+    id = SSW_CRO.2
+    title = SSW_CRO.2.t
+    desc = SSW_CRO.2.d
+    picture = #あとで！
+
+    trigger = {
+        tag = CRO
+    }
+
+    is_triggered_only = yes
+
+    option = {
+        name = SSW_CRO.2.a
+        ai_chance = { factor = 100 }
+        CRO = {
+            add_manpower = -2000
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -50
+            }
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 2
+                category = land_doctrine
+            }
+        }
+    }
+}

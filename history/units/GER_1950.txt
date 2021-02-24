@@ -42,7 +42,7 @@ division_template = {
 	}
 }
 division_template = { 						
-	name = "Fallschirmjäger-Division"				# Represents Fallschirm-jaeger Rgts 1 and 2
+	name = "Fallschirmjager-Division"				# Represents Fallschirm-jaeger Rgts 1 and 2
 	division_names_group = GER_PAR_01
 	is_locked = yes
 	regiments = {
@@ -152,14 +152,28 @@ division_template = {
 	}
 	priority = 0
 }
+division_template = {
+	name = "Ratte-Division"
+	division_names_group = GER_Arm_01
+	is_locked = yes
+	regiments = {
+		land_battleship_armor = { x = 0 y = 0 }		
+		land_battleship_armor = { x = 0 y = 1 }		
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
 
 units = {
 
-	####### Oberbefehlshaber der Luftwaffe (CO: H. Göring) #######
+	####### Oberbefehlshaber der Luftwaffe (CO: H. Goring) #######
 	division= {	
 		name = "7. Flieger-Division"
 		location = 6521  # Berlin
-		division_template = "Fallschirmjäger-Division"
+		division_template = "Fallschirmjager-Division"
 		start_experience_factor = 0.3
 	}
 
@@ -376,7 +390,7 @@ units = {
 		start_experience_factor = 0.1
 		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } }
 	}
-	# VI. Armeekorps (CO: von Förster) (no major units) #
+	# VI. Armeekorps (CO: von Forster) (no major units) #
 	# XXVII. Armeekorps (CO: von Prager) #
 	division= {	# "16. Infanterie-Division"
 		division_name = {
@@ -478,7 +492,7 @@ units = {
 	}
 	# Grenzschutz-Abschnitts-Kommando Oberhein (CO: Wager) #
 	division= {	
-		name = "SS-Standarte 'Der Führer'"
+		name = "SS-Standarte 'Der Fuhrer'"
 		location = 11640
 		division_template = "SS-Regiment"
 		start_experience_factor = 0.4
@@ -685,7 +699,7 @@ units = {
 		division_template = "Panzer-Division"
 		start_experience_factor = 0.3
 	}
-	### 3. Armee (CO: von Küchler) ###
+	### 3. Armee (CO: von Kuchler) ###
 	division= {	# "217. Infanterie-Division"
 		division_name = {
 				is_name_ordered = yes
@@ -766,7 +780,7 @@ units = {
 	}
 	# Gruppe Brand (CO: Brand) #
 	division= {	
-		name = "Festung Königsberg"
+		name = "Festung Konigsberg"
 		location = 6332
 		division_template = "Sicherungs-Division"
 		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } }
@@ -775,7 +789,7 @@ units = {
 
 	}
 	division= {	
-		name = "Festung Lötzen"
+		name = "Festung Lotzen"
 		location = 9327
 		division_template = "Sicherungs-Division"
 		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } }
@@ -919,7 +933,7 @@ units = {
 	}
 
 	
-	##### Heeresgruppe Süd (CO: von Bock) #####
+	##### Heeresgruppe Sud (CO: von Bock) #####
 	division= {	# "252. Infanterie-Division"
 		division_name = {
 				is_name_ordered = yes
@@ -1316,7 +1330,7 @@ units = {
 		start_experience_factor = 0.3
 	}
 
-	### Heeresgruppe Süd Reserves ###
+	### Heeresgruppe Sud Reserves ###
 	division= {	# "56. Infanterie-Division"
 		division_name = {
 				is_name_ordered = yes
@@ -1351,6 +1365,15 @@ units = {
 		}
 		location = 514
 		division_template = "Gebirgs-Division"
+		start_experience_factor = 0.3
+	}
+	division= {	#Ratte
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 13263
+		division_template = "Ratte-Division"
 		start_experience_factor = 0.3
 	}
 	

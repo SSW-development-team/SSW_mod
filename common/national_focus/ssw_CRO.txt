@@ -1,0 +1,1238 @@
+focus_tree = {
+	id = CRO_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CRO
+		}
+	}
+	continuous_focus_position = { x = 0 y = 2000 }
+	default = no
+	focus = {
+		id = CRO_german_start
+		icon = GFX_goal_unknown
+		cost = 10.00
+		mutually_exclusive = {
+			focus = CRO_nationalism_start
+		}
+		x = 7
+		y = 0
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = GER
+				modifier = CRO_german_start_opinion
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = CRO_german_start_opinion
+			}
+		}
+	}
+	focus = {
+		id = CRO_nationalism_start
+		icon = GFX_goal_unknown
+		cost = 10.00
+		mutually_exclusive = {
+			focus = CRO_german_start
+			focus = CRO_italy_sart
+		}
+		x = 14
+		y = 0
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 150
+		}
+
+	}
+	focus = {
+		id = CRO_italy_sart
+		icon = GFX_goal_unknown
+		cost = 10.00
+		mutually_exclusive = {
+			focus = CRO_nationalism_start
+		}
+		x = 31
+		y = 0
+
+	}
+	focus = {
+		id = CRO_army_start
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 7
+		y = 8
+
+	}
+	focus = {
+		id = CRO_airforce_germanstart
+		icon = GFX_goal_unknown
+		cost = 10.00
+		mutually_exclusive = {
+			focus = CRO_airforce_italystart
+		}
+		x = 16
+		y = 8
+
+	}
+	focus = {
+		id = CRO_airforce_italystart
+		icon = GFX_goal_unknown
+		cost = 10.00
+		mutually_exclusive = {
+			focus = CRO_airforce_germanstart
+		}
+		x = 20
+		y = 8
+
+	}
+	focus = {
+		id = CRO_navy_start
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 26
+		y = 8
+
+	}
+	focus = {
+		id = CRO_german_steal
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_start
+		}
+		x = 5
+		y = 1
+		completion_reward = {
+			country_event = {
+				id = SSW_CRO.1
+			}
+			add_resource = {
+				type = steel
+				amount = 16
+				state = 109
+			}
+		}
+
+	}
+	focus = {
+		id = CRO_german_luftwaffe
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_steal
+		}
+		x = 3
+		y = 2
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = CRO_german_himmler
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_luftwaffe
+		}
+		mutually_exclusive = {
+			focus = CRO_german_goebbels
+		}
+		x = 1
+		y = 3
+		completion_reward = {
+				reverse_add_opinion_modifier = {
+				target = HLH
+				modifier = CRO_german_start_opinion
+			}
+			add_opinion_modifier = {
+				target = HLH
+				modifier = CRO_german_start_opinion
+			}
+			CRO = {
+			add_political_power = 150
+			}
+		}
+	}
+			
+	focus = {
+		id = CRO_german_tomislav
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_himmler
+		}
+		x = 1
+		y = 4
+		completion_reward = {
+			CRO = {
+				add_ideas = SSW_ideas_CRO_tomislav
+			}
+		}
+	}
+
+	focus = {
+		id = CRO_german_volkswagen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_start
+		}
+		x = 7
+		y = 2
+		completion_reward = {
+			109 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CRO_german_goebbels
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_volkswagen
+		}
+		prerequisite = {
+			focus = CRO_german_luftwaffe
+		}
+		mutually_exclusive = {
+			focus = CRO_german_himmler
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+				reverse_add_opinion_modifier = {
+				target = GER
+				modifier = CRO_german_start_opinion
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = CRO_german_start_opinion
+			}
+		}
+	}
+	focus = {
+		id = CRO_german_nsdap
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_goebbels
+		}
+		x = 5
+		y = 4
+		completion_reward = {
+			country_event = {
+				id = SSW_CRO.2
+			}
+		}
+
+	}
+	focus = {
+		id = CRO_german_eagle
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_tomislav
+			focus = CRO_german_nsdap
+		}
+		x = 3
+		y = 5
+		completion_reward = {
+			CRO = {
+				add_political_power = 150
+				add_war_support = 0.1
+			}
+		}
+#よくわからんからあとで！！！！！！！！！！！！！！！！！！！！！
+	}
+	focus = {
+		id = CRO_balkan_start
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_start
+			focus = CRO_nationalism_start
+		}
+		x = 9
+		y = 1
+
+	}
+	focus = {
+		id = CRO_german_ssboost
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_volkswagen
+		}
+		x = 9
+		y = 3
+		completion_reward = {
+			CRO = {
+				add_ideas = SSW_ideas_CRO_ssboost
+			}
+		}
+	}
+	focus = {
+		id = CRO_german_ban
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_ssboost
+		}
+		x = 9
+		y = 4
+		completion_reward = {
+			CRO = {
+				add_ideas = SSW_ideas_CRO_ban
+			}
+		}
+
+	}
+	focus = {
+		id = CRO_german_powerboost
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_ban
+		}
+		x = 7
+		y = 5
+
+	}
+	focus = {
+		id = CRO_german_entente
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_german_eagle
+		}
+		prerequisite = {
+			focus = CRO_german_powerboost
+		}
+		x = 5
+		y = 6
+		completion_reward = {
+			CRO = {
+			add_ideas = SSW_ideas_CRO_mutualcooperation
+			}
+		}
+
+	}
+	focus = {
+		id = CRO_balkan_vojvodina
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_balkan_start
+		}
+		x = 11
+		y = 2
+
+	}
+	focus = {
+		id = CRO_balkan_hungary
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_balkan_vojvodina
+		}
+		x = 13
+		y = 3
+
+	}
+	focus = {
+		id = CRO_balkan_ribbentrop
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_balkan_hungary
+		}
+		x = 11
+		y = 5
+
+	}
+	focus = {
+		id = CRO_balkan_serbiaban
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_balkan_ribbentrop
+		}
+		mutually_exclusive = {
+			focus = CRO_balkan_autonomy
+		}
+		x = 9
+		y = 6
+
+	}
+	focus = {
+		id = CRO_army_cplang
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_start
+		}
+		x = 9
+		y = 9
+
+	}
+	focus = {
+		id = CRO_army_warlessons
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_cplang
+		}
+		x = 11
+		y = 10
+
+	}
+	focus = {
+		id = CRO_army_doctrine
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_warlessons
+		}
+		x = 11
+		y = 11
+
+	}
+	focus = {
+		id = CRO_nationalism_herzegovina
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_start
+		}
+		x = 12
+		y = 1
+		completion_reward = {
+<<<<<<< HEAD
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				provinces = 11845
+			}
+			
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				provinces = 9894
+			}
+			
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				provinces = 6942
+			}
+			
+			add_building_construction ={
+				type = bunker
+				level = 3
+				instant_build = yes
+				provinces = 6957
+			}
+			
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				provinces = 3985
+			}		
+=======
+			804 = {
+			add_building_construction = {
+			type = bunker
+			level = 3
+			instant_build = yes
+			provinces = 11845
+			provinces = 9894
+			provinces = 6942
+			}
+			}
+			104 = {
+			add_building_construction = {
+			type = bunker
+			level = 3
+			instant_build = yes
+			provinces = 6957
+			provinces = 3985
+			provinces = 9586
+			}
+			}
+>>>>>>> 399b279793c5dd7da2bcacb4ae4deacc3e380ed9
+		}
+	}
+	focus = {
+		id = CRO_balkan_autonomy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_balkan_ribbentrop
+		}
+		mutually_exclusive = {
+			focus = CRO_balkan_serbiaban
+		}
+		x = 13
+		y = 6
+
+	}
+	focus = {
+		id = CRO_nationalism_italyborderboost
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_start
+		}
+		x = 14
+		y = 2
+
+	}
+	focus = {
+		id = CRO_nationalism_germanrestriction
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_start
+		}
+		x = 16
+		y = 1
+
+	}
+	focus = {
+		id = CRO_nationalism_vojvodinadefence
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_italyborderboost
+		}
+		prerequisite = {
+			focus = CRO_nationalism_germanrestriction
+		}
+		x = 16
+		y = 3
+
+	}
+	focus = {
+		id = CRO_nationalism_pavelic
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_vojvodinadefence
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = CRO_nationalism_coop
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_pavelic
+		}
+		x = 14
+		y = 5
+
+	}
+	focus = {
+		id = CRO_industrial1_zagrebpriority
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_start
+			focus = CRO_italy_sart
+		}
+		mutually_exclusive = {
+			focus = CRO_industrial1_wholecountry
+		}
+		x = 20
+		y = 1
+
+	}
+	focus = {
+		id = CRO_industrial1_cravat
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_zagrebpriority
+		}
+		x = 18
+		y = 2
+
+	}
+	focus = {
+		id = CRO_nationalism_nationalism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_vojvodinadefence
+		}
+		x = 18
+		y = 4
+
+	}
+	focus = {
+		id = CRO_nationalism_party
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_nationalism
+		}
+		x = 18
+		y = 5
+
+	}
+	focus = {
+		id = CRO_nationalism_ban
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_party
+			focus = CRO_nationalism_coop
+		}
+		x = 16
+		y = 6
+
+	}
+	focus = {
+		id = CRO_industrial1_wholecountry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_sart
+			focus = CRO_nationalism_start
+		}
+		mutually_exclusive = {
+			focus = CRO_industrial1_zagrebpriority
+		}
+		x = 24
+		y = 1
+
+	}
+	focus = {
+		id = CRO_industrial1_splitshipyard
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_zagrebpriority
+			focus = CRO_industrial1_wholecountry
+		}
+		x = 22
+		y = 2
+
+	}
+	focus = {
+		id = CRO_industrial1_makeupforpoorindustry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_cravat
+		}
+		prerequisite = {
+			focus = CRO_industrial1_splitshipyard
+		}
+		x = 20
+		y = 3
+
+	}
+	focus = {
+		id = CRO_navy_restartnavy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_start
+		}
+		mutually_exclusive = {
+			focus = CRO_navy_maintain
+		}
+		x = 23
+		y = 9
+
+	}
+	focus = {
+		id = CRO_navy_officertraining
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_restartnavy
+		}
+		x = 23
+		y = 10
+
+	}
+	focus = {
+		id = CRO_navy_fleetexpansion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_officertraining
+		}
+		x = 23
+		y = 11
+
+	}
+	focus = {
+		id = CRO_navy_uboat
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_fleetexpansion
+		}
+		mutually_exclusive = {
+			focus = CRO_navy_italy
+		}
+		x = 21
+		y = 12
+
+	}
+	focus = {
+		id = CRO_industrial1_multilingualfacilitation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_wholecountry
+		}
+		x = 26
+		y = 2
+
+	}
+	focus = {
+		id = CRO_industrial1_traditionalindustry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_splitshipyard
+		}
+		prerequisite = {
+			focus = CRO_industrial1_multilingualfacilitation
+		}
+		x = 24
+		y = 3
+
+	}
+	focus = {
+		id = CRO_industrial1_universityofzagreb
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_makeupforpoorindustry
+		}
+		prerequisite = {
+			focus = CRO_industrial1_traditionalindustry
+		}
+		x = 22
+		y = 4
+
+	}
+	focus = {
+		id = CRO_industrial1_vierjahresplancopy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_universityofzagreb
+		}
+		x = 24
+		y = 5
+
+	}
+	focus = {
+		id = CRO_industrial1_dinaricalpsbridge
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_vierjahresplancopy
+		}
+		x = 22
+		y = 6
+
+	}
+	focus = {
+		id = CRO_industrial1_croatianautobahn
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_vierjahresplancopy
+		}
+		x = 26
+		y = 6
+
+	}
+	focus = {
+		id = CRO_industrial1_laborobligation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_industrial1_dinaricalpsbridge
+		}
+		prerequisite = {
+			focus = CRO_industrial1_croatianautobahn
+		}
+		x = 24
+		y = 7
+
+	}
+	focus = {
+		id = CRO_navy_italy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_fleetexpansion
+		}
+		mutually_exclusive = {
+			focus = CRO_navy_uboat
+		}
+		x = 25
+		y = 12
+
+	}
+	focus = {
+		id = CRO_navy_fleetmaintecance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_italy
+		}
+		x = 25
+		y = 13
+
+	}
+	focus = {
+		id = CRO_italy_freezadarborder
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_sart
+		}
+		x = 29
+		y = 1
+
+	}
+	focus = {
+		id = CRO_italy_croatstatusinistria
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_freezadarborder
+		}
+		x = 29
+		y = 2
+
+	}
+	focus = {
+		id = CRO_navy_maintain
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_start
+		}
+		mutually_exclusive = {
+			focus = CRO_navy_restartnavy
+		}
+		x = 29
+		y = 9
+
+	}
+	focus = {
+		id = CRO_navy_modernization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_maintain
+		}
+		x = 29
+		y = 10
+
+	}
+	focus = {
+		id = CRO_navy_counterattackdoctrine
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_modernization
+			focus = CRO_navy_officertraining
+		}
+		x = 26
+		y = 11
+
+	}
+	focus = {
+		id = CRO_navy_smallscale
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_modernization
+		}
+		x = 29
+		y = 11
+
+	}
+	focus = {
+		id = CRO_italy_monarchism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_sart
+		}
+		x = 33
+		y = 1
+
+	}
+	focus = {
+		id = CRO_italy_serbia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_monarchism
+		}
+		x = 33
+		y = 2
+
+	}
+	focus = {
+		id = CRO_italy_tradetreatyrome
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_croatstatusinistria
+			focus = CRO_italy_serbia
+		}
+		x = 27
+		y = 3
+
+	}
+	focus = {
+		id = CRO_italy_tomislav
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_serbia
+			focus = CRO_italy_croatstatusinistria
+		}
+		x = 31
+		y = 3
+
+	}
+	focus = {
+		id = CRO_nationalism_great
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_nationalism_coop
+		}
+		prerequisite = {
+			focus = CRO_nationalism_party
+		}
+		prerequisite = {
+			focus = CRO_nationalism_ban
+		}
+		x = 16
+		y = 7
+
+	}
+	focus = {
+		id = CRO_italy_bosniamonarchy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_serbia
+		}
+		x = 35
+		y = 3
+
+	}
+	focus = {
+		id = CRO_italy_constitutionalmonarchy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_tomislav
+		}
+		x = 31
+		y = 4
+
+	}
+	focus = {
+		id = CRO_italy_arditi
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_tradetreatyrome
+		}
+		x = 27
+		y = 4
+
+	}
+	focus = {
+		id = CRO_italy_balkanally
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_italy_constitutionalmonarchy
+		}
+		prerequisite = {
+			focus = CRO_italy_arditi
+		}
+		x = 31
+		y = 5
+
+	}
+	focus = {
+		id = CRO_army_germanequipment1
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_start
+		}
+		x = 7
+		y = 9
+
+	}
+	focus = {
+		id = CRO_army_ss
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_start
+		}
+		x = 5
+		y = 9
+
+	}
+	focus = {
+		id = CRO_army_sscroatian
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_ss
+		}
+		x = 3
+		y = 10
+
+	}
+	focus = {
+		id = CRO_army_chetnikmodern
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_ss
+		}
+		x = 5
+		y = 11
+
+	}
+	focus = {
+		id = CRO_army_militaryacademy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_sscroatian
+		}
+		x = 3
+		y = 12
+
+	}
+	focus = {
+		id = CRO_army_germanequipment2
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_germanequipment1
+		}
+		x = 7
+		y = 10
+
+	}
+	focus = {
+		id = CRO_army_licensedproduction
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_germanequipment2
+		}
+		mutually_exclusive = {
+			focus = CRO_army_researchcoop
+		}
+		x = 7
+		y = 11
+
+	}
+	focus = {
+		id = CRO_army_researchcoop
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_germanequipment2
+		}
+		mutually_exclusive = {
+			focus = CRO_army_licensedproduction
+		}
+		x = 9
+		y = 11
+
+	}
+	focus = {
+		id = CRO_army_tankresearch
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_researchcoop
+		}
+		x = 9
+		y = 12
+
+	}
+	focus = {
+		id = CRO_army_reverseengineering
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_licensedproduction
+		}
+		x = 7
+		y = 12
+
+	}
+	focus = {
+		id = CRO_army_militaryresearchbudget
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_army_tankresearch
+			focus = CRO_army_reverseengineering
+		}
+		x = 7
+		y = 13
+
+	}
+	focus = {
+		id = CRO_airforce_arado
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_germanstart
+		}
+		x = 16
+		y = 9
+
+	}
+	focus = {
+		id = CRO_airforce_saetta
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_italystart
+		}
+		x = 20
+		y = 9
+
+	}
+	focus = {
+		id = CRO_airforce_bomber
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_arado
+		}
+		x = 16
+		y = 10
+
+	}
+	focus = {
+		id = CRO_airforce_longdistanceflight
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_saetta
+		}
+		x = 20
+		y = 10
+
+	}
+	focus = {
+		id = CRO_airforce_airbase
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_bomber
+			focus = CRO_airforce_longdistanceflight
+		}
+		x = 18
+		y = 11
+
+	}
+	focus = {
+		id = CRO_airforce_highaltitudeairplane
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_airbase
+		}
+		x = 13
+		y = 12
+
+	}
+	focus = {
+		id = CRO_airforce_jetresearch
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_airforce_highaltitudeairplane
+		}
+		prerequisite = {
+			focus = CRO_army_tankresearch
+		}
+		x = 11
+		y = 13
+
+	}
+	focus = {
+		id = CRO_navy_order
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_fleetmaintecance
+		}
+		x = 25
+		y = 14
+
+	}
+	focus = {
+		id = CRO_navy_wolfpack
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_uboat
+		}
+		x = 21
+		y = 13
+
+	}
+	focus = {
+		id = CRO_navy_massproduction
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = CRO_navy_wolfpack
+		}
+		x = 21
+		y = 14
+
+	}
+}

@@ -1,0 +1,46 @@
+add_namespace = tibet
+
+country_event = {
+	id = tibet.1000 #Himmler(Lhunpolto) appear
+	title = tibet.1000.t
+	desc = tibet.1000.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 500 }
+	trigger = {
+		has_country_leader = {
+			name = "Jamphel Yeshe Gyaltsen"
+			ruling_only = yes
+		}
+		has_idea = TIB_ernst_schafer
+		has_global_flag = end_himmler
+		has_global_flag = GER_civil_war_end
+		TIB = {
+			is_subject = no
+		}
+		
+	}
+	option = {
+		name = tibet.1000.a
+		ai_chance = {
+			factor = 20
+		}
+		create_country_leader = {
+			name = "Lhunpolto Rinpoche"
+			desc = "POLITICS_HIMMLER_IN_TIBET_DESC"
+			picture = "ssw_Portrait_Tibet_Himmler_monk.dds"
+			ideology = national_socialism_ideology 
+			traits = {
+				incognito
+				totemkopf_monk
+			}
+			expire = "1988.1.1"
+		}
+	}
+	option = {
+		name = tibet.1000.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

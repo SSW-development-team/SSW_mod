@@ -1,0 +1,1790 @@
+focus_tree = {
+	id = ssw_FIN_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FIN
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1600 }
+
+#政治工業複合ツリー
+	focus = {
+		id = FIN_political_1 #
+		icon = GFX_focus_generic_self_management
+		available = {				}
+		x = 9
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+		bypass = {
+		}
+
+		completion_reward = {
+			
+		}
+	}	
+#内政
+	focus = {
+		id = FIN_political_2 #
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		available = {
+		}
+		relative_position_id = FIN_political_1
+		prerequisite = { focus = FIN_political_1 }
+		x = -7
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_A_1 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_2
+		x = -4
+		y = 1
+		cost = 3
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_2	}
+
+		completion_reward = {
+		add_ideas = FTE_volunteer
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_A_2 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_2
+		x = -2
+		y = 1
+		cost = 20
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_A_3 }
+		prerequisite = { focus = FIN_political_2	}
+
+		completion_reward = {
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_A_3 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_2
+		x = 2
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_A_2 }
+		prerequisite = { focus = FIN_political_2	}
+
+		completion_reward = {
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_A_4 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_2
+		x = 4
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_2	}
+
+		completion_reward = {
+		add_ideas = FIN_political_A_Idea_2
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_21 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_1
+		x = -1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_A_22 }
+		prerequisite = { focus = FIN_political_A_1	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_A_22 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_1
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_A_21 }
+		prerequisite = { focus = FIN_political_A_1	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_23 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_2
+		x = 2
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_2 focus = FIN_political_A_3	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_31 #
+		icon = GFX_goal_unknown
+		available = {				}
+		relative_position_id = FIN_political_A_21
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_21 focus = FIN_political_A_22	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_A_32 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_2
+		x = 0
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		prerequisite = { focus = FIN_political_A_2	}
+		prerequisite = { focus = FIN_political_A_23 }
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_A_33 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_3
+		x = 0
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		prerequisite = { focus = FIN_political_A_3	}
+		prerequisite = { focus = FIN_political_A_23	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_41 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_31
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_31	}
+		prerequisite = { focus = FIN_political_A_32	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_42 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_32
+		x = 2
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = {
+			focus = FIN_political_A_32
+			focus = FIN_political_A_33
+		}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_A_51 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_42
+		x = -2
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_42	}
+
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = FIN_political_A_52 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_42
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_42	}
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = FIN_political_A_53 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_A_42
+		x = 2
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_42	}
+
+		completion_reward = {
+		}
+	}
+
+#外交
+	focus = {
+		id = FIN_political_3 #
+		icon = GFX_goal_generic_intelligence_exchange
+		available = {	
+		}
+		relative_position_id = FIN_political_1
+		x = 7
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		prerequisite = { focus = FIN_political_1 }
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_B_1 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_3
+		x = -4
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { focus = FIN_political_3	}
+
+		completion_reward = {
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_B_2 #列強外交
+		icon = GFX_goal_generic_alliance
+		available = {	
+		}
+		relative_position_id = FIN_political_3
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_3	}
+
+		completion_reward = {
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_B_3 #北欧外交
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_3
+		x = 4
+		y = 1
+		cost = 3
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_3	}
+
+		completion_reward = {
+		}
+	}	
+
+
+	focus = {
+		id = FIN_political_B_21 #親ドイツ
+		icon = GFX_focus_chi_mission_to_germany
+		available = {	
+		}
+		relative_position_id = FIN_political_B_2
+		mutually_exclusive = { focus = FIN_political_B_24 }
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_2	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_B_22 #
+		icon = GFX_NF_FIN_Nordic_Council
+		available = {	
+		}
+		relative_position_id = FIN_political_B_3
+		x = -1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_B_23 }
+		prerequisite = { focus = FIN_political_B_3	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_B_23 #
+		icon = GFX_NF_FIN_Nordic_Empire
+		available = {	
+		}
+		relative_position_id = FIN_political_B_3
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = FIN_political_B_22 }
+		prerequisite = { focus = FIN_political_B_3	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_B_24 #
+		icon = GFX_focus_focus_fra_ratify_stresa
+		available = {	
+		}
+		relative_position_id = FIN_political_B_2
+		mutually_exclusive = { focus = FIN_political_B_21 }
+		x = -1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		prerequisite = { focus = FIN_political_B_2	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_B_32 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_B_24
+		x = 2
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_24	}
+
+		completion_reward = {
+		}	
+	}
+
+	focus = {
+		id = FIN_political_B_33 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		x = 19
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_21	}
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = FIN_political_B_34 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_B_24
+		x = -1
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_24	}
+		prerequisite = { focus = FIN_political_B_21	}
+
+		completion_reward = {
+		}	
+	}
+
+
+	focus = {
+		id = FIN_political_B_35 #
+		icon = GFX_goal_unknown
+		available = {	 	 }	
+		relative_position_id = FIN_political_B_22
+		x = 3
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = {
+			focus = FIN_political_B_22
+			focus = FIN_political_B_23
+		}
+
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = FIN_political_B_41 #
+		icon = GFX_goal_unknown
+		available = {				}
+		relative_position_id = FIN_political_B_32
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_32	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_B_42 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_B_33
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_33	}
+
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_political_B_43 #
+		icon = GFX_goal_unknown
+		available = {	
+		}
+		relative_position_id = FIN_political_B_34
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_34	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_political_B_44 #
+		icon = GFX_goal_unknown
+		available = {				}
+		relative_position_id = FIN_political_B_35
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_35	}
+
+		completion_reward = {
+		}
+	}
+
+#産業
+
+	focus = {
+		id = FIN_industry_1 #
+		icon = GFX_goal_generic_construct_civilian
+		available = {				}
+		relative_position_id = FIN_political_A_4
+		x = 3
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { 	
+			focus = FIN_political_B_1 
+			focus = FIN_political_A_4
+		}
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_industry_2 #
+		icon = GFX_goal_generic_construct_infrastructure
+		available = {				}
+		relative_position_id = FIN_industry_1
+		x = 0
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { focus = FIN_industry_1	}
+		completion_reward = {
+		}
+	}	
+
+	focus = {
+		id = FIN_industry_3 #
+		icon = GFX_goal_generic_consumer_goods
+		available = {	
+		}
+		relative_position_id = FIN_political_A_4
+		x = 1
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_A_4	}
+		prerequisite = { focus = FIN_industry_1	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_industry_4 #ムルマンスク資源開発
+		icon = GFX_goal_generic_construction
+		available = {	
+		}
+		relative_position_id = FIN_political_B_1
+		x = -1
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = {  }
+		prerequisite = { focus = FIN_political_B_1	}
+		prerequisite = { focus = FIN_industry_1	}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FIN_industry_5 #
+		icon = GFX_goal_generic_construct_civ_factory
+		available = {				}
+		relative_position_id = FIN_industry_2
+		x = -1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { focus = FIN_industry_2 }
+		prerequisite = { focus = FIN_industry_4 }
+		completion_reward = {
+		
+		}
+	}	
+
+	focus = {
+		id = FIN_industry_6 #
+		icon = GFX_goal_generic_construct_mil_factory
+		available = {	
+		}
+		relative_position_id = FIN_industry_2
+		x = 1
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { focus = FIN_industry_2	}
+		prerequisite = { 	focus = FIN_industry_3	}
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = FIN_industry_7 #
+		icon = GFX_focus_spa_the_spanish_miracle
+		available = {	
+		}
+		relative_position_id = FIN_industry_5
+		x = 1
+		y = 2
+
+		available_if_capitulated = yes
+		mutually_exclusive = { }
+		prerequisite = { 	
+			focus = FIN_industry_5
+			focus = FIN_industry_6
+		}
+		completion_reward = {
+		}
+	}
+
+
+#軍事ツリー
+
+	focus = {
+		id = FIN_Army_reorganization
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = {  }
+		x = 35
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = Army_reorganization
+		}
+	}
+
+	focus = {
+		id = FIN_Suomen_maavoimat
+		icon = GFX_NF_FIN_army_force
+		prerequisite = { focus = FIN_Army_reorganization }
+		x = -6
+		y = 1
+		relative_position_id = FIN_Army_reorganization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 75
+		}
+	}
+
+	focus = {
+		id = FIN_army_innovation
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = FIN_Suomen_maavoimat }
+		x = -1
+		y = 1
+		relative_position_id = FIN_Suomen_maavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Equipment_update
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = FIN_Suomen_maavoimat }
+		x = 1
+		y = 1
+		relative_position_id = FIN_Suomen_maavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {  }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = support_tech
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = artillery
+				category = support_tech	
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_weapon_factory
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = FIN_Equipment_update }
+		prerequisite = { focus = FIN_Airfield_maintenance }
+		x = 2
+		y = 1
+		relative_position_id = FIN_Equipment_update
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {  }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Firepower
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = FIN_army_innovation }
+		prerequisite = { focus = FIN_Equipment_update }
+		x = -1
+		y = 2
+		relative_position_id = FIN_army_innovation
+		mutually_exclusive = { focus = FIN_Reproduction_of_the_Western_Blitzkrieg }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = FIN_fire_power_focus
+		}
+	}
+
+	focus = {
+		id = FIN_Reproduction_of_the_Western_Blitzkrieg
+		icon = GFX_NF_FIN_true_blitzkrieg
+		prerequisite = { focus = FIN_army_innovation }
+		prerequisite = { focus = FIN_Equipment_update }
+		x = 1
+		y = 2
+		relative_position_id = FIN_Equipment_update
+		mutually_exclusive = { focus = FIN_Firepower }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 2
+				ahead_reduction = 2
+				uses = 1
+				category = armor
+			}
+			add_tech_bonus = {
+				bonus = 2
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Nationalization_of_Tikkakoski
+		icon = GFX_NF_FIN_Tikkakoski
+		prerequisite = { focus = FIN_army_innovation }
+		prerequisite = { focus = FIN_Equipment_update }
+		x = 1
+		y = 1
+		relative_position_id = FIN_army_innovation
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = FIN_Tikkakoski
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Sublimation_to_stereoscopic_combat_doctrine
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = FIN_Reproduction_of_the_Western_Blitzkrieg }
+		prerequisite = { focus = FIN_Close_air_support }
+		x = 1
+		y = 1
+		relative_position_id = FIN_Reproduction_of_the_Western_Blitzkrieg
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Combined_arms
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = FIN_Firepower }
+		x = 0
+		y = 1
+		relative_position_id = FIN_Firepower
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = FIN_Spirit_of_sisu
+		icon = GFX_NF_FIN_sisu_shine
+		prerequisite = { focus = FIN_Firepower focus = FIN_Reproduction_of_the_Western_Blitzkrieg }
+		x = 2
+		y = 2
+		relative_position_id = FIN_Firepower
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SSW_sisu
+		}
+	}
+
+
+	focus = {
+		id = FIN_Merivoimat
+		icon = GFX_NF_FIN_navy_force
+		prerequisite = { focus = FIN_Army_reorganization }
+		x = 6
+		y = 1
+		relative_position_id = FIN_Army_reorganization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		complete_tooltip = {
+		}
+		
+		completion_reward = {
+			navy_experience = 75
+		}
+	}
+
+	focus = {
+		id = FIN_Naval_uniqueness
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = FIN_Merivoimat }
+		x = -2
+		y = 1
+		relative_position_id = FIN_Merivoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 111 }
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 149 }
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Helsinki_naval_academy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = FIN_Merivoimat }
+		x = 0
+		y = 1
+		relative_position_id = FIN_Merivoimat
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			111 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 5
+						province = 11105
+						instant_build = yes
+					}
+				}								
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = naval_doctrine	
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Baltic_defense
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = FIN_Merivoimat }
+		x = 2
+		y = 1
+		relative_position_id = FIN_Merivoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				name = uk_amphibious_focus
+				bonus = 1.0
+				uses = 2
+				category = marine_tech
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Passed_budget_proposal_for_ship_research
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = FIN_Naval_uniqueness }
+		prerequisite = { focus = FIN_Helsinki_naval_academy }
+		x = -2
+		y = 1
+		relative_position_id = FIN_Helsinki_naval_academy
+		mutually_exclusive = { focus = FIN_Passed_the_budget_for_the_ship_order }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_CVBG
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = FIN_Passed_budget_proposal_for_ship_research }
+		prerequisite = { focus = FIN_Airstrike }
+		x = -1
+		y = 2
+		relative_position_id = FIN_Passed_budget_proposal_for_ship_research
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				ahead_reduction = 2
+				uses = 1
+				category = cv_tech
+			}
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.5
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Escort_ship
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = FIN_Passed_budget_proposal_for_ship_research }
+		x = 1
+		y = 2
+		relative_position_id = FIN_Passed_budget_proposal_for_ship_research
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = ca_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = cl_tech
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Passed_the_budget_for_the_ship_order
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = FIN_Helsinki_naval_academy }
+		prerequisite = { focus = FIN_Baltic_defense }
+		x = 2
+		y = 1
+		relative_position_id = FIN_Helsinki_naval_academy
+		mutually_exclusive = { focus = FIN_Passed_budget_proposal_for_ship_research }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	
+	focus = {
+		id = FIN_Order_capital_ship
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = FIN_Passed_the_budget_for_the_ship_order }
+		x = -1
+		y = 2
+		relative_position_id = FIN_Passed_the_budget_for_the_ship_order
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			country_event = ssw_fin.2
+		}
+	}
+
+	focus = {
+		id = FIN_Order_escort_ship
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = FIN_Passed_the_budget_for_the_ship_order }
+		x = 1
+		y = 2
+		relative_position_id = FIN_Passed_the_budget_for_the_ship_order
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			country_event = ssw_fin.8
+		}
+	}
+
+
+	focus = {
+		id = FIN_Ilmavoimat
+		icon = GFX_NF_FIN_air_force
+		prerequisite = { focus = FIN_Army_reorganization }
+		x = 0
+		y = 1
+		relative_position_id = FIN_Army_reorganization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			air_experience = 75
+		}
+	}
+
+	focus = {
+		id = FIN_Airfield_maintenance
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = FIN_Ilmavoimat }
+		x = -1
+		y = 1
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				random_owned_controlled_state = {
+					prioritize = { 111 }
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Research_of_Aircombat
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = FIN_Ilmavoimat }
+		x = 1
+		y = 1
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 3
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_Longrange_operation
+		icon = GFX_focus_usa_escort_fighters
+		prerequisite = { focus = FIN_Airfield_maintenance }
+		prerequisite = { focus = FIN_Research_of_Aircombat }
+		x = 1
+		y = 2
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = Longrange_operation
+		}
+	}
+	
+	focus = {
+		id = FIN_Close_air_support
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = FIN_Airfield_maintenance }
+		prerequisite = { focus = FIN_Research_of_Aircombat }
+		x = -2
+		y = 3
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_Focus_air_supremacy
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = FIN_Airfield_maintenance }
+		prerequisite = { focus = FIN_Research_of_Aircombat }
+		x = -1
+		y = 2
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+	
+	focus = {
+		id = FIN_Airstrike
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = FIN_Airfield_maintenance }
+		prerequisite = { focus = FIN_Research_of_Aircombat }
+		x = 2
+		y = 3
+		relative_position_id = FIN_Ilmavoimat
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 2.0
+				uses = 1
+				category = naval_bomber
+			}
+			add_tech_bonus = {
+				bonus = 2.0
+				uses = 1
+				category = cat_strategic_bomber
+			}
+		}
+	}
+	
