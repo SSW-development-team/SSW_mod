@@ -54,6 +54,74 @@ on_actions = {
 					news_event = { id = ssw_spr.1002 hours = 6 }
 				}
 			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							original_tag = LTV
+							original_tag = HLH
+							original_tag = HGR
+						}
+					}
+					FROM = { original_tag = GER }
+				}
+				news_event = { id = ssw.19 hours = 6 }
+				every_state = {
+					limit = { is_core_of = GER }
+					remove_core_of = GER
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							original_tag = GER
+							original_tag = HLH
+							original_tag = HGR
+						}
+					}
+					FROM = { original_tag = LTV }
+				}
+				news_event = { id = ssw.17 hours = 6 }
+				every_state = {
+					limit = { is_core_of = LTV }
+					remove_core_of = LTV
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							original_tag = LTV
+							original_tag = GER
+							original_tag = HGR
+						}
+					}
+					FROM = { original_tag = HLH }
+				}
+				news_event = { id = ssw.18 hours = 6 }
+				every_state = {
+					limit = { is_core_of = HLH }
+					remove_core_of = HLH
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							original_tag = LTV
+							original_tag = GER
+							original_tag = HLH
+						}
+					}
+					FROM = { original_tag = HGR }
+				}
+				news_event = { id = ssw.19 hours = 6 }
+				every_state = {
+					limit = { is_core_of = HGR }
+					remove_core_of = HGR
+				}
+			}
 		}
 	}
 	on_ruling_party_change = {
@@ -64,7 +132,7 @@ on_actions = {
 					has_government = anarchism
 				}
 				add_ideas = {
-					ssw_anarchist_community
+					ssw_mixed_regime
 					vacancy_pl
 					vacancy_mfa
 					vacancy_mf
@@ -97,7 +165,7 @@ on_actions = {
 				}
 				add_ideas = {
 					ssw_authoritarian_regime
-					MEX_vicente_lombardo
+					MEX_vicente_lombardo_ssw
 				}
 				if = {
 					limit = { has_cosmetic_tag = MEX_empire }
@@ -269,7 +337,7 @@ on_actions = {
 					has_government = anarchism
 				}
 				add_ideas = {
-					ssw_anarchist_community
+					ssw_mixed_regime
 					RUS_collectivized_society_for_ssw
 					RUS_sascha_schapiro
 					vacancy_mfa
@@ -388,7 +456,7 @@ on_actions = {
 					has_government = authority_despotism
 				}
 				add_ideas = {
-					ssw_military_regime
+					ssw_authoritarian_regime
 					RUS_poa
 					RUS_nikolai_khokhlov
 					konstantin_rodzaevsky

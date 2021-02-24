@@ -151,11 +151,8 @@ shared_focus = {
 	  country_event = {
 		   id = SSW_ITA.3
 	  }
-	  load_focus_tree = { 
-			tree = ITA_Balbo_Focus 
-			keep_completed = yes 
-		}
 		custom_effect_tooltip = ssw_ITA_making
+		set_country_flag = Italian_future_by_Balbo
 	}
  }
  #ムッソリーニによって
@@ -188,6 +185,7 @@ shared_focus = {
 		   id = SSW_ITA.4
 	  }
 	  custom_effect_tooltip = ssw_ITA_making
+	  set_country_flag = Italian_future_by_Mussolini
 	}
  }
  #サヴォイア家によって
@@ -220,6 +218,7 @@ shared_focus = {
 		   id = SSW_ITA.5
 	  }
 	  custom_effect_tooltip = ssw_ITA_making
+	  set_country_flag = Italian_future_by_Savoia
 	}
  }
  #ジェノヴァ家によって
@@ -252,6 +251,7 @@ shared_focus = {
 		   id = SSW_ITA.6
 	  }
 	  custom_effect_tooltip = ssw_ITA_making
+	  set_country_flag = Italian_future_by_Genoa
 	}
  }
  #カエサルにならう
@@ -284,6 +284,7 @@ shared_focus = {
 		   id = SSW_ITA.7
 	  }
 	  custom_effect_tooltip = ssw_ITA_making
+	  set_country_flag = Italian_future_by_Caesar
 	}
  }
  #平等に
@@ -316,5 +317,103 @@ shared_focus = {
 		   id = SSW_ITA.8
 	  }
 	  custom_effect_tooltip = ssw_ITA_making
+	  set_country_flag = Italian_future_by_equality
+	}
+}
+#####政権奪取ルート####
+#現政権への反発を煽動
+shared_focus = {
+	id = ITA_Mussolini_Inciting_opposition_to_the_current_administration
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 3.00
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 15
+	y = 0
+	completion_reward = {
+	}
+}
+#裏社会への浸透
+shared_focus = {
+	id = ITA_Mussolini_Infiltration_of_the_underworld
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 3.00
+    prerequisite = {
+		focus = ITA_Mussolini_Inciting_opposition_to_the_current_administration
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 14
+	y = 1
+	completion_reward = {
+	}
+}
+#宣言
+shared_focus = {
+	id = ITA_Mussolini_declaration
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 3.00
+    prerequisite = {
+		focus = ITA_Mussolini_Inciting_opposition_to_the_current_administration
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 16
+	y = 1
+	completion_reward = {
+	}
+}
+#第二次ローマ進軍
+shared_focus = {
+	id = ITA_Mussolini_The_Second_Roman_Invasion
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 3.00
+    prerequisite = {
+		focus = ITA_Mussolini_Infiltration_of_the_underworld
+	}
+    prerequisite = {
+		focus = ITA_Mussolini_declaration
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 15
+	y = 2
+	completion_reward = {
 	}
 }

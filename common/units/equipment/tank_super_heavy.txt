@@ -48,17 +48,50 @@ equipments = {
 			steel = 3
 			chromium = 4
 		}
-		
 		fuel_consumption = 10
 	}
 
 	super_heavy_tank_equipment_1 = {
-		year = 1943
+		year = 1945
 
 		archetype = super_heavy_tank_equipment
 		priority = 130
 		visual_level = 0
 		is_convertable = yes
+	}
+	super_heavy_tank_equipment_2 = {
+		year = 1948
+		parent = super_heavy_tank_equipment_1
+		archetype = super_heavy_tank_equipment
+		priority = 130
+		visual_level = 0
+		is_convertable = yes
+		#Misc Abilities
+		maximum_speed = 3
+		reliability = 0.75
+
+		#Defensive Abilities
+		defense = 15
+		breakthrough = 78
+		hardness = 1.00
+		armor_value = 160
+
+		#Offensive Abilities
+		soft_attack = 40
+		hard_attack = 50
+		ap_attack = 150
+		air_attack = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 15
+		
+		build_cost_ic = 120
+		resources = {
+			#oil = 2
+			steel = 5
+			chromium = 9
+		}
+
 	}
 
 	super_heavy_tank_artillery_equipment = {
@@ -121,6 +154,41 @@ equipments = {
 		can_convert_from = { 
 			super_heavy_tank_equipment_1 
 		}
+
+	}
+	super_heavy_tank_artillery_equipment_2 = {
+		year = 1948
+		parent = super_heavy_tank_artillery_equipment_1
+
+		archetype = super_heavy_tank_artillery_equipment
+		priority = 140
+		visual_level = 0
+		can_convert_from = { 
+			super_heavy_tank_equipment_2 
+		}
+		#Misc Abilities
+		maximum_speed = 3
+		reliability = 0.75
+
+		#Defensive Abilities
+		defense = 9
+		breakthrough = 3.5
+		hardness = 0.95
+		armor_value = 105
+
+		#Offensive Abilities
+		soft_attack = 150
+		hard_attack = 3
+		ap_attack = 9
+		air_attack = 0
+		
+		build_cost_ic = 120
+		resources = {
+			#oil = 2
+			steel = 3
+			chromium = 4
+		}
+
 	}
 
 
@@ -166,7 +234,7 @@ equipments = {
 		ap_attack = 170
 		air_attack = 0
 		
-		build_cost_ic = 100
+		build_cost_ic = 120
 		resources = {
 			#oil = 2
 			steel = 3
@@ -184,6 +252,40 @@ equipments = {
 		can_convert_from = { 
 			super_heavy_tank_equipment_1 
 		}
+	}
+	super_heavy_tank_destroyer_equipment_2 = {
+		year = 1943
+		parent = super_heavy_tank_destroyer_equipment_2
+
+		archetype = super_heavy_tank_destroyer_equipment
+		priority = 160
+		visual_level = 0
+		can_convert_from = { 
+			super_heavy_tank_equipment_1 
+		}
+		#Misc Abilities
+		maximum_speed = 3
+		reliability = 0.75
+
+		#Defensive Abilities
+		defense = 7
+		breakthrough = 1.8
+		hardness = 0.99
+		armor_value = 145
+
+		#Offensive Abilities
+		soft_attack = 12
+		hard_attack = 80
+		ap_attack = 170
+		air_attack = 0
+		
+		build_cost_ic = 120
+		resources = {
+			#oil = 2
+			steel = 3
+			chromium = 4
+		}
+
 	}
 
 
@@ -235,7 +337,7 @@ equipments = {
 			steel = 3
 			chromium = 4
 		}
-		fuel_consumption = 2.5
+		fuel_consumption = 3.5
 	}
 
 	super_heavy_tank_aa_equipment_1 = {
@@ -247,5 +349,99 @@ equipments = {
 		can_convert_from = { 
 			super_heavy_tank_equipment_1 
 		}
+	}
+	super_heavy_tank_aa_equipment_2 = {
+		year = 1948
+		parent = super_heavy_tank_aa_equipment_1
+
+		archetype = super_heavy_tank_aa_equipment
+		priority = 150
+		visual_level = 0
+		can_convert_from = { 
+			super_heavy_tank_equipment_2 
+		}
+		
+		#Misc Abilities
+		maximum_speed = 3
+		reliability = 0.75
+
+		#Defensive Abilities
+		defense = 3.5
+		breakthrough = 3.5
+		hardness = 0.9
+		armor_value = 100
+
+		#Offensive Abilities
+		soft_attack = 12
+		hard_attack = 9
+		ap_attack = 99
+		air_attack = 75
+		
+		build_cost_ic = 120
+		resources = {
+			#oil = 2
+			steel = 3
+			chromium = 4
+		}
+
+	}
+	land_battleship_tank_equipment = {
+		year = 1948
+
+		can_be_produced = {
+		}
+
+		is_archetype = yes
+		is_convertable = no
+		picture = archetype_land_battleship_tank_equipment		
+		is_buildable = no
+		type = armor
+		group_by = archetype
+		
+		interface_category = interface_category_armor
+		
+		upgrades = {
+			tank_reliability_upgrade
+			tank_engine_upgrade
+			tank_armor_upgrade
+			tank_gun_upgrade
+		}
+		
+		#Misc Abilities
+		maximum_speed = 2
+		reliability = 0.60
+
+		#Defensive Abilities
+		defense = 10
+		breakthrough = 74
+		hardness = 0.99
+		armor_value = 245
+
+		#Offensive Abilities
+		soft_attack = 58
+		hard_attack = 75
+		ap_attack = 200
+		air_attack = 25
+
+		#Space taken in convoy
+		lend_lease_cost = 150
+		
+		build_cost_ic = 300
+		resources = {
+			#oil = 2
+			steel = 25
+			chromium = 9
+			aluminium = 13
+		}
+		fuel_consumption = 15
+	}
+
+	land_battleship_tank_equipment_1 = {
+		year = 1948
+
+		archetype = land_battleship_tank_equipment
+		priority = 130
+		visual_level = 0
+		is_convertable = no
 	}
 }

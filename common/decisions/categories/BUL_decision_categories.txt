@@ -1,0 +1,58 @@
+BUL_cate_deci_build_fortress = {
+    priority = 50
+    icon = border_war
+    available = {
+        tag = BUL
+        BUL = {
+            has_completed_focus = BUL_build_fortress
+        }
+    }
+    visible = {
+        BUL = {
+            has_completed_focus = BUL_build_fortress
+        }
+        OR = {
+            has_decision = BUL_build_fortress_GRE_border
+            has_decision = BUL_build_fortress_ITA_border
+            has_decision = BUL_build_fortress_ROM_border
+            has_decision = BUL_build_fortress_SER_border
+            has_decision = BUL_build_fortress_TUR_border
+        }
+    }
+}
+
+BUL_cate_deci_war = {
+    priority = 100
+    icon = border_conflicts
+    available = {
+        tag = BUL
+        BUL = {
+            has_completed_focus = BUL_to_the_battle
+        }
+    }
+    visible = {
+        BUL = {
+            has_completed_focus = BUL_to_the_battle
+        }
+        OR = {
+            country_exists = GRE
+            country_exists = ROM
+        }
+    }
+}
+
+BUL_cate_deci_achievement_greater_BUL = {
+    priority = 25
+    icon = generic_political_actions
+    available = {
+        tag = BUL
+    }
+    visible = {
+        BUL = {
+            OR = {
+                has_completed_focus = BUL_soil_of_Thessaloniki
+                has_completed_focus = BUL_to_the_battle
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+add_namespace = SSW_SER
+#政府の任命
+country_event = {
+    id = SSW_SER.1
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_SER.1"
+	}
+	title = SSW_SER.1.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_SER.1.d
+	option = {
+        #軍事政権の成立
+		name = SSW_SER.1.a
+        set_country_flag = SSW_SER_Establishment_of_military_government
+	}
+    option = {
+        #民主政府の建設
+		name = SSW_SER.1.b
+        set_country_flag = SSW_SER_Building_democratic_government
+	}
+}

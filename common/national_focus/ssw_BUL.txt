@@ -10,6 +10,7 @@ focus_tree={
       }
     }
 
+    #産業ツリー
     focus = { #東欧の優等生
         id = BUL_industry_1
         icon = GFX_goal_unknown
@@ -83,6 +84,7 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        available_if_capitulated = yes
         prerequisite = {
             focus = BUL_bank
         }
@@ -174,6 +176,7 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        available_if_capitulated = yes
         prerequisite = {
             focus = BUL_industry_2
         }
@@ -265,6 +268,7 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        available_if_capitulated = yes
         prerequisite = {
             focus = BUL_add_army_Itali
         }
@@ -373,6 +377,7 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        available_if_capitulated = yes
         prerequisite = {
             focus = BUL_invite_ita_engineer
         }
@@ -612,7 +617,7 @@ focus_tree={
         }
     }
 
-    focus = {
+    focus = { #東欧の大国
         id = BUL_east_europe_major_power
         icon = GFX_focus_BUL_promote_bulgarian_nationalism
         cost = 10
@@ -624,6 +629,7 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        available_if_capitulated = yes
         prerequisite = {
             focus = BUL_Itali_equip
         }
@@ -643,6 +649,1843 @@ focus_tree={
 					level = 1
 					instant_build = yes
 				}
+            }
+        }
+    }
+
+    #内政ツリー
+    focus = { #暗黒の日曜日
+        id = BUL_Black_Sunday
+        icon = GFX_focus_generic_attack_bulgaria
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        available = {
+            always = no
+        }
+        x = 19
+        y = 0
+        cost = 0
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+
+        }
+    }
+
+    focus = { #戒厳令
+        id = BUL_martial_law
+        icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 15
+        y = 1
+        prerequisite = {
+            focus = BUL_Black_Sunday
+        }
+        mutually_exclusive = {
+            focus = BUL_protect_the_royal_family
+        }
+        cost = 0
+        available = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+
+        }
+    }
+
+    focus = { #自由を制限
+        id = BUL_limit_free
+        icon = GFX_focus_generic_strike_at_democracy2
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 14
+        y = 2
+        prerequisite = {
+            focus = BUL_martial_law
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_martial_law_0
+                    has_idea = BUL_martial_law_1
+                    has_idea = BUL_martial_law_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_martial_law_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_0
+                    add_idea = BUL_martial_law_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_1
+                    add_idea = BUL_martial_law_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_2
+                    add_idea = BUL_martial_law_3
+                }
+            }
+        }
+    }
+
+    focus = { #取り返せ
+        id = BUL_get_it_back
+        icon = GFX_focus_generic_support_the_left_right
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 14
+        y = 3
+        prerequisite = {
+            focus = BUL_limit_free
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_martial_law_3
+                    has_idea = BUL_martial_law_1
+                    has_idea = BUL_martial_law_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_martial_law_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_1
+                    add_idea = BUL_martial_law_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_2
+                    add_idea = BUL_martial_law_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_3
+                }
+                remove_ideas = BUL_martial_law_3
+            }
+        }
+    }
+
+    focus = { #撃て!
+        id = BUL_shoot
+        icon = GFX_goal_demand_sudetenland
+        x = 16
+        y = 2
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_martial_law
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_martial_law_0
+                    has_idea = BUL_martial_law_1
+                    has_idea = BUL_martial_law_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_martial_law_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_0
+                    add_idea = BUL_martial_law_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_1
+                    add_idea = BUL_martial_law_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_2
+                    add_idea = BUL_martial_law_3
+                }
+            }
+        }
+    }
+
+    focus = { #ブルガリアの土
+        id = BUL_soil_of_bulgaria
+        icon = GFX_focus_BUL_consolidate_the_third_bulgarian_state
+        x = 16
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_shoot
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_martial_law_3
+                    has_idea = BUL_martial_law_1
+                    has_idea = BUL_martial_law_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_martial_law_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_1
+                    add_idea = BUL_martial_law_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_martial_law_2
+                    add_idea = BUL_martial_law_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_martial_law_3
+                }
+                remove_ideas = BUL_martial_law_3
+            }
+        }
+    }
+
+    focus = { #会議
+        id = BUL_meeting
+        icon = GFX_goal_generic_national_unity
+        x = 15
+        y = 4
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_get_it_back
+        }
+        prerequisite = {
+            focus = BUL_soil_of_bulgaria
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = BUL_political_instability
+                factor = 2
+            }
+        }
+        completion_reward = {
+            country_event = {
+                id = ssw_bul.2
+            }
+        }
+    }
+
+    focus = { #親ドイツ派
+        id = BUL_pro_german
+        icon = GFX_focus_chi_mission_to_germany
+        x = 13
+        y = 5
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_meeting
+        }
+        mutually_exclusive = {
+            focus = BUL_the_man_from_Macedonia
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = support_pro_german_fact
+                has_country_flag = BUL_support_pro_german
+                has_completed_focus = BUL_meeting
+                NOT = {
+                    has_idea = BUL_political_instability
+                }
+            }
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_opinion_modifier = {
+                target = GER
+                modifier = SSW_BUL_support_pro_GER_fact
+            }
+            reverse_add_opinion_modifier = {
+                target = GER
+                modifier = SSW_BUL_support_pro_GER_fact
+            }
+        }
+    }
+
+    focus = { #ドイツからの支援
+        id = BUL_support_from_german
+        icon = GFX_focus_secret_rearmament
+        x = 13
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_pro_german
+        }
+        available = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_GER_civil_war_end
+                    has_global_flag = GER_civil_war_end
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_GER_civil_war_not_happened
+                    NOT = {
+                        OR = {
+                            has_global_flag = GER_civil_war_end
+                            has_global_flag = GER_civil_war
+                        }
+                    }
+                }
+            }
+        }
+        cancel = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_GER_civil_war
+                AND = {
+                    has_global_flag = GER_civil_war
+                    NOT = {has_global_flag = GER_civil_war_end}
+                }
+            }
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_global_flag = {
+                        flag = GER_civil_war_end
+                        days < 30 
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 500
+                    producer = GER
+                }
+            }
+            else_if = {
+                limit = {
+                    has_global_flag = {
+                        flag = GER_civil_war_end
+                        days < 90
+                        days > 29
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 1000
+                    producer = GER
+                }
+            }
+            else_if = {
+                limit = {
+                    has_global_flag = {
+                        flag = GER_civil_war_end
+                        days < 150
+                        days > 89
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 1500
+                    producer = GER
+                }
+            }
+            else = {
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 2000
+                    producer = GER
+                }
+            }
+        }
+    }
+
+    focus = { #戦友
+        id = BUL_comrades
+        icon = GFX_focus_generic_military_mission
+        x = 12
+        y = 7
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_support_from_german
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_GER_tech_cooperation
+        }
+    }
+
+    focus = { #ドイツを習う
+        id = BUL_learn_from_germany
+        icon = GFX_focus_generic_military_academy
+        x = 14
+        y = 7
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_support_from_german
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = land_doctrine
+            }
+        }
+    }
+
+    focus = { #テッサロニキの土
+        id = BUL_soil_of_Thessaloniki
+        icon = GFX_focus_BUL_bulgaria_on_the_three_seas
+        x = 13
+        y = 8
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        bypass = {
+            owns_state = 184
+            owns_state = 731
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+        }
+        available_if_capitulated = yes
+        prerequisite = {
+            focus = BUL_comrades
+        }
+        prerequisite = {
+            focus = BUL_learn_from_germany
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            GRE = {
+                country_event = { id = ssw_bul.3}
+            }
+        }
+    }
+
+    focus = { #相互防衛協定
+        id = BUL_mutual_defense_agreement
+        icon = GFX_focus_generic_little_entente
+        x = 13
+        y = 9
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_soil_of_Thessaloniki
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            give_guarantee = GER
+            GER = {
+                give_guarantee = BUL
+            }
+        }
+    }
+
+    focus = { #原点回帰
+        id = BUL_origin_regression
+        icon = GFX_Bulgaria
+        x = 13
+        y = 10
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_mutual_defense_agreement
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_my_country
+        }
+    }
+
+    focus = { #マケドニアから来た男
+        id = BUL_the_man_from_Macedonia
+        icon = GFX_focus_GRE_a_land_of_mountains
+        x = 17
+        y = 5
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_meeting
+        }
+        mutually_exclusive = {
+            focus = BUL_pro_german
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = not_support_pro_german_fact
+                NOT = {
+                    has_country_flag = BUL_support_pro_german
+                }
+                has_completed_focus = BUL_meeting
+                NOT = {
+                    has_idea = BUL_political_instability
+                }
+            }
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            reverse_add_opinion_modifier = {
+                target = GRE
+                modifier = SSW_BUL_greater_BUL
+            }
+            reverse_add_opinion_modifier = {
+                target = ROM
+                modifier = SSW_BUL_greater_BUL
+            }
+        }
+    }
+
+    focus = { #要塞の建築
+        id = BUL_build_fortress
+        icon = GFX_goal_generic_fortify_city
+        x = 15
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_the_man_from_Macedonia
+        }
+        available_if_capitulated = yes
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            country_event = {id = ssw_bul.10}
+        }
+    }
+
+    focus = { #敵を叩きのめせ
+        id = BUL_beat_the_enemy
+        icon = GFX_goal_generic_major_war
+        x = 17
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_the_man_from_Macedonia
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_beat_enemies
+        }
+    }
+
+    focus = { #イタリアからの支援
+        id = BUL_support_from_italia
+        icon = GFX_goal_generic_small_arms
+        x = 19
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_the_man_from_Macedonia
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1200
+                producer = ITA
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 250
+                producer = ITA
+            }
+        }
+    }
+
+    focus = { #ミハイロフ式戦術
+        id = BUL_Mikhailov_tactics
+        icon = GFX_goal_generic_position_armies
+        x = 16
+        y = 7
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_build_fortress
+        }
+        prerequisite = {
+            focus = BUL_beat_the_enemy
+        }
+        prerequisite = {
+            focus = BUL_support_from_italia
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 3
+                category = land_doctrine
+            }
+        }
+    }
+
+    focus = { #イタリア軍事顧問団
+        id = BUL_italian_military_advisory_group
+        icon = GFX_goal_generic_intelligence_exchange
+        x = 18
+        y = 7
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_build_fortress
+        }
+        prerequisite = {
+            focus = BUL_beat_the_enemy
+        }
+        prerequisite = {
+            focus = BUL_support_from_italia
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_italian_military_advisory
+        }
+    }
+
+    focus = { #王室への影響力
+        id = BUL_influence_on_the_royal_family
+        icon = GFX_focus_rom_royal_dictatorship
+        x = 17
+        y = 8
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_Mikhailov_tactics
+        }
+        prerequisite = {
+            focus = BUL_italian_military_advisory_group
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_royal_backing
+        }
+    }
+
+    focus = { #国民の洗脳
+        id = BUL_brainwashing_the_people
+        icon = GFX_goal_generic_propaganda
+        x = 17
+        y = 9
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_influence_on_the_royal_family
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_indoctrination_people
+        }
+    }
+
+    focus = { #戦へ
+        id = BUL_to_the_battle
+        icon = GFX_goal_generic_political_pressure
+        x = 17
+        y = 10
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_brainwashing_the_people
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+        }
+        available_if_capitulated = yes
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            custom_effect_tooltip = BUL_to_the_battle_tt
+        }
+    }
+
+    focus = { #王室の保護
+        id = BUL_protect_the_royal_family
+        icon = GFX_focus_generic_home_defense
+        x = 23
+        y = 1
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        prerequisite = {
+            focus = BUL_Black_Sunday
+        }
+        available = {
+            always = no
+        }
+        mutually_exclusive = {
+            focus = BUL_martial_law
+        }
+        cost = 0
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+
+        }
+    }
+
+    focus = { #都市の統制
+        id = BUL_city_control
+        icon = GFX_focus_generic_the_giant_wakes
+        x = 22
+        y = 2
+        prerequisite = {
+            focus = BUL_protect_the_royal_family
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #地方の統制
+        id = BUL_local_control
+        icon = GFX_focus_focus_fra_maquis
+        x = 22
+        y = 3
+        prerequisite = {
+            focus = BUL_city_control
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #政治権限の調整
+        id = BUL_coodination_political_authority
+        icon = GFX_goal_generic_neutrality_focus
+        x = 24
+        y = 2
+        prerequisite = {
+            focus = BUL_protect_the_royal_family
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #扇動者の対処
+        id = BUL_deal_with_agitators
+        icon = GFX_focus_spr_crush_the_revolution
+        x = 24
+        y = 3
+        prerequisite = {
+            focus = BUL_coodination_political_authority
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #政権の安定
+        id = BUL_regime_stability
+        icon = GFX_focus_BUL_promote_bulgarian_nationalism
+        x = 23
+        y = 4
+        prerequisite = {
+            focus = BUL_local_control
+        }
+        prerequisite = {
+            focus = BUL_deal_with_agitators
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #国民を支援
+        id = BUL_support_the_people
+        icon = GFX_focus_generic_concessions
+        x = 22
+        y = 5
+        prerequisite = {
+            focus = BUL_regime_stability
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    focus = { #イギリス側との交渉
+        id = BUL_negotiation_with_British
+        icon = GFX_focus_chi_british_cooperation
+        x = 24
+        y = 5
+        prerequisite = {
+            focus = BUL_regime_stability
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+    }
+
+    #外交ツリー
+    focus = { #ソフィアの欲望
+        id = BUL_desire_of_Sofia
+        icon = GFX_focus_BUL_guardians_of_the_balkans
+        x = 32
+        y = 0
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_war_support = 0.15
+        }
+    }
+
+    focus = { #北へ
+        id = BUL_to_north
+        icon = GFX_focus_generic_strike_at_democracy1
+        x = 28
+        y = 1
+        prerequisite = {
+            focus = BUL_desire_of_Sofia
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available_if_capitulated = yes
+        completion_reward = {
+            803 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    focus = { #セルビアから
+        id = BUL_from_west
+        icon = GFX_goal_demand_sudetenland
+        x = 28
+        y = 2
+        prerequisite = {
+            focus = BUL_to_north
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available_if_capitulated = yes
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = SER
+                }
+                add_claim_by = BUL
+            }
+        }
+    }
+    
+    focus = { #クルシェドラ作戦
+        id = BUL_advance_to_Belgrade
+        icon = GFX_focus_generic_air_defense
+        x = 28
+        y = 3
+        prerequisite = {
+            focus = BUL_from_west
+        }
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = SER
+                }
+                has_war_with = SER
+            }
+        }
+        available_if_capitulated = yes
+        available = {
+            NOT = {
+                has_non_aggression_pact_with = SER
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = SER
+                type = annex_everything
+            }
+        }
+    }
+
+    focus = { #クロアチアの抵抗
+        id = BUL_thorough_destruction
+        icon = GFX_goal_generic_secret_weapon
+        x = 27
+        y = 4
+        prerequisite = {
+            focus = BUL_advance_to_Belgrade
+        }
+        available_if_capitulated = yes
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_suppress_resistance
+        }
+    }
+
+    focus = { #クロアチアへの要求
+        id = BUL_request_to_CRO
+        icon = GFX_goal_generic_forceful_treaty
+        x = 27
+        y = 5
+        prerequisite = {
+            focus = BUL_thorough_destruction
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        available_if_capitulated = yes
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = CRO
+                }
+                add_claim_by = BUL
+            }
+        }
+    }
+
+    focus = { #ハンガリーと協力
+        id = BUL_cooperate_with_HUN
+        icon = GFX_goal_generic_improve_relations
+        x = 29
+        y = 5
+        prerequisite = {
+            focus = BUL_advance_to_Belgrade
+        }
+        bypass = {
+            NOT = {
+                OR = {
+                    country_exists = HUN
+                    country_exists = CRO
+                }
+            }
+        }
+        available_if_capitulated = yes
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            HUN = {
+                country_event = {id = ssw_bul.11}
+            }
+        }
+    }
+
+    focus = { #クロアチアを終わらせる
+        id = BUL_end_CRO
+        icon = GFX_goal_generic_more_territorial_claims
+        x = 28
+        y = 6
+        prerequisite = {
+            focus = BUL_request_to_CRO
+        }
+        prerequisite = {
+            focus = BUL_cooperate_with_HUN
+        }
+        available_if_capitulated = yes
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_global_flag = GER_civil_war
+                    CRO = {
+                        is_puppet = yes
+                    }
+                }
+                CRO = {
+                    end_puppet = GER
+                }
+            }
+            else_if = {
+                limit = {
+                    AND = {
+                        OR = {
+                            NOT = {
+                                has_global_flag = GER_civil_war
+                            }
+                            has_global_flag = GER_civil_war_end
+                        }
+                        CRO = {
+                            is_puppet = yes
+                        }
+                    }
+                }
+                GER = {
+                    country_event = {id = ssw_bul.14}
+                }
+            }
+        }
+    }
+
+    focus = { #ポゾイ作戦
+        id = BUL_operation_zmei
+        icon = GFX_goal_generic_major_war
+        x = 28
+        y = 7
+        prerequisite = {
+            focus = BUL_end_CRO
+        }
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = CRO
+                }
+                has_war_with = CRO
+            }
+        }
+        available_if_capitulated = yes
+        available = {
+            NOT = {
+                has_non_aggression_pact_with = CRO
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = CRO
+                type = annex_everything
+            }
+            if = {
+                limit = {
+                    has_non_aggression_pact_with = HUN
+                    has_military_access_to = HUN
+                    gives_military_acces_to = HUN
+                }
+                HUN = {
+                    declare_war_on = {
+                        target = CRO
+                        type = annex_everything
+                    }
+                }
+            }
+        }
+    }
+
+    focus = { #ハンガリーを手に入れる
+        id = BUL_get_HUN
+        icon = GFX_LTV_Hungry
+        x = 28
+        y = 8
+        prerequisite = {
+            focus = BUL_operation_zmei
+        }
+        available_if_capitulated = yes
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = HUN
+                }
+                add_claim_by = BUL
+            }
+        }
+    }
+
+    focus = { #不可侵条約を破棄
+        id = BUL_abandon_nonaggression
+        icon = GFX_goal_generic_territory_or_war
+        x = 28
+        y = 9
+        prerequisite = {
+            focus = BUL_get_HUN
+        }
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = HUN
+                }
+                AND = {
+                    NOT = {has_non_aggression_pact_with = HUN}
+                    NOT = {has_military_access_to = HUN}
+                    NOT = {gives_military_acces_to = HUN}
+                }
+            }
+        }
+        available_if_capitulated = yes
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            custom_effect_tooltip = BUL_HUN_break_agreement
+            hidden_effect = {
+                if = {
+                    limit = {
+                        has_non_aggression_pact_with = HUN
+                    }
+                    diplomatic_relation = {
+                        country = HUN
+                        relation = non_aggression_pact
+                        active = no
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_military_access_to = HUN
+                            gives_military_acces_to = HUN
+                        }
+                    }
+                    diplomatic_relation = {
+                        country = HUN
+                        relation = military_access
+                        active = no
+                    }
+                    HUN = {
+                        diplomatic_relation = {
+                            country = BUL
+                            relation = military_access
+                            active = no
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    focus = { #カラコンジェル作戦
+        id = BUL_operation_caraconjel
+        icon = GFX_goal_generic_position_armies
+        x = 28
+        y = 10
+        prerequisite = {
+            focus = BUL_abandon_nonaggression
+        }
+        available = {
+            NOT = {
+                has_non_aggression_pact_with = HUN
+            }
+        }
+        available_if_capitulated = yes
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = HUN
+                }
+                has_war_with = HUN
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = HUN
+                type = annex_everything
+            }
+        }
+    }
+
+    focus = { #トルコの脅威
+        id = BUL_TUR_threat
+        icon = GFX_focus_TUR_misak_i_milli
+        x = 32
+        y = 2
+        prerequisite = {
+            focus = BUL_desire_of_Sofia
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+        }
+        available_if_capitulated = yes
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            341 = {
+                add_claim_by = BUL
+            }
+            797 = {
+                add_claim_by = BUL
+            }
+        }
+    }
+
+    focus = { #破壊工作
+        id = BUL_sabotage
+        icon = GFX_focus_prc_infiltration
+        x = 32
+        y = 3
+        prerequisite = {
+            focus = BUL_TUR_threat
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            341 = {
+                damage_building = {
+                    type = industrial_complex
+                    damage = 2
+                }
+                damage_building = {
+                    type = infrastructure
+                    damage = 2
+                }
+            }
+            797 = {
+                damage_building = {
+                    type = arms_factory
+                    damage = 2
+                }
+                damage_building = {
+                    type = infrastructure
+                    damage = 2
+                }
+            }
+        }
+    }
+
+    focus = { #陸から
+        id = BUL_from_land
+        icon = GFX_focus_TUR_the_montreux_convention
+        x = 31
+        y = 4
+        prerequisite = {
+            focus = BUL_sabotage
+        }
+        mutually_exclusive = {
+            focus = BUL_from_sea
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = infantry_tech
+                category = artillery
+            }
+        }
+    }
+
+    focus = { #海から
+        id = BUL_from_sea
+        icon = GFX_focus_generic_black_sea_focus
+        x = 33
+        y = 4
+        prerequisite = {
+            focus = BUL_sabotage
+        }
+        mutually_exclusive = {
+            focus = BUL_from_land
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1.5
+                uses = 1
+                category = marine_tech
+                category = tp_tech
+            }
+        }
+    }
+
+    focus = { #火炎放射器の配備
+        id = BUL_deployment_of_flam
+        icon = GFX_goal_generic_small_arms
+        x = 31
+        y = 5
+        prerequisite = {
+            focus = BUL_from_land
+        }
+        available_if_capitulated = yes
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_deployment_of_flamthrower
+        }
+    }
+
+    focus = { #輸送船の確保
+        id = BUL_secure_transportships
+        icon = GFX_focus_generic_cruiser2
+        x = 33
+        y = 5
+        prerequisite = {
+            focus = BUL_from_sea
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_equipment_to_stockpile = {
+                type = convoy
+                amount = 80
+            }
+        }
+    }
+
+    focus = { #航空支援
+        id = BUL_air_support
+        icon = GFX_goal_generic_air_fighter2
+        x = 31
+        y = 6
+        prerequisite = {
+            focus = BUL_deployment_of_flam
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = air_equipment
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = air_doctrine
+            }
+        }
+    }
+
+    focus = { #演習
+        id = BUL_exercise
+        icon = GFX_goal_generic_amphibious_assault
+        x = 33
+        y = 6
+        prerequisite = {
+            focus = BUL_secure_transportships
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_landing_operation_training
+        }
+    }
+
+    focus = { #ズメイ作戦
+        id = BUL_operation_lamia
+        icon = GFX_focus_BUL_supremacy_on_the_bosporus
+        x = 32
+        y = 7
+        prerequisite = {
+            focus = BUL_air_support
+            focus = BUL_exercise
+        }
+        available_if_capitulated = yes
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = TUR
+                }
+                has_war_with = TUR
+            }
+        }
+        available = {
+            NOT = {
+                has_non_aggression_pact_with = TUR
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = TUR
+                type = annex_everything
+            }
+        }
+    }
+
+    focus = { #南へ
+        id = BUL_to_south
+        icon = GFX_focus_generic_aegean_sea_focus
+        x = 36
+        y = 1
+        prerequisite = {
+            focus = BUL_desire_of_Sofia
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        available_if_capitulated = yes
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            106 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            212 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    focus = { #アルバニアを要求
+        id = BUL_request_ALB
+        icon = GFX_focus_generic_adriatic_sea_focus
+        x = 35
+        y = 2
+        prerequisite = {
+            focus = BUL_to_south
+        }
+        available_if_capitulated = yes
+        mutually_exclusive = {
+            focus = BUL_cross_the_border
+        }
+        bypass = {
+            NOT = {
+                country_exists = ALB
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = ALB
+                }
+                add_claim_by = BUL
+            }
+            ITA = {
+                country_event = {id = ssw_bul.17}
+            }
+        }
+    }
+
+    focus = { #国境を越える
+        id = BUL_cross_the_border
+        icon = GFX_focus_generic_provoke_border_clashes
+        x = 37
+        y = 2
+        prerequisite = {
+            focus = BUL_to_south
+        }
+        available_if_capitulated = yes
+        mutually_exclusive = {
+            focus = BUL_request_ALB
+        }
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = GRE
+                }
+                OR = {
+                    controls_state = 731
+                    owns_state = 731
+                    controls_state = 184
+                    owns_state = 184
+                }
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_border_survey
+        }
+    }
+
+    focus = { #迂回
+        id = BUL_detour
+        icon = GFX_goal_generic_dangerous_deal
+        x = 35
+        y = 3
+        prerequisite = {
+            focus = BUL_request_ALB
+        }
+        available_if_capitulated = yes
+        bypass = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_detour_tt
+                has_country_flag = BUL_not_get_ALB
+            }
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    owns_state = 807
+                }
+                807 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owns_state = 44
+                }
+                44 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    owns_state = 805
+                }
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    focus = { #テッサロニキを要求
+        id = BUL_request_Thessaloniki
+        icon = GFX_focus_GRE_bedrock_of_balkan_stability
+        x = 37
+        y = 3
+        prerequisite = {
+            focus = BUL_cross_the_border
+        }
+        available_if_capitulated = yes
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = GRE
+                }
+                OR = {
+                    owns_state = 731
+                    owns_state = 184
+                }
+                has_war_with = GRE
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            GRE = {
+                country_event = {id = ssw_bul.3}
+            }
+        }
+    }
+
+    focus = { #ハラ作戦
+        id = BUL_operation_smok
+        icon = GFX_goal_generic_position_armies
+        x = 36
+        y = 4
+        prerequisite = {
+            focus = BUL_detour
+            focus = BUL_request_Thessaloniki
+        }
+        available_if_capitulated = yes
+        bypass = {
+            OR = {
+                NOT = {
+                    country_exists = GRE
+                }
+                has_war_with = GRE
+            }
+        }
+        available = {
+            NOT = {
+                has_non_aggression_pact_with = GRE
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = GRE
+                }
+                add_claim_by = BUL
+            }
+            declare_war_on = {
+                target = GRE
+                type = annex_everything
             }
         }
     }

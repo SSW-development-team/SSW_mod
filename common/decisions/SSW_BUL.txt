@@ -1,0 +1,284 @@
+BUL_cate_deci_build_fortress = {
+    BUL_build_fortress_GRE_border = {
+        icon = border_war
+        available = {
+            hidden_trigger = {
+                NOT = {country_exists = BUL}
+            }
+            always = no
+        }
+        fire_only_once = yes
+        days_remove = 140
+        modifier = {
+            consumer_goods_factor = 0.05
+        }
+        remove_effect = {
+            custom_effect_tooltip = BUL_build_fort_GRE_bor
+            106 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 974}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 3833}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 6886}
+            }
+            212 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 6857}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9818}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11813}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 893}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 878}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9862}
+            }
+            211 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9888}
+            }
+            reverse_add_opinion_modifier = {
+                target = GRE
+                modifier = SSW_BUL_fortress_on_border
+            }
+        }
+    }
+
+    BUL_build_fortress_ROM_border = {
+        icon = border_war
+        available = {
+            hidden_trigger = {
+                NOT = {country_exists = BUL}
+            }
+            always = no
+        }
+        fire_only_once = yes
+        days_remove = 140
+        modifier = {
+            consumer_goods_factor = 0.05
+        }
+        remove_effect = {
+            custom_effect_tooltip = BUL_build_fort_ROM_bor
+            77 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11597}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9614}
+            }
+            801 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9612}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9610}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 3796}
+            }
+            48 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 793}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11754}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9771}
+            }
+            reverse_add_opinion_modifier = {
+                target = ROM
+                modifier = SSW_BUL_fortress_on_border
+            }
+        }
+    }
+
+    BUL_build_fortress_SER_border = {
+        icon = border_war
+        available = {
+            hidden_trigger = {
+                NOT = {country_exists = BUL}
+            }
+            always = no
+        }
+        fire_only_once = yes
+        days_remove = 70
+        modifier = {
+            consumer_goods_factor = 0.05
+        }
+        remove_effect = {
+            custom_effect_tooltip = BUL_build_fort_SER_bor
+            803 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11868}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11857}
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 11832}
+            }
+            106 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 3882}
+            }
+            reverse_add_opinion_modifier = {
+                target = SER
+                modifier = SSW_BUL_fortress_on_border
+            }
+        }
+    }
+
+    BUL_build_fortress_TUR_border = {
+        icon = border_war
+        available = {
+            hidden_trigger = {
+                NOT = {country_exists = BUL}
+            }
+            always = no
+        }
+        fire_only_once = yes
+        days_remove = 35
+        modifier = {
+            consumer_goods_factor = 0.03
+        }
+        remove_effect = {
+            custom_effect_tooltip = BUL_build_fort_TUR_bor
+            211 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 9902}
+            }
+            reverse_add_opinion_modifier = {
+                target = TUR
+                modifier = SSW_BUL_fortress_on_border
+            }
+        }
+    }
+
+    BUL_build_fortress_ITA_border = {
+        icon = border_war
+        available = {
+            hidden_trigger = {
+                country_exists = BUL
+            }
+            always = no
+        }
+        fire_only_once = yes
+        days_remove = 70
+        modifier = {
+            consumer_goods_factor = 0.05
+        }
+        remove_effect = {
+            custom_effect_tooltip = BUL_build_fort_ITA_bor
+            106 = {
+                add_building_construction = {type = bunker level = 2 instant_build = yes province = 3865}
+            }
+            reverse_add_opinion_modifier = {
+                target = ITA
+                modifier = SSW_BUL_fortress_on_border
+            }
+            reverse_add_opinion_modifier = {
+                target = ALB
+                modifier = SSW_BUL_fortress_on_border
+            }
+        }
+    }
+}
+
+BUL_cate_deci_war = { #大ブルガリアのための戦争
+    BUL_war_GRE_BB = { #サロニカとテッサロニキのための戦争
+        icon = generic_ignite_civil_war
+        available = {
+            hidden_trigger = {
+                BUL = {
+                    has_completed_focus = BUL_to_the_battle
+                }
+            }
+            country_exists = GRE
+            NOT = {has_non_aggression_pact_with = GRE}
+        }
+        visible = {
+            NOT = {
+                OR = {
+                    has_full_control_of_state = 731
+                    has_full_control_of_state = 184
+                }
+            }
+        }
+        fire_only_once = yes
+        days_remove = 20
+        cost = 10
+        remove_effect = {
+            declare_war_on = {
+                target = GRE
+                type = annex_everything
+            }
+        }
+    }
+
+    BUL_war_ROM_BB = { #ドブルジャのための戦争
+        icon = generic_ignite_civil_war
+        available = {
+            hidden_trigger = {
+                BUL = {
+                    has_completed_focus = BUL_to_the_battle
+                }
+            }
+            country_exists = ROM
+            NOT = {has_non_aggression_pact_with = ROM}
+        }
+        visible = {
+            NOT = {has_full_control_of_state = 973}
+        }
+        fire_only_once = yes
+        days_remove = 20
+        cost = 10
+        remove_effect = {
+            declare_war_on = {
+                target = ROM
+                type = annex_everything
+            }
+        }
+    }
+}
+
+BUL_cate_deci_achievement_greater_BUL = {
+    BUL_integration_Saronica = { #サロニカの統合
+        icon = generic_nationalism
+        available = {
+            hidden_trigger = {
+                BUL = {
+                    OR = {
+                        has_completed_focus = BUL_soil_of_Thessaloniki
+                        has_completed_focus = BUL_to_the_battle
+                    }
+                }
+            }
+            has_full_control_of_state = 184
+            184 = {
+                compliance > 40
+            }
+        }
+        visible = {
+            NOT = {
+                184 = {
+                    is_core_of = BUL
+                }
+            }
+        }
+        fire_only_once = yes
+        days_remove = 70
+        modifier = {
+            political_power_gain = -0.1
+        }
+        remove_effect = {
+            add_state_core = 184
+        }
+    }
+
+    BUL_integration_Thessaloniki = { #テッサロニキの統合
+        icon = generic_nationalism
+        available = {
+            hidden_trigger = {
+                BUL = {
+                    OR = {
+                        has_completed_focus = BUL_soil_of_Thessaloniki
+                        has_completed_focus = BUL_to_the_battle
+                    }
+                }
+            }
+            has_full_control_of_state = 731
+            731 = {
+                compliance > 40
+            }
+        }
+        visible = {
+            NOT = {
+                731 = {
+                    is_core_of = BUL
+                }
+            }
+        }
+        fire_only_once = yes
+        days_remove = 100
+        modifier = {
+            political_power_gain = -0.1
+        }
+        remove_effect = {
+            add_state_core = 731
+        }
+    }
+}

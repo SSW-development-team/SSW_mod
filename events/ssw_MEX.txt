@@ -30,6 +30,9 @@ country_event = {
 			unlock_national_focus = MEX_leftist
 			country_lock_all_division_template = no
 			remove_ideas = mex_ideas_18
+			add_offsite_building = { type = industrial_complex level = 5 }
+			add_offsite_building = { type = arms_factory level = 5 }
+			add_offsite_building = { type = dockyard level = 5 }
 			random_other_country = {
 				limit = {
 					original_tag = MEX
@@ -100,82 +103,9 @@ country_event = {
 			unlock_national_focus = MEX_rightist
 			country_lock_all_division_template = no
 			remove_ideas = mex_ideas_18
-			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = dockyard
-					level = 3
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = industrial_complex
-										size > 1
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = arms_factory
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-			}
+			add_offsite_building = { type = industrial_complex level = 5 }
+			add_offsite_building = { type = arms_factory level = 5 }
+			add_offsite_building = { type = dockyard level = 5 }
 			create_dynamic_country = {
 				original_tag = MEX
 				set_politics = { ruling_party = social_democracy elections_allowed = yes }
