@@ -48,10 +48,10 @@ shared_focus = {
 	x = 2
 	y = 1
 	completion_reward = {
-			swap_ideas = {
-remove_idea = ITA_idea_1
-add_idea = ITA_idea_3
-}	
+		swap_ideas = {
+			remove_idea = ITA_idea_1
+			add_idea = ITA_idea_3
+		}	
 	}
 }
 #現状産業の改良
@@ -80,9 +80,9 @@ shared_focus = {
 	y = 1
 	completion_reward = {
 		swap_ideas = {
-remove_idea = ITA_idea_1
-add_idea = ITA_idea_4
-}		
+			remove_idea = ITA_idea_1
+			add_idea = ITA_idea_4
+		}		
 	}
 }
 #民間主体産業への切り替え
@@ -1339,6 +1339,36 @@ shared_focus = {
 		add_ideas = ITA_idea_55
 	}
 }
+#攻撃戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_offensive_warfare
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Improved_equipment_attack
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 38
+	y = 4
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_55
+			add_idea = ITA_idea_62
+		}
+	}
+}
 #防衛用装備の生産
 shared_focus = {
 	id = ITA_focus_balbo_Improved_equipment_defence
@@ -1365,6 +1395,82 @@ shared_focus = {
 	y = 3
 	completion_reward = {
 		add_ideas = ITA_idea_56
+	}
+}
+#防衛戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_deffensive_warfare
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Improved_equipment_defence
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 36
+	y = 4
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_56
+			add_idea = ITA_idea_63
+		}
+	}
+}
+#基本戦術の確立
+shared_focus = {
+	id = ITA_focus_balbo_Establish_basic_tactics
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_deffensive_warfare
+		focus = ITA_focus_balbo_Focus_on_offensive_warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 37
+	y = 5
+	completion_reward = {
+		custom_effect_tooltip = ssw_ITA_focus_balbo_Establish_basic_tactics_tooltip
+		if = {
+			limit = {
+				has_idea = ITA_idea_63 #防衛戦へ特化している
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_63
+				add_idea = ITA_idea_64
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ITA_idea_62 #攻撃戦へ特化している
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_62
+				add_idea = ITA_idea_65
+			}
+		}
 	}
 }
 #部隊指揮の高度化
@@ -1448,6 +1554,52 @@ shared_focus = {
 	y = 3
 	completion_reward = {
 		add_ideas = ITA_idea_59
+	}
+}
+#兵站の強化
+shared_focus = {
+	id = ITA_focus_balbo_Strengthening_logistics
+	icon = GFX_ITA_Italian_Army
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Combat_in_the_Cold_Zone
+		focus = ITA_focus_balbo_Fighting_in_the_heat_zone
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 4
+	completion_reward = {
+		custom_effect_tooltip = ssw_ITA_focus_balbo_Strengthening_logistics_tooltip
+		if = {
+			limit = {
+				has_idea = ITA_idea_58 #暑い方
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_58
+				add_idea = ITA_idea_60
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ITA_idea_59 #寒い方
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_59
+				add_idea = ITA_idea_61
+			}
+		}
 	}
 }
 #徴兵の効率化
