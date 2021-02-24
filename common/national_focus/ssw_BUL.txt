@@ -1133,6 +1133,9 @@ focus_tree={
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
             }
+            has_army_manpower = {
+                size > 260000
+            }
         }
         available_if_capitulated = yes
         prerequisite = {
@@ -1422,6 +1425,9 @@ focus_tree={
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
             }
+            has_army_manpower = {
+                size > 300000
+            }
         }
         available_if_capitulated = yes
         cost = 10
@@ -1605,6 +1611,9 @@ focus_tree={
             custom_trigger_tooltip = {
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 260000
             }
         }
         cost = 5
@@ -1834,8 +1843,16 @@ focus_tree={
         }
         available_if_capitulated = yes
         available = {
-            NOT = {
-                has_non_aggression_pact_with = CRO
+            OR = {
+                NOT = {
+                    has_non_aggression_pact_with = CRO
+                }
+                NOT = {
+                    is_in_faction_with = CRO
+                }
+            }
+            has_army_manpower = {
+                size > 300000
             }
         }
         search_filters = {
@@ -1877,6 +1894,11 @@ focus_tree={
         available_if_capitulated = yes
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            has_army_manpower = {
+                size > 320000
+            }
         }
         cost = 10
         ai_will_do = {
@@ -1952,6 +1974,12 @@ focus_tree={
                             active = no
                         }
                     }
+                }
+                if = {
+                    limit = {
+                        is_in_faction_with = HUN
+                    }
+                    leave_faction = yes
                 }
             }
         }
@@ -2224,6 +2252,9 @@ focus_tree={
             NOT = {
                 has_non_aggression_pact_with = TUR
             }
+            has_army_manpower = {
+                size > 300000
+            }
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -2240,7 +2271,7 @@ focus_tree={
         }
     }
 
-    focus = { #南へ
+    focus = { #南へ 
         id = BUL_to_south
         icon = GFX_focus_generic_aegean_sea_focus
         x = 36
@@ -2252,6 +2283,9 @@ focus_tree={
             custom_trigger_tooltip = {
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 280000
             }
         }
         search_filters = {
