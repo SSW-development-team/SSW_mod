@@ -159,7 +159,7 @@ focus_tree = {
 	focus = {
 		id = Codreanu_children
 		icon = GFX_goal_unknown
-		cost = 5.00
+		cost = 0
 		available = {
 			hidden_trigger = { always = no }
 		}
@@ -177,18 +177,19 @@ focus_tree = {
 
 	}
 	focus = {
-		id = Legacy_of_capitan
-		icon = GFX_goal_unknown
-		cost = 5.00
+		id = committee_of_ROMANIANZATION
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
 		prerequisite = {
 			focus = Codreanu_children
 		}
 		x = 20
 		y = 2
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.3
+			}
 		}
-
 	}
 	focus = {
 		id = Return_Sima
@@ -201,7 +202,7 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = Legacy_of_capitan
+			focus = committee_of_ROMANIANZATION
 		}
 		x = 20
 		y = 3
@@ -226,7 +227,7 @@ focus_tree = {
 	focus = {
 		id = Going_to_the_people
 		icon = GFX_goal_generic_construct_infrastructure
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Codreanu_children
 		}
@@ -270,16 +271,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_popularity = {
-				ideology = national_fascism
-				popularity = 0.10
-			}
 		}
 	}
 	focus = {
 		id = Agricultural_Guarantee_Fund
 		icon = GFX_focus_generic_industry_2
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Going_to_the_people
 		}
@@ -297,7 +294,7 @@ focus_tree = {
 	focus = {
 		id = With_Archangel
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = Agricultural_Guarantee_Fund
 		}
@@ -317,7 +314,7 @@ focus_tree = {
 	focus = {
 		id = Reorganaized_Nest
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Codreanu_children
 		}
@@ -330,15 +327,16 @@ focus_tree = {
 	}
 	focus = {
 		id = Legion_school
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_demand_territory
+		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_Nest
 		}
 		x = 24
 		y = 3
 		completion_reward = {
-			
+			army_experience = 5
+			add_ideas = Legion_school
 		}
 
 	}
@@ -348,6 +346,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = Legion_school
+		}
+		prerequisite = {
+			focus = Codreanu_children
 		}
 		x = 24
 		y = 4
@@ -402,37 +403,38 @@ focus_tree = {
 
 	}
 	focus = {
-		id = committee_of_ROMANIANZATION
-		icon = GFX_goal_generic_forceful_treaty
-		cost = 10.00
+		id = Legion_senatus
+		icon = GFX_goal_unknown
+		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_Nest
 		}
 		x = 26
 		y = 3
 		completion_reward = {
-			country_event = {
-				id = SSW_ROM.3
-			}
+			#一部逃げだした鉄衛団シンパを呼び戻す予定だが、閣僚システムが死んでいるので後回し
 		}
-
 	}
 	focus = {
 		id = Patriotism_propaganda
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = committee_of_ROMANIANZATION
+			focus = Legion_senatus
 		}
 		x = 26
 		y = 4
 		completion_reward = {
-			
+			add_war_support = 0.15
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.1
+			}
 		}
 
 	}
 	focus = {
-		id = Army_learning_to_the_right
+		id = Legion_cooperative
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -441,16 +443,23 @@ focus_tree = {
 		x = 28
 		y = 3
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				prioritize = { 46 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
-
 	}
 	focus = {
 		id = Raise_capability_of_mobilization
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Army_learning_to_the_right
+			focus = Legion_cooperative
 		}
 		x = 28
 		y = 4
