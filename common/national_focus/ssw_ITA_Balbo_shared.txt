@@ -751,7 +751,7 @@ completion_reward = {
 #植民地との関係
 shared_focus = {
 	id = ITA_focus_industry_colonial_dev
-	icon = GFX_goal_generic_dangerous_deal
+	icon = GFX_ITA_Italian_Colony
 	cost = 1.00
 	prerequisite = {
 		 focus = ITA_focus_industry_Solving_the_immigration_problem
@@ -1247,6 +1247,60 @@ shared_focus = {
 		}
 	}
 }
+#絶対的制空力への傾注
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_absolute_air_superiority
+	icon = GFX_ITA_Italian_Airforce
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_AirForce
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Appropriate_operations_organization_and_missions
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 27
+	y = 2
+	completion_reward = {
+	}
+}
+#作戦・編成・任務の適切化
+shared_focus = {
+	id = ITA_focus_balbo_Appropriate_operations_organization_and_missions
+	icon = GFX_ITA_Italian_Airforce
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_AirForce
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Focus_on_absolute_air_superiority
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 29
+	y = 2
+	completion_reward = {
+	}
+}
 #陸軍への注力
 shared_focus = {
 	id = ITA_focus_balbo_Focus_on_Army
@@ -1602,6 +1656,62 @@ shared_focus = {
 		}
 	}
 }
+#耐久力の強化
+shared_focus = {
+	id = ITA_focus_balbo_Enhanced_durability
+	icon = GFX_ITA_Italian_Army
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Strengthening_logistics
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Efficient_supply_operation
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_66
+	}
+}
+#効率的な補給運用
+shared_focus = {
+	id = ITA_focus_balbo_Efficient_supply_operation
+	icon = GFX_ITA_Italian_Army
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Strengthening_logistics
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Enhanced_durability
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 45
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_67
+	}
+}
 #徴兵の効率化
 shared_focus = {
 	id = ITA_focus_balbo_Improving_the_efficiency_of_conscription
@@ -1912,7 +2022,7 @@ shared_focus = {
 #植民地開発
 shared_focus = {
 	id = ITA_focus_colony_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Colony
 	cost = 1.00
 	prerequisite = {
 	}
@@ -1945,7 +2055,7 @@ shared_focus = {
 #北アフリカの開発
 shared_focus = {
 	id = ITA_focus_colony_north_africa_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_North_Africa
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -1964,7 +2074,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 9
+	x = 18
 	y = 12
 	completion_reward = {
 		add_ideas = ITA_idea_30
@@ -1994,7 +2104,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 8
+	x = 17
 	y = 13
 	completion_reward = {
 		custom_effect_tooltip = ssw_ITA_focus_colony_north_africa_dev_Development_environment
@@ -2022,7 +2132,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 9
+	x = 18
 	y = 15
 	completion_reward = {
 		IT2 = {
@@ -2051,7 +2161,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 8
+	x = 17
 	y = 14
 	completion_reward = {
 	448 ={
@@ -2182,7 +2292,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 6
+	x = 15
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2220,7 +2330,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 10
+	x = 19
 	y = 13
 	completion_reward = {
 		IT2 = {
@@ -2250,7 +2360,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 10
+	x = 19
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2282,7 +2392,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 12
+	x = 21
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2294,7 +2404,7 @@ shared_focus = {
 #エジプトの開発
 shared_focus = {
 	id = ITA_focus_colony_egypt_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Egypt
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2313,7 +2423,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 18
+	x = 27
 	y = 13
 	completion_reward = {
 		add_ideas = ITA_idea_31
@@ -2326,7 +2436,7 @@ shared_focus = {
 #東アフリカの開発
 shared_focus = {
 	id = ITA_focus_colony_east_africa_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_East_Africa
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2351,7 +2461,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 0
-	y = 13
+	y = 12
 	completion_reward = {
 		add_ideas = ITA_idea_32
 		IT3 = {
@@ -2381,7 +2491,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = -1
-	y = 14
+	y = 13
 	completion_reward = {
 	}
 }
@@ -2407,7 +2517,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 1
-	y = 14
+	y = 13
 	completion_reward = {
 	}
 }
@@ -2415,7 +2525,7 @@ shared_focus = {
 #アルバニア王国領の開発
 shared_focus = {
 	id = ITA_focus_colony_albania_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Albania
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2435,6 +2545,38 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = -9
+	y = 13
+	completion_reward = {
+		add_ideas = ITA_idea_33
+		IT4 = {
+			add_ideas = ITA_idea_33
+		}
+	}
+}
+###ジブラルタルルート###
+#ジブラルタルの開発
+shared_focus = {
+	id = ITA_focus_colony_Gibraltar_dev
+	icon = GFX_ITA_Italian_Gibraltar
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT7 = { is_subject_of = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -18
 	y = 14
 	completion_reward = {
 		add_ideas = ITA_idea_33
@@ -2447,7 +2589,7 @@ shared_focus = {
 #スエズ領の開発
 shared_focus = {
 	id = ITA_focus_colony_suez_canel_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_suez_canel
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2466,7 +2608,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 27
+	x = 36
 	y = 14
 	completion_reward = {
 		add_ideas = ITA_idea_34
@@ -2487,6 +2629,7 @@ shared_focus = {
     }
     available = {
         custom_effect_tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+		always = no
     }
     ai_will_do = {
     factor = 5
