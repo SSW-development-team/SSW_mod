@@ -67,12 +67,11 @@ focus_tree = {
 		y = 2
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = armor
-			}
-		}
+			swap_ideas= {
+ remove_idea = UTC_idea_2
+add_idea = UTC_idea_3
+}
+	}
 	}
 	focus = {
 		#戦車と航空機の連携
@@ -86,11 +85,12 @@ focus_tree = {
 		y = 3
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			swap_ideas= {
- remove_idea = UTC_idea_2
-add_idea = UTC_idea_3
-}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cas_bomber
 	}
+		}
 	}
 	focus = {
 		#爆撃機の更なる改良
@@ -107,7 +107,7 @@ add_idea = UTC_idea_3
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
-				category = tac_bomber_equipment　
+				category = cat_strategic_bomber
 	}
 		}
 	}
@@ -147,7 +147,7 @@ add_idea = UTC_idea_3
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			swap_ideas= {
- remove_idea = UTC_idea_4
+ remove_idea = UTC_idea_1
 add_idea = UTC_idea_5
 }
 	}
@@ -165,7 +165,7 @@ add_idea = UTC_idea_5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 		swap_ideas= {
- remove_idea = UTC_idea_5
+ remove_idea = UTC_idea_4
 add_idea = UTC_idea_6
 }
 		}
@@ -181,10 +181,12 @@ add_idea = UTC_idea_6
 		x = 5
 		y = 4
 		ai_will_do = { factor = 10 }
+		completion_reward = {
 		add_tech_bonus = {
-        bonus = 1.5 
+        bonus = 1
         uses = 1 
         category = cat_mechanized_equipment
+		}
     }
 	}
 	focus = {
@@ -244,10 +246,7 @@ add_idea = UTC_idea_8
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			add_stability = 0.05
-			swap_ideas= {
- remove_idea = UTC_idea_8
-add_idea = UTC_idea_9
-		}
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -266,8 +265,8 @@ add_idea = UTC_idea_9
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 		swap_ideas= {
- remove_idea = UTC_idea_8
-add_idea = UTC_idea_10
+ remove_idea = UTC_idea_1
+add_idea = UTC_idea_9
 }
 		}
 	}
@@ -283,6 +282,12 @@ add_idea = UTC_idea_10
 		x = 9
 		y = 4
 		ai_will_do = { factor = 10 }
+		completion_reward = {
+		swap_ideas= {
+ remove_idea = UTC_idea_8
+add_idea = UTC_idea_16
+}
+		}
 	}
 	focus = {
 		#三社の団結
@@ -300,7 +305,7 @@ add_idea = UTC_idea_10
 		x = 13
 		y = 1
 		completion_reward = {
-		add_ideas = UTC_idea_11
+		add_ideas = UTC_idea_10
 		}
 		ai_will_do = { factor = 10 }
 		available = {
@@ -353,9 +358,10 @@ add_idea = UTC_idea_10
 		y = 4
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			consumer_goods_factor = -0.1
 			swap_ideas= {
- remove_idea = UTC_idea_12
-add_idea = UTC_idea_13
+ remove_idea = UTC_idea_10
+add_idea = UTC_idea_11
 }
 		}
 	}
