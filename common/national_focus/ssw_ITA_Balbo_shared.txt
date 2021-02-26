@@ -1989,6 +1989,42 @@ shared_focus = {
 		}
 	}
 }
+#新型艦の開発
+shared_focus = {
+	id = ITA_focus_balbo_Development_of_new_type_of_ship
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_modern_navy
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 50
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 3
+			category = dd_tech
+			category = cl_tech
+			category = ca_tech
+			category = cv_tech
+			category = bc_tech
+			category = bb_tech
+		}
+	}
+}
 #海軍士官の育成
 shared_focus = {
 	id = ITA_focus_balbo_Training_of_Naval_Officers
@@ -2015,6 +2051,68 @@ shared_focus = {
 	y = 4
 	completion_reward = {
 		add_ideas = ITA_idea_40
+	}
+}
+#上陸戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Specialization_in_land_warfare
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Training_of_Naval_Officers
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_68
+	}
+}
+#輸送能力の向上
+shared_focus = {
+	id = ITA_focus_balbo_Improve_transportation_capacity
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Specialization_in_land_warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 6
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_68
+			add_idea = ITA_idea_69
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = tp_tech
+		}
 	}
 }
 ###COLONIAL_FOCUS_TREE###
