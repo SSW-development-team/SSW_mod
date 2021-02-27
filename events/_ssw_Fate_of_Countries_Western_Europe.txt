@@ -614,6 +614,55 @@ country_event = { #ルクセンブルクの運命
 		}
 	}
 	option = {
+		name = ssw_foc_western_europe.5.e
+		trigger = {
+			OR = {
+				FR1 = { is_subject_of = ROOT }
+				is_in_faction_with = FR1
+				AND = {
+					original_tag = FRA
+					has_country_flag = FRA_true_countryflag
+				}
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_core_of = LUX
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			FR1 = { transfer_state = PREV }
+			add_core_of = FR1
+		}
+	}
+	option = {
+		name = ssw_foc_western_europe.5.f
+		trigger = {
+			OR = {
+				NFR = { is_subject_of = ROOT }
+				is_in_faction_with = NFR
+				original_tag = NFR
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_core_of = LUX
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			NFR = { transfer_state = PREV }
+			add_core_of = NFR
+		}
+	}
+	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
