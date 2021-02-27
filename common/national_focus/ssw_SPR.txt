@@ -13,12 +13,20 @@ focus_tree = {
 		}
 	}
 	default = no
+##############################   ÉXÉyÉCÉìçë(SPA)   ##############################
 	focus = {
 		id = SPR_seihu
 		icon = GFX_goal_generic_demand_territory
 		cost = 2.00
 		ai_will_do = { factor = 10 }
 		available = { has_global_flag = spanish_civil_war }
+		allow_branch = {
+			NOT = {
+				has_country_flag = spa_policy
+				has_country_flag = spc_policy
+				has_country_flag = spf_policy
+			}
+		}
 		x = 31
 		y = 0
 		completion_reward = {
