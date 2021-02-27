@@ -1489,6 +1489,43 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_0
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_0
+                    add_idea = BUL_domestic_turmoil_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
         }
     }
 
@@ -1506,6 +1543,40 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_3
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_3
+                }
+                remove_ideas = BUL_domestic_turmoil_3
+            }
         }
     }
 
@@ -1523,6 +1594,43 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_0
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_0
+                    add_idea = BUL_domestic_turmoil_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
         }
     }
 
@@ -1540,6 +1648,40 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_3
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_3
+                }
+                remove_ideas = BUL_domestic_turmoil_3
+            }
         }
     }
 
@@ -1557,6 +1699,9 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            remove_ideas = BUL_political_instability
         }
     }
 
