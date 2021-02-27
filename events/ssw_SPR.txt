@@ -1318,3 +1318,106 @@ news_event = {
 	immediate = { set_global_flag = big_event_custom_tuva }
 	option = { name = ssw_spr.1003.a }
 }
+country_event = {
+	id = ssw_spr.1004
+	title = ssw_spr.1004.title
+	desc = ssw_spr.1004.desc
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { always = yes }
+				set_global_flag = spanish_civil_war
+				news_event = { id = ssw_spr.1000 hours = 6 }
+				SPC = {
+					transfer_state = 171
+					transfer_state = 172
+					load_oob = "SPA_scw"
+				}
+				SPF = {
+					transfer_state = 165
+					transfer_state = 794
+					load_oob = "SPR_scw"
+				}
+				SPA = {
+					transfer_state = 166
+					transfer_state = 169
+					transfer_state = 170
+					transfer_state = 174
+					transfer_state = 176
+					transfer_state = 788
+					transfer_state = 789
+					transfer_state = 791
+					load_oob = "SPA_scw"
+					set_autonomy = { target = SPC autonomous_state = dominion }
+				}
+				every_state = {
+					limit = { is_core_of = SPR }
+					add_core_of = SPA
+					add_core_of = SPC
+					add_core_of = SPF
+				}
+				SPR = {
+					declare_war_on = {
+						target = SPA
+						type = annex_everything
+					}
+					transfer_units_fraction = {
+						target = SPA
+						size = 0.45
+					}
+					load_oob = "SPR_scw"
+					country_lock_all_division_template = no
+					set_autonomy = { target = SPF autonomous_state = dominion }
+				}
+				SPC = {
+					set_politics = {
+						ruling_party = social_conservatism
+						last_election = "1950.1.1"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+					set_popularities = {
+						social_conservatism = 40
+						anarchism = 30
+						corporatocracism = 30
+					}
+				}
+				SPF = {
+					set_politics = {
+						ruling_party = authority_democracy
+						last_election = "1950.1.1"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+					set_popularities = {
+						authority_democracy = 60
+						progressive_communism = 15
+						social_conservatism = 15
+						national_fascism = 10
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ssw_spr.1004.a
+		ai_chance = { base = 100 }
+	}
+	option = {
+		name = ssw_spr.1004.b
+		ai_chance = { base = 0 }
+		SPA = { change_tag_from = SPR }
+	}
+	option = {
+		name = ssw_spr.1004.c
+		ai_chance = { base = 0 }
+		SPF = { change_tag_from = SPR }
+	}
+	option = {
+		name = ssw_spr.1004.d
+		ai_chance = { base = 0 }
+		SPC = { change_tag_from = SPR }
+	}
+}

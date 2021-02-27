@@ -19,13 +19,29 @@ on_actions = {
 	on_peaceconference_ended = {
 		effect = {
 			if = {
-				limit = {
-					ROOT = { original_tag = SPA } #íŸ‘
-					FROM = { original_tag = SPR } #”sí‘
+				limit = { #íŸ‘
+					ROOT = {
+						OR = {
+							original_tag = SPA
+							original_tag = SPC
+						}
+					}
+					FROM = { #”sí‘
+						OR = {
+							original_tag = SPF
+							original_tag = SPR
+						}
+					}
 				}
 				every_state = {
-					limit = { is_core_of = FROM }
-					remove_core_of = FROM
+					limit = {
+						OR = {
+							is_core_of = SPF
+							is_core_of = SPR
+						}
+					}
+					remove_core_of = SPF
+					remove_core_of = SPR
 				}
 				if = {
 					limit = {
@@ -38,12 +54,28 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					ROOT = { original_tag = SPR } #íŸ‘
-					FROM = { original_tag = SPA } #”sí‘
+					ROOT = { #íŸ‘
+						OR = {
+							original_tag = SPF
+							original_tag = SPR
+						}
+					}
+					FROM = { #”sí‘
+						OR = {
+							original_tag = SPA
+							original_tag = SPC
+						}
+					}
 				}
 				every_state = {
-					limit = { is_core_of = FROM }
-					remove_core_of = FROM
+					limit = {
+						OR = {
+							is_core_of = SPA
+							is_core_of = SPC
+						}
+					}
+					remove_core_of = SPA
+					remove_core_of = SPC
 				}
 				if = {
 					limit = {

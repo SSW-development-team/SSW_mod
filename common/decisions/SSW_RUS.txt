@@ -77,6 +77,38 @@ interventio_in_german_civil_war = {
 		icon = ger_reichskommissariats
 		available = {
 			has_equipment = { infantry_equipment > 1499 }
+			has_equipment = { convoy > 499 }
+			OR = {
+				AND = {
+					any_state = {
+						is_controlled_by = GER
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+				AND = {
+					any_state = {
+						controller = {
+							has_opinion = {
+								target = GER
+								value > 24
+							}
+						}
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = GER
+						is_coastal = no
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+			}
 			GER = {
 				OR = {
 					has_war_with = LTV
@@ -90,10 +122,6 @@ interventio_in_german_civil_war = {
 				has_government = classical_communism
 				has_global_flag = GER_civil_war_end
 				has_country_flag = support_germany
-				tag = GER
-				tag = LTV
-				tag = HLH
-				tag = HGR
 			}
 		}
 		cost = 50
@@ -133,7 +161,15 @@ interventio_in_german_civil_war = {
 				}
 			}
 		}
-		visible = { NOT = { has_global_flag = GER_civil_war_end } }
+		visible = {
+			NOT = {
+				has_global_flag = GER_civil_war_end
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
 		complete_effect = {
 			army_experience = 20
 			send_equipment = { target = GER type = infantry_equipment amount = 1500 }
@@ -153,6 +189,38 @@ interventio_in_german_civil_war = {
 		icon = ger_reichskommissariats
 		available = {
 			has_equipment = { infantry_equipment > 1499 }
+			has_equipment = { convoy > 499 }
+			OR = {
+				AND = {
+					any_state = {
+						is_controlled_by = LTV
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+				AND = {
+					any_state = {
+						controller = {
+							has_opinion = {
+								target = LTV
+								value > 24
+							}
+						}
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = LTV
+						is_coastal = no
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+			}
 			LTV = {
 				OR = {
 					has_war_with = GER
@@ -197,7 +265,15 @@ interventio_in_german_civil_war = {
 				}
 			}
 		}
-		visible = { NOT = { has_global_flag = GER_civil_war_end } }
+		visible = {
+			NOT = {
+				has_global_flag = GER_civil_war_end
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
 		complete_effect = {
 			army_experience = 20
 			send_equipment = { target = LTV type = infantry_equipment amount = 1500 }
@@ -217,6 +293,38 @@ interventio_in_german_civil_war = {
 		icon = ger_reichskommissariats
 		available = {
 			has_equipment = { infantry_equipment > 1499 }
+			has_equipment = { convoy > 499 }
+			OR = {
+				AND = {
+					any_state = {
+						is_controlled_by = HLH
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+				AND = {
+					any_state = {
+						controller = {
+							has_opinion = {
+								target = HLH
+								value > 24
+							}
+						}
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = HLH
+						is_coastal = no
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+			}
 			HLH = {
 				OR = {
 					has_war_with = GER
@@ -261,7 +369,15 @@ interventio_in_german_civil_war = {
 				}
 			}
 		}
-		visible = { NOT = { has_global_flag = GER_civil_war_end } }
+		visible = {
+			NOT = {
+				has_global_flag = GER_civil_war_end
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
 		complete_effect = {
 			army_experience = 20
 			send_equipment = { target = HLH type = infantry_equipment amount = 1500 }
@@ -281,6 +397,38 @@ interventio_in_german_civil_war = {
 		icon = ger_reichskommissariats
 		available = {
 			has_equipment = { infantry_equipment > 1499 }
+			has_equipment = { convoy > 499 }
+			OR = {
+				AND = {
+					any_state = {
+						is_controlled_by = HGR
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+				AND = {
+					any_state = {
+						controller = {
+							has_opinion = {
+								target = HGR
+								value > 24
+							}
+						}
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = HGR
+						is_coastal = no
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+			}
 			HGR = {
 				OR = {
 					has_war_with = GER
@@ -337,7 +485,15 @@ interventio_in_german_civil_war = {
 				}
 			}
 		}
-		visible = { NOT = { has_global_flag = GER_civil_war_end } }
+		visible = {
+			NOT = {
+				has_global_flag = GER_civil_war_end
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
 		complete_effect = {
 			army_experience = 20
 			send_equipment = { target = HGR type = infantry_equipment amount = 1500 }

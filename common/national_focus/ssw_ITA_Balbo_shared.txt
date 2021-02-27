@@ -48,10 +48,10 @@ shared_focus = {
 	x = 2
 	y = 1
 	completion_reward = {
-			swap_ideas = {
-remove_idea = ITA_idea_1
-add_idea = ITA_idea_3
-}	
+		swap_ideas = {
+			remove_idea = ITA_idea_1
+			add_idea = ITA_idea_3
+		}	
 	}
 }
 #現状産業の改良
@@ -80,9 +80,9 @@ shared_focus = {
 	y = 1
 	completion_reward = {
 		swap_ideas = {
-remove_idea = ITA_idea_1
-add_idea = ITA_idea_4
-}		
+			remove_idea = ITA_idea_1
+			add_idea = ITA_idea_4
+		}		
 	}
 }
 #民間主体産業への切り替え
@@ -522,7 +522,7 @@ completion_reward = {
 		category = excavation_tech 
 	}
 	add_resource = {
-		type = iron
+		type = steel
 		amount = 25
 		state = 2
 		}
@@ -713,10 +713,8 @@ icon = GFX_goal_generic_dangerous_deal
 cost = 5.00
 prerequisite = {
 	 focus = ITA_focus_industry_Free_Labor_Law
+	 focus = ITA_focus_industry_Isolation_of_living_quarters
 	 }
-	 prerequisite = {
-		focus = ITA_focus_industry_Isolation_of_living_quarters
-		}
 mutually_exclusive = {
 	 }
 available = {
@@ -751,19 +749,14 @@ completion_reward = {
 #植民地との関係
 shared_focus = {
 	id = ITA_focus_industry_colonial_dev
-	icon = GFX_goal_generic_dangerous_deal
+	icon = GFX_ITA_Italian_Colony
 	cost = 1.00
 	prerequisite = {
 		 focus = ITA_focus_industry_Solving_the_immigration_problem
 		 }
 	mutually_exclusive = {
-		 }
+		}
 	available = {
-	}
-	ai_will_do = {
-		factor = 5
-	  }
-	  bypass = {
 		IT2 = { is_subject_of = ITA }
 		IT3 = { is_subject_of = ITA }
 		IT4 = { is_subject_of = ITA }
@@ -771,6 +764,11 @@ shared_focus = {
 		IT7 = { is_subject_of = ITA }
 		SUD = { is_in_faction_with = ITA }
 		EGY = { is_in_faction_with = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
 	  }
 	  cancel_if_invalid = yes
 	  continue_if_invalid = no
@@ -1247,6 +1245,60 @@ shared_focus = {
 		}
 	}
 }
+#絶対的制空力への傾注
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_absolute_air_superiority
+	icon = GFX_ITA_Italian_Airforce
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_AirForce
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Appropriate_operations_organization_and_missions
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 27
+	y = 2
+	completion_reward = {
+	}
+}
+#作戦・編成・任務の適切化
+shared_focus = {
+	id = ITA_focus_balbo_Appropriate_operations_organization_and_missions
+	icon = GFX_ITA_Italian_Airforce
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_AirForce
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Focus_on_absolute_air_superiority
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 29
+	y = 2
+	completion_reward = {
+	}
+}
 #陸軍への注力
 shared_focus = {
 	id = ITA_focus_balbo_Focus_on_Army
@@ -1339,6 +1391,36 @@ shared_focus = {
 		add_ideas = ITA_idea_55
 	}
 }
+#攻撃戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_offensive_warfare
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Improved_equipment_attack
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 38
+	y = 4
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_55
+			add_idea = ITA_idea_62
+		}
+	}
+}
 #防衛用装備の生産
 shared_focus = {
 	id = ITA_focus_balbo_Improved_equipment_defence
@@ -1365,6 +1447,82 @@ shared_focus = {
 	y = 3
 	completion_reward = {
 		add_ideas = ITA_idea_56
+	}
+}
+#防衛戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_deffensive_warfare
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Improved_equipment_defence
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 36
+	y = 4
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_56
+			add_idea = ITA_idea_63
+		}
+	}
+}
+#基本戦術の確立
+shared_focus = {
+	id = ITA_focus_balbo_Establish_basic_tactics
+	icon = GFX_ITA_Italian_Army
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_deffensive_warfare
+		focus = ITA_focus_balbo_Focus_on_offensive_warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 37
+	y = 5
+	completion_reward = {
+		custom_effect_tooltip = ssw_ITA_focus_balbo_Establish_basic_tactics_tooltip
+		if = {
+			limit = {
+				has_idea = ITA_idea_63 #防衛戦へ特化している
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_63
+				add_idea = ITA_idea_64
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ITA_idea_62 #攻撃戦へ特化している
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_62
+				add_idea = ITA_idea_65
+			}
+		}
 	}
 }
 #部隊指揮の高度化
@@ -1450,6 +1608,108 @@ shared_focus = {
 		add_ideas = ITA_idea_59
 	}
 }
+#兵站の強化
+shared_focus = {
+	id = ITA_focus_balbo_Strengthening_logistics
+	icon = GFX_ITA_Italian_Army
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Combat_in_the_Cold_Zone
+		focus = ITA_focus_balbo_Fighting_in_the_heat_zone
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 4
+	completion_reward = {
+		custom_effect_tooltip = ssw_ITA_focus_balbo_Strengthening_logistics_tooltip
+		if = {
+			limit = {
+				has_idea = ITA_idea_58 #暑い方
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_58
+				add_idea = ITA_idea_60
+			}
+		}
+		if = {
+			limit = {
+				has_idea = ITA_idea_59 #寒い方
+			}
+			swap_ideas = {
+				remove_idea = ITA_idea_59
+				add_idea = ITA_idea_61
+			}
+		}
+	}
+}
+#耐久力の強化
+shared_focus = {
+	id = ITA_focus_balbo_Enhanced_durability
+	icon = GFX_ITA_Italian_Army
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Strengthening_logistics
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Efficient_supply_operation
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_66
+	}
+}
+#効率的な補給運用
+shared_focus = {
+	id = ITA_focus_balbo_Efficient_supply_operation
+	icon = GFX_ITA_Italian_Army
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Strengthening_logistics
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Enhanced_durability
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 45
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_67
+	}
+}
 #徴兵の効率化
 shared_focus = {
 	id = ITA_focus_balbo_Improving_the_efficiency_of_conscription
@@ -1532,7 +1792,7 @@ shared_focus = {
 	x = 39
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_53
 			days = 150
@@ -1564,7 +1824,7 @@ shared_focus = {
 	x = 41
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_54
 			days = 200
@@ -1727,6 +1987,42 @@ shared_focus = {
 		}
 	}
 }
+#新型艦の開発
+shared_focus = {
+	id = ITA_focus_balbo_Development_of_new_type_of_ship
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_modern_navy
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 50
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 3
+			category = dd_tech
+			category = cl_tech
+			category = ca_tech
+			category = cv_tech
+			category = bc_tech
+			category = bb_tech
+		}
+	}
+}
 #海軍士官の育成
 shared_focus = {
 	id = ITA_focus_balbo_Training_of_Naval_Officers
@@ -1755,12 +2051,74 @@ shared_focus = {
 		add_ideas = ITA_idea_40
 	}
 }
+#上陸戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Specialization_in_land_warfare
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Training_of_Naval_Officers
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_68
+	}
+}
+#輸送能力の向上
+shared_focus = {
+	id = ITA_focus_balbo_Improve_transportation_capacity
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Specialization_in_land_warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 6
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_68
+			add_idea = ITA_idea_69
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = tp_tech
+		}
+	}
+}
 ###COLONIAL_FOCUS_TREE###
 
 #植民地開発
 shared_focus = {
 	id = ITA_focus_colony_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Colony
 	cost = 1.00
 	prerequisite = {
 	}
@@ -1793,7 +2151,7 @@ shared_focus = {
 #北アフリカの開発
 shared_focus = {
 	id = ITA_focus_colony_north_africa_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_North_Africa
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -1812,7 +2170,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 9
+	x = 18
 	y = 12
 	completion_reward = {
 		add_ideas = ITA_idea_30
@@ -1842,7 +2200,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 8
+	x = 17
 	y = 13
 	completion_reward = {
 		custom_effect_tooltip = ssw_ITA_focus_colony_north_africa_dev_Development_environment
@@ -1870,7 +2228,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 9
+	x = 18
 	y = 15
 	completion_reward = {
 		IT2 = {
@@ -1899,40 +2257,46 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 8
+	x = 17
 	y = 14
 	completion_reward = {
 	448 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	661 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	662 ={
+		if = {
+			
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -1947,7 +2311,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	449 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -1962,7 +2328,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	663 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -1977,7 +2345,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	450 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -1992,7 +2362,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	451 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2008,6 +2380,7 @@ instant_build = yes
 }
 }
 }
+	}
 }
 #経済基盤の確立
 shared_focus = {
@@ -2030,7 +2403,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 6
+	x = 15
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2068,7 +2441,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 10
+	x = 19
 	y = 13
 	completion_reward = {
 		IT2 = {
@@ -2098,7 +2471,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 10
+	x = 19
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2130,7 +2503,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 12
+	x = 21
 	y = 14
 	completion_reward = {
 		IT2 = {
@@ -2142,7 +2515,7 @@ shared_focus = {
 #エジプトの開発
 shared_focus = {
 	id = ITA_focus_colony_egypt_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Egypt
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2161,7 +2534,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 18
+	x = 27
 	y = 13
 	completion_reward = {
 		add_ideas = ITA_idea_31
@@ -2174,7 +2547,7 @@ shared_focus = {
 #東アフリカの開発
 shared_focus = {
 	id = ITA_focus_colony_east_africa_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_East_Africa
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2199,7 +2572,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 0
-	y = 13
+	y = 12
 	completion_reward = {
 		add_ideas = ITA_idea_32
 		IT3 = {
@@ -2229,7 +2602,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = -1
-	y = 14
+	y = 13
 	completion_reward = {
 	}
 }
@@ -2255,7 +2628,7 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 1
-	y = 14
+	y = 13
 	completion_reward = {
 	}
 }
@@ -2263,7 +2636,7 @@ shared_focus = {
 #アルバニア王国領の開発
 shared_focus = {
 	id = ITA_focus_colony_albania_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_Albania
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2283,6 +2656,38 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = -9
+	y = 13
+	completion_reward = {
+		add_ideas = ITA_idea_33
+		IT4 = {
+			add_ideas = ITA_idea_33
+		}
+	}
+}
+###ジブラルタルルート###
+#ジブラルタルの開発
+shared_focus = {
+	id = ITA_focus_colony_Gibraltar_dev
+	icon = GFX_ITA_Italian_Gibraltar
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT7 = { is_subject_of = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -18
 	y = 14
 	completion_reward = {
 		add_ideas = ITA_idea_33
@@ -2295,7 +2700,7 @@ shared_focus = {
 #スエズ領の開発
 shared_focus = {
 	id = ITA_focus_colony_suez_canel_dev
-	icon = GFX_focus_generic_treaty
+	icon = GFX_ITA_Italian_suez_canel
 	cost = 1.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
@@ -2314,7 +2719,7 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 27
+	x = 36
 	y = 14
 	completion_reward = {
 		add_ideas = ITA_idea_34
@@ -2334,7 +2739,10 @@ shared_focus = {
     mutually_exclusive = { 
     }
     available = {
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+		}
+		always = no
     }
     ai_will_do = {
     factor = 5
@@ -2415,7 +2823,9 @@ shared_focus = {
     }
     available = {
         has_global_flag = Danubian_war
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+		}
     }
     ai_will_do = {
     factor = 5

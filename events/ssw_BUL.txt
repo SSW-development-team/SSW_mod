@@ -26,6 +26,9 @@ country_event = { #暗黒の日曜日
     is_triggered_only = yes
     option = { #戒厳令を発令する
         name = ssw_bul.1.a
+        ai_chance = {
+            base = 100
+        }
         BUL = {
             add_ideas = BUL_political_instability
             add_ideas = BUL_martial_law_0
@@ -35,8 +38,12 @@ country_event = { #暗黒の日曜日
     }
     option = { #王室の保護を優先する
         name = ssw_bul.1.b
+        ai_chance = {
+            base = 0
+        }
         BUL = {
             add_ideas = BUL_political_instability
+            add_ideas = BUL_domestic_turmoil_0
             complete_national_focus = BUL_Black_Sunday
             complete_national_focus = BUL_protect_the_royal_family
         }
@@ -73,9 +80,9 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
         ai_chance = {
             base = 10
             modifier = {
-                strength_ration = {
+                strength_ratio = {
                     tag = BUL
-                    ration < 0.5
+                    ratio < 0.5
                 }
                 factor = 10
             }
@@ -98,9 +105,9 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
             modifier = {
                 OR = {
                     is_major = yes
-                    strength_ration = {
+                    strength_ratio = {
                         tag = BUL
-                        ration > 2
+                        ratio > 2
                     }
                 }
                 factor = 0
@@ -134,18 +141,18 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
                 factor = 0.9
             }
             modifier = {
-                strength_ration = {
+                strength_ratio = {
                     tag = BUL
-                    ration < 0.5
+                    ratio < 0.5
                 }
                 factor = 0.9
             }
             modifier = {
                 OR = {
                     is_major = yes
-                    strength_ration = {
+                    strength_ratio = {
                         tag = BUL
-                        ration > 2
+                        ratio > 2
                     }
                 }
                 factor = 0
@@ -161,9 +168,9 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
         ai_chance = {
             base = 60
             modifier = {
-                strength_ration = {
+                strength_ratio = {
                     tag = BUL
-                    ration < 0.5
+                    ratio < 0.5
                 }
                 factor = 0.5
             }
@@ -186,9 +193,9 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
             modifier = {
                 OR = {
                     is_major = yes
-                    strength_ration = {
+                    strength_ratio = {
                         tag = BUL
-                        ration > 2
+                        ratio > 2
                     }
                 }
                 factor = 10
@@ -372,12 +379,18 @@ country_event = { #ブルガリアがクロアチアの分割を提案
     is_triggered_only = yes
     option = { #承諾しよう
         name = ssw_bul.11.a
+        ai_chance = {
+            base = 40
+        }
         BUL = {
             country_event = {id = ssw_bul.12}
         }
     }
     option = { #拒否する
         name = ssw_bul.11.b
+        ai_chance = {
+            base = 60
+        }
         BUL = {
             country_event = {id = ssw_bul.13}
         }
@@ -403,6 +416,7 @@ country_event = { #ハンガリーが提案を承諾
             give_military_access = HUN
             HUN = {
                 give_military_access = BUL
+                remove_from_faction = CRO
             }
         }
     }
@@ -415,8 +429,31 @@ country_event = { #ハンガリーが提案を拒否
     picture = GFX_report_event_finnish_letter
     fire_only_once = yes
     is_triggered_only = yes
-    option = { #ならば我々の独力で
+    option = { #貴国もクロアチアと道連れになるだろう
         name = ssw_bul.13.a
+        ai_chance = {
+            base = 35
+            modifier = {
+                AND = {
+                    strength_ratio = {
+                        tag = HUN
+                        ratio > 2
+                    }
+                    strength_ratio = {
+                        tag = CRO
+                        ratio > 2
+                    }
+                }
+                factor = 2
+            }
+        }
+        leave_faction = yes
+    }
+    option = { #クロアチアの編入は諦めよう
+        name = ssw_bul.13.b
+        ai_chance = {
+            base = 65
+        }
     }
 }
 
@@ -507,7 +544,7 @@ country_event = { #ブルガリアがアルバニアを要求
             modifier = {
                 has_opinion = {
                     target = BUL
-                    value = 50
+                    value > 50
                 }
                 factor = 1.5
             }
@@ -523,7 +560,7 @@ country_event = { #ブルガリアがアルバニアを要求
             modifier = {
                 has_opinion = {
                     target = BUL
-                    value = 50
+                    value > 50
                 }
                 factor = 2
             }

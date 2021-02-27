@@ -273,20 +273,30 @@ focus_tree={
             focus = BUL_add_army_Itali
         }
         completion_reward = {
-            106 = {
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes
+            if = {
+                limit = {
+                    owns_state = 106
+                }
+                106 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
                 }
             }
-            212 = {
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes
+            if = {
+                limit = {
+                    owns_state = 212
+                }
+                212 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
                 }
             }
             if = {
@@ -1128,6 +1138,15 @@ focus_tree={
             owns_state = 184
             owns_state = 731
         }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 260000
+            }
+        }
         available_if_capitulated = yes
         prerequisite = {
             focus = BUL_comrades
@@ -1411,6 +1430,15 @@ focus_tree={
         prerequisite = {
             focus = BUL_brainwashing_the_people
         }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 300000
+            }
+        }
         available_if_capitulated = yes
         cost = 10
         ai_will_do = {
@@ -1461,6 +1489,43 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_0
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_0
+                    add_idea = BUL_domestic_turmoil_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
         }
     }
 
@@ -1478,6 +1543,40 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_3
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_3
+                }
+                remove_ideas = BUL_domestic_turmoil_3
+            }
         }
     }
 
@@ -1495,6 +1594,43 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_0
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_0
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_0
+                    add_idea = BUL_domestic_turmoil_1
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
         }
     }
 
@@ -1512,6 +1648,40 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_idea = BUL_domestic_turmoil_3
+                    has_idea = BUL_domestic_turmoil_1
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                factor = 2
+            }
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_1
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_1
+                    add_idea = BUL_domestic_turmoil_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_2
+                }
+                swap_ideas = {
+                    remove_idea = BUL_domestic_turmoil_2
+                    add_idea = BUL_domestic_turmoil_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_domestic_turmoil_3
+                }
+                remove_ideas = BUL_domestic_turmoil_3
+            }
         }
     }
 
@@ -1529,6 +1699,9 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            remove_ideas = BUL_political_instability
         }
     }
 
@@ -1588,6 +1761,15 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 260000
+            }
         }
         cost = 5
         ai_will_do = {
@@ -1816,8 +1998,16 @@ focus_tree={
         }
         available_if_capitulated = yes
         available = {
-            NOT = {
-                has_non_aggression_pact_with = CRO
+            OR = {
+                NOT = {
+                    has_non_aggression_pact_with = CRO
+                }
+                NOT = {
+                    is_in_faction_with = CRO
+                }
+            }
+            has_army_manpower = {
+                size > 300000
             }
         }
         search_filters = {
@@ -1836,7 +2026,7 @@ focus_tree={
                 limit = {
                     has_non_aggression_pact_with = HUN
                     has_military_access_to = HUN
-                    gives_military_acces_to = HUN
+                    gives_military_access_to = HUN
                 }
                 HUN = {
                     declare_war_on = {
@@ -1859,6 +2049,11 @@ focus_tree={
         available_if_capitulated = yes
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            has_army_manpower = {
+                size > 320000
+            }
         }
         cost = 10
         ai_will_do = {
@@ -1890,7 +2085,7 @@ focus_tree={
                 AND = {
                     NOT = {has_non_aggression_pact_with = HUN}
                     NOT = {has_military_access_to = HUN}
-                    NOT = {gives_military_acces_to = HUN}
+                    NOT = {gives_military_access_to = HUN}
                 }
             }
         }
@@ -1919,7 +2114,7 @@ focus_tree={
                     limit = {
                         OR = {
                             has_military_access_to = HUN
-                            gives_military_acces_to = HUN
+                            gives_military_access_to = HUN
                         }
                     }
                     diplomatic_relation = {
@@ -1934,6 +2129,12 @@ focus_tree={
                             active = no
                         }
                     }
+                }
+                if = {
+                    limit = {
+                        is_in_faction_with = HUN
+                    }
+                    leave_faction = yes
                 }
             }
         }
@@ -1986,6 +2187,12 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
         }
         available_if_capitulated = yes
         cost = 5
@@ -2200,6 +2407,9 @@ focus_tree={
             NOT = {
                 has_non_aggression_pact_with = TUR
             }
+            has_army_manpower = {
+                size > 300000
+            }
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -2216,13 +2426,22 @@ focus_tree={
         }
     }
 
-    focus = { #南へ
+    focus = { #南へ 
         id = BUL_to_south
         icon = GFX_focus_generic_aegean_sea_focus
         x = 36
         y = 1
         prerequisite = {
             focus = BUL_desire_of_Sofia
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 280000
+            }
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -2372,10 +2591,12 @@ focus_tree={
                 limit = {
                     owns_state = 805
                 }
-                add_building_construction = {
-                    type = infrastructure
-                    level = 2
-                    instant_build = yes
+                805 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 2
+                        instant_build = yes
+                    }
                 }
             }
         }
