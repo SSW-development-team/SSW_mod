@@ -1,0 +1,448 @@
+shared_focus = { #救国政変
+    id = CHI_natio_resucue_coup
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    x = 11
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #政治屋共への対処
+    id = CHI_deal_politician
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_natio_resucue_coup
+    }
+    x = 11
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #粛清の実施
+    id = CHI_implement_purge
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_deal_politician
+    }
+    mutually_exclusive = {
+        focus = CHI_amnesty_war_effort
+    }
+    x = 10
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #抗戦のための恩赦
+    id = CHI_amnesty_war_effort
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_deal_politician
+    }
+    mutually_exclusive = {
+        focus = CHI_implement_purge
+    }
+    x = 12
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #完全な政治的覇権
+    id = CHI_complete_polit_hegemony
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_implement_purge
+    }
+    x = 10
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #挙国一致
+    id = CHI_behave_one
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_amnesty_war_effort
+    }
+    x = 12
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #民族戦争
+    id = CHI_ethnic_war
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_complete_polit_hegemony
+        focus = CHI_behave_one
+    }
+    x = 9
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #徹底抗戦
+    id = CHI_thorough_resistance
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_complete_polit_hegemony
+        focus = CHI_behave_one
+    }
+    x = 11
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #総動員体制
+    id = CHI_general_mobilisation
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_complete_polit_hegemony
+        focus = CHI_behave_one
+    }
+    x = 13
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #反日愛国教育
+    id = CHI_anti_JAP_patriot_edu
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_ethnic_war
+    }
+    x = 8
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #愛国主義の宣伝
+    id = CHI_promot_patriotism
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_ethnic_war
+    }
+    prerequisite = {
+        focus = CHI_thorough_resistance
+    }
+    x = 10
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #農地から工場へ
+    id = CHI_from_farmland_factory
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_thorough_resistance
+    }
+    prerequisite = {
+        focus = CHI_general_mobilisation
+    }
+    x = 12
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #救国摘発令
+    id = CHI_natio_resucue_sedition_order
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_general_mobilisation
+    }
+    x = 14
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #国民突撃団
+    id = CHI_natio_assault_group
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_anti_JAP_patriot_edu
+    }
+    prerequisite = {
+        focus = CHI_promot_patriotism
+    }
+    x = 9
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #政治将校の配置
+    id = CHI_deploy_politic_officer
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_promot_patriotism
+    }
+    prerequisite = {
+        focus = CHI_from_farmland_factory
+    }
+    x = 11
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #中国共産党との連携
+    id = CHI_work_chinese_communist_party
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_from_farmland_factory
+    }
+    prerequisite = {
+        focus = CHI_natio_resucue_sedition_order
+    }
+    x = 13
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #全国民を兵士に
+    id = CHI_all_natio_soldier
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_natio_assault_group
+    }
+    x = 9
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #無差別的ゲリラ戦
+    id = CHI_indiscriminate_guerrila_warfare
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_deploy_politic_officer
+    }
+    x = 11
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #救国合作
+    id = CHI_save_natio_partnership
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_work_chinese_communist_party
+    }
+    x = 13
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #勝利！
+    id = CHI_victory
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_all_natio_soldier
+    }
+    prerequisite = {
+        focus = CHI_indiscriminate_guerrila_warfare
+    }
+    prerequisite = {
+        focus = CHI_save_natio_partnership
+    }
+    x = 11
+    y = 8
+    completion_reward = {
+    }
+}

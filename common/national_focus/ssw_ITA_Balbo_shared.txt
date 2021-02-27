@@ -522,7 +522,7 @@ completion_reward = {
 		category = excavation_tech 
 	}
 	add_resource = {
-		type = iron
+		type = steel
 		amount = 25
 		state = 2
 		}
@@ -1794,7 +1794,7 @@ shared_focus = {
 	x = 39
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_53
 			days = 150
@@ -1826,7 +1826,7 @@ shared_focus = {
 	x = 41
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_54
 			days = 200
@@ -2263,36 +2263,42 @@ shared_focus = {
 	y = 14
 	completion_reward = {
 	448 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	661 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	662 ={
+		if = {
+			
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2307,7 +2313,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	449 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2322,7 +2330,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	663 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2337,7 +2347,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	450 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2352,7 +2364,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	451 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2368,6 +2382,7 @@ instant_build = yes
 }
 }
 }
+	}
 }
 #経済基盤の確立
 shared_focus = {
@@ -2726,7 +2741,9 @@ shared_focus = {
     mutually_exclusive = { 
     }
     available = {
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+		}
 		always = no
     }
     ai_will_do = {
@@ -2808,7 +2825,9 @@ shared_focus = {
     }
     available = {
         has_global_flag = Danubian_war
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+		}
     }
     ai_will_do = {
     factor = 5
