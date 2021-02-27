@@ -169,44 +169,20 @@ ai_will_do = {
 x = 0
 y = 2
 completion_reward = {
-	random_owned_controlled_state={
+	ITA = {
+		any_owned_state_in_south_italy = yes
+	}
+	any_owned_state = {
 		limit = {
-		free_building_slots = {
-		building = industrial_complex
-		size > 0
-		include_locked = yes
+			is_south_italy_states = yes
 		}
-	   
-		}
-	   
 		add_extra_state_shared_building_slots = 2
 		add_building_construction = {
-		type = industrial_complex
-		level = 2
-		instant_build = yes
-		}
-	   
-		set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-		}
-		random_owned_controlled_state={
-			limit = {
-			free_building_slots = {
-			building = industrial_complex
-			size > 0
-			include_locked = yes
-			}
-		   
-			}
-		   
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
 			type = industrial_complex
-			level = 1
+			level = 2
 			instant_build = yes
-			}
-		   
-			set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
+		}
+	}
 }
 }
 #移民への対処
@@ -284,44 +260,20 @@ ai_will_do = {
 x = 2
 y = 2
 completion_reward = {
-	random_owned_controlled_state={
+	ITA = {
+		any_owned_state_in_north_italy = yes
+	}
+	any_owned_state = {
 		limit = {
-		free_building_slots = {
-		building = arms_factory
-		size > 0
-		include_locked = yes
+			is_north_italy_states = yes
 		}
-	   
-		}
-	   
 		add_extra_state_shared_building_slots = 2
 		add_building_construction = {
-		type = arms_factory
-		level = 2
-		instant_build = yes
-		}
-	   
-		set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-		}
-		random_owned_controlled_state={
-			limit = {
-			free_building_slots = {
-			building = arms_factory
-			size > 0
-			include_locked = yes
-			}
-		   
-			}
-		   
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-			type = arms_factory
-			level = 1
+			type = industrial_complex
+			level = 2
 			instant_build = yes
-			}
-		   
-			set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
+	}
+}
 }
 }
 #北部産業の強化
@@ -2128,10 +2080,10 @@ shared_focus = {
 		IT2 = { is_subject_of = ITA }
 		IT3 = { is_subject_of = ITA }
 		IT4 = { is_subject_of = ITA }
-		IT5 = { is_subject_of = ITA }
 		IT6 = { is_subject_of = ITA }
 		IT7 = { is_subject_of = ITA }
-		IT8 = { is_subject_of = ITA }
+		SUD = { is_in_faction_with = ITA }
+		EGY = { is_in_faction_with = ITA }
 	}
 	ai_will_do = {
 		factor = 5
@@ -2690,10 +2642,6 @@ shared_focus = {
 	x = -18
 	y = 14
 	completion_reward = {
-		add_ideas = ITA_idea_33
-		IT4 = {
-			add_ideas = ITA_idea_33
-		}
 	}
 }
 ###スエズルート###
