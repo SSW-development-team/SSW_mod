@@ -446,3 +446,948 @@ shared_focus = { #勝利！
     completion_reward = {
     }
 }
+
+#第二ツリー
+shared_focus = { #廃墟の上に
+    id = CHI_on_ruins
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    x = 24
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #国防への注力
+    id = CHI_focus_natio_defence
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_on_ruins
+    }
+    x = 22
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #中国の浄化
+    id = CHI_purification_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_on_ruins
+    }
+    x = 24
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #復興経済
+    id = CHI_reconstruct_economy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_on_ruins
+    }
+    x = 26
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #前政権出身者の粛清
+    id = CHI_purge_people_previous_admin
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_purification_china
+    }
+    x = 23
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #漢奸大裁判
+    id = CHI_great_hanjian_trial
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_purification_china
+    }
+    x = 25
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #大規模な摘発
+    id = CHI_massive_expose
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_purge_people_previous_admin
+    }
+    prerequisite = {
+        focus = CHI_great_hanjian_trial
+    }
+    x = 24
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #事件発生
+    id = CHI_incident_occure
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_massive_expose
+    }
+    x = 24
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #張学良の時代
+    id = CHI_age_Zhang_Xueliang
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_incident_occure
+    }
+    mutually_exclusive = {
+        focus = CHI_Zhang_Gaoliang_downfall
+    }
+    x = 21
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #在満日本人の強制労働
+    id = CHI_force_labour_JAP_manchuria
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_age_Zhang_Xueliang
+    }
+    x = 19
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #民族憲法
+    id = CHI_natio_constitution
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_age_Zhang_Xueliang
+    }
+    x = 21
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #二度と攻められるな
+    id = CHI_dont_attack_again
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_age_Zhang_Xueliang
+    }
+    x = 23
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #日本の遺物を燃やせ！
+    id = CHI_burn_artefact_JAP
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_force_labour_JAP_manchuria
+    }
+    prerequisite = {
+        focus = CHI_natio_constitution
+    }
+    prerequisite = {
+        focus = CHI_dont_attack_again
+    }
+    mutually_exclusive = {
+        focus = CHI_make_use_JAP_artefact
+    }
+    x = 20
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #日本の遺物を活用
+    id = CHI_make_use_JAP_artefact
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_force_labour_JAP_manchuria
+    }
+    prerequisite = {
+        focus = CHI_natio_constitution
+    }
+    prerequisite = {
+        focus = CHI_dont_attack_again
+    }
+    mutually_exclusive = {
+        focus = CHI_burn_artefact_JAP
+    }
+    x = 22
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #統一文化
+    id = CHI_unification_one_culture
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_burn_artefact_JAP
+        focus = CHI_make_use_JAP_artefact
+    }
+    x = 18
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #反民族分子の矯正
+    id = CHI_correct_anti_nation
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_burn_artefact_JAP
+        focus = CHI_make_use_JAP_artefact
+    }
+    x = 20
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #大躍進計画
+    id = CHI_great_leap_forward_policy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_burn_artefact_JAP
+        focus = CHI_make_use_JAP_artefact
+    }
+    x = 22
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #軍事化社会
+    id = CHI_militarise_society
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_burn_artefact_JAP
+        focus = CHI_make_use_JAP_artefact
+    }
+    x = 24
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #民族共同体
+    id = CHI_natio_community
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_unification_one_culture
+    }
+    prerequisite = {
+        focus = CHI_correct_anti_nation
+    }
+    x = 19
+    y = 9
+    completion_reward = {
+    }
+}
+shared_focus = { #偉大なる国家主席
+    id = CHI_the_great_president
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_correct_anti_nation
+    }
+    prerequisite = {
+        focus = CHI_great_leap_forward_policy
+    }
+    x = 21
+    y = 9
+    completion_reward = {
+    }
+}
+shared_focus = { #国有化
+    id = CHI_nationalisation
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_great_leap_forward_policy
+    }
+    prerequisite = {
+        focus = CHI_militarise_society
+    }
+    x = 23
+    y = 9
+    completion_reward = {
+    }
+}
+shared_focus = { #中国特色国家社会主義
+    id = CHI_natio_socialism_chinese_charact
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_natio_community
+    }
+    prerequisite = {
+        focus = CHI_nationalisation
+    }
+    x = 21
+    y = 10
+    completion_reward = {
+    }
+}
+shared_focus = { #張学良の失脚
+    id = CHI_Zhang_Gaoliang_downfall
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_incident_occure
+    }
+    mutually_exclusive = {
+        focus = CHI_age_Zhang_Xueliang
+    }
+    x = 27
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #戒厳令
+    id = CHI_martial_law
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_Zhang_Gaoliang_downfall
+    }
+    x = 25
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #国家社会主義者の逮捕
+    id = CHI_arrest_natio_socialist
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_Zhang_Gaoliang_downfall
+    }
+    x = 27
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #治安維持の重視
+    id = CHI_emphasis_maintain_public_order
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_Zhang_Gaoliang_downfall
+    }
+    x = 29
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #張学良の最後
+    id = CHI_end_Zhang_Xueliang
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_martial_law
+    }
+    prerequisite = {
+        focus = CHI_arrest_natio_socialist
+    }
+    prerequisite = {
+        focus = CHI_emphasis_maintain_public_order
+    }
+    x = 27
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #臨時政府の方針
+    id = CHI_policy_provisional_gov
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_end_Zhang_Xueliang
+    }
+    x = 27
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #民主主義の再興
+    id = CHI_rebirth_democracy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_policy_provisional_gov
+    }
+    mutually_exclusive = {
+        focus = CHI_continue_military_regime
+    }
+    x = 25
+    y = 9
+    completion_reward = {
+    }
+}
+shared_focus = { #文民統制の原則
+    id = CHI_principle_civilian_control
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_rebirth_democracy
+    }
+    x = 24
+    y = 10
+    completion_reward = {
+    }
+}
+shared_focus = { #漢奸の一部恩赦
+    id = CHI_partial_amnesty_chinese_wick
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_rebirth_democracy
+    }
+    x = 26
+    y = 10
+    completion_reward = {
+    }
+}
+shared_focus = { #三民主義の復活
+    id = CHI_revival_three_democracy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_principle_civilian_control
+    }
+    prerequisite = {
+        focus = CHI_partial_amnesty_chinese_wick
+    }
+    x = 25
+    y = 11
+    completion_reward = {
+    }
+}
+shared_focus = { #女性参政権
+    id = CHI_woman_politics
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_revival_three_democracy
+    }
+    x = 24
+    y = 12
+    completion_reward = {
+    }
+}
+shared_focus = { #貧民に救いを
+    id = CHI_help_poor
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_revival_three_democracy
+    }
+    x = 26
+    y = 12
+    completion_reward = {
+    }
+}
+shared_focus = { #自由な中国へ
+    id = CHI_to_free_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_woman_politics
+    }
+    prerequisite = {
+        focus = CHI_help_poor
+    }
+    x = 25
+    y = 13
+    completion_reward = {
+    }
+}
+shared_focus = { #軍事政権の継続
+    id = CHI_continue_military_regime
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_policy_provisional_gov
+    }
+    mutually_exclusive = {
+        focus = CHI_rebirth_democracy
+    }
+    x = 29
+    y = 9
+    completion_reward = {
+    }
+}
+shared_focus = { #責任ある政府
+    id = CHI_responsible_gov
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_continue_military_regime
+    }
+    x = 29
+    y = 10
+    completion_reward = {
+    }
+}
+shared_focus = { #軍内の過激分子を排除
+    id = CHI_eliminate_extremism_military
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_responsible_gov
+    }
+    x = 28
+    y = 11
+    completion_reward = {
+    }
+}
+shared_focus = { #文民と軍人
+    id = CHI_civilian_and_military
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_responsible_gov
+    }
+    x = 30
+    y = 11
+    completion_reward = {
+    }
+}
+shared_focus = { #公安組織の拡大
+    id = CHI_expansion_public_security_org
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_eliminate_extremism_military
+    }
+    x = 28
+    y = 12
+    completion_reward = {
+    }
+}
+shared_focus = { #軍事から経済へ
+    id = CHI_from_military_economy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_civilian_and_military
+    }
+    x = 30
+    y = 12
+    completion_reward = {
+    }
+}
+shared_focus = { #安全な中国へ
+    id = CHI_to_safer_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_expansion_public_security_org
+    }
+    prerequisite = {
+        focus = CHI_from_military_economy
+    }
+    x = 29
+    y = 13
+    completion_reward = {
+    }
+}
