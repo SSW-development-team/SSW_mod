@@ -841,6 +841,19 @@ focus_tree={
         completion_reward = {
             if = {
                 limit = {
+                    has_idea = BUL_political_instability
+                }
+                add_popularity = {
+                    ideology = classical_communism
+                    popularity = -0.05
+                }
+                add_popularity = {
+                    ideology = progressive_communism
+                    popularity = -0.05
+                }
+            }
+            if = {
+                limit = {
                     has_idea = BUL_martial_law_0
                 }
                 swap_ideas = {
@@ -893,6 +906,19 @@ focus_tree={
             }
         }
         completion_reward = {
+            if = {
+                limit = {
+                    has_idea = BUL_political_instability
+                }
+                add_popularity = {
+                    ideology = national_fascism
+                    popularity = 0.1
+                }
+                add_popularity = {
+                    ideology = national_socialism
+                    popularity = 0.1
+                }
+            }
             if = {
                 limit = {
                     has_idea = BUL_martial_law_1
@@ -978,13 +1004,61 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
-            add_opinion_modifier = {
-                target = GER
-                modifier = SSW_BUL_support_pro_GER_fact
+            if = {
+                limit = {
+                    country_exists = GER
+                }
+                add_opinion_modifier = {
+                    target = GER
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+                reverse_add_opinion_modifier = {
+                    target = GER
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
             }
-            reverse_add_opinion_modifier = {
-                target = GER
-                modifier = SSW_BUL_support_pro_GER_fact
+            if = {
+                limit = {
+                    country_exists = HGR
+                }
+                add_opinion_modifier = {
+                    target = HGR
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+                reverse_add_opinion_modifier = {
+                    target = HGR
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+            }
+            if = {
+                limit = {
+                    country_exists = HLH
+                }
+                add_opinion_modifier = {
+                    target = HLH
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+                reverse_add_opinion_modifier = {
+                    target = HLH
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+            }
+            if = {
+                limit = {
+                    country_exists = LTV
+                }
+                add_opinion_modifier = {
+                    target = LTV
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+                reverse_add_opinion_modifier = {
+                    target = LTV
+                    modifier = SSW_BUL_support_pro_GER_fact
+                }
+            }
+            add_timed_idea = {
+                idea = BUL_support_pro_german_fact
+                days = 210
             }
         }
     }
@@ -1499,6 +1573,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            country_event = {id = ssw_bul.26}
             if = {
                 limit = {
                     has_idea = BUL_domestic_turmoil_0
@@ -1553,6 +1628,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            country_event = {id = ssw_bul.27}
             if = {
                 limit = {
                     has_idea = BUL_domestic_turmoil_1
@@ -1604,6 +1680,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            country_event = {id = ssw_bul.28}
             if = {
                 limit = {
                     has_idea = BUL_domestic_turmoil_0
@@ -1658,6 +1735,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            country_event = {id = ssw_bul.29}
             if = {
                 limit = {
                     has_idea = BUL_domestic_turmoil_1
