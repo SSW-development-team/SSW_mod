@@ -6,14 +6,10 @@
 
 focus_tree = {
 	id = generic_focus
-	country = {
-		factor = 1
-	}
+	country = { factor = 1 }
 	default = yes
 	reset_on_civilwar = no
-	initial_show_position = {
-		focus = industrial_effort
-	}
+	initial_show_position = { focus = naval_effort }
 	focus = {
 		id = naval_effort
 		icon = GFX_goal_generic_construct_naval_dockyard
@@ -3036,19 +3032,18 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
-			factor = 1
+			factor = 0
 			modifier = {
-				factor = 99
+				factor = 100
 				is_subject_of = ITA
 			}
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				name = infantry_artillery_bonus
+				name = air_doc_bonus
 				bonus = 2
 				uses = 3
-				category = infantry_weapons
-				category = artillery
+				category = air_doctrine
 			}
 			add_opinion_modifier = {
 				target = ITA
@@ -3105,6 +3100,7 @@ focus_tree = {
 						country_exists = LTV
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = GER
 					}
 				}
@@ -3114,6 +3110,7 @@ focus_tree = {
 						country_exists = GER
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = LTV
 					}
 				}
@@ -3123,6 +3120,7 @@ focus_tree = {
 						country_exists = GER
 						country_exists = LTV
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = HLH
 					}
 				}
@@ -3132,7 +3130,18 @@ focus_tree = {
 						country_exists = GER
 						country_exists = HLH
 						country_exists = LTV
+						country_exists = MBR
 						has_war_with = HGR
+					}
+				}
+				AND = {
+					country_exists = MBR
+					NOT = {
+						country_exists = GER
+						country_exists = HLH
+						country_exists = LTV
+						country_exists = HGR
+						has_war_with = MBR
 					}
 				}
 			}
@@ -3147,7 +3156,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
-			factor = 1
+			factor = 0
 			modifier = {
 				factor = 99
 				OR = {
@@ -3155,7 +3164,9 @@ focus_tree = {
 					is_subject_of = LTV
 					is_subject_of = HLH
 					is_subject_of = HGR
+					is_subject_of = MBR
 				}
+				has_global_flag = GER_civil_war_end
 			}
 		}
 		completion_reward = {
@@ -3178,6 +3189,7 @@ focus_tree = {
 						country_exists = LTV
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = GER
 					}
 				}
@@ -3219,6 +3231,7 @@ focus_tree = {
 						country_exists = GER
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = LTV
 					}
 				}
@@ -3260,6 +3273,7 @@ focus_tree = {
 						country_exists = GER
 						country_exists = LTV
 						country_exists = HGR
+						country_exists = MBR
 						has_war_with = HLH
 					}
 				}
@@ -3301,6 +3315,7 @@ focus_tree = {
 						country_exists = GER
 						country_exists = LTV
 						country_exists = HLH
+						country_exists = MBR
 						has_war_with = HGR
 					}
 				}
@@ -3309,6 +3324,48 @@ focus_tree = {
 					modifier = SSW_generic_technology_licensing
 				}
 				HGR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = SSW_generic_technology_licensing
+					}
+					add_ai_strategy = {
+						type = alliance
+						id = ROOT
+						value = 100
+					}
+					add_ai_strategy = {
+						type = protect
+						id = ROOT
+						value = 100
+					}
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = ROOT
+						value = 100
+					}
+					add_ai_strategy = {
+						type = support
+						id = ROOT
+						value = 100
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = MBR
+					NOT = {
+						country_exists = GER
+						country_exists = LTV
+						country_exists = HLH
+						country_exists = HGR
+						has_war_with = MBR
+					}
+				}
+				add_opinion_modifier = {
+					target = MBR
+					modifier = SSW_generic_technology_licensing
+				}
+				MBR = {
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = SSW_generic_technology_licensing
@@ -3397,9 +3454,9 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
-			factor = 1
+			factor = 0
 			modifier = {
-				factor = 99
+				factor = 100
 				is_subject_of = ENG
 			}
 		}
@@ -3474,9 +3531,9 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
-			factor = 1
+			factor = 0
 			modifier = {
-				factor = 99
+				factor = 100
 				is_subject_of = JAP
 			}
 		}
@@ -4276,31 +4333,26 @@ focus_tree = {
 	focus = {
 		id = SSW_italy_military_advisory_group
 		icon = GFX_goal_generic_build_tank
-		prerequisite = {
-			focus = SSW_cooperation_italy
-		}
-		prerequisite = {
-			focus = production_effort_3
-		}
+		prerequisite = { focus = SSW_cooperation_italy }
+		prerequisite = { focus = production_effort_3 }
 		available = {
 			country_exists = ITA
-			NOT = {
-				has_war_with = ITA
-			}
+			NOT = { has_war_with = ITA }
 		}
 		x = -1
 		y = 2
 		relative_position_id = SSW_cooperation_italy
 		cost = 10
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
+		ai_will_do = { factor = 1 }
 		completion_reward = {
-			custom_effect_tooltip = hire_italian_tt
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1
+				uses = 2
+				category = armor
+			}
 		}
 	}
 	focus = {

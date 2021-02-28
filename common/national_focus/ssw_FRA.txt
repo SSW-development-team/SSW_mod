@@ -59,12 +59,7 @@ focus_tree = {
 		x = 26
 		y = 9
 		available = {
-			has_completed_focus = FRA_Democracy_in_France
-			has_completed_focus = FRA_France_First
-			has_completed_focus = FRA_Mobilization_of_Black_Shirts
-			has_completed_focus = FRA_Maintaining_the_status_quo_with_Germany
-			has_completed_focus = FRA_Revolution_Prosperity
-			has_completed_focus = FRA_France_for_the_Monarch
+			always = no
 		}
 		completion_reward = {
 			add_political_power = 150
@@ -144,7 +139,7 @@ focus_tree = {
 		available = {
 			has_country_flag = FRA_Laval_leader
 			NOT = {
-				has_ideas = Unstable_country
+				has_idea = Unstable_country
 			}
 		}
 		completion_reward = {
@@ -255,7 +250,7 @@ focus_tree = {
 		available = {
 			has_country_flag = FRA_Doriot_leader
 			NOT = {
-				has_ideas = Unstable_country
+				has_idea = Unstable_country
 			}
 		}
 		completion_reward = {
@@ -807,7 +802,7 @@ focus_tree = {
 			OR = {
 				is_in_faction_with = ITA
 				NFR = { exists = no }
-				has_idea = Betrayed_ally
+				has_global_flag = Betrayed_ally
 			}
 		}
 
@@ -2016,6 +2011,132 @@ focus_tree = {
 				target = HGR
 				type = annex_everything
 			}
+		}
+	}
+	focus = {
+		id = FRA_sangyo_1
+		icon = GFX_goal_unknown
+		x = 15
+		y = 9
+		cost = 5.00
+	}
+	focus = {
+		id = FRA_sangyo_2
+		icon = GFX_goal_unknown
+		x = 17
+		y = 10
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_1
+		}
+	}
+	focus = {
+		id = FRA_sangyo_3
+		icon = GFX_goal_unknown
+		x = 13
+		y = 10
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_1
+		}
+	}
+	focus = {
+		id = FRA_sangyo_4
+		icon = GFX_goal_unknown
+		x = 18
+		y = 11
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_2		
+		}
+	}
+	focus = {
+		id = FRA_sangyo_5
+		icon = GFX_goal_unknown
+		x = 16
+		y = 11
+		cost = 5.00
+		mutually_exclusive = {
+			focus = FRA_sangyo_6
+		}
+		prerequisite = {
+			focus = FRA_sangyo_3
+			focus = FRA_sangyo_2
+		}
+		prerequisite = {
+			focus = FRA_sangyo_8		
+		}
+	}
+	focus = {
+		id = FRA_sangyo_6
+		icon = GFX_goal_unknown
+		x = 14
+		y = 11
+		cost = 5.00
+		mutually_exclusive = {
+			focus = FRA_sangyo_5
+		}
+		prerequisite = {
+			focus = FRA_sangyo_3
+			focus = FRA_sangyo_2
+		}
+		prerequisite = {
+			focus = FRA_sangyo_8		
+		}
+	}
+	focus = {
+		id = FRA_sangyo_7
+		icon = GFX_goal_unknown
+		x = 12
+		y = 11
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_3		
+		}
+	}
+	focus = {
+		id = FRA_sangyo_8
+		icon = GFX_goal_unknown
+		x = 15
+		y = 10
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_1
+		}
+	}
+	focus = {
+		id = FRA_sangyo_9
+		icon = GFX_goal_unknown
+		x = 14
+		y = 12
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_6
+			focus = FRA_sangyo_5
+		}
+	}
+	focus = {
+		id = FRA_sangyo_10
+		icon = GFX_goal_unknown
+		x = 16
+		y = 12
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_6
+			focus = FRA_sangyo_5
+		}
+	}
+	focus = {
+		id = FRA_sangyo_11
+		icon = GFX_goal_unknown
+		x = 15
+		y = 13
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sangyo_9
+		}
+		prerequisite = {
+			focus = FRA_sangyo_10
 		}
 	}
 }

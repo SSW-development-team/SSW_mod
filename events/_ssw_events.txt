@@ -1,5 +1,29 @@
 add_namespace = ssw
-
+#ゲッベルスがボルマンに勝利
+country_event = {
+	id = ssw.0
+	hidden = yes
+	trigger = {
+		tag = GER
+		surrender_progress < 0.2
+		MBR = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = GER }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = MBR transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = MBR }
+			remove_core_of = MBR
+		}
+		news_event = { id = ssw.27 hours = 6 }
+	}
+	option = { name = ssw.0.a }
+}
 ##Event: 世界首都ゲルマニア
 country_event = {
 	id = ssw.1
@@ -362,6 +386,7 @@ news_event = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -372,6 +397,7 @@ news_event = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -392,6 +418,7 @@ news_event = {
 				tag = GER
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -402,6 +429,7 @@ news_event = {
 				tag = GER
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -422,6 +450,7 @@ news_event = {
 				tag = GER
 				tag = LTV
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -432,6 +461,7 @@ news_event = {
 				tag = GER
 				tag = LTV
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -452,6 +482,7 @@ news_event = {
 				tag = GER
 				tag = LTV
 				tag = HLH
+				tag = MBR
 			}
 		}
 	}
@@ -462,6 +493,7 @@ news_event = {
 				tag = GER
 				tag = LTV
 				tag = HLH
+				tag = MBR
 			}
 		}
 	}
@@ -502,6 +534,13 @@ country_event = {
 			}
 			white_peace = HGR
 		}
+		every_country = {
+			limit = {
+				has_country_flag = intervention_goring
+				has_war_with = MBR
+			}
+			white_peace = MBR
+		}
 	}
 	option = { name = ssw.20.a }
 }
@@ -540,6 +579,13 @@ country_event = {
 				has_war_with = HGR
 			}
 			white_peace = HGR
+		}
+		every_country = {
+			limit = {
+				has_country_flag = intervention_goring
+				has_war_with = MBR
+			}
+			white_peace = MBR
 		}
 	}
 	option = { name = ssw.21.a }
@@ -580,6 +626,13 @@ country_event = {
 			}
 			white_peace = HGR
 		}
+		every_country = {
+			limit = {
+				has_country_flag = intervention_goring
+				has_war_with = MBR
+			}
+			white_peace = MBR
+		}
 	}
 	option = { name = ssw.21.a }
 }
@@ -619,6 +672,13 @@ country_event = {
 			}
 			white_peace = HLH
 		}
+		every_country = {
+			limit = {
+				has_country_flag = intervention_goring
+				has_war_with = MBR
+			}
+			white_peace = MBR
+		}
 	}
 	option = { name = ssw.23.a }
 }
@@ -633,21 +693,31 @@ country_event = {
 				has_global_flag = end_vorbeck
 				has_global_flag = end_himmler
 				has_global_flag = end_goring
+				has_global_flag = end_bormann
 			}
 			AND = {
 				has_global_flag = end_nazism
 				has_global_flag = end_himmler
 				has_global_flag = end_goring
+				has_global_flag = end_bormann
 			}
 			AND = {
 				has_global_flag = end_nazism
 				has_global_flag = end_vorbeck
 				has_global_flag = end_goring
+				has_global_flag = end_bormann
 			}
 			AND = {
 				has_global_flag = end_nazism
 				has_global_flag = end_vorbeck
 				has_global_flag = end_himmler
+				has_global_flag = end_bormann
+			}
+			AND = {
+				has_global_flag = end_nazism
+				has_global_flag = end_vorbeck
+				has_global_flag = end_himmler
+				has_global_flag = end_goring
 			}
 		}
 		OR = {
@@ -657,6 +727,7 @@ country_event = {
 					country_exists = LTV
 					country_exists = HLH
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			AND = {
@@ -665,6 +736,7 @@ country_event = {
 					country_exists = GER
 					country_exists = HLH
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			AND = {
@@ -673,6 +745,7 @@ country_event = {
 					country_exists = GER
 					country_exists = LTV
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			AND = {
@@ -681,6 +754,16 @@ country_event = {
 					country_exists = GER
 					country_exists = HLH
 					country_exists = LTV
+					country_exists = MBR
+				}
+			}
+			AND = {
+				country_exists = MBR
+				NOT = {
+					country_exists = GER
+					country_exists = HLH
+					country_exists = LTV
+					country_exists = HGR
 				}
 			}
 		}
@@ -697,6 +780,7 @@ country_event = {
 					country_exists = LTV
 					country_exists = HLH
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			every_state = {
@@ -714,6 +798,7 @@ country_event = {
 					country_exists = GER
 					country_exists = HLH
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			every_state = {
@@ -731,6 +816,7 @@ country_event = {
 					country_exists = GER
 					country_exists = LTV
 					country_exists = HGR
+					country_exists = MBR
 				}
 			}
 			every_state = {
@@ -748,6 +834,7 @@ country_event = {
 					country_exists = GER
 					country_exists = HLH
 					country_exists = LTV
+					country_exists = MBR
 				}
 			}
 			every_state = {
@@ -756,6 +843,24 @@ country_event = {
 					NOT = { is_fully_controlled_by = HGR }
 				}
 				HGR = { transfer_state = PREV }
+			}
+		}
+		if = {
+			limit = {
+				country_exists = MBR
+				NOT = {
+					country_exists = GER
+					country_exists = HLH
+					country_exists = LTV
+					country_exists = HGR
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = MBR
+					NOT = { is_fully_controlled_by = MBR }
+				}
+				MBR = { transfer_state = PREV }
 			}
 		}
 	}
@@ -777,6 +882,7 @@ news_event = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -788,6 +894,7 @@ news_event = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 	}
@@ -805,4 +912,211 @@ country_event = {
 	mean_time_to_happen = { days = 1 }
 	immediate = { set_capital = 1114 }
 	option = { name = ssw.26.a }
+}
+#ボルマン派政府の崩壊
+news_event = {
+	id = ssw.27
+	title = ssw.27.title
+	desc = ssw.27.desc
+	picture = GFX_news_event_german_reichstag_ruins
+	major = yes
+	is_triggered_only = yes
+	immediate = { set_global_flag = end_bormann }
+	option = {
+		name = ssw.27.a
+		trigger = { 
+			OR = {
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
+	}
+	option = {
+		name = ssw.27.b
+		trigger = { 
+			NOT = {
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+			}
+		}
+	}
+}
+#フォルベックがボルマンに勝利
+country_event = {
+	id = ssw.28
+	hidden = yes
+	trigger = {
+		tag = LTV
+		surrender_progress < 0.2
+		MBR = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = LTV }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = MBR transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = MBR }
+			remove_core_of = MBR
+		}
+		news_event = { id = ssw.27 hours = 6 }
+	}
+	option = { name = ssw.28.a }
+}
+#ヒムラーがボルマンに勝利
+country_event = {
+	id = ssw.29
+	hidden = yes
+	trigger = {
+		tag = HLH
+		surrender_progress < 0.2
+		MBR = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = HLH }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = MBR transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = MBR }
+			remove_core_of = MBR
+		}
+		news_event = { id = ssw.27 hours = 6 }
+	}
+	option = { name = ssw.29.a }
+}
+#ゲーリングがボルマンに勝利
+country_event = {
+	id = ssw.30
+	hidden = yes
+	trigger = {
+		tag = HGR
+		surrender_progress < 0.2
+		MBR = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = HGR }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = MBR transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = MBR }
+			remove_core_of = MBR
+		}
+		news_event = { id = ssw.27 hours = 6 }
+	}
+	option = { name = ssw.30.a }
+}
+#ボルマンがゲッベルスに勝利
+country_event = {
+	id = ssw.31
+	hidden = yes
+	trigger = {
+		tag = MBR
+		surrender_progress < 0.2
+		GER = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = MBR }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = GER transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = GER }
+			remove_core_of = GER
+		}
+		news_event = { id = ssw.16 hours = 6 }
+	}
+	option = { name = ssw.31.a }
+}
+#ボルマンがフォルベックに勝利
+country_event = {
+	id = ssw.32
+	hidden = yes
+	trigger = {
+		tag = MBR
+		surrender_progress < 0.2
+		LTV = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = MBR }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = LTV transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = LTV }
+			remove_core_of = LTV
+		}
+		news_event = { id = ssw.17 hours = 6 }
+	}
+	option = { name = ssw.32.a }
+}
+#ボルマンがヒムラーに勝利
+country_event = {
+	id = ssw.33
+	hidden = yes
+	trigger = {
+		tag = MBR
+		surrender_progress < 0.2
+		HLH = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = MBR }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = HLH transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = HLH }
+			remove_core_of = HLH
+		}
+		news_event = { id = ssw.18 hours = 6 }
+	}
+	option = { name = ssw.33.a }
+}
+#ボルマンがゲーリングに勝利
+country_event = {
+	id = ssw.34
+	hidden = yes
+	trigger = {
+		tag = MBR
+		surrender_progress < 0.2
+		HGR = {
+			surrender_progress > 0.65
+			capital_scope = { is_controlled_by = MBR }
+		}
+		has_global_flag = GER_civil_war
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		annex_country = { target = HGR transfer_troops = no }
+		every_state = {
+			limit = { is_core_of = HGR }
+			remove_core_of = HGR
+		}
+		news_event = { id = ssw.19 hours = 6 }
+	}
+	option = { name = ssw.34.a }
 }
