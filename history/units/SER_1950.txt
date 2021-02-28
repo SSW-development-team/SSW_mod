@@ -1,6 +1,6 @@
 division_template = {
 	name = "Infantry Division"
-	
+	division_names_group = SER_INF_01
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -13,14 +13,11 @@ division_template = {
 		infantry = { x = 1 y = 3 }
 		infantry = { x = 1 y = 4 }
 	}
-    support = {
-        engineer = { x = 0 y = 0 }
-	}
+    support = {}
 }
-
 division_template = {
-	name = "Artillery Division"
-	
+	name = "Infantry Division II"
+	division_names_group = SER_INF_01
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -30,149 +27,160 @@ division_template = {
         infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		artillery_brigad = { x = 1 y = 3 }
-		artillery_brigad = { x = 1 y = 4 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
 	}
-    support = {
-        engineer = { x = 0 y = 0 }
-        recon = { x = 0 y = 1 }
-	}
+    support = { light_tank_recon = { x = 0 y = 0 } }
 }
-
+division_template = {
+	name = "Infantry Division III"
+	division_names_group = SER_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+    support = {}
+}
 division_template = {
 	name = "Cavalry Division"
-	
+	division_names_group = SER_CAV_01
 	regiments = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
 		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 0 y = 3 }
-		cavalry = { x = 0 y = 4 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
 	}
-    support = {
-        recon = { x = 0 y = 1 }
-	}
+    support = {}
 }
-
 units = {
     division = {
-		name = "Infantry Division"
+		name = "Kosovska"
+		location = 606
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+    division = {
+		name = "Jadranska"
+		location = 9821
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+    division = {
+		name = "Cerska"
 		location = 11586
-		division_template = "Infantry Division"
+		division_template = "Infantry Division II"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
-
     division = {
-		name = "Infantry Division"
-		location = 6643
-		division_template = "Infantry Division"
+		name = "Bosanska"
+		location = 11577
+		division_template = "Infantry Division III"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
-
-     division = {
-		name = "Infantry Division"
-		location = 11580
-		division_template = "Infantry Division"
-		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
-	}
-
-     division = {
-		name = "Infantry Division"
-		location = 982
-		division_template = "Infantry Division"
-		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
-	}
-     division = {
-		name = "Infantry Division"
-		location = 9809
-		division_template = "Infantry Division"
-		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
-	}
-
-     division = {
-		name = "Infantry Division"
-		location = 9874
-		division_template = "Infantry Division"
-		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
-	}
-
-     division = {
-		name = "Artillery Division"
-		location = 9906
-		division_template = "Artillery Division"
-		start_experience_factor = 0.4
-		start_equipment_factor = 1.0
-	}
-
     division = {
-		name = "Artillery Division"
+		name = "Timočka"
 		location = 11887
-		division_template = "Artillery Division"
+		division_template = "Infantry Division III"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+    division = {
+		name = "Krajinska"
+		location = 11580
+		division_template = "Infantry Division III"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+    division = {
+		name = "Potiska"
+		location = 6643
+		division_template = "Infantry Division III"
 		start_experience_factor = 0.4
 		start_equipment_factor = 1.0
 	}
-
     division = {
-		name = "Artillery Division"
-		location = 9756
-		division_template = "Artillery Division"
+		name = "Sumadija"
+		location = 937
+		division_template = "Infantry Division III"
 		start_experience_factor = 0.4
 		start_equipment_factor = 1.0
 	}
-
     division = {
-		name = "Cavalry Division"
-		location = 6998
+		name = "Dunavska"
+		location = 9906
+		division_template = "Infantry Division III"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+	}
+    division = {
+		name = "1st Cavalry Division"
+		location = 3614
 		division_template = "Cavalry Division"
 		start_experience_factor = 0.2
 		start_equipment_factor = 1.0
 	}
-
     division = {
-		name = "Cavalry Division"
-		location = 9599
+		name = "2nd Cavalry Division"
+		location = 630
 		division_template = "Cavalry Division"
 		start_experience_factor = 0.2
 		start_equipment_factor = 1.0
 	}
 }
-
+air_wings = {
+	105 = { 
+		cv_CAS_equipment_3 = {
+			owner = "SER" 
+			amount = 12
+		}
+	}
+	107 = { 
+		tac_bomber_equipment_3 = {
+			owner = "SER" 
+			amount = 48
+		}
+		fighter_equipment_3 = {
+			owner = "SER" 
+			amount = 24
+		}
+	}
+}
 instant_effect = {
-
 	add_equipment_production = {
 		equipment = {
 			type = infantry_equipment_3
-			creator = "ROM"
+			creator = "SER"
 		}
 		requested_factories = 3
 		progress = 1.0
 		efficiency = 70
 	}
-
 	add_equipment_production = {
 		equipment = {
 			type = support_equipment_1
-			creator = "ROM" 
+			creator = "SER" 
 		}
 		requested_factories = 1
 		progress = 0.5
 		efficiency = 40
 	}
-
 	add_equipment_production = {
 		equipment = {
 			type = artillery_equipment_1
-			creator = "ROM" 
+			creator = "SER" 
 		}
 		requested_factories = 1
 		progress = 0.3
 		efficiency = 50
 	}
-
 }
