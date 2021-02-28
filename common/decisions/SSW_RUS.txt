@@ -114,6 +114,7 @@ interventio_in_german_civil_war = {
 					has_war_with = LTV
 					has_war_with = HLH
 					has_war_with = HGR
+					has_war_with = MBR
 				}
 			}
 			NOT = {
@@ -168,6 +169,7 @@ interventio_in_german_civil_war = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 		complete_effect = {
@@ -226,6 +228,7 @@ interventio_in_german_civil_war = {
 					has_war_with = GER
 					has_war_with = HLH
 					has_war_with = HGR
+					has_war_with = MBR
 				}
 			}
 			NOT = {
@@ -234,10 +237,6 @@ interventio_in_german_civil_war = {
 				has_government = classical_communism
 				has_global_flag = GER_civil_war_end
 				has_country_flag = support_germany
-				tag = GER
-				tag = LTV
-				tag = HLH
-				tag = HGR
 			}
 		}
 		cost = 50
@@ -272,6 +271,7 @@ interventio_in_german_civil_war = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 		complete_effect = {
@@ -330,6 +330,7 @@ interventio_in_german_civil_war = {
 					has_war_with = GER
 					has_war_with = LTV
 					has_war_with = HGR
+					has_war_with = MBR
 				}
 			}
 			NOT = {
@@ -338,10 +339,6 @@ interventio_in_german_civil_war = {
 				has_government = classical_communism
 				has_global_flag = GER_civil_war_end
 				has_country_flag = support_germany
-				tag = GER
-				tag = LTV
-				tag = HLH
-				tag = HGR
 			}
 		}
 		cost = 50
@@ -376,6 +373,7 @@ interventio_in_german_civil_war = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 		complete_effect = {
@@ -434,6 +432,7 @@ interventio_in_german_civil_war = {
 					has_war_with = GER
 					has_war_with = LTV
 					has_war_with = HLH
+					has_war_with = MBR
 				}
 			}
 			NOT = {
@@ -442,10 +441,6 @@ interventio_in_german_civil_war = {
 				has_government = classical_communism
 				has_global_flag = GER_civil_war_end
 				has_country_flag = support_germany
-				tag = GER
-				tag = LTV
-				tag = HLH
-				tag = HGR
 			}
 		}
 		cost = 50
@@ -492,6 +487,7 @@ interventio_in_german_civil_war = {
 				tag = LTV
 				tag = HLH
 				tag = HGR
+				tag = MBR
 			}
 		}
 		complete_effect = {
@@ -502,6 +498,120 @@ interventio_in_german_civil_war = {
 				set_country_flag = support_germany
 				set_country_flag = intervention_goring
 				HGR = {
+					add_ai_strategy = { type = alliance id = ROOT value = 50 }
+					add_ai_strategy = { type = protect id = ROOT value = 50 }
+					add_ai_strategy = { type = support id = ROOT value = 50 }
+				}
+			}
+		}
+	}
+	support_bormann = {
+		icon = ger_reichskommissariats
+		available = {
+			has_equipment = { infantry_equipment > 1499 }
+			has_equipment = { convoy > 499 }
+			OR = {
+				AND = {
+					any_state = {
+						is_controlled_by = MBR
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+				AND = {
+					any_state = {
+						controller = {
+							has_opinion = {
+								target = MBR
+								value > 24
+							}
+						}
+						is_coastal = yes
+					}
+					any_state = {
+						is_controlled_by = MBR
+						is_coastal = no
+					}
+					any_state = {
+						is_controlled_by = ROOT
+						is_coastal = yes
+					}
+				}
+			}
+			MBR = {
+				OR = {
+					has_war_with = LTV
+					has_war_with = HLH
+					has_war_with = HGR
+					has_war_with = GER
+				}
+			}
+			NOT = {
+				has_government = anarchism
+				has_government = progressive_communism
+				has_government = classical_communism
+				has_global_flag = GER_civil_war_end
+				has_country_flag = support_germany
+			}
+		}
+		cost = 50
+		fire_only_once = no
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 99
+				OR = {
+					AND = {
+						tag = CRO
+						has_full_control_of_state = 971
+						has_full_control_of_state = 972
+						has_full_control_of_state = 976
+						has_full_control_of_state = 977
+					}
+					AND = {
+						tag = FSA
+						NOT = {
+							country_exists = ALF
+							country_exists = LFF
+							country_exists = UTC
+						}
+					}
+					AND = {
+						tag = RUS
+						has_completed_focus = RUS_the_great_coup
+					}
+					AND = {
+						tag = SPR
+						has_completed_focus = SPR_faranhe
+					}
+					tag = ARG
+					tag = CHI
+					tag = NFR
+					tag = POR
+				}
+			}
+		}
+		visible = {
+			NOT = {
+				has_global_flag = GER_civil_war_end
+				tag = GER
+				tag = LTV
+				tag = HLH
+				tag = HGR
+				tag = MBR
+			}
+		}
+		complete_effect = {
+			army_experience = 20
+			send_equipment = { target = MBR type = infantry_equipment amount = 1500 }
+			reverse_add_opinion_modifier = { target = MBR modifier = SSW_support_civil_war }
+			hidden_effect = {
+				set_country_flag = support_germany
+				set_country_flag = intervention_bormann
+				MBR = {
 					add_ai_strategy = { type = alliance id = ROOT value = 50 }
 					add_ai_strategy = { type = protect id = ROOT value = 50 }
 					add_ai_strategy = { type = support id = ROOT value = 50 }
@@ -581,14 +691,15 @@ interventio_in_german_civil_war = {
 				limit = { country_exists = HGR }
 				declare_war_on = { target = HGR type = annex_everything }
 			}
+			if = {
+				limit = { country_exists = MBR }
+				declare_war_on = { target = MBR type = annex_everything }
+			}
 			hidden_effect = {
 				set_country_flag = declaration_of_war
 				GER = {
 					give_military_access = ROOT
 					diplomatic_relation = { country = ROOT relation = non_aggression_pact }
-					if = {
-						limit = { NOT = { has_country_flag = supported_by_other_countries } }
-					}
 				}
 				if = {
 					limit = { NOT = { GER = { has_country_flag = supported_by_other_countries } } }
@@ -656,6 +767,10 @@ interventio_in_german_civil_war = {
 			if = {
 				limit = { country_exists = HGR }
 				declare_war_on = { target = HGR type = annex_everything }
+			}
+			if = {
+				limit = { country_exists = MBR }
+				declare_war_on = { target = MBR type = annex_everything }
 			}
 			hidden_effect = {
 				set_country_flag = declaration_of_war
@@ -729,6 +844,10 @@ interventio_in_german_civil_war = {
 			if = {
 				limit = { country_exists = HGR }
 				declare_war_on = { target = HGR type = annex_everything }
+			}
+			if = {
+				limit = { country_exists = MBR }
+				declare_war_on = { target = MBR type = annex_everything }
 			}
 			hidden_effect = {
 				set_country_flag = declaration_of_war
@@ -815,6 +934,10 @@ interventio_in_german_civil_war = {
 				limit = { country_exists = HLH }
 				declare_war_on = { target = HLH type = annex_everything }
 			}
+			if = {
+				limit = { country_exists = MBR }
+				declare_war_on = { target = MBR type = annex_everything }
+			}
 			hidden_effect = {
 				set_country_flag = declaration_of_war
 				HGR = {
@@ -824,6 +947,96 @@ interventio_in_german_civil_war = {
 				if = {
 					limit = { NOT = { HGR = { has_country_flag = supported_by_other_countries } } }
 					HGR = { set_country_flag = supported_by_other_countries }
+				}
+			}
+		}
+	}
+	declaration_of_war_with_bormann = {
+		icon = ger_reichskommissariats
+		available = {
+			has_equipment = { infantry_equipment > 14999 }
+			has_army_manpower = { size > 499999 }
+			has_war_support > 0.8
+			has_war = no
+			MBR = {
+				is_neighbor_of = ROOT
+				OR = {
+					has_war_with = LTV
+					has_war_with = HLH
+					has_war_with = HGR
+					has_war_with = GER
+				}
+			}
+			has_country_flag = intervention_bormann
+			NOT = { has_country_flag = declaration_of_war }
+		}
+		cost = 150
+		fire_only_once = no
+		ai_will_do = { factor = 1 }
+		visible = {
+			OR = {
+				AND = {
+					tag = CRO
+					has_full_control_of_state = 971
+					has_full_control_of_state = 972
+					has_full_control_of_state = 976
+					has_full_control_of_state = 977
+				}
+				AND = {
+					tag = FSA
+					NOT = {
+						country_exists = ALF
+						country_exists = LFF
+						country_exists = UTC
+					}
+				}
+				AND = {
+					tag = RUS
+					has_completed_focus = RUS_the_great_coup
+				}
+				AND = {
+					tag = SPR
+					has_completed_focus = SPR_faranhe
+				}
+				tag = ARG
+				tag = CHI
+				tag = NFR
+				tag = POR
+			}
+			is_subject = no
+			NOT = {
+				has_government = anarchism
+				has_government = progressive_communism
+				has_government = classical_communism
+				has_global_flag = GER_civil_war_end
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { country_exists = GER }
+				declare_war_on = { target = GER type = annex_everything }
+			}
+			if = {
+				limit = { country_exists = LTV }
+				declare_war_on = { target = LTV type = annex_everything }
+			}
+			if = {
+				limit = { country_exists = HLH }
+				declare_war_on = { target = HLH type = annex_everything }
+			}
+			if = {
+				limit = { country_exists = HGR }
+				declare_war_on = { target = HGR type = annex_everything }
+			}
+			hidden_effect = {
+				set_country_flag = declaration_of_war
+				MBR = {
+					give_military_access = ROOT
+					diplomatic_relation = { country = ROOT relation = non_aggression_pact }
+				}
+				if = {
+					limit = { NOT = { MBR = { has_country_flag = supported_by_other_countries } } }
+					MBR = { set_country_flag = supported_by_other_countries }
 				}
 			}
 		}
@@ -841,6 +1054,7 @@ interventio_in_german_civil_war = {
 						country_exists = LTV
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 					}
 				}
 				AND = {
@@ -849,6 +1063,7 @@ interventio_in_german_civil_war = {
 						country_exists = GER
 						country_exists = HLH
 						country_exists = HGR
+						country_exists = MBR
 					}
 				}
 				AND = {
@@ -857,6 +1072,7 @@ interventio_in_german_civil_war = {
 						country_exists = GER
 						country_exists = LTV
 						country_exists = HGR
+						country_exists = MBR
 					}
 				}
 				AND = {
@@ -865,6 +1081,16 @@ interventio_in_german_civil_war = {
 						country_exists = GER
 						country_exists = LTV
 						country_exists = HLH
+						country_exists = MBR
+					}
+				}
+				AND = {
+					has_country_flag = intervention_bormann
+					NOT = {
+						country_exists = GER
+						country_exists = LTV
+						country_exists = HLH
+						country_exists = HGR
 					}
 				}
 			}

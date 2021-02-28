@@ -1397,6 +1397,50 @@ country_event = {
 						social_conservatism = 15
 						national_fascism = 10
 					}
+					add_ai_strategy = { type = alliance id = FRA value = 20 }
+					add_ai_strategy = { type = protect id = FRA value = 20 }
+					add_ai_strategy = { type = send_volunteers_desire id = FRA value = 20 }
+					add_ai_strategy = { type = support id = FRA value = 20 }
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							has_government = progressive_communism
+							has_government = classical_communism
+							has_government = social_democracy
+						}
+						has_war = no
+					}
+					add_ai_strategy = { type = alliance id = SPA value = 20 }
+					add_ai_strategy = { type = protect id = SPA value = 20 }
+					add_ai_strategy = { type = send_volunteers_desire id = SPA value = 20 }
+					add_ai_strategy = { type = support id = SPA value = 20 }
+					SPA = {
+						add_ai_strategy = { type = alliance id = PREV value = 20 }
+						add_ai_strategy = { type = protect id = PREV value = 20 }
+						add_ai_strategy = { type = send_volunteers_desire id = PREV value = 20 }
+						add_ai_strategy = { type = support id = PREV value = 20 }
+					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							has_government = authority_despotism
+							has_government = national_fascism
+							has_government = national_socialism
+						}
+						has_war = no
+					}
+					add_ai_strategy = { type = alliance id = SPR value = 20 }
+					add_ai_strategy = { type = protect id = SPR value = 20 }
+					add_ai_strategy = { type = send_volunteers_desire id = SPR value = 20 }
+					add_ai_strategy = { type = support id = SPR value = 20 }
+					SPR = {
+						add_ai_strategy = { type = alliance id = PREV value = 20 }
+						add_ai_strategy = { type = protect id = PREV value = 20 }
+						add_ai_strategy = { type = send_volunteers_desire id = PREV value = 20 }
+						add_ai_strategy = { type = support id = PREV value = 20 }
+					}
 				}
 			}
 		}
@@ -1404,6 +1448,11 @@ country_event = {
 	option = {
 		name = ssw_spr.1004.a
 		ai_chance = { base = 100 }
+		hidden_effect = {
+			SPA = { add_ideas = losing_event_1 }
+			SPC = { add_ideas = losing_event_1 }
+			SPF = { add_ideas = losing_event_1 }
+		}
 	}
 	option = {
 		name = ssw_spr.1004.b
@@ -1419,5 +1468,44 @@ country_event = {
 		name = ssw_spr.1004.d
 		ai_chance = { base = 0 }
 		SPC = { change_tag_from = SPR }
+	}
+}
+country_event = {
+	id = ssw_spr.1005
+	title = ssw_spr.1005.title
+	desc = ssw_spr.1005.desc
+	#picture = THE PICTURE OF THIS EVENT IS NOTHING#
+	is_triggered_only = yes
+	option = {
+		name = ssw_spr.1005.a
+		ai_chance = { base = 100 }
+	}
+}
+country_event = {
+	id = ssw_spr.1006
+	title = ssw_spr.1006.title
+	desc = ssw_spr.1006.desc
+	#picture = THE PICTURE OF THIS EVENT IS NOTHING#
+	is_triggered_only = yes
+	option = {
+		name = ssw_spr.1006.a
+		ai_chance = { base = 100 }
+		165 = {
+			remove_building = {
+				type = infrastructure
+				level = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = ssw_spr.1007
+	title = ssw_spr.1007.title
+	desc = ssw_spr.1007.desc
+	#picture = THE PICTURE OF THIS EVENT IS NOTHING#
+	is_triggered_only = yes
+	option = {
+		name = ssw_spr.1007.a
+		ai_chance = { base = 100 }
 	}
 }
