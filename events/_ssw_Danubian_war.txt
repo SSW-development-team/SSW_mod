@@ -296,11 +296,6 @@ country_event = { #
 	option = { #
 		name = Danubian_war.10.a
 		ai_chance = { base = 1 }
-		hidden_effect = {
-			HUN = { country_event = { id = Danubian_war.11 } }
-			CRO = { country_event = { id = Danubian_war.12 } }
-			BUL = { country_event = { id = Danubian_war.13 } }
-		}
 	}
 }
 country_event = { #
@@ -778,10 +773,6 @@ country_event = { #
 	option = { #
 		name = Danubian_war.24.a
 		ai_chance = { base = 1 }
-		hidden_effect = {
-			ROM = { country_event = { id = Danubian_war.25 } }
-			SER = { country_event = { id = Danubian_war.26 } }
-		}
 	}
 }
 country_event = { #
@@ -981,6 +972,10 @@ country_event = { #ハンガリーが降伏直前に…
 			}
 			CRO = { set_faction_leader = yes }
 		}
+		every_country = {
+			limit = { has_war_with = HUN }
+			white_peace = HUN
+		}
 		random_other_country = {
 			limit = {
 				OR = {
@@ -1168,6 +1163,10 @@ country_event = { #クロアチアが降伏直前に…
 			}
 			HUN = { set_faction_leader = yes }
 		}
+		every_country = {
+			limit = { has_war_with = CRO }
+			white_peace = CRO
+		}
 		random_other_country = {
 			limit = {
 				OR = {
@@ -1238,6 +1237,10 @@ country_event = { #ブルガリアが降伏直前に…
 			}
 			HUN = { set_faction_leader = yes }
 		}
+		every_country = {
+			limit = { has_war_with = BUL }
+			white_peace = BUL
+		}
 		random_other_country = {
 			limit = {
 				OR = {
@@ -1291,6 +1294,10 @@ country_event = { #ルーマニアが降伏直前に…
 				is_in_faction_with = SER
 			}
 			SER = { set_faction_leader = yes }
+		}
+		every_country = {
+			limit = { has_war_with = ROM }
+			white_peace = ROM
 		}
 		random_other_country = {
 			limit = {
@@ -1346,6 +1353,10 @@ country_event = { #セルビアが降伏直前に…
 				is_in_faction_with = ROM
 			}
 			ROM = { set_faction_leader = yes }
+		}
+		every_country = {
+			limit = { has_war_with = SER }
+			white_peace = SER
 		}
 		random_other_country = {
 			limit = {
