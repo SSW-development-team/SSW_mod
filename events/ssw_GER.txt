@@ -259,7 +259,7 @@ country_event = {
 				transfer_state = 188
 				transfer_state = 763
 				transfer_state = 1207
-				set_capital = 97
+				set_capital = 763
 				set_autonomy = {
 					target = POL
 					autonomous_state = reichsprotectorate
@@ -1225,5 +1225,181 @@ country_event = {
 		name = BACK_TT
 		ai_chance = { base = 10 }
 		country_event = { id = SSW_GER.22 }
+	}
+}
+##Event: テスト
+country_event = {
+	id = SSW_GER.36
+	title = SSW_GER.10.t
+	desc = SSW_GER.10.d
+	picture = GFX_German_Civil_War
+	is_triggered_only = yes
+	option = {
+		name = SSW_GER.10.a
+		load_focus_tree = ssw_Gebbels_Germany_civilwar_focus
+		hidden_effect = {
+			every_country = {
+    			limit = { is_in_faction_with = GER }
+    			add_ideas = GER_war_ideas_2
+			}
+			every_country = {
+    			limit = { has_war_with = GER }
+				white_peace = GER
+			}
+			set_country_flag = GER_dec_civil_war
+			remove_ideas = {
+				GER_idea_1
+				Air_force_conspiracy
+			}
+			if = {
+				limit = { has_global_flag = GER_civil_war }
+				clr_global_flag = GER_civil_war
+			}
+			ROM ={
+				country_event = {
+					id = Danubian_war.1
+					days = 60
+				}
+			}
+			set_global_flag = GER_civil_war
+			set_global_flag = big_event_custom_german_civil_war
+			every_state = {
+				limit = { is_core_of = GER }
+				add_core_of = HLH
+				add_core_of = HGR
+				add_core_of = LTV
+				add_core_of = MBR
+				add_core_of = WLK
+				add_core_of = SCH
+				add_core_of = RDA
+				add_core_of = ARO
+				add_core_of = PBH
+				add_core_of = CGR
+				add_core_of = WGR
+				add_core_of = EGR
+			}
+			#反ナチス戦線
+			LTV = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 56
+				transfer_state = 58
+				transfer_state = 59
+				transfer_state = 812
+				set_capital = 58
+			}
+			#ヒムラー派
+			HLH = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 8
+				transfer_state = 28
+				transfer_state = 42
+				transfer_state = 50
+				transfer_state = 938
+				transfer_state = 1021
+				transfer_state = 1022
+				transfer_state = 1023
+				set_capital = 1023
+			}
+			#ゲーリング派
+			HGR = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 4
+				transfer_state = 102
+				transfer_state = 152
+				transfer_state = 981
+				transfer_state = 1042
+				set_capital = 4
+			}
+			#ボルマン派
+			MBR = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 5
+				transfer_state = 97
+				transfer_state = 98
+				transfer_state = 188
+				transfer_state = 763
+				transfer_state = 1207
+				set_capital = 763
+				set_autonomy = {
+					target = POL
+					autonomous_state = reichsprotectorate
+				}
+			}
+			WLK = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 61
+				transfer_state = 62
+				set_capital = 61
+			}
+			SCH = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 67
+				transfer_state = 74
+				transfer_state = 762
+				set_capital = 67
+			}
+			RDA = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 3
+				transfer_state = 151
+				transfer_state = 153
+				transfer_state = 963
+				set_capital = 3
+			}
+			ARO = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 51
+				transfer_state = 57
+				set_capital = 51
+			}
+			PBH = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 86
+				transfer_state = 87
+				set_capital = 
+			}
+			CGR = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 60
+				transfer_state = 65
+				set_capital = 60
+			}
+			EGR = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 52
+				transfer_state = 53
+				set_capital = 52
+			}
+			WGR = {
+				set_country_flag = GER_dec_civil_war
+				transfer_state = 54
+				transfer_state = 55
+				set_capital = 54
+			}
+			if = {
+				limit = { NFR = { has_full_control_of_state = 1041 } }
+				HLH = { transfer_state = 1041 }
+				1041 = {
+					add_core_of = HLH
+					add_core_of = HGR
+					add_core_of = LTV
+					add_core_of = MBR
+					add_core_of = WLK
+					add_core_of = SCH
+					add_core_of = RDA
+					add_core_of = ARO
+					add_core_of = PBH
+					add_core_of = CGR
+					add_core_of = WGR
+					add_core_of = EGR
+				}
+			}
+			GER = {
+				country_event = { id = SSW_GER.22 }
+				country_event = { id = SSW_GER.24 days = 1 }
+				country_event = { id = SSW_GER.27 days = 1 }
+				country_event =  { id = SSW_GER.32 days = 1 }
+			}
+		}
 	}
 }
