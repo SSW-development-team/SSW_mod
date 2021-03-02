@@ -304,7 +304,7 @@ ideas{
 			}
 		}
 
-		RFS_repair_factry= {
+		RFS_repair_factry = {
 			allowed = {
 				always = yes
 			}
@@ -318,7 +318,7 @@ ideas{
 			}
 		}
 
-		RFS_great_union= {
+		RFS_great_union = {
 			allowed = {
 				always = yes
 			}
@@ -331,8 +331,57 @@ ideas{
 				production_factory_max_efficiency_factor = 0.25
 				production_speed_buildings_factor = 0.15
 				consumer_goods_factor = -0.05
-				global_building_slots_factor = 0.20
-				conscription = 0.05
+			}
+		}
+
+		RFS_restore_military = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			on_remove = {
+				add_ideas = RFS_restore_military_1
+			}
+			removal_cost = -1
+			picture = idea_prc_low_popular_support3
+			modifier = {
+				army_attack_factor = -0.1
+				training_time_factor = 0.2
+				army_org_Factor = -0.1
+				max_planning = -0.25
+			}
+		}
+
+		RFS_restore_military_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				army_attack_factor = 0.15
+				training_time_factor = -0.2
+				army_org_Factor = 0.1
+				max_planning = 0.25
+			}
+		}
+
+		RFS_craim_russia = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = FRA_scw_intervention_republicans_focus
+			modifier = {
+				justify_war_goal_time = -0.25
 			}
 		}
 	}
