@@ -512,6 +512,7 @@ SSW_foreign_support = {
 	add_building_slots = {
 		icon = generic_nationalism
 		available = {
+			NOT = { has_country_flag = adding_state_core }
 			FROM = {
 				is_owned_by = ROOT
 				OR = {
@@ -593,7 +594,7 @@ SSW_foreign_support = {
 			}
 		}
 		cost = 0
-		fire_only_once = yes
+		fire_only_once = no
 		days_remove = 49
 		modifier = { political_power_gain = -1 }
 		visible = {
@@ -636,6 +637,9 @@ SSW_foreign_support = {
 			}
 		}
 		complete_effect = { set_country_flag = adding_state_core }
-		remove_effect = { FROM = { add_extra_state_shared_building_slots = 1 } }
+		remove_effect = {
+			clr_country_flag = adding_state_core
+			FROM = { add_extra_state_shared_building_slots = 1 }
+		}
 	}
 }
