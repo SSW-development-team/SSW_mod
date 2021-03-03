@@ -1188,3 +1188,28 @@ country_event = { #扇動者の対処
         }
     }
 }
+country_event = { #シメオン二世の成人
+    id = ssw_bul.30
+    title = ssw_bul.30.t
+    desc = ssw_bul.30.d
+    picture = GFX_report_event_bul_boris_military
+    fire_only_once = yes
+    trigger = {
+        original_tag = BUL
+        date > 1955.6.16
+    }
+    mean_time_to_happen = {
+        days = 30
+    }
+    option = { #シメオン二世万歳！
+        name = ssw_bul.30.a
+        retire_ideology_leader = authority_democracy_ideology
+        create_country_leader = {
+            name = "Simeon II"
+            desc = "POLITICS_SIMEON_II_DESC"
+            picture = "gfx/leaders/BUL/Portrait_Simeon_II.dds"
+            expire = 2021.1.1
+            ideology = authority_democracy_ideology
+        }
+    }
+}

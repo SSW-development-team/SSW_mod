@@ -1058,7 +1058,7 @@ focus_tree={
             }
             add_timed_idea = {
                 idea = BUL_support_pro_german_fact
-                days = 210
+                days = 420
             }
         }
     }
@@ -1259,6 +1259,42 @@ focus_tree={
             GER = {
                 give_guarantee = BUL
             }
+            if = {
+                limit = {
+                    country_exists = GER
+                }
+                give_guarantee = GER
+                GER = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = HGR
+                }
+                give_guarantee = HGR
+                HGR = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = HLH
+                }
+                give_guarantee = HLH
+                HLH = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = LTV
+                }
+                give_guarantee = LTV
+                LTV = {
+                    give_guarantee = BUL
+                }
+            }
         }
     }
 
@@ -1313,6 +1349,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            add_ideas = BUL_BUL_nationalism
             reverse_add_opinion_modifier = {
                 target = GRE
                 modifier = SSW_BUL_greater_BUL
@@ -1845,9 +1882,6 @@ focus_tree={
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
             }
-            has_army_manpower = {
-                size > 260000
-            }
         }
         cost = 5
         ai_will_do = {
@@ -1912,6 +1946,9 @@ focus_tree={
             NOT = {
                 has_non_aggression_pact_with = SER
             }
+            has_army_manpower = {
+                size > 260000
+            }
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -1919,6 +1956,10 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_manpower < 208000
+                factor = 0.4
+            }
         }
         completion_reward = {
             declare_war_on = {
@@ -2094,6 +2135,10 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_manpower < 240000
+                factor = 0.4
+            }
         }
         completion_reward = {
             declare_war_on = {
@@ -2127,11 +2172,6 @@ focus_tree={
         available_if_capitulated = yes
         search_filters = {
             FOCUS_FILTER_ANNEXATION
-        }
-        available = {
-            has_army_manpower = {
-                size > 320000
-            }
         }
         cost = 10
         ai_will_do = {
@@ -2230,6 +2270,9 @@ focus_tree={
             NOT = {
                 has_non_aggression_pact_with = HUN
             }
+            has_army_manpower = {
+                size > 320000
+            }
         }
         available_if_capitulated = yes
         bypass = {
@@ -2246,6 +2289,10 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_manpower < 256000
+                factor = 0.4
+            }
         }
         completion_reward = {
             declare_war_on = {
@@ -2343,6 +2390,13 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                strength_ratio = {
+                    tag = TUR
+                    ratio > 1.2
+                }
+                factor = 1.1
+            }
         }
         completion_reward = {
             add_tech_bonus = {
@@ -2371,11 +2425,18 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                strength_ratio = {
+                    tag = TUR
+                    ratio < 1
+                }
+                factor = 0.5
+            }
         }
         completion_reward = {
             add_tech_bonus = {
                 bonus = 1.5
-                uses = 1
+                uses = 2
                 category = marine_tech
                 category = tp_tech
             }
@@ -2486,7 +2547,7 @@ focus_tree={
                 has_non_aggression_pact_with = TUR
             }
             has_army_manpower = {
-                size > 300000
+                size > 320000
             }
         }
         search_filters = {
@@ -2495,6 +2556,17 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_manpower < 256000
+                factor = 0.4
+            }
+            modifier = {
+                OR = {
+                    has_completed_focus = BUL_operation_caraconjel
+                    has_completed_focus = BUL_operation_smok
+                }
+                factor = 0.3
+            }
         }
         completion_reward = {
             declare_war_on = {
@@ -2528,6 +2600,10 @@ focus_tree={
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_manpower < 224000
+                factor = 0.5
+            }
         }
         completion_reward = {
             106 = {
@@ -2744,6 +2820,13 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                strength_ratio = {
+                    tag = GRE
+                    ratio < 1.1
+                }
+                factor = 0.6
+            }
         }
         completion_reward = {
             every_state = {
