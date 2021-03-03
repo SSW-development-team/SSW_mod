@@ -57,4 +57,60 @@ SPR_policy = {
 			ITA = { add_to_faction = SPR }
 		}
 	}
+	power_struggle_with_spain = {
+		icon = generic_nationalism
+		available = {
+			has_country_flag = spanish_power_struggle
+			NOT = { has_country_flag = doing_power_struggle }
+			FROM = {
+				is_core_of = ROOT
+				has_state_flag = maybe_own_SPR_GAMESTART
+				NOT = {
+					is_owned_by = ROOT
+					has_state_flag = end_power_struggle
+				}
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		target_trigger = {
+			FROM = {
+				is_core_of = ROOT
+				NOT = { is_owned_by = ROOT }
+				has_state_flag = maybe_own_SPR_GAMESTART
+			}
+		}
+		cost = 0
+		fire_only_once = no
+		days_remove = 35
+		modifier = { political_power_gain = -1.5 }
+		visible = {
+			has_country_flag = spanish_power_struggle
+			FROM = {
+				is_core_of = ROOT
+				NOT = { is_owned_by = ROOT }
+				has_state_flag = maybe_own_SPR_GAMESTART
+			}
+		}
+		complete_effect = { set_country_flag = doing_power_struggle }
+		remove_effect = {
+			clr_country_flag = doing_power_struggle
+			FROM = { set_state_flag = end_power_struggle }
+			random_list = {
+				50 = { custom_effect_tooltip = no_effect_tt }
+				50 = {
+					ROOT = { transfer_state = FROM }
+					FROM = {
+						create_unit = {
+							division = "division_template = \"Infantry Division\" start_experience_factor = 0.5" 
+							owner = ROOT
+							allow_spawning_on_enemy_provs = yes
+							count = 1
+						}
+					}
+				}
+			}
+		}
+	}
 }

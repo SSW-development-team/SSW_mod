@@ -26,6 +26,9 @@ country_event = { #暗黒の日曜日
     is_triggered_only = yes
     option = { #戒厳令を発令する
         name = ssw_bul.1.a
+        ai_chance = {
+            base = 100
+        }
         BUL = {
             add_ideas = BUL_political_instability
             add_ideas = BUL_martial_law_0
@@ -35,8 +38,12 @@ country_event = { #暗黒の日曜日
     }
     option = { #王室の保護を優先する
         name = ssw_bul.1.b
+        ai_chance = {
+            base = 0
+        }
         BUL = {
             add_ideas = BUL_political_instability
+            add_ideas = BUL_domestic_turmoil_0
             complete_national_focus = BUL_Black_Sunday
             complete_national_focus = BUL_protect_the_royal_family
         }
@@ -53,8 +60,1156 @@ country_event = { #会議
     option = { #親ドイツ派を支持
         name = ssw_bul.2.a
         set_country_flag = BUL_support_pro_german
+        remove_ideas = BUL_political_instability
     }
     option = { #マケドニアから来た男を支持
         name = ssw_bul.2.b
+        remove_ideas = BUL_political_instability
+    }
+}
+
+country_event = { #ブルガリアがテッサロニキとトラキアを要求
+    id = ssw_bul.3
+    title = ssw_bul.3.t
+    desc = ssw_bul.3.d
+    picture = GFX_report_event_bulgarian_soldiers
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #受け入れるしかあるまい
+        name = ssw_bul.3.a
+        ai_chance = {
+            base = 10
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio < 0.5
+                }
+                factor = 10
+            }
+            modifier = {
+                BUL = {
+                    OR = {
+                        is_in_faction = yes
+                        is_puppet = yes
+                    }
+                }
+                factor = 5
+            }
+            modifier = {
+                OR = {
+                    is_in_faction = yes
+                    is_puppet = yes
+                }
+                factor = 0.5
+            }
+            modifier = {
+                OR = {
+                    is_major = yes
+                    strength_ratio = {
+                        tag = BUL
+                        ratio > 2
+                    }
+                }
+                factor = 0
+            }
+        }
+        add_political_power = -50
+        add_stability = -0.2
+        add_war_support = -0.2
+        BUL = {
+            country_event = { id = ssw_bul.4}
+        }
+    }
+    option = { #サロニカのみの妥協を提案する
+        name = ssw_bul.3.b
+        ai_chance = {
+            base = 30
+            modifier = {
+                OR = {
+                    is_in_faction = yes
+                    is_puppet = yes
+                }
+                factor = 0.5
+            }
+            modifier = {
+                BUL = {
+                    OR = {
+                        is_in_faction = yes
+                        is_puppet = yes
+                    }
+                }
+                factor = 0.9
+            }
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio < 0.5
+                }
+                factor = 0.9
+            }
+            modifier = {
+                OR = {
+                    is_major = yes
+                    strength_ratio = {
+                        tag = BUL
+                        ratio > 2
+                    }
+                }
+                factor = 0
+            }
+        }
+        add_political_power = -100
+        BUL = {
+            country_event = { id = ssw_bul.5}
+        }
+    }
+    option = { #こんなもの受け入れられない！
+        name = ssw_bul.3.c
+        ai_chance = {
+            base = 60
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio < 0.5
+                }
+                factor = 0.5
+            }
+            modifier = {
+                BUL = {
+                    OR = {
+                        is_in_faction = yes
+                        is_puppet = yes
+                    }
+                }
+                factor = 0.6
+            }
+            modifier = {
+                OR = {
+                    is_in_faction = yes
+                    is_puppet = yes
+                }
+                factor = 5
+            }
+            modifier = {
+                OR = {
+                    is_major = yes
+                    strength_ratio = {
+                        tag = BUL
+                        ratio > 2
+                    }
+                }
+                factor = 10
+            }
+            modifier = {
+                BUL = {
+                    surrender_progress > 0.3
+                }
+                factor = 4
+            }
+            modifier = {
+                BUL = {
+                    OR = {
+                        has_war_with = GER
+                        has_war_with = ITA
+                    }
+                }
+                factor = 3
+            }
+        }
+        add_political_power = 50
+        BUL = {
+            country_event = { id = ssw_bul.8}
+        }
+    }
+}
+
+country_event = { #ギリシャが要求を受諾
+    id = ssw_bul.4
+    title = ssw_bul.4.t
+    desc = ssw_bul.4.d
+    picture = GFX_report_event_generic_peaceful_annexation
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構！
+        name = ssw_bul.4.a
+        transfer_state = 731
+        transfer_state = 184   
+    }
+}
+
+country_event = { #ギリシャが妥協を提案
+    id = ssw_bul.5
+    title = ssw_bul.5.t
+    desc = ssw_bul.5.d
+    picture = GFX_report_event_generic_sign_treaty1
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #認めてやろう
+        name = ssw_bul.5.a
+        ai_chance = {
+            base = 40
+        }
+        GRE = {
+            country_event = {id = ssw_bul.6}
+        }
+    }
+    option = { #奴らは自分の立場を理解していないらしい
+        name = ssw_bul.5.b
+        ai_chance = {
+            base = 60
+        }
+        GRE = {
+            country_event = {id = ssw_bul.7}
+        }
+        custom_effect_tooltip = BUL_reject_GRE_compromise
+    }
+}
+
+country_event = { #ブルガリアが妥協案を認める
+    id = ssw_bul.6
+    title = ssw_bul.6.t
+    desc = ssw_bul.6.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #出血は抑えられた
+        name = ssw_bul.6.a
+        BUL = {
+            transfer_state = 184
+        }
+    }
+}
+
+country_event = { #ブルガリアが妥協案を拒絶
+    id = ssw_bul.7
+    title = ssw_bul.7.t
+    desc = ssw_bul.7.d
+    picture = GFX_report_event_bulgarian_soldiers
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #ならば相手になってやろう
+        name = ssw_bul.7.a
+        BUL = {
+            declare_war_on = {
+                target = GRE
+                type = take_claimed_state
+            }
+        }
+    }
+}
+
+country_event = { #ギリシャが要求を拒否
+    id = ssw_bul.8
+    title = ssw_bul.8.t
+    desc = ssw_bul.8.d
+    picture = GFX_report_event_generic_funeral
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #ならば戦争しかあるまい
+        name = ssw_bul.8.a
+        ai_chance = {
+            base = 50
+            modifier = {
+                GRE = {
+                    is_in_faction = no
+                }
+                factor = 2
+            }
+        }
+        GRE = {
+            country_event = {id = ssw_bul.9}
+        }
+    }
+    option = { #今は引こう
+        name = ssw_bul.8.b
+        ai_chance = {
+            base = 50
+        }
+        add_stability = -0.1
+        add_war_support = -0.1
+    }
+}
+
+country_event = { #ブルガリアとの戦闘状態に突入
+    id = ssw_bul.9
+    title = ssw_bul.9.t
+    desc = ssw_bul.9.d
+    picture = GFX_report_event_gre_city_siege
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #戦いだ！
+        name = ssw_bul.9.a
+        add_war_support = 0.1
+        BUL = {
+            declare_war_on = {
+                target = GRE
+                type = annex_everything
+            }
+        }
+    }
+}
+
+country_event = { #要塞の建築計画
+    id = ssw_bul.10
+    title = ssw_bul.10.t
+    desc = ssw_bul.10.d
+    picture = GFX_report_event_bunker_01
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #ギリシャとルーマニアとの国境に
+        name = ssw_bul.10.a
+        activate_decision = BUL_build_fortress_GRE_border
+        activate_decision = BUL_build_fortress_ROM_border
+    }
+    option = { #イタリア以外の全ての国境に
+        name = ssw_bul.10.b
+        activate_decision = BUL_build_fortress_GRE_border
+        activate_decision = BUL_build_fortress_ROM_border
+        activate_decision = BUL_build_fortress_SER_border
+        activate_decision = BUL_build_fortress_TUR_border
+    }
+    option = { #例外なく全ての国境に
+        name = ssw_bul.10.c
+        activate_decision = BUL_build_fortress_GRE_border
+        activate_decision = BUL_build_fortress_ROM_border
+        activate_decision = BUL_build_fortress_SER_border
+        activate_decision = BUL_build_fortress_TUR_border
+        activate_decision = BUL_build_fortress_ITA_border
+    }
+    option = { #要塞など必要ない
+        name = ssw_bul.10.e
+        add_timed_idea = {
+            idea = BUL_budget_redistribution
+            days = 140
+        }
+    }
+}
+
+country_event = { #ブルガリアがクロアチアの分割を提案
+    id = ssw_bul.11
+    title = ssw_bul.11.t
+    desc = ssw_bul.11.d
+    picture = GFX_report_event_generic_sign_treaty1
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #承諾しよう
+        name = ssw_bul.11.a
+        ai_chance = {
+            base = 40
+        }
+        BUL = {
+            country_event = {id = ssw_bul.12}
+        }
+    }
+    option = { #拒否する
+        name = ssw_bul.11.b
+        ai_chance = {
+            base = 60
+        }
+        BUL = {
+            country_event = {id = ssw_bul.13}
+        }
+    }
+}
+
+country_event = { #ハンガリーが提案を承諾
+    id = ssw_bul.12
+    title = ssw_bul.12.t
+    desc = ssw_bul.12.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構
+        name = ssw_bul.12.a
+        custom_effect_tooltip = BUL_HUN_agreement
+        hidden_effect = {
+            diplomatic_relation = {
+                country = HUN
+                relation = non_aggression_pact
+                active = yes
+            }
+            give_military_access = HUN
+            HUN = {
+                give_military_access = BUL
+                remove_from_faction = CRO
+            }
+        }
+    }
+}
+
+country_event = { #ハンガリーが提案を拒否
+    id = ssw_bul.13
+    title = ssw_bul.13.t
+    desc = ssw_bul.13.d
+    picture = GFX_report_event_finnish_letter
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #貴国もクロアチアと道連れになるだろう
+        name = ssw_bul.13.a
+        ai_chance = {
+            base = 35
+            modifier = {
+                AND = {
+                    strength_ratio = {
+                        tag = HUN
+                        ratio > 2
+                    }
+                    strength_ratio = {
+                        tag = CRO
+                        ratio > 2
+                    }
+                }
+                factor = 2
+            }
+        }
+        leave_faction = yes
+    }
+    option = { #クロアチアの編入は諦めよう
+        name = ssw_bul.13.b
+        ai_chance = {
+            base = 65
+        }
+    }
+}
+
+country_event = { #ブルガリアがクロアチアの従属解除を求める
+    id = ssw_bul.14
+    title = ssw_bul.14.t
+    desc = ssw_bul.14.d
+    picture = GFX_report_event_generic_sign_treaty1
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #クロアチアなど最早不要だ
+        name = ssw_bul.14.a
+        ai_chance = {
+            base = 50
+            modifier = {
+                OR = {
+                    has_opinion = {
+                        target = BUL
+                        value = 50
+                    }
+                    BUL = {
+                        has_completed_focus = BUL_support_pro_german
+                    }
+                }
+                factor = 2
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.15}
+        }
+    }
+    option = { #我々は勢力圏の縮小を行わない
+        name = ssw_bul.14.b
+        ai_chance = {
+            base = 50
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value = -50
+                }
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.16}
+        }
+    }
+}
+
+country_event = { #ドイツが我々の申し出を認める
+    id = ssw_bul.15
+    title = ssw_bul.15.t
+    desc = ssw_bul.15.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構
+        name = ssw_bul.15.a
+        CRO = {
+            end_puppet = GER
+            leave_faction = yes
+        }
+    }
+}
+
+country_event = { #ドイツが我々の申し出を拒否
+    id = ssw_bul.16
+    title = ssw_bul.16.t
+    desc = ssw_bul.16.d
+    picture = GFX_report_event_finnish_letter
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #畜生！
+        name = ssw_bul.16.a
+    }
+}
+
+country_event = { #ブルガリアがアルバニアを要求
+    id = ssw_bul.17
+    title = ssw_bul.17.t
+    desc = ssw_bul.17.d
+    picture = GFX_report_event_generic_sign_treaty1
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #要求を全面的に認める
+        name = ssw_bul.17.a
+        ai_chance = {
+            base = 10
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value > 50
+                }
+                factor = 1.5
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.18}
+        }
+    }
+    option = { #マケドニア西部に関してのみ認める
+        name = ssw_bul.17.b
+        ai_chance = {
+            base = 30
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value > 50
+                }
+                factor = 2
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.19}
+        }
+    }
+    option = { #マケドニア西部とコソボの交換を提案
+        name = ssw_bul.17.c
+        trigger = {
+            BUL = {
+                owns_state = 802
+            }
+        }
+        ai_chance = {
+            base = 100
+        }
+        BUL = {
+            country_event = {id = ssw_bul.20}
+        }
+    }
+    option = { #提案は認めるが対価を要求する
+        name = ssw_bul.17.e
+        ai_chance = {
+            base = 60
+        }
+        BUL = {
+            country_event = {id = ssw_bul.21}
+        }
+    }
+    option = { #そのような提案を認める訳にはいかない
+        name = ssw_bul.17.f
+        ai_chance = {
+            base = 15
+            modifier = {
+                BUL = {
+                    surrender_progress > 0.4
+                }
+                factor = 4
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.22}
+        }
+    }
+}
+
+country_event = { #イタリアが提案を認める
+    id = ssw_bul.18
+    title = ssw_bul.18.t
+    desc = ssw_bul.18.d
+    picture = GFX_report_event_bul_imro_chieftain
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構！
+        name = ssw_bul.18.a
+        annex_country = {
+            target = ALB
+            transfer_troops = no
+        }
+    }
+}
+
+country_event = { #イタリアが妥協案を提案
+    id = ssw_bul.19
+    title = ssw_bul.19.t
+    desc = ssw_bul.19.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これで十分だろう
+        name = ssw_bul.19.a
+        ai_chance = {
+            base = 80
+        }
+        ITA = {
+            country_event = {id = ssw_bul.23}
+        }
+        BUL = {
+            set_country_flag = BUL_agree_compromise
+        }
+    }
+    option = { #これは我々の求めるものではない
+        name = ssw_bul.19.b
+        ai_chance = {
+            base = 20
+        }
+        ITA = {
+            country_event = {id = ssw_bul.24}
+        }
+    }
+}
+
+country_event = { #イタリアがマケドニア西部とコソボの交換を提案
+    id = ssw_bul.20
+    title = ssw_bul.20.t
+    desc = ssw_bul.20.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #対価を支払って当然だろう
+        name = ssw_bul.20.a
+        ai_chance = {
+            base = 70
+        }
+        ITA = {
+            country_event = {id = ssw_bul.23}
+        }
+        BUL = {
+            set_country_flag = BUL_agree_compromise_exchange
+        }
+    }
+    option = { #せっかく得た土地を手放すなんてとんでもない！
+        name = ssw_bul.20.b
+        ai_chance = {
+            base = 30
+        }
+        ITA = {
+            country_event = {id = ssw_bul.24}
+        }
+    }
+}
+
+country_event = { #イタリアがアルバニアの対価の支払いを要求
+    id = ssw_bul.21
+    title = ssw_bul.21.t
+    desc = ssw_bul.21.d
+    picture = GFX_report_event_generic_sign_treaty2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #それは正当な判断だ
+        name = ssw_bul.21.a
+        ai_chance = {
+            base = 60
+        }
+        ITA = {
+            country_event = {id = ssw_bul.23}
+        }
+        BUL = {
+            set_country_flag = BUL_agree_compromise_consideration
+        }
+    }
+    option = { #それならば諦めよう
+        name = ssw_bul.21.b
+        ai_chance = {
+            base = 40
+        }
+        ITA = {
+            country_event = {id = ssw_bul.24}
+        }
+    }
+}
+
+country_event = { #イタリアが提案を拒否
+    id = ssw_bul.22
+    title = ssw_bul.22.t
+    desc = ssw_bul.22.d
+    picture = GFX_report_event_finnish_letter
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #諦めるしかあるまい
+        name = ssw_bul.22.a
+        ai_chance = {
+            base = 60
+            modifier = {
+                has_opinion = {
+                    target = ITA
+                    value = 50
+                }
+                factor = 1.5
+            }
+        }
+        if = {
+            limit = {
+                BUL = {
+                    has_completed_focus = BUL_from_west
+                }
+            }
+            every_state = {
+                limit = {
+                    is_core_of = ALB
+                    NOT = {
+                        state = 802
+                    }
+                }
+                remove_claim_by = BUL
+            }
+        }
+        else = {
+            every_state = {
+                limit = {
+                    is_core_of = ALB
+                    NOT = {
+                        state = 802
+                    }
+                }
+                remove_claim_by = BUL
+            }
+        }
+        set_country_flag = BUL_not_get_ALB
+    }
+    option = { #我々は血によってそれを得る！
+        name = ssw_bul.22.b
+        ai_chance = {
+            base = 40
+            modifier = {
+                OR = {
+                    has_opinion = {
+                        target = ITA
+                        value = -50
+                    }
+                    NOT = {
+                        is_in_faction_with = ITA
+                    }
+                }
+                factor = 2
+            }
+        }
+        create_wargoal = {
+            target = ALB
+            type = annex_everything
+        }
+    }
+}
+
+country_event = { #ブルガリアが提案に合意
+    id = ssw_bul.23
+    title = ssw_bul.23.t
+    desc = ssw_bul.23.d
+    picture = GFX_report_event_generic_read_write
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #どこまで行けるか見ものだな
+        name = ssw_bul.23.a
+        if = {
+            limit = {
+                BUL = {
+                    has_country_flag = BUL_agree_compromise
+                }
+            }
+            BUL = {
+                transfer_state = 807
+                remove_state_claim = 44
+                remove_state_claim = 805
+                if = {
+                    limit = {
+                        NOT = {has_completed_focus = BUL_from_west}
+                    }
+                    remove_state_claim = 802
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                BUL = {
+                    has_country_flag = BUL_agree_compromise_exchange
+                }
+            }
+            BUL = {
+                transfer_state = 807
+                remove_state_claim = 802
+                remove_state_claim = 44
+                remove_state_claim = 805
+            }
+            ALB = {
+                transfer_state = 802
+                remove_state_core = 807
+            }
+        }
+        else_if = {
+            limit = {
+                BUL = {
+                    has_country_flag = BUL_agree_compromise_consideration
+                }
+            }
+            BUL = {
+                add_timed_idea = {
+                    idea = BUL_consideration_pay
+                    days = 365
+                }
+                annex_country = {
+                    target = ALB
+                    transfer_troops = no
+                }
+            }
+            ITA = {
+                add_timed_idea = {
+                    idea = BUL_consideration_pay_ITA
+                    days = 365
+                }
+            }
+        }
+    }
+}
+
+country_event = { #ブルガリアが提案を拒否
+    id = ssw_bul.24
+    title = ssw_bul.24.t
+    desc = ssw_bul.24.d
+    picture = GFX_report_event_finnish_letter
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #奴らはどこを目指すつもりなのだ？
+        name = ssw_bul.24.a
+        if = {
+            limit = {
+                BUL = {
+                    has_completed_focus = BUL_from_west
+                }
+            }
+            every_state = {
+                limit = {
+                    is_core_of = ALB
+                    NOT = {
+                        state = 802
+                    }
+                }
+                remove_claim_by = BUL
+            }
+        }
+        else = {
+            every_state = {
+                limit = {
+                    is_core_of = ALB
+                    NOT = {
+                        state = 802
+                    }
+                }
+                remove_claim_by = BUL
+            }
+        }
+        BUL = {
+            set_country_flag = BUL_not_get_ALB
+        }
+    }
+}
+country_event = { #国家社会主義者が権力を確保
+    id = ssw_bul.25
+    title = ssw_bul.25.t
+    desc = ssw_bul.25.d
+    picture = GFX_report_event_bul_officers_burgas
+    fire_only_once = yes
+    trigger = {
+        original_tag = BUL
+        BUL = {
+            NOT = {has_government = national_socialism}
+            OR = {
+                AND = {
+                    national_socialism > 0.5
+                    NOT = {has_completed_focus = BUL_pro_german}
+                }
+                AND = {
+                    national_socialism > 0.4
+                    has_completed_focus = BUL_pro_german
+                }
+                AND = {
+                    national_socialism > 0.3
+                    has_stability < 0.2
+                    has_global_flag = danubian_war_end
+                    NOT = {has_idea = BUL_political_instability}
+                }
+            }
+        }
+    }
+    option = { #容易に想像できたことだ
+        name = ssw_bul.25.a
+        trigger = {
+            NOT = {
+                AND = {
+                    national_socialism > 0.3
+                    has_stability < 0.2
+                    has_global_flag = danubian_war_end
+                    NOT = {has_idea = BUL_political_instability}
+                }
+            }
+        }
+        set_politics = {
+            ruling_party = national_socialism
+            elections_allowed = no
+        }
+    }
+    option = { #この国は大丈夫か？
+        name = ssw_bul.25.b
+        trigger = {
+            AND = {
+                national_socialism > 0.3
+                has_stability < 0.2
+                has_global_flag = danubian_war_end
+                NOT = {has_idea = BUL_political_instability}
+            }
+        }
+        set_politics = {
+            ruling_party = national_socialism
+            elections_allowed = no
+        }
+    }
+}
+country_event = { #都市の統制
+    id = ssw_bul.26
+    title = ssw_bul.26.t
+    desc = ssw_bul.26.d
+    picture = GFX_report_event_american_hunger_march
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #警察によって扇動者を捕らえる
+        name = ssw_bul.26.a
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.04
+        }
+    }
+    option = { #軍から治安部隊を組織し鎮圧する
+        name = ssw_bul.26.b
+        add_stability = -0.05
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = corporatocracism
+            popularity = 0.01
+        }
+    }
+}
+country_event = { #地方の統制
+    id = ssw_bul.27
+    title = ssw_bul.27.t
+    desc = ssw_bul.27.d
+    picture = GFX_report_event_military_planning
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #中央の権力により統制を行う
+        name = ssw_bul.27.a
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.02
+        }
+    }
+    option = { #地方自治体の権力を拡大する
+        name = ssw_bul.27.b
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.05
+        }
+    }
+    option = { #国民に自衛を求める
+        name = ssw_bul.27.c
+        add_stability = -0.05
+        add_popularity = {
+            ideology = anarchism
+            popularity = 0.06
+        }
+    }
+}
+country_event = { #政治権限の調整
+    id = ssw_bul.28
+    title = ssw_bul.28.t
+    desc = ssw_bul.28.d
+    picture = GFX_report_event_generic_read_write
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #各大臣、各省庁により権力を分配する
+        name = ssw_bul.28.a
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.03
+        }
+    }
+    option = { #トップがより多くの権限を持つべきだ
+        name = ssw_bul.28.b
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.04
+        }
+    }
+    option = { #議会にも権限を与える
+        name = ssw_bul.28.c
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.06
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.06
+        }
+    }
+}
+country_event = { #扇動者の対処
+    id = ssw_bul.29
+    title = ssw_bul.29.t
+    desc = ssw_bul.29.d
+    picture = GFX_report_event_german_politician_speech
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #命を奪う必要はない。寛容に行こう
+        name = ssw_bul.29.a
+        add_stability = -0.03
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.04
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.04
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = -0.04
+        }
+    }
+    option = { #ダメだ！奴らは根絶やしにしなければならない
+        name = ssw_bul.29.b
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = -0.06
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = national_fascism
+            popularity = -0.05
+        }
+    }
+    option = { #優秀な人材は政府に組み込むべきではないか？
+        name = ssw_bul.29.c
+        add_stability = -0.02
+        add_political_power = 30
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.01
+        }
+        add_popularity = {
+            ideology = corporatocracism
+            popularity = 0.01
+        }
+    }
+}
+country_event = { #シメオン二世の成人
+    id = ssw_bul.30
+    title = ssw_bul.30.t
+    desc = ssw_bul.30.d
+    picture = GFX_report_event_bul_boris_military
+    fire_only_once = yes
+    trigger = {
+        original_tag = BUL
+        date > 1955.6.16
+    }
+    mean_time_to_happen = {
+        days = 30
+    }
+    option = { #シメオン二世万歳！
+        name = ssw_bul.30.a
+        retire_ideology_leader = authority_democracy_ideology
+        create_country_leader = {
+            name = "Simeon II"
+            desc = "POLITICS_SIMEON_II_DESC"
+            picture = "gfx/leaders/BUL/Portrait_Simeon_II.dds"
+            expire = 2021.1.1
+            ideology = authority_democracy_ideology
+        }
     }
 }

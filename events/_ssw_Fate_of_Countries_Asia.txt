@@ -32,9 +32,9 @@ country_event = { #“ú–{‚Ì‰^–½
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						is_core_of = KOR
-						is_core_of = CHI
-						is_core_of = MAN
+						has_state_flag = maybe_core_MAN_GAMESTART
+						has_state_flag = maybe_core_KOR_GAMESTART
+						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -70,9 +70,9 @@ country_event = { #“ú–{‚Ì‰^–½
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						is_core_of = KOR
-						is_core_of = CHI
-						is_core_of = MAN
+						has_state_flag = maybe_core_MAN_GAMESTART
+						has_state_flag = maybe_core_KOR_GAMESTART
+						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -108,9 +108,9 @@ country_event = { #“ú–{‚Ì‰^–½
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						is_core_of = KOR
-						is_core_of = CHI
-						is_core_of = MAN
+						has_state_flag = maybe_core_MAN_GAMESTART
+						has_state_flag = maybe_core_KOR_GAMESTART
+						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -133,6 +133,79 @@ country_event = { #“ú–{‚Ì‰^–½
 			}
 			puppet = PRJ
 		}
+	}
+	option = {
+		name = ssw_foc_asia.0.b
+		trigger = {
+			OR = {
+				has_government = social_democracy
+				has_government = social_liberalism
+				has_government = social_conservatism
+				has_government = authority_despotism
+				has_government = authority_democracy
+				has_government = national_fascism
+				has_government = national_socialism
+				has_government = corporatocracism
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					is_core_of = JAP
+					is_core_of = JSF
+					is_core_of = PRJ
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+					has_state_flag = maybe_core_MAN_GAMESTART
+					has_state_flag = maybe_core_KOR_GAMESTART
+					has_state_flag = maybe_core_CHI_GAMESTART
+					state = 524
+					state = 537
+					state = 555
+					state = 655
+					state = 745
+					state = 842
+					state = 943
+					state = 1104
+				}
+			}
+			JAP = { transfer_state = PREV }
+			add_core_of = JAP
+		}
+		every_state = {
+			limit = { is_core_of = JSF }
+			remove_core_of = JSF
+		}
+		every_state = {
+			limit = { is_core_of = PRJ }
+			remove_core_of = PRJ
+		}
+		KAN = {
+			transfer_state = 943
+			add_state_core = 943
+			set_cosmetic_tag = KAN_legation_cities
+			give_military_access = ROOT
+		}
+		every_other_country = {
+			limit = {
+				is_major = yes
+				NOT = {
+					has_government = anarchism
+					has_government = progressive_communism
+					has_government = classical_communism
+				}
+			}
+			give_guarantee = KAN
+			diplomatic_relation = { country = KAN relation = non_aggression_pact }
+			KAN = { give_military_access = PREV }
+		}
+		puppet = JAP
+		give_guarantee = KAN
+		diplomatic_relation = { country = KAN relation = non_aggression_pact }
 	}
 	option = {
 		name = OCCUPY_TT

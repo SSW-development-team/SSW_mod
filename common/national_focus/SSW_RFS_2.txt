@@ -184,8 +184,6 @@ focus_tree = {
 		cost = 2.00
 		prerequisite = {
 			focus = RFS_SecondPhase_5
-		}
-		prerequisite = {
 			focus = RFS_SecondPhase_10
 		}
 		x = 7
@@ -217,7 +215,7 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			custom_effect_tooltip = pawer_up
+			custom_effect_tooltip = pawer_up_kor
 			hidden_effect = {
 				add_to_variable = {
 					var = political_strife_kor
@@ -244,7 +242,7 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			custom_effect_tooltip = pawer_up
+			custom_effect_tooltip = pawer_up_lys
 			hidden_effect = {
 				add_to_variable = {
 					var = political_strife_lys
@@ -642,6 +640,12 @@ focus_tree = {
 		id = RFS_warplan_17
 		icon = GFX_goal_unknown
 		cost = 2.00
+		available = {
+			OR = {
+				has_country_flag = win_kor
+				has_country_flag = win_lys
+			}
+		}
 		prerequisite = {
 			focus = RFS_warplan_16
 		}
@@ -650,6 +654,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
+		completion_reward = {
+			set_country_flag = ssw_rus_last_war
+			custom_effect_tooltip = ssw_rus_lastwar
+		}
 
 	}
 }

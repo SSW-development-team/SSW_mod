@@ -1,22 +1,20 @@
-focus_tree = {
-	id = SSW_RFS_industry
-	country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = RBL
-		}
-	}
-	default = no
-	focus = {
+
+	shared_focus = {
 		id = RFS_ind_1
 		icon = GFX_goal_unknown
 		cost = 5.00
 		x = 40
 		y = 0
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_2
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -26,8 +24,18 @@ focus_tree = {
 		x = 32
 		y = 2
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = RFS_The_aftereffects_infra
+				days = 365
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_6
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -37,8 +45,33 @@ focus_tree = {
 		x = 30
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+				random_owned_controlled_state={
+					limit = {
+					free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+					}
+			
+					}
+			
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+					}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_5
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -48,8 +81,58 @@ focus_tree = {
 		x = 34
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+				random_owned_controlled_state={
+			
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+				}
+				random_owned_controlled_state={
+			
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+				}
+				random_owned_controlled_state={
+			
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+				}
+				random_owned_controlled_state={
+			
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+				}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_7
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -62,8 +145,18 @@ focus_tree = {
 		x = 32
 		y = 4
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RFS_The_aftereffects_of_civil_war_infra
+				add_idea = RFS_The_aftereffects_of_civil_war_infra_1
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_8
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -73,8 +166,50 @@ focus_tree = {
 		x = 32
 		y = 5
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+				limit = {
+				free_building_slots = {
+				building = industrial_complex
+				size > 0
+				include_locked = yes
+				}
+		
+				}
+		
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+		
+			}
+			random_owned_controlled_state={
+				limit = {
+				free_building_slots = {
+				building = industrial_complex
+				size > 0
+				include_locked = yes
+				}
+		
+				}
+		
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+		
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_3
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -84,8 +219,15 @@ focus_tree = {
 		x = 40
 		y = 2
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_ideas = RFS_repair_factry
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_9
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -95,8 +237,32 @@ focus_tree = {
 		x = 38
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+				limit = {
+				free_building_slots = {
+				building = industrial_complex
+				size > 0
+				include_locked = yes
+				}
+		
+				}
+		
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+				}
+		
+				}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_10
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -109,8 +275,15 @@ focus_tree = {
 		x = 36
 		y = 4
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_ideas = RFS_ural_moscaw
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_12
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -120,8 +293,32 @@ focus_tree = {
 		x = 42
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+				limit = {
+				free_building_slots = {
+				building = industrial_complex
+				size > 0
+				include_locked = yes
+				}
+		
+				}
+		
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+				}
+		
+				}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_13
 		icon = GFX_goal_unknown
 		cost = 35.00
@@ -134,8 +331,19 @@ focus_tree = {
 		x = 40
 		y = 4
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_resource = {
+				type = aluminium
+				amount = 20
+				state = 566
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_14
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -145,8 +353,23 @@ focus_tree = {
 		x = 40
 		y = 5
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RFS_The_aftereffects_of_civil_war_factry
+				add_idea = RFS_The_aftereffects_of_civil_war_factry_1
+			}
+			add_resource = {
+				type = steel
+				amount = 30
+				state = 582
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_11
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -156,8 +379,19 @@ focus_tree = {
 		x = 36
 		y = 5
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5 
+				uses = 1 
+				category = nuclear
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_4
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -167,8 +401,15 @@ focus_tree = {
 		x = 48
 		y = 2
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_15
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -178,8 +419,16 @@ focus_tree = {
 		x = 46
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = -0.025
+		}
+
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_17
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -192,8 +441,33 @@ focus_tree = {
 		x = 44
 		y = 4
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+				limit = {
+				free_building_slots = {
+				building = industrial_complex
+				size > 0
+				include_locked = yes
+				}
+		
+				}
+		
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+				type = industrial_complex
+				level = 4
+				instant_build = yes
+				}
+		
+				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+				}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_16
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -203,8 +477,15 @@ focus_tree = {
 		x = 50
 		y = 3
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = -0.025
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_19
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -217,8 +498,18 @@ focus_tree = {
 		x = 48
 		y = 4
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RFS_coherent_scientist_idea_3
+				add_idea = RFS_coherent_scientist_idea_4
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_20
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -228,8 +519,18 @@ focus_tree = {
 		x = 48
 		y = 5
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RFS_The_aftereffects_of_civil_war_stability
+				add_idea = RFS_The_aftereffects_of_civil_war_stability_1
+			}
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_18
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -239,8 +540,16 @@ focus_tree = {
 		x = 44
 		y = 5
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.2
+			add_war_support = 0.2
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_21
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -256,8 +565,16 @@ focus_tree = {
 		x = 40
 		y = 6
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			remove_ideas = RFS_The_aftereffects_of_civil_war_factry_1
+			remove_ideas = RFS_The_aftereffects_of_civil_war_infra_1
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_22
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -273,8 +590,15 @@ focus_tree = {
 		x = 40
 		y = 7
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			remove_ideas = RFS_The_aftereffects_of_civil_war_stability_1
+		}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_ind_23
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -284,5 +608,12 @@ focus_tree = {
 		x = 40
 		y = 8
 
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_idea = RFS_great_union
+		}
+
 	}
-}
+

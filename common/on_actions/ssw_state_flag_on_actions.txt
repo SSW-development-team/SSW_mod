@@ -77,11 +77,71 @@ on_actions = {
 				}
 				set_state_flag = maybe_core_RUSSIA
 			}
+			#ロシア旧領
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = WTR
+						is_core_of = TUV
+						is_core_of = BLR
+						is_core_of = AMR
+						is_core_of = SOV
+						is_fully_controlled_by = UKR
+						is_fully_controlled_by = BAL
+						is_fully_controlled_by = MOS
+						is_fully_controlled_by = PET
+						is_fully_controlled_by = DON
+						is_fully_controlled_by = CRI
+						is_fully_controlled_by = RUS
+						is_fully_controlled_by = SOV
+						is_fully_controlled_by = SIB
+						is_fully_controlled_by = FIN
+						is_fully_controlled_by = CCS
+						state = 10
+						state = 78
+						state = 80
+						state = 87
+						state = 89
+						state = 90
+						state = 91
+						state = 92
+						state = 97
+						state = 98
+						state = 146
+						state = 147
+						state = 188
+						state = 192
+						state = 198
+						state = 213
+						state = 215
+						state = 216
+						state = 537
+						state = 555
+						state = 562
+						state = 637
+						state = 644
+						state = 655
+						state = 722
+						state = 763
+						state = 766
+						state = 1104
+					}
+				}
+				set_state_flag = maybe_old_territory_RUSSIA
+			}
 ##############################   中核州(全体)   ##############################
 			#北フランス(中核州)(ゲーム開始時)
 			every_state = {
 				limit = { is_core_of = NFR }
 				set_state_flag = maybe_core_NFR_GAMESTART
+			}
+			#フランス(中核州)(コルシカ無し)(ゲーム開始時)
+			every_state = {
+				limit = {
+					is_core_of = FRA
+					NOT = { state = 1 }
+				}
+				set_state_flag = maybe_core_FRA_without_COR_GAMESTART
 			}
 			#モスクワ(中核州)(ゲーム開始時)
 			every_state = {
@@ -136,7 +196,7 @@ on_actions = {
 			#コーカサス(中核州)(ゲーム開始時)
 			every_state = {
 				limit = { is_core_of = CCS }
-				set_state_flag = maybe_core_ITA_GAMESTART
+				set_state_flag = maybe_core_CCS_GAMESTART
 			}
 			#シベリア(中核州)(ゲーム開始時)
 			every_state = {
@@ -147,6 +207,16 @@ on_actions = {
 			every_state = {
 				limit = { is_core_of = MAN }
 				set_state_flag = maybe_core_MAN_GAMESTART
+			}
+			#韓国(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = KOR }
+				set_state_flag = maybe_core_KOR_GAMESTART
+			}
+			#中華民国(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = CHI }
+				set_state_flag = maybe_core_CHI_GAMESTART
 			}
 			#アメリカ自由連盟(中核州)(ゲーム開始時)
 			every_state = {
@@ -196,6 +266,26 @@ on_actions = {
 				}
 				set_state_flag = maybe_core_MEX_GAMESTART
 			}
+			#ドン・ヴォルガ(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = DON }
+				set_state_flag = maybe_core_DON_GAMESTART
+			}
+			#ドイツ(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = GER }
+				set_state_flag = maybe_core_GER_GAMESTART
+			}
+			#ポーランド(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = POL }
+				set_state_flag = maybe_core_POL_GAMESTART
+			}
+			#ルーマニア(中核州)(ゲーム開始時)
+			every_state = {
+				limit = { is_core_of = ROM }
+				set_state_flag = maybe_core_ROM_GAMESTART
+			}
 			#スロヴァキア(請求権)(中核州)(ゲーム開始時)
 			every_state = {
 				limit = {
@@ -232,6 +322,11 @@ on_actions = {
 			965 = { set_state_flag = maybe_core_PRE }
 			966 = { set_state_flag = maybe_core_PRE }
 			978 = { set_state_flag = maybe_core_PRE }
+##############################   領有州(全体)   ##############################
+			every_state = {
+				limit = { is_owned_by = SPR }
+				set_state_flag = maybe_own_SPR_GAMESTART
+			}
 		}
 	}
 }

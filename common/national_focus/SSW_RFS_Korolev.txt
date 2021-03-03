@@ -1,55 +1,82 @@
-focus_tree = {
-	id = SSW_RFS_Korolev
-	country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = RBL
-		}
-	}
+
 	default = no
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_1
 		icon = GFX_goal_unknown
-		cost = 2.00
+		cost = 1.00
 		x = 12
 		y = 0
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_2
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 9
 		y = 1
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = -50
+				add_stability = -0.05
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_3
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 12
 		y = 1
 
+		ai_will_do = {
+			factor = 5
+			}
+	
+			completion_reward = {
+				remove_ideas = RFS_NKVD_support
+				add_political_power = -100	
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_4
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 15
 		y = 1
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = 100
+				add_stability = 0.05
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_5
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -65,8 +92,16 @@ focus_tree = {
 		x = 12
 		y = 2
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = 150
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_1
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -76,8 +111,16 @@ focus_tree = {
 		x = 8
 		y = 4
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_ideas = RFS_craim_russia
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_6
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -87,8 +130,16 @@ focus_tree = {
 		x = 21
 		y = 4
 
+		ai_will_do = {
+			factor = 50
+			}
+	
+			completion_reward = {
+				country_event = sswrfs.8
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_1
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -98,8 +149,20 @@ focus_tree = {
 		x = 21
 		y = 5
 
+		ai_will_do = {
+			factor = 50
+			}
+	
+			completion_reward = {
+				add_timed_idea = {
+					idea = RFS_restore_military
+					days = 200
+				}
+				custom_effect_tooltip = restore_militry
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_2
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -109,8 +172,20 @@ focus_tree = {
 		x = 19
 		y = 6
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_tech_bonus = {
+					bonus = 1 
+					uses = 2
+					category = infantry_tech
+				}
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_3
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -120,8 +195,23 @@ focus_tree = {
 		x = 23
 		y = 6
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_tech_bonus = {
+					bonus = 1 
+					uses = 2
+					category = cat_mechanized_equipment
+				}
+			}
+
 	}
-	focus = {
+	shared_focus = {
+		available = {
+			has_country_flag = mada
+		}
 		id = RFS_Koro_land_4
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -135,7 +225,7 @@ focus_tree = {
 		y = 7
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_6
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -146,7 +236,7 @@ focus_tree = {
 		y = 9
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_7
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -157,7 +247,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_5
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -168,7 +258,7 @@ focus_tree = {
 		y = 9
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_mis_1
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -179,7 +269,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_mis_2
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -190,7 +280,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_mis_3
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -201,7 +291,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_mis_4
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -218,7 +308,7 @@ focus_tree = {
 		y = 11
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_2
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -228,8 +318,17 @@ focus_tree = {
 		x = 8
 		y = 5
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				set_country_flag = RUS_the_recovery_of_lost_territory
+				custom_effect_tooltip = the_recovery_of_lost_territory
+			}
+
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_3
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -240,7 +339,7 @@ focus_tree = {
 		y = 6
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_4
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -251,7 +350,7 @@ focus_tree = {
 		y = 6
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_5
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -262,7 +361,7 @@ focus_tree = {
 		y = 7
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_6
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -273,7 +372,7 @@ focus_tree = {
 		y = 7
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_7
 		icon = GFX_goal_unknown
 		cost = 2.00
@@ -287,7 +386,7 @@ focus_tree = {
 		y = 8
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_8
 		icon = GFX_goal_unknown
 		cost = 10.00
@@ -298,7 +397,7 @@ focus_tree = {
 		y = 9
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_9
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -309,7 +408,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_10
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -320,7 +419,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_koro_war_11
 		icon = GFX_goal_unknown
 		cost = 2.00
@@ -334,7 +433,7 @@ focus_tree = {
 		y = 11
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_8
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -345,7 +444,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_9
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -356,7 +455,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_10
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -367,7 +466,7 @@ focus_tree = {
 		y = 11
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_11
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -378,7 +477,7 @@ focus_tree = {
 		y = 11
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_land_12
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -389,7 +488,7 @@ focus_tree = {
 		y = 11
 
 	}
-	focus = {
+	shared_focus = {
 		id = RFS_Koro_mis_5
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -400,4 +499,4 @@ focus_tree = {
 		y = 12
 
 	}
-}
+

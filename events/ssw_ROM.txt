@@ -13,9 +13,9 @@ country_event = {
 			id = SSW_ROM.2
 			days = 3
 			random = 10
-			
 		}
 	}
+}
 country_event = {
 	id = SSW_ROM.2
 	title = SSW_ROM.2.t
@@ -25,29 +25,35 @@ country_event = {
 
 	option ={
 		name = SSW_ROM.2.a
+		ai_chance = { 
+			factor = 2 
+		}
 		complete_national_focus = MIlitary_unity
 		hidden_effect = {
 			retire_country_leader = yes
 			create_country_leader = {
-	        	name = "Constantin Sanatescu"
-	        	desc = "POLITICS_CONSTANTIN_SANATESCU_DESC"
-	        	picture = "Portrait_Constantin_Sanatescu.dds"
-		    	expire = "1965.1.1"
+				name = "Constantin Sanatescu"
+				desc = "POLITICS_CONSTANTIN_SANATESCU_DESC"
+				picture = "Portrait_Constantin_Sanatescu.dds"
+				expire = "1965.1.1"
 				ideology = military_junta_ideology
-        		traits = {
+				traits = {
 				}
 		    }
 		}
 	}
 	option ={
 		name = SSW_ROM.2.b
-		complete_national_focus = Codreanu's_children
+		ai_chance = { 
+			factor = 8
+		}
+		complete_national_focus = Codreanu_children
 		hidden_effect = {
 			retire_country_leader = yes
 			create_country_leader = {
-		    	name = "Ion Gigurtu"
+				name = "Ion Gigurtu"
 				desc = "POLITICS_ION_GIGURTU_DESC"
-        		picture = "Portrait_Ion_Gigurtu.dds"
+				picture = "Portrait_Ion_Gigurtu.dds"
 				expire = "1965.1.1"
 				ideology = military_junta_ideology
 				traits = {
@@ -55,9 +61,30 @@ country_event = {
 				}
 			}
 			set_popularities = {
-				authority_despotism = 85
-				national_socialism = 15
+				authority_despotism = 90
+				national_fascism = 10
 			}
 		}
+	}
+}
+country_event = {
+	id = SSW_ROM.3
+	title = SSW_ROM.3.t
+	desc = SSW_ROM.3.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.3.a
+		add_opinion_modifier = { target = GER modifier = ROM_german_full_romanianizataion_opnion }
+		add_stability = 0.1
+		#貿易の放出のアレ-25
+		}
+	}
+	option ={
+		name = SSW_ROM.3.b
+		add_opinion_modifier = { target = GER modifier = ROM_german_part_romanianizataion_opnion }
+		add_stability = 0.05
+		#貿易の放出のアレ-10
 	}
 }

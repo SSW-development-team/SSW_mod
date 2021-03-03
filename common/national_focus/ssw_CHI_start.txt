@@ -1,0 +1,238 @@
+shared_focus = { #中国の夜明け
+    id = CHI_dawn_of_china
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    x = 2
+    y = 0
+    completion_reward = {
+        add_political_power = 100
+    }
+}
+shared_focus = { #顧祝同の決断
+    id = CHI_Gu_Zhutong_decision
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_dawn_of_china
+    }
+    x = 2
+    y = 1
+    completion_reward = {
+        custom_effect_tooltip = CHI_Gu_Zhutong_decision_tt
+        hidden_effect = {
+            set_variable = {
+                var = var_CHI_infr_federalism
+                value = 0
+            }
+            set_variable = {
+                var = var_CHI_infr_KMT
+                value = 0
+            }
+        }
+    }
+}
+shared_focus = { #政協での準備
+    id = CHI_prepare_at_CPCC
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_Gu_Zhutong_decision
+    }
+    x = 1
+    y = 2
+    completion_reward = {
+        add_political_power = -100
+    }
+}
+shared_focus = { #憲法学者の招待
+    id = CHI_invitation_constitutional_scho
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_Gu_Zhutong_decision
+    }
+    x = 3
+    y = 2
+    completion_reward = {
+        add_political_power = 50
+    }
+}
+shared_focus = { #竜雲の夢
+    id = CHI_dream_of_a_long_Yun
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    mutually_exclusive = {
+        focus = CHI_listening_to_Chou_Fohai
+    }
+    prerequisite = {
+        focus = CHI_prepare_at_CPCC
+    }
+    x = 0
+    y = 3
+    completion_reward = {
+        custom_effect_tooltip = CHI_dream_of_a_long_Yun_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+}
+shared_focus = { #周仏海に耳を傾ける
+    id = CHI_listening_to_Chou_Fohai
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    mutually_exclusive = {
+        focus = CHI_dream_of_a_long_Yun
+    }
+    prerequisite = {
+        focus = CHI_invitation_constitutional_scho
+    }
+    x = 4
+    y = 3
+    completion_reward = {
+        custom_effect_tooltip = CHI_listening_to_Chou_Fohai_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+shared_focus = { #連邦主義を思い出せ
+    id = CHI_remember_federalism
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_dream_of_a_long_Yun
+    }
+    x = 1
+    y = 4
+    completion_reward = {
+        custom_effect_tooltip = CHI_remember_federalism_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 10
+            }
+        }
+    }
+}
+shared_focus = { #孫文の遺産
+    id = CHI_legacy_of_Sun_Yatsen
+    #icon = 
+    cost = 3
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_listening_to_Chou_Fohai
+    }
+    x = 3
+    y = 4
+    completion_reward = {
+        custom_effect_tooltip = CHI_legacy_of_Sun_Yatsen_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 10
+            }
+        }
+    }
+}
+shared_focus = { #憲法の制定へ！
+    id = CHI_to_the_establish_constitution
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_POLITICAL
+    }
+    prerequisite = {
+        focus = CHI_remember_federalism
+        focus = CHI_legacy_of_Sun_Yatsen
+    }
+    x = 2
+    y = 5
+    completion_reward = {
+        country_event = {
+            id = ssw_chi.1
+        }
+    }
+}

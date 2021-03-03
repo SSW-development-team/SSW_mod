@@ -80,12 +80,13 @@ country_event = {
 	desc = sswrfs.4.desc
 	picture = GFX_event_test
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	trigger = {
-		tag = RBL
-		check_variable = {
-			political_strife_kor > 120
+		AND = {
+			tag = RBL
+			check_variable = {
+				political_strife_kor > 120
+			}
 		}
 	}
 
@@ -105,12 +106,13 @@ country_event = {
 	desc = sswrfs.5.desc
 	picture = GFX_event_test
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	trigger = {
-		tag = RBL
-		check_variable = {
-			political_strife_lys > 120
+		AND = {
+			tag = RBL
+			check_variable = {
+				political_strife_lys > 120
+			}
 		}
 	}
 
@@ -121,4 +123,67 @@ country_event = {
 			set_country_flag = win_lys
 		}
 	}
+}
+
+country_event = {##統一（コロリョフ）
+	id = sswrfs.6
+	title = sswrfs.6.title
+	desc = sswrfs.6.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = sswrfs.6.a
+		ai_chance = { factor = 1}
+		load_focus_tree = {
+			tree = RFS_united_kor
+			keep_completed = yes
+		}
+		complete_national_focus = RFS_Koro_1
+		add_ideas = RFS_The_aftereffects_of_civil_war_infra
+		add_ideas = RFS_The_aftereffects_of_civil_war_factry
+		add_ideas = RFS_The_aftereffects_of_civil_war_infra
+
+	}
+
+}
+
+country_event = {##統一（ルイセンコ）
+	id = sswrfs.7
+	title = sswrfs.7.title
+	desc = sswrfs.7.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = sswrfs.7.a
+		ai_chance = { factor = 1}
+		load_focus_tree = {
+			tree = RFS_united_lys
+			keep_completed = yes
+		}
+		add_ideas = RFS_The_aftereffects_of_civil_war_infra
+		add_ideas = RFS_The_aftereffects_of_civil_war_factry
+		add_ideas = RFS_The_aftereffects_of_civil_war_infra
+
+
+	}
+
+}
+
+country_event = {##軍の現状
+	id = sswrfs.8
+	title = sswrfs.8.title
+	desc = sswrfs.8.desc
+	picture = GFX_event_test
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = sswrfs.8.a
+
+	}
+
 }

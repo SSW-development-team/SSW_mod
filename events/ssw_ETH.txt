@@ -73,3 +73,87 @@ country_event = { #afar uprising
 		transfer_state = 1068
 	}
 }
+
+country_event = { #kenyan uprising
+	id = Ethiopia_Independence.3
+	title = Ethiopia_Independence.3.t
+	desc = Ethiopia_Independence.3.desc
+	picture = GFX_report_event_spr_spanish_civil_war2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = Ethiopia_Independence.3.a
+		1074 = {
+			add_building = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		KEN = {
+			transfer_state = 1074
+			division_template = {
+				name = "Militia"
+				is_locked = yes
+				division_names_group = ETH_INF_01
+				priority = 0
+				template_counter = 0
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+    			    infantry = { x = 0 y = 3 }
+				} 
+			}
+		}
+		NEA = {
+			declare_war_on = {
+				target = KEN
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { #amhara uprising
+	id = Ethiopia_Independence.4
+	title = Ethiopia_Independence.4.t
+	desc = Ethiopia_Independence.4.desc
+	picture = GFX_report_event_spr_spanish_civil_war2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = Ethiopia_Independence.4.a
+		1066 = {
+			add_building = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		1069 = {
+			add_building = { type = arms_factory level = 1 instant_build = yes }
+		}
+		transfer_state = 1066
+		transfer_state = 1069
+	}
+}
+
+country_event = { #somali independence
+	id = Ethiopia_Independence.5
+	title = Ethiopia_Independence.5.t
+	desc = Ethiopia_Independence.5.desc
+	picture = GFX_report_event_spr_spanish_civil_war2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = Ethiopia_Independence.5.a
+		SOM = {
+			transfer_state = 1077
+			transfer_state = 1071
+			transfer_state = 269
+			set_politics = {
+				ruling_party = authority_despotism
+			}
+			set_political_party = {
+				ideology = fascism
+				popularity = 45
+			}
+		}
+	}
+}

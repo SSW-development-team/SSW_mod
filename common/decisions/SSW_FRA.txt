@@ -1,0 +1,765 @@
+FRA_Kenryoku_toso = {
+
+	Mordacq_takes_to_the_waves = {
+		icon = GFX_decision_hol_radio_oranje
+		fixed_random_seed = no
+		allowed = {
+			original_tag = FRA
+		}
+		available = {
+			always = no
+		}
+		activation = {
+			has_country_flag = 
+			has_country_flag = 
+		}
+		is_good = no
+		days_mission_timeout = 25
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout Mordacq_takes_to_the_waves"
+			if = {
+				limit = { has_country_flag = }
+				hidden_effect = {
+					random_list = {
+						4 = {
+							modifier = {
+								add = Mor_influence
+							}
+							country_event = { id = FRA.21 days = 2 } # Mordacq rules the waves
+							clr_country_flag = 
+							clr_country_flag = 
+							clr_country_flag = 
+							set_country_flag = 
+						}
+						6 = {
+							modifier = {
+								add = Pet_influence
+							}
+							modifier = {
+								factor = 2
+								has_country_flag = Petain_headstart_cf
+							}
+							country_event = { id = FRA.22 days = 2 } # The Marshall rules the waves
+							clr_country_flag = 
+							clr_country_flag = 
+							clr_country_flag = 
+							set_country_flag = 
+						}
+					}
+				}
+
+			}
+			else = {
+				custom_effect_tooltip = Mordacq_gains_influence_tt
+				hidden_effect = {
+					add_to_variable = {
+						var = Mor_influence
+						value = 2
+					}
+					clr_country_flag = 
+					clr_country_flag = 
+					set_country_flag = 
+				}
+				add_political_power = -10
+			}
+		}
+	}
+
+	Deal_With_Political_Opposition_Airwaves = {
+		icon = GFX_decision_hol_radio_oranje
+		allowed = {
+			original_tag = FRA
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		cost = 0
+		visible = {
+			has_active_mission = Mordacq_takes_to_the_waves
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		available = {
+			has_active_mission = Mordacq_takes_to_the_waves
+		}
+		days_remove = 7
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Deal_With_Political_Opposition_Airwaves"
+			country_event = FRA.20 #Decide how to respond to Mordacq on Air
+		}
+	}
+
+	 = {
+		icon = GFX_decision_eng_blackshirt_march
+		fixed_random_seed = no
+		allowed = {
+			original_tag = FRA
+		}
+		available = {
+			always = no
+		}
+		activation = {
+			has_country_flag = 
+			has_country_flag = 
+		}
+		is_good = no
+		days_mission_timeout = 40
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout "
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.02
+			}
+			custom_effect_tooltip = Mordacq_gains_influence_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = Mor_influence
+					value = 2
+				}
+				clr_country_flag = 
+				clr_country_flag = 
+				set_country_flag = 
+			}
+		}
+	}
+
+	Deal_With_Political_Opposition_Parades = {
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 1000
+		}
+
+		visible = {
+			has_active_mission = 
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		available = {
+			has_active_mission = 
+		}
+		days_remove = 10
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Deal_With_Political_Opposition_Parades"
+			country_event = FRA.23 #Decide how to respond to Mordacq on Parades
+		}
+	}
+
+	Mordacqs_Speech = {
+		icon = GFX_decision_generic_speech
+		fixed_random_seed = no
+		allowed = {
+			original_tag = FRA
+		}
+		available = {
+			always = no
+		}
+		activation = {
+			has_country_flag = 
+			has_country_flag = 
+		}
+		is_good = no
+		days_mission_timeout = 35
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout Mordacqs_Speech"
+			if = {
+				limit = { has_country_flag =  }
+				hidden_effect = {
+					random_list = {
+						4 = {
+							modifier = {
+								add = Mor_influence
+							}
+							country_event = { id = FRA.24 days = 2 } # Mordacq draws more influence
+							clr_country_flag = 
+							clr_country_flag = 
+							clr_country_flag = 
+							set_country_flag = 
+						}
+						6 = {
+							modifier = {
+								add = Pet_influence
+							}
+							modifier = {
+								factor = 2
+								has_country_flag = Petain_headstart_cf
+							}
+							country_event = { id = FRA.25 days = 2 } # The Marshall draws more influence
+							clr_country_flag = 
+							clr_country_flag = 
+							clr_country_flag = 
+							set_country_flag = 
+						}
+					}
+				}
+			}
+			else = {
+				add_political_power = -10
+				custom_effect_tooltip = Mordacq_gains_influence_tt
+				hidden_effect = {
+					clr_country_flag = 
+					clr_country_flag = 
+					set_country_flag = 
+					add_to_variable = {
+						var = Mor_influence
+						value = 2
+					}
+				}
+			}
+		}
+	}
+
+	Deal_With_Political_Opposition_Speech = {
+		icon = GFX_decision_generic_speech
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 1000
+		}
+
+		visible = {
+			has_active_mission = Mordacqs_Speech
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		available = {
+			has_active_mission = Mordacqs_Speech
+		}
+		days_remove = 15
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Deal_With_Political_Opposition_Speech"
+			country_event = FRA.26 #Decide how to respond to Mordacqs Speech
+		}
+	}
+
+	Mordacq_In_The_Barracks = {
+		icon = GFX_decision_soldierly_discipline
+		fixed_random_seed = no
+		allowed = {
+			original_tag = FRA
+		}
+		available = {
+			always = no
+		}
+		activation = {
+			has_country_flag = 
+			has_country_flag = 
+		}
+		is_good = no
+		days_mission_timeout = 40
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout Mordacq_In_The_Barracks"
+			if = {
+				limit = {
+					has_country_flag = Mail_crack_down
+				}
+				add_stability = -0.015
+				add_political_power = -10
+				add_manpower = -200
+				hidden_effect = {
+					add_to_variable = {
+						var = Pet_corruption
+						value = 1
+					}
+					add_to_variable = {
+						var = Competition_Loop_Counter
+						value = 1
+					}
+					clr_country_flag = 
+					clr_country_flag = Mail_crack_down
+					clr_country_flag = 
+					country_event = { id = FRA.28 days = 1 } # Count the competition loops
+				}
+			}
+			else = {
+				add_manpower = -500
+				custom_effect_tooltip = Mordacq_gains_influence_tt
+				hidden_effect = {
+					add_to_variable = {
+						var = Mor_influence
+						value = 1
+					}
+					add_to_variable = {
+						var = Competition_Loop_Counter
+						value = 1
+					}
+					clr_country_flag = 
+					clr_country_flag = 
+					country_event = { id = FRA.28 days = 1 } # Count the competition loops
+				}
+			}
+		}
+	}
+
+	Deal_With_Political_Opposition_Barrack = {
+		icon = GFX_decision_soldierly_discipline
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 1000
+		}
+
+		visible = {
+			has_active_mission = Mordacq_In_The_Barracks
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		available = {
+			has_active_mission = Mordacq_In_The_Barracks
+		}
+		days_remove = 10
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = 
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Deal_With_Political_Opposition_Barrack"
+			country_event = FRA.27 #Decide how to respond to Mordacq in the Barracks
+		}
+	}
+
+	Invest_Construction = {
+		icon = generic_construction
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 20
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption < 3
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+		}
+		visible = {
+			has_country_flag = FRA_Investment_Allowed
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_Investing_tt
+				NOT = { has_country_flag = FRA_Investing }
+			}
+		}
+		modifier = {
+			production_speed_buildings_factor = 0.05
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Invest_Construction"
+			custom_effect_tooltip = Petain_gains_influence_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+				add_to_variable = {
+					var = Pet_influence
+					value = 1
+				}
+			}
+			set_country_flag = FRA_Investing
+		}
+		days_remove = 30
+		days_re_enable = 75
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Invest_Construction"
+			add_political_power = 5
+			clr_country_flag = FRA_Investing
+		}
+	}
+
+	Invest_Arms_Factory = {
+		icon = ger_military_buildup
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 75
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption < 3
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+		}
+		visible = {
+			has_country_flag = FRA_Investment_Allowed
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_Investing_tt
+				NOT = { has_country_flag = FRA_Investing }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Invest_Arms_Factory"
+			custom_effect_tooltip = Petain_gains_influence_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+				add_to_variable = {
+					var = Pet_influence
+					value = 1
+				}
+				set_country_flag = FRA_Investing
+			}
+		}
+		days_remove = 40
+		days_re_enable = 110
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Invest_Arms_Factory"
+			459 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			clr_country_flag = FRA_Investing
+		}
+	}
+
+	Support_Loyal_Business = {
+		icon = generic_industry
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 85
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption < 3
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+		}
+		visible = {
+			has_country_flag = FRA_Investment_Allowed
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_Investing_tt
+				NOT = { has_country_flag = FRA_Investing }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Support_Loyal_Business"
+			custom_effect_tooltip = Petain_gains_influence_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+				add_to_variable = {
+					var = Pet_influence
+					value = 1
+				}
+				set_country_flag = FRA_Investing
+			}
+		}
+		days_remove = 40
+		days_re_enable = 80
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Support_Loyal_Business"
+			459 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			clr_country_flag = FRA_Investing
+		}
+	}
+
+	Back_Newspaper = {
+		icon = GFX_decision_generic_civil_support
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 20
+		ai_will_do = {
+			factor = 60
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption < 3
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+		}
+		visible = {
+			has_country_flag = FRA_Investment_Allowed
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_Investing_tt
+				NOT = { has_country_flag = FRA_Investing }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Back_Newspaper"
+			custom_effect_tooltip = Petain_gains_influence_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+				add_to_variable = {
+					var = Pet_influence
+					value = 1
+				}
+				set_country_flag = FRA_Investing
+			}
+		}
+		days_remove = 15
+		days_re_enable = 65
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove Back_Newspaper"
+			add_political_power = 5
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 0.02
+			}
+			clr_country_flag = FRA_Investing
+		}
+	}
+
+	FRA_Call_For_Moral_Order = {
+		icon = GFX_decision_soldierly_discipline
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 20
+		ai_will_do = {
+			factor = 150
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption < 1
+				}
+			}
+		}
+		visible = {
+			has_country_flag = 
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = _tt
+				NOT = { has_country_flag =  }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision FRA_Call_For_Moral_Order"
+			custom_effect_tooltip = FRA_reduced_corruption_tt
+			hidden_effect = {
+				set_country_flag = 
+			}
+		}
+		days_remove = 15
+		days_re_enable = 65
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove FRA_Call_For_Moral_Order"
+			add_stability = 0.01
+			hidden_effect = {
+				subtract_from_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+			}
+			clr_country_flag = 
+		}
+	}
+
+	FRA_Make_Corruption_Crime = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 40
+		ai_will_do = {
+			factor = 150
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption < 1
+				}
+			}
+		}
+		visible = {
+			has_country_flag = 
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = _tt
+				NOT = { has_country_flag =  }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision FRA_Make_Corruption_Crime"
+			custom_effect_tooltip = FRA_reduced_corruption_tt
+			hidden_effect = {
+				set_country_flag = 
+			}
+		}
+		days_remove = 40
+		days_re_enable = 100
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove FRA_Make_Corruption_Crime"
+			add_political_power = 5
+			hidden_effect = {
+				subtract_from_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+			}
+			clr_country_flag = 
+		}
+	}
+
+	FRA_Scapegoats = {
+		icon = generic_political_discourse
+		allowed = {
+			original_tag = FRA
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 150
+			modifier = {
+				factor = 2
+				check_variable = {
+					Pet_corruption > 4
+				}
+			}
+			modifier = {
+				factor = 0.25
+				check_variable = {
+					Pet_corruption < 1
+				}
+			}
+		}
+		visible = {
+			has_country_flag = 
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = _tt
+				NOT = { has_country_flag =  }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision FRA_Scapegoats"
+			custom_effect_tooltip = FRA_reduced_corruption_tt
+			hidden_effect = {
+				set_country_flag = 
+			}
+		}
+		days_remove = 40
+		days_re_enable = 100
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove FRA_Scapegoats"
+			add_political_power = 5
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = -0.02
+			}
+			hidden_effect = {
+				subtract_from_variable = {
+					var = Pet_corruption
+					value = 1
+				}
+			}
+			clr_country_flag = 
+		}
+	}
+
+}

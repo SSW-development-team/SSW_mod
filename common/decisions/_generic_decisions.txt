@@ -452,9 +452,9 @@ SSW_foreign_support = {
 				exists = yes
 			}
 		}
-		cost = 100
+		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 10 }
+		ai_will_do = { factor = 1 }
 		complete_effect = {
 			set_country_flag = SSW_returning
 			FROM = { save_event_target_as = return_to }
@@ -500,13 +500,146 @@ SSW_foreign_support = {
 				exists = yes
 			}
 		}
-		cost = 100
+		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 10 }
+		ai_will_do = { factor = 1 }
 		complete_effect = {
 			set_country_flag = SSW_returning
 			FROM = { save_event_target_as = return_to }
 			country_event = ssw_generic_political.0
+		}
+	}
+	add_building_slots = {
+		icon = generic_nationalism
+		available = {
+			NOT = { has_country_flag = adding_state_core }
+			FROM = {
+				is_owned_by = ROOT
+				OR = {
+					AND = {
+						has_state_category = wasteland
+						infrastructure > 19
+					}
+					AND = {
+						has_state_category = enclave
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = tiny_island
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = small_island
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = pastoral
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = rural
+						infrastructure > 9
+					}
+					NOT = {
+						has_state_category = enclave
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = small_island
+						has_state_category = tiny_island
+						has_state_category = wasteland
+					}
+				}
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_array = controlled_states
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				OR = {
+					AND = {
+						has_state_category = wasteland
+						infrastructure > 19
+					}
+					AND = {
+						has_state_category = enclave
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = tiny_island
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = small_island
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = pastoral
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = rural
+						infrastructure > 9
+					}
+					NOT = {
+						has_state_category = enclave
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = small_island
+						has_state_category = tiny_island
+						has_state_category = wasteland
+					}
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = no
+		days_remove = 49
+		modifier = { political_power_gain = -1 }
+		visible = {
+			FROM = {
+				is_owned_by = ROOT
+				OR = {
+					AND = {
+						has_state_category = wasteland
+						infrastructure > 19
+					}
+					AND = {
+						has_state_category = enclave
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = tiny_island
+						infrastructure > 14
+					}
+					AND = {
+						has_state_category = small_island
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = pastoral
+						infrastructure > 9
+					}
+					AND = {
+						has_state_category = rural
+						infrastructure > 9
+					}
+					NOT = {
+						has_state_category = enclave
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = small_island
+						has_state_category = tiny_island
+						has_state_category = wasteland
+					}
+				}
+			}
+		}
+		complete_effect = { set_country_flag = adding_state_core }
+		remove_effect = {
+			clr_country_flag = adding_state_core
+			FROM = { add_extra_state_shared_building_slots = 1 }
 		}
 	}
 }

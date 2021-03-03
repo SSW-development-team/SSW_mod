@@ -1,4 +1,5 @@
 ideas = {
+    #国家精神
     country = {
         BUL_bank_Renatio = { #国立銀行の再国営化
             allowed = {
@@ -159,5 +160,478 @@ ideas = {
                 industrial_capacity_dockyard = -0.05
             }
         }
+
+        BUL_budget_redistribution = { #要塞建築予算の再分配
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_central_management
+            modifier = {
+                consumer_goods_factor = -0.07
+                production_factory_efficiency_gain_factor = 0.08
+            }
+        }
+
+        BUL_beat_enemies = { #敵を叩きのめせ!
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            available = {
+                OR = {
+                    country_exists = GRE
+                    country_exists = ROM
+                    country_exists = SER
+                    country_exists = HUN
+                    country_exists = CRO
+                }
+            }
+            picture = FRA_scw_intervention_nationalists_focus
+            modifier = {
+                offence = 0.1
+                army_speed_factor = 0.1
+                land_reinforce_rate = 0.05
+                supply_consumption_factor = 0.1
+            }
+        }
+
+        BUL_italian_military_advisory = { #イタリア軍事顧問団
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            available = {
+                NOT = {has_war_with = ITA}
+            }
+            picture = generic_army_war_college
+            modifier = {
+                max_planning = 0.15
+            }
+            research_bonus = { land_doctrine = 0.08 air_doctrine = 0.08}
+        }
+
+        BUL_royal_backing = { #王室の後ろ盾
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_monarchist_uprising
+            modifier = {
+                stability_factor = 0.1
+                army_org_factor = 0.1
+                army_morale = 0.1
+                army_core_defence_factor = 0.1
+            }
+        }
+
+        BUL_indoctrination_people = { #教化された国民
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_volunteer_expedition_bonus
+            modifier = {
+                war_support_factor = 0.15
+                conscription_factor = 0.1
+                surrender_limit = 0.2
+            }
+        }
+
+        BUL_GER_tech_cooperation = { #ドイツの技術協力
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            available = {
+                NOT = {has_war_with = GER}
+            }
+            picture = german_advisors
+            modifier = {
+                planning_speed = 0.1
+                army_speed_factor = 0.1
+            }
+            research_bonus = { land_doctrine = 0.1 armor = 0.1}
+        }
+
+        BUL_my_country = { #愛しき祖国
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            picture = bul_third_bulgarian_state
+            modifier = {
+                stability_factor = 0.15
+                war_support_factor = 0.15
+                conscription = 0.01
+                army_core_attack_factor = 0.15
+                army_core_defence_factor = 0.15
+            }
+        }
+
+        BUL_deployment_of_flamthrower = { #火炎放射器の配備
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            picture = generic_war_preparation
+            modifier = {
+                army_attack_factor = 0.05
+            }
+        }
+
+        BUL_landing_operation_training = { #上陸作戦の訓練
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            picture = generic_intel_bonus
+            modifier = {
+                extra_marine_supply_grace = 8
+                naval_invasion_penalty = -0.1
+                naval_invasion_capacity = 5
+            }
+        }
+
+        BUL_consideration_pay = { #アルバニア引き渡しの補償
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_flexible_foreign_policy
+            modifier = {
+                consumer_goods_factor = 0.08
+            }
+        }
+
+        BUL_consideration_pay_ITA = { #アルバニア引き渡しの補償
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            picture = tur_balkan_central_bank_wealthy_greece
+            modifier = {
+                consumer_goods_factor = -0.05
+            }
+        }
+
+        BUL_border_survey = { #国境部の調査
+            allowed = {
+                NOT = {
+                    OR = {
+                        controls_state = 184
+                        owns_state = 184
+                    }
+                    OR = {
+                        controls_state = 731
+                        owns_state = 731
+                    }
+                }
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = ast_naval_auxiliary_patrol
+            modifier = {
+                army_core_defence_factor = 0.1
+            }
+            targeted_modifier = {
+                tag = GRE
+                attack_bonus_against = 0.15
+            }
+        }
+
+        BUL_suppress_resistance = { #抵抗の抑制
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = ast_volunteer_defence_corps
+            modifier = {
+                resistance_damage_to_garrison = -0.1
+                resistance_target = -0.05
+            }
+        }
+        
+        BUL_domestic_turmoil_0 = { #国内の混乱
+            allowed = {
+                has_civil_war = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = chi_war_of_resistance3
+            modifier = {
+                drift_defence_factor = -0.5
+                stability_factor = -0.3
+                war_support_factor = -0.3
+                industrial_capacity_factory = -0.2
+                industrial_capacity_dockyard = -0.2
+            }
+        }
+        BUL_domestic_turmoil_1 = {
+            allowed = {
+                has_civil_war = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = chi_war_of_resistance2
+            modifier = {
+                drift_defence_factor = -0.5
+                stability_factor = -0.2
+                war_support_factor = -0.2
+                industrial_capacity_factory = -0.1
+                industrial_capacity_dockyard = -0.1
+            }
+        }
+        BUL_domestic_turmoil_2 = {
+            allowed = {
+                has_civil_war = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = chi_war_of_resistance2
+            modifier = {
+                drift_defence_factor = -0.4
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                industrial_capacity_factory = -0.1
+                industrial_capacity_dockyard = -0.1
+            }
+        }
+        BUL_domestic_turmoil_3 = {
+            allowed = {
+                has_civil_war = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = chi_war_of_resistance
+            modifier = {
+                drift_defence_factor = -0.2
+                stability_factor = -0.05
+                war_support_factor = -0.05
+            }
+        }
+
+        BUL_support_pro_german_fact = { #親ドイツ派の支援
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_fascism_drift_2
+            modifier = {
+                national_socialism_drift = 0.1
+                national_socialism_acceptance = 25
+            }
+        }
+
+        BUL_BUL_nationalism = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = bul_third_bulgarian_state
+            modifier = {
+                national_fascism_drift = 0.05
+                drift_defence_factor = 0.1
+            }
+        }
     }
+
+    #政治顧問
+    #political_advisor = {
+    #}
+    #政治首班
+    political_leader = {
+    }
+    #外務大臣
+    minister_of_foreign_affairs = {
+    }
+    #財務大臣 
+    minister_of_finance = {
+    }
+    #内務大臣
+    minister_of_interior = {
+    }
+    #軍需大臣
+    minister_of_army = {
+    }
+    #陸軍長官
+    army_chief = {
+    }
+    #海軍長官
+    navy_chief = {
+    }
+    #空軍長官
+    air_chief = {
+    }
+    #最高司令部
+    high_command = {
+    }
+    #戦車設計社
+    tank_manufacturer = {
+    }
+    #軍需品の設計社
+    materiel_manufacturer = {
+        BUL_Arsenal = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_materiel_Arsenal
+            research_bonus = {
+                infantry_tech = 0.15
+            }
+            equipment_bonus = {
+                infantry_equipment = {
+                    soft_attack = 0.05
+                    defense = 0.05
+                    reliability = 0.1
+                }
+            }
+            traits = {infantry_equipment_manufacturer}
+        }
+
+        BUL_Balkan = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_aircraft_Balkan
+            research_bonus = {
+                motorized_equipment = 0.15
+            }
+            equipment_bonus = {
+                mechanized_equipment = {
+                    reliability = 0.1
+                    build_cost_ic = -0.10
+                }
+            }
+            traits = {motorized_equipment_manufacturer}
+        }
+    }
+    #航空機設計社
+    aircraft_manufacturer = {
+        BUL_air_Balkan = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_aircraft_Balkan
+            research_bonus = {
+                air_equipment = 0.15
+            }
+            equipment_bonus = {
+                fighter_equipment = {
+				    air_agility = 0.1
+                    maximum_speed = 0.1
+			    }
+			    CAS_equipment  = {
+				    air_agility = 0.1
+                    maximum_speed = 0.1
+			    }
+                jet_fighter_equipment = {
+                    air_agility = 0.1
+                    maximum_speed = 0.1
+                }
+                jet_CAS_equipment  = {
+                    air_agility = 0.1
+                    maximum_speed = 0.1
+                }
+            }
+            traits = {aircraft_manufacturer}
+        }
+    }
+    #工業会社
+    industrial_concern = {
+        BUL_BDZ = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_industry_BDZ
+            research_bonus = {
+                industry = 0.15
+            }
+            traits = {construction_company}
+        }
+
+        BUL_Gorubso = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_industry_Gorubso
+            research_bonus = {
+                industry = 0.15
+            }
+            modifier = {
+                local_resources_factor = 0.1
+            }
+            traits = {industrial_concern}
+        }
+    }
+    #艦船設計社
+    naval_manufacturer = {
+        BUL_ship_yard_Burgas = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_naval_ship_yard_Burgas
+            research_bonus = {
+                naval_equipment = 0.15
+            }
+            modifier = {
+                Industrial_capacity_dockyard = 0.1
+            }
+            traits = {naval_manufacturer}
+        }
+
+        BUL_ship_yard_Varna = {
+            allowed = {
+                original_tag = BUL
+            }
+            picture = SSW_BUL_naval_ship_yard_Varna
+            research_bonus = {
+                naval_equipment = 0.15
+            }
+            equipment_bonus = {
+                naval_equipment = {
+                    reliability = 0.1
+                    build_cost_ic = -0.08
+                }
+            }
+            traits = {naval_manufacturer}
+        }
+    }
+    #理論家
+    theorist = {
+    }
+
 }
