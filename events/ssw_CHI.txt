@@ -1,26 +1,5 @@
 add_namespace = ssw_chi_d
-country_event = {
-    id = ssw_chi_d.1
-    title = ssw_chi_d.1.t
-    is_triggered_only = yes
-    fire_only_once = yes
-    option = {
-        name = ssw_chi_d.1.a
-        load_focus_tree = {
-            tree = CHI_politic_tree_one
-            keep_completed = yes
-        }
-        complete_national_focus = CHI_return_rep_of_China
-    }
-    option = {
-        name = ssw_chi_d.1.b
-        load_focus_tree = {
-            tree = CHI_politic_tree_one
-            keep_completed = yes
-        }
-        complete_national_focus = CHI_birth_of_Union
-    }
-}
+add_namespace = ssw_chi
 country_event = {
     id = ssw_chi_d.2
     title = ssw_chi_d.2.t
@@ -72,5 +51,268 @@ country_event = {
             tree = CHI_war_china_coup_route
             keep_completed = yes
         }
+    }
+}
+country_event = { #憲法制定1
+    id = ssw_chi.1
+    title = ssw_chi.1.t
+    desc = ssw_chi.1.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            CHI = {
+                country_event = {id = ssw_chi.2 days = 2}
+            }
+        }
+    }
+    option = { 
+        name = ssw_chi.1.a
+        custom_effect_tooltip = CHI_infr_increase_fedealism
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.1.b
+        custom_effect_tooltip = CHI_infr_increase_KMT
+            hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+country_event = { #憲法制定2
+    id = ssw_chi.2
+    title = ssw_chi.2.t
+    desc = ssw_chi.2.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            CHI = {
+                country_event = {id = ssw_chi.3 days = 2}
+            }
+        }
+    }
+    option = { 
+        name = ssw_chi.2.a
+        custom_effect_tooltip = CHI_infr_increase_fedealism
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.2.b
+        custom_effect_tooltip = CHI_infr_increase_KMT
+            hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+country_event = { #憲法制定3
+    id = ssw_chi.3
+    title = ssw_chi.3.t
+    desc = ssw_chi.3.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            CHI = {
+                country_event = {id = ssw_chi.4 days = 2}
+            }
+        }
+    }
+    option = { 
+        name = ssw_chi.3.a
+        custom_effect_tooltip = CHI_infr_increase_fedealism
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.3.b
+        custom_effect_tooltip = CHI_infr_increase_KMT
+            hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+country_event = { #憲法制定4
+    id = ssw_chi.4
+    title = ssw_chi.4.t
+    desc = ssw_chi.4.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            CHI = {
+                country_event = {id = ssw_chi.5 days = 2}
+            }
+        }
+    }
+    option = { 
+        name = ssw_chi.4.a
+        custom_effect_tooltip = CHI_infr_increase_fedealism
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.4.b
+        custom_effect_tooltip = CHI_infr_increase_KMT
+            hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+country_event = { #憲法制定5
+    id = ssw_chi.5
+    title = ssw_chi.5.t
+    desc = ssw_chi.5.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            CHI = {
+                country_event = {id = ssw_chi.6 days = 5}
+            }
+        }
+    }
+    option = { 
+        name = ssw_chi.5.a
+        custom_effect_tooltip = CHI_infr_increase_fedealism
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.5.b
+        custom_effect_tooltip = CHI_infr_increase_KMT
+            hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
+    }
+}
+country_event = { #憲法決定
+    id = ssw_chi.6
+    title = ssw_chi.6.t
+    desc = ssw_chi.6.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi.6.a
+        trigger = {
+            check_variable = {var_CHI_infr_federalism < var_CHI_infr_KMT}
+        }
+        load_focus_tree = {
+            tree = CHI_politic_tree_one
+            keep_completed = yes
+        }
+        complete_national_focus = CHI_return_rep_of_China
+    }
+    option = {
+        name = ssw_chi.6.b
+        trigger = {
+            check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+        }
+        load_focus_tree = {
+            tree = CHI_politic_tree_one
+            keep_completed = yes
+        }
+        complete_national_focus = CHI_birth_of_Union
+    }
+}
+country_event = { #選挙(中華民国)
+    id = ssw_chi.7
+    title = ssw_chi.7.t
+    desc = ssw_chi.7.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi.7.a
+        country_event = {id = ssw_chi.8 days = 7}
+    }
+}
+country_event = { #選挙結果
+    id = ssw_chi.8
+    title = ssw_chi.8.t
+    desc = ssw_chi.8.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi.8.a
+        trigger = {
+            check_variable = {var_CHI_infr_KMT > 29}
+        }
+        set_country_flag = CHI_KMT_over_power
+    }
+    option = {
+        name = ssw_chi.8.b
+        trigger = {
+            check_variable = {var_CHI_infr_KMT < 30}
+        }
+        set_country_flag = CHI_KMT_lower_power
+    }
+}
+country_event = { #選挙(連邦)
+    id = ssw_chi.9
+    title = ssw_chi.9.t
+    desc = ssw_chi.9.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { 
+        name = ssw_chi.9.a
+        country_event = {id = ssw_chi.10 days = 7}
+    }
+}
+country_event = { #選挙結果
+    id = ssw_chi.10
+    title = ssw_chi.10.t
+    desc = ssw_chi.10.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi.10.a
+        trigger = {
+            check_variable = {var_CHI_infr_federalism < 30}
+        }
+        set_country_flag = CHI_fede_lower_power
+    }
+    option = {
+        name = ssw_chi.10.b
+        trigger = {
+            check_variable = {var_CHI_infr_federalism > 29}
+        }
+        set_country_flag = CHI_fede_over_power
     }
 }

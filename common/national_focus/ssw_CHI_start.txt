@@ -14,6 +14,7 @@ shared_focus = { #中国の夜明け
     x = 2
     y = 0
     completion_reward = {
+        add_political_power = 100
     }
 }
 shared_focus = { #顧祝同の決断
@@ -35,6 +36,17 @@ shared_focus = { #顧祝同の決断
     x = 2
     y = 1
     completion_reward = {
+        custom_effect_tooltip = CHI_Gu_Zhutong_decision_tt
+        hidden_effect = {
+            set_variable = {
+                var = var_CHI_infr_federalism
+                value = 0
+            }
+            set_variable = {
+                var = var_CHI_infr_KMT
+                value = 0
+            }
+        }
     }
 }
 shared_focus = { #政協での準備
@@ -56,6 +68,7 @@ shared_focus = { #政協での準備
     x = 1
     y = 2
     completion_reward = {
+        add_political_power = -100
     }
 }
 shared_focus = { #憲法学者の招待
@@ -77,6 +90,7 @@ shared_focus = { #憲法学者の招待
     x = 3
     y = 2
     completion_reward = {
+        add_political_power = 50
     }
 }
 shared_focus = { #竜雲の夢
@@ -101,6 +115,13 @@ shared_focus = { #竜雲の夢
     x = 0
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_dream_of_a_long_Yun_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 5
+            }
+        }
     }
 }
 shared_focus = { #周仏海に耳を傾ける
@@ -125,6 +146,13 @@ shared_focus = { #周仏海に耳を傾ける
     x = 4
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_listening_to_Chou_Fohai_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 5
+            }
+        }
     }
 }
 shared_focus = { #連邦主義を思い出せ
@@ -146,6 +174,13 @@ shared_focus = { #連邦主義を思い出せ
     x = 1
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_remember_federalism_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_federalism
+                value = 10
+            }
+        }
     }
 }
 shared_focus = { #孫文の遺産
@@ -167,6 +202,13 @@ shared_focus = { #孫文の遺産
     x = 3
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_legacy_of_Sun_Yatsen_tt
+        hidden_effect = {
+            add_to_variable = {
+                var = var_CHI_infr_KMT
+                value = 10
+            }
+        }
     }
 }
 shared_focus = { #憲法の制定へ！
@@ -190,7 +232,7 @@ shared_focus = { #憲法の制定へ！
     y = 5
     completion_reward = {
         country_event = {
-            id = ssw_chi_d.1
+            id = ssw_chi.1
         }
     }
 }
