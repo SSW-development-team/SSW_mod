@@ -43,6 +43,7 @@ country_event = { #暗黒の日曜日
         }
         BUL = {
             add_ideas = BUL_political_instability
+            add_ideas = BUL_domestic_turmoil_0
             complete_national_focus = BUL_Black_Sunday
             complete_national_focus = BUL_protect_the_royal_family
         }
@@ -198,6 +199,21 @@ country_event = { #ブルガリアがテッサロニキとトラキアを要求
                     }
                 }
                 factor = 10
+            }
+            modifier = {
+                BUL = {
+                    surrender_progress > 0.3
+                }
+                factor = 4
+            }
+            modifier = {
+                BUL = {
+                    OR = {
+                        has_war_with = GER
+                        has_war_with = ITA
+                    }
+                }
+                factor = 3
             }
         }
         add_political_power = 50
@@ -441,7 +457,7 @@ country_event = { #ハンガリーが提案を拒否
                     strength_ratio = {
                         tag = CRO
                         ratio > 2
-                    }　
+                    }
                 }
                 factor = 2
             }
@@ -595,6 +611,12 @@ country_event = { #ブルガリアがアルバニアを要求
         name = ssw_bul.17.f
         ai_chance = {
             base = 15
+            modifier = {
+                BUL = {
+                    surrender_progress > 0.4
+                }
+                factor = 4
+            }
         }
         BUL = {
             country_event = {id = ssw_bul.22}
@@ -888,6 +910,306 @@ country_event = { #ブルガリアが提案を拒否
         }
         BUL = {
             set_country_flag = BUL_not_get_ALB
+        }
+    }
+}
+country_event = { #国家社会主義者が権力を確保
+    id = ssw_bul.25
+    title = ssw_bul.25.t
+    desc = ssw_bul.25.d
+    picture = GFX_report_event_bul_officers_burgas
+    fire_only_once = yes
+    trigger = {
+        original_tag = BUL
+        BUL = {
+            NOT = {has_government = national_socialism}
+            OR = {
+                AND = {
+                    national_socialism > 0.5
+                    NOT = {has_completed_focus = BUL_pro_german}
+                }
+                AND = {
+                    national_socialism > 0.4
+                    has_completed_focus = BUL_pro_german
+                }
+                AND = {
+                    national_socialism > 0.3
+                    has_stability < 0.2
+                    has_global_flag = danubian_war_end
+                    NOT = {has_idea = BUL_political_instability}
+                }
+            }
+        }
+    }
+    option = { #容易に想像できたことだ
+        name = ssw_bul.25.a
+        trigger = {
+            NOT = {
+                AND = {
+                    national_socialism > 0.3
+                    has_stability < 0.2
+                    has_global_flag = danubian_war_end
+                    NOT = {has_idea = BUL_political_instability}
+                }
+            }
+        }
+        set_politics = {
+            ruling_party = national_socialism
+            elections_allowed = no
+        }
+    }
+    option = { #この国は大丈夫か？
+        name = ssw_bul.25.b
+        trigger = {
+            AND = {
+                national_socialism > 0.3
+                has_stability < 0.2
+                has_global_flag = danubian_war_end
+                NOT = {has_idea = BUL_political_instability}
+            }
+        }
+        set_politics = {
+            ruling_party = national_socialism
+            elections_allowed = no
+        }
+    }
+}
+country_event = { #都市の統制
+    id = ssw_bul.26
+    title = ssw_bul.26.t
+    desc = ssw_bul.26.d
+    picture = GFX_report_event_american_hunger_march
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #警察によって扇動者を捕らえる
+        name = ssw_bul.26.a
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.04
+        }
+    }
+    option = { #軍から治安部隊を組織し鎮圧する
+        name = ssw_bul.26.b
+        add_stability = -0.05
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = corporatocracism
+            popularity = 0.01
+        }
+    }
+}
+country_event = { #地方の統制
+    id = ssw_bul.27
+    title = ssw_bul.27.t
+    desc = ssw_bul.27.d
+    picture = GFX_report_event_military_planning
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #中央の権力により統制を行う
+        name = ssw_bul.27.a
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.02
+        }
+    }
+    option = { #地方自治体の権力を拡大する
+        name = ssw_bul.27.b
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.05
+        }
+    }
+    option = { #国民に自衛を求める
+        name = ssw_bul.27.c
+        add_stability = -0.05
+        add_popularity = {
+            ideology = anarchism
+            popularity = 0.06
+        }
+    }
+}
+country_event = { #政治権限の調整
+    id = ssw_bul.28
+    title = ssw_bul.28.t
+    desc = ssw_bul.28.d
+    picture = GFX_report_event_generic_read_write
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #各大臣、各省庁により権力を分配する
+        name = ssw_bul.28.a
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.03
+        }
+    }
+    option = { #トップがより多くの権限を持つべきだ
+        name = ssw_bul.28.b
+        add_popularity = {
+            ideology = classical_communism
+            popularity = 0.04
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.04
+        }
+    }
+    option = { #議会にも権限を与える
+        name = ssw_bul.28.c
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.06
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.06
+        }
+    }
+}
+country_event = { #扇動者の対処
+    id = ssw_bul.29
+    title = ssw_bul.29.t
+    desc = ssw_bul.29.d
+    picture = GFX_report_event_german_politician_speech
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #命を奪う必要はない。寛容に行こう
+        name = ssw_bul.29.a
+        add_stability = -0.03
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.04
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.04
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = -0.04
+        }
+    }
+    option = { #ダメだ！奴らは根絶やしにしなければならない
+        name = ssw_bul.29.b
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = -0.06
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.08
+        }
+        add_popularity = {
+            ideology = national_fascism
+            popularity = -0.05
+        }
+    }
+    option = { #優秀な人材は政府に組み込むべきではないか？
+        name = ssw_bul.29.c
+        add_stability = -0.02
+        add_political_power = 30
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = 0.02
+        }
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.01
+        }
+        add_popularity = {
+            ideology = corporatocracism
+            popularity = 0.01
+        }
+    }
+}
+country_event = { #シメオン二世の成人
+    id = ssw_bul.30
+    title = ssw_bul.30.t
+    desc = ssw_bul.30.d
+    picture = GFX_report_event_bul_boris_military
+    fire_only_once = yes
+    trigger = {
+        original_tag = BUL
+        date > 1955.6.16
+    }
+    mean_time_to_happen = {
+        days = 30
+    }
+    option = { #シメオン二世万歳！
+        name = ssw_bul.30.a
+        retire_ideology_leader = authority_democracy_ideology
+        create_country_leader = {
+            name = "Simeon II"
+            desc = "POLITICS_SIMEON_II_DESC"
+            picture = "gfx/leaders/BUL/Portrait_Simeon_II.dds"
+            expire = 2021.1.1
+            ideology = authority_democracy_ideology
         }
     }
 }

@@ -42,6 +42,26 @@ scripted_gui = {
 			close_button_click = {
 				set_variable = { selected_policy_bar_button = 0 }
 			}
+			industry_focus_icon_button_click = {
+				set_variable = { selected_policy_button = 1 }
+			}
+		}
+	}
+	SSW_Policy_tab_industry_view = {
+		window_name = "SSW_Policy_tab_industry"
+		context_type = player_context
+
+		visible = {
+			check_variable = { selected_policy_button = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		effects = {
+			back_button_click = {
+				set_variable = { selected_policy_button = 0 }
+			}
 		}
 	}
 }

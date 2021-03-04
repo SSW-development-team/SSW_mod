@@ -3,42 +3,77 @@
 	shared_focus = {
 		id = RFS_Koro_1
 		icon = GFX_goal_unknown
-		cost = 2.00
+		cost = 1.00
 		x = 12
 		y = 0
+
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				
+			}
 
 	}
 	shared_focus = {
 		id = RFS_Koro_2
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 9
 		y = 1
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = -50
+				add_stability = -0.05
+			}
+
 	}
 	shared_focus = {
 		id = RFS_Koro_3
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 12
 		y = 1
 
+		ai_will_do = {
+			factor = 5
+			}
+	
+			completion_reward = {
+				remove_ideas = RFS_NKVD_support
+				add_political_power = -100	
+			}
+
 	}
 	shared_focus = {
 		id = RFS_Koro_4
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = RFS_Koro_1
 		}
 		x = 15
 		y = 1
+
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = 100
+				add_stability = 0.05
+			}
 
 	}
 	shared_focus = {
@@ -49,13 +84,21 @@
 			focus = RFS_Koro_4
 		}
 		prerequisite = {
-			ocus = RFS_Koro_3
+			focus = RFS_Koro_3
 		}
 		prerequisite = {
 			focus = RFS_Koro_2
 		}
 		x = 12
 		y = 2
+
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_political_power = 150
+			}
 
 	}
 	shared_focus = {
@@ -68,6 +111,14 @@
 		x = 8
 		y = 4
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_ideas = RFS_craim_russia
+			}
+
 	}
 	shared_focus = {
 		id = RFS_Koro_6
@@ -78,6 +129,14 @@
 		}
 		x = 21
 		y = 4
+
+		ai_will_do = {
+			factor = 50
+			}
+	
+			completion_reward = {
+				country_event = sswrfs.8
+			}
 
 	}
 	shared_focus = {
@@ -90,6 +149,18 @@
 		x = 21
 		y = 5
 
+		ai_will_do = {
+			factor = 50
+			}
+	
+			completion_reward = {
+				add_timed_idea = {
+					idea = RFS_restore_military
+					days = 200
+				}
+				custom_effect_tooltip = restore_militry
+			}
+
 	}
 	shared_focus = {
 		id = RFS_Koro_land_2
@@ -100,6 +171,18 @@
 		}
 		x = 19
 		y = 6
+
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_tech_bonus = {
+					bonus = 1 
+					uses = 2
+					category = infantry_tech
+				}
+			}
 
 	}
 	shared_focus = {
@@ -112,8 +195,23 @@
 		x = 23
 		y = 6
 
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				add_tech_bonus = {
+					bonus = 1 
+					uses = 2
+					category = cat_mechanized_equipment
+				}
+			}
+
 	}
 	shared_focus = {
+		available = {
+			has_country_flag = mada
+		}
 		id = RFS_Koro_land_4
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -219,6 +317,15 @@
 		}
 		x = 8
 		y = 5
+
+		ai_will_do = {
+			factor = 10
+			}
+	
+			completion_reward = {
+				set_country_flag = RUS_the_recovery_of_lost_territory
+				custom_effect_tooltip = the_recovery_of_lost_territory
+			}
 
 	}
 	shared_focus = {

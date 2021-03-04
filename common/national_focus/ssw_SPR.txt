@@ -4,15 +4,32 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = SPR
+			OR = {
+				tag = SPA
+				tag = SPC
+				tag = SPF
+				tag = SPR
+			}
 		}
 	}
 	default = no
+##############################   ÉXÉyÉCÉìçë(SPA)   ##############################
 	focus = {
 		id = SPR_seihu
 		icon = GFX_goal_generic_demand_territory
 		cost = 2.00
 		ai_will_do = { factor = 10 }
+		available = { has_global_flag = spanish_civil_war }
+		allow_branch = {
+			NOT = {
+				has_country_flag = spa_policy
+				has_country_flag = spc_policy
+				has_country_flag = spf_policy
+				has_country_flag = spr_policy
+				has_country_flag = spx_policy
+				has_country_flag = spr_extra_policy
+			}
+		}
 		x = 31
 		y = 0
 		completion_reward = {
@@ -445,7 +462,6 @@ focus_tree = {
 		cost = 7.00
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_hurankohaijyo }
-		bypass = { has_completed_focus = SPR_the_return_of_the_civil_war }
 		x = 17
 		y = 2
 		completion_reward = {
@@ -469,80 +485,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPR_the_return_of_the_civil_war
-		icon = GFX_focus_spr_regional_defense_council_of_aragon
-		prerequisite = { focus = SPR_hurankohaijyo }
-		available = {
-			NOT = { has_completed_focus = SPR_faranhe }
-			original_tag = SPR
-		}
-		cost = 7.00
-		ai_will_do = { factor = 10 }
-		x = 15
-		y = 2
-		completion_reward = {
-			custom_effect_tooltip = start_second_scw_tt
-			hidden_effect = {
-				set_global_flag = spanish_civil_war
-				news_event = { id = ssw_spr.1000 hours = 6 }
-				SPA = {
-					transfer_state = 166
-					transfer_state = 169
-					transfer_state = 170
-					transfer_state = 171
-					transfer_state = 172
-					transfer_state = 174
-					transfer_state = 176
-					transfer_state = 788
-					transfer_state = 789
-					transfer_state = 791
-					change_tag_from = SPR
-				}
-				every_state = {
-					limit = {
-						is_core_of = SPR
-						NOT = { is_core_of = SPA }
-					}
-					add_core_of = SPA
-				}
-				SPR = {
-					declare_war_on = {
-						target = SPA
-						type = annex_everything
-					}
-					transfer_units_fraction = {
-						target = SPA
-						size = 0.5
-					}
-					remove_ideas = spr_debahu_03
-					retire_ideology_leader = national_fascism
-					create_country_leader = {
-						name = "Manuel Hedilla"
-						desc = "POLITICS_MANUEL_HEDILLA_DESC"
-						picture = "gfx/leaders/SPR/Portrait_Spain_Manuel_Hedilla.dds"
-						expire = "1970.2.4"
-						ideology = falangism_national_syndicalism_ideology
-						traits = {
-						}
-					}
-					set_party_name = {
-						ideology = national_fascism
-						long_name = SPR_national_fascism_party_fe_jons_long
-						name = SPR_national_fascism_party_fe_jons
-					}
-				}
-			}
-		}
-	}
-	focus = {
 		id = SPR_faranhe_minzokudanatu
 		icon = GFX_goal_continuous_suppression
 		cost = 4.00
 		ai_will_do = { factor = 10 }
-		prerequisite = {
-			focus = SPR_faranhe
-			focus = SPR_the_return_of_the_civil_war
-		}
+		prerequisite = { focus = SPR_faranhe }
 		x = 14
 		y = 3
 		completion_reward = {
@@ -951,7 +898,7 @@ focus_tree = {
 		id = SPR_huranksiji
 		icon = GFX_goal_generic_major_alliance
 		cost = 1.00
-		ai_will_do = { factor = 90 }
+		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_seihu
 		}
@@ -969,7 +916,7 @@ focus_tree = {
 		id = SPR_franco
 		icon = GFX_focus_spa_caudillo_of_spain
 		cost = 1.00
-		ai_will_do = { factor = 90 }
+		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_huranksiji
 		}
@@ -2100,9 +2047,9 @@ focus_tree = {
 			create_country_leader = {
 				name = "Juan III"
 				desc = "POLITICS_JUAN_III_DESC"
-				picture = "gfx/leaders/SPR/Portrait_Francisco_Franco_Bahamonde.dds"
+				picture = "gfx/leaders/SPR/Portrait_Spain_Juan_III.dds"
 				expire = "1993.4.1"
-				ideology = authority_despotism_ideology 
+				ideology = absolute_monarchism_ideology
 				traits = {
 				}
 			}

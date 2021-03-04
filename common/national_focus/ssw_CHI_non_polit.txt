@@ -1,0 +1,1639 @@
+#産業ツリー
+shared_focus = { #中国の産業
+    id = CHI_industry_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    x = 46
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #地方主体の産業発展
+    id = CHI_local_industry_dev
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    mutually_exclusive = {
+        focus = CHI_central_gov_guidance
+    }
+    prerequisite = {
+        focus = CHI_industry_china
+    }
+    x = 45
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #地方経済の重視
+    id = CHI_emphasis_local_economy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_local_industry_dev
+    }
+    x = 42
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #地方の産業を拡大
+    id = CHI_expand_local_industry
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_emphasis_local_economy
+    }
+    x = 41
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #地域間の連携
+    id = CHI_inter_region_cooperate
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_emphasis_local_economy
+    }
+    x = 43
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #地域間ネットワークの充実
+    id = CHI_enhance_interregion_network
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_expand_local_industry
+    }
+    x = 41
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #最新の農業技術を伝播
+    id = CHI_propagate_late_agri_tech
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_inter_region_cooperate
+    }
+    x = 43
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #農村の発展
+    id = CHI_rural_dev
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_enhance_interregion_network
+    }
+    prerequisite = {
+        focus = CHI_propagate_late_agri_tech
+    }
+    x = 42
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #モータリゼーションの試み
+    id = CHI_attempt_motorization
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_rural_dev
+    }
+    x = 41
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #識字率の向上
+    id = CHI_improve_literacy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_rural_dev
+    }
+    x = 43
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #美しき田舎
+    id = CHI_beautiful_countryside
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_attempt_motorization
+    }
+    prerequisite = {
+        focus = CHI_improve_literacy
+    }
+    x = 42
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #中央政府の指導
+    id = CHI_central_gov_guidance
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    mutually_exclusive = {
+        focus = CHI_local_industry_dev
+    }
+    prerequisite = {
+        focus = CHI_industry_china
+    }
+    x = 47
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #都市経済の重視
+    id = CHI_emphasis_urban_economic_good
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_central_gov_guidance
+    }
+    x = 50
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #三峡ダムの建設開始
+    id = CHI_construct_three_gorges_dam_begin
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_emphasis_urban_economic_good
+    }
+    x = 49
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #都市間の交通網
+    id = CHI_inter_city_transport_network
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_emphasis_urban_economic_good
+    }
+    x = 51
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #国有企業
+    id = CHI_state_own_enterprise
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_construct_three_gorges_dam_begin
+    }
+    x = 49
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #電化！
+    id = CHI_electrification
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_inter_city_transport_network
+    }
+    x = 51
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #都市部への人口流入
+    id = CHI_population_influx_urban_area
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_state_own_enterprise
+    }
+    prerequisite = {
+        focus = CHI_electrification
+    }
+    x = 50
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #栄華を誇る東洋のパリ
+    id = CHI_paris_orient_all_glory
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_population_influx_urban_area
+    }
+    x = 49
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #国立中央大学の成長
+    id = CHI_growth_natio_centrak_univ
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_population_influx_urban_area
+    }
+    x = 51
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #都市の輝き
+    id = CHI_urban_brilliance
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_paris_orient_all_glory
+    }
+    prerequisite = {
+        focus = CHI_growth_natio_centrak_univ
+    }
+    x = 50
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #工場労働者の救済
+    id = CHI_relief_factory_worker
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_local_industry_dev
+        focus = CHI_central_gov_guidance
+    }
+    x = 46
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #児童労働を制限
+    id = CHI_limit_child_labor
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_relief_factory_worker
+    }
+    x = 45
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #立地の法的規制
+    id = CHI_legal_restrict_location
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_relief_factory_worker
+    }
+    x = 47
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #工具の輸入
+    id = CHI_import_tools
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_relief_factory_worker
+    }
+    x = 46
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #製造機械の輸入
+    id = CHI_import_manufacture_machinery
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_import_tools
+    }
+    x = 46
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #労働者を育成
+    id = CHI_training_worker
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_limit_child_labor
+    }
+    x = 45
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #鉱業の拡大
+    id = CHI_expansion_mine_industry
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_legal_restrict_location
+    }
+    x = 47
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #工場労働者の規律
+    id = CHI_discipline_factory_worker
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_training_worker
+    }
+    prerequisite = {
+        focus = CHI_expansion_mine_industry
+    }
+    x = 46
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #安全性の改善
+    id = CHI_improve_safety
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_discipline_factory_worker
+    }
+    x = 45
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #豊富な労働力
+    id = CHI_abundant_labor_force
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_discipline_factory_worker
+    }
+    x = 47
+    y = 8
+    completion_reward = {
+    }
+}
+shared_focus = { #中國製造
+    id = CHI_made_in_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_INDUSTRY
+    }
+    prerequisite = {
+        focus = CHI_improve_safety
+    }
+    prerequisite = {
+        focus = CHI_abundant_labor_force
+    }
+    x = 46
+    y = 9
+    completion_reward = {
+    }
+}
+
+#軍事ツリー
+shared_focus = { #中国軍の改革
+    id = CHI_reform_chinese_military
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    x = 61
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #中国連邦軍
+    id = CHI_chinese_federal_army
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_reform_chinese_military
+    }
+    mutually_exclusive = {
+        focus = CHI_natio_revo_army
+    }
+    x = 57
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #中華航空部隊
+    id = CHI_chinese_air_force
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_chinese_federal_army
+    }
+    x = 56
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #新生連邦陸軍
+    id = CHI_new_federal_army
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_chinese_federal_army
+    }
+    x = 58
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #航空基地の拡大
+    id = CHI_expansion_base
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_chinese_air_force
+    }
+    x = 56
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #保定陸軍軍官学校
+    id = CHI_baod_military_academy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_new_federal_army
+    }
+    x = 58
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #空軍将校の育成
+    id = CHI_air_force_officer_training
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_expansion_base
+    }
+    x = 56
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #連邦民兵隊
+    id = CHI_federal_militia
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_baod_military_academy
+    }
+    x = 58
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #海上空襲構想
+    id = CHI_air_raid_sea_concept
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_air_force_officer_training
+    }
+    x = 55
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #郷土を守る意思
+    id = CHI_will_defend_homeland
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_air_force_officer_training
+    }
+    prerequisite = {
+        focus = CHI_federal_militia
+    }
+    x = 57
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #民兵組織の拡大
+    id = CHI_expansion_militia
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_federal_militia
+    }
+    x = 59
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #独立型司令部
+    id = CHI_independent_command
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_air_raid_sea_concept
+    }
+    prerequisite = {
+        focus = CHI_will_defend_homeland
+    }
+    prerequisite = {
+        focus = CHI_expansion_militia
+    }
+    x = 57
+    y = 6
+}
+shared_focus = { #国民革命軍
+    id = CHI_natio_revo_army
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_reform_chinese_military
+    }
+    mutually_exclusive = {
+        focus = CHI_chinese_federal_army
+    }
+    x = 65
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #南洋艦隊
+    id = CHI_nanyang_fleet
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_natio_revo_army
+    }
+    x = 64
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #革命教育
+    id = CHI_revolutionary_edu
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_natio_revo_army
+    }
+    x = 66
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #上海海軍工廠
+    id = CHI_Shanghai_navy_arsenal
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_nanyang_fleet
+    }
+    x = 64
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #戦車への興味
+    id = CHI_interest_tank
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_revolutionary_edu
+    }
+    x = 66
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #提督の育成
+    id = CHI_training_admiral
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_Shanghai_navy_arsenal
+    }
+    x = 64
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #集団訓練
+    id = CHI_group_training
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_interest_tank
+    }
+    x = 66
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #海軍陸戦隊を組織
+    id = CHI_org_naval_land_force
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_training_admiral
+    }
+    x = 63
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #夜襲
+    id = CHI_night_raid
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_training_admiral
+    }
+    prerequisite = {
+        focus = CHI_group_training
+    }
+    x = 65
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #航空産業の拡大
+    id = CHI_expansion_aviation_industry
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_group_training
+    }
+    x = 67
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #統一の軍隊
+    id = CHI_army_unity
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_org_naval_land_force
+    }
+    prerequisite = {
+        focus = CHI_night_raid
+    }
+    prerequisite = {
+        focus = CHI_expansion_aviation_industry
+    }
+    x = 65
+    y = 6
+}
+shared_focus = { #ドイツ人顧問を再招待
+    id = CHI_GER_adviser_invite_back
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_reform_chinese_military
+    }
+    x = 61
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #上海の要塞化
+    id = CHI_make_Shanghai_fortress
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_GER_adviser_invite_back
+    }
+    x = 60
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #中華ジークフリート線
+    id = CHI_Siegfried_line_china
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_GER_adviser_invite_back
+    }
+    x = 62
+    y = 3
+}
+shared_focus = { #陸軍委員会
+    id = CHI_army_commission
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_GER_adviser_invite_back
+    }
+    x = 61
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #50師団計画
+    id = CHI_fifty_division_plan
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_army_commission
+    }
+    x = 61
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #調査統計局
+    id = CHI_survey_statistic_bureau
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_make_Shanghai_fortress
+    }
+    x = 60
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #黄埔軍官学校
+    id = CHI_huangpu_military_officer_school
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_Siegfried_line_china
+    }
+    x = 62
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #我有一把槍
+    id = CHI_I_have_gun
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_MANPOWER
+    }
+    prerequisite = {
+        focus = CHI_survey_statistic_bureau
+    }
+    prerequisite = {
+        focus = CHI_huangpu_military_officer_school
+    }
+    x = 61
+    y = 7
+    completion_reward = {
+    }
+}
+
+#対日ツリー
+shared_focus = { #二つの太陽
+    id = CHI_two_sun
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    x = 73
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #抗日大戦
+    id = CHI_anti_JAP_war
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_two_sun
+    }
+    x = 73
+    y = 1
+    completion_reward = {
+    }
+}
+shared_focus = { #国外の友
+    id = CHI_friend_from_abroad
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_anti_JAP_war
+    }
+    x = 72
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #ドイツからの兵器購入
+    id = CHI_purchase_weapon_GER
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_anti_JAP_war
+    }
+    x = 74
+    y = 2
+    completion_reward = {
+    }
+}
+shared_focus = { #戦争経済への移行
+    id = CHI_transition_war_economy
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_friend_from_abroad
+    }
+    x = 71
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #ゲリラ戦の展開
+    id = CHI_dev_guerrilla_warfare
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_friend_from_abroad
+    }
+    prerequisite = {
+        focus = CHI_purchase_weapon_GER
+    }
+    x = 73
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #偽満州の同胞
+    id = CHI_fake_manchurian_compatriot
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_purchase_weapon_GER
+    }
+    x = 75
+    y = 3
+    completion_reward = {
+    }
+}
+shared_focus = { #一面交渉、一面抵抗
+    id = CHI_fight_side_resist_other
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_transition_war_economy
+    }
+    prerequisite = {
+        focus = CHI_dev_guerrilla_warfare
+    }
+    prerequisite = {
+        focus = CHI_fake_manchurian_compatriot
+    }
+    mutually_exclusive = {
+        focus = CHI_resolute_defence
+    }
+    x = 72
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #断固たる抗戦
+    id = CHI_resolute_defence
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_transition_war_economy
+    }
+    prerequisite = {
+        focus = CHI_dev_guerrilla_warfare
+    }
+    prerequisite = {
+        focus = CHI_fake_manchurian_compatriot
+    }
+    mutually_exclusive = {
+        focus = CHI_fight_side_resist_other
+    }
+    x = 74
+    y = 4
+    completion_reward = {
+    }
+}
+shared_focus = { #産業の保護
+    id = CHI_industry_protect
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_fight_side_resist_other
+    }
+    x = 72
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #督戦隊の編成
+    id = CHI_formation_viceroy_army
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_resolute_defence
+    }
+    x = 74
+    y = 5
+    completion_reward = {
+    }
+}
+shared_focus = { #継戦
+    id = CHI_continu_war
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    search_filters = {
+        FOCUS_FILTER_WAR_SUPPORT
+    }
+    prerequisite = {
+        focus = CHI_industry_protect
+        focus = CHI_formation_viceroy_army
+    }
+    x = 73
+    y = 6
+    completion_reward = {
+    }
+}

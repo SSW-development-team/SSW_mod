@@ -567,5 +567,20 @@ country_event = { #ƒeƒXƒg
 	option = {
 		name = ssw_lff.10.a
 		ai_chance = { factor = 10 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			create_unit = {
+				division = "division_template = \"Infantry Division\" start_experience_factor = 0.5" 
+				owner = LFF
+				allow_spawning_on_enemy_provs = yes
+				count = 2
+			}
+		}
 	}
 }

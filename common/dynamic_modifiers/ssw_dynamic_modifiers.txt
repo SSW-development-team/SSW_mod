@@ -8,3 +8,28 @@ ssw_JAP_state_development_modifier = {
 	state_production_speed_buildings_factor = 0.15
 	state_resources_factor = 0.15
 }
+ssw_CHI_influence_local_warlord_dynamic_modifier = {
+	enable = {always = yes}
+	icon = GFX_idea_chi_warlord_integration
+	remove_trigger = {
+		AND = {
+			check_variable = {CHI_inf_l_w_d_m_w = 0}
+			check_variable = {CHI_inf_l_w_d_m_o = 0}
+			check_variable = {CHI_inf_l_w_d_m_d = 0}
+			check_variable = {CHI_inf_l_w_d_m_a = 0}
+		}
+	}
+	war_support_factor = CHI_inf_l_w_d_m_w
+	offence = CHI_inf_l_w_d_m_o
+	defence = CHI_inf_l_w_d_m_d
+	army_org_factor = CHI_inf_l_w_d_m_a
+}
+ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier = {
+	enable = {always = yes}
+	icon = GFX_idea_chi_chinese_unity
+	stability_factor = CHI_G_Z_f_d_m_s
+	political_power_gain = CHI_G_Z_f_d_m_pp
+	consumer_goods_factor = CHI_G_Z_f_d_m_c
+	production_speed_infrastructure _factor = CHI_G_Z_f_d_m_ps
+	army_core_defence_factor = CHI_G_Z_f_d_m_ad
+}

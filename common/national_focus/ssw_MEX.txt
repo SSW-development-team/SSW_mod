@@ -1823,6 +1823,46 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 180
 			create_faction = american_popular_unity
+			every_other_country = {
+				limit = {
+					OR = {
+						original_tag = ARG
+						original_tag = BOL
+						original_tag = BRA
+						original_tag = CHL
+						original_tag = CMB
+						original_tag = COL
+						original_tag = COS
+						original_tag = CSB
+						original_tag = CUB
+						original_tag = DOM
+						original_tag = ECU
+						original_tag = ELS
+						original_tag = GUA
+						original_tag = HAI
+						original_tag = HON
+						original_tag = JAM
+						original_tag = NIC
+						original_tag = PAN
+						original_tag = PAR
+						original_tag = PRU
+						original_tag = URG
+					}
+					OR = {
+						has_government = progressive_communism
+						has_government = classical_communism
+						has_government = social_democracy
+					}
+					exists = yes
+					is_puppet = no
+					is_in_faction = no
+					NOT = {
+						original_tag = MEX
+						has_war_with = ROOT
+					}
+				}
+				country_event = { id = ssw_faction.1 days = 1 }
+			}
 		}
 	}
 	focus = {
@@ -2155,6 +2195,38 @@ focus_tree = {
 				create_wargoal = {
 					type = annex_everything
 					target = SPA
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 100
+				}
+			}
+			if = {
+				limit = {
+					SPC = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SPC
+				}
+				else = {
+					add_war_support = 0.05
+					add_political_power = 100
+				}
+			}
+			if = {
+				limit = {
+					SPF = {
+						exists = yes
+						NOT = { has_government = progressive_communism }
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SPF
 				}
 				else = {
 					add_war_support = 0.05

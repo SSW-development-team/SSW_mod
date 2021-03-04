@@ -2,7 +2,7 @@
 #王室の継続
 shared_focus = {
     id = SER_Continuity_of_the_Royal_Family
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_monarchy_2
     cost = 8.00
     prerequisite = {
         }
@@ -27,7 +27,7 @@ shared_focus = {
 #摂政の権限強化
 shared_focus = {
     id = SER_Strengthening_the_authority_of_the_regent
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_demand_sudetenland
     cost = 8.00
     prerequisite = {
         focus = SER_Continuity_of_the_Royal_Family
@@ -53,7 +53,7 @@ shared_focus = {
 #現実政治
 shared_focus = {
     id = SER_real_politics
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_strike_at_democracy2
     cost = 8.00
     prerequisite = {
         focus = SER_Strengthening_the_authority_of_the_regent
@@ -80,7 +80,7 @@ shared_focus = {
 #靭帯の強化
 shared_focus = {
     id = SER_Strengthening_of_ligaments
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_CZE_german_puppet
     cost = 8.00
     prerequisite = {
         focus = SER_real_politics
@@ -106,7 +106,7 @@ shared_focus = {
 #共和派の排除
 shared_focus = {
     id = SER_Eliminating_the_Republicans
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_spa_eliminate_the_carlists
     cost = 8.00
     prerequisite = {
         focus = SER_Strengthening_of_ligaments
@@ -132,7 +132,7 @@ shared_focus = {
 #分かたれざる政府
 shared_focus = {
     id = SER_Divided_Government
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_major_war
     cost = 8.00
     prerequisite = {
         focus = SER_Eliminating_the_Republicans
@@ -159,7 +159,7 @@ shared_focus = {
 #国王への配慮
 shared_focus = {
     id = SER_Consideration_for_the_King
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_tfv_strengthen_commonwealth_ties
     cost = 8.00
     prerequisite = {
         focus = SER_Eliminating_the_Republicans
@@ -433,7 +433,9 @@ shared_focus = {
     mutually_exclusive = {
         }
     available = {
-        custom_effect_tooltip = SSW_SER_Establishment_of_military_government_tooltip
+        custom_trigger_tooltip = {
+            tooltip = SSW_SER_Establishment_of_military_government_tooltip
+        }
         hidden_trigger = {
             has_country_flag = SSW_SER_Establishment_of_military_government
             NOT = {
@@ -651,7 +653,9 @@ shared_focus = {
     mutually_exclusive = {
         }
     available = {
-        custom_effect_tooltip = SSW_SER_Building_a_Republic_tooltip
+        custom_trigger_tooltip = {
+            tooltip = SSW_SER_Building_a_Republic_tooltip
+        }
         hidden_trigger = {
             has_country_flag = SSW_SER_Building_democratic_government
             NOT = {
@@ -892,9 +896,10 @@ shared_focus = {
         focus = SER_Coping_with_Recession
         }
     mutually_exclusive = {
+        focus = SER_industrialization_policy
         }
     available = {
-        focus = SER_industrialization_policy
+        
     }
     ai_will_do = {
         factor = 5
@@ -1115,6 +1120,216 @@ shared_focus = {
     available_if_capitulated = no
     search_filters = { FOCUS_FILTER_POLITICAL }
     x = 19
+    y = 4
+    completion_reward = {
+    }
+}
+#クラヨーヴァ会議
+shared_focus = {
+    id = SER_Kurayeva_Conference
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 26
+    y = 0
+    completion_reward = {
+    }
+}
+#秘密裏の動員開始
+shared_focus = {
+    id = SER_Commence_clandestine_mobilization
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Kurayeva_Conference
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 25
+    y = 1
+    completion_reward = {
+    }
+}
+#イタリアへの歎願
+shared_focus = {
+    id = SER_Plea_to_Italy
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Kurayeva_Conference
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 27
+    y = 1
+    completion_reward = {
+    }
+}
+#イギリスからの密輸
+shared_focus = {
+    id = SER_Smuggling_from_Britain
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Plea_to_Italy
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 27
+    y = 2
+    completion_reward = {
+    }
+}
+#国境地帯の武器庫への襲撃
+shared_focus = {
+    id = SER_Raid_on_arm_depot_in_border_region
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Smuggling_from_Britain
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 27
+    y = 3
+    completion_reward = {
+    }
+}
+#クロアチアとの要塞戦
+shared_focus = {
+    id = SER_Fortress_War_with_Croatia
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Commence_clandestine_mobilization
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 25
+    y = 2
+    completion_reward = {
+    }
+}
+#戦え！セルビア人よ！
+shared_focus = {
+    id = SER_Fight_Serbs
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Fortress_War_with_Croatia
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 25
+    y = 3
+    completion_reward = {
+    }
+}
+#宿敵との対決
+shared_focus = {
+    id = SER_Confrontation_with_the_nemesis
+    icon = GFX_focus_generic_treaty
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Fight_Serbs
+        }
+        prerequisite = {
+            focus = SER_Raid_on_arm_depot_in_border_region
+            }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 26
     y = 4
     completion_reward = {
     }

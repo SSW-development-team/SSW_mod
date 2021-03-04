@@ -169,44 +169,20 @@ ai_will_do = {
 x = 0
 y = 2
 completion_reward = {
-	random_owned_controlled_state={
+	ITA = {
+		any_owned_state_in_south_italy = yes
+	}
+	any_owned_state = {
 		limit = {
-		free_building_slots = {
-		building = industrial_complex
-		size > 0
-		include_locked = yes
+			is_south_italy_states = yes
 		}
-	   
-		}
-	   
 		add_extra_state_shared_building_slots = 2
 		add_building_construction = {
-		type = industrial_complex
-		level = 2
-		instant_build = yes
-		}
-	   
-		set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-		}
-		random_owned_controlled_state={
-			limit = {
-			free_building_slots = {
-			building = industrial_complex
-			size > 0
-			include_locked = yes
-			}
-		   
-			}
-		   
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
 			type = industrial_complex
-			level = 1
+			level = 2
 			instant_build = yes
-			}
-		   
-			set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
+		}
+	}
 }
 }
 #移民への対処
@@ -284,44 +260,20 @@ ai_will_do = {
 x = 2
 y = 2
 completion_reward = {
-	random_owned_controlled_state={
+	ITA = {
+		any_owned_state_in_north_italy = yes
+	}
+	any_owned_state = {
 		limit = {
-		free_building_slots = {
-		building = arms_factory
-		size > 0
-		include_locked = yes
+			is_north_italy_states = yes
 		}
-	   
-		}
-	   
 		add_extra_state_shared_building_slots = 2
 		add_building_construction = {
-		type = arms_factory
-		level = 2
-		instant_build = yes
-		}
-	   
-		set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-		}
-		random_owned_controlled_state={
-			limit = {
-			free_building_slots = {
-			building = arms_factory
-			size > 0
-			include_locked = yes
-			}
-		   
-			}
-		   
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-			type = arms_factory
-			level = 1
+			type = industrial_complex
+			level = 2
 			instant_build = yes
-			}
-		   
-			set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
+	}
+}
 }
 }
 #北部産業の強化
@@ -522,7 +474,7 @@ completion_reward = {
 		category = excavation_tech 
 	}
 	add_resource = {
-		type = iron
+		type = steel
 		amount = 25
 		state = 2
 		}
@@ -713,10 +665,8 @@ icon = GFX_goal_generic_dangerous_deal
 cost = 5.00
 prerequisite = {
 	 focus = ITA_focus_industry_Free_Labor_Law
+	 focus = ITA_focus_industry_Isolation_of_living_quarters
 	 }
-	 prerequisite = {
-		focus = ITA_focus_industry_Isolation_of_living_quarters
-		}
 mutually_exclusive = {
 	 }
 available = {
@@ -757,13 +707,8 @@ shared_focus = {
 		 focus = ITA_focus_industry_Solving_the_immigration_problem
 		 }
 	mutually_exclusive = {
-		 }
+		}
 	available = {
-	}
-	ai_will_do = {
-		factor = 5
-	  }
-	  bypass = {
 		IT2 = { is_subject_of = ITA }
 		IT3 = { is_subject_of = ITA }
 		IT4 = { is_subject_of = ITA }
@@ -771,6 +716,11 @@ shared_focus = {
 		IT7 = { is_subject_of = ITA }
 		SUD = { is_in_faction_with = ITA }
 		EGY = { is_in_faction_with = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
 	  }
 	  cancel_if_invalid = yes
 	  continue_if_invalid = no
@@ -1794,7 +1744,7 @@ shared_focus = {
 	x = 39
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_53
 			days = 150
@@ -1826,7 +1776,7 @@ shared_focus = {
 	x = 41
 	y = 5
 	completion_reward = {
-		remove_idea = ITA_idea_52
+		remove_ideas = ITA_idea_52
 		add_timed_idea = {
 			idea = ITA_idea_54
 			days = 200
@@ -1989,6 +1939,42 @@ shared_focus = {
 		}
 	}
 }
+#新型艦の開発
+shared_focus = {
+	id = ITA_focus_balbo_Development_of_new_type_of_ship
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_modern_navy
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 50
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 3
+			category = dd_tech
+			category = cl_tech
+			category = ca_tech
+			category = cv_tech
+			category = bc_tech
+			category = bb_tech
+		}
+	}
+}
 #海軍士官の育成
 shared_focus = {
 	id = ITA_focus_balbo_Training_of_Naval_Officers
@@ -2017,6 +2003,68 @@ shared_focus = {
 		add_ideas = ITA_idea_40
 	}
 }
+#上陸戦への特化
+shared_focus = {
+	id = ITA_focus_balbo_Specialization_in_land_warfare
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Training_of_Naval_Officers
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_68
+	}
+}
+#輸送能力の向上
+shared_focus = {
+	id = ITA_focus_balbo_Improve_transportation_capacity
+	icon = GFX_ITA_Italian_Naval
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Specialization_in_land_warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 52
+	y = 6
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_idea_68
+			add_idea = ITA_idea_69
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = tp_tech
+		}
+	}
+}
 ###COLONIAL_FOCUS_TREE###
 
 #植民地開発
@@ -2032,10 +2080,10 @@ shared_focus = {
 		IT2 = { is_subject_of = ITA }
 		IT3 = { is_subject_of = ITA }
 		IT4 = { is_subject_of = ITA }
-		IT5 = { is_subject_of = ITA }
 		IT6 = { is_subject_of = ITA }
 		IT7 = { is_subject_of = ITA }
-		IT8 = { is_subject_of = ITA }
+		SUD = { is_in_faction_with = ITA }
+		EGY = { is_in_faction_with = ITA }
 	}
 	ai_will_do = {
 		factor = 5
@@ -2165,36 +2213,42 @@ shared_focus = {
 	y = 14
 	completion_reward = {
 	448 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	661 ={
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
+		if = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
 	662 ={
+		if = {
+			
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2209,7 +2263,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	449 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2224,7 +2280,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	663 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2239,7 +2297,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	450 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2254,7 +2314,9 @@ level = 3
 instant_build = yes
 }
 }
+	}
 	451 ={
+		if = {
 limit = {
 free_building_slots = {
 building = infrastructure
@@ -2270,6 +2332,7 @@ instant_build = yes
 }
 }
 }
+	}
 }
 #経済基盤の確立
 shared_focus = {
@@ -2579,10 +2642,6 @@ shared_focus = {
 	x = -18
 	y = 14
 	completion_reward = {
-		add_ideas = ITA_idea_33
-		IT4 = {
-			add_ideas = ITA_idea_33
-		}
 	}
 }
 ###スエズルート###
@@ -2628,7 +2687,9 @@ shared_focus = {
     mutually_exclusive = { 
     }
     available = {
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
+		}
 		always = no
     }
     ai_will_do = {
@@ -2710,7 +2771,9 @@ shared_focus = {
     }
     available = {
         has_global_flag = Danubian_war
-        custom_effect_tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+        custom_trigger_tooltip = {
+			tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
+		}
     }
     ai_will_do = {
     factor = 5

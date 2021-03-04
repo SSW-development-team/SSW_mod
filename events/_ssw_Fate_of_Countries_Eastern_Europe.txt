@@ -68,9 +68,13 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 						has_state_flag = maybe_core_UKR_GAMESTART
 						has_state_flag = maybe_core_BAL_GAMESTART
 						has_state_flag = maybe_core_FIN_GAMESTART
-						has_state_flag = maybe_core_ITA_GAMESTART
+						has_state_flag = maybe_core_CCS_GAMESTART
 						has_state_flag = maybe_core_SIB_GAMESTART
 						has_state_flag = maybe_core_MAN_GAMESTART
+						has_state_flag = maybe_core_DON_GAMESTART
+						has_state_flag = maybe_core_GER_GAMESTART
+						has_state_flag = maybe_core_POL_GAMESTART
+						has_state_flag = maybe_core_ROM_GAMESTART
 					}
 				}
 				SOV = { transfer_state = PREV }
@@ -111,9 +115,13 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 						has_state_flag = maybe_core_UKR_GAMESTART
 						has_state_flag = maybe_core_BAL_GAMESTART
 						has_state_flag = maybe_core_FIN_GAMESTART
-						has_state_flag = maybe_core_ITA_GAMESTART
+						has_state_flag = maybe_core_CCS_GAMESTART
 						has_state_flag = maybe_core_SIB_GAMESTART
 						has_state_flag = maybe_core_MAN_GAMESTART
+						has_state_flag = maybe_core_DON_GAMESTART
+						has_state_flag = maybe_core_GER_GAMESTART
+						has_state_flag = maybe_core_POL_GAMESTART
+						has_state_flag = maybe_core_ROM_GAMESTART
 					}
 				}
 				RUS = { transfer_state = PREV }
@@ -148,9 +156,13 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 					has_state_flag = maybe_core_UKR_GAMESTART
 					has_state_flag = maybe_core_BAL_GAMESTART
 					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_ITA_GAMESTART
+					has_state_flag = maybe_core_CCS_GAMESTART
 					has_state_flag = maybe_core_SIB_GAMESTART
 					has_state_flag = maybe_core_MAN_GAMESTART
+					has_state_flag = maybe_core_DON_GAMESTART
+					has_state_flag = maybe_core_GER_GAMESTART
+					has_state_flag = maybe_core_POL_GAMESTART
+					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
 			SIB = {
@@ -186,9 +198,13 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 					has_state_flag = maybe_core_UKR_GAMESTART
 					has_state_flag = maybe_core_BAL_GAMESTART
 					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_ITA_GAMESTART
+					has_state_flag = maybe_core_CCS_GAMESTART
 					has_state_flag = maybe_core_SIB_GAMESTART
 					has_state_flag = maybe_core_MAN_GAMESTART
+					has_state_flag = maybe_core_DON_GAMESTART
+					has_state_flag = maybe_core_GER_GAMESTART
+					has_state_flag = maybe_core_POL_GAMESTART
+					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
 			MOS = {
@@ -248,12 +264,162 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 					has_state_flag = maybe_core_UKR_GAMESTART
 					has_state_flag = maybe_core_BAL_GAMESTART
 					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_ITA_GAMESTART
+					has_state_flag = maybe_core_CCS_GAMESTART
 					has_state_flag = maybe_core_SIB_GAMESTART
 					has_state_flag = maybe_core_MAN_GAMESTART
+					has_state_flag = maybe_core_DON_GAMESTART
+					has_state_flag = maybe_core_GER_GAMESTART
+					has_state_flag = maybe_core_POL_GAMESTART
+					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
 			add_core_of = ROOT
 		}
+	}
+}
+country_event = { #ÉgÉDÉîÉ@ÇÃâ^ñΩ
+	id = ssw_foc_eastern_europe.1
+	title = ssw_foc_eastern_europe.1.title
+	desc = ssw_foc_eastern_europe.1.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.1.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TUV = { transfer_state = PREV }
+		}
+		puppet = TUV
+	}
+	option = {
+		name = ssw_foc_eastern_europe.1.b
+		trigger = {
+			OR = {
+				RUS = { is_subject_of = ROOT }
+				is_in_faction_with = RUS
+				original_tag = RUS
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			RUS = { transfer_state = PREV }
+			add_core_of = RUS
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.1.c
+		trigger = {
+			OR = {
+				SOV = { is_subject_of = ROOT }
+				is_in_faction_with = SOV
+				original_tag = SOV
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SOV = { transfer_state = PREV }
+			add_core_of = SOV
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.1.d
+		trigger = {
+			OR = {
+				SIB = { is_subject_of = ROOT }
+				is_in_faction_with = SIB
+				original_tag = SIB
+			}
+			SIB = { has_cosmetic_tag = SIB_russia }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SIB = { transfer_state = PREV }
+			add_core_of = SIB
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.1.e
+		trigger = {
+			OR = {
+				MOS = { is_subject_of = ROOT }
+				is_in_faction_with = MOS
+				original_tag = MOS
+			}
+			MOS = { has_cosmetic_tag = MOS_russia }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			MOS = { transfer_state = PREV }
+			add_core_of = MOS
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.1.f
+		trigger = {
+			OR = {
+				MON = { is_subject_of = ROOT }
+				is_in_faction_with = MON
+				original_tag = MON
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_TUV_GAMESTART
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			MON = { transfer_state = PREV }
+			add_core_of = MON
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_tuva
 	}
 }
