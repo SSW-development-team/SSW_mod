@@ -275,6 +275,10 @@ country_event = { #選挙結果
             check_variable = {var_CHI_infr_KMT > 29}
         }
         set_country_flag = CHI_KMT_over_power
+        hidden_effect = {
+            clear_variable = var_CHI_infr_KMT
+            clear_variable = var_CHI_infr_federalism
+        }
     }
     option = {
         name = ssw_chi.8.b
@@ -282,6 +286,10 @@ country_event = { #選挙結果
             check_variable = {var_CHI_infr_KMT < 30}
         }
         set_country_flag = CHI_KMT_lower_power
+        hidden_effect = {
+            clear_variable = var_CHI_infr_KMT
+            clear_variable = var_CHI_infr_federalism
+        }
     }
 }
 country_event = { #選挙(連邦)
@@ -307,6 +315,10 @@ country_event = { #選挙結果
             check_variable = {var_CHI_infr_federalism < 30}
         }
         set_country_flag = CHI_fede_lower_power
+        hidden_effect = {
+            clear_variable = var_CHI_infr_KMT
+            clear_variable = var_CHI_infr_federalism
+        }
     }
     option = {
         name = ssw_chi.10.b
@@ -314,5 +326,9 @@ country_event = { #選挙結果
             check_variable = {var_CHI_infr_federalism > 29}
         }
         set_country_flag = CHI_fede_over_power
+        hidden_effect = {
+            clear_variable = var_CHI_infr_KMT
+            clear_variable = var_CHI_infr_federalism
+        }
     }
 }
