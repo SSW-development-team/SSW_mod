@@ -18,6 +18,8 @@ shared_focus = { #中華民国への回帰
     x = 12
     y = 0
     completion_reward = {
+        remove_ideas = CHI_unenacted_constitution
+        set_cosmetic_tag = CHI_DEF
     }
 }
 shared_focus = { #第一回国民大会
@@ -39,6 +41,7 @@ shared_focus = { #第一回国民大会
     x = 12
     y = 1
     completion_reward = {
+        country_event = {id = ssw_chi.7}
     }
 }
 shared_focus = { #国民党の完全復活
@@ -47,6 +50,14 @@ shared_focus = { #国民党の完全復活
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_KMT_infr_over
+            hidden_trigger = {
+                has_country_flag = CHI_KMT_over_power
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -63,6 +74,9 @@ shared_focus = { #国民党の完全復活
     x = 10
     y = 2
     completion_reward = {
+        set_politics = {
+            ruling_party = social_democracy
+        }
     }
 }
 shared_focus = { #汪兆銘の指導
@@ -84,6 +98,12 @@ shared_focus = { #汪兆銘の指導
     x = 10
     y = 3
     completion_reward = {
+        add_stability = 0.1
+        custom_effect_tooltip = CHI_inf_warlord_w_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.1
+        }
     }
 }
 shared_focus = { #国民党の地方組織を拡大
@@ -105,6 +125,7 @@ shared_focus = { #国民党の地方組織を拡大
     x = 9
     y = 4
     completion_reward = {
+        add_ideas = CHI_revival_KMT
     }
 }
 shared_focus = { #連邦主義運動の縮小
@@ -126,6 +147,11 @@ shared_focus = { #連邦主義運動の縮小
     x = 11
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_w_fiv_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.05
+        }
     }
 }
 shared_focus = { #土地改革
@@ -147,6 +173,21 @@ shared_focus = { #土地改革
     x = 10
     y = 5
     completion_reward = {
+        random_owned_state = {
+            add_extra_state_shared_building_slots = 2
+        }
+        random_owned_state = {
+            add_extra_state_shared_building_slots = 2
+        }
+        random_owned_state = {
+            add_extra_state_shared_building_slots = 2
+        }
+        random_owned_state = {
+            add_extra_state_shared_building_slots = 2
+        }
+        random_owned_state = {
+            add_extra_state_shared_building_slots = 2
+        }
     }
 }
 shared_focus = { #国民党のプロパガンダ
@@ -168,6 +209,10 @@ shared_focus = { #国民党のプロパガンダ
     x = 9
     y = 6
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_revival_KMT
+            add_idea = CHI_revival_KMT_1
+        }
     }
 }
 shared_focus = { #軍閥内部の協力者を確保
@@ -189,6 +234,15 @@ shared_focus = { #軍閥内部の協力者を確保
     x = 11
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_a
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
     }
 }
 shared_focus = { #民権主義の重視
@@ -213,6 +267,8 @@ shared_focus = { #民権主義の重視
     x = 8
     y = 7
     completion_reward = {
+        add_stability = 0.05
+        add_political_power = 100
     }
 }
 shared_focus = { #指揮系統の統一
@@ -237,6 +293,9 @@ shared_focus = { #指揮系統の統一
     x = 10
     y = 7
     completion_reward = {
+        remove_dynamic_modifier = {
+            modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+        }
     }
 }
 shared_focus = { #軍閥の服従
@@ -261,6 +320,8 @@ shared_focus = { #軍閥の服従
     x = 12
     y = 7
     completion_reward = {
+        add_stability = 0.1
+        add_war_support = 0.1
     }
 }
 shared_focus = { #党国
@@ -285,6 +346,10 @@ shared_focus = { #党国
     x = 10
     y = 8
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_revival_KMT_1
+            add_idea = CHI_revival_KMT_2
+        }
     }
 }
 
@@ -294,6 +359,14 @@ shared_focus = { #連邦主義の教訓
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_KMT_infr_lower
+            hidden_trigger = {
+                has_country_flag = CHI_KMT_lower_power
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -310,6 +383,11 @@ shared_focus = { #連邦主義の教訓
     x = 14
     y = 2
     completion_reward = {
+        set_party_name = {
+            ideology = authority_democracy
+            long_name = CHI_autho_demo_fede
+            name = CHI_autho_demo_fede
+        }
     }
 }
 shared_focus = { #軍閥と国民党の融和
@@ -331,6 +409,14 @@ shared_focus = { #軍閥と国民党の融和
     x = 14
     y = 3
     completion_reward = {
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.1
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.1
+        }
     }
 }
 shared_focus = { #多党制の維持
@@ -352,6 +438,7 @@ shared_focus = { #多党制の維持
     x = 13
     y = 4
     completion_reward = {
+        add_stability = 0.1
     }
 }
 shared_focus = { #軍閥のポストを用意
@@ -373,6 +460,11 @@ shared_focus = { #軍閥のポストを用意
     x = 15
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_a_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_a
+            value = 0.1
+        }
     }
 }
 shared_focus = { #省の権限
@@ -394,6 +486,11 @@ shared_focus = { #省の権限
     x = 13
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_w_fif_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.15
+        }
     }
 }
 shared_focus = { #国民党を改革！
@@ -415,6 +512,9 @@ shared_focus = { #国民党を改革！
     x = 15
     y = 6
     completion_reward = {
+        add_political_power = 200
+        add_stability = 0.05
+        add_war_support = 0.05
     }
 }
 shared_focus = { #新しい中華民国へ！
@@ -439,6 +539,15 @@ shared_focus = { #新しい中華民国へ！
     x = 14
     y = 8
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_o
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
     }
 }
 shared_focus = { #第二回国民大会
@@ -488,6 +597,7 @@ shared_focus = { #連邦の産声
     x = 23
     y = 0
     completion_reward = {
+        remove_ideas = CHI_unenacted_constitution
     }
 }
 shared_focus = { #第一回全国連邦代表大会
@@ -509,6 +619,7 @@ shared_focus = { #第一回全国連邦代表大会
     x = 23
     y = 1
     completion_reward = {
+        country_event = {id = ssw_chi.9}
     }
 }
 shared_focus = { #国民党との妥協
@@ -517,6 +628,14 @@ shared_focus = { #国民党との妥協
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_fede_infr_lower
+            hidden_trigger = {
+                has_country_flag = CHI_fede_lower_power
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -533,6 +652,26 @@ shared_focus = { #国民党との妥協
     x = 20
     y = 2
     completion_reward = {
+        set_variable = {
+            var = CHI_G_Z_f_d_m_s
+            value = 0
+        }
+        set_variable = {
+            var = CHI_G_Z_f_d_m_pp
+            value = 0
+        }
+        set_variable = {
+            var = CHI_G_Z_f_d_m_c
+            value = 0
+        }
+        set_variable = {
+            var = CHI_G_Z_f_d_m_ps
+            value = 0
+        }
+        set_variable = {
+            var = CHI_G_Z_f_d_m_ad
+            value = 0
+        }
     }
 }
 shared_focus = { #穏健な進化
@@ -554,6 +693,11 @@ shared_focus = { #穏健な進化
     x = 20
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_G_Z_f_d_m_s_tt
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #国民党勢力を保護
@@ -575,6 +719,19 @@ shared_focus = { #国民党勢力を保護
     x = 19
     y = 4
     completion_reward = {
+        if = {
+            limit = {
+                NOT = {modifier = has_dynamic_modifier}
+            }
+            add_dynamic_modifier = {
+                modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier
+            }
+        }
+        custom_effect_tooltip = CHI_G_Z_f_d_m_pp_tt
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_pp
+            value = 0.5
+        }
     }
 }
 shared_focus = { #適度な地方分権
@@ -596,6 +753,23 @@ shared_focus = { #適度な地方分権
     x = 21
     y = 4
     completion_reward = {
+        if = {
+            limit = {
+                NOT = {modifier = has_dynamic_modifier}
+            }
+            add_dynamic_modifier = {
+                modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier
+            }
+        }
+        custom_effect_tooltip = CHI_G_Z_f_d_m_ps_s_tt
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_ps
+            value = -0.1
+        }
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_s
+            value = 0.05
+        }
     }
 }
 shared_focus = { #協力体制
@@ -617,6 +791,11 @@ shared_focus = { #協力体制
     x = 19
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_a_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_a
+            value = 0.1
+        }
     }
 }
 shared_focus = { #李宋仁との協力
@@ -638,6 +817,15 @@ shared_focus = { #李宋仁との協力
     x = 21
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_o
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
     }
 }
 shared_focus = { #連邦主義と三民主義
@@ -662,6 +850,15 @@ shared_focus = { #連邦主義と三民主義
     x = 20
     y = 7
     completion_reward = {
+        custom_effect_tooltip = CHI_G_Z_f_d_m_c_ad_tt
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_c
+            value = -0.05
+        }
+        add_to_variable = {
+            var = CHI_G_Z_f_d_m_ad
+            value = 0.05
+        }
     }
 }
 
@@ -671,6 +868,14 @@ shared_focus = { #輝ける各省
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_fede_infr_over
+            hidden_trigger = {
+                has_country_flag = CHI_fede_over_power
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -687,6 +892,9 @@ shared_focus = { #輝ける各省
     x = 26
     y = 2
     completion_reward = {
+        set_politics = {
+            ruling_party = social_conservatism
+        }
     }
 }
 shared_focus = { #軍閥達の協調
@@ -708,6 +916,15 @@ shared_focus = { #軍閥達の協調
     x = 26
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_a_w_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_a
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.1
+        }
     }
 }
 shared_focus = { #大胆な地方分権
@@ -729,6 +946,7 @@ shared_focus = { #大胆な地方分権
     x = 26
     y = 4
     completion_reward = {
+        add_ideas = CHI_federal_great_reform
     }
 }
 shared_focus = { #郷土愛と愛国心
@@ -750,6 +968,10 @@ shared_focus = { #郷土愛と愛国心
     x = 24
     y = 5
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_federal_great_reform
+            add_idea = CHI_federal_great_reform_2
+        }
     }
 }
 shared_focus = { #汚職を断罪
@@ -771,6 +993,19 @@ shared_focus = { #汚職を断罪
     x = 28
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_w_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_o
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
     }
 }
 shared_focus = { #雲南の富を発展
@@ -792,6 +1027,19 @@ shared_focus = { #雲南の富を発展
     x = 23
     y = 6
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 325
+            }
+            add_resource = {
+                type = steel
+                amount = 10
+            }
+            add_resource = {
+                type = aluminium
+                amount = 12
+            }
+        }
     }
 }
 shared_focus = { #地域による経済格差を是正
@@ -813,6 +1061,10 @@ shared_focus = { #地域による経済格差を是正
     x = 25
     y = 6
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_federal_great_reform_2
+            add_idea = CHI_federal_great_reform_3
+        }
     }
 }
 shared_focus = { #アヘンの根絶
@@ -834,6 +1086,19 @@ shared_focus = { #アヘンの根絶
     x = 27
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_w_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_w
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_o
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
     }
 }
 shared_focus = { #信頼できる省政府主席へ
@@ -855,6 +1120,7 @@ shared_focus = { #信頼できる省政府主席へ
     x = 29
     y = 6
     completion_reward = {
+        add_stability = 0.2
     }
 }
 shared_focus = { #誇り高き故郷
@@ -885,6 +1151,10 @@ shared_focus = { #誇り高き故郷
     x = 26
     y = 7
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_federal_great_reform_3
+            add_idea = CHI_federal_great_reform_4
+        }
     }
 }
 shared_focus = { #第二回全国連邦代表大会
@@ -932,6 +1202,16 @@ shared_focus = { #歴戦の大総統
     x = 17
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_inf_warlord_o_d_tt
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_o
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_inf_l_w_d_m_d
+            value = 0.05
+        }
+        add_ideas = CHI_Gu_Zhutong_military_guidance
     }
 }
 shared_focus = { #持久戦の構想
@@ -953,6 +1233,24 @@ shared_focus = { #持久戦の構想
     x = 16
     y = 5
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_Gu_Zhutong_military_guidance
+            }
+            swap_ideas = {
+                remove_idea = CHI_Gu_Zhutong_military_guidance
+                add_idea = CHI_Gu_Zhutong_military_guidance_2_1
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_Gu_Zhutong_military_guidance_2_2
+            }
+            swap_ideas = {
+                remove_idea = CHI_Gu_Zhutong_military_guidance_2_2
+                add_idea = CHI_Gu_Zhutong_military_guidance_3
+            }
+        }
     }
 }
 shared_focus = { #士官教育の教化
@@ -974,6 +1272,24 @@ shared_focus = { #士官教育の教化
     x = 18
     y = 5
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_Gu_Zhutong_military_guidance
+            }
+            swap_ideas = {
+                remove_idea = CHI_Gu_Zhutong_military_guidance
+                add_idea = CHI_Gu_Zhutong_military_guidance_2_2
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_Gu_Zhutong_military_guidance_2_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_Gu_Zhutong_military_guidance_2_1
+                add_idea = CHI_Gu_Zhutong_military_guidance_3
+            }
+        }
     }
 }
 shared_focus = { #ドイツから学べ
@@ -998,5 +1314,10 @@ shared_focus = { #ドイツから学べ
     x = 17
     y = 6
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 1
+            uses = 1
+            category = land_doctrine
+        }
     }
 }

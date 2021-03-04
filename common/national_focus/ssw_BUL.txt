@@ -1058,7 +1058,7 @@ focus_tree={
             }
             add_timed_idea = {
                 idea = BUL_support_pro_german_fact
-                days = 210
+                days = 420
             }
         }
     }
@@ -1259,6 +1259,42 @@ focus_tree={
             GER = {
                 give_guarantee = BUL
             }
+            if = {
+                limit = {
+                    country_exists = GER
+                }
+                give_guarantee = GER
+                GER = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = HGR
+                }
+                give_guarantee = HGR
+                HGR = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = HLH
+                }
+                give_guarantee = HLH
+                HLH = {
+                    give_guarantee = BUL
+                }
+            }
+            else_if = {
+                limit = {
+                    country_exists = LTV
+                }
+                give_guarantee = LTV
+                LTV = {
+                    give_guarantee = BUL
+                }
+            }
         }
     }
 
@@ -1313,6 +1349,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            add_ideas = BUL_BUL_nationalism
             reverse_add_opinion_modifier = {
                 target = GRE
                 modifier = SSW_BUL_greater_BUL
