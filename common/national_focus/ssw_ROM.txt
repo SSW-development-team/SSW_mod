@@ -329,9 +329,6 @@ focus_tree = {
 		id = Legion_school
 		icon = GFX_goal_generic_demand_territory
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = legion_school_tt
-			}
 			hidden_trigger = { 
 				has_completed_focus = Waves_of_people
 			}
@@ -350,7 +347,7 @@ focus_tree = {
 	}
 	focus = {
 		id = reeducate_movement
-		icon = GFX_goal_unknown
+		icon = GFX_focus_research2
 		cost = 10.00
 		prerequisite = {
 			focus = Legion_school
@@ -364,7 +361,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Transform_sickle_into_guns
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_army_reform
 		cost = 10.00
 		prerequisite = {
 			focus = reeducate_movement
@@ -378,7 +375,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Spirit_of_work
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_consumer_goods
 		cost = 10.00
 		prerequisite = {
 			focus = reeducate_movement
@@ -392,7 +389,7 @@ focus_tree = {
 	}
 	focus = {
 		id = NEW_HUMAN
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_secret_weapon
 		cost = 10.00
 		prerequisite = {
 			focus = Transform_sickle_into_guns
@@ -403,13 +400,16 @@ focus_tree = {
 		x = 24
 		y = 6
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = Legion_school
+				add_idea = NEW_HERO
+			}
 		}
 
 	}
 	focus = {
 		id = Legion_senatus
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_occypy_states_ongoing_war
 		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_Nest
@@ -417,12 +417,12 @@ focus_tree = {
 		x = 26
 		y = 3
 		completion_reward = {
-			add_ideas = Iron_guard_general
+			add_ideas = Iron_guard_general1
 		}
 	}
 	focus = {
 		id = Patriotism_propaganda
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_propaganda
 		cost = 10.00
 		prerequisite = {
 			focus = Legion_senatus
@@ -430,18 +430,18 @@ focus_tree = {
 		x = 26
 		y = 4
 		completion_reward = {
+			add_idea = Cult_of_death1
 			add_war_support = 0.10
 			add_popularity = {
 				ideology = national_fascism
 				popularity = 0.05
 			}
-			add_idea = Cult_of_death1
 		}
 
 	}
 	focus = {
 		id = work_unit
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_steel
 		cost = 10.00
 		prerequisite = {
 			focus = Reorganaized_Nest
@@ -464,7 +464,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Legion_cooperative
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_consumer_goods
 		cost = 10.00
 		prerequisite = {
 			focus = work_unit
@@ -481,13 +481,13 @@ focus_tree = {
 	}
 	focus = {
 		id = Fraternity_of_Cross
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
 		prerequisite = {
 			focus = Patriotism_propaganda
 		}
 		prerequisite = {
-			focus = Raise_capability_of_mobilization
+			focus = Legion_cooperative
 		}
 		x = 27
 		y = 5
@@ -497,11 +497,10 @@ focus_tree = {
 				add_idea = Cult_of_death2
 			}
 		}
-
 	}
 	focus = {
 		id = Waves_of_people
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_support_fascism
 		cost = 10.00
 		prerequisite = {
 			focus = Fraternity_of_Cross
@@ -511,7 +510,6 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = waves
 		}
-
 	}
 
  #ARMY TREE
