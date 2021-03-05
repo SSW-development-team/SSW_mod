@@ -509,6 +509,32 @@ SSW_foreign_support = {
 			country_event = ssw_generic_political.0
 		}
 	}
+	play_puppet = {
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			num_subjects > 0
+			FROM = {
+				is_subject_of = ROOT
+				exists = yes
+			}
+		}
+		target_root_trigger = { num_subjects > 0 }
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				is_subject_of = ROOT
+				exists = yes
+			}
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			custom_effect_tooltip = cannot_return_tt
+			FROM = { change_tag_from = ROOT }
+		}
+	}
 	add_building_slots = {
 		icon = generic_nationalism
 		available = {

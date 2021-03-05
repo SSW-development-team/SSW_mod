@@ -1513,3 +1513,119 @@ country_event = { #北スロベニアの運命
 		}
 	}
 }
+country_event = { #スペインの運命
+	id = ssw_foc_western_europe.15
+	title = ssw_foc_western_europe.15.title
+	desc = ssw_foc_western_europe.15.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_western_europe.15.a
+		ai_chance = { base = 10 }
+		if = {
+			limit = {
+				OR = {
+					has_government = progressive_communism
+					has_government = classical_communism
+					has_government = social_democracy
+					has_government = social_liberalism
+				}
+			}
+			every_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					has_state_flag = maybe_own_SPR_GAMESTART
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				SPA = { transfer_state = PREV }
+				add_core_of = SPA
+			}
+			every_state = {
+				limit = { is_core_of = SPC }
+				remove_core_of = SPC
+			}
+			every_state = {
+				limit = { is_core_of = SPF }
+				remove_core_of = SPF
+			}
+			every_state = {
+				limit = { is_core_of = SPR }
+				remove_core_of = SPR
+			}
+			puppet = SPA
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = social_conservatism
+					has_government = authority_democracy
+					has_government = authority_despotism
+					has_government = national_fascism
+					has_government = national_socialism
+				}
+			}
+			every_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					has_state_flag = maybe_own_SPR_GAMESTART
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				SPR = { transfer_state = PREV }
+				add_core_of = SPR
+			}
+			every_state = {
+				limit = { is_core_of = SPA }
+				remove_core_of = SPA
+			}
+			every_state = {
+				limit = { is_core_of = SPC }
+				remove_core_of = SPC
+			}
+			every_state = {
+				limit = { is_core_of = SPF }
+				remove_core_of = SPF
+			}
+			puppet = SPR
+		}
+		if = {
+			limit = { has_government = corporatocracism }
+			every_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					has_state_flag = maybe_own_SPR_GAMESTART
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				SPC = { transfer_state = PREV }
+				add_core_of = SPC
+			}
+			every_state = {
+				limit = { is_core_of = SPA }
+				remove_core_of = SPA
+			}
+			every_state = {
+				limit = { is_core_of = SPF }
+				remove_core_of = SPF
+			}
+			every_state = {
+				limit = { is_core_of = SPR }
+				remove_core_of = SPR
+			}
+			puppet = SPC
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_spain
+	}
+}
