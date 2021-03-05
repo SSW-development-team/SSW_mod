@@ -1,5 +1,5 @@
 focus_tree = {
-	id = ssw_France
+	id = ssw_FRA
 	country = {
 		factor = 0
 		modifier = {
@@ -12,19 +12,19 @@ focus_tree = {
 		id = FRA_Review_ecomoy
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		cost = 5.00
-		x = 6
+		x = 9
 		y = 0
-		completion_reward = {
-			add_ideas = Review_of_the_French_economy
-			}
+			completion_reward = {
+					add_ideas = Review_of_the_French_economy
+				}
 
 	}
 	focus = {
 		id = FRA_Army_Reform
 		icon = GFX_goal_generic_allies_build_infantry
 		cost = 5.00
-		x = 40
-		y = 0
+		x = 46
+		y = 2
 		completion_reward = {
 			army_experience = 25
 		}
@@ -34,35 +34,65 @@ focus_tree = {
 		id = FRA_French_Underground_Fleet
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		cost = 5.00
-		x = 35
-		y = 8
-		completion_reward = {
-			add_ideas = French_mediterranean_fleet
-		}
+		x = 32
+		y = 11
+			completion_reward = {
+					add_ideas = French_mediterranean_fleet
+				}
 
 	}
 	focus = {
 		id = FRA_French_Air_Force
 		icon = GFX_goal_generic_build_airforce
 		cost = 5.00
-		x = 44
-		y = 8
-		completion_reward = {
-			air_experience = 30
-		}
+		x = 41
+		y = 12
+			completion_reward = {
+					air_experience = 30
+				}
 
 	}
 	focus = {
 		id = FRA_French_Foreign
 		icon = GFX_goal_unknown
 		cost = 5.00
-		x = 26
-		y = 9
+		x = 27
+		y = 11
+			available = {
+					always = no
+				}
+			completion_reward = {
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = FRA_return_democracy
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 28
+		y = 1
 		available = {
 			always = no
+			NOT = {
+				has_ideas = Unstable_country
+				has_government = authority_democracy
+			}
 		}
 		completion_reward = {
-			add_political_power = 150
+			remove_ideas = Unstable_influence_with_Germany
+			add_ideas = Unstable_Republic
+		}
+
+	}
+	focus = {
+		id = FRA_Commune_founded #コミューン創設
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 20
+		y = 11
+		available = {
+			always = no
 		}
 
 	}
@@ -73,7 +103,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Review_ecomoy
 		}
-		x = 6
+		x = 9
 		y = 1
 		available = {
 			always = no
@@ -88,24 +118,23 @@ focus_tree = {
 			focus = FRA_next
 		}
 		mutually_exclusive = {
-			focus = FRA_New_France
-			focus = FRA_Laval
+			focus = FRA_Maurras
 			focus = FRA_Dorio
 		}
-		x = 2
+		x = 3
 		y = 2
-		available = {
-			has_country_flag = FRA_Darnand_leader
-			NOT = {
-				has_idea = Unstable_country
-			}
-		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Unstable_influence_with_Germany
-				add_idea = Stable_influence_with_Germany
-			}
-		}
+			available = {
+					has_country_flag = FRA_Darnand_leader
+					NOT = {
+							has_idea = Unstable_country
+						}
+				}
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Unstable_influence_with_Germany
+							add_idea = Stable_influence_with_Germany
+						}
+				}
 
 	}
 	focus = {
@@ -115,15 +144,123 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Darnand
 		}
+		x = 1
+		y = 3
+			completion_reward = {
+					add_ideas = Economic_partnership_with_Germany
+				}
+
+	}
+	focus = {
+		id = FRA_karosu_autbarn
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Darnand
+		}
 		x = 3
 		y = 3
 		completion_reward = {
-			add_ideas = Economic_partnership_with_Germany
+			every_owned_state = {
+				limit = {
+					is_controlled_by = FRA
+					OR = {
+						state = 1
+						state = 1
+						state = 1
+						state = 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 10
+					instant_build = yes
+				}
+			}
 		}
 
 	}
 	focus = {
-		id = FRA_Laval
+		id = FRA_kokugou_kaitei
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_karosu_autbarn
+		}
+		x = 3
+		y = 4
+
+	}
+	focus = {
+		id = FRA_Continuation_of_Nazism
+		icon = GFX_goal_support_fascism
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Economic_Partnership_with_Germany
+		}
+		x = 1
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = national_socialism
+				popularity = 0.3
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_Strengthening_the_Millis_militia
+		icon = GFX_focus_fra_milice
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Darnand
+		}
+		x = 5
+		y = 3
+			completion_reward = {
+					add_ideas = Millis_strong
+				}
+
+	}
+	focus = {
+		id = FRA_Collaboration_with_German_Special_Forces
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Strengthening_the_Millis_militia
+		}
+		x = 5
+		y = 4
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Millis_strong
+							add_idea = Collaboration_between_Millis_and_Germany
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_sokoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Collaboration_with_German_Special_Forces
+		}
+		prerequisite = {
+			focus = FRA_kokugou_kaitei
+		}
+		prerequisite = {
+			focus = FRA_Continuation_of_Nazism
+		}
+		x = 3
+		y = 5
+		completion_reward = {
+			add_ideas = Motherland_working_family
+		}
+
+	}
+	focus = {
+		id = FRA_Maurras
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
@@ -131,105 +268,161 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = FRA_Darnand
-			focus = FRA_New_France
 			focus = FRA_Dorio
 		}
-		x = 6
+		x = 9
 		y = 2
-		available = {
-			has_country_flag = FRA_Laval_leader
-			NOT = {
-				has_idea = Unstable_country
-			}
-		}
-		completion_reward = {
-			remove_ideas = Unstable_influence_with_Germany
-		}
+			available = {
+					has_country_flag = FRA_Maurras_leader
+					NOT = {
+							has_idea = Unstable_country
+						}
+				}
+			completion_reward = {
+					remove_ideas = Unstable_influence_with_Germany
+				}
 
 	}
 	focus = {
-		id = FRA_Collaboration_with_Italy
-		icon = GFX_focus_befriend_italy
+		id = FRA_return_king
+		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Laval
+			focus = FRA_Maurras
 		}
-		x = 6
+		x = 9
 		y = 3
-		completion_reward = {
-			add_opinion_modifier = {
-				target = ITA
-				modifier = medium_increase
+		create_country_leader = {
+			name = "Henri VI"
+			picture = a
+			expire = "1965.1.1"
+			ideology = authority_despotism_ideology
+			traits = {
 			}
 		}
 
 	}
 	focus = {
-		id = FRA_German_influence_exclusion
-		icon = GFX_focus_SAF_colonialist_crusade
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Collaboration_with_Italy
-		}
-		x = 6
-		y = 4
-		completion_reward = {
-			GER = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = HOL_germany_is_the_greater_threat
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Agreement_with_Italy
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_German_influence_exclusion
-		}
-		x = 6
-		y = 5
-		completion_reward = {
-			ITA = {
-				country_event = {
-					id = SSW_FRA_for.2
-					days = 1
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Mobilization_of_Black_Shirts
+		id = FRA_katorikku_nokokkyouka
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Agreement_with_Italy
-		}
-		x = 5
-		y = 6
-		completion_reward = {
-			add_ideas = France_Black_shirts
-		}
-
-	}
-	focus = {
-		id = FRA_Twin_stresa
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Agreement_with_Italy
+			focus = FRA_return_king
 		}
 		x = 7
+		y = 4
+		completion_reward = {
+			add_ideas = Catholic_state_religion_system
+		}
+
+	}
+	focus = {
+		id = FRA_ousitu_dokusai
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_return_king
+		}
+		x = 9
+		y = 4
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = Royal_dictatorship
+		}
+
+	}
+	focus = {
+		id = FRA_gikainohaisi
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_ousitu_dokusai
+		}
+		x = 9
+		y = 5
+		completion_reward = {
+			add_political_power = 150
+		}
+
+	}
+	focus = {
+		id = FRA_ousitubunnkano_hogo
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_katorikku_nokokkyouka
+		}
+		x = 7
+		y = 5
+		completion_reward = {
+			add_stability = 0.1
+		}
+
+	}
+	focus = {
+		id = FRA_kyouwaha_syukusei
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_return_king
+		}
+		x = 11
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = national_socialism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = national_fascism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.03
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_shihonnkatono_rennkei
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_kyouwaha_syukusei
+		}
+		x = 11
+		y = 5
+		completion_reward = {
+			add_ideas = Cooperation_with_bourgeois
+		}
+
+	}
+	focus = {
+		id = FRA_KOKUOU_BANNZAI
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_shihonnkatono_rennkei
+		}
+		prerequisite = {
+			focus = FRA_gikainohaisi
+		}
+		prerequisite = {
+			focus = FRA_ousitubunnkano_hogo
+		}
+		x = 9
 		y = 6
 		completion_reward = {
-			add_ideas = Twin_stresa
-			ITA = {
-				add_ideas = Twin_stresa
-			}
+			add_ideas = France_for_the_king
 		}
 
 	}
@@ -242,10 +435,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = FRA_Darnand
-			focus = FRA_Laval
-			focus = FRA_New_France
+			focus = FRA_Maurras
 		}
-		x = 11
+		x = 15
 		y = 2
 		available = {
 			has_country_flag = FRA_Doriot_leader
@@ -265,29 +457,15 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Dorio
 		}
-		x = 9
+		x = 13
 		y = 3
-		completion_reward = {
-			add_war_support = 0.15
-			add_popularity = {
-				ideology = national_socialism
-				popularity = 0.2
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Eternal_Dictatorship
-		icon = GFX_goal_generic_attack_allies
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Dorio
-		}
-		x = 11
-		y = 3
-		completion_reward = {
-			add_ideas = dictator
-		}
+			completion_reward = {
+					add_war_support = 0.15
+					add_popularity = {
+							ideology = national_socialism
+							popularity = 0.2
+						}
+				}
 
 	}
 	focus = {
@@ -297,14 +475,36 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Nationalism
 		}
+		x = 13
+		y = 4
+			completion_reward = {
+					add_ideas = Rose_shirt_mobilization
+				}
+
+	}
+	focus = {
+		id = FRA_Eternal_Dictatorship
+		icon = GFX_goal_generic_attack_allies
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Dorio
+		}
+		x = 15
+		y = 3
+			completion_reward = {
+					add_ideas = dictator
+				}
+
+	}
+	focus = {
+		id = FRA_anti_german_propaganta
+		icon = GFX_goal_unknown
+		cost = 5.00
 		prerequisite = {
 			focus = FRA_Eternal_Dictatorship
 		}
-		x = 10
+		x = 15
 		y = 4
-		completion_reward = {
-			add_ideas = Rose_shirt_mobilization
-		}
 
 	}
 	focus = {
@@ -314,7 +514,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Dorio
 		}
-		x = 13
+		x = 17
 		y = 3
 		completion_reward = {
 			add_timed_idea = {
@@ -331,14 +531,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Purge_of_Opposition
 		}
-		prerequisite = {
-			focus = FRA_Eternal_Dictatorship
-		}
-		x = 12
+		x = 17
 		y = 4
-		completion_reward = {
-			add_ideas = Do_it_for_France
-		}
+			completion_reward = {
+					add_ideas = Do_it_for_France
+				}
 
 	}
 	focus = {
@@ -351,215 +548,46 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Mobilization_of_Rose_Shirts
 		}
-		x = 11
+		prerequisite = {
+			focus = FRA_anti_german_propaganta
+		}
+		x = 15
 		y = 5
-		completion_reward = {
-			add_war_support = 0.2
-			add_ideas = National_revanchism
-		}
+			completion_reward = {
+					add_war_support = 0.2
+					add_ideas = National_revanchism
+				}
 
 	}
 	focus = {
-		id = FRA_New_France
+		id = FRA_Great_Purge_with_a_guillotine #ギロチンでの大粛清
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_next
-		}
-		mutually_exclusive = {
-			focus = FRA_Darnand
-			focus = FRA_Laval
-			focus = FRA_Dorio
-		}
-		x = 24
-		y = 2
-		available = {
-			always = no
-			NOT = {
-				has_ideas = Unstable_country
-			}
-		}
-		completion_reward = {
-			remove_ideas = Unstable_influence_with_Germany
-		}
-
-	}
-	focus = {
-		id = FRA_Rise_of_Communism
-		icon = GFX_goal_generic_war_with_comintern
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_New_France
-		}
-		mutually_exclusive = {
-			focus = FRA_Resumption_of_Election_Politics
-			focus = FRA_Rise_of_the_Monarchiens
+			focus = FRA_Commune_founded
 		}
 		x = 18
-		y = 3
-		available = {
-			has_government = social_democracy
-		}
+		y = 12
 		completion_reward = {
-			add_ideas = French_Peoples_Front
-		}
-
-	}
-	focus = {
-		id = FRA_First_Peoples_Council
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Rise_of_Communism
-		}
-		x = 18
-		y = 4
-		completion_reward = {
-			country_event = SSW_FRA.4
-		}
-
-	}
-	focus = {
-		id = FRA_Anarchism
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_First_Peoples_Council
-		}
-		mutually_exclusive = {
-			focus = FRA_Marxism_Leninism
-			focus = FRA_Trotskyism
-		}
-		x = 16
-		y = 5
-		completion_reward = {
-			add_popularity = {
-				ideology = anarchism
-				popularity = 0.3
+			add_timed_idea = {
+				idea = Great_Purge
+				days = 180
 			}
 		}
 
-	}
-	focus = {
-		id = FRA_Marxism_Leninism
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_First_Peoples_Council
-		}
-		mutually_exclusive = {
-			focus = FRA_Anarchism
-			focus = FRA_Trotskyism
-		}
-		x = 18
-		y = 5
-		completion_reward = {
-			add_popularity = {
-				ideology = classical_communism
-				popularity = 0.3
-			}
-		}
 
 	}
 	focus = {
-		id = FRA_Three_year_plan
+		id = FRA_Introduction_of_secret_police　#秘密警察の導入
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Marxism_Leninism
+			focus = FRA_Commune_founded
 		}
-		x = 18
-		y = 6
+		x = 22
+		y = 12
 		completion_reward = {
-			add_ideas = Three_year_plan
-		}
-
-	}
-	focus = {
-		id = FRA_Do_not_extinguish_the_blackflame
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Anarchism
-		}
-		x = 16
-		y = 6
-		completion_reward = {
-			add_ideas = Anarchy_community
-		}
-	}
-	focus = {
-		id = FRA_Trotskyism
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_First_Peoples_Council
-		}
-		mutually_exclusive = {
-			focus = FRA_Anarchism
-			focus = FRA_Marxism_Leninism
-		}
-		x = 20
-		y = 5
-		completion_reward = {
-			add_popularity = {
-				ideology = progressive_communism
-				popularity = 0.3
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Proletarian_revolution
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Trotskyism
-		}
-		x = 20
-		y = 6
-		completion_reward = {
-			add_ideas = Proletariat_capitalism
-		}
-
-	}
-	focus = {
-		id = FRA_People_weapons
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Proletarian_revolution
-			focus = FRA_Three_year_plan
-			focus = FRA_Do_not_extinguish_the_blackflame
-		}
-		x = 18
-		y = 7
-		completion_reward = {
-			add_ideas = People_take_your_weapons
-		}
-
-	}
-	focus = {
-		id = FRA_Resumption_of_Election_Politics
-		icon = GFX_focus_generic_the_giant_wakes
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_New_France
-		}
-		mutually_exclusive = {
-			focus = FRA_Rise_of_Communism
-			focus = FRA_Rise_of_the_Monarchiens
-		}
-		x = 24
-		y = 3
-		available = {
-			OR = {
-				has_government = social_democracy
-				has_government = authority_democracy
-			}
-		}
-		completion_reward = {
-			add_ideas = Unstable_Republic
+			add_ideas = secret_police
 		}
 
 	}
@@ -568,160 +596,28 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Resumption_of_Election_Politics
+			focus = FRA_return_democracy
 		}
-		x = 23
-		y = 4
-		completion_reward = {
-			add_ideas = Parliamentary_resurrection
-		}
-
-	}
-	focus = {
-		id = FRA_Enactment_of_the_Old_Republic
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Resumption_of_Election_Politics
-		}
-		x = 25
-		y = 4
+		x = 24
+		y = 2
 			completion_reward = {
-					add_ideas = Restoration_of_the_old_republican_constitution
+					add_ideas = Parliamentary_resurrection
 				}
 
 	}
 	focus = {
-		id = FRA_French_presidential_election
+		id = FRA_zyoseinokenbnri
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Enactment_of_the_Old_Republic
-		}
-		prerequisite = {
-			focus = FRA_Resurrection_Parliament
-		}
-		x = 24
-		y = 5
-		completion_reward = {
-			country_event = {
-				id = SSW_FRA.5
-				days = 1
-			} 
-		}
-
-	}
-	focus = {
-		id = FRA_Guy_Mollet_as_President
-		icon = GFX_goal_President_Mollet
-		cost = 3.00
-		prerequisite = {
-			focus = FRA_French_presidential_election
-		}
-		mutually_exclusive = {
-			focus = FRA_Mandez_France_as_President
-			focus = FRA_Rene_Coty_as_President
-		}
-		x = 22
-		y = 6
-			completion_reward = {
-				news_event = {
-					id = SSW_FRA_news.4
-				}
-				remove_ideas = Unstable_Republic
-				add_ideas = FRA_Guy_Mollet
-				add_popularity = {
-					ideology = social_democracy
-					popularity = 0.3
-				}
-			}
-
-	}
-	focus = {
-		id = FRA_Mandez_France_as_President
-		icon = GFX_goal_President_Mendes
-		cost = 3.00
-		prerequisite = {
-			focus = FRA_French_presidential_election
-		}
-		mutually_exclusive = {
-			focus = FRA_Guy_Mollet_as_President
-			focus = FRA_Rene_Coty_as_President
-		}
-		x = 24
-		y = 6
-		completion_reward = {
-			news_event = {
-				id = SSW_FRA_news.5
-			}
-			remove_ideas = Unstable_Republic
-			add_ideas = FRA_Mendes_France
-			add_popularity = {
-				ideology = social_liberalism
-				popularity = 0.3
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Rene_Coty_as_President
-		icon = GFX_goal_President_Rene
-		cost = 3.00
-		prerequisite = {
-			focus = FRA_French_presidential_election
-		}
-		mutually_exclusive = {
-			focus = FRA_Guy_Mollet_as_President
-			focus = FRA_Mandez_France_as_President
+			focus = FRA_return_democracy
 		}
 		x = 26
-		y = 6
+		y = 2
 		completion_reward = {
-			news_event = {
-				id = SSW_FRA_news.6
-			}
-			remove_ideas = Unstable_Republic
-			add_ideas = FRA_Rene_Coty
-			add_popularity = {
-				ideology = social_conservatism 
-				popularity = 0.3
-			}
-		}
+			set_political_power = -50
+			add_stability = 0.1
 
-	}
-	focus = {
-		id = FRA_Declaration_of_the_Fourth_Republic
-		icon = GFX_focus_fra_french_union
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Rene_Coty_as_President
-			focus = FRA_Mandez_France_as_President
-			focus = FRA_Guy_Mollet_as_President
-		}
-		x = 24
-		y = 7
-		completion_reward = {
-			news_event = {
-				id = SSW_FRA_news.2
-			}
-			add_ideas = NEW_repubulic
-		}
-
-	}
-	focus = {
-		id = FRA_Democracy_in_France
-		icon = GFX_goal_support_democracy
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Declaration_of_the_Fourth_Republic
-		}
-		x = 24
-		y = 8
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = NEW_repubulic
-				add_idea = NEW_repubulic_2
-			}
 		}
 
 	}
@@ -735,390 +631,676 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_Territorial_negotiations_with_Germany
 		}
-		x = 25
-		y = 10
-		completion_reward = {
-			add_ideas = Preparing_for_war
-		}
-
-	}
-	focus = {
-		id = FRA_Territorial_negotiations_with_Germany
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Foreign
-		}
-		mutually_exclusive = {
-			focus = FRA_Preparing_for_the_war
-		}
-		x = 27
-		y = 10
-		completion_reward = {
-			GER = {
-				country_event = {
-					id = SSW_FRA_for.1
-					days = 1
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Military_Plan
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Territorial_negotiations_with_Germany
-			focus = FRA_Preparing_for_the_war
-		}
-		x = 26
-		y = 11
-		completion_reward = {
-			add_timed_idea = {
-				idea = Military_plan
-				days = 180
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Maintain_the_status_quo
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Military_Plan
-		}
-		mutually_exclusive = {
-			focus = FRA_Establishment_of_Entente_Camp
-			focus = FRA_Establishment_of_Fifth_International
-		}
-		x = 24
-		y = 12
-		completion_reward = {
-			add_stability = 0.1
-		}
-		bypass = {
-			OR = {
-				is_in_faction_with = ITA
-				NFR = { exists = no }
-				has_global_flag = Betrayed_ally
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Establishment_of_Entente_Camp
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Military_Plan
-		}
-		mutually_exclusive = {
-			focus = FRA_Maintain_the_status_quo
-			focus = FRA_Establishment_of_Fifth_International
-		}
 		x = 26
 		y = 12
-		available = {
-			has_completed_focus = FRA_Democracy_in_France
-			has_completed_focus = FRA_France_First
-			has_completed_focus = FRA_France_for_the_Monarch
-		}
-		completion_reward = {
-			create_faction = Entente
-		}
-
-	}
-	focus = {
-		id = FRA_Establishment_of_Fifth_International
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Military_Plan
-		}
-		mutually_exclusive = {
-			focus = FRA_Maintain_the_status_quo
-			focus = FRA_Establishment_of_Entente_Camp
-		}
-		x = 28
-		y = 12
-		available = {
-			has_completed_focus = FRA_Revolutionary_Prosperity
-		}
-		completion_reward = {	
-			create_faction = FifthInternational
-		}
-
-	}
-	focus = {
-		id = FRA_Intervention_in_the_German_CivilWar
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Establishment_of_Fifth_International
-			focus = FRA_Establishment_of_Entente_Camp
-			focus = FRA_Maintain_the_status_quo
-		}
-		x = 26
-		y = 13
-		completion_reward = {
-			add_war_support = 0.1
-		}
-
-	}
-	focus = {
-		id = FRA_Operation_to_recapture_the_northern_part
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Intervention_in_the_German_CivilWar
-		}
-		x = 26
-		y = 14
-		completion_reward = {
-			declare_war_on = {
-				target = NFR
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = BEL
-				type = annex_everything
-			}
-		}
-		bypass = {
-			NFR = {
-				exists = no
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Rise_of_the_Monarchiens
-		icon = GFX_focus_generic_home_defense
-		cost = 3.00
-		prerequisite = {
-			focus = FRA_New_France
-		}
-		mutually_exclusive = {
-			focus = FRA_Rise_of_Communism
-			focus = FRA_Resumption_of_Election_Politics
-		}
-		x = 30
-		y = 3
-		available = {
-			has_government = authority_democracy
-		}
-		completion_reward = {
-			add_ideas = Republican_rebellion
-		}
-
-	}
-	focus = {
-		id = FRA_Return_of_Orleans
-		icon = GFX_goal_unknown
-		cost = 2.00
-		prerequisite = {
-			focus = FRA_Rise_of_the_Monarchiens
-		}
-		mutually_exclusive = {
-			focus = FRA_Bourbons_Return
-			focus = FRA_Return_of_Bonapardo
-		}
-		x = 29
-		y = 4
-
-		completion_reward = {
-			add_ideas = Henri_VI
-		}
-	}
-	focus = {
-		id = FRA_Return_of_Bonapardo
-		icon = GFX_goal_unknown
-		cost = 2.00
-		prerequisite = {
-			focus = FRA_Rise_of_the_Monarchiens
-		}
-		mutually_exclusive = {
-			focus = FRA_Bourbons_Return
-			focus = FRA_Return_of_Orleans
-		}
-		x = 31
-		y = 4
-		completion_reward = {
-			add_ideas = Napoleon_VI
-		}
-
-	}
-	focus = {
-		id = FRA_Freedom_Monarchy
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Return_of_Orleans
-			focus = FRA_Return_of_Bonapardo
-		}
-		mutually_exclusive = {
-			focus = FRA_Orleanist_authoritative
-			focus = FRA_Napoleon_Authoritative
-		}
-		x = 30
-		y = 5
-		completion_reward = {
-			country_event = {
-				id = SSW_FRA.11
-				days = 1
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Democracy_in_the_Monarchy
-		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Freedom_Monarchy
-		}
-		x = 29
-		y = 6
-		completion_reward = {
-			country_event = {
-				id = SSW_FRA.11
-				days = 1	
-			} 
-		}
-
-	}
-	focus = {
-		id = FRA_Reconciliation_with_Republicans
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Democracy_in_the_Monarchy
-		}
-		x = 28
-		y = 7
-		completion_reward = {
-			add_political_power = 50
-			add_stability = 0.05
-			remove_ideas = Republican_rebellion
-		}
-
-	}
-	focus = {
-		id = FRA_Orleanist_authoritative
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Return_of_Orleans
-		}
-		mutually_exclusive = {
-			focus = FRA_Freedom_Monarchy
-			focus = FRA_Napoleon_Authoritative
-		}
-		x = 28
-		y = 5
-		completion_reward = {
-			create_country_leader = {
-				name = "Henri VI"
-				picture = a
-				expire = "1965.1.1"
-				ideology = authority_despotism_ideology
-				traits = {
+			completion_reward = {
+					add_ideas = Preparing_for_war
 				}
-			}
-			remove_ideas = {
-				add_idea = Henri_VI
-			}
-		}
 
 	}
 	focus = {
-		id = FRA_Napoleon_Authoritative
-		icon = GFX_goal_unknown
+		id = FRA_Resumption_of_Election_Politics
+		icon = GFX_focus_generic_the_giant_wakes
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Return_of_Bonapardo
+			focus = FRA_return_democracy
 		}
-		mutually_exclusive = {
-			focus = FRA_Orleanist_authoritative
-			focus = FRA_Freedom_Monarchy
-		}
-		x = 32
-		y = 5
+		x = 28
+		y = 2
 		completion_reward = {
-			create_country_leader = {
-				name = "Napoleon V"
-				picture = a
-				expire = "1965.1.1"
-				ideology = authority_despotism_ideology
-				traits = {
-				}
-			}
-			remove_ideas = {
-				add_idea = Napoleon_VI
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Absolute_power_of_the_king
-		icon = GFX_focus_rom_royal_dictatorship
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Napoleon_Authoritative
-			focus = FRA_Orleanist_authoritative
-			focus = FRA_Bourbon_authoritative
-		}
-		x = 31
-		y = 6
-		add_popularity = {
-			ideology = authority_despotism
-			popularity = 0.3
-		}
-		add_ideas = Absolute_power
-
-	}
-	focus = {
-		id = FRA_Monarchist_Propaganda
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Absolute_power_of_the_king
-			focus = FRA_Democracy_in_the_Monarchy
-		}
-		x = 30
-		y = 7
-		completion_reward = {
-			add_ideas = For_the_monarch
-		}
-
-	}
-	focus = {
-		id = FRA_Republican_Repression
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Absolute_power_of_the_king
-		}
-		x = 32
-		y = 7
-		completion_reward = {
-			add_popularity = {
-				ideology = social_conservatism
-				popularity = -0.1
-			}
 			add_popularity = {
 				ideology = social_democracy
-				popularity = -0.1
+				popularity = 0.1
 			}
 			add_popularity = {
 				ideology = social_liberalism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.1
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_Enactment_of_the_Old_Republic
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_return_democracy
+		}
+		x = 32
+		y = 2
+			completion_reward = {
+					add_ideas = Restoration_of_the_old_republican_constitution
+				}
+
+	}
+	focus = {
+		id = FRA_hounoziyuuka
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_return_democracy
+		}
+		x = 30
+		y = 2
+		completion_reward = {
+			add_stability = 0.5
+		}
+
+	}
+	focus = {
+		id = FRA_French_presidential_election
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Enactment_of_the_Old_Republic
+		}
+		prerequisite = {
+			focus = FRA_hounoziyuuka
+		}
+		prerequisite = {
+			focus = FRA_Resumption_of_Election_Politics
+		}
+		prerequisite = {
+			focus = FRA_zyoseinokenbnri
+		}
+		prerequisite = {
+			focus = FRA_Resurrection_Parliament
+		}
+		x = 28
+		y = 3
+			completion_reward = {
+					country_event = {
+							id = SSW_FRA.5
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Guy_Mollet_as_President
+		icon = GFX_goal_President_Mollet
+		cost = 3.00
+		prerequisite = {
+			focus = FRA_French_presidential_election
+		}
+		mutually_exclusive = {
+			focus = FRA_Mandez_France_as_President
+		}
+		x = 20
+		y = 4
+			completion_reward = {
+					news_event = {
+							id = SSW_FRA_news.4
+						}
+					remove_ideas = Unstable_Republic
+					add_ideas = FRA_Guy_Mollet
+					add_popularity = {
+							ideology = social_democracy
+							popularity = 0.3
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_roudoukumiai_saiken
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Guy_Mollet_as_President
+		}
+		x = 19
+		y = 5
+		completion_reward = {
+			set_political_power = -50
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = 0.03
+			}
+			add_ideas = Trade_union_reconstruction
+		}
+
+
+	}
+	focus = {
+		id = FRA_koukyouzigyou_kokueika
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Guy_Mollet_as_President
+		}
+		x = 21
+		y = 5
+		completion_reward = {
+			add_ideas = Nationalization_of_public_works
+		}
+
+	}
+	focus = {
+		id = FRA_Mandez_France_as_President
+		icon = GFX_goal_President_Mendes
+		cost = 3.00
+		prerequisite = {
+			focus = FRA_French_presidential_election
+		}
+		mutually_exclusive = {
+			focus = FRA_Guy_Mollet_as_President
+			focus = FRA_Rene_Coty_as_President
+		}
+		x = 28
+		y = 4
+			completion_reward = {
+					news_event = {
+							id = SSW_FRA_news.5
+						}
+					remove_ideas = Unstable_Republic
+					add_ideas = FRA_Mendes_France
+					add_popularity = {
+						ideology = social_liberalism
+						popularity = 0.3
+					}
+				}
+
+	}
+	focus = {
+		id = FRA_sezoku_syugitekikyouwakoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Mandez_France_as_President
+			focus = FRA_Guy_Mollet_as_President
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+			add_stability = 0.05
+		}
+
+	}
+	focus = {
+		id = FRA_kozinno_ziyuuwosonntyou
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Mandez_France_as_President
+		}
+		x = 27
+		y = 5
+		completion_reward = {
+			add_ideas = Respect_for_freedom
+		}
+
+	}
+	focus = {
+		id = FRA_syakaisyugisya_tonorennritu
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sezoku_syugitekikyouwakoku
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.07
+			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.07
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = 0.05
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_kenryokubunnsann
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_kozinno_ziyuuwosonntyou
+		}
+		x = 27
+		y = 6
+		completion_reward = {
+			add_stability = 0.03
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.08
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_nouminnnokyusai
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Mandez_France_as_President
+		}
+		x = 29
+		y = 5
+		completion_reward = {
+			add_ideas = Farmer_protection
+		}
+
+	}
+	focus = {
+		id = FRA_kyouikunominnsyuka
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_nouminnnokyusai
+		}
+		x = 29
+		y = 6
+		completion_reward = {
+			add_ideas = Democratization_of_education
+		}
+
+	}
+	focus = {
+		id = FRA_Rene_Coty_as_President
+		icon = GFX_goal_President_Rene
+		cost = 3.00
+		prerequisite = {
+			focus = FRA_French_presidential_election
+		}
+		mutually_exclusive = {
+			focus = FRA_Mandez_France_as_President
+		}
+		x = 36
+		y = 4
+			completion_reward = {
+					news_event = {
+							id = SSW_FRA_news.6
+						}
+					remove_ideas = Unstable_Republic
+					add_ideas = FRA_Rene_Coty
+					add_popularity = {
+							ideology = social_conservatism
+							popularity = 0.3
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_kyuseikennnoseitoukaitai
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Rene_Coty_as_President
+			focus = FRA_Mandez_France_as_President
+		}
+		x = 32
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = national_fascism
 				popularity = -0.1
 			}
-			add_stability = -0.1
-			remove_ideas = Republican_rebellion
+			add_popularity = {
+				ideology = national_socialism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = -0.1
+			}
 		}
+
+	}
+	focus = {
+		id = FRA_hyougennno_ziyuunohogo
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_kyuseikennnoseitoukaitai
+		}
+		x = 32
+		y = 6
+		completion_reward = {
+			set_political_power = 120
+		}
+
+	}
+	focus = {
+		id = FRA_ziyuunakyouwakuko
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_syakaisyugisya_tonorennritu
+		}
+		prerequisite = {
+			focus = FRA_kyouikunominnsyuka
+		}
+		prerequisite = {
+			focus = FRA_kenryokubunnsann
+		}
+		prerequisite = {
+			focus = FRA_hyougennno_ziyuunohogo
+		}
+		x = 28
+		y = 7
+		completion_reward = {
+			remove_idea = Democratization_of_education
+			remove_idea = Farmer_protection
+			remove_idea = Respect_for_freedom
+			add_ideas = Free_republic
+		}
+
+	}
+	focus = {
+		id = FRA_Expansion_of_shipyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_Underground_Fleet
+		}
+		x = 32
+		y = 13
+			completion_reward = {
+					add_ideas = Expansion_of_shipyards
+				}
+
+	}
+	focus = {
+		id = FRA_French_cruiser
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Expansion_of_shipyard
+		}
+		x = 32
+		y = 14
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = cr_bonus
+							bonus = 1
+							uses = 2
+							category = cl_tech
+							category = ca_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Ultimate_Fleet
+		icon = GFX_goal_generic_navy_battleship
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_cruiser
+		}
+		mutually_exclusive = {
+			focus = FRA_Partnership_with_an_aircraft_carrie
+		}
+		x = 30
+		y = 15
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = bb_bonus
+							bonus = 1
+							uses = 2
+							category = bb_tech
+							category = bc_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_president_storong
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Rene_Coty_as_President
+		}
+		x = 35
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = authority_democracy
+				popularity = 0.08
+			}
+			add_stability = -0.04
+		}
+
+	}
+	focus = {
+		id = FRA_katorikkubunnkanohogo
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_president_storong
+		}
+		x = 35
+		y = 6
+		completion_reward = {
+			add_ideas = Catholic_church_protection
+		}
+
+	}
+	focus = {
+		id = FRA_kyoukai_tonokyouryoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Rene_Coty_as_President
+		}
+		x = 37
+		y = 5
+		completion_reward = {
+			add_ideas = Cooperation_with_the_church
+		}
+
+	}
+	focus = {
+		id = FRA_kyusinnseitouno_higouhouka
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_kyoukai_tonokyouryoku
+		}
+		x = 37
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = FRA_katorikkuminnsyusyugi
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_hyougennno_ziyuunohogo
+		}
+		prerequisite = {
+			focus = FRA_kyusinnseitouno_higouhouka
+		}
+		prerequisite = {
+			focus = FRA_katorikkubunnkanohogo
+		}
+		x = 36
+		y = 7
+		completion_reward = {
+			remove_idea = Catholic_church_protection
+			remove_idea = Cooperation_with_the_church
+			add_idea = Catholic_democracy
+		}
+	}
+	focus = {
+		id = FRA_bakugeki_dokutorinn
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_Air_Force
+		}
+		mutually_exclusive = {
+			focus = FRA_koukuudokutorinn
+			focus = FRA_sennryokudokutorinn
+		}
+		x = 41
+		y = 13
+
+	}
+	focus = {
+		id = FRA_koukuudokutorinn
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_Air_Force
+		}
+		mutually_exclusive = {
+			focus = FRA_sennryokudokutorinn
+			focus = FRA_bakugeki_dokutorinn
+		}
+		x = 44
+		y = 13
+
+	}
+	focus = {
+		id = FRA_sennryokudokutorinn
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_Air_Force
+		}
+		mutually_exclusive = {
+			focus = FRA_koukuudokutorinn
+			focus = FRA_bakugeki_dokutorinn
+		}
+		x = 38
+		y = 13
+
+	}
+	focus = {
+		id = FRA_Naval_Air_Corps
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_bakugeki_dokutorinn
+			focus = FRA_koukuudokutorinn
+			focus = FRA_sennryokudokutorinn
+		}
+		x = 37
+		y = 14
+			completion_reward = {
+					add_tech_bonus = {
+							name = JAP_carrier_warfare_experiments
+							bonus = 1
+							uses = 2
+							category = cat_base_strike
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Partnership_with_an_aircraft_carrie
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Naval_Air_Corps
+		}
+		prerequisite = {
+			focus = FRA_French_cruiser
+		}
+		mutually_exclusive = {
+			focus = FRA_Ultimate_Fleet
+		}
+		x = 34
+		y = 15
+			completion_reward = {
+					add_tech_bonus = {
+							name = cv_bonus
+							bonus = 1
+							uses = 2
+							category = cv_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Beyond_the_Pacific_Ocean
+		icon = GFX_focus_generic_cruiser2
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Ultimate_Fleet
+			focus = FRA_Partnership_with_an_aircraft_carrie
+		}
+		x = 32
+		y = 16
+			completion_reward = {
+					add_ideas = Beyond_the_Atlantic
+				}
+
+	}
+	focus = {
+		id = FRA_Supporting_ground_troops
+		icon = GFX_goal_generic_CAS
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_bakugeki_dokutorinn
+			focus = FRA_sennryokudokutorinn
+		}
+		mutually_exclusive = {
+			focus = FRA_Absolute_Air_Superiority
+		}
+		x = 39
+		y = 14
+			completion_reward = {
+					add_tech_bonus = {
+							name = JAP_bomber_modernization
+							bonus = 1
+							uses = 1
+							category = cas_bomber
+							category = tactical_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Focus_bombers
+		icon = GFX_goal_generic_air_bomber
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Supporting_ground_troops
+		}
+		x = 39
+		y = 16
+			completion_reward = {
+					add_tech_bonus = {
+							name = JAP_strategic_bomber_effort
+							bonus = 1
+							uses = 2
+							category = cat_strategic_bomber
+						}
+				}
 
 	}
 	focus = {
@@ -1128,14 +1310,14 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Army_Reform
 		}
-		x = 37
-		y = 1
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Confusion_of_the_General_Staff
-				add_idea = Confusion_of_the_General_Staff_2
-			}
-		}
+		x = 43
+		y = 3
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Confusion_of_the_General_Staff
+							add_idea = Confusion_of_the_General_Staff_2
+						}
+				}
 
 	}
 	focus = {
@@ -1149,17 +1331,17 @@ focus_tree = {
 			focus = FRA_Blitzkrieg
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 35
-		y = 2
-		completion_reward = {
-			add_tech_bonus = {
-				name = arty_bonus
-				bonus = 1
-				uses = 2
-				category = artillery
-			}
-			remove_ideas = Confusion_of_the_General_Staff_2
-		}
+		x = 41
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = arty_bonus
+							bonus = 1
+							uses = 2
+							category = artillery
+						}
+					remove_ideas = Confusion_of_the_General_Staff_2
+				}
 
 	}
 	focus = {
@@ -1169,16 +1351,16 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Overwhelming_firepower
 		}
-		x = 35
-		y = 3
-		completion_reward = {
-			add_tech_bonus = {
-				name = RAJ_vickers_berthier_gun
-				bonus = 1
-				uses = 1
-				category = infantry_weapons
-			}
-		}
+		x = 41
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = RAJ_vickers_berthier_gun
+							bonus = 1
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 
 	}
 	focus = {
@@ -1188,11 +1370,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Modernization_of_equipment
 		}
-		x = 35
-		y = 4
-		completion_reward = {
-			add_ideas = Emphasis_on_thermal_power
-		}
+		x = 41
+		y = 6
+			completion_reward = {
+					add_ideas = Emphasis_on_thermal_power
+				}
 
 	}
 	focus = {
@@ -1206,17 +1388,17 @@ focus_tree = {
 			focus = FRA_Overwhelming_firepower
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 37
-		y = 2
-		completion_reward = {
-			add_tech_bonus = {
-				name = armor_bonus
-				bonus = 1
-				uses = 1
-				category = motorized_equipment
-			}
-			remove_ideas = Confusion_of_the_General_Staff_2
-		}
+		x = 43
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 1
+							uses = 1
+							category = motorized_equipment
+						}
+					remove_ideas = Confusion_of_the_General_Staff_2
+				}
 
 	}
 	focus = {
@@ -1226,8 +1408,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Blitzkrieg
 		}
-		x = 37
-		y = 3
+		x = 43
+		y = 5
 			completion_reward = {
 					add_tech_bonus = {
 							name = armor_bonus
@@ -1245,70 +1427,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_French_tank
 		}
-		x = 37
-		y = 4
-		completion_reward = {
-			add_ideas = Focus_on_armor
-		}
-
-	}
-	focus = {
-		id = FRA_Expansion_of_shipyard
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Underground_Fleet
-		}
-		x = 35
-		y = 10
+		x = 43
+		y = 6
 			completion_reward = {
-					add_ideas = Expansion_of_shipyards
+					add_ideas = Focus_on_armor
 				}
-
-	}
-	focus = {
-		id = FRA_French_cruiser
-		icon = GFX_goal_generic_navy_cruiser
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Expansion_of_shipyard
-		}
-		x = 35
-		y = 11
-		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = cr_bonus
-				bonus = 1
-				uses = 2
-				category = cl_tech
-				category = ca_tech
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Ultimate_Fleet
-		icon = GFX_goal_generic_navy_battleship
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_cruiser
-		}
-		mutually_exclusive = {
-			focus = FRA_Partnership_with_an_aircraft_carrie
-		}
-		x = 33
-		y = 12
-		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = bb_bonus
-				bonus = 1
-				uses = 2
-				category = bb_tech
-				category = bc_tech
-			}
-		}
 
 	}
 	focus = {
@@ -1322,18 +1445,18 @@ focus_tree = {
 			focus = FRA_Overwhelming_firepower
 			focus = FRA_Blitzkrieg
 		}
-		x = 39
-		y = 2
-		completion_reward = {
-			add_tech_bonus = {
-				name = CZE_inf_and_artillery_advancement
-				bonus = 1
-				ahead_reduction = 2
-				uses = 2
-				category = infantry_weapons
-			}
-			remove_ideas = Confusion_of_the_General_Staff_2
-		}
+		x = 45
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = CZE_inf_and_artillery_advancement
+							bonus = 1
+							ahead_reduction = 2
+							uses = 2
+							category = infantry_weapons
+						}
+					remove_ideas = Confusion_of_the_General_Staff_2
+				}
 
 	}
 	focus = {
@@ -1343,16 +1466,16 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 39
-		y = 3
-		completion_reward = {
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 1
-				uses = 2
-				category = land_doctrine
-			}
-		}
+		x = 45
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 1
+							uses = 2
+							category = land_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -1362,11 +1485,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Planned_Offensive
 		}
-		x = 39
-		y = 4
-		completion_reward = {
-			add_ideas = Focus_on_infantry
-		}
+		x = 45
+		y = 6
+			completion_reward = {
+					add_ideas = Focus_on_infantry
+				}
 
 	}
 	focus = {
@@ -1378,11 +1501,11 @@ focus_tree = {
 			focus = FRA_Strengthening_French_tanks
 			focus = FRA_Destructive_Firepower
 		}
-		x = 37
-		y = 5
-		completion_reward = {
-			add_ideas = FRA_Doctrine_enhancement
-		}
+		x = 43
+		y = 7
+			completion_reward = {
+					add_ideas = FRA_Doctrine_enhancement
+				}
 
 	}
 	focus = {
@@ -1392,11 +1515,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Army_Reform
 		}
-		x = 43
-		y = 1
-		completion_reward = {
-			add_war_support = 0.05
-		}
+		x = 49
+		y = 3
+			completion_reward = {
+					add_war_support = 0.05
+				}
 
 	}
 	focus = {
@@ -1406,31 +1529,14 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Retaliation_Armed_Plan
 		}
-		x = 42
-		y = 2
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army
-				add_idea = Defeated_army_2
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Learn_from_defeat
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Retaliation_Armed_Plan
-		}
-		x = 44
-		y = 2
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army_2
-				add_idea = Defeated_army_4
-			}
-		}
+		x = 48
+		y = 4
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Defeated_army
+							add_idea = Defeated_army_2
+						}
+				}
 
 	}
 	focus = {
@@ -1440,14 +1546,147 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Strengthening_the_Military_Academy
 		}
-		x = 42
-		y = 3
+		x = 48
+		y = 5
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Defeated_army_2
+							add_idea = Defeated_army_3
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Declaration_of_the_Fourth_Republic
+		icon = GFX_focus_fra_french_union
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_katorikkuminnsyusyugi
+			focus = FRA_ziyuunakyouwakuko
+			focus = FRA_syakaitekinakyouwakaku
+		}
+		x = 28
+		y = 8
+			completion_reward = {
+				news_event = {
+					id = SSW_FRA_news.2
+				}
+				add_ideas = NEW_repubulic
+			}
+
+	}
+	focus = {
+		id = FRA_Democracy_in_France
+		icon = GFX_goal_support_democracy
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Declaration_of_the_Fourth_Republic
+		}
+		x = 28
+		y = 9
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Defeated_army_2
-				add_idea = Defeated_army_3
+				remove_idea = NEW_repubulic
+				add_idea = NEW_repubulic_2
 			}
 		}
+
+	}
+	focus = {
+		id = FRA_Territorial_negotiations_with_Germany
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_French_Foreign
+		}
+		mutually_exclusive = {
+			focus = FRA_Preparing_for_the_war
+		}
+		x = 28
+		y = 12
+			completion_reward = {
+					GER = {
+							country_event = {
+									id = SSW_FRA_for.1
+									days = 1
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Military_Plan
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Territorial_negotiations_with_Germany
+			focus = FRA_Preparing_for_the_war
+		}
+		x = 27
+		y = 13
+			completion_reward = {
+					add_timed_idea = {
+							idea = Military_plan
+							days = 180
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Intervention_in_the_German_CivilWar
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Military_Plan
+		}
+		x = 27
+		y = 14
+			completion_reward = {
+					add_war_support = 0.1
+				}
+
+	}
+	focus = {
+		id = FRA_Operation_to_recapture_the_northern_part
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Intervention_in_the_German_CivilWar
+		}
+		x = 27
+		y = 15
+			completion_reward = {
+					declare_war_on = {
+							target = NFR
+							type = annex_everything
+						}
+					declare_war_on = {
+							target = BEL
+							type = annex_everything
+						}
+				}
+			bypass = {
+					NFR = {
+							exists = no
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Learn_from_defeat
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Retaliation_Armed_Plan
+		}
+		x = 50
+		y = 4
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Defeated_army_2
+							add_idea = Defeated_army_4
+						}
+				}
 
 	}
 	focus = {
@@ -1457,14 +1696,14 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Learn_from_defeat
 		}
-		x = 44
-		y = 3
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army_4
-				add_idea = Defeated_army_5
-			}
-		}
+		x = 50
+		y = 5
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Defeated_army_4
+							add_idea = Defeated_army_5
+						}
+				}
 
 	}
 	focus = {
@@ -1477,31 +1716,33 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_French_militarism
 		}
-		x = 43
-		y = 4
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army_5
-				add_idea = New_French_Army
-			}
-		}
+		x = 49
+		y = 6
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Defeated_army_5
+							add_idea = New_French_Army
+						}
+				}
 
 	}
 	focus = {
 		id = FRA_For_my_homeland
 		icon = GFX_goal_unknown
 		cost = 5.00
-		x = 43
-		y = 5
 		prerequisite = {
 			focus = FRA_New_French_Army
 		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = New_French_Army
-				add_idea = New_French_Army_2
-			}
-		}
+		x = 0
+		y = 1
+		relative_position_id = FRA_New_French_Army
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = New_French_Army
+							add_idea = New_French_Army_2
+						}
+				}
+
 	}
 	focus = {
 		id = FRA_Expansion_of_the_French_Army
@@ -1513,16 +1754,16 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_For_my_homeland
 		}
-		x = 40
-		y = 6
-		completion_reward = {
-			army_experience = 35
-			swap_ideas = {
-				remove_idea = New_French_Army_2
-				add_idea = New_French_Army_3
-			}
-			add_ideas = Military_reform
-		}
+		x = 46
+		y = 8
+			completion_reward = {
+					army_experience = 35
+					swap_ideas = {
+							remove_idea = New_French_Army_2
+							add_idea = New_French_Army_3
+						}
+					add_ideas = Military_reform
+				}
 
 	}
 	focus = {
@@ -1532,11 +1773,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 38
-		y = 7
-		completion_reward = {
-			add_ideas = Seeking_freedom
-		}
+		x = 44
+		y = 9
+			completion_reward = {
+					add_ideas = Seeking_freedom
+				}
 
 	}
 	focus = {
@@ -1546,25 +1787,10 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 42
-		y = 7
+		x = 48
+		y = 9
 		completion_reward = {
 			add_ideas = Determination
-		}
-
-	}
-	focus = {
-		id = FRA_Revolutionary_Prosperity
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_People_weapons
-		}
-		x = 18
-		y = 8
-		completion_reward = {
-			add_stability = 0.2
-			add_war_support = 0.2
 		}
 
 	}
@@ -1575,173 +1801,17 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Operation_to_recapture_the_northern_part
 		}
-		mutually_exclusive = {
-			focus = FRA_Supporting_Gering
-			focus = FRA_Supporting_anti_Nazis
-			focus = FRA_Supporting_Himmler
-			focus = FRA_Dismantling_Germany
-		}
-		x = 26
-		y = 15
-		available = {
-			NOT = {
-				has_idea = Betrayed_ally	
-			}
-			has_completed_focus = FRA_Collaboration_with_German_Special_Forces
-		}
-		completion_reward = {
-			
-		}
-
-	}
-	focus = {
-		id = FRA_Cut_red
-		icon = GFX_focus_ger_bulwark_against_bolshevism
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Economic_Partnership_with_Germany
-		}
-		prerequisite = {
-			focus = FRA_Continuation_of_Nazism
-		}
-		x = 1
-		y = 1
-		relative_position_id = FRA_Continuation_of_Nazism
-			completion_reward = {
-					add_popularity = {
-							ideology = classical_communism
-							popularity = -0.1
-							ideology = progressive_communism
-							popularity = -0.1
+		x = 27
+		y = 16
+			available = {
+					NOT = {
+							has_idea = Betrayed_ally
 						}
+					has_completed_focus = FRA_Collaboration_with_German_Special_Forces
 				}
+			completion_reward = {
 
-	}
-	focus = {
-		id = FRA_Continuation_of_Nazism
-		icon = GFX_goal_support_fascism
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Darnand
-		}
-		x = 1
-		y = 3
-		completion_reward = {
-			add_popularity = {
-				ideology = national_socialism
-				popularity = 0.3
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Collaboration_with_German_Special_Forces
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Strengthening_the_Millis_militia
-		}
-		x = 2
-		y = 6
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = Millis_strong
-				add_idea = Collaboration_between_Millis_and_Germany
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Strengthening_the_Millis_militia
-		icon = GFX_focus_fra_milice
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Cut_red
-		}
-		x = 2
-		y = 5
-		completion_reward = {
-			add_ideas = Millis_strong
-		}
-
-	}
-	focus = {
-		id = FRA_France_for_the_Monarch
-		icon = GFX_focus_AST_rats_tobruk
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Republican_Repression
-			focus = FRA_Reconciliation_with_Republicans
-		}
-		prerequisite = {
-			focus = FRA_Monarchist_Propaganda
-		}
-		x = 30
-		y = 8
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = For_the_monarch
-				add_idea = For_the_monarch_2
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Supporting_ground_troops
-		icon = GFX_goal_generic_CAS
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Air_Force
-		}
-		x = 42
-		y = 9
-		completion_reward = {
-			add_tech_bonus = {
-				name = JAP_bomber_modernization
-				bonus = 1
-				uses = 1
-				category = cas_bomber
-				category = tactical_bomber
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Naval_Air_Corps
-		icon = GFX_goal_generic_air_naval_bomber
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Supporting_ground_troops
-		}
-		x = 39
-		y = 11
-		completion_reward = {
-			add_tech_bonus = {
-				name = JAP_carrier_warfare_experiments
-				bonus = 1
-				uses = 2
-				category = cat_base_strike
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Focus_bombers
-		icon = GFX_goal_generic_air_bomber
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Supporting_ground_troops
-		}
-		x = 42
-		y = 11
-		completion_reward = {
-			add_tech_bonus = {
-				name = JAP_strategic_bomber_effort
-				bonus = 1
-				uses = 2
-				category = cat_strategic_bomber
-			}
-		}
+}
 
 	}
 	focus = {
@@ -1751,54 +1821,14 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Retaliation_in_the_State
 		}
-		x = 11
+		x = 15
 		y = 6
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = dictator
-				add_idea = Charismatic_dictator
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Partnership_with_an_aircraft_carrie
-		icon = GFX_goal_generic_navy_carrier
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Naval_Air_Corps
-		}
-		prerequisite = {
-			focus = FRA_French_cruiser
-		}
-		mutually_exclusive = {
-			focus = FRA_Ultimate_Fleet
-		}
-		x = 37
-		y = 12
-		completion_reward = {
-			add_tech_bonus = {
-				name = cv_bonus
-				bonus = 1
-				uses = 2
-				category = cv_tech
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Beyond_the_Pacific_Ocean
-		icon = GFX_focus_generic_cruiser2
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Ultimate_Fleet
-			focus = FRA_Partnership_with_an_aircraft_carrie
-		}
-		x = 35
-		y = 13
-		completion_reward = {
-			add_ideas = Beyond_the_Atlantic
-		}
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = dictator
+							add_idea = Charismatic_dictator
+						}
+				}
 
 	}
 	focus = {
@@ -1806,18 +1836,22 @@ focus_tree = {
 		icon = GFX_goal_generic_air_fighter
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_French_Air_Force
+			focus = FRA_koukuudokutorinn
+			focus = FRA_bakugeki_dokutorinn
 		}
-		x = 46
-		y = 9
-		completion_reward = {
-			add_tech_bonus = {
-				name = light_air
-				bonus = 1
-				uses = 1
-				category = light_fighter
-			}
+		mutually_exclusive = {
+			focus = FRA_Supporting_ground_troops
 		}
+		x = 43
+		y = 14
+			completion_reward = {
+					add_tech_bonus = {
+							name = light_air
+							bonus = 1
+							uses = 1
+							category = light_fighter
+						}
+				}
 
 	}
 	focus = {
@@ -1827,16 +1861,16 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Absolute_Air_Superiority
 		}
-		x = 46
-		y = 11
-		completion_reward = {
-			add_tech_bonus = {
-				name = fighter_modernization
-				bonus = 1
-				uses = 1
-				category = cat_heavy_fighter
-			}
-		}
+		x = 43
+		y = 16
+			completion_reward = {
+					add_tech_bonus = {
+							name = fighter_modernization
+							bonus = 1
+							uses = 1
+							category = cat_heavy_fighter
+						}
+				}
 
 	}
 	focus = {
@@ -1846,139 +1880,306 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 40
+		x = 46
+		y = 9
+			completion_reward = {
+					set_technology = {
+							bicycle_infantry = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FRA_Advocacy_of_Socialism_in_One_Country #一国社会主義論の提唱
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Recruitment_of_classical_bureaucrats
+		}
+		x = 22
+		y = 14
+		completion_reward = {
+			add_ideas = Intensive_industrialization
+		}
+
+	}
+	focus = {
+		id = FRA_Advocacy_of_market_socialism #市場社会主義の提唱
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Recruitment_of_innovative_bureaucrats
+		}
+		x = 18
+		y = 14
+		completion_reward = {
+			add_ideas = Market_socialism
+		}
+
+	}
+	focus = {
+		id = FRA_Developmental_dictatorship #開発独裁
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Advocacy_of_Socialism_in_One_Country
+		}
+		x = 24
+		y = 15
+		completion_reward = {
+			add_ideas = FRA_Developmental_dictatorship
+		}
+
+	}
+	focus = {
+		id = FRA_Peoples_retaliation #人民の報復
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Planned_economy
+			focus = FRA_International_cooperation
+		}
+		prerequisite = {
+			focus = FRA_Red_army_for_the_people
+		}
+		x = 20
+		y = 16
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+
+	}
+	focus = {
+		id = FRA_Private_sector_surveillance #民間企業の監視
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Advocacy_of_market_socialism
+		}
+		x = 16
+		y = 15
+		completion_reward = {
+			add_ideas = Private_sector_surveillance
+		}
+
+	}
+	focus = {
+		id = FRA_Founding_of_the_Red_Army
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Recruitment_of_classical_bureaucrats
+			focus = FRA_Recruitment_of_innovative_bureaucrats
+		}
+		x = 20
+		y = 14
+		completion_reward = {
+			add_ideas = Red_army
+		}
+
+	}
+	focus = {
+		id = FRA_syakaitekinakyouwakaku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_fukusinokyouka
+		}
+		prerequisite = {
+			focus = FRA_syakaisyugisya_tonorennritu
+		}
+		prerequisite = {
+			focus = FRA_roudousya_no_hosyou
+		}
+		x = 20
 		y = 7
 		completion_reward = {
-			set_technology = {
-				bicycle_infantry = 1
+			remove_idea = Nationalization_of_public_works
+			remove_idea = Welfare_enhancement
+			remove_idea = Trade_union_reconstruction_2
+			add_idea = Social_republic
+		}
+
+	}
+	focus = {
+		id = FRA_Peoples_Council
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Commune_founded
+		}
+		x = 20
+		y = 12
+		available = {
+			has_completed_focus = FRA_Purge_with_a_guillotine
+			has_completed_focus = FRA_Introduction_of_secret_polic
+			country_event = {
+				id = SSW_FRA.4
+				days = 1
 			}
 		}
 
 	}
 	focus = {
-		id = FRA_sangyo_1
+		id = FRA_Recruitment_of_innovative_bureaucrats #革新的官僚の採用
 		icon = GFX_goal_unknown
-		x = 15
-		y = 9
-		cost = 5.00
-	}
-	focus = {
-		id = FRA_sangyo_2
-		icon = GFX_goal_unknown
-		x = 17
-		y = 10
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_sangyo_1
+			focus = FRA_Introduction_of_secret_police
 		}
-	}
-	focus = {
-		id = FRA_sangyo_3
-		icon = GFX_goal_unknown
-		x = 13
-		y = 10
-		cost = 5.00
 		prerequisite = {
-			focus = FRA_sangyo_1
+			focus = FRA_Peoples_Council
 		}
-	}
-	focus = {
-		id = FRA_sangyo_4
-		icon = GFX_goal_unknown
-		x = 18
-		y = 11
-		cost = 5.00
 		prerequisite = {
-			focus = FRA_sangyo_2		
+			focus = FRA_Great_Purge_with_a_guillotine
 		}
-	}
-	focus = {
-		id = FRA_sangyo_5
-		icon = GFX_goal_unknown
-		x = 16
-		y = 11
-		cost = 5.00
 		mutually_exclusive = {
-			focus = FRA_sangyo_6
+			focus = FRA_Recruitment_of_classical_bureaucrats
 		}
-		prerequisite = {
-			focus = FRA_sangyo_3
-			focus = FRA_sangyo_2
-		}
-		prerequisite = {
-			focus = FRA_sangyo_8		
-		}
-	}
-	focus = {
-		id = FRA_sangyo_6
-		icon = GFX_goal_unknown
-		x = 14
-		y = 11
-		cost = 5.00
-		mutually_exclusive = {
-			focus = FRA_sangyo_5
-		}
-		prerequisite = {
-			focus = FRA_sangyo_3
-			focus = FRA_sangyo_2
-		}
-		prerequisite = {
-			focus = FRA_sangyo_8		
-		}
-	}
-	focus = {
-		id = FRA_sangyo_7
-		icon = GFX_goal_unknown
-		x = 12
-		y = 11
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_sangyo_3		
-		}
-	}
-	focus = {
-		id = FRA_sangyo_8
-		icon = GFX_goal_unknown
-		x = 15
-		y = 10
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_sangyo_1
-		}
-	}
-	focus = {
-		id = FRA_sangyo_9
-		icon = GFX_goal_unknown
-		x = 14
-		y = 12
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_sangyo_6
-			focus = FRA_sangyo_5
-		}
-	}
-	focus = {
-		id = FRA_sangyo_10
-		icon = GFX_goal_unknown
-		x = 16
-		y = 12
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_sangyo_6
-			focus = FRA_sangyo_5
-		}
-	}
-	focus = {
-		id = FRA_sangyo_11
-		icon = GFX_goal_unknown
-		x = 15
+		x = 19
 		y = 13
+
+	}
+	focus = {
+		id = FRA_Recruitment_of_classical_bureaucrats #古典的官僚の採用
+		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_sangyo_9
+			focus = FRA_Introduction_of_secret_police
 		}
 		prerequisite = {
-			focus = FRA_sangyo_10
+			focus = FRA_Peoples_Council
 		}
+		prerequisite = {
+			focus = FRA_Purge_with_a_guillotine
+		}
+		mutually_exclusive = {
+			focus = FRA_Recruitment_of_innovative_bureaucrats
+		}
+		x = 21
+		y = 13
+
+	}
+	focus = {
+		id = FRA_International_cooperation #国際協調
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Advocacy_of_market_socialism
+		}
+		x = 18
+		y = 15
+		completion_reward = {
+			remove_idea = Market_socialism
+			add_idea = Market_socialism_2
+		}
+
+	}
+	focus = {
+		id = FRA_Red_army_for_the_people #赤き人民の軍
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Founding_of_the_Red_Army
+		}
+		x = 20
+		y = 15
+		completion_reward = {
+			remove_idea = Red_army
+			add_idea = Red_army_2
+		}
+
+	}
+	focus = {
+		id = FRA_Planned_economy #計画経済
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Advocacy_of_Socialism_in_One_Country
+		}
+		x = 22
+		y = 15
+		completion_reward = {
+			remove_idea = Intensive_industrialization
+			add_idea = Planned_economic_growth
+		}
+
+	}
+	focus = {
+		id = FRA_roudousya_no_hosyou
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_roudoukumiai_saiken
+		}
+		x = 19
+		y = 6
+		completion_reward = {
+			remove_idea = Trade_union_reconstruction
+			add_idea = Trade_union_reconstruction_2
+		}
+
+	}
+	focus = {
+		id = FRA_fukusinokyouka
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_koukyouzigyou_kokueika
+		}
+		x = 21
+		y = 6
+		completion_reward = {
+			add_ideas = Welfare_enhancement
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+		}
+
+	}
+	focus = {
+		id = Darnand_soutou_bannzai
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_sokoku
+		}
+		x = 3
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = national_socialism
+				popularity = 0.1
+			}
+			swap_ideas = {
+				remove_idea = Motherland_working_family
+				add_idea = Motherland_working_family_2
+			}
+		}
+
+	}
+	focus = {
+		id = FRA_bakugekiryousann
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Focus_bombers
+		}
+		x = 39
+		y = 17
+
+	}
+	focus = {
+		id = FRA_koukuuryousann
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Large_Air_Corps
+		}
+		x = 43
+		y = 17
+
 	}
 }
