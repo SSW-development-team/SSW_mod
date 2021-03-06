@@ -98,40 +98,6 @@ on_actions = {
 				}
 				MEN = {	drop_cosmetic_tag = yes	}
 			}
-			if = {
-				limit = {
-					AND = {
-						tag = SPR
-						is_subject = yes
-						OVERLORD = {
-							OR = {
-								has_government = progressive_communism
-								has_government = classical_communism
-								has_government = social_democracy
-								has_government = social_liberalism
-							}
-						}
-					}
-				}
-				OVERLORD = { set_country_flag = puppet_spa }
-				SPA = { annex_country = { target = SPR transfer_troops = yes } }
-				every_state = {
-					limit = {
-						is_core_of = SPR
-						NOT = { is_core_of = SPA }
-					}
-					add_core_of = SPA
-				}
-				every_state = {
-					limit = { is_core_of = SPR }
-					remove_core_of = SPR
-				}
-				random_country = {
-					limit = { has_country_flag = puppet_spa }
-					puppet = SPA
-					clr_country_flag = puppet_spa
-				}
-			}
 		}
 	}
 	on_puppet = {
@@ -144,40 +110,6 @@ on_actions = {
 					}
 				}
 				MEN = {	drop_cosmetic_tag = yes	}
-			}
-			if = {
-				limit = {
-					AND = {
-						tag = SPR
-						is_subject = yes
-						OVERLORD = {
-							OR = {
-								has_government = progressive_communism
-								has_government = classical_communism
-								has_government = social_democracy
-								has_government = social_liberalism
-							}
-						}
-					}
-				}
-				OVERLORD = { set_country_flag = puppet_spa }
-				SPA = { annex_country = { target = SPR transfer_troops = yes } }
-				every_state = {
-					limit = {
-						is_core_of = SPR
-						NOT = { is_core_of = SPA }
-					}
-					add_core_of = SPA
-				}
-				every_state = {
-					limit = { is_core_of = SPR }
-					remove_core_of = SPR
-				}
-				random_country = {
-					limit = { has_country_flag = puppet_spa }
-					puppet = SPA
-					clr_country_flag = puppet_spa
-				}
 			}
 		}
 	}
