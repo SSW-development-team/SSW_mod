@@ -14,23 +14,21 @@ ITA_Expanding_the_Outstrada = { #カテゴリーID
 		fire_only_once = yes #何回も使えるか
 		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
 		remove_effect = {
-		}
-	}
-	#中央地域での拡張
-	ITA_Expansion_in_the_central_region = { #ディシジョンID
-		icon = generic_speech #アイコン
-		ai_will_do = {
-			factor = 70 #AIが踏む確率
-		}
-		available = {
-			original_tag = ITA #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-		}
-		cost = 30 #消費する政治力
-		fire_only_once = yes #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_in_the_northern_region
+			ITA = {
+				any_owned_state_in_north_italy = yes
+			}
+			any_owned_state = {
+				limit = {
+					is_north_italy_states = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	#南部地域での拡張
@@ -48,6 +46,20 @@ ITA_Expanding_the_Outstrada = { #カテゴリーID
 		fire_only_once = yes #何回も使えるか
 		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
 		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_in_the_southern_region
+			ITA = {
+				any_owned_state_in_south_italy = yes
+			}
+			any_owned_state = {
+				limit = {
+					is_south_italy_states = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
 		}
 	}
 	#アドリア海地域への拡張
@@ -65,6 +77,7 @@ ITA_Expanding_the_Outstrada = { #カテゴリーID
 		fire_only_once = yes #何回も使えるか
 		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
 		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_to_the_Adriatic_region
 		}
 	}
 	#計画の完了
@@ -74,11 +87,11 @@ ITA_Expanding_the_Outstrada = { #カテゴリーID
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
-			original_tag = ITA #踏めるようになる条件
-			#has_decision = ITA_Expansion_in_the_northern_region
-			#has_decision = ITA_Expansion_in_the_central_region
-			#has_decision = ITA_Expansion_in_the_southern_region
-			#has_decision = ITA_Expansion_to_the_Adriatic_region
+			custom_effect_tooltip = SSW_ITA_Complete_the_plan_tooltip
+			original_tag = ITA
+			has_country_flag = complate_ITA_Expansion_in_the_northern_region
+			has_country_flag = complate_ITA_Expansion_in_the_southern_region
+			has_country_flag = complate_ITA_Expansion_to_the_Adriatic_region
 		}
 		visible = { #見えるようになる条件
 		}

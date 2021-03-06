@@ -658,6 +658,33 @@ completion_reward = {
 	custom_effect_tooltip = ITA_Expanding_the_Outstrada_tooltip
 }
 }
+#
+shared_focus = {
+	id = ITA_focus_industry_
+	icon = GFX_ITA_Autostrada
+	cost = 5.00
+	prerequisite = {
+		 focus = ITA_focus_industry_Expanding_the_Outstrada
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 3
+	y = 5
+	completion_reward = {
+		custom_effect_tooltip = ITA_Expanding_the_Outstrada_tooltip
+	}
+	}
 #移民問題の解消
 shared_focus = {
 id = ITA_focus_industry_Solving_the_immigration_problem
@@ -1907,6 +1934,33 @@ shared_focus = {
 		}
 	}
 }
+#艦船建造の効率化
+shared_focus = {
+	id = ITA_focus_balbo_Improving_efficiency_of_naval_shipbuilding
+	icon = GFX_ITA_Italian_Naval
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Large_fleet_size
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 54
+	y = 4
+	completion_reward = {
+		add_ideas = ITA_idea_70
+	}
+}
 #現代海軍への移行
 shared_focus = {
 	id = ITA_focus_balbo_Transition_to_modern_navy
@@ -2644,7 +2698,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_focus_colony_east_africa_dev_industrial_development
 	icon = GFX_focus_generic_treaty
-	cost = 1.00
+	cost = 5.00
 	prerequisite = {
 		focus = ITA_focus_colony_east_africa_dev
 	}
@@ -2670,7 +2724,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_focus_colony_east_africa_dev_Expand_rubber_production
 	icon = GFX_focus_generic_treaty
-	cost = 1.00
+	cost = 5.00
 	prerequisite = {
 		focus = ITA_focus_colony_east_africa_dev_industrial_development
 	}
@@ -2692,11 +2746,41 @@ shared_focus = {
 	completion_reward = {
 	}
 }
+#建築様式の改装
+shared_focus = {
+	id = ITA_focus_colony_east_africa_dev_Architectural_style_renovation
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_east_africa_dev_industrial_development
+	}
+	mutually_exclusive = {
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -3
+	y = 14
+	completion_reward = {
+		IT3 = {
+			add_ideas = ITA_idea_71
+		}
+		add_ideas = ITA_idea_72
+	}
+}
 #政治的支援
 shared_focus = {
 	id = ITA_focus_colony_east_africa_dev_political_support
 	icon = GFX_focus_generic_treaty
-	cost = 1.00
+	cost = 5.00
 	prerequisite = {
 		focus = ITA_focus_colony_east_africa_dev
 	}
@@ -2715,6 +2799,32 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 1
 	y = 13
+	completion_reward = {
+	}
+}
+#ファシズム教育の浸透
+shared_focus = {
+	id = ITA_focus_colony_east_africa_dev_Fascist_Education_Spreads
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_east_africa_dev_political_support
+	}
+	mutually_exclusive = {
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 1
+	y = 14
 	completion_reward = {
 	}
 }
