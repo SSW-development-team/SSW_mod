@@ -15,6 +15,16 @@ shared_focus = { #中国の産業
     x = 46
     y = 0
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 1
+            uses = 1
+            category = industry
+        }
+        add_tech_bonus = {
+            bonus = 1
+            uses = 1
+            category = electronics
+        }
     }
 }
 shared_focus = { #地方主体の産業発展
@@ -30,6 +40,9 @@ shared_focus = { #地方主体の産業発展
     search_filters = {
         FOCUS_FILTER_INDUSTRY
     }
+    available = {
+        has_completed_focus = CHI_birth_of_Union
+    }
     mutually_exclusive = {
         focus = CHI_central_gov_guidance
     }
@@ -39,6 +52,66 @@ shared_focus = { #地方主体の産業発展
     x = 45
     y = 1
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 599
+            }
+            599 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 593
+            }
+            593 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 615
+            }
+            615 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 325
+            }
+            325 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 283
+            }
+            283 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #地方経済の重視
@@ -60,6 +133,7 @@ shared_focus = { #地方経済の重視
     x = 42
     y = 2
     completion_reward = {
+        add_ideas = CHI_dev_local_economy_1
     }
 }
 shared_focus = { #地方の産業を拡大
@@ -81,6 +155,58 @@ shared_focus = { #地方の産業を拡大
     x = 41
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 283
+            }
+            283 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 615
+            }
+            615 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 606
+            }
+            606 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 325
+            }
+            325 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #地域間の連携
@@ -102,6 +228,24 @@ shared_focus = { #地域間の連携
     x = 43
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_dev_local_economy_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_dev_local_economy_1
+                add_idea = CHI_dev_local_economy_2_2
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_dev_local_economy_2_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_dev_local_economy_2_1
+                add_idea = CHI_dev_local_economy_3
+            }
+        }
     }
 }
 shared_focus = { #地域間ネットワークの充実
@@ -123,6 +267,24 @@ shared_focus = { #地域間ネットワークの充実
     x = 41
     y = 4
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_dev_local_economy_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_dev_local_economy_1
+                add_idea = CHI_dev_local_economy_2_1
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_dev_local_economy_2_2
+            }
+            swap_ideas = {
+                remove_idea = CHI_dev_local_economy_2_2
+                add_idea = CHI_dev_local_economy_3
+            }
+        }
     }
 }
 shared_focus = { #最新の農業技術を伝播
@@ -144,6 +306,7 @@ shared_focus = { #最新の農業技術を伝播
     x = 43
     y = 4
     completion_reward = {
+        add_ideas = CHI_agri_reform_1
     }
 }
 shared_focus = { #農村の発展
@@ -168,6 +331,10 @@ shared_focus = { #農村の発展
     x = 42
     y = 5
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_agri_reform_1
+            add_idea = CHI_agri_reform_2
+        }
     }
 }
 shared_focus = { #モータリゼーションの試み
@@ -210,6 +377,7 @@ shared_focus = { #識字率の向上
     x = 43
     y = 6
     completion_reward = {
+        add_research_slot = 1
     }
 }
 shared_focus = { #美しき田舎
@@ -234,6 +402,10 @@ shared_focus = { #美しき田舎
     x = 42
     y = 7
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_dev_local_economy_3
+            add_idea = CHI_dev_local_economy_4
+        }
     }
 }
 shared_focus = { #中央政府の指導
@@ -249,6 +421,9 @@ shared_focus = { #中央政府の指導
     search_filters = {
         FOCUS_FILTER_INDUSTRY
     }
+    available = {
+        has_completed_focus = CHI_return_rep_of_China
+    }
     mutually_exclusive = {
         focus = CHI_local_industry_dev
     }
@@ -258,6 +433,7 @@ shared_focus = { #中央政府の指導
     x = 47
     y = 1
     completion_reward = {
+        add_ideas = CHI_chinese_plan_economy_1
     }
 }
 shared_focus = { #都市経済の重視
@@ -279,6 +455,58 @@ shared_focus = { #都市経済の重視
     x = 50
     y = 2
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            814 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 608
+            }
+            608 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 613
+            }
+            613 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 592
+            }
+            592 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #三峡ダムの建設開始
@@ -300,6 +528,15 @@ shared_focus = { #三峡ダムの建設開始
     x = 49
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_construct_three_gorges_dam_begin_tt
+        set_variable = {
+            var = CHI_construct_cost
+            value = 0.03    
+        }
+        set_variable = {
+            var = CHI_construct_time
+            value = 1060
+        }
     }
 }
 shared_focus = { #都市間の交通網
@@ -321,6 +558,78 @@ shared_focus = { #都市間の交通網
     x = 51
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 608
+            }
+            608 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 614
+            }
+            614 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 597
+            }
+            597 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            814 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 613
+            }
+            613 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 598
+            }
+            598 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #国有企業
@@ -342,6 +651,24 @@ shared_focus = { #国有企業
     x = 49
     y = 4
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_chinese_plan_economy_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_chinese_plan_economy_1
+                add_idea = CHI_chinese_plan_economy_2_1
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_chinese_plan_economy_2_2
+            }
+            swap_ideas = {
+                remove_idea = CHI_chinese_plan_economy_2_2
+                add_idea = CHI_chinese_plan_economy_3
+            }
+        }
     }
 }
 shared_focus = { #電化！
@@ -363,6 +690,24 @@ shared_focus = { #電化！
     x = 51
     y = 4
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_chinese_plan_economy_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_chinese_plan_economy_1
+                add_idea = CHI_chinese_plan_economy_2_2
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_chinese_plan_economy_2_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_chinese_plan_economy_2_1
+                add_idea = CHI_chinese_plan_economy_3
+            }
+        }
     }
 }
 shared_focus = { #都市部への人口流入
@@ -387,6 +732,10 @@ shared_focus = { #都市部への人口流入
     x = 50
     y = 5
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_chinese_plan_economy_3
+            add_idea = CHI_chinese_plan_economy_4
+        }
     }
 }
 shared_focus = { #栄華を誇る東洋のパリ
@@ -408,6 +757,22 @@ shared_focus = { #栄華を誇る東洋のパリ
     x = 49
     y = 6
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            add_extra_state_shared_building_slots = 10
+            add_building_construction = {
+                type = industrial_complex
+                level = 5
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = dockyard
+                level = 3
+                instant_build = yes
+            }
+        }
     }
 }
 shared_focus = { #国立中央大学の成長
@@ -429,6 +794,7 @@ shared_focus = { #国立中央大学の成長
     x = 51
     y = 6
     completion_reward = {
+        add_research_slot = 1
     }
 }
 shared_focus = { #都市の輝き
@@ -453,6 +819,10 @@ shared_focus = { #都市の輝き
     x = 50
     y = 7
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_chinese_plan_economy_4
+            add_idea = CHI_chinese_plan_economy_5
+        }
     }
 }
 shared_focus = { #工場労働者の救済
@@ -475,6 +845,15 @@ shared_focus = { #工場労働者の救済
     x = 46
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_relief_factory_worker_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_s
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_co
+            value = 0.1
+        }
     }
 }
 shared_focus = { #児童労働を制限
@@ -496,6 +875,11 @@ shared_focus = { #児童労働を制限
     x = 45
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_limit_child_labor_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_s
+            value = 0.05
+        }
     }
 }
 shared_focus = { #立地の法的規制
@@ -517,6 +901,15 @@ shared_focus = { #立地の法的規制
     x = 47
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_legal_restrict_location_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_s
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_ic
+            value = 0.05
+        }
     }
 }
 shared_focus = { #工具の輸入
@@ -538,6 +931,11 @@ shared_focus = { #工具の輸入
     x = 46
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_import_tools_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_ef
+            value = 0.05
+        }
     }
 }
 shared_focus = { #製造機械の輸入
@@ -559,6 +957,11 @@ shared_focus = { #製造機械の輸入
     x = 46
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_import_manufacture_machinery_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_ef
+            value = 0.15
+        }
     }
 }
 shared_focus = { #労働者を育成
@@ -580,6 +983,11 @@ shared_focus = { #労働者を育成
     x = 45
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_training_worker_tt
+        add_to_variable = {
+            var = CHI_r_r_i_d_m_ic
+            value = 0.1
+        }
     }
 }
 shared_focus = { #鉱業の拡大
@@ -601,6 +1009,39 @@ shared_focus = { #鉱業の拡大
     x = 47
     y = 6
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 599
+            }
+            599 = {
+                add_resource = {
+                    type = aluminium
+                    amount = 15
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 615
+            }
+            615 = {
+                add_resource = {
+                    type = steel
+                    amount = 20
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 600
+            }
+            600 = {
+                add_resource = {
+                    type = tungsten
+                    amount = 20
+                }
+            }
+        }
     }
 }
 shared_focus = { #工場労働者の規律
@@ -622,9 +1063,19 @@ shared_focus = { #工場労働者の規律
     prerequisite = {
         focus = CHI_expansion_mine_industry
     }
+    prerequisite = {
+        focus = CHI_import_manufacture_machinery
+    }
     x = 46
     y = 7
     completion_reward = {
+        custom_effect_tooltip = CHI_discipline_factory_worker_tt
+        hidden_effect = {
+            remove_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+        }
+        add_ideas = CHI_innovative_industry
     }
 }
 shared_focus = { #安全性の改善
@@ -646,6 +1097,24 @@ shared_focus = { #安全性の改善
     x = 45
     y = 8
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_innovative_industry
+            }
+            swap_ideas = {
+                remove_idea = CHI_innovative_industry
+                add_idea = CHI_innovative_industry_2_1
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_innovative_industry_2_2
+            }
+            swap_ideas = {
+                remove_idea = CHI_innovative_industry_2_2
+                add_idea = CHI_innovative_industry_3
+            }
+        }
     }
 }
 shared_focus = { #豊富な労働力
@@ -667,6 +1136,24 @@ shared_focus = { #豊富な労働力
     x = 47
     y = 8
     completion_reward = {
+        if = {
+            limit = {
+                has_idea = CHI_innovative_industry
+            }
+            swap_ideas = {
+                remove_idea = CHI_innovative_industry
+                add_idea = CHI_innovative_industry_2_2
+            }
+        }
+        else_if = {
+            limit = {
+                has_idea = CHI_innovative_industry_2_1
+            }
+            swap_ideas = {
+                remove_idea = CHI_innovative_industry_2_1
+                add_idea = CHI_innovative_industry_3
+            }
+        }
     }
 }
 shared_focus = { #中國製造
@@ -691,6 +1178,10 @@ shared_focus = { #中國製造
     x = 46
     y = 9
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_innovative_industry_3
+            add_idea = CHI_innovative_industry_4
+        }
     }
 }
 
@@ -719,6 +1210,9 @@ shared_focus = { #中国連邦軍
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        has_completed_focus = CHI_birth_of_Union
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -966,6 +1460,9 @@ shared_focus = { #国民革命軍
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_MANPOWER
+    }
+    available = {
+        has_completed_focus = CHI_return_rep_of_China
     }
     prerequisite = {
         focus = CHI_reform_chinese_military
@@ -1365,9 +1862,9 @@ shared_focus = { #我有一把槍
     }
 }
 
-#対日ツリー
-shared_focus = { #二つの太陽
-    id = CHI_two_sun
+#外交ツリー
+shared_focus = { #中国外交
+    id = CHI_chinese_diplomacy
     #icon = 
     cost = 5
     ai_will_do = {
@@ -1376,10 +1873,245 @@ shared_focus = { #二つの太陽
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
+    x = 72
+    y = 0
+    completion_reward = {
+    }
+}
+shared_focus = { #南京反帝国主義国共同会議
+    id = CHI_anti_imperialist_nati_co_co
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 72
+    y = 1
+    prerequisite = {
+        focus = CHI_chinese_diplomacy
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #パキスタンの友
+    id = CHI_friend_Pakistan
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 71
+    y = 2
+    prerequisite = {
+        focus = CHI_anti_imperialist_nati_co_co
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #資金と武器を
+    id = CHI_fund_and_weapons
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 71
+    y = 4
+    prerequisite = {
+        focus = CHI_friend_Pakistan
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #東南アジアの同胞
+    id = CHI_compatriot_south_east_asis
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 73
+    y = 2
+    prerequisite = {
+        focus = CHI_anti_imperialist_nati_co_co
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #反帝国主義闘争の扇動
+    id = CHI_agitate_anti_imperialist_struggle
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 73
+    y = 4
+    prerequisite = {
+        focus = CHI_compatriot_south_east_asis
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #日本との決戦
+    id = CHI_decisive_battle_JAP
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 72
+    y = 3
+    prerequisite = {
+        focus = CHI_anti_imperialist_nati_co_co
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #中国の世紀
+    id = CHI_chinese_century
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    x = 72
+    y = 5
+    prerequisite = {
+        focus = CHI_decisive_battle_JAP
+    }
+    completion_reward = {
+    }
+}
+shared_focus = { #チベットとの交渉
+    id = CHI_negotiate_Tibet
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    prerequisite = {
+        focus = CHI_chinese_century
+    }
+    x = 71
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #チベット侵攻！
+    id = CHI_invasion_Tibet
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    prerequisite = {
+        focus = CHI_negotiate_Tibet
+    }
+    x = 71
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #外蒙古の回収
+    id = CHI_recovery_outer_Mongolia
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    prerequisite = {
+        focus = CHI_chinese_century
+    }
+    x = 73
+    y = 6
+    completion_reward = {
+    }
+}
+shared_focus = { #唐努鳥梁海の要求交渉
+    id = CHI_negotiate_demand_Tangut_Toryanghai
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    prerequisite = {
+        focus = CHI_recovery_outer_Mongolia
+    }
+    x = 73
+    y = 7
+    completion_reward = {
+    }
+}
+shared_focus = { #一帯一路
+    id = CHI_one_belt_one_road
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+    prerequisite = {
+        focus = CHI_chinese_century
+    }
+    x = 72
+    y = 8
+    completion_reward = {
+    }
+}
+#対日ツリー
+shared_focus = { #二つの太陽
+    id = CHI_two_sun
+    #icon = 
+    cost = 5
+    ai_will_do = {
+        factor = 10
+    }
+    available = {
+        has_war_with = JAP
+    }
+    cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_WAR_SUPPORT
     }
-    x = 73
+    x = 79
     y = 0
     completion_reward = {
     }
@@ -1400,7 +2132,7 @@ shared_focus = { #抗日大戦
     prerequisite = {
         focus = CHI_two_sun
     }
-    x = 73
+    x = 79
     y = 1
     completion_reward = {
     }
@@ -1421,7 +2153,7 @@ shared_focus = { #国外の友
     prerequisite = {
         focus = CHI_anti_JAP_war
     }
-    x = 72
+    x = 78
     y = 2
     completion_reward = {
     }
@@ -1442,7 +2174,7 @@ shared_focus = { #ドイツからの兵器購入
     prerequisite = {
         focus = CHI_anti_JAP_war
     }
-    x = 74
+    x = 80
     y = 2
     completion_reward = {
     }
@@ -1463,7 +2195,7 @@ shared_focus = { #戦争経済への移行
     prerequisite = {
         focus = CHI_friend_from_abroad
     }
-    x = 71
+    x = 77
     y = 3
     completion_reward = {
     }
@@ -1487,7 +2219,7 @@ shared_focus = { #ゲリラ戦の展開
     prerequisite = {
         focus = CHI_purchase_weapon_GER
     }
-    x = 73
+    x = 79
     y = 3
     completion_reward = {
     }
@@ -1508,7 +2240,7 @@ shared_focus = { #偽満州の同胞
     prerequisite = {
         focus = CHI_purchase_weapon_GER
     }
-    x = 75
+    x = 81
     y = 3
     completion_reward = {
     }
@@ -1538,7 +2270,7 @@ shared_focus = { #一面交渉、一面抵抗
     mutually_exclusive = {
         focus = CHI_resolute_defence
     }
-    x = 72
+    x = 78
     y = 4
     completion_reward = {
     }
@@ -1568,7 +2300,7 @@ shared_focus = { #断固たる抗戦
     mutually_exclusive = {
         focus = CHI_fight_side_resist_other
     }
-    x = 74
+    x = 80
     y = 4
     completion_reward = {
     }
@@ -1589,7 +2321,7 @@ shared_focus = { #産業の保護
     prerequisite = {
         focus = CHI_fight_side_resist_other
     }
-    x = 72
+    x = 78
     y = 5
     completion_reward = {
     }
@@ -1610,7 +2342,7 @@ shared_focus = { #督戦隊の編成
     prerequisite = {
         focus = CHI_resolute_defence
     }
-    x = 74
+    x = 80
     y = 5
     completion_reward = {
     }
@@ -1632,7 +2364,7 @@ shared_focus = { #継戦
         focus = CHI_industry_protect
         focus = CHI_formation_viceroy_army
     }
-    x = 73
+    x = 79
     y = 6
     completion_reward = {
     }

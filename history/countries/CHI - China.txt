@@ -8,9 +8,6 @@ set_technology = {
 }
 add_ideas = {
 	civilian_economy
-	CHI_idea_2
-	CHI_idea_3
-	CHI_idea_4
 	CHI_unenacted_constitution
 	CHI_reckless_rapid_industrialization
 }
@@ -30,24 +27,63 @@ set_variable = {
 	var = CHI_inf_l_w_d_m_a
 	value = -0.1
 }
+set_variable = {
+	var = CHI_r_r_i_d_m_s
+	value = -0.1
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_ic
+	value = -0.1
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_co
+	value = -0.2
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_ef
+	value = -0.15
+}
 add_dynamic_modifier = {
 	modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
 }
+add_dynamic_modifier = {
+	modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+}
 set_politics = {
-	ruling_party = authority_despotism
+	ruling_party = authority_democracy
 	last_election = "1950.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	authority_despotism = 100
+	#anarchism
+	authority_democracy = 35
+	progressive_communism = 2
+	#classical_communism
+	social_democracy = 35
+	#social_liberalism
+	social_conservatism = 15
+	authority_despotism = 10
+	national_fascism = 3
+	#national_socialism
+	#corporatocracism
 }
 create_country_leader = {
-	name = "Chen Gongbo"
+	name = "Fu Zuoyi"
 	desc = ""
-	picture = "gfx/leaders/CHI/Portrait_Chen_Gongbo.dds"
+	#picture = "gfx/leaders/CHI/Portrait_Chen_Gongbo.dds"
 	expire = "1965.1.1"
 	ideology = social_liberalism_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Chiang Kai-shek"
+	desc = ""
+	#picture = "gfx/leaders/CHI/Portrait_Gu_Zhutong.dds"
+	expire = "1965.1.1"
+	ideology = authority_despotism_ideology
 	traits = {
 		#
 	}
@@ -57,10 +93,42 @@ create_country_leader = {
 	desc = ""
 	picture = "gfx/leaders/CHI/Portrait_Gu_Zhutong.dds"
 	expire = "1965.1.1"
-	ideology = authority_despotism_ideology
+	ideology = authority_democracy_ideology
 	traits = {
 		#
 	}
+}
+create_country_leader = {
+	name = "Hu Yaobang"
+	desc = ""
+	#picture =
+	expire = 1965.1.1
+	ideology = progressive_communism_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Wang Jingwei"
+	desc = ""
+	#picture =
+	expire = 1965.1.1
+	ideology =  social_democracy_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Long Yun"
+	desc = ""
+	#picture =
+	expire = 1965.1.1
+	ideology =  social_conservatism_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Dai Li"
+	desc = ""
+	#picture =
+	expire = 1965.1.1
+	ideology =  national_fascism_ideology
+	#traits = {}
 }
 
 set_autonomy = {	target = TOK	autonomous_state = dominion	}

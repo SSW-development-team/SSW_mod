@@ -1,0 +1,364 @@
+CHI_deci_cate_three_gorges_dam = {
+    CHI_construct_first = {
+        available = {
+            hidden_trigger = {country_exists = CHI}
+            owns_state = 620
+        }
+        icon = generic_construction
+        fire_only_once = yes
+        days_remove = CHI_construct_time
+        modifier = {
+            consumer_goods_factor = CHI_construct_cost
+        }
+        complete_effect = {
+            set_country_flag = CHI_construct_first_do
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+        remove_effect = {
+            clr_country_flag = CHI_construct_first_do
+            set_country_flag = CHI_construct_first_fin
+        }
+    }
+    CHI_construct_second = {
+        available = {
+            hidden_trigger = {country_exists = CHI}
+            owns_state = 620
+            custom_trigger_tooltip = {
+                tooltip = CHI_construct_first_fin_tt
+                has_country_flag = CHI_construct_first_fin
+            }
+        }
+        icon = generic_construction
+        fire_only_once = yes
+        days_remove = CHI_construct_time
+        modifier = {
+            consumer_goods_factor = CHI_construct_cost
+        }
+        complete_effect = {
+            set_country_flag = CHI_construct_second_do
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+        remove_effect = {
+            clr_country_flag = CHI_construct_second_do
+            set_country_flag = CHI_construct_second_fin
+        }
+    }
+    CHI_construct_third = {
+        available = {
+            hidden_trigger = {country_exists = CHI}
+            owns_state = 620
+            custom_trigger_tooltip = {
+                tooltip = CHI_construct_second_fin_tt
+                has_country_flag = CHI_construct_second_fin
+            }
+        }
+        icon = generic_construction
+        fire_only_once = yes
+        days_remove = CHI_construct_time
+        modifier = {
+            consumer_goods_factor = CHI_construct_cost
+        }
+        complete_effect = {
+            set_country_flag = CHI_construct_third_do
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+        remove_effect = {
+            clr_country_flag = CHI_construct_third_do
+            set_country_flag = CHI_construct_third_fin
+        }
+    }
+    CHI_construct_final = {
+        available = {
+            hidden_trigger = {country_exists = CHI}
+            owns_state = 620
+            custom_trigger_tooltip = {
+                tooltip = CHI_construct_third_fin_tt
+                has_country_flag = CHI_construct_third_fin
+            }
+        }
+        icon = generic_construction
+        fire_only_once = yes
+        days_remove = CHI_construct_time
+        modifier = {
+            consumer_goods_factor = CHI_construct_cost
+        }
+        complete_effect = {
+            set_country_flag = CHI_construct_final_do
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+        remove_effect = {
+            clr_country_flag = CHI_construct_final_do
+            620 = {
+                add_extra_state_shared_building_slots = 5
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    CHI_construct_budget_increase = {
+        available = {
+            has_completed_focus = CHI_construct_three_gorges_dam_begin
+            num_of_civilian_factories_available_for_projects > 0
+        }
+        cost = 100
+        icon = hol_attract_foreign_investors
+        complete_effect = {
+            set_variable = {
+                var = CHI_construct_cost_b
+                value = CHI_construct_cost
+            }
+            if = {
+                limit = {
+                    check_variable = {CHI_construct_cost = 0.03}
+                }
+                add_to_variable = {
+                    var = CHI_construct_cost
+                    value = 0.02
+                }
+            }
+            else = {
+                add_to_variable = {
+                    var = CHI_construct_cost
+                    value = 0.05
+                }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = CHI_construct_first_do
+                        has_country_flag = CHI_construct_second_do
+                        has_country_flag = CHI_construct_third_do
+                        has_country_flag = CHI_construct_final_do
+                    }
+                }
+                    set_variable = {
+                        var = CHI_construct_check_a
+                        value = var:global.num_days
+                    }
+                    set_temp_variable = {a = CHI_construct_cost}
+                    set_temp_variable = {b = CHI_construct_time}
+                    set_temp_variable = {c = CHI_construct_check_a}
+                    set_temp_variable = {d = CHI_construct_check_b}
+                    set_temp_variable = {e = CHI_construct_cost_b}
+                    log = "[?a]:[?b]:[?c]:[?d]:[?e]"
+                    subtract_from_temp_variable = {c = d}
+                    subtract_from_temp_variable = {b = c}
+                    set_temp_variable = {f = b}
+                    divide_temp_variable = {e = a}
+                    multiply_temp_variable = {f = e}
+                    subtract_from_temp_variable = {f = b}
+                    round_temp_variable = f
+                    set_variable = {CHI_construct_bonus = f}
+                    if = {
+                        limit = {
+                            has_country_flag = CHI_construct_first_do
+                        }
+                        add_political_power = f
+                        add_days_remove = {
+                            decision =  CHI_construct_first
+                            days = f
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_second_do
+                        }
+                        add_days_remove = {CHI_construct_second = days = var:CHI_construct_bonus}
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_third_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_third
+                            days = var:CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_final_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_final
+                            days = var:CHI_construct_bonus
+                        }
+                    }
+            }
+            set_temp_variable = {a = 0.03}
+            set_temp_variable = {b = CHI_construct_cost}
+            set_temp_variable = {c = 1060}
+            divide_temp_variable = {a = b}
+            multiply_temp_variable = {c = a}
+            round_temp_variable = c
+            set_variable = {CHI_construct_time = c}
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+    }
+    CHI_construct_budget_decrease = {
+        available = {
+            has_completed_focus = CHI_construct_three_gorges_dam_begin
+            custom_trigger_tooltip = {
+                tooltip = CHI_budget_is_limit
+                NOT = {check_variable = {CHI_construct_cost = 0.03}}
+            }
+        }
+        cost = 100
+        icon = hol_attract_foreign_investors
+        complete_effect = {
+            if = {
+                limit = {
+                    check_variable = {CHI_construct_cost = 0.03}
+                }
+                subtract_from_variable = {
+                    var = CHI_construct_cost
+                    value = 0.02
+                }
+            }
+            else = {
+                subtract_from_variable = {
+                    var = CHI_construct_cost
+                    value = 0.05
+                }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = CHI_construct_first_do
+                        has_country_flag = CHI_construct_second_do
+                        has_country_flag = CHI_construct_third_do
+                        has_country_flag = CHI_construct_final_do
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {CHI_construct_cost = 0.03}
+                    }
+                    set_variable = {
+                        var = CHI_construct_check_a
+                        value = var:global.num_days
+                    }
+                    set_temp_variable = {a = CHI_construct_cost}
+                    set_temp_variable = {b = CHI_construct_time}
+                    set_temp_variable = {c = CHI_construct_check_a}
+                    set_temp_variable = {d = CHI_construct_check_b}
+                    set_temp_variable = {e = 0.03}
+                    subtract_from_temp_variable = {c = d}
+                    subtract_from_temp_variable = {b = c}
+                    set_temp_variable = {f = b}
+                    divide_temp_variable = {e = a}
+                    multiply_temp_variable = {f = e}
+                    subtract_from_temp_variable = {b = f}
+                    round_temp_variable = b
+                    set_variable = {CHI_construct_bonus = b}
+                    if = {
+                        limit = {
+                            has_country_flag = CHI_construct_first_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_first
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_second_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_second
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_third_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_third
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_final_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_final
+                            days = CHI_construct_bonus
+                        }
+                    }
+                }
+                else = {
+                    set_variable = {
+                        var = CHI_construct_check_a
+                        value = var:global.num_days
+                    } 
+                    set_temp_variable = {a = CHI_construct_cost}
+                    set_temp_variable = {b = CHI_construct_time}
+                    set_temp_variable = {c = CHI_construct_check_a}
+                    set_temp_variable = {d = CHI_construct_check_b}
+                    set_temp_variable = {e = 0.03}
+                    subtract_from_temp_variable = {c = d}
+                    subtract_from_temp_variable = {b = c}
+                    set_temp_variable = {f = b}
+                    divide_temp_variable = {e = a}
+                    multiply_temp_variable = {f = e}
+                    subtract_from_temp_variable = {b = f}
+                    round_temp_variable = b
+                    set_variable = {CHI_construct_bonus = b}
+                    if = {
+                        limit = {
+                            has_country_flag = CHI_construct_first_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_first
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_second_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_second
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_third_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_third
+                            days = CHI_construct_bonus
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            has_country_flag = CHI_construct_final_do
+                        }
+                        add_days_remove = {
+                            decision = CHI_construct_final
+                            days = CHI_construct_bonus
+                        }
+                    }
+                }
+            }
+            set_temp_variable = {a = 0.03}
+            set_temp_variable = {b = CHI_construct_cost}
+            set_temp_variable = {c = 1060}
+            divide_temp_variable = {a = b}
+            multiply_temp_variable = {c = a}
+            round_temp_variable = c
+            set_variable = {CHI_construct_time = b}
+            set_variable = {CHI_construct_check_b = var:global.num_days}
+        }
+    }
+}
