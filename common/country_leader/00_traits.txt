@@ -23,7 +23,7 @@ leader_traits = {
 	underage_monarch = {
 		random = no
 		stability_factor = 0.10
-		political_advisor_cost_factor = 0.25
+		#political_advisor_cost_factor = 0.25
 		trade_laws_cost_factor = 0.25
 		mobilization_laws_cost_factor = 0.25
 		economy_cost_factor = 0.25
@@ -172,7 +172,7 @@ leader_traits = {
 
 	inexperienced_monarch = {
 		random = no
-		political_advisor_cost_factor = 0.25
+		#political_advisor_cost_factor = 0.25
 		trade_laws_cost_factor = 0.25
 		mobilization_laws_cost_factor = 0.25
 		economy_cost_factor = 0.25
@@ -296,8 +296,10 @@ leader_traits = {
 	conservative_grandee = {
 		random = no
 		political_power_factor = 0.05
-		political_advisor_cost_factor = -0.1
-		
+		#political_advisor_cost_factor = -0.1
+		stability_factor = 0.02
+		war_support_factor = 0.02
+		drift_defence_factor = 0.05
 		ai_will_do = {
 			factor = 1
 		}
@@ -380,7 +382,7 @@ leader_traits = {
 	
 	exiled = {
 		random = no
-		
+		war_support_factor = -0.05
 		ai_will_do = {
 			factor = 1
 		}
@@ -388,7 +390,7 @@ leader_traits = {
 	
 	political_prisoner = {
 		random = no
-		
+		stability_factor = -0.05
 		ai_will_do = {
 			factor = 1
 		}
@@ -396,7 +398,7 @@ leader_traits = {
 	
 	assassination_survivor = {
 		random = no
-		
+		opinion_gain_monthly_factor = 0.05
 		ai_will_do = {
 			factor = 1
 		}
@@ -404,7 +406,11 @@ leader_traits = {
 	
 	stalins_puppet = {
 		random = no
-		
+		ai_strategy = {
+			type = befriend
+			id = CHL
+			value = 50
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -412,7 +418,9 @@ leader_traits = {
 	
 	union_man = {
 		random = no
-		
+		progressive_communism_acceptance = 50
+		classical_communism_acceptance = 50
+		social_democracy_acceptance = 50
 		ai_will_do = {
 			factor = 1
 		}
@@ -421,7 +429,6 @@ leader_traits = {
 	political_dancer = {
 		random = no
 		political_power_factor = 0.15
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -567,7 +574,7 @@ leader_traits = {
 
 	el_jefe_maximo = { #Plutarco Calles
 		random = no
-		political_advisor_cost_factor = -0.25
+		#political_advisor_cost_factor = -0.25
 		political_power_factor = 0.1
 		ai_will_do = {
 			factor = 1
@@ -684,7 +691,7 @@ leader_traits = {
 
 	camarilla_leader = {
 		random = no
-		political_advisor_cost_factor = -0.25
+		#political_advisor_cost_factor = -0.25
 		trade_laws_cost_factor = -0.25
 		mobilization_laws_cost_factor = -0.25
 		economy_cost_factor = -0.25
@@ -817,7 +824,7 @@ leader_traits = {
 
 	imperial_connections = {
 		random = no
-		political_advisor_cost_factor = -0.25
+		#political_advisor_cost_factor = -0.25
 		trade_laws_cost_factor = -0.25
 		mobilization_laws_cost_factor = -0.25
 		economy_cost_factor = -0.25
@@ -1086,7 +1093,7 @@ leader_traits = {
 	divisive_absolute_monarch = {
 		random = no
 		stability_factor = -0.1
-		political_advisor_cost_factor = -0.15
+		#political_advisor_cost_factor = -0.15
 		high_command_cost_factor = -0.15
 		air_chief_cost_factor = -0.15
 		army_chief_cost_factor = -0.15
@@ -1112,7 +1119,7 @@ leader_traits = {
 		stability_factor = 0.1
 		war_support_factor = 0.15
 		political_power_gain = 0.15
-		political_advisor_cost_factor = -0.25
+		#political_advisor_cost_factor = -0.25
 		
 		ai_will_do = {
 			factor = 1
@@ -1190,7 +1197,7 @@ leader_traits = {
 		random = no
 		stability_factor = 0.15
 		war_support_factor = -0.1
-		political_advisor_cost_factor = -0.25
+		#political_advisor_cost_factor = -0.25
 		high_command_cost_factor = -0.15
 		air_chief_cost_factor = -0.15
 		army_chief_cost_factor = -0.15
@@ -1216,7 +1223,7 @@ leader_traits = {
 		stability_factor = 0.3
 		war_support_factor = 0.15
 		compliance_gain = 0.25
-		political_advisor_cost_factor = -0.5
+		#political_advisor_cost_factor = -0.5
 		high_command_cost_factor = -0.33
 		air_chief_cost_factor = -0.33
 		army_chief_cost_factor = -0.33
@@ -1249,7 +1256,7 @@ leader_traits = {
 		random = no
 		stability_factor = 0.1
 		political_power_gain = 0.05
-		political_advisor_cost_factor = -0.15
+		#political_advisor_cost_factor = -0.15
 	}
 
 	liberal_democratic_paragon = { #Bayar
@@ -1506,13 +1513,13 @@ leader_traits = {
 		political_power_factor = -0.05
 		stability_factor = -0.1
 		drift_defence_factor = -0.25
-		political_advisor_cost_factor = 0.15
+		#political_advisor_cost_factor = 0.15
 	}
 
 	the_hero_of_the_leipzig_trials = { #Georgi Dimitirov
 		random = no
 		political_power_factor = 0.15
-		political_advisor_cost_factor = -0.1
+		#political_advisor_cost_factor = -0.1
 		#communism_drift = 0.1
 		enemy_justify_war_goal_time = 0.25
 		opinion_gain_monthly_factor = 0.15
@@ -1531,7 +1538,7 @@ leader_traits = {
 		random = no
 		political_power_factor = 0.05
 		stability_factor = 0.1
-		political_advisor_cost_factor = -0.1
+		#political_advisor_cost_factor = -0.1
 	}
 
 	elected_regency_council_pro_axis = { #Regency Council (pro axis)
@@ -1540,7 +1547,7 @@ leader_traits = {
 		random = no
 		political_power_factor = 0.05
 		stability_factor = 0.1
-		political_advisor_cost_factor = -0.1
+		#political_advisor_cost_factor = -0.1
 		#fascism_acceptance = 50
 	}
 

@@ -730,6 +730,7 @@ shared_focus = {
 	y = 5
 	completion_reward = {
 		ITA_Balbo_focus_reload_colony = yes
+		custom_effect_tooltip = SSW_ITA_ITA_focus_industry_colonial_dev_tooltip
 	}
 }
 #労働基準の整備
@@ -2188,6 +2189,60 @@ shared_focus = {
 		}
 	}
 }
+#砂漠戦研究
+shared_focus = {
+	id = ITA_focus_colony_north_africa_dev_Desert_Warfare_Research
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_north_africa_dev_military_education
+	}
+	mutually_exclusive = {
+		focus = ITA_focus_colony_north_africa_dev_Continue_role_of_garrison
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 17
+	y = 16
+	completion_reward = {
+	}
+}
+#守備隊の役割を継続
+shared_focus = {
+	id = ITA_focus_colony_north_africa_dev_Continue_role_of_garrison
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_north_africa_dev_military_education
+	}
+	mutually_exclusive = {
+		focus = ITA_focus_colony_north_africa_dev_Desert_Warfare_Research
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 19
+	y = 16
+	completion_reward = {
+	}
+}
 #インフラ開発
 shared_focus = {
 	id = ITA_focus_colony_north_africa_dev_infra_dev
@@ -2495,6 +2550,59 @@ shared_focus = {
 		}
 	}
 }
+#イタリアの影響力を誇示
+shared_focus = {
+	id = ITA_focus_colony_egypt_dev_Showcasing_Italian_influence
+	icon = GFX_ITA_Italian_Egypt
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_egypt_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 26
+	y = 14
+	completion_reward = {
+	}
+}
+#協力関係の継続
+shared_focus = {
+	id = ITA_focus_colony_egypt_dev_Continued_cooperation
+	icon = GFX_ITA_Italian_Egypt
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_egypt_dev
+	}
+	mutually_exclusive = {
+		focus = ITA_focus_colony_egypt_dev_Showcasing_Italian_influence
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 28
+	y = 14
+	completion_reward = {
+	}
+}
 ###東アフリカルート###
 #東アフリカの開発
 shared_focus = {
@@ -2555,6 +2663,32 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = -1
 	y = 13
+	completion_reward = {
+	}
+}
+#ゴム生産の拡大
+shared_focus = {
+	id = ITA_focus_colony_east_africa_dev_Expand_rubber_production
+	icon = GFX_focus_generic_treaty
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_east_africa_dev_industrial_development
+	}
+	mutually_exclusive = {
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -1
+	y = 14
 	completion_reward = {
 	}
 }
@@ -2690,7 +2824,6 @@ shared_focus = {
         custom_trigger_tooltip = {
 			tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
 		}
-		always = no
     }
     ai_will_do = {
     factor = 5
@@ -2718,6 +2851,7 @@ shared_focus = {
     mutually_exclusive = { 
     }
     available = {
+		always = no
     }
     ai_will_do = {
     factor = 5
@@ -2744,6 +2878,7 @@ shared_focus = {
     mutually_exclusive = { 
     }
     available = {
+		always = no
     }
     ai_will_do = {
     factor = 5
@@ -2774,6 +2909,7 @@ shared_focus = {
         custom_trigger_tooltip = {
 			tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
 		}
+		always = no
     }
     ai_will_do = {
     factor = 5
