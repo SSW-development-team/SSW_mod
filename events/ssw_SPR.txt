@@ -1711,3 +1711,53 @@ country_event = {
 		ai_chance = { base = 100 }
 	}
 }
+country_event = {
+	id = ssw_spr.1013
+	hidden = yes
+	trigger = {
+		always = no
+		any_other_country = {
+			has_war_with = ROOT
+			num_subjects > 0
+			surrender_progress > 0.7
+		}
+	}
+	fire_only_once = no
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		every_other_country = {
+			limit = {
+				has_war_with = ROOT
+				num_subjects > 0
+				surrender_progress > 0.7
+			}
+			country_event = { id = ssw_spr.1014 }
+		}
+	}
+	option = { name = ssw_spr.1013.a }
+}
+country_event = {
+	id = ssw_spr.1014
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		every_other_country = {
+			limit = {
+				has_war = yes
+				is_subject_of = ROOT
+				has_capitulated = no
+			}
+			transfer_units_fraction = {
+				target = OVERLORD
+				size = 1
+			}
+			add_ideas = losing_event_2
+			capital_scope = { FROM = { set_state_controller = PREV } }
+			#every_state = {
+			#	limit = { is_owned_by = PREV }
+			#	FROM = { set_state_controller = PREV }
+			#}
+		}
+	}
+	option = { name = ssw_spr.1014.a }
+}
