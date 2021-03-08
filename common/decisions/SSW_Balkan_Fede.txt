@@ -3,9 +3,13 @@ Balkan_fede_concept = {
         icon = generic_form_nation
         fire_only_once = yes
         ai_will_do = {
-            base = 10
+            factor = 10
         }
         available = {
+            custom_trigger_tooltip = {
+                tooltip = Balkan_fede_ambition
+                has_country_flag = ambition_Balkan_fede
+            }
             AND = {
                 OR = {
                     tag = BUL
@@ -906,8 +910,14 @@ Balkan_fede_concept = {
                 }
             }
         }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = Balkan_fede_ambition
+                has_country_flag = ambition_Balkan_fede
+            }
+        }
         ai_will_do = {
-            base = 5
+            factor = 5
             modifier = {
                 OR = {
                     has_army_manpower < 300000
@@ -951,6 +961,10 @@ Balkan_fede_concept = {
                 tooltip = Balkan_during_nego
                 NOT = {has_country_flag = Balkan_fede_nego}
             }
+            custom_trigger_tooltip = {
+                tooltip = Balkan_fede_ambition
+                has_country_flag = ambition_Balkan_fede
+            }
         }
         target_trigger = {
             FROM = {
@@ -968,8 +982,13 @@ Balkan_fede_concept = {
                 }
             }
         }
-        ai_chance = {
-            base = 5
+        visible = {
+            FROM = {
+                exists = yes
+            }
+        }
+        ai_will_do= {
+            factor = 5
         }
         cost = 100
         icon = generic_political_discourse
@@ -978,6 +997,37 @@ Balkan_fede_concept = {
             set_country_flag = Balkan_fede_nego
             FROM = {
                 country_event = {id = ssw_Balkan.1 days = 14}
+            }
+        }
+    }
+    Balkan_billing = {
+        cost = 150
+        ai_will_do = {
+            factor = 20
+        }
+        icon = eng_trade_unions_demand
+        fire_only_once = yes
+        complete_effect = {
+            custom_effect_tooltip = Balkan_billing_tt
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        OR = {
+                            is_core_of = BUL
+                            is_core_of = SER
+                            is_core_of = CRO
+                            is_core_of = HUN
+                            is_core_of = ROM
+                            is_core_of = GRE
+                            is_core_of = ALB
+                            is_core_of = SLV
+                            state = 797
+                            state = 341
+                        }
+                    }
+                    add_claim_by = ROOT
+                }
+                set_country_flag = ambition_Balkan_fede
             }
         }
     }

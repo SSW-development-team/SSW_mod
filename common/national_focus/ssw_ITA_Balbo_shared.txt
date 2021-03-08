@@ -172,7 +172,7 @@ completion_reward = {
 	ITA = {
 		any_owned_state_in_south_italy = yes
 	}
-	any_owned_state = {
+	every_owned_state = {
 		limit = {
 			is_south_italy_states = yes
 		}
@@ -263,7 +263,7 @@ completion_reward = {
 	ITA = {
 		any_owned_state_in_north_italy = yes
 	}
-	any_owned_state = {
+	every_owned_state = {
 		limit = {
 			is_north_italy_states = yes
 		}
@@ -841,6 +841,16 @@ shared_focus = {
 	x = 18
 	y = 2
 	completion_reward = {
+		add_resource = {
+			type = steel
+			amount = 10
+			state = 158
+		}
+		add_resource = {
+			type = aluminium
+			amount = 10
+			state = 117
+		}
 	}
 }
 #世界に冠たるイタリア軍事産業
@@ -867,6 +877,7 @@ shared_focus = {
 	x = 18
 	y = 3
 	completion_reward = {
+		add_ideas = ITA_idea_73
 	}
 }
 #南北企業の連携
@@ -2830,7 +2841,7 @@ shared_focus = {
 	x = -3
 	y = 15
 	completion_reward = {
-		activate_decision = my_decision
+		activate_decision = ITA_East_Africa_Industrial_development_in_various_regions
 	}
 }
 #各諸地域の軍事的開発
@@ -2858,7 +2869,7 @@ shared_focus = {
 	x = -5
 	y = 15
 	completion_reward = {
-		activate_decision = my_decision
+		activate_decision = ITA_East_Africa_Military_development_in_various_regions
 	}
 }
 #各沿岸地域の開発
@@ -2886,7 +2897,7 @@ shared_focus = {
 	x = -1
 	y = 15
 	completion_reward = {
-		activate_decision = my_decision
+		activate_decision = ITA_East_Africa_Military_development_of_each_coastal_region
 	}
 }
 #政治的支援
@@ -3047,6 +3058,7 @@ shared_focus = {
         custom_trigger_tooltip = {
 			tooltip = ssw_ITA_Balbo_event_focus_tree_top_available
 		}
+		always = no
     }
     ai_will_do = {
     factor = 5
