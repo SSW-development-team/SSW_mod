@@ -16,6 +16,21 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = { ROOT = { num_subjects > 0 } }
+				every_other_country = {
+					limit = { is_subject_of = ROOT }
+					ROOT = { annex_country = { target = PREV transfer_troops = no } }
+				}
+				every_state = {
+					limit = { is_controlled_by = ROOT }
+					FROM = { set_state_controller = PREV }
+				}
+			}
+		}
+	}
 	on_peaceconference_ended = {
 		effect = {
 			if = {
