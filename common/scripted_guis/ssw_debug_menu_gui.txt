@@ -22,6 +22,7 @@ scripted_gui = {
         }
         
         effects = {
+#super_event
             ssw_debug_play_super_event_American_civil_war_button_click = {
                 ROOT = {
                 set_global_flag = big_event_custom_American_civil_war
@@ -40,6 +41,25 @@ scripted_gui = {
                 }
                 log = "[GetDateText]: Debug Menu:Play Superevent German Civil War"
             }
+            ssw_debug_play_super_event_tuva_button_click = {
+                ROOT = {
+			set_global_flag = big_event_custom_tuva
+                }
+                log = "[GetDateText]: Debug Menu:Play Superevent tuva"
+            }
+            ssw_debug_play_super_event_nepal_button_click = {
+                ROOT = {
+			set_country_flag = big_event_custom_nepal
+                }
+                log = "[GetDateText]: Debug Menu:Play Superevent Nepal"
+            }
+            ssw_debug_play_super_event_bhutan_button_click = {
+                ROOT = {
+			set_country_flag = big_event_custom_bhutan
+                }
+                log = "[GetDateText]: Debug Menu:Play Superevent bhutan"
+            }
+#event
             ssw_debug_world_event_Hitler_kill_button = {
                 GER = {
                 news_event = { id = SSW_Hitler.1 }
@@ -50,8 +70,18 @@ scripted_gui = {
                 country_event = { id = Danubian_war.1 }
                 }
             }
-        }
+#country_desc_event
+      	    ssw_country_desc_event_page1_click = {
+			set_variable = {SSW_Opening_Screen = 1}
+            }
+            ssw_country_desc_event_page2_click = {
+			set_variable = {SSW_Opening_Screen = 2}
+            }
+            ssw_country_desc_event_page3_click = {
+			set_variable = {SSW_Opening_Screen = 3}
+            }
 
+        }
         triggers = {
 		}
     }
