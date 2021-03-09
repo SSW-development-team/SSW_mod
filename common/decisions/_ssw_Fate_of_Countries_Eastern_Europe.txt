@@ -1,9 +1,12 @@
 fate_of_countries_category_eastern_europe = {
 	fate_of_russia = { #ÉçÉVÉAÇÃâ^ñΩ
 		icon = generic_operation
-		allowed = { always = yes }
-		available = { always = yes }
-		visible = {
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
 			NOT = {
 				country_exists = RUS
 				country_exists = SOV
@@ -20,12 +23,25 @@ fate_of_countries_category_eastern_europe = {
 				}
 			}
 			249 = { is_fully_controlled_by = ROOT }
-			has_global_flag = russian_war_end
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_russia }
+			}
 		}
-		complete_effect = {
-			country_event = { id = ssw_foc_eastern_europe.0 }
+		cancel_trigger = {
+			OR = {
+				country_exists = RUS
+				country_exists = SOV
+				249 = { NOT = { is_fully_controlled_by = ROOT } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_russia }
+			}
 		}
-		ai_will_do = { factor = 200 }
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.0 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_russia
+		}
+		ai_will_do = { factor = 100 }
 	}
 	fate_of_tuva = { #ÉgÉDÉîÉ@ÇÃâ^ñΩ
 		icon = generic_operation
