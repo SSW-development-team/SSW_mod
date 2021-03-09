@@ -1,0 +1,326 @@
+add_namespace = ssw_Balkan
+country_event = { #FROMがバルカン連邦構想を提示
+    id = ssw_Balkan.1
+    title = ssw_Balkan.1.t
+    desc = ssw_Balkan.1.d
+    is_triggered_only = yes
+    option = { #良い提案だ。同意しよう
+        name = ssw_Balkan.1.a
+        FROM = {
+            country_event = {id = ssw_Balkan.2}
+        }
+        trigger = {
+            OR = {
+                NOT = {has_country_flag = Balkan_fede_agree}
+                NOT = {tag = ITA}
+                NOT = {tag = TUR}
+            }
+        }
+        ai_chance = {
+            base = 10
+            modifier = {
+                is_puppet = yes
+                factor = 0
+            }
+        }
+    }
+    option = { #我が国が主導なら認めないこともない
+        name = ssw_Balkan.1.b
+        FROM = {
+            country_event = {id = ssw_Balkan.3}
+        }
+        trigger = {
+            OR = {
+                NOT = {has_country_flag = Balkan_fede_agree}
+                NOT = {tag = ITA}
+                NOT = {tag = TUR}
+            }
+        }
+        ai_chance = {
+            base = 30
+            modifier = {
+                is_major = yes
+                factor = 2
+            }
+        }
+    }
+    option = { #ROOTは独立していてこそのROOTだ
+        name = ssw_Balkan.1.c
+        FROM = {
+            country_event = {id = ssw_Balkan.4}
+        }
+        trigger = {
+            OR = {
+                NOT = {tag = ITA}
+                NOT = {tag = TUR}
+            }
+        }
+        ai_chance = {
+            base = 60
+            modifier = {
+                strength_ratio = {
+                    tag = FROM
+                    ratio > 1.5
+                }
+                factor = 2
+            }
+        }
+    }
+    option = { #統合まで辿り着ければ譲ってやろう
+        name = ssw_Balkan.1.e
+        FROM = {
+            country_event = {id = ssw_Balkan.5}
+        }
+        trigger = {
+            OR = {
+                tag = ITA
+                tag = TUR
+            }
+        }
+        ai_chance = {
+            base = 10
+            modifier = {
+                tag = TUR
+                factor = 0.5
+            }
+            modifier = {
+                tag = ITA
+                factor = 0.3
+            }
+        }
+    }
+    option = { #馬鹿げたことだ
+        name = ssw_Balkan.1.f
+        FROM = {
+            country_event = {id = ssw_Balkan.4}
+        }
+        trigger = {
+            OR = {
+                tag = ITA
+                tag = TUR
+            }
+        }
+        ai_chance = {
+            base = 70
+            modifier = {
+                has_country_flag = Balkan_fede_agree
+                factor = 0
+            }
+        }
+    }
+}
+
+country_event = { #FROMが提案に同意
+    id = ssw_Balkan.2
+    title = ssw_Balkan.2.t
+    is_triggered_only = yes
+    option = { #素晴らしい！
+        name = ssw_Balkan.2.a
+        clr_country_flag = Balkan_fede_nego
+        if = {
+            limit = {
+                tag = BUL
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 0
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = HUN
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 1
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = SER
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 2
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = CRO
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 3
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = ROM
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 4
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = GRE
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 5
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = ALB
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 6
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                tag = SLV
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 7
+                }
+            }
+        }
+    }
+}
+
+country_event = { #FROMが自らの主導を要求
+    id = ssw_Balkan.3
+    title = ssw_Balkan.3.t
+    desc = ssw_Balkan.3.d
+    is_triggered_only = yes
+    option =  { #奴らはふざけているのか？
+        name = ssw_Balkan.3.a
+        ai_chance = {
+            base = 100
+        }
+        clr_country_flag = Balkan_fede_nego
+    }
+    option = { #連邦を構築できれば我々はそれでよい
+        name = ssw_Balkan.3.b
+        ai_chance = {
+            base = 0
+        }
+        clr_country_flag = Balkan_fede_nego
+        if = {
+            limit = {
+                FROM = {tag = BUL}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 0
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = HUN}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 1
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = SER}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 2
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = CRO}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 3
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = ROM}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 4
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = GRE}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 5
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = ALB}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 6
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {tag = SLV}
+            }
+            set_country_flag = {
+                flag = Balkan_fede_agree
+                value = 7
+            }
+        }
+    }
+}
+
+country_event = { #FROMが提案を拒否
+    id = ssw_Balkan.4
+    title = ssw_Balkan.4.t
+    desc = ssw_Balkan.4.d
+    is_triggered_only = yes
+    option = { #勝手にしろ
+        name = ssw_Balkan.4.a
+        clr_country_flag = Balkan_fede_nego
+    }
+}
+
+country_event = { #FROMが提案に同意
+    id = ssw_Balkan.5
+    title = ssw_Balkan.5.t
+    is_triggered_only = yes
+    option = { #素晴らしい！
+        name = ssw_Balkan.5.a
+        clr_country_flag = Balkan_fede_nego
+        FROM = {
+            set_country_flag = Balkan_fede_agree
+        }
+    }
+}

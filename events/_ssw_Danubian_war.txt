@@ -6,7 +6,6 @@ country_event = { #先祖伝来の地
 	desc = Danubian_war.1.d
 	picture = GFX_Ancestral_land
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #利害は一致する、セルビアと協力しよう
 		name = Danubian_war.1.a
 		ai_chance = { base = 99 }
@@ -29,7 +28,6 @@ country_event = { #ニシュ会談
 	desc = Danubian_war.2.d
 	picture = GFX_Nisch_talks
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #ルーマニアと協力しよう
 		name = Danubian_war.2.a
 		ai_chance = { base = 99 }
@@ -62,7 +60,6 @@ country_event = { #ルーマニアとセルビアが国境付近で軍事演習
 	desc = Danubian_war.3.d
 	picture = GFX_Romanian_troops_cross_the_border
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #小さなねずみの集まりだ
 		name = Danubian_war.3.a
 		ai_chance = { base = 1 }
@@ -83,7 +80,6 @@ country_event = { #バルカン新秩序がハンガリーへ侵攻
 	desc = Danubian_war.4.d
 	picture = GFX_Troops_invade_Hungarian_territory
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.4.a
 		ai_chance = { base = 1 }
@@ -124,7 +120,6 @@ country_event = { #ハンガリーが支援を要求
 	desc = Danubian_war.5.d
 	picture = GFX_Hungary_asks_for_help
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #野望を実現するための好機だ
 		name = Danubian_war.5.a
 		ai_chance = { base = 99 }
@@ -156,7 +151,6 @@ country_event = { #小枢軸の形成
 	desc = Danubian_war.6.d
 	picture = GFX_Little_Axis
 	is_triggered_only = yes
-	fire_only_once = yes
 	immediate = {
 		hidden_effect = {
 			news_event = {
@@ -184,7 +178,6 @@ news_event = { #ドナウ戦争
 	picture = GFX_news_DanubeWar
 	major = yes
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #バルカンの火薬庫か？
 		name = Danubian_war.7.a
 		ai_chance = { base = 1 }
@@ -199,6 +192,7 @@ country_event = { #セルビアが降伏
 	trigger = {
 		has_global_flag = Danubian_war
 		SER = { has_capitulated = yes }
+		NOT = { has_global_flag = danubian_war_end }
 		OR = {
 			original_tag = ROM
 			AND = {
@@ -237,6 +231,7 @@ country_event = { #ルーマニアが降伏
 	trigger = {
 		has_global_flag = Danubian_war
 		ROM = { has_capitulated = yes }
+		NOT = { has_global_flag = danubian_war_end }
 		OR = {
 			original_tag = SER
 			original_tag = BUL
@@ -276,6 +271,7 @@ country_event = { #
 	picture = GFX_End_of_Danube_War
 	trigger = {
 		has_global_flag = Danubian_war
+		NOT = { has_global_flag = danubian_war_end }
 		original_tag = HUN
 		OR = {
 			NOT = { country_exists = ROM }
@@ -312,7 +308,6 @@ country_event = { #
 	desc = Danubian_war.11.d
 	picture = GFX_Danubian_post_war_reign
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.11.a
 		ai_chance = { base = 1 }
@@ -339,7 +334,6 @@ country_event = { #
 	desc = Danubian_war.12.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.12.a
 		ai_chance = { base = 1 }
@@ -363,7 +357,6 @@ country_event = { #
 	desc = Danubian_war.13.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.13.a
 		ai_chance = { base = 1 }
@@ -383,7 +376,6 @@ country_event = { #
 	desc = Danubian_war.14.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.14.a
 		ai_chance = { base = 1 }
@@ -406,6 +398,8 @@ country_event = { #
 		BUL = {
 			transfer_state = 973
 			transfer_state = 975
+			add_state_claim = 973
+			add_state_claim = 975
 		}
 		SER = {
 			transfer_state = 802
@@ -418,11 +412,51 @@ country_event = { #
 			transfer_state = 976
 			transfer_state = 972
 			transfer_state = 977
+			add_state_claim = 977
 		}
 		HUN = {
 			transfer_state = 83
 			transfer_state = 82
 			transfer_state = 84
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = BUL
+					original_tag = CRO
+					original_tag = HUN
+				}
+				is_faction_leader = yes
+			}
+			dismantle_faction = yes
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = BUL
+					original_tag = CRO
+					original_tag = HUN
+				}
+				ROM = { is_subject_of = PREV }
+			}
+			set_autonomy = {
+				target = ROM
+				autonomy_state = autonomy_free
+			}
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = BUL
+					original_tag = CRO
+					original_tag = HUN
+				}
+				SER = { is_subject_of = PREV }
+			}
+			set_autonomy = {
+				target = SER
+				autonomy_state = autonomy_free
+			}
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
@@ -438,7 +472,6 @@ news_event = { #
 	#picture = 
 	major = yes
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.15.a
 		ai_chance = { base = 1 }
@@ -481,7 +514,6 @@ country_event = { #
 	desc = Danubian_war.16.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.16.a
 		ai_chance = { base = 99 }
@@ -506,7 +538,6 @@ news_event = { #
 	desc = Danubian_war.17.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.17.a
 		ai_chance = { base = 1 }
@@ -514,7 +545,7 @@ news_event = { #
 			NOT = {
 				tag = CRO
 				tag = HUN
-				tag = BLU
+				tag = BUL
 				tag = SER
 				tag = ROM
 			}
@@ -527,7 +558,7 @@ news_event = { #
 			OR = {
 				tag = CRO
 				tag = HUN
-				tag = BLU
+				tag = BUL
 			}
 		}
 	}
@@ -549,7 +580,6 @@ country_event = { #
 	desc = Danubian_war.18.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.18.a
 		ai_chance = { base = 1 }
@@ -562,7 +592,6 @@ country_event = { #
 	desc = Danubian_war.19.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.19.a
 		ai_chance = { base = 1 }
@@ -600,7 +629,6 @@ news_event = { #
 	desc = Danubian_war.20.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.20.a
 		ai_chance = { base = 1 }
@@ -614,6 +642,7 @@ country_event = { #ブルガリアが降伏
 	trigger = {
 		has_global_flag = Danubian_war
 		BUL = { has_capitulated = yes }
+		NOT = { has_global_flag = danubian_war_end }
 		OR = {
 			original_tag = CRO
 			original_tag = HUN
@@ -658,6 +687,7 @@ country_event = { #クロアチアが降伏
 	trigger = {
 		has_global_flag = Danubian_war
 		CRO = { has_capitulated = yes }
+		NOT = { has_global_flag = danubian_war_end }
 		OR = {
 			original_tag = BUL
 			original_tag = HUN
@@ -702,6 +732,7 @@ country_event = { #ハンガリーが降伏
 	trigger = {
 		has_global_flag = Danubian_war
 		HUN = { has_capitulated = yes }
+		NOT = { has_global_flag = danubian_war_end }
 		OR = {
 			original_tag = BUL
 			original_tag = CRO
@@ -752,6 +783,7 @@ country_event = { #
 	picture = GFX_End_of_Danube_War
 	trigger = {
 		has_global_flag = Danubian_war
+		NOT = { has_global_flag = danubian_war_end }
 		original_tag = ROM
 		OR = {
 			NOT = { country_exists = BUL }
@@ -798,7 +830,6 @@ country_event = { #
 	desc = Danubian_war.25.desc
 	picture = GFX_Danubian_post_war_reign
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.25.a
 		ai_chance = { base = 1 }
@@ -825,7 +856,6 @@ country_event = { #
 	desc = Danubian_war.26.desc
 	picture = GFX_Danubian_post_war_reign
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.26.a
 		ai_chance = { base = 1 }
@@ -852,7 +882,6 @@ news_event = { #
 	desc = Danubian_war.27.desc
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.27.a
 		ai_chance = { base = 1 }
@@ -895,7 +924,6 @@ country_event = { #
 	desc = Danubian_war.28.desc
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.28.a
 		ai_chance = { base = 1 }
@@ -908,6 +936,42 @@ country_event = { #
 			transfer_state = 43
 			transfer_state = 155
 			transfer_state = 1138
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = ROM
+					original_tag = SER
+				}
+				BUL = { is_subject_of = PREV }
+			}
+			set_autonomy = {
+				target = BUL
+				autonomy_state = autonomy_free
+			}
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = ROM
+					original_tag = SER
+				}
+				HUN = { is_subject_of = PREV }
+			}
+			set_autonomy = {
+				target = HUN
+				autonomy_state = autonomy_free
+			}
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = SER
+					original_tag = ROM
+				}
+				is_faction_leader = yes
+			}
+			dismantle_faction = yes
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
@@ -943,6 +1007,7 @@ country_event = { #
 				transfer_state = 803
 				transfer_state = 804
 				transfer_state = 940
+				annex_country = { target = CRO transfer_troops = yes }
 			}
 		}
 	}
@@ -1003,7 +1068,7 @@ country_event = { #ハンガリーが降伏直前に…
 					original_tag = ROM
 					original_tag = SER
 				}
-				controls_state = 43
+				is_faction_leader = yes
 			}
 			set_autonomy = {
 				target = HUN
@@ -1028,16 +1093,17 @@ news_event = { #セルビアが降伏(トリガー)
 	desc = Danubian_war.8.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #前進せよ
 		name = Danubian_war.8.a
 		ai_chance = { base = 1 }
 		trigger = { NOT = { original_tag = ROM } }
+		set_global_flag = SER_Surrenders_Donauwar
 	}
 	option = { #なんてことだ
 		name = Danubian_war.8.b
 		ai_chance = { base = 1 }
 		trigger = { original_tag = ROM }
+		set_global_flag = SER_Surrenders_Donauwar
 	}
 }
 news_event = { #ルーマニアが降伏(トリガー)
@@ -1047,16 +1113,17 @@ news_event = { #ルーマニアが降伏(トリガー)
 	desc = Danubian_war.9.d
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #
 		name = Danubian_war.9.a
 		ai_chance = { base = 1 }
 		trigger = { NOT = { original_tag = SER } }
+		set_global_flag = ROM_Surrenders_Donauwar
 	}
 	option = { #
 		name = Danubian_war.9.b
 		ai_chance = { base = 1 }
 		trigger = { original_tag = SER }
+		set_global_flag = ROM_Surrenders_Donauwar
 	}
 }
 news_event = { #ブルガリアが降伏(トリガー)
@@ -1065,7 +1132,6 @@ news_event = { #ブルガリアが降伏(トリガー)
 	desc = Danubian_war.21.desc
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #前進せよ
 		name = Danubian_war.21.a
 		ai_chance = { base = 1 }
@@ -1075,6 +1141,7 @@ news_event = { #ブルガリアが降伏(トリガー)
 				original_tag = HUN
 			}
 		}
+		set_global_flag = BUL_Surrenders_Donauwar
 	}
 	option = { #なんてことだ
 		name = Danubian_war.21.b
@@ -1085,6 +1152,7 @@ news_event = { #ブルガリアが降伏(トリガー)
 				original_tag = HUN
 			}
 		}
+		set_global_flag = BUL_Surrenders_Donauwar
 	}
 }
 news_event = { #クロアチアが降伏(トリガー)
@@ -1093,7 +1161,6 @@ news_event = { #クロアチアが降伏(トリガー)
 	desc = Danubian_war.22.desc
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #前進せよ
 		name = Danubian_war.22.a
 		ai_chance = { base = 1 }
@@ -1103,6 +1170,7 @@ news_event = { #クロアチアが降伏(トリガー)
 				original_tag = HUN
 			}
 		}
+		set_global_flag = CRO_Surrenders_Donauwar
 	}
 	option = { #なんてことだ
 		name = Danubian_war.22.b
@@ -1113,6 +1181,7 @@ news_event = { #クロアチアが降伏(トリガー)
 				original_tag = HUN
 			}
 		}
+		set_global_flag = CRO_Surrenders_Donauwar
 	}
 }
 news_event = { #ハンガリーが降伏(トリガー)
@@ -1121,7 +1190,6 @@ news_event = { #ハンガリーが降伏(トリガー)
 	desc = Danubian_war.23.desc
 	#picture = 
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = { #前進せよ
 		name = Danubian_war.23.a
 		ai_chance = { base = 1 }
@@ -1131,6 +1199,7 @@ news_event = { #ハンガリーが降伏(トリガー)
 				original_tag = CRO
 			}
 		}
+		set_global_flag = HUN_Surrenders_Donauwar
 	}
 	option = { #なんてことだ
 		name = Danubian_war.23.b
@@ -1141,6 +1210,7 @@ news_event = { #ハンガリーが降伏(トリガー)
 				original_tag = CRO
 			}
 		}
+		set_global_flag = HUN_Surrenders_Donauwar
 	}
 }
 country_event = { #クロアチアが降伏直前に…
@@ -1199,7 +1269,7 @@ country_event = { #クロアチアが降伏直前に…
 					original_tag = ROM
 					original_tag = SER
 				}
-				controls_state = 109
+				is_faction_leader = yes
 			}
 			set_autonomy = {
 				target = CRO
@@ -1273,7 +1343,7 @@ country_event = { #ブルガリアが降伏直前に…
 					original_tag = ROM
 					original_tag = SER
 				}
-				controls_state = 48
+				is_faction_leader = yes
 			}
 			set_autonomy = {
 				target = BUL
@@ -1332,7 +1402,7 @@ country_event = { #ルーマニアが降伏直前に…
 					original_tag = CRO
 					original_tag = HUN
 				}
-				controls_state = 46
+				is_faction_leader = yes
 			}
 			set_autonomy = {
 				target = ROM
@@ -1345,7 +1415,7 @@ country_event = { #ルーマニアが降伏直前に…
 		name = Danubian_war.29.b
 		ai_chance = { base = 20 }
 		start_civil_war = {
-			ideology = authority_despotism
+			ideology = authority_democracy
 			size = 0.2
 		}
 	}
@@ -1391,7 +1461,7 @@ country_event = { #セルビアが降伏直前に…
 					original_tag = CRO
 					original_tag = HUN
 				}
-				controls_state = 107
+				is_faction_leader = yes
 			}
 			set_autonomy = {
 				target = SER

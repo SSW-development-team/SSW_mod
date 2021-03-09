@@ -796,9 +796,11 @@ country_event = { #–kƒ|[ƒ‰ƒ“ƒh‚Ì‰^–½
 		name = ssw_foc_events.3.d
 		trigger = {
 			OR = {
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = TUV_russia
 			}
 		}
 		ai_chance = { base = 10 }
@@ -816,7 +818,7 @@ country_event = { #–kƒ|[ƒ‰ƒ“ƒh‚Ì‰^–½
 					is_claimed_by = ROOT
 				}
 			}
-			add_core_of = ROOT
+			add_claim_by = ROOT
 		}
 	}
 	option = {
@@ -850,16 +852,24 @@ country_event = { #–kƒ|[ƒ‰ƒ“ƒh‚Ì‰^–½
 	option = {
 		name = ssw_foc_events.3.f
 		trigger = {
-			NOT = { has_cosmetic_tag = RUS_empire }
+			NOT = {
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = RUS_empire
+				has_cosmetic_tag = SIB_russia
+				has_cosmetic_tag = TUV_russia
+			}
 			any_other_country = {
 				OR = {
 					is_in_faction_with = ROOT
 					is_subject_of = ROOT
 				}
 				OR = {
+					has_cosmetic_tag = AMR_russia
+					has_cosmetic_tag = MOS_russia
 					has_cosmetic_tag = RUS_empire
 					has_cosmetic_tag = SIB_russia
-					has_cosmetic_tag = MOS_russia
+					has_cosmetic_tag = TUV_russia
 				}
 			}
 		}
@@ -871,9 +881,11 @@ country_event = { #–kƒ|[ƒ‰ƒ“ƒh‚Ì‰^–½
 					is_subject_of = ROOT
 				}
 				OR = {
+					has_cosmetic_tag = AMR_russia
+					has_cosmetic_tag = MOS_russia
 					has_cosmetic_tag = RUS_empire
 					has_cosmetic_tag = SIB_russia
-					has_cosmetic_tag = MOS_russia
+					has_cosmetic_tag = TUV_russia
 				}
 			}
 			every_state = {
@@ -891,7 +903,7 @@ country_event = { #–kƒ|[ƒ‰ƒ“ƒh‚Ì‰^–½
 					}
 				}
 				PREV.PREV = { transfer_state = PREV }
-				add_core_of = PREV.PREV
+				add_claim_by = PREV.PREV
 			}
 		}
 	}
