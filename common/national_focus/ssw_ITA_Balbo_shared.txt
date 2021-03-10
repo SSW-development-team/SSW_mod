@@ -156,6 +156,9 @@ prerequisite = {
 	 focus = ITA_focus_industry_Equitable_industry
 	 }
 available = {
+	ITA = {
+		any_owned_state_in_south_italy = yes
+	}
 }
 ai_will_do = {
 	factor = 5
@@ -247,6 +250,9 @@ prerequisite = {
 	 focus = ITA_focus_industry_Equitable_industry
 	 }
 available = {
+	ITA = {
+		any_owned_state_in_north_italy = yes
+	}
 }
 ai_will_do = {
 	factor = 5
@@ -828,6 +834,12 @@ shared_focus = {
 	mutually_exclusive = {
 		 }
 	available = {
+		158 = {
+			is_owned_by = ITA
+		}
+		117 = {
+			is_owned_by = ITA
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -958,6 +970,9 @@ prerequisite = {
 mutually_exclusive = {
 	 }
 available = {
+	any_state = {
+		is_owned_by = ITA
+	}
 }
 ai_will_do = {
 	factor = 5
@@ -1140,6 +1155,55 @@ shared_focus = {
 		add_research_slot = 1
 	}
 }
+#民間企業への大規模支援
+shared_focus = {
+	id = ITA_focus_industry_Largescale_support_for_civilian_sector
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 9.00
+	prerequisite = {
+		 focus = ITA_focus_industry_Founding_of_the_Royal_Italian_Free_University
+		}
+	mutually_exclusive = {
+	}
+	available = {
+		ITA = {
+			any_owned_state_in_italy = yes
+		}
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 1
+	y = 6
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+				is_italy_states = yes
+			}
+			add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+			add_building_construction = {
+				type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+		}
+		add_timed_idea = {
+			idea = ITA_idea_77
+			days = 200
+		}
+	}
+}
 #統一国民大会の実施
 shared_focus = {
 	id = ITA_focus_industry_Implementation_of_a_unified_national_convention
@@ -1170,6 +1234,39 @@ shared_focus = {
 		swap_ideas ={
 			remove_idea = ITA_idea_19
 			add_idea = ITA_idea_36
+		}
+	}
+}
+#復興の完遂
+shared_focus = {
+	id = ITA_focus_industry_Completing_Recovery
+	icon = GFX_focus_spr_torchbearers_of_tomorrow
+	cost = 7.00
+	prerequisite = {
+		 focus = ITA_focus_industry_Implementation_of_a_unified_national_convention
+		}
+		prerequisite = {
+			focus = ITA_focus_industry_Largescale_support_for_civilian_sector
+		   }
+	mutually_exclusive = {
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	  cancel_if_invalid = yes
+	  continue_if_invalid = no
+	  available_if_capitulated = no
+	  search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 0
+	y = 7
+	completion_reward = {
+		swap_ideas ={
+			remove_idea = ITA_idea_19
+			add_idea = ITA_idea_78
 		}
 	}
 }
@@ -1261,6 +1358,71 @@ shared_focus = {
 	x = 27
 	y = 2
 	completion_reward = {
+	}
+}
+#レーダー網の整備
+shared_focus = {
+	id = ITA_focus_balbo_Development_radar_network
+	icon = GFX_ITA_Italian_Airforce
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_absolute_air_superiority
+		focus = ITA_focus_balbo_Appropriate_operations_organization_and_missions
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 28
+	y = 3
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 2
+			category = radar_tech 
+		}
+		add_ideas = ITA_idea_75
+	}
+}
+#国産機開発への注力
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_development_of_domestically_produced_machines
+	icon = GFX_ITA_Italian_Airforce
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Development_radar_network
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 28
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = air_equipment 
+		}
+		add_ideas = ITA_idea_76
 	}
 }
 #作戦・編成・任務の適切化
@@ -2177,7 +2339,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
-		IT2 = { is_subject_of = ITA }
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2208,6 +2375,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2236,6 +2409,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2266,6 +2445,12 @@ shared_focus = {
 		focus = ITA_focus_colony_north_africa_dev_Continue_role_of_garrison
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2293,6 +2478,12 @@ shared_focus = {
 		focus = ITA_focus_colony_north_africa_dev_Desert_Warfare_Research
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2319,6 +2510,15 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			any_owned_state_in_Libya = yes
+		}
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2332,126 +2532,17 @@ shared_focus = {
 	x = 17
 	y = 14
 	completion_reward = {
-	448 ={
-		if = {
+		every_owned_state = {
 			limit = {
-				free_building_slots = {
-					building = infrastructure
-					size > 0
-					include_locked = yes
-				}
+				is_Libya_states = yes
 			}
-			add_extra_state_shared_building_slots = 3
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 				type = infrastructure
-				level = 3
-				instant_build = yes
+				level = 2
+                instant_build = yes
 			}
 		}
-	}
-	661 ={
-		if = {
-			limit = {
-				free_building_slots = {
-					building = infrastructure
-					size > 0
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = infrastructure
-				level = 3
-				instant_build = yes
-			}
-		}
-	}
-	662 ={
-		if = {
-			
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
-	}
-	449 ={
-		if = {
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
-	}
-	663 ={
-		if = {
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
-	}
-	450 ={
-		if = {
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
-	}
-	451 ={
-		if = {
-limit = {
-free_building_slots = {
-building = infrastructure
-size > 0
-include_locked = yes
-}
-}
-add_extra_state_shared_building_slots = 3
-add_building_construction = {
-type = infrastructure
-level = 3
-instant_build = yes
-}
-}
-}
 	}
 }
 #経済基盤の確立
@@ -2465,6 +2556,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2492,6 +2589,108 @@ shared_focus = {
 		}
 	}
 }
+#工業的開発
+shared_focus = {
+	id = ITA_focus_colony_north_africa_dev_industrial_development
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_north_africa_dev_infra_dev
+		focus = ITA_focus_colony_north_africa_dev_Establishing_an_economic_foundation
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT2 = {
+			any_owned_state_in_Libya = yes
+		}
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 16
+	y = 15
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+				is_Libya_states = yes
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+                instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = industry
+		}
+	}
+}
+#軍事産業的開発
+shared_focus = {
+	id = ITA_focus_colony_north_africa_dev_Military_Industrial_development
+	icon = GFX_focus_generic_treaty
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_colony_north_africa_dev_infra_dev
+		focus = ITA_focus_colony_north_africa_dev_Establishing_an_economic_foundation
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT2 = {
+			any_owned_state_in_Libya = yes
+		}
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 14
+	y = 15
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+				is_Libya_states = yes
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+                instant_build = yes
+			}
+		}
+		IT2 = {
+			add_ideas = ITA_idea_74
+		}
+	}
+}
 #政治的影響力の誇示
 shared_focus = {
 	id = ITA_focus_colony_north_africa_dev_Show_of_political_influence
@@ -2503,6 +2702,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2533,6 +2738,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2565,6 +2776,12 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
+		IT2 = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+			}
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2981,6 +3198,36 @@ shared_focus = {
 		add_ideas = ITA_idea_33
 		IT4 = {
 			add_ideas = ITA_idea_33
+		}
+	}
+}
+#産業顧問団の派遣
+shared_focus = {
+	id = ITA_focus_colony_albania_dev_Dispatch_of_Industrial_Advisers
+	icon = GFX_ITA_Italian_Albania
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_colony_albania_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT4 = { is_subject_of = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -10
+	y = 14
+	completion_reward = {
+		IT4 = {
+			add_ideas = ITA_idea_79
 		}
 	}
 }
