@@ -356,6 +356,7 @@ shared_focus = { #モータリゼーションの試み
     x = 41
     y = 6
     completion_reward = {
+        custom_effect_tooltip = CHI_attempt_motorization_tt
     }
 }
 shared_focus = { #識字率の向上
@@ -762,15 +763,17 @@ shared_focus = { #栄華を誇る東洋のパリ
                 has_full_control_of_state = 814
             }
             add_extra_state_shared_building_slots = 10
-            add_building_construction = {
-                type = industrial_complex
-                level = 5
-                instant_build = yes
-            }
-            add_building_construction = {
-                type = dockyard
-                level = 3
-                instant_build = yes
+            814 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 5
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = dockyard
+                    level = 3
+                    instant_build = yes
+                }
             }
         }
     }
@@ -1202,6 +1205,9 @@ shared_focus = { #中国軍の改革
     x = 61
     y = 0
     completion_reward = {
+        army_experience = 50
+        navy_experience = 10
+        air_experience = 10
     }
 }
 shared_focus = { #中国連邦軍
@@ -1229,6 +1235,61 @@ shared_focus = { #中国連邦軍
     x = 57
     y = 1
     completion_reward = {
+        add_dynamic_modifier = {
+            modifier = ssw_CHI_fede_army_dynamic_modifier
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_adf
+            value = 0.05
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_scf
+            value = -0.1
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_amf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_mccf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_aiaf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_aidf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_agcf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_acaf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_acdf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_tpr
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_cf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_osf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_f_a_d_m_aof
+            value = 0
+        }
     }
 }
 shared_focus = { #中華航空部隊
@@ -1250,6 +1311,15 @@ shared_focus = { #中華航空部隊
     x = 56
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_chinese_air_force_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_aiaf
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_f_a_d_m_aidf
+            value = 0.05
+        }
     }
 }
 shared_focus = { #新生連邦陸軍
@@ -1271,6 +1341,11 @@ shared_focus = { #新生連邦陸軍
     x = 58
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_new_federal_army_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_amf
+            value = 0.1
+        }
     }
 }
 shared_focus = { #航空基地の拡大
@@ -1292,6 +1367,42 @@ shared_focus = { #航空基地の拡大
     x = 56
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 608
+            }
+            608 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 5
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 592
+            }
+            592 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 607
+            }
+            607 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #保定陸軍軍官学校
@@ -1313,6 +1424,11 @@ shared_focus = { #保定陸軍軍官学校
     x = 58
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_baod_military_academy_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_mccf
+            value = -0.25
+        }
     }
 }
 shared_focus = { #空軍将校の育成
@@ -1334,6 +1450,11 @@ shared_focus = { #空軍将校の育成
     x = 56
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_air_force_officer_training_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_agcf
+            value = 0.15
+        }
     }
 }
 shared_focus = { #連邦民兵隊
@@ -1355,6 +1476,7 @@ shared_focus = { #連邦民兵隊
     x = 58
     y = 4
     completion_reward = {
+        army_experience = 30
     }
 }
 shared_focus = { #海上空襲構想
@@ -1376,6 +1498,17 @@ shared_focus = { #海上空襲構想
     x = 55
     y = 5
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 1
+            uses = 1
+            technology = naval_CAS_1936
+            technology = naval_CAS_1940
+            technology = jet_naval_CAS_1948
+            technology = jet_naval_CAS_1952
+            technology = jet_naval_CAS_1956
+            technology = jet_naval_CAS_1960
+            technology = jet_naval_CAS_1964
+        }
     }
 }
 shared_focus = { #郷土を守る意思
@@ -1400,6 +1533,19 @@ shared_focus = { #郷土を守る意思
     x = 57
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_will_defend_homeland_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_acaf
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_f_a_d_m_acdf
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_f_a_d_m_tpr
+            value = 0.1
+        }
     }
 }
 shared_focus = { #民兵組織の拡大
@@ -1421,6 +1567,11 @@ shared_focus = { #民兵組織の拡大
     x = 59
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_expansion_militia_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_cf
+            value = 0.15
+        }
     }
 }
 shared_focus = { #独立型司令部
@@ -1447,6 +1598,21 @@ shared_focus = { #独立型司令部
     }
     x = 57
     y = 6
+    completion_reward = {
+        custom_effect_tooltip = CHI_independent_command_tt
+        add_to_variable = {
+            var = CHI_f_a_d_m_osf
+            value = -0.15
+        }
+        add_to_variable = {
+            var = CHI_f_a_d_m_aof
+            value = 0.15
+        }
+        add_to_variable = {
+            var = CHI_f_a_d_m_tpr
+            value = 0.1
+        }
+    }
 }
 shared_focus = { #国民革命軍
     id = CHI_natio_revo_army
@@ -1473,6 +1639,57 @@ shared_focus = { #国民革命軍
     x = 65
     y = 1
     completion_reward = {
+        add_dynamic_modifier = {
+            modifier = ssw_CHI_natio_revo_army_dynamic_modifier
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_cpgm
+            value = 0.02
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_tta
+            value = -0.1
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_mp
+            value = 0.15
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_aor
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_aaf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_am
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_nrs
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_nd
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_sfm
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_lna
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_adf
+            value = 0
+        }
+        set_variable = {
+            var = CHI_n_r_a_d_m_scf
+            value = 0
+        }
     }
 }
 shared_focus = { #南洋艦隊
@@ -1494,6 +1711,16 @@ shared_focus = { #南洋艦隊
     x = 64
     y = 2
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 1
+            category = dd_tech
+        }
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 1
+            category = ss_tech
+        }
     }
 }
 shared_focus = { #革命教育
@@ -1515,6 +1742,12 @@ shared_focus = { #革命教育
     x = 66
     y = 2
     completion_reward = {
+        add_war_support = 0.15
+        custom_effect_tooltip = CHI_revolutionary_edu_tt
+        add_to_variable = {
+            var = army_org_regain
+            value = 0.07
+        }
     }
 }
 shared_focus = { #上海海軍工廠
@@ -1536,6 +1769,25 @@ shared_focus = { #上海海軍工廠
     x = 64
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            814 = {
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = dockyard
+                    level = 3
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = naval_base
+                    level = 3
+                    instant_build = yes
+                    province = 12052
+                }
+            }
+        }
     }
 }
 shared_focus = { #戦車への興味
@@ -1557,6 +1809,11 @@ shared_focus = { #戦車への興味
     x = 66
     y = 3
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 2
+            category = armor
+        }
     }
 }
 shared_focus = { #提督の育成
@@ -1578,6 +1835,15 @@ shared_focus = { #提督の育成
     x = 64
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_training_admiral_tt
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_nrs
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_nd
+            value = 0.1
+        }
     }
 }
 shared_focus = { #集団訓練
@@ -1599,6 +1865,19 @@ shared_focus = { #集団訓練
     x = 66
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_group_training_tt
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_aaf
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_am
+            value = 0.05
+        }
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_tta
+            value = -0.05
+        }
     }
 }
 shared_focus = { #海軍陸戦隊を組織
@@ -1620,6 +1899,16 @@ shared_focus = { #海軍陸戦隊を組織
     x = 63
     y = 5
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 1
+            uses = 1
+            category = marine_tech
+        }
+        custom_effect_tooltip = CHI_org_naval_land_force_tt
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_sfm
+            value = 15
+        }
     }
 }
 shared_focus = { #夜襲
@@ -1644,6 +1933,11 @@ shared_focus = { #夜襲
     x = 65
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_night_raid_tt
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_lna
+            value = 0.2
+        }
     }
 }
 shared_focus = { #航空産業の拡大
@@ -1665,6 +1959,30 @@ shared_focus = { #航空産業の拡大
     x = 67
     y = 5
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 597
+            }
+            597 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 613
+            }
+            613 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 3
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #統一の軍隊
@@ -1691,6 +2009,21 @@ shared_focus = { #統一の軍隊
     }
     x = 65
     y = 6
+    completion_reward = {
+        custom_effect_tooltip = CHI_army_unity_tt
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_aaf
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_adf
+            value = 0.1
+        }
+        add_to_variable = {
+            var = CHI_n_r_a_d_m_scf
+            value = -0.05
+        }
+    }
 }
 shared_focus = { #ドイツ人顧問を再招待
     id = CHI_GER_adviser_invite_back
@@ -1698,6 +2031,17 @@ shared_focus = { #ドイツ人顧問を再招待
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        NOT = {
+            OR = {
+                country_exists = GER
+                country_exists = LTV
+                country_exists = MBR
+                country_exists = HGR
+                country_exists = HLH
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1711,6 +2055,78 @@ shared_focus = { #ドイツ人顧問を再招待
     x = 61
     y = 2
     completion_reward = {
+        if = {
+            limit = {
+                NOT = {has_global_flag = GER_civil_war}
+                NOT = {has_global_flag = GER_civil_war_end}
+                country_exists = GER
+            }
+            GER = {
+                country_event = {id = ssw_chi.11}
+            }
+        }
+        else_if = {
+            limit = {
+                OR = {
+                    has_global_flag = GER_civil_war
+                    has_global_flag = GER_civil_war_end
+                }
+            }
+            if = {
+                limit = {
+                    OR = {
+                        NOT = {has_global_flag = end_nazism}
+                        country_exists = GER
+                    }
+                }
+                GER = {
+                    country_event = {id = ssw_chi.11 days = 2}
+                }
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        NOT = {has_global_flag = end_vorbeck }
+                        country_exists = LTV
+                    }
+                }
+                LTV = {
+                    country_event = {id = ssw_chi.11 days = 2}
+                }
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        country_exists = MBR
+                    }
+                }
+                MBR = {
+                    country_event = {id = ssw_chi.11 days = 2}
+                }
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        NOT = {has_global_flag = end_goring }
+                        country_exists = HGR
+                    }
+                }
+                HGR = {
+                    country_event = {id = ssw_chi.11 days = 2}
+                }
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        NOT = {has_global_flag = end_himmler}
+                        country_exists = HLH
+                    }
+                }
+                HLH = {
+                    country_event = {id = ssw_chi.11 days = 2}
+                }
+            }
+        }
     }
 }
 shared_focus = { #上海の要塞化
@@ -1732,6 +2148,25 @@ shared_focus = { #上海の要塞化
     x = 60
     y = 3
     completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            814 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 5
+                    instant_build = yes
+                    province = 7014
+                }
+                add_building_construction = {
+                    type = coastal_bunker
+                    level = 4
+                    instant_build = yes
+                    province = 7014
+                }
+            }
+        }
     }
 }
 shared_focus = { #中華ジークフリート線
@@ -1752,6 +2187,65 @@ shared_focus = { #中華ジークフリート線
     }
     x = 62
     y = 3
+    completion_reward = {
+        if = {
+            limit = {
+                has_full_control_of_state = 608
+            }
+            608 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 1014
+            }
+            1014 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 621
+            }
+            621 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    instant_build = yes
+                    province = 12403
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    instant_build = yes
+                    province = 7048
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    instant_build = yes
+                    province = 12331
+                }
+            }
+        }
+    }
 }
 shared_focus = { #陸軍委員会
     id = CHI_army_commission
@@ -1772,6 +2266,7 @@ shared_focus = { #陸軍委員会
     x = 61
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_army_commission_tt
     }
 }
 shared_focus = { #50師団計画
@@ -1793,6 +2288,7 @@ shared_focus = { #50師団計画
     x = 61
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_fifty_division_plan_tt
     }
 }
 shared_focus = { #調査統計局
@@ -1814,6 +2310,7 @@ shared_focus = { #調査統計局
     x = 60
     y = 6
     completion_reward = {
+        add_ideas = CHI_survey_and_statistic_bureau
     }
 }
 shared_focus = { #黄埔軍官学校
@@ -1835,6 +2332,11 @@ shared_focus = { #黄埔軍官学校
     x = 62
     y = 6
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 2
+            category = land_doctrine
+        }
     }
 }
 shared_focus = { #我有一把槍
@@ -1859,6 +2361,7 @@ shared_focus = { #我有一把槍
     x = 61
     y = 7
     completion_reward = {
+        add_ideas = CHI_with_gun_in_hand
     }
 }
 

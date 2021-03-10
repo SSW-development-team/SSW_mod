@@ -721,7 +721,7 @@ shared_focus = { #国民党勢力を保護
     completion_reward = {
         if = {
             limit = {
-                NOT = {modifier = has_dynamic_modifier}
+                NOT = {has_dynamic_modifier = {modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier}}
             }
             add_dynamic_modifier = {
                 modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier
@@ -755,7 +755,7 @@ shared_focus = { #適度な地方分権
     completion_reward = {
         if = {
             limit = {
-                NOT = {modifier = has_dynamic_modifier}
+                NOT = {has_dynamic_modifier = {modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier}}
             }
             add_dynamic_modifier = {
                 modifier = ssw_CHI_Gu_Zhutong_federalism_dynamic_modifier
@@ -1031,13 +1031,15 @@ shared_focus = { #雲南の富を発展
             limit = {
                 has_full_control_of_state = 325
             }
-            add_resource = {
-                type = steel
-                amount = 10
-            }
-            add_resource = {
-                type = aluminium
-                amount = 12
+            325 = {
+                add_resource = {
+                    type = steel
+                    amount = 10
+                }
+                add_resource = {
+                    type = aluminium
+                    amount = 12
+                }
             }
         }
     }
