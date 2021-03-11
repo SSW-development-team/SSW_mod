@@ -293,9 +293,9 @@ focus_tree = {
 		x = 9
 		y = 3
 			create_country_leader = {
-					name = "Henri VI"
-					picture = a
-					expire = "1965.1.1"
+				name = "Henri VI"
+				picture = a
+				expire = "1965.1.1"
 			ideology = authority_despotism_ideology
 			traits = {}
 		}
@@ -1159,42 +1159,15 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_French_Air_Force
 		}
-		mutually_exclusive = {
-			focus = FRA_koukuudokutorinn
-			focus = FRA_sennryokudokutorinn
-		}
 		x = 41
 		y = 13
-
-	}
-	focus = {
-		id = FRA_koukuudokutorinn
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Air_Force
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = air_doctrine
+			}
 		}
-		mutually_exclusive = {
-			focus = FRA_bakugeki_dokutorinn
-			focus = FRA_sennryokudokutorinn
-		}
-		x = 44
-		y = 13
-
-	}
-	focus = {
-		id = FRA_sennryokudokutorinn
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Air_Force
-		}
-		mutually_exclusive = {
-			focus = FRA_bakugeki_dokutorinn
-			focus = FRA_koukuudokutorinn
-		}
-		x = 38
-		y = 13
 
 	}
 	focus = {
@@ -1203,19 +1176,17 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_bakugeki_dokutorinn
-			focus = FRA_koukuudokutorinn
-			focus = FRA_sennryokudokutorinn
 		}
 		x = 37
 		y = 14
-			completion_reward = {
-					add_tech_bonus = {
-							name = JAP_carrier_warfare_experiments
-							bonus = 1
-							uses = 2
-							category = cat_base_strike
-						}
-				}
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_carrier_warfare_experiments
+				bonus = 1
+				uses = 2
+				category = cat_base_strike
+			}
+		}
 
 	}
 	focus = {
@@ -1264,7 +1235,6 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_bakugeki_dokutorinn
-			focus = FRA_sennryokudokutorinn
 		}
 		mutually_exclusive = {
 			focus = FRA_Absolute_Air_Superiority
@@ -1813,7 +1783,6 @@ focus_tree = {
 		icon = GFX_goal_generic_air_fighter
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_koukuudokutorinn
 			focus = FRA_bakugeki_dokutorinn
 		}
 		mutually_exclusive = {
@@ -1904,7 +1873,7 @@ focus_tree = {
 		x = 24
 		y = 15
 		completion_reward = {
-			add_ideas = FRA_Developmental_dictatorship
+			add_ideas = Developmental_dictatorship
 		}
 
 	}
@@ -2146,7 +2115,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = FRA_bakugekiryousann
+		id = FRA_Bombing_mass_production
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
@@ -2154,10 +2123,13 @@ focus_tree = {
 		}
 		x = 39
 		y = 17
+		completion_reward = {
+			add_ideas = Bombing_mass_production
+		}
 
 	}
 	focus = {
-		id = FRA_koukuuryousann
+		id = FRA_Aviation_mass_production
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
@@ -2165,6 +2137,9 @@ focus_tree = {
 		}
 		x = 43
 		y = 17
+		completion_reward = {
+			add_ideas = Aviation_mass_production
+		}
 
 	}
 }
