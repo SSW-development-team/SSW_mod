@@ -90,6 +90,15 @@ country_event = { #オーストリアの運命
 			84 = { is_fully_controlled_by = ROOT }
 			109 = { is_fully_controlled_by = ROOT }
 			941 = { is_fully_controlled_by = ROOT }
+			OR = {
+				has_government = social_democracy
+				has_government = social_liberalism
+				has_government = social_conservatism
+				has_government = authority_democracy
+				has_government = authority_despotism
+				has_government = national_fascism
+				has_government = national_socialism
+			}
 		}
 		ai_chance = { base = 190 }
 		every_state = {
@@ -105,6 +114,36 @@ country_event = { #オーストリアの運命
 				transfer_state = PREV
 				drop_cosmetic_tag = yes
 				set_cosmetic_tag = AUS_austria_hungary
+			}
+			add_core_of = AUS
+		}
+		puppet = AUS
+	}
+	option = {
+		name = ssw_foc_western_europe.0.e
+		trigger = {
+			4 = { is_fully_controlled_by = ROOT }
+			9 = { is_fully_controlled_by = ROOT }
+			43 = { is_fully_controlled_by = ROOT }
+			70 = { is_fully_controlled_by = ROOT }
+			84 = { is_fully_controlled_by = ROOT }
+			109 = { is_fully_controlled_by = ROOT }
+			941 = { is_fully_controlled_by = ROOT }
+		}
+		ai_chance = { base = 190 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_old_territory_AUSTRIA_HUNGARY
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			AUS = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = AUS_usga
 			}
 			add_core_of = AUS
 		}
