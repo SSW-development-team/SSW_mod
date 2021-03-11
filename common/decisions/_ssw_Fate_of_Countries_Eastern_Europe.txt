@@ -10,6 +10,11 @@ fate_of_countries_category_eastern_europe = {
 			NOT = {
 				country_exists = RUS
 				country_exists = SOV
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
+				#has_cosmetic_tag = RUS_empire
+				has_cosmetic_tag = SIB_russia
+				has_cosmetic_tag = TUV_russia
 			}
 			any_state = {
 				is_fully_controlled_by = ROOT
@@ -23,16 +28,13 @@ fate_of_countries_category_eastern_europe = {
 				}
 			}
 			249 = { is_fully_controlled_by = ROOT }
-			hidden_trigger = {
-				always = yes
-				NOT = { has_country_flag = continue_to_occupy_russia }
-			}
+			hidden_trigger = { NOT = { has_country_flag = continue_to_occupy_russia } }
 		}
 		cancel_trigger = {
 			OR = {
 				country_exists = RUS
 				country_exists = SOV
-				249 = { NOT = { is_fully_controlled_by = ROOT } }
+				249 = { is_valid_annexation_state = no }
 				hidden_trigger = { has_country_flag = continue_to_occupy_russia }
 			}
 		}
@@ -69,7 +71,7 @@ fate_of_countries_category_eastern_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = TUV
-				TUV = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				TUV = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_tuva }
 			}
 		}

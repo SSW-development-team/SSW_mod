@@ -291,3 +291,10 @@ is_not_claim_or_core_of_PREV = {
 		is_core_of = PREV
 	}
 }
+is_controlled_by_myself_or_allies = {
+	OR = {
+		is_controlled_by = ROOT
+		controller = { is_ally_with = ROOT }
+		controller = { is_subject_of = ROOT }
+	}
+}
