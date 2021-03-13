@@ -271,24 +271,56 @@ use_civilian_factoris_to_add_reserch_slot = {
 	}
 
 }
-JAP_ssw_dec_cat_debug = {
-	custum_trigger_test = {
-		cost = 0
+	use_civilian_factoris_to_add_reserch_slot_7 = {
+		cost = 50
 		fire_only_once = yes
 
 		available = {
+			custom_trigger_tooltip = {
+				tooltip = add_reserch_tooltip
+				hidden_trigger = {
+					has_country_flag = add_reserch_6_complete
+				}
+
+			}
+
+			num_of_civilian_factories > 36
+
+		}
+		days_remove = 100
+		modifier = {
+			civilian_factory_use = 35
+		}
+		visible = {
+			has_country_flag = add_reserch_6
 		}
 		complete_effect = {
-			every_country = {
-				limit = {
-					any_owned_state_in_bulkan = yes
-				}
-				give_guarantee = JAP
+			hidden_effect = {
+				set_country_flag = add_reserch_7
+				clr_country_flag = add_reserch_6_complete
 			}
-			
 		}
 
+		remove_effect = {
+			add_research_slot = 1
+			hidden_effect = {
+				clr_country_flag = add_reserch_6
+				set_country_flag = add_reserch_7_complete
+
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+
+				OR = {
+					num_of_civilian_factories > 65
+				}
+			}	
+		}
 	}
+
 }
 USA_policy = {
 	add_core_states_of_america = {
@@ -517,6 +549,7 @@ SSW_foreign_support = {
 			FROM = {
 				is_subject_of = ROOT
 				exists = yes
+				NOT = { has_country_flag = THE_COUNTRY_EXITS_GAMESTART }
 			}
 		}
 		target_root_trigger = { num_subjects > 0 }

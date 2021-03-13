@@ -876,6 +876,7 @@ focus_tree = {
 			add_state_core = 234
 			add_state_claim = 238
 			add_state_claim = 235
+			add_state_claim = 1005
 			every_country = {
 				limit = {
 					NOT = {
@@ -883,6 +884,9 @@ focus_tree = {
 					}
 					OR = {
 						controls_state = 234
+						controls_state = 238
+						controls_state = 235
+						controls_state = 1005
 					}
 				}
 				country_event = {
@@ -1146,6 +1150,53 @@ focus_tree = {
 			}
 		}
 	}
+	#Focus for ドンの回収 - focus ID randomly generated due to title being in non-latin characters
+	focus = {
+		id = UKR_claim_east
+		icon = GFX_goal_generic_territory_or_war
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = UKR_CAdsbgyc
+		}
+		relative_position_id = UKR_CAdsbgyc
+		ai_will_do = {
+			factor = 2
+		}		
+		completion_reward = {
+			add_state_core = 218
+			add_state_claim = 245
+			add_state_claim = 265
+			add_state_claim = 260
+			add_state_claim = 217
+			add_state_claim = 239
+			add_state_claim = 810
+			add_state_claim = 401
+			every_country = {
+				limit = {
+					NOT = {
+						tag = ROOT
+					}
+					OR = {
+						controls_state = 218
+						controls_state = 245
+						controls_state = 265
+						controls_state = 260
+						controls_state = 217
+						controls_state = 239
+						controls_state = 810
+						controls_state = 401
+					}
+				}
+				country_event = {
+					id = ssw_UKR.11
+					days = 3
+				}
+			}
+		}
+	}
 	#Focus for オデッサの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_lzYNyLcB
@@ -1225,7 +1276,8 @@ focus_tree = {
 			factor = 2
 		}
 		completion_reward = {
-			add_state_claim = 88
+			add_state_core = 1208
+			add_state_core = 1209
 			every_country = {
 				limit = {
 					NOT = {

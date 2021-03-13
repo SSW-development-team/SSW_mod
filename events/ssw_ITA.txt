@@ -46,7 +46,6 @@ country_event = {
 		ITA_focus_reload_Balbo_focus_tree = yes
 	}
 }
-
 #ムッソリーニによる栄光
 country_event = {
     id = SSW_ITA.4
@@ -62,7 +61,7 @@ country_event = {
 		name = SSW_ITA.4.a
 	}
 }
-#サヴォイア家による栄光
+#市民団体が抗議
 country_event = {
     id = SSW_ITA.5
 	immediate = {
@@ -73,11 +72,32 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.5.d
-	option = {
+	option = {#実施する
 		name = SSW_ITA.5.a
+		add_to_variable = {
+			var = SSW_ITA_Public_Population_Support
+			value = 1
+		}
+		country_event = {
+			id = SSW_ITA.7
+			days = 10
+		}
+	}
+	option = {#実施しない
+		name = SSW_ITA.5.b
+		add_to_variable = {
+			var = SSW_ITA_No_Public_Population_Support
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.6
+				days = 5
+			}
+		}
 	}
 }
-#ジェノヴァ家による栄光
+#選挙の結果
 country_event = {
     id = SSW_ITA.6
 	immediate = {
@@ -88,11 +108,21 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.6.d
-	option = {
+	option = {#実施する
 		name = SSW_ITA.6.a
+		if = {
+			limit = {#選挙の実施
+				check_variable = { SSW_ITA_Public_Population_Support > SSW_ITA_No_Public_Population_Support }
+			}
+		}
+		if = {
+			limit = {#選挙の非実施
+				check_variable = { SSW_ITA_Public_Population_Support < SSW_ITA_No_Public_Population_Support }
+			}
+		}
 	}
 }
-#自由による栄光
+#選挙の実施に関する臨時会議の召集
 country_event = {
     id = SSW_ITA.7
 	immediate = {
@@ -103,11 +133,34 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.7.d
-	option = {
+	option = {#実施しない
 		name = SSW_ITA.7.a
+		add_to_variable = {
+			var = SSW_ITA_No_Public_Population_Support
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.6
+				days = 5
+			}
+		}
+	}
+	option = {#実施する
+		name = SSW_ITA.7.a
+		add_to_variable = {
+			var = SSW_ITA_Public_Population_Support
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.6
+				days = 5
+			}
+		}
 	}
 }
-#平等による栄光
+#青年団体が抗議
 country_event = {
     id = SSW_ITA.8
 	immediate = {
@@ -118,11 +171,32 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.8.d
-	option = {
+	option = {#実施の再検討
 		name = SSW_ITA.8.a
+		country_event = {
+			id = SSW_ITA.7
+			days = 10
+		}
+		add_to_variable = {
+			var = SSW_ITA_No_Public_Population_Support
+			value = 1
+		}
+	}
+	option = {#実施の決定を維持
+		name = SSW_ITA.8.b
+		add_to_variable = {
+			var = SSW_ITA_Public_Population_Support
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.6
+				days = 5
+			}
+		}
 	}
 }
-#ドゥーチェに従う
+#国民投票実施の判断
 country_event = {
     id = SSW_ITA.9
 	immediate = {
@@ -133,11 +207,32 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.9.d
-	option = {
+	option = {#実施
 		name = SSW_ITA.9.a
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.8
+			}
+		}
+		add_to_variable = {
+			var = SSW_ITA_Public_Population_Support
+			value = 3
+		}
+	}
+	option = {#実施しない
+		name = SSW_ITA.9.b
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.5
+			}
+		}
+		add_to_variable = {
+			var = SSW_ITA_No_Public_Population_Support
+			value = 3
+		}
 	}
 }
-#王に従う
+#産業関連の投票
 country_event = {
     id = SSW_ITA.10
 	immediate = {
@@ -150,21 +245,6 @@ country_event = {
 	desc = SSW_ITA.10.d
 	option = {
 		name = SSW_ITA.10.a
-	}
-}
-#自由に従う
-country_event = {
-    id = SSW_ITA.11
-	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.11"
-	}
-	title = SSW_ITA.11.t
-	picture = GFX_report_event_generic_ruins
-	is_triggered_only = yes
-	fire_only_once = yes
-	desc = SSW_ITA.11.d
-	option = {
-		name = SSW_ITA.11.a
 	}
 }
 #植民地開発

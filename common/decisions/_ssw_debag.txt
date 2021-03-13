@@ -10,7 +10,72 @@ SSW_debag_decision = {
 		name = country_desc_event_test_2
 		icon = generic_nationalism
 		complete_effect = {
-			set_variable = {SSW_Opening_Screen = 2}
+			every_country = {
+				limit = {
+					capital_is_europe = yes
+				}
+				give_guarantee = NEP
+			}
+		}
+	}
+	custum_trigger_test = {
+		cost = 0
+		fire_only_once = yes
+
+		available = {
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					any_owned_state_in_bulkan = yes
+				}
+				give_guarantee = JAP
+			}
+			
+		}
+
+	}
+
+	super_event_donau_war = {
+		name = super_event_donau_war
+		icon = generic_nationalism
+		complete_effect = {
+			set_country_flag = big_event_custom_donau_war
+		}
+	}
+	super_event_unification_rossia_RBL = {
+		name = super_event_unification_rossia_RBL 
+		icon = generic_nationalism
+		complete_effect = {
+			set_country_flag = big_event_custom_unification_rossia_RBL 
+		}
+	}
+	super_event_common_revolutionary_struggle = {
+		name = super_event_common_revolutionary_struggle 
+		icon = generic_nationalism
+		complete_effect = {
+			set_country_flag = big_event_custom_common_revolutionary_struggle 
+		}
+	}
+	super_event_common_revolutionary_struggle_escape = {
+		name = super_event_common_revolutionary_struggle_escape
+		icon = generic_nationalism
+		complete_effect = {
+			clr_country_flag = big_event_custom_common_revolutionary_struggle 
+		}
+	}
+	super_event_spain_communism_travaho = {
+		name = super_event_spain_communism_travaho
+		icon = generic_nationalism
+		complete_effect = {
+			set_country_flag = big_event_custom_spain_communism_travaho 
+		}
+	}
+	super_event_spain_communism_armado = {
+		name = super_event_spain_communism_armado
+		icon = generic_nationalism
+		complete_effect = {
+			set_country_flag = big_event_custom_spain_communism_armado 
 		}
 	}
 

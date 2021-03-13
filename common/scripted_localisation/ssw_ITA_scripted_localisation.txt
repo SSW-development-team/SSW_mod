@@ -27,6 +27,25 @@ defined_text = { # Country
         localization_key = ITA_Solvingtheimmigrationproblem_no_completed_focus
     }
 }
+defined_text = { #選挙の実施について
+    name = GetConductelectionName
+    text = {
+        #kind
+        trigger = {
+            original_tag = ITA
+            check_variable = { SSW_ITA_Public_Population_Support > SSW_ITA_No_Public_Population_Support }
+        }
+        localization_key = scripted_localisation_ITA_Conduct_election
+    }
+    text = {
+        #cold
+        trigger = {
+            original_tag = ITA
+            check_variable = { SSW_ITA_Public_Population_Support < SSW_ITA_No_Public_Population_Support }
+        }
+        localization_key = scripted_localisation_ITA_No_Conduct_election
+    }
+}
 #急進的共産主義
 defined_text = {
 	name = GetProgressiveCommunismName
