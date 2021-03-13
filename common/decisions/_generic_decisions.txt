@@ -543,12 +543,15 @@ SSW_foreign_support = {
 	}
 	play_puppet = {
 		icon = generic_operation
-		available = { always = yes }
-		visible = {
+		available = {
+			always = yes
 			num_subjects > 0
+		}
+		visible = {
 			FROM = {
 				is_subject_of = ROOT
 				exists = yes
+				NOT = { has_country_flag = THE_COUNTRY_EXITS_GAMESTART }
 			}
 		}
 		target_root_trigger = { num_subjects > 0 }
@@ -557,6 +560,7 @@ SSW_foreign_support = {
 			FROM = {
 				is_subject_of = ROOT
 				exists = yes
+				NOT = { has_country_flag = THE_COUNTRY_EXITS_GAMESTART }
 			}
 		}
 		cost = 0

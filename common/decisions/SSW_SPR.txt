@@ -1,4 +1,54 @@
 SPR_policy = {
+	test_decision_0 = {
+		icon = ger_reichskommissariats
+		available = {
+			check_variable = {
+				var = SPR_franco_popularity
+				value = 120
+				compare = greater_than_or_equals
+			}
+			always = yes
+		}
+		visible = { is_debug = yes }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			add_political_power = 150
+		}
+	}
+	test_decision_1 = {
+		icon = ger_reichskommissariats
+		available = {
+			check_variable = {
+				var = SPR_franco_popularity
+				value = 120
+				compare = greater_than
+			}
+			always = yes
+		}
+		visible = { is_debug = yes }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			add_political_power = 150
+		}
+	}
+	test_decision_2 = {
+		icon = ger_reichskommissariats
+		available = { always = yes }
+		visible = { is_debug = yes }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			add_to_variable = {
+				var = SPR_franco_popularity
+				value = 30
+			}
+		}
+	}
 	agreement_with_rome_entente = {
 		icon = generic_form_nation
 		available = {
@@ -17,6 +67,15 @@ SPR_policy = {
 					has_war_with = LTV
 					has_war_with = HLH
 					has_war_with = HGR
+					has_war_with = MBR
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = franco_greater_than_150_tt
+				check_variable = {
+					var = SPR_franco_popularity
+					value = 150
+					compare = greater_than_or_equals
 				}
 			}
 		}
@@ -24,23 +83,9 @@ SPR_policy = {
 		fire_only_once = yes
 		ai_will_do = { factor = 10 }
 		visible = {
-			is_subject = no
-			has_army_manpower = { size > 949999 }
+			has_global_flag = scw_over
 			has_completed_focus = SPR_franco_kyoukaidoumei
 			has_completed_focus = SPR_franco_itariadoumei
-			NOT = {
-				is_in_faction_with = ITA
-				has_war_with = ITA
-			}
-			ITA = {
-				is_faction_leader = yes
-				OR = {
-					has_war_with = GER
-					has_war_with = LTV
-					has_war_with = HLH
-					has_war_with = HGR
-				}
-			}
 		}
 		complete_effect = {
 			if = {
@@ -57,6 +102,11 @@ SPR_policy = {
 			ITA = { add_to_faction = SPR }
 		}
 	}
+}
+SPA_policy = {
+	
+}
+SPR_power_struggle = {
 	power_struggle_with_spain = {
 		icon = generic_nationalism
 		available = {
@@ -84,6 +134,7 @@ SPR_policy = {
 		}
 		cost = 0
 		fire_only_once = no
+		ai_will_do = { factor = 10 }
 		days_remove = 35
 		modifier = { political_power_gain = -1.5 }
 		visible = {
