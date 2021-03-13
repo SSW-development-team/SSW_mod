@@ -13,32 +13,39 @@ focus_tree = {
 	focus = {
 		id = brm_politics_in_burma
 		icon = GFX_focus_generic_self_management
-		cost = 10.00
+		cost = 1
 		x = 14
 		y = 0
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
+		available_if_capitulated = yes
 	}
 	focus = {
 		id = brm_changes_in_the_interim_government
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = brm_politics_in_burma
 		}
 		x = 14
 		y = 1
-
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
 	}
 	focus = {
 		id = brm_from_three_man
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = brm_changes_in_the_interim_government
 		}
 		x = 14
 		y = 2
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
+		available_if_capitulated = yes
 	}
 ###U Nu Root###	
 
@@ -54,7 +61,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
 
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = brm_support_aung_san
@@ -269,7 +283,14 @@ focus_tree = {
 		}
 		x = 14
 		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
 
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = brm_friendship_with_japan
@@ -439,7 +460,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
 
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = brm_removal_of_karen_officers
@@ -604,7 +632,7 @@ focus_tree = {
 	focus = {
 		id = brm_burma_national_army
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1
 		x = 33
 		y = 0
 
@@ -620,7 +648,13 @@ focus_tree = {
 		}
 		x = 33
 		y = 1
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
 
+		completion_reward = {
+			army_experience = 5
+		}
 	}
 	focus = {
 		id = brm_weapons_from_japan
@@ -632,6 +666,18 @@ focus_tree = {
 		x = 31
 		y = 2
 
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
 	}
 	focus = {
 		id = brm_mountain_training
@@ -664,7 +710,19 @@ focus_tree = {
 		}
 		x = 33
 		y = 2
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
 
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
 	}
 	focus = {
 		id = brm_reconciliation_with_kachin_officers
@@ -693,6 +751,13 @@ focus_tree = {
 		x = 33
 		y = 3
 
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+		}
 	}
 	focus = {
 		id = brm_organisation_of_the_militia_units
@@ -739,7 +804,13 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
 
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+		}
 	}
 
 	focus = {
@@ -751,7 +822,18 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
 
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
 	}
 	focus = {
 		id = brm_aircraft_made_in_japan
@@ -774,7 +856,81 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
 
+		available_if_capitulated = yes
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
 	}
 ###Navy###
 	focus = {
@@ -787,6 +943,20 @@ focus_tree = {
 		x = 38
 		y = 1
 
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+		navy_experience = 25
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
 	}
 	focus = {
 		id = brm_cosaldeffence_ships
@@ -821,12 +991,131 @@ focus_tree = {
 		x = 38
 		y = 3
 
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 	}
 ###Expansion Way###
 	focus = {
 		id = brm_outside_burma
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1
 		x = 33
 		y = 7
 
@@ -835,7 +1124,7 @@ focus_tree = {
 	focus = {
 		id = bur_co_prosperity
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5
 		prerequisite = {
 			focus = brm_outside_burma
 		}
@@ -875,6 +1164,9 @@ focus_tree = {
 		x = 32
 		y = 10
 
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 
 	focus = {
