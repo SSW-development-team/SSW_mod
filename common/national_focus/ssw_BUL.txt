@@ -1816,7 +1816,23 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
-            remove_ideas = BUL_political_instability
+            activate_decision = BUL_election_finish
+            activate_decision = BUL_update_exit_poll_result
+            set_temp_variable = {temp1 = var:party_popularity_100@progressive_communism}
+            set_temp_variable = {temp2 = var:party_popularity_100@classical_communism}
+            add_to_temp_variable = {temp1 = temp2}
+            set_variable = {BUL_commu = temp1}
+            set_temp_variable = {temp3 = var:party_popularity_100@authority_democracy}
+            set_temp_variable = {temp4 = var:party_popularity_100@authority_despotism}
+            add_to_temp_variable = {temp3 = temp4}
+            set_variable = {BUL_autho = temp3}
+            set_temp_variable = {temp5 = var:party_popularity_100@social_conservatism}
+            set_temp_variable = {temp6 = var:party_popularity_100@social_democracy}
+            set_temp_variable = {temp7 = var:party_popularity_100@social_liberalism}
+            add_to_temp_variable = {temp5 = temp6}
+            add_to_temp_variable = {temp5 = temp7}
+            set_variable = {BUL_soci = temp5}
+            set_variable = {BUL_status = var:party_popularity_100@national_fascism}
         }
     }
 

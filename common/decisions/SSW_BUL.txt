@@ -339,3 +339,402 @@ BUL_cate_deci_achievement_greater_BUL = {
         }
     }
 }
+
+BUL_cate_deci_election = {
+    BUL_election_finish = {
+        icon = generic_political_discourse
+        fire_only_once = yes
+        days_remove = 100
+        remove_effect = {
+            custom_effect_tooltip = BUL_election_finish_tt
+            hidden_effect = {
+                country_event = {id = ssw_bul.31 days = 20}
+            }
+            set_country_flag = BUL_election_finished
+        }
+    }
+    BUL_update_exit_poll_result = {
+        icon = gre_paying_ifc_debt
+        fire_only_once = no
+        days_remove = 20
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_update_exit_poll_result_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        remove_effect = {
+            if = {
+                limit = {
+                    NOT = {has_country_flag = BUL_election_finished}
+                }
+                activate_decision = BUL_update_exit_poll_result
+            }
+            set_temp_variable = {temp1 = var:party_popularity_100@progressive_communism}
+            set_temp_variable = {temp2 = var:party_popularity_100@classical_communism}
+            add_to_temp_variable = {temp1 = temp2}
+            set_variable = {BUL_commu = temp1}
+            set_temp_variable = {temp3 = var:party_popularity_100@authority_democracy}
+            set_temp_variable = {temp4 = var:party_popularity_100@authority_despotism}
+            add_to_temp_variable = {temp3 = temp4}
+            set_variable = {BUL_autho = temp3}
+            set_temp_variable = {temp5 = var:party_popularity_100@social_conservatism}
+            set_temp_variable = {temp6 = var:party_popularity_100@social_democracy}
+            set_temp_variable = {temp7 = var:party_popularity_100@social_liberalism}
+            add_to_temp_variable = {temp5 = temp6}
+            add_to_temp_variable = {temp5 = temp7}
+            set_variable = {BUL_soci = temp5}
+            set_variable = {BUL_status = var:party_popularity_100@national_fascism}
+        }
+    }
+    BUL_support_commu = {
+        icon = generic_speech
+        fire_only_once = yes
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_autho
+                NOT = {has_country_flag = BUL_supported_autho}
+            }
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_soci
+                NOT = {has_country_flag = BUL_supported_soci}
+            }
+        }
+        complete_effect = {
+            set_country_flag = BUL_supported_commu
+        }
+    }
+    BUL_support_autho = {
+        icon = generic_speech
+        fire_only_once = yes
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_commu
+                NOT = {has_country_flag = BUL_supported_commu}
+            }
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_soci
+                NOT = {has_country_flag = BUL_supported_soci}
+            }
+        }
+        complete_effect = {
+            set_country_flag = BUL_supported_autho
+        }
+    }
+    BUL_support_soci = {
+        icon = generic_speech
+        fire_only_once = yes
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_commu
+                NOT = {has_country_flag = BUL_supported_commu}
+            }
+            custom_trigger_tooltip = {
+                tooltip = BUL_not_support_autho
+                NOT = {has_country_flag = BUL_supported_autho}
+            }
+        }
+        complete_effect = {
+            set_country_flag = BUL_supported_soci
+        }
+    }
+    BUL_promotion_communism = {
+        icon = eng_propaganda_campaigns
+        days_remove = 10
+        cost = 10
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_prohibit_communist_tt
+                NOT = {has_country_flag = BUL_prohibited_act_communist}
+            }
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_support_commu_tt
+                has_country_flag = BUL_supported_commu
+            }
+        }
+        remove_effect = {
+            if = {
+                limit = {
+                    has_country_flag = BUL_absolutism
+                }
+                add_popularity = {
+                    ideology = classical_communism
+                    popularity = 0.04
+                }
+            }
+            else = {
+                add_popularity = {
+                    ideology = progressive_communism
+                    popularity = 0.04
+                }
+            }
+        }
+    }
+    BUL_restrict_act_communism = {
+        icon = generic_police_action
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_soci_tt
+                    has_country_flag = BUL_supported_soci
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_autho_tt
+                    has_country_flag = BUL_supported_autho
+                }
+            }
+        }
+        days_remove = 10
+        cost = 50
+        remove_effect = {
+            add_popularity = {
+                ideology = classical_communism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = -0.03
+            }
+        }
+    }
+    BUL_prohibit_act_communism = {
+        icon = generic_arrest
+        fire_only_once = yes
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_soci_tt
+                    has_country_flag = BUL_supported_soci
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_autho_tt
+                    has_country_flag = BUL_supported_autho
+                }
+            }
+        }
+        days_remove = 20
+        cost = 100
+        remove_effect = {
+            add_stability = -0.03
+            add_popularity = {
+                ideology = classical_communism
+                popularity = -0.1
+            }
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = -0.1
+            }
+            set_country_flag = BUL_prohibited_act_communist
+        }
+    }
+    BUL_promotion_authority = {
+        icon = eng_propaganda_campaigns
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_support_autho_tt
+                has_country_flag = BUL_supported_autho
+            }
+        }
+        days_remove = 10
+        fixed_random_seed = no
+        cost = 10
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_prohibit_authority_tt
+                NOT = {has_country_flag = BUL_prohibited_act_authority}
+            }
+        }
+        remove_effect = {
+            if = {
+                limit = {
+                    has_country_flag = BUL_absolutism
+                }
+                add_popularity = {
+                    ideology = authority_despotism
+                    popularity = 0.04
+                }
+            }
+            else = {
+                add_popularity = {
+                    ideology = authority_democracy
+                    popularity = 0.04
+                }
+            }
+        }
+    }
+    BUL_restrict_act_authority = {
+        icon = generic_police_action
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_commu_tt
+                    has_country_flag = BUL_supported_commu
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_soci_tt
+                    has_country_flag = BUL_supported_soci
+                }
+            }
+        }
+        days_remove = 10
+        cost = 50
+        remove_effect = {
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = -0.03
+            }
+        }
+    }
+    BUL_prohibit_act_authority = {
+        icon = generic_arrest
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_commu_tt
+                    has_country_flag = BUL_supported_commu
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_soci_tt
+                    has_country_flag = BUL_supported_soci
+                }
+            }
+        }
+        fire_only_once = yes
+        days_remove = 20
+        cost = 100
+        remove_effect = {
+            add_stability = -0.03
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = -0.1
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = -0.1
+            }
+            set_country_flag = BUL_prohibited_act_authority
+        }
+    }
+    BUL_promotion_democtrat = {
+        icon = eng_propaganda_campaigns
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_support_soci_tt
+                has_country_flag = BUL_supported_soci
+            }
+        }
+        days_remove = 10
+        fixed_random_seed = no
+        cost = 10
+        remove_effect = {
+            if = {
+                limit = {
+                    has_country_flag = BUL_centralized
+                    has_country_flag = BUL_parliamentary_power
+                }
+                add_popularity = {
+                    ideology = social_democracy
+                    popularity = 0.04
+                }
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = BUL_parliamentary_power
+                }
+                add_popularity = {
+                    ideology = social_liberalism
+                    popularity = 0.04
+                }
+            }
+            else = {
+                add_popularity = {
+                    ideology = social_conservatism
+                    popularity = 0.04
+                }
+            }
+        }
+    }
+    BUL_restrict_act_democrat = {
+        icon = generic_police_action
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_election_finished_tt
+                NOT = {has_country_flag = BUL_election_finished}
+            }
+        }
+        visible = {
+            OR = {
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_commu_tt
+                    has_country_flag = BUL_supported_commu
+                }
+                custom_trigger_tooltip = {
+                    tooltip = BUL_support_autho_tt
+                    has_country_flag = BUL_supported_autho
+                }
+            }
+        }
+        days_remove = 10
+        cost = 50
+        remove_effect = {
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = -0.03
+            }
+        }
+    }
+}
