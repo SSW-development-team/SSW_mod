@@ -885,11 +885,15 @@ shared_focus = {
     x = 20
     y = 0
     completion_reward = {
+        swap_ideas = {
+            remove_idea = SER_idea_2
+            add_idea = SER_idea_4
+        }
     }
 }
-#ヤリーロ計画
+#農地改革
 shared_focus = {
-    id = SER_Yalilo_Project
+    id = SER_Farmland_Reform
     icon = GFX_focus_generic_treaty
     cost = 8.00
     prerequisite = {
@@ -913,6 +917,7 @@ shared_focus = {
     x = 19
     y = 1
     completion_reward = {
+        add_ideas = SER_idea_5
     }
 }
 #工業化政策
@@ -948,7 +953,7 @@ shared_focus = {
     icon = GFX_focus_generic_treaty
     cost = 8.00
     prerequisite = {
-        focus = SER_Yalilo_Project
+        focus = SER_Farmland_Reform
         }
     mutually_exclusive = {
         }
@@ -966,6 +971,10 @@ shared_focus = {
     x = 19
     y = 2
     completion_reward = {
+        swap_ideas = {
+            remove_idea = SER_idea_5
+            add_idea = SER_idea_6
+        }
     }
 }
 #技術者の招致
@@ -992,6 +1001,11 @@ shared_focus = {
     x = 19
     y = 3
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 1.0
+            uses = 3
+            category = industry
+        }
     }
 }
 #手厚い保障
@@ -1018,6 +1032,7 @@ shared_focus = {
     x = 17
     y = 3
     completion_reward = {
+        add_ideas = SER_idea_8
     }
 }
 #開墾キャンペーン
@@ -1044,6 +1059,14 @@ shared_focus = {
     x = 17
     y = 4
     completion_reward = {
+        every_owned_state = {
+            add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+        }
     }
 }
 #作物研究所
@@ -1070,6 +1093,7 @@ shared_focus = {
     x = 17
     y = 5
     completion_reward = {
+        add_research_slot = 1
     }
 }
 #働くか食うか滅びるか
@@ -1096,13 +1120,14 @@ shared_focus = {
     x = 15
     y = 5
     completion_reward = {
+        SER_SER_work_or_eat_or_perish_scripted_effect = yes
     }
 }
 #大学への補助金
 shared_focus = {
     id = SER_Grants_to_universities
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 7.00
     prerequisite = {
         focus = SER_Invite_engineers
         }
@@ -1122,6 +1147,7 @@ shared_focus = {
     x = 19
     y = 4
     completion_reward = {
+        add_ideas = SER_idea_7
     }
 }
 #クラヨーヴァ会議
