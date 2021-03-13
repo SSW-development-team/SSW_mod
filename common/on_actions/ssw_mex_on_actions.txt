@@ -195,8 +195,11 @@ on_actions = {
 	}
 	on_startup = {
 		effect = {
-			if = {
-				limit = { exists = yes }
+			every_country = {
+				limit = {
+					exists = yes
+					NOT = { has_country_flag = THE_COUNTRY_EXITS_GAMESTART }
+				}
 				set_country_flag = THE_COUNTRY_EXITS_GAMESTART
 			}
 		}
