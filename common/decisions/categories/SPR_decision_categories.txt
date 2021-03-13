@@ -1,14 +1,31 @@
 SPR_policy = {
 	priority = 30
-	allowed = { always = yes }
-	visible = { always = yes }
+	visible_when_empty = yes
+	allowed = { original_tag = SPR }
+	visible = {
+		OR = {
+			has_global_flag = spanish_civil_war
+			is_debug = yes
+		}
+	}
 }
 SPA_policy = {
 	priority = 30
-	allowed = { always = yes }
-	visible = { always = yes }
+	visible_when_empty = yes
+	allowed = { original_tag = SPA }
+	visible = {
+		OR = {
+			has_global_flag = spanish_civil_war
+			is_debug = yes
+		}
+	}
 }
 SPR_power_struggle = { = {
-	allowed = { always = yes }
+	allowed = {
+		OR = {
+			original_tag = SPC
+			original_tag = SPF
+		}
+	}
 	visible = { always = yes }
 }

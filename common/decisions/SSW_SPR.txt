@@ -70,16 +70,20 @@ SPR_policy = {
 					has_war_with = MBR
 				}
 			}
-			check_variable = {
-				var = SPR_franco_popularity
-				value = 150
-				compare = greater_than_or_equals
+			custom_trigger_tooltip = {
+				tooltip = franco_greater_than_150_tt
+				check_variable = {
+					var = SPR_franco_popularity
+					value = 150
+					compare = greater_than_or_equals
+				}
 			}
 		}
 		cost = 0
 		fire_only_once = yes
 		ai_will_do = { factor = 10 }
 		visible = {
+			has_global_flag = scw_over
 			has_completed_focus = SPR_franco_kyoukaidoumei
 			has_completed_focus = SPR_franco_itariadoumei
 		}
