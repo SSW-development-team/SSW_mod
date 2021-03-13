@@ -1,133 +1,47 @@
 add_namespace = ssw_brm
+
 country_event = {
 	id = ssw_brm.1
-	title = ssw_brm.1.title
+	title = ssw_brm.1.Three_Mans_Speech
 	desc = ssw_brm.1.desc
-	picture = GFX_report_event_second_vienna_award_pact
+	picture = GFX_BRM_three_mans_speech
 
 	fire_only_once = yes
 	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
 
     option = {
 		name = ssw_brm.1.a
-		ai_chance = { factor = 3}
-		end_puppet = BRM
-		BRM = {
-			country_event = { id = ssw_brm.2 }
-				}
-			}
-
+		ai_chance = { factor = 0}
+		unlock_national_focus = brm_pious_u_nu
+		add_popularity = {
+		ideology = social_conservatism
+		popularity = 0.3
+		}
+		set_politics = {
+		ruling_party = social_conservatism
+		elections_allowed = yes
+		last_election = "1950.1.1"
+		election_frequency = 48
+		}
+	}
     option = {
 		name = ssw_brm.1.b
-		ai_chance = { factor = 1}
-		end_puppet = BRM
-		BRM = {
-		country_event = { id = ssw_brm.3 }
-		}
-	}
-}
-
-country_event = {
-	id = ssw_brm.2
-	title = ssw_brm.2.title
-	desc = ssw_brm.2.desc
-	picture = GFX_report_event_second_vienna_award_pact
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
-
-    option = {
-		name = ssw_brm.2.a
-		ai_chance = { factor = 1}
-		news_event = { id = ssw_brm.4 }
-	}
-}
-
-country_event = {
-	id = ssw_brm.3
-	title = ssw_brm.3.title
-	desc = ssw_brm.3.desc
-	picture = GFX_report_event_second_vienna_award_pact
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
-
-    option = {
-		name = ssw_brm.3.a
-		ai_chance = { factor = 1}
-		BRM = {
-		create_faction = United_Front_of_the_Anti-Japanese
-		add_to_faction = YUN
-		}
-		news_event = { id = ssw_brm.5 }
-	}
-}
-
-
-news_event = {
-	id = ssw_brm.4
-	title = ssw_brms.4.title
-	desc = ssw_brm.4.desc
-	picture = GFX_news_event_001
-	fire_only_once = yes
-	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
-	option = {
-		name = ssw_brm.4.a
-		ai_chance = { factor = 1}
-	}
-}
-
-news_event = {
-	id = ssw_brm.5
-	title = ssw_brms.5.title
-	desc = ssw_brm.5.desc
-	picture = GFX_news_event_001
-	fire_only_once = yes
-	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
-	option = {
-		name = ssw_brm.5.a
-		ai_chance = { factor = 1}
-	}
-}
-
-country_event = {
-	id = ssw_brm.6
-	title = ssw_brm.6.title
-	desc = ssw_brm.6.desc
-	picture = GFX_report_event_second_vienna_award_pact
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 7
-	}
-
-    option = {
-		name = ssw_brm.6.a
 		ai_chance = { factor = 10}
-		JAP = {
-			white_peace = BRM
-			add_to_faction = BRM
-				}
-			}
-
+		unlock_national_focus = brm_ba_maus_guaidance
+	}
     option = {
-		name = ssw_brm.6.b
-		ai_chance = { factor = 1}
+		name = ssw_brm.1.c
+		ai_chance = { factor = 0}
+		unlock_national_focus = brm_socialist_ne_win
+		add_popularity = {
+		ideology = national_socialism
+		popularity = 0.3
+		}
+		set_politics = {
+		ruling_party = national_socialism
+		elections_allowed = yes
+		last_election = "1950.1.1"
+		election_frequency = 48
+		}
 	}
 }
