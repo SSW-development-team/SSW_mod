@@ -13,3 +13,33 @@ defined_text = { #国家社会主義者が権力を確保
         localization_key = BUL_GET_POWER_NS
     }
 }
+defined_text = { #多数派確認
+    name = GetBULmajority
+    text = {
+        trigger = {
+            check_variable = {BUL_commu > BUL_autho}
+            check_variable = {BUL_commu > BUL_soci}
+            check_variable = {BUL_commu > BUL_status}
+        }
+        localization_key = BUL_MAJOR_COMMU
+    }
+    text = {
+        trigger = {
+            check_variable = {BUL_autho > BUL_commu}
+            check_variable = {BUL_autho > BUL_soci}
+            check_variable = {BUL_autho > BUL_status}
+        }
+        localization_key = BUL_MAJOR_AUTHO
+    }
+    text = {
+        trigger = {
+            check_variable = {BUL_soci > BUL_autho}
+            check_variable = {BUL_soci > BUL_commu}
+            check_variable = {BUL_soci > BUL_status}
+        }
+        localization_key = BUL_MAJOR_SOCI
+    }
+    text = {
+        localization_key = BUL_MAJOR_STATUS
+    }
+}
