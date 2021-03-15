@@ -397,7 +397,7 @@ shared_focus = {
 #軍部のクーデター
 shared_focus = {
     id = SER_Military_coup
-    icon = GFX_focus_generic_treaty
+    icon = GFX_SER_Military_coup
     cost = 8.00
     prerequisite = {
         }
@@ -923,13 +923,13 @@ shared_focus = {
 #工業化政策
 shared_focus = {
     id = SER_industrialization_policy
-    icon = GFX_focus_generic_treaty
+    icon = GFX_SER_Serbian_industrialization
     cost = 8.00
     prerequisite = {
         focus = SER_Coping_with_Recession
         }
     mutually_exclusive = {
-        focus = SER_Yalilo_Project
+        focus = SER_Farmland_Reform
         }
     available = {
     }
@@ -944,6 +944,60 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_POLITICAL }
     x = 21
     y = 1
+    completion_reward = {
+    }
+}
+#地方の産業化
+shared_focus = {
+    id = SER_Rural_industrialization
+    icon = GFX_SER_Rural_industrialization
+    cost = 8.00
+    prerequisite = {
+        focus = SER_industrialization_policy
+        }
+    mutually_exclusive = {
+        focus = SER_urban_concentration
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 21
+    y = 2
+    completion_reward = {
+    }
+}
+#都市集中型
+shared_focus = {
+    id = SER_urban_concentration
+    icon = GFX_SER_urban_concentration
+    cost = 8.00
+    prerequisite = {
+        focus = SER_industrialization_policy
+        }
+    mutually_exclusive = {
+        focus = SER_Rural_industrialization
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 23
+    y = 2
     completion_reward = {
     }
 }
