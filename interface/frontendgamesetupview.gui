@@ -41,7 +41,6 @@ guiTypes = {
 		}
 	}
 	
-	
 	containerWindowType = {
 		name = "spirit_idea_entry"
 		size = { width=60 height=66 }
@@ -59,6 +58,7 @@ guiTypes = {
 		name = "spirit_idea_entry_small"
 		size = { width=60 height=66 }
 		clipping = no
+		
 		iconType = {
 			name = "icon"
 			quadTextureSprite ="GFX_idea_unknown"
@@ -100,6 +100,7 @@ guiTypes = {
 			quadTextureSprite ="GFX_idea_unknown"
 			orientation = "CENTER"
 			centerPosition = yes
+			scale = 0.55
 		}
 		
 		iconType = {
@@ -125,11 +126,10 @@ guiTypes = {
 	### country entry
 	containerWindowType = {
 		name = "country_entry"
-		
 		buttonType = {
 			name = "country_leader"
 			quadTextureSprite ="GFX_leader_unknown"
-			position = { x = 5000000000000000 y = 5000000000000000 } #17 22
+			position = { x = 17 y = 22 } #17 22
 			scale=0.75
 			clicksound = click_checkbox
 		}
@@ -137,34 +137,27 @@ guiTypes = {
 		iconType = {
 			name = "country_flag"
 			quadTextureSprite ="GFX_shield_medium"
-			position = { x = 38 y = 24 } #33 186
+			position = { x = 33 y = 186 } #33 186
 			Orientation = "UPPER_LEFT"
 			allwaystransparent = yes
 		}		
 	
 		buttonType = {
 			name = "country"	
-			quadTextureSprite = "GFX_country_selection_minor_entry"
-			position = { x=38 y =24 }
+			quadTextureSprite = "GFX_country_selection_entry"
+			position = { x=0 y =0 }
 			clicksound = click_checkbox
 		}		
-
-		iconType ={
-			name ="country_frame"
-			spriteType = "GFX_large_flag_frame_menu"
-			position = { x = 34 y = 22 }
-			Orientation = "UPPER_LEFT"
-			allwaystransparent = yes
-		}
-
+		
 		instantTextBoxType = {
 			name = "country_name"
-			position = { x = 5000000000000000 y = 5000000000000000 } #8 247
+			position = { x = 8 y = 247 } #8 247
 			font = "hoi_20b"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 131
 			maxHeight = 20
 			fixedsize = yes	
+			format = center		
 			Orientation = "UPPER_LEFT"
 		}
 	}
@@ -173,18 +166,19 @@ guiTypes = {
 	containerWindowType = {
 		name = "country_entry_medium"
 				
+			
 		iconType = {
 			name = "country_flag"
-			quadTextureSprite ="GFX_flag_small2"
-			position = { x = 30 y = -23 }
+			quadTextureSprite ="GFX_shield_medium"
+			position = { x = 26 y = 22 }
 			Orientation = "UPPER_LEFT"
 			allwaystransparent = yes
 		}		
 		
 		buttonType = {
 			name = "country"	
-			quadTextureSprite = "GFX_mini_country_selector"
-			position = { x=22 y =-30 }
+			quadTextureSprite = "GFX_country_selection_minor_entry"
+			position = { x=0 y =0 }
 			clicksound = click_checkbox
 		}		
 	}
@@ -196,7 +190,7 @@ guiTypes = {
 		iconType = {
 			name = "country_flag"
 			quadTextureSprite ="GFX_flag_small2"
-			position = { x = 30 y = -23 }
+			position = { x = 8 y = 7 }
 			Orientation = "UPPER_LEFT"
 			allwaystransparent = yes
 		}
@@ -204,12 +198,10 @@ guiTypes = {
 		buttonType = {
 			name = "country"	
 			quadTextureSprite = "GFX_mini_country_selector"
-			position = { x=22 y =-30 }
+			position = { x=0 y =0 }
 			clicksound = click_checkbox
 		}		
 	}
-	
-	
 	### LOAD GAME
 	containerWindowType = {
 		name ="gamesetup_load"
@@ -679,6 +671,7 @@ guiTypes = {
 				size = { width = 100% height = 100% }
 				slotsize = { width = 150 height = 0 }
 				add_horizontal = yes
+				max_slots_horizontal = 8
 				max_slots_vertical = 1
 				format = "UPPER_LEFT"
 			}
@@ -696,13 +689,8 @@ guiTypes = {
 				slotsize = { width = 53 height = 40 }
 				add_horizontal = yes
 				max_slots_horizontal = 22
-				max_slots_vertical = 3
+				max_slots_vertical = 2
 				format = "UPPER_LEFT"
-			}
-			iconType = {
-				name ="country_selection_minor_entry_cover"
-				spriteType = "GFX_country_selection_minor_entry_cover"
-				position = { x= -15 y = -340 }
 			}
 		}
 		
