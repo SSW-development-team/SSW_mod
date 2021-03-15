@@ -9,14 +9,6 @@ focus_tree = {
 	}
 	default = no
 	focus = {
-		id = TIB_elect_regency
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 13
-		y = 1
-
-	}
-	focus = {
 		id = TIB_start_politic_reform
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -25,27 +17,698 @@ focus_tree = {
 
 	}
 	focus = {
-		id = TIB_support_farmers
-		icon = GFX_goal_unknown
-		cost = 7.00
-		x = 18
-		y = 2
-
-	}
-	focus = {
-		id = TIB_legacy_of_thubten_Gyatso
-		icon = GFX_goal_unknown
-		cost = 7.00
-		x = 8
-		y = 2
-
-	}
-	focus = {
-		id = TIB_traditional_temples
+		id = TIB_the_tibetan_army
 		icon = GFX_goal_unknown
 		cost = 10.00
+		x = 34
+		y = 0
+
+	}
+	focus = {
+		id = TIB_invest_from_foreign
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 29
+		y = 0
+
+	}
+	focus = {
+		id = TIB_find_way
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_start_politic_reform
+		}
 		x = 13
+		y = 1
+
+	}
+	focus = {
+		id = TIB_reform_politic
+		icon = GFX_goal_unknown
+		cost = 0.00
+		prerequisite = {
+			focus = TIB_find_way
+		}
+		mutually_exclusive = {
+			focus = TIB_traditional_government
+		}
+		x = 6
 		y = 2
+
+	}
+	focus = {
+		id = TIB_support_bapa_wangyal
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_reform_politic
+		}
+		mutually_exclusive = {
+			focus = TIB_chinese_model
+		}
+		x = 3
+		y = 3
+
+	}
+	focus = {
+		id = TIB_red_monastries
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_support_bapa_wangyal
+		}
+		mutually_exclusive = {
+			focus = TIB_shut_spiritual_opiates_out
+		}
+		x = 1
+		y = 4
+
+	}
+	focus = {
+		id = TIB_shut_spiritual_opiates_out
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_support_bapa_wangyal
+		}
+		mutually_exclusive = {
+			focus = TIB_red_monastries
+		}
+		x = 5
+		y = 4
+
+	}
+	focus = {
+		id = TIB_chinese_model
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_reform_politic
+		}
+		mutually_exclusive = {
+			focus = TIB_support_bapa_wangyal
+		}
+		x = 14
+		y = 3
+
+	}
+	focus = {
+		id = TIB_three_principles
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_chinese_model
+		}
+		x = 13
+		y = 4
+
+	}
+	focus = {
+		id = TIB_invite_chinese_advisors
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_chinese_model
+		}
+		x = 15
+		y = 4
+
+	}
+	focus = {
+		id = TIB_improvement_party
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_three_principles
+		}
+		prerequisite = {
+			focus = TIB_invite_chinese_advisors
+		}
+		x = 14
+		y = 5
+
+	}
+	focus = {
+		id = TIB_lhasa_revolution
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_improvement_party
+		}
+		mutually_exclusive = {
+			focus = TIB_democratic_election
+		}
+		x = 13
+		y = 6
+
+	}
+	focus = {
+		id = TIB_secularization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_lhasa_revolution
+		}
+		x = 12
+		y = 7
+
+	}
+	focus = {
+		id = TIB_democratic_election
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_improvement_party
+		}
+		mutually_exclusive = {
+			focus = TIB_lhasa_revolution
+		}
+		x = 15
+		y = 6
+
+	}
+	focus = {
+		id = TIB_fair_treatment_of_the_dalai_lama
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_lhasa_revolution
+			focus = TIB_democratic_election
+		}
+		x = 14
+		y = 7
+
+	}
+	focus = {
+		id = TIB_english_style_democracy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_democratic_election
+		}
+		x = 16
+		y = 7
+
+	}
+	focus = {
+		id = TIB_join_to_front
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_fair_treatment_of_the_dalai_lama
+		}
+		prerequisite = {
+			focus = TIB_english_style_democracy
+		}
+		x = 15
+		y = 8
+
+	}
+	focus = {
+		id = TIB_negotiated_chinese_suzerainty
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_secularization
+		}
+		prerequisite = {
+			focus = TIB_fair_treatment_of_the_dalai_lama
+		}
+		x = 13
+		y = 8
+
+	}
+	focus = {
+		id = TIB_education_project
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_negotiated_chinese_suzerainty
+		}
+		prerequisite = {
+			focus = TIB_join_to_front
+		}
+		x = 15
+		y = 9
+
+	}
+	focus = {
+		id = TIB_traditional_government
+		icon = GFX_goal_unknown
+		cost = 0.00
+		prerequisite = {
+			focus = TIB_find_way
+		}
+		mutually_exclusive = {
+			focus = TIB_reform_politic
+		}
+		x = 25
+		y = 2
+
+	}
+	focus = {
+		id = TIB_dalai_lamas_government
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_traditional_government
+		}
+		mutually_exclusive = {
+			focus = TIB_regency_seize_power
+		}
+		x = 22
+		y = 3
+
+	}
+	focus = {
+		id = TIB_partial_constitutional_monarchy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_dalai_lamas_government
+		}
+		mutually_exclusive = {
+			focus = TIB_ally_with_dobdob
+		}
+		x = 20
+		y = 4
+
+	}
+	focus = {
+		id = TIB_ally_with_dobdob
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_dalai_lamas_government
+		}
+		mutually_exclusive = {
+			focus = TIB_partial_constitutional_monarchy
+		}
+		x = 24
+		y = 4
+
+	}
+	focus = {
+		id = TIB_regency_seize_power
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_traditional_government
+		}
+		mutually_exclusive = {
+			focus = TIB_dalai_lamas_government
+		}
+		x = 28
+		y = 3
+
+	}
+	focus = {
+		id = TIB_break_nobles_authority
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_shut_spiritual_opiates_out
+			focus = TIB_red_monastries
+		}
+		x = 3
+		y = 5
+
+	}
+	focus = {
+		id = TIB_maoism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_break_nobles_authority
+		}
+		prerequisite = {
+			focus = TIB_shut_spiritual_opiates_out
+		}
+		x = 5
+		y = 6
+
+	}
+	focus = {
+		id = TIB_legacy_of_lungshar
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_break_nobles_authority
+		}
+		prerequisite = {
+			focus = TIB_red_monastries
+		}
+		x = 1
+		y = 6
+
+	}
+	focus = {
+		id = TIB_call_ccp
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_maoism
+		}
+		x = 7
+		y = 7
+
+	}
+	focus = {
+		id = TIB_red_potala
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_legacy_of_lungshar
+		}
+		x = 1
+		y = 7
+
+	}
+	focus = {
+		id = TIB_fate_of_dalai_lama
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_maoism
+			focus = TIB_legacy_of_lungshar
+		}
+		mutually_exclusive = {
+			focus = TIB_legal_leftist_government
+		}
+		x = 3
+		y = 7
+
+	}
+	focus = {
+		id = TIB_legal_leftist_government
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_maoism
+		}
+		mutually_exclusive = {
+			focus = TIB_fate_of_dalai_lama
+		}
+		x = 5
+		y = 7
+
+	}
+	focus = {
+		id = TIB_land_reform
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_red_potala
+			focus = TIB_fate_of_dalai_lama
+		}
+		prerequisite = {
+			focus = TIB_red_potala
+		}
+		x = 1
+		y = 8
+
+	}
+	focus = {
+		id = TIB_party_convention
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_call_ccp
+			focus = TIB_fate_of_dalai_lama
+			focus = TIB_legal_leftist_government
+		}
+		x = 5
+		y = 8
+
+	}
+	focus = {
+		id = TIB_build_liberated_zone
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_call_ccp
+		}
+		x = 7
+		y = 8
+
+	}
+	focus = {
+		id = TIB_expand_infiltrating
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_build_liberated_zone
+		}
+		prerequisite = {
+			focus = TIB_accept_unity_of_china
+		}
+		x = 7
+		y = 9
+
+	}
+	focus = {
+		id = TIB_step_with_japan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_build_liberated_zone
+		}
+		prerequisite = {
+			focus = TIB_accept_unity_of_china
+		}
+		x = 9
+		y = 9
+
+	}
+	focus = {
+		id = TIB_arrest_ngawang_jigme
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_party_convention
+			focus = TIB_land_reform
+		}
+		x = 3
+		y = 9
+
+	}
+	focus = {
+		id = TIB_kick_kuomintang_out
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_expand_infiltrating
+		}
+		prerequisite = {
+			focus = TIB_step_with_japan
+		}
+		x = 8
+		y = 10
+
+	}
+	focus = {
+		id = TIB_russian_in_exile
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_land_reform
+		}
+		x = 1
+		y = 9
+
+	}
+	focus = {
+		id = TIB_tibetan_parliament
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_russian_in_exile
+		}
+		prerequisite = {
+			focus = TIB_arrest_ngawang_jigme
+		}
+		x = 0
+		y = 10
+
+	}
+	focus = {
+		id = TIB_accept_unity_of_china
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_call_ccp
+		}
+		x = 9
+		y = 8
+
+	}
+	focus = {
+		id = TIB_state_atheism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_russian_in_exile
+		}
+		prerequisite = {
+			focus = TIB_arrest_ngawang_jigme
+		}
+		x = 2
+		y = 10
+
+	}
+	focus = {
+		id = TIB_crush_reactionaries
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_arrest_ngawang_jigme
+		}
+		x = 4
+		y = 10
+
+	}
+	focus = {
+		id = TIB_second_zunyi_conference
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_party_convention
+		}
+		prerequisite = {
+			focus = TIB_expand_infiltrating
+		}
+		x = 6
+		y = 10
+
+	}
+	focus = {
+		id = TIB_finish_the_campaign
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_second_zunyi_conference
+		}
+		prerequisite = {
+			focus = TIB_kick_kuomintang_out
+		}
+		x = 7
+		y = 11
+
+	}
+	focus = {
+		id = TIB_modern_university
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_state_atheism
+		}
+		prerequisite = {
+			focus = TIB_tibetan_parliament
+		}
+		x = 1
+		y = 11
+
+	}
+	focus = {
+		id = TIB_claim_qinghai
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_state_atheism
+		}
+		prerequisite = {
+			focus = TIB_crush_reactionaries
+		}
+		x = 3
+		y = 11
+
+	}
+	focus = {
+		id = TIB_new_cities
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_claim_qinghai
+		}
+		prerequisite = {
+			focus = TIB_modern_university
+		}
+		x = 2
+		y = 12
+
+	}
+	focus = {
+		id = TIB_road_to_china
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_join_to_front
+		}
+		prerequisite = {
+			focus = TIB_negotiated_chinese_suzerainty
+		}
+		x = 13
+		y = 9
+
+	}
+	focus = {
+		id = TIB_salt_trade
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_claim_qinghai
+		}
+		x = 4
+		y = 12
+
+	}
+	focus = {
+		id = TIB_full_control_monastries
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_road_to_china
+		}
+		prerequisite = {
+			focus = TIB_education_project
+		}
+		x = 14
+		y = 10
+
+	}
+	focus = {
+		id = TIB_himalayan_operation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_kick_kuomintang_out
+			focus = TIB_full_control_monastries
+		}
+		x = 11
+		y = 11
+
+	}
+	focus = {
+		id = TIB_to_india
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_himalayan_operation
+		}
+		x = 11
+		y = 12
+
+	}
+	focus = {
+		id = TIB_chinization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = TIB_full_control_monastries
+		}
+		x = 14
+		y = 11
 
 	}
 }
