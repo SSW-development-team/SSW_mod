@@ -22,6 +22,24 @@ country_event = { #FROMがバルカン連邦構想を提示
                 is_puppet = yes
                 factor = 0
             }
+            modifier = {
+                FROM = {
+                    is_major = yes
+                }
+                is_major = no
+                factor = 5
+            }
+            modifier = {
+                has_opinion = {
+                    target = FROM
+                    value > 60
+                }
+                factor = 2
+            }
+            modifier = {
+                is_in_faction_with = FROM
+                factor = 3
+            }
         }
     }
     option = { #我が国が主導なら認めないこともない
@@ -87,6 +105,24 @@ country_event = { #FROMがバルカン連邦構想を提示
                 tag = ITA
                 factor = 0.3
             }
+            modifier = {
+                has_opinion = {
+                    target = FROM
+                    value > 60
+                }
+                factor = 2
+            }
+            modifier = {
+                FROM = {
+                    is_major = yes
+                }
+                is_major = no
+                factor = 3
+            }
+            modifier = {
+                is_in_faction_with = FROM
+                factor = 4
+            }
         }
     }
     option = { #馬鹿げたことだ
@@ -103,7 +139,10 @@ country_event = { #FROMがバルカン連邦構想を提示
         ai_chance = {
             base = 70
             modifier = {
-                has_country_flag = Balkan_fede_agree
+                OR = {
+                    has_country_flag = Balkan_fede_agree
+                    is_puppet_of = FROM
+                }
                 factor = 0
             }
         }
@@ -219,6 +258,10 @@ country_event = { #FROMが自らの主導を要求
             base = 100
         }
         clr_country_flag = Balkan_fede_nego
+        create_wargoal = {
+            type = annex_everything
+            target = FROM
+        }
     }
     option = { #連邦を構築できれば我々はそれでよい
         name = ssw_Balkan.3.b
@@ -309,6 +352,10 @@ country_event = { #FROMが提案を拒否
     option = { #勝手にしろ
         name = ssw_Balkan.4.a
         clr_country_flag = Balkan_fede_nego
+        create_wargoal = {
+            type = annex_everything
+            target = FROM
+        }
     }
 }
 
