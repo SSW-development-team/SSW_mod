@@ -828,7 +828,10 @@ fate_of_countries_category_western_europe = {
 		cost = 0
 		fire_only_once = no
 		activation = {
-			NOT = { country_exists = ITA }
+			NOT = {
+				country_exists = IPF
+				country_exists = ITA
+			}
 			any_state = {
 				is_fully_controlled_by = ROOT
 				has_state_flag = maybe_core_ITA_GAMESTART
@@ -844,6 +847,7 @@ fate_of_countries_category_western_europe = {
 					has_state_flag = maybe_core_SWI
 				}
 			}
+			IPF = { capital_scope = { is_fully_controlled_by = ROOT } }
 			ITA = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
@@ -852,7 +856,9 @@ fate_of_countries_category_western_europe = {
 		}
 		cancel_trigger = {
 			OR = {
+				country_exists = IPF
 				country_exists = ITA
+				IPF = { capital_scope = { is_valid_annexation_state = no } }
 				ITA = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_italy }
 			}
