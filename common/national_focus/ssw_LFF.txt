@@ -346,9 +346,10 @@ focus_tree = {
 		id = LFF_hegemony_of_cpusa
 		icon = GFX_focus_generic_join_comintern
 		prerequisite = { focus = LFF_resumption_of_domestic_affairs }
-		mutually_exclusive = { focus = LFF_hegemony_of_spa }
+		available = { NOT = { has_completed_focus = LFF_hegemony_of_spa } }
 		x = -6
 		y = 1
+		bypass = { hidden_trigger = { has_country_flag = through_cpusa } }
 		relative_position_id = LFF_resumption_of_domestic_affairs
 		cost = 7
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -362,7 +363,8 @@ focus_tree = {
 		id = LFF_hegemony_of_spa
 		icon = GFX_focus_prc_agrarian_socialism
 		prerequisite = { focus = LFF_resumption_of_domestic_affairs }
-		mutually_exclusive = { focus = LFF_hegemony_of_cpusa }
+		available = { NOT = { has_completed_focus = LFF_hegemony_of_cpusa } }
+		bypass = { hidden_trigger = { has_country_flag = through_spa } }
 		x = 6
 		y = 1
 		relative_position_id = LFF_resumption_of_domestic_affairs
@@ -386,7 +388,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -403,16 +405,11 @@ focus_tree = {
 		id = LFF_with_foster
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = LFF_hegemony_of_cpusa }
-		mutually_exclusive = {
-			focus = LFF_with_browder
-			focus = LFF_with_solomon
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 0
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1129,21 +1126,36 @@ focus_tree = {
 			add_ideas = lff_ideas_17
 		}
 	}
+	focus = { #
+		id = LFF_
+		icon = 
+		prerequisite = { focus = LFF_with_foster }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_with_foster
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			
+		}
+	}
 ########## ブラウダールート ##########
 	focus = { #ブラウダーと共に
 		id = LFF_with_browder
 		icon = GFX_focus_generic_soviet_politics
 		prerequisite = { focus = LFF_hegemony_of_cpusa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_solomon
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 4
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1170,16 +1182,11 @@ focus_tree = {
 		id = LFF_with_solomon
 		icon = GFX_goal_generic_soviet_construction
 		prerequisite = { focus = LFF_hegemony_of_spa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_browder
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = -4
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1221,16 +1228,11 @@ focus_tree = {
 		id = LFF_with_waldman
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		prerequisite = { focus = LFF_hegemony_of_spa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_browder
-			focus = LFF_with_solomon
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 0
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1264,7 +1266,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
