@@ -334,18 +334,20 @@ USA_policy = {
 						state = 686
 					}
 					has_state_flag = maybe_core_AMERICA
+					is_fully_controlled_by = ROOT
 				}
 			}
 		}
 		state_target = yes
 		on_map_mode = map_only
-		target_array = controlled_states
+		target_array = owned_states
 		target_trigger = {
 			OR = {
 				original_tag = BLS
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
+				original_tag = LFF
 				original_tag = NEL
 				original_tag = HAW
 				original_tag = USA
@@ -357,6 +359,7 @@ USA_policy = {
 						state = 686
 					}
 					has_state_flag = maybe_core_AMERICA
+					is_fully_controlled_by = ROOT
 				}
 			}
 		}
@@ -370,6 +373,7 @@ USA_policy = {
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
+				original_tag = LFF
 				original_tag = NEL
 				original_tag = HAW
 				original_tag = USA
@@ -381,6 +385,7 @@ USA_policy = {
 						state = 686
 					}
 					has_state_flag = maybe_core_AMERICA
+					is_fully_controlled_by = ROOT
 				}
 			}
 		}
@@ -415,6 +420,7 @@ USA_policy = {
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
+				original_tag = LFF
 				original_tag = NEL
 				original_tag = HAW
 				original_tag = USA
@@ -429,6 +435,10 @@ USA_policy = {
 			if = {
 				limit = { original_tag = NEL }
 				set_cosmetic_tag = NEL_america
+			}
+			if = {
+				limit = { original_tag = LFF }
+				set_cosmetic_tag = LFF_unification
 			}
 			if = {
 				limit = {
@@ -574,7 +584,7 @@ SSW_foreign_support = {
 	add_building_slots = {
 		icon = generic_nationalism
 		available = {
-			NOT = { has_country_flag = adding_state_core }
+			NOT = { has_country_flag = adding_building_slot }
 			FROM = {
 				is_owned_by = ROOT
 				OR = {
@@ -698,9 +708,9 @@ SSW_foreign_support = {
 				}
 			}
 		}
-		complete_effect = { set_country_flag = adding_state_core }
+		complete_effect = { set_country_flag = adding_building_slot }
 		remove_effect = {
-			clr_country_flag = adding_state_core
+			clr_country_flag = adding_building_slot
 			FROM = { add_extra_state_shared_building_slots = 1 }
 		}
 	}

@@ -2074,6 +2074,13 @@ focus_tree={
         prerequisite = {
             focus = BUL_cooperate_with_HUN
         }
+        bypass = {
+            NOT = {country_exists = CRO}
+            custom_trigger_tooltip = {
+                tooltip = BUL_end_CRO_tt
+                NOT = {has_country_flag = BUL_HUN_agree_divi}
+            }
+        }
         available_if_capitulated = yes
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -2110,6 +2117,14 @@ focus_tree={
                 }
                 GER = {
                     country_event = {id = ssw_bul.14}
+                }
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = BUL_HUN_agree_divi
+                }
+                HUN = {
+                    remove_from_faction = CRO
                 }
             }
         }
@@ -2163,9 +2178,7 @@ focus_tree={
             }
             if = {
                 limit = {
-                    has_non_aggression_pact_with = HUN
-                    has_military_access_to = HUN
-                    gives_military_access_to = HUN
+                    has_country_flag = BUL_HUN_agree_divi
                 }
                 HUN = {
                     declare_war_on = {

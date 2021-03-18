@@ -9,7 +9,7 @@ focus_tree = {
 	}
 	continuous_focus_position = { x = 1500 y = 0 }
 	default = no
-	focus = {
+	focus = { #政策の見直し
 		id = LFF_policy_review
 		icon = GFX_focus_prc_agrarian_socialism
 		cost = 7
@@ -22,7 +22,7 @@ focus_tree = {
 			add_war_support = 0.15
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_industrial_effort
 		text = industrial_effort
 		icon = GFX_goal_generic_production
@@ -43,7 +43,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_construction_effort
 		text = construction_effort
 		icon = GFX_goal_generic_construct_civ_factory
@@ -100,7 +100,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_production_effort
 		text = production_effort
 		icon = GFX_goal_generic_construct_mil_factory
@@ -157,7 +157,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_army_effort
 		text = army_effort
 		icon = GFX_goal_generic_allies_build_infantry
@@ -178,7 +178,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_equipment_effort
 		text = equipment_effort
 		icon = GFX_goal_generic_small_arms
@@ -200,7 +200,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #防衛重視
 		id = LFF_defense_battle
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = LFF_equipment_effort }
@@ -215,7 +215,7 @@ focus_tree = {
 			add_ideas = lff_ideas_1
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_aviation_effort
 		text = aviation_effort
 		icon = GFX_goal_generic_build_airforce
@@ -281,7 +281,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #汎用
 		id = LFF_fighter_focus
 		text = fighter_focus
 		icon = GFX_goal_generic_air_fighter
@@ -304,7 +304,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { #空軍戦術の改良
 		id = LFF_tactical_improvement
 		icon = GFX_goal_generic_air_bomber
 		prerequisite = { focus = LFF_fighter_focus }
@@ -318,7 +318,7 @@ focus_tree = {
 			add_ideas = lff_ideas_2
 		}
 	}
-	focus = {
+	focus = { #内政の再開
 		id = LFF_resumption_of_domestic_affairs
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = LFF_defense_battle }
@@ -346,9 +346,10 @@ focus_tree = {
 		id = LFF_hegemony_of_cpusa
 		icon = GFX_focus_generic_join_comintern
 		prerequisite = { focus = LFF_resumption_of_domestic_affairs }
-		mutually_exclusive = { focus = LFF_hegemony_of_spa }
+		available = { NOT = { has_completed_focus = LFF_hegemony_of_spa } }
 		x = -6
 		y = 1
+		bypass = { hidden_trigger = { has_country_flag = through_cpusa } }
 		relative_position_id = LFF_resumption_of_domestic_affairs
 		cost = 7
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -362,7 +363,8 @@ focus_tree = {
 		id = LFF_hegemony_of_spa
 		icon = GFX_focus_prc_agrarian_socialism
 		prerequisite = { focus = LFF_resumption_of_domestic_affairs }
-		mutually_exclusive = { focus = LFF_hegemony_of_cpusa }
+		available = { NOT = { has_completed_focus = LFF_hegemony_of_cpusa } }
+		bypass = { hidden_trigger = { has_country_flag = through_spa } }
 		x = 6
 		y = 1
 		relative_position_id = LFF_resumption_of_domestic_affairs
@@ -386,7 +388,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -403,16 +405,11 @@ focus_tree = {
 		id = LFF_with_foster
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = LFF_hegemony_of_cpusa }
-		mutually_exclusive = {
-			focus = LFF_with_browder
-			focus = LFF_with_solomon
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 0
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -430,21 +427,715 @@ focus_tree = {
 			}
 		}
 	}
+	focus = { #計画的な産業
+		id = LFF_planned_industry
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = LFF_with_foster }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = LFF_with_foster
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	focus = { #教育制度の改革
+		id = LFF_education_system_reform
+		icon = GFX_focus_research
+		prerequisite = { focus = LFF_planned_industry }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_planned_industry
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_9
+		}
+	}
+	focus = { #インフラ事業
+		id = LFF_infrastructure_business
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = LFF_education_system_reform }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_education_system_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #国営化を加速
+		id = LFF_accelerate_nationalization
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = LFF_infrastructure_business }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_infrastructure_business
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #太平洋を渡れ
+		id = LFF_cross_the_pacific_ocean
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = LFF_accelerate_nationalization }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_accelerate_nationalization
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #軍拡の再開
+		id = LFF_resumption_of_arms_race
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LFF_cross_the_pacific_ocean }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_cross_the_pacific_ocean
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_10
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #歩兵装備の製造
+		id = LFF_manufacture_of_infantry_equipment
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = LFF_resumption_of_arms_race }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_resumption_of_arms_race
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_11
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #戦闘機と爆撃機の製造
+		id = LFF_manufacture_of_fighters_and_bombers
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = LFF_manufacture_of_infantry_equipment }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_manufacture_of_infantry_equipment
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_12
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #新憲法
+		id = LFF_new_constitution
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = LFF_with_foster }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = LFF_with_foster
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.07
+		}
+	}
+	focus = { #粛清の再開
+		id = LFF_resumption_of_purge
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = LFF_new_constitution }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_new_constitution
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = { has_idea = lff_withdesc_ideas_1 }
+				swap_ideas = {
+					remove_idea = lff_withdesc_ideas_1
+					add_idea = lff_ideas_13
+				}
+			}
+		}
+	}
+	focus = { #スパイの雇用
+		id = LFF_employment_of_spies
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = LFF_resumption_of_purge }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_resumption_of_purge
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_operative_leader = {
+				name = "Theodore Hall"
+				GFX = NOTHING
+				traits = {
+					operative_commando
+					operative_linguist
+				}
+				bypass_recruitment = no
+				available_to_spy_master = yes
+				nationalities = { ALF FSA LFF USA UTC }
+			}
+			create_operative_leader = {
+				name = "John Abt"
+				GFX = NOTHING
+				traits = {
+					operative_commando
+					operative_infiltrator
+				}
+				bypass_recruitment = no
+				available_to_spy_master = yes
+				nationalities = { ALF FSA LFF USA UTC }
+			}
+			create_operative_leader = {
+				name = "Elizabeth Bentley"
+				GFX = NOTHING
+				traits = {
+					operative_seducer
+					operative_natural_orator
+				}
+				bypass_recruitment = no
+				available_to_spy_master = yes
+				female = yes
+				nationalities = { ALF FSA LFF USA UTC }
+			}
+		}
+	}
+	focus = { #粛清の加速
+		id = LFF_acceleration_of_purge
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = LFF_employment_of_spies }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_employment_of_spies
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = { has_idea = lff_ideas_13 }
+				swap_ideas = {
+					remove_idea = lff_ideas_13
+					add_idea = lff_ideas_14
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+	focus = { #洗脳教育の開始
+		id = LFF_start_of_brainwashing_education
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = LFF_acceleration_of_purge }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_acceleration_of_purge
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_15
+		}
+	}
+	focus = { #粛清の完了
+		id = LFF_completion_of_the_purge
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = LFF_start_of_brainwashing_education }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_start_of_brainwashing_education
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = { has_idea = lff_ideas_14 }
+				swap_ideas = {
+					remove_idea = lff_ideas_14
+					add_idea = lff_ideas_16
+				}
+			}
+			add_stability = 0.03
+		}
+	}
+	focus = { #治安維持に注力
+		id = LFF_on_maintaining_security
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = LFF_completion_of_the_purge }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_completion_of_the_purge
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	focus = { #皆が英雄である
+		id = LFF_everyone_is_heroes
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = LFF_on_maintaining_security }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_on_maintaining_security
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = lff_ideas_17
+		}
+	}
 ########## ブラウダールート ##########
 	focus = { #ブラウダーと共に
 		id = LFF_with_browder
 		icon = GFX_focus_generic_soviet_politics
 		prerequisite = { focus = LFF_hegemony_of_cpusa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_solomon
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 4
 		y = 1
 		relative_position_id = LFF_hegemony_of_cpusa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -471,16 +1162,11 @@ focus_tree = {
 		id = LFF_with_solomon
 		icon = GFX_goal_generic_soviet_construction
 		prerequisite = { focus = LFF_hegemony_of_spa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_browder
-			focus = LFF_with_waldman
-		}
 		available = { hidden_trigger = { always = no } }
 		x = -4
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -522,16 +1208,11 @@ focus_tree = {
 		id = LFF_with_waldman
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		prerequisite = { focus = LFF_hegemony_of_spa }
-		mutually_exclusive = {
-			focus = LFF_with_foster
-			focus = LFF_with_browder
-			focus = LFF_with_solomon
-		}
 		available = { hidden_trigger = { always = no } }
 		x = 0
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -565,7 +1246,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = LFF_hegemony_of_spa
-		cost = 7
+		cost = 0
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
