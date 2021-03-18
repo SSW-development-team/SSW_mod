@@ -3,10 +3,11 @@
 shared_focus = {
     id = SER_Continuity_of_the_Royal_Family
     icon = GFX_focus_generic_monarchy_2
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         }
     mutually_exclusive = {
+        focus = SER_Military_coup
         }
     available = {
     }
@@ -22,13 +23,14 @@ shared_focus = {
     x = 0
     y = 0
     completion_reward = {
+        add_political_power = 150
     }
 }
 #摂政の権限強化
 shared_focus = {
     id = SER_Strengthening_the_authority_of_the_regent
     icon = GFX_goal_demand_sudetenland
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_Continuity_of_the_Royal_Family
         }
@@ -48,13 +50,14 @@ shared_focus = {
     x = 0
     y = 1
     completion_reward = {
+        add_country_leader_trait = SER_Expanded_regal_authority
     }
 }
 #現実政治
 shared_focus = {
     id = SER_real_politics
     icon = GFX_focus_generic_strike_at_democracy2
-    cost = 8.00
+    cost = 5.00
     prerequisite = {
         focus = SER_Strengthening_the_authority_of_the_regent
         }
@@ -75,13 +78,15 @@ shared_focus = {
     x = 1
     y = 2
     completion_reward = {
+        add_stability = 0.10
+        add_war_support = 0.05
     }
 }
 #靭帯の強化
 shared_focus = {
     id = SER_Strengthening_of_ligaments
     icon = GFX_focus_CZE_german_puppet
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_real_politics
         }
@@ -101,13 +106,18 @@ shared_focus = {
     x = 1
     y = 3
     completion_reward = {
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.15
+        }
+        add_ideas = SER_idea_10
     }
 }
 #共和派の排除
 shared_focus = {
     id = SER_Eliminating_the_Republicans
     icon = GFX_SER_Purge_democrat
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_Strengthening_of_ligaments
         }
@@ -127,6 +137,7 @@ shared_focus = {
     x = 1
     y = 4
     completion_reward = {
+        add_ideas = SER_idea_11
     }
 }
 #分かたれざる政府
@@ -154,6 +165,7 @@ shared_focus = {
     x = 1
     y = 5
     completion_reward = {
+        add_country_leader_trait = SER_undivided_government
     }
 }
 #国王への配慮
@@ -181,13 +193,18 @@ shared_focus = {
     x = 3
     y = 5
     completion_reward = {
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.05
+        }
+        add_ideas = SER_idea_12
     }
 }
 #摂政政府
 shared_focus = {
     id = SER_regency_government
     icon = GFX_SER_Serbia_regency_government
-    cost = 8.00
+    cost = 6.00
     prerequisite = {
         focus = SER_Consideration_for_the_King
         }
@@ -207,13 +224,14 @@ shared_focus = {
     x = 3
     y = 6
     completion_reward = {
+        remove_ideas = SER_idea_3
     }
 }
 #ペータル王の親政
 shared_focus = {
     id = SER_King_Petal_Parental_Rule
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 5.00
     prerequisite = {
         focus = SER_Strengthening_the_authority_of_the_regent
         }
@@ -234,13 +252,23 @@ shared_focus = {
     x = -1
     y = 2
     completion_reward = {
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.30
+        }
+        set_politics = {
+            ruling_party = authority_despotism
+                elections_allowed = no
+                last_election = "1935.12.17"
+                election_frequency = 48
+        }
     }
 }
 #権限強化
 shared_focus = {
     id = SER_strengthening_of_authority
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_King_Petal_Parental_Rule
         }
@@ -260,6 +288,7 @@ shared_focus = {
     x = -1
     y = 3
     completion_reward = {
+        add_country_leader_trait = SER_Expanded_regal_authority
     }
 }
 #王のスピーチ
@@ -286,13 +315,18 @@ shared_focus = {
     x = -1
     y = 4
     completion_reward = {
+        add_stability = 0.05
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.10
+        }
     }
 }
-#王政への人気取り
+#王政の人気取り
 shared_focus = {
     id = SER_Popularity_for_the_monarchy
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 5.00
     prerequisite = {
         focus = SER_The_Kings_Speech
         }
@@ -312,13 +346,15 @@ shared_focus = {
     x = -1
     y = 5
     completion_reward = {
+        add_political_power = -100
+        add_ideas = SER_idea_13
     }
 }
 #最良の専制君主
 shared_focus = {
     id = SER_The_best_tyrant
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_Popularity_for_the_monarchy
         }
@@ -339,6 +375,7 @@ shared_focus = {
     x = -1
     y = 6
     completion_reward = {
+        add_country_leader_trait = SER_best_despot_king
     }
 }
 #摂政との妥協
@@ -365,6 +402,7 @@ shared_focus = {
     x = -3
     y = 5
     completion_reward = {
+        add_ideas = SER_idea_14
     }
 }
 #忠実な政府の任命
@@ -392,6 +430,9 @@ shared_focus = {
     x = -3
     y = 6
     completion_reward = {
+        add_stability = 0.05
+        add_ideas = SER_idea_15
+        remove_ideas = SER_idea_3
     }
 }
 #軍部のクーデター
@@ -402,6 +443,7 @@ shared_focus = {
     prerequisite = {
         }
     mutually_exclusive = {
+        focus = SER_Continuity_of_the_Royal_Family
         }
     available = {
     }
@@ -417,8 +459,36 @@ shared_focus = {
     x = 10
     y = 0
     completion_reward = {
+        hidden_effect = {
+            kill_country_leader = yes
+        }
         country_event = {
             id = SSW_SER.1
+        }
+        add_stability = -0.20
+        set_politics = {
+            ruling_party = authority_despotism
+                elections_allowed = no
+                last_election = "1935.12.17"
+                election_frequency = 48
+        }
+        create_country_leader = {
+            name = "Dušan Simović"
+            desc = ""
+            picture = "Portrait_Dusan_Simovic.dds"
+            expire = "1965.1.1"
+            ideology = military_junta_ideology
+            traits = {
+            }
+        }
+        set_party_name = { 
+            ideology = authority_despotism 
+            long_name = SER_authority_despotism_military_junta_party_long 
+            name = SER_authority_despotism_military_junta_party 
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.30
         }
     }
 }
@@ -455,6 +525,12 @@ shared_focus = {
     x = 11
     y = 1
     completion_reward = {
+        add_ideas = SER_idea_16
+        add_ideas = SER_idea_17
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.40
+        }
     }
 }
 #アレクサンダル皇太子への禅譲
@@ -481,13 +557,14 @@ shared_focus = {
     x = 11
     y = 2
     completion_reward = {
+        add_ideas = SER_idea_18
     }
 }
 #王党派の拠点の排除
 shared_focus = {
     id = SER_Elimination_of_Royalist_strongholds
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 4.00
     prerequisite = {
         focus = SER_Zen_to_Crown_Prince_Aleksandar
         }
@@ -507,6 +584,7 @@ shared_focus = {
     x = 11
     y = 3
     completion_reward = {
+        add_ideas = SER_idea_19
     }
 }
 #新たな役人の派遣
@@ -533,6 +611,10 @@ shared_focus = {
     x = 11
     y = 4
     completion_reward = {
+        swap_ideas = {
+            remove_idea = SER_idea_16
+            add_idea = SER_idea_20
+        }
     }
 }
 #強固な政府
@@ -559,13 +641,14 @@ shared_focus = {
     x = 11
     y = 5
     completion_reward = {
+        remove_ideas = SER_idea_3
     }
 }
 #統制経済
 shared_focus = {
     id = SER_controlled_economy
     icon = GFX_focus_generic_treaty
-    cost = 8.00
+    cost = 6.00
     prerequisite = {
         focus = SER_Elimination_of_Royalist_strongholds
         }
@@ -585,6 +668,7 @@ shared_focus = {
     x = 13
     y = 4
     completion_reward = {
+        add_ideas = SER_idea_21
     }
 }
 #予算の見直し
@@ -611,6 +695,12 @@ shared_focus = {
     x = 13
     y = 5
     completion_reward = {
+        add_stability = 0.05
+        add_war_support = 0.05
+        swap_ideas = {
+            remove_idea = SER_idea_17
+            add_idea = SER_idea_22
+        }
     }
 }
 #戒厳令の段階的緩和
