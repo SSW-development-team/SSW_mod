@@ -5,7 +5,7 @@ focus_tree = {
 		modifier = {
 			add = 10
 			OR = {
-				tag = SPA
+				#tag = SPA
 				tag = SPC
 				tag = SPF
 				tag = SPR
@@ -2029,14 +2029,20 @@ focus_tree = {
 		icon = GFX_focus_spr_maintain_the_republic
 		cost = 1.00
 		ai_will_do = { factor = 10 }
-		prerequisite = {
-			focus = SPR_huranksiji
-		}
-		mutually_exclusive = {
-			focus = SPR_franco
-		}
+		prerequisite = { focus = SPR_huranksiji }
+		mutually_exclusive = { focus = SPR_franco }
 		available = { hidden_trigger = { always = no } }
-		allow_branch = { NOT = { has_country_flag = winner_democrat } }
+		allow_branch = {
+			NOT = {
+				has_country_flag = winner_democrat
+				has_country_flag = spa_policy
+				has_country_flag = spc_policy
+				has_country_flag = spf_policy
+				has_country_flag = spr_policy
+				has_country_flag = spx_policy
+				has_country_flag = spr_extra_policy
+			}
+		}
 		x = 49
 		y = 2
 		completion_reward = {

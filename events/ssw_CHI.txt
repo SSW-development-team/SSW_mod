@@ -393,3 +393,49 @@ country_event = { #Fromが再招待を拒否
         name = ssw_chi.13.a
     }
 }
+
+country_event = { #三峡ダムの完成！
+    id = ssw_chi.14
+    title = ssw_chi.14.t
+    desc = ssw_chi.14.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { #素晴らしい！
+        name = ssw_chi.14.a
+        add_stability = 0.2
+        add_political_power = 300
+        if = {
+            limit = {
+                has_full_control_of_state = 620
+            }
+            620 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 605
+            }
+            605 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 750
+            }
+            750 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 748
+            }
+            748 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        add_ideas = CHI_changjiang_wealth
+    }
+}

@@ -1,0 +1,36 @@
+#4b,52,20,2d,41,53,47,3e,20,47,45,41,43,50,53,20,2d,41,53,47,3e,20,53,53,57
+scripted_gui = {
+	ssw_native_state_naming = {
+		context_type = global_context
+		window_name = "ssw_native_state_naming_container"
+		parent_window_token = top_bar
+		dirty = global.native_state_naming_frame
+		
+		ai_enabled = {	always = no	}
+		triggers = {
+			native_state_naming_button_click_enabled = {
+				NOT = { has_global_flag = is_mp }
+			}
+		}
+		
+		effects = {
+			native_state_naming_button_click = {
+				if = {
+					limit = {	has_global_flag = native_state_naming_globalflag	}
+					clr_global_flag = native_state_naming_globalflag
+					every_state = {	disable_native_state_naming = yes	}
+					set_variable = {	global.native_state_naming_frame = 1	}
+				}
+				else = {
+					set_global_flag = native_state_naming_globalflag
+					every_state = {	enable_native_state_naming = yes	}
+					set_variable = {	global.native_state_naming_frame = 2	}
+				}
+			}
+		}
+		
+		properties = {
+			native_state_naming_button = {	frame = global.native_state_naming_frame	}
+		}
+	}
+}

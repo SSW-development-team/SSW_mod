@@ -23,6 +23,22 @@ ideas = {
 			removal_cost = -1
 			modifier = { surrender_limit = -1 }
 		}
+		losing_event_3 = {
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			available = {
+				has_war = yes
+				is_ai = yes
+			}
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = -0.15
+				army_attack_factor = -0.15
+				conscription_factor = -0.15
+				surrender_limit = -0.15
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
 		winning_event_1 = {
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
@@ -929,6 +945,30 @@ ideas = {
 
 
 
+	}
+	political_leader = {
+		SPR_francisco_franco_ssw = {
+			name = SPR_fransisco_franco
+			available = {
+				NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				custom_trigger_tooltip = {
+					tooltip = head_of_cab_available
+					always = no
+				}
+			}
+			removal_cost = -1
+			allowed = {
+				OR = {
+					original_tag = SPA
+					original_tag = SPC
+					original_tag = SPF
+					original_tag = SPR
+					original_tag = SPX
+				}
+			}
+			ai_will_do = { factor = 1 }
+			cancel_if_invalid = no
+			traits = { el_jefe_maximo }
 		}
-		
+	}
 }
