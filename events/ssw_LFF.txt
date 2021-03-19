@@ -584,3 +584,48 @@ country_event = { #テスト
 		}
 	}
 }
+country_event = { #左翼戦線がアラスカを要求
+	id = ssw_lff.11
+	title = ssw_lff.11.title
+	desc = ssw_lff.11.desc
+	is_triggered_only = yes
+	option = {
+		name = ssw_lff.11.a
+		ai_chance = { base = 50 }
+		LFF = { country_event = { id = ssw_lff.12 days = 1 } }
+	}
+	option = {
+		name = ssw_lff.11.b
+		ai_chance = { base = 50 }
+		LFF = { country_event = { id = ssw_lff.13 days = 1 } }
+	}
+}
+country_event = { #受諾された！
+	id = ssw_lff.12
+	title = ssw_lff.12.title
+	desc = ssw_lff.12.desc
+	is_triggered_only = yes
+	option = {
+		name = ssw_lff.12.a
+		ai_chance = { base = 100 }
+		transfer_state = 463
+		if = {
+			limit = { NOT = { 463 = { is_claimed_by = LFF } } }
+			LFF = { add_state_claim = 463 }
+		}
+	}
+}
+country_event = { #拒否された！
+	id = ssw_lff.13
+	title = ssw_lff.13.title
+	desc = ssw_lff.13.desc
+	is_triggered_only = yes
+	option = {
+		name = ssw_lff.13.a
+		ai_chance = { base = 100 }
+		add_opinion_modifier = {
+			target = ARC
+			modifier = SSW_dislike
+		}
+	}
+}
