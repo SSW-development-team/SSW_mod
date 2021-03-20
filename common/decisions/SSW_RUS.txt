@@ -1597,10 +1597,6 @@ RUS_change_capital = {
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
 				has_cosmetic_tag = TUV_russia
-				AND = {
-					tag = CHL
-					LFF = { has_completed_focus = LFF_place_to_return_for_stalin }
-				}
 			}
 			NOT = { has_country_flag = configuration_capital_of_russia }
 			has_full_control_of_state = 219
@@ -1657,6 +1653,35 @@ RUS_change_capital = {
 			hidden_effect = {
 				set_country_flag = configuration_capital_of_russia
 				set_country_flag = return_capital_of_petersburg
+			}
+		}
+	}
+	capital_moscow_for_chile = {
+		icon = generic_form_nation
+		name = capital_moscow
+		available = {
+			NOT = { has_country_flag = configuration_capital_of_russia }
+			has_full_control_of_state = 219
+			195 = { is_capital = no }
+			219 = { is_capital = no }
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		visible = {
+			tag = CHL
+			has_cosmetic_tag = SOV
+			has_full_control_of_state = 219
+			LFF = { has_completed_focus = LFF_place_to_return_for_stalin }
+			NOT = { has_country_flag = configuration_capital_of_russia }
+			195 = { is_capital = no }
+			219 = { is_capital = no }
+		}
+		complete_effect = {
+			set_capital = 219
+			hidden_effect = {
+				set_country_flag = configuration_capital_of_russia
+				set_country_flag = return_capital_of_moscow
 			}
 		}
 	}
