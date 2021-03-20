@@ -4,7 +4,7 @@ country_event = {
     id = SSW_CRO.1
     title = SSW_CRO.1.t
     desc = SSW_CRO.1.d
-    picture = #あとで！
+    picture = aaa
 
     trigger = {
         tag = CRO
@@ -21,7 +21,7 @@ country_event = {
     id = SSW_CRO.2
     title = SSW_CRO.2.t
     desc = SSW_CRO.2.d
-    picture = #あとで！
+    picture = aaa
 
     trigger = {
         tag = CRO
@@ -50,7 +50,7 @@ country_event = {
     id = SSW_CRO.3
     title = SSW_CRO.3.t
     desc = SSW_CRO.3.d
-    picture = #あとで！
+    picture = aaa
 
     trigger = {
         tag = CRO
@@ -59,16 +59,224 @@ country_event = {
     is_triggered_only = yes
 
     option = {
-        name = SSW_CRO.1.a
+        name = SSW_CRO.3.a
         ai_chance = { factor = 100 }
         CR
         reverse_add_opinion_modifier = {
             target = ITA
             modifier = CRO_nationalism_italyborderboost_opinion
+        }
         add_opinion_modifier = {
             target = ITA
             modifier = CRO_nationalism_italyborderboost_opinion
         }
+    }
+}
+country_event = {#どこかの管理権
+    id = SSW_CRO.4
+    title = SSW_CRO.4.t
+    desc = SSW_CRO.4.d
+    picture = aaa
+
+    trigger = {
+        tag = CRO
+    }
+    is_triggered_only = yes
+    option = {#実行する
+        name = SSW_CRO.4.a
+        ai_chance = { factor = 100 }
+        transfer_state = 976
+        transfer_state = 972
+        transfer_state = 971
+        HUN = {
+            country_event = { id = SSW_CRO.5 }
         }
     }
+    option = {#実行しない
+        name = SSW_CRO.4.b
+        ai_chance = { factor = 0 }
+    }
+}
+country_event = {#どこかの管理権
+    id = SSW_CRO.5
+    title = SSW_CRO.5.t
+    desc = SSW_CRO.5.d
+    picture = aaa
+    is_triggered_only = yes
+    option = {#実行する
+        name = SSW_CRO.5.a
+        ai_chance = { factor = 100 }
+        transfer_state = 764
+
+    }
+}
+country_event = {#椅子取りアデノクロアチア人の地位
+    id = SSW_CRO.6
+    title = SSW_CRO.6.t
+    desc = SSW_CRO.6.d
+    picture = aaa
+
+    trigger = {
+        tag = CRO
+    }
+    is_triggered_only = yes
+    option = {#支援
+        name = SSW_CRO.6.a
+        ai_chance = { factor = 100 }
+        add_timed_idea = {
+            idea = SSW_ideas_CRO_Slovenia
+            days = 360
+        }
+    }
+    option = {#スロベニアとの共生
+        name = SSW_CRO.6.b
+        ai_chance = { factor = 0 }
+    }
+    add_timed_idea = {
+        idea = SSW_ideas_CRO_Slovenia_sphere
+        days = 100
+    }
+
+}
+country_event = {#クロアチアの武器購入
+    id = SSW_CRO.7
+    title = SSW_CRO.7.t
+    desc = SSW_CRO.7.d
+    picture = aaa
+
+    trigger = {
+        tag = GER
+    }
+    is_triggered_only = yes
+    option = {#受諾
+        name = SSW_CRO.7.a
+        ai_chance = { factor = 100 }
+        CRO = {
+            country_event = { id = SSW_CRO.8 days = 2}
+        }
+        reverse_add_opinion_modifier = {
+            target = CRO
+            modifier = CRO_GER_selled_weapon_opinion
+        }
+
+    }
+    option = {#拒否
+        name = SSW_CRO.7.b
+        ai_chance = { factor = 0 }
+        CRO = {
+            country_event = { id = SSW_CRO.9 days = 2}
+        }
+        reverse_add_opinion_modifier = {
+            target = CRO
+            modifier = CRO_GER_not_selled_weapon_opinion
+        }
+
+    }
+
+}
+country_event = {#武器購入を受諾
+    id = SSW_CRO.8
+    title = SSW_CRO.8.t
+    desc = SSW_CRO.8.d
+    picture = aaa
+
+    trigger = {
+        tag = CRO
+    }
+    is_triggered_only = yes
+    option = {#素晴らしい
+        name = SSW_CRO.8.a
+        ai_chance = { factor = 100 }
+        GER = {
+           send_equipment = {
+                equipment = infantry_equipment
+                amount = 1000
+                target = CRO
+            }
+        }
+        hidden_effect = {
+            set_country_flag = ger_accept_sell_weapons
+        }
+    }
+
+}
+country_event = {#武器購入を拒否
+    id = SSW_CRO.9
+    title = SSW_CRO.9.t
+    desc = SSW_CRO.9.d
+    picture = aaa
+
+    trigger = {
+        tag = CRO
+    }
+    is_triggered_only = yes
+    option = {#おいおいまじか
+        name = SSW_CRO.9.a
+        ai_chance = { factor = 100 }
+        hidden_effect = {
+            set_country_flag = ger_refused_sell_weapons
+        }
+    }
+
+}
+country_event = {#クロアチアの武器購入
+    id = SSW_CRO.10
+    title = SSW_CRO.10.t
+    desc = SSW_CRO.10.d
+    picture = aaa
+
+    trigger = {
+        tag = GER
+    }
+    is_triggered_only = yes
+    option = {#受諾
+        name = SSW_CRO.10.a
+        ai_chance = { factor = 100 }
+        CRO = {
+            country_event = { id = SSW_CRO.11 days = 2}
+        }
+        reverse_add_opinion_modifier = {
+            target = CRO
+            modifier = CRO_GER_selled_weapon_opinion
+        }
+
+    }
+    option = {#拒否
+        name = SSW_CRO.10.b
+        ai_chance = { factor = 0 }
+        CRO = {
+            country_event = { id = SSW_CRO.9 days = 2}
+        }
+        reverse_add_opinion_modifier = {
+            target = CRO
+            modifier = CRO_GER_not_selled_weapon_opinion
+        }
+
+    }
+    country_event = {#武器購入を受諾2kaime 
+    title = SSW_CRO.11.t
+    desc = SSW_CRO.11.d
+    picture = aaa
+
+    trigger = {
+        tag = CRO
+    }
+    is_triggered_only = yes
+    option = {#素晴らしい
+        name = SSW_CRO.11.a
+        ai_chance = { factor = 100 }
+        GER = {
+           send_equipment = {
+                equipment = infantry_equipment
+                amount = 1200
+                target = CRO
+            }
+        }
+        hidden_effect = {
+            set_country_flag = ger_accept_sell_weapons
+        }
+    }
+
+}
+
 }
