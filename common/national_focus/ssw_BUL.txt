@@ -1844,9 +1844,19 @@ focus_tree={
         prerequisite = {
             focus = BUL_regime_stability
         }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
+        }
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            set_temp_variable ={maj = BUL.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
         }
     }
 
@@ -1857,6 +1867,9 @@ focus_tree={
         y = 5
         prerequisite = {
             focus = BUL_regime_stability
+        }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
         }
         cost = 10
         ai_will_do = {
