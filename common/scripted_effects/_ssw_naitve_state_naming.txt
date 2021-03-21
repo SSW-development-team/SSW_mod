@@ -1,0 +1,330 @@
+#4b,52,20,2d,41,53,47,3e,20,47,45,41,43,50,53,20,2d,41,53,47,3e,20,53,53,57
+disable_native_state_naming = {
+	reset_state_name = yes
+	clr_state_flag = native_state_named_state_def
+	clr_state_flag = native_state_named_state_jpn
+	clr_state_flag = native_state_named_state_eng
+	clr_state_flag = native_state_named_state_ger
+	clr_state_flag = native_state_named_state_fra
+	clr_state_flag = native_state_named_state_ita
+	clr_state_flag = native_state_named_state_lat
+	clr_state_flag = native_state_named_state_rus
+	clr_state_flag = native_state_named_state_hol
+	clr_state_flag = native_state_named_state_swe
+	clr_state_flag = native_state_named_state_fin
+	clr_state_flag = native_state_named_state_spa
+	clr_state_flag = native_state_named_state_kzh
+	clr_state_flag = native_state_named_state_tur
+	clr_state_flag = native_state_named_state_rom
+	clr_state_flag = native_state_named_state_ser
+	clr_state_flag = native_state_named_state_den
+	clr_state_flag = native_state_named_state_chi
+	clr_state_flag = native_state_named_state_sov
+	clr_state_flag = native_state_named_state_arm
+	clr_state_flag = native_state_named_state_som
+	clr_state_flag = native_state_named_state_amh
+	clr_state_flag = native_state_named_state_ind
+	clr_state_flag = native_state_named_state_ins
+	clr_state_flag = native_state_named_state_mal
+	clr_state_flag = native_state_named_state_gre
+	clr_state_flag = native_state_named_state_bul
+}
+
+enable_native_state_naming = {
+	if = {	#日本語
+		limit = {	controller = {	country_jpn_tag = yes	}	native_state_naming_jpn = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_jpn	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_jpn	}
+			meta_effect = {	
+				text = {	set_state_name = [jpn_state_flag]	}
+				jpn_state_flag = "state_[THIS.GetId]_jpn"
+			}
+		}
+	}
+	else_if = {	#英語
+		limit = {	controller = {	country_eng_tag = yes	}	native_state_naming_eng = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_eng	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_eng	}
+			meta_effect = {	
+				text = {	set_state_name = [eng_state_flag]	}
+				eng_state_flag = "state_[THIS.GetId]_eng"
+			}
+		}
+	}
+	else_if = {	#ドイツ語
+		limit = {	controller = {	country_ger_tag = yes	}	native_state_naming_ger = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_ger	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_ger	}
+			meta_effect = {	
+				text = {	set_state_name = [ger_state_flag]	}
+				ger_state_flag = "state_[THIS.GetId]_ger"
+			}
+		}
+	}
+	else_if = {	#フランス語
+		limit = {	controller = {	country_fra_tag = yes	}	native_state_naming_fra = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_fra	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_fra	}
+			meta_effect = {	
+				text = {	set_state_name = [fra_state_flag]	}
+				fra_state_flag = "state_[THIS.GetId]_fra"
+			}
+		}
+	}
+	else_if = {	#イタリア語
+		limit = {	controller = {	country_ita_tag = yes	}	native_state_naming_ita = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_ita	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_ita	}
+			meta_effect = {	
+				text = {	set_state_name = [ita_state_flag]	}
+				ita_state_flag = "state_[THIS.GetId]_ita"
+			}
+		}
+	}
+	else_if = {	#ラテン語
+		limit = {	controller = {	country_lat_tag = yes	}	native_state_naming_lat = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_lat	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_lat	}
+			meta_effect = {	
+				text = {	set_state_name = [lat_state_flag]	}
+				lat_state_flag = "state_[THIS.GetId]_lat"
+			}
+		}
+	}
+	else_if = {	#ロシア語
+		limit = {	controller = {	country_rus_tag = yes	}	native_state_naming_rus = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_rus	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_rus	}
+			meta_effect = {	
+				text = {	set_state_name = [rus_state_flag]	}
+				rus_state_flag = "state_[THIS.GetId]_rus"
+			}
+		}
+	}
+	else_if = {	#オランダ語
+		limit = {	controller = {	country_hol_tag = yes	}	native_state_naming_hol = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_hol	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_hol	}
+			meta_effect = {	
+				text = {	set_state_name = [hol_state_flag]	}
+				hol_state_flag = "state_[THIS.GetId]_hol"
+			}
+		}
+	}
+	else_if = {	#スウェーデン語
+		limit = {	controller = {	country_swe_tag = yes	}	native_state_naming_swe = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_swe	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_swe	}
+			meta_effect = {	
+				text = {	set_state_name = [swe_state_flag]	}
+				swe_state_flag = "state_[THIS.GetId]_swe"
+			}
+		}
+	}
+	else_if = {	#フィンランド語
+		limit = {	controller = {	country_fin_tag = yes	}	native_state_naming_fin = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_fin	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_fin	}
+			meta_effect = {	
+				text = {	set_state_name = [fin_state_flag]	}
+				fin_state_flag = "state_[THIS.GetId]_fin"
+			}
+		}
+	}
+	else_if = {	#スペイン語
+		limit = {	controller = {	country_spa_tag = yes	}	native_state_naming_spa = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_spa	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_spa	}
+			meta_effect = {	
+				text = {	set_state_name = [spa_state_flag]	}
+				spa_state_flag = "state_[THIS.GetId]_spa"
+			}
+		}
+	}
+	else_if = {	#カザフ語
+		limit = {	controller = {	country_kzh_tag = yes	}	native_state_naming_kzh = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_kzh	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_kzh	}
+			meta_effect = {	
+				text = {	set_state_name = [kzh_state_flag]	}
+				kzh_state_flag = "state_[THIS.GetId]_kzh"
+			}
+		}
+	}
+	else_if = {	#トルコ語
+		limit = {	controller = {	country_tur_tag = yes	}	native_state_naming_tur = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_tur	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_tur	}
+			meta_effect = {	
+				text = {	set_state_name = [tur_state_flag]	}
+				tur_state_flag = "state_[THIS.GetId]_tur"
+			}
+		}
+	}
+	else_if = {	#ルーマニア語
+		limit = {	controller = {	country_rom_tag = yes	}	native_state_naming_rom = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_rom	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_rom	}
+			meta_effect = {	
+				text = {	set_state_name = [rom_state_flag]	}
+				rom_state_flag = "state_[THIS.GetId]_rom"
+			}
+		}
+	}
+	else_if = {	#セルビア語
+		limit = {	controller = {	country_ser_tag = yes	}	native_state_naming_ser = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_ser	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_ser	}
+			meta_effect = {	
+				text = {	set_state_name = [ser_state_flag]	}
+				ser_state_flag = "state_[THIS.GetId]_ser"
+			}
+		}
+	}
+	else_if = {	#デンマーク語
+		limit = {	controller = {	country_den_tag = yes	}	native_state_naming_den = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_den	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_den	}
+			meta_effect = {	
+				text = {	set_state_name = [den_state_flag]	}
+				den_state_flag = "state_[THIS.GetId]_den"
+			}
+		}
+	}
+	else_if = {	#中国語
+		limit = {	controller = {	country_chi_tag = yes	}	native_state_naming_chi = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_chi	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_chi	}
+			meta_effect = {	
+				text = {	set_state_name = [chi_state_flag]	}
+				chi_state_flag = "state_[THIS.GetId]_chi"
+			}
+		}
+	}
+	else_if = {	#ソビエト式
+		limit = {	controller = {	country_sov_tag = yes	}	native_state_naming_sov = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_sov	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_sov	}
+			meta_effect = {	
+				text = {	set_state_name = [sov_state_flag]	}
+				sov_state_flag = "state_[THIS.GetId]_sov"
+			}
+		}
+	}
+	else_if = {	#アルメニア語
+		limit = {	controller = {	country_arm_tag = yes	}	native_state_naming_arm = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_arm	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_arm	}
+			meta_effect = {	
+				text = {	set_state_name = [arm_state_flag]	}
+				arm_state_flag = "state_[THIS.GetId]_arm"
+			}
+		}
+	}
+	else_if = {	#ソマリア語
+		limit = {	controller = {	country_som_tag = yes	}	native_state_naming_som = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_som	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_som	}
+			meta_effect = {	
+				text = {	set_state_name = [som_state_flag]	}
+				som_state_flag = "state_[THIS.GetId]_som"
+			}
+		}
+	}
+	else_if = {	#アムハラ語
+		limit = {	controller = {	country_amh_tag = yes	}	native_state_naming_amh = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_amh	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_amh	}
+			meta_effect = {	
+				text = {	set_state_name = [amh_state_flag]	}
+				amh_state_flag = "state_[THIS.GetId]_amh"
+			}
+		}
+	}
+	else_if = {	#インドにおけるタミル、ヒンディー、ベンガル等混合
+		limit = {	controller = {	country_ind_tag = yes	}	native_state_naming_ind = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_ind	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_ind	}
+			meta_effect = {	
+				text = {	set_state_name = [ind_state_flag]	}
+				ind_state_flag = "state_[THIS.GetId]_ind"
+			}
+		}
+	}
+	else_if = {	#インドネシア
+		limit = {	controller = {	country_ins_tag = yes	}	native_state_naming_ins = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_ins	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_ins	}
+			meta_effect = {	
+				text = {	set_state_name = [ins_state_flag]	}
+				ins_state_flag = "state_[THIS.GetId]_ins"
+			}
+		}
+	}
+	else_if = {	#マレー
+		limit = {	controller = {	country_mal_tag = yes	}	native_state_naming_mal = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_mal	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_mal	}
+			meta_effect = {	
+				text = {	set_state_name = [mal_state_flag]	}
+				mal_state_flag = "state_[THIS.GetId]_mal"
+			}
+		}
+	}
+	else_if = {	#ギリシャ語
+		limit = {	controller = {	country_gre_tag = yes	}	native_state_naming_gre = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_gre	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_gre	}
+			meta_effect = {	
+				text = {	set_state_name = [gre_state_flag]	}
+				gre_state_flag = "state_[THIS.GetId]_gre"
+			}
+		}
+	}
+	else_if = {	#ブルガリア語
+		limit = {	controller = {	country_bul_tag = yes	}	native_state_naming_bul = yes	}
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_bul	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_bul	}
+			meta_effect = {	
+				text = {	set_state_name = [bul_state_flag]	}
+				bul_state_flag = "state_[THIS.GetId]_bul"
+			}
+		}
+	}
+	else = {	#標準
+		if = {
+			limit = {	NOT = {	has_state_flag = native_state_named_state_def	}	}
+			THIS = {	disable_native_state_naming = yes	set_state_flag = native_state_named_state_def	}
+			meta_effect = {	
+				text = {	set_state_name = [def_state_flag]	}
+				def_state_flag = "state_[THIS.GetId]_def"
+			}
+		}
+	}
+}

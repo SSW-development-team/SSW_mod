@@ -1,0 +1,623 @@
+CHI_deci_cate_three_gorges_dam = {
+    CHI_compensate_local_resident = {
+        icon = hol_attract_foreign_investors
+        available = {
+            num_of_civilian_factories_available_for_projects > 0
+        }
+        fire_only_once = yes
+        cost = 30
+        days_remove = 50
+        modifier = {
+            consumer_goods_factor = 0.08
+        }
+        remove_effect = {
+            add_stability = 0.1
+            custom_effect_tooltip = CHI_construct_advance
+            set_country_flag = CHI_compensated_local_resident
+        }
+    }
+    CHI_three_gorges_security = {
+        icon = gre_investment_decisions
+        cost = 20
+        fire_only_once = yes
+        days_remove = 40
+        remove_effect = {
+            custom_effect_tooltip = CHI_construct_advance
+            add_political_power = 100
+            set_country_flag = CHI_three_gorges_security_fin
+        }
+    }
+    CHI_phase_one_construct = {
+        icon = generic_construction
+        cost = 50
+        fire_only_once = yes
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = CHI_phase_one_construct_tt
+                has_country_flag = CHI_three_gorges_security_fin
+            }
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        modifier = {
+            civilian_factory_use = 5
+        }
+        days_remove = 300
+        remove_effect = {
+            custom_effect_tooltip = CHI_construct_advance
+            set_country_flag = CHI_constructed_one_phase
+        }
+    }
+    CHI_phase_two_construct = {
+        icon = generic_construction
+        cost = 50
+        fire_only_once = yes
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = CHI_phase_two_construct_tt
+                has_country_flag = CHI_constructed_one_phase
+                has_country_flag = CHI_compensated_local_resident
+            }
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        days_remove = 300
+        modifier = {
+            civilian_factory_use = 5
+        }
+        remove_effect = {
+            custom_effect_tooltip = CHI_construct_advance
+            set_country_flag = CHI_constructed_two_phase
+        }
+    }
+    CHI_phase_three_construct = {
+        icon = generic_construction
+        cost = 100
+        fire_only_once = yes
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = CHI_phase_three_construct_tt
+                has_country_flag = CHI_constructed_two_phase
+            }
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        days_remove = 300
+        modifier = {
+            civilian_factory_use = 5
+        }
+        remove_effect = {
+            country_event = {id = ssw_chi.14}
+        }
+    }
+}
+
+CHI_deci_cate_army_commission = {
+    CHI_army_training_order = {
+        icon = generic_military
+        available = {
+            NOT = {has_idea = CHI_focus_army_training}
+            has_army_experience > 10
+        }
+        cost = 60
+        complete_effect = {
+            army_experience = -10
+        }
+        days_remove = 7
+        remove_effect = {
+            add_timed_idea = {
+                idea = CHI_focus_army_training
+                days = 80
+            }
+        }
+    }
+    CHI_arrangement_command_sys = {
+        icon = generic_military
+        available = {
+            has_army_experience > 70
+        }
+        complete_effect = {
+            army_experience = -70
+        }
+        days_remove = 7
+        remove_effect = {
+            add_command_power = 50
+        }
+    }
+}
+
+CHI_deci_cate_fifty_division_plan = {
+    CHI_fifty_division_plan_first = {
+        icon = generic_military
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                infantry_equipment > 4999
+            }
+            has_equipment = {
+                support_equipment > 299
+            }
+            has_equipment = {
+                artillery_equipment > 299
+            }
+            has_army_experience > 30
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -5000
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -300
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -300
+            }
+            army_experience = -30
+        }
+        days_remove = 75
+        remove_effect = {
+            load_oob = "CHI_50division_plan_fs"
+            set_country_flag = CHI_f_d_p_first_fin
+        }
+    }
+    CHI_fifty_division_plan_second = {
+        icon = generic_military
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                infantry_equipment > 4999
+            }
+            has_equipment = {
+                support_equipment > 299
+            }
+            has_equipment = {
+                artillery_equipment > 299
+            }
+            has_army_experience > 30
+            custom_trigger_tooltip = {
+                tooltip = CHI_fifty_division_plan_second_tt
+                has_country_flag = CHI_f_d_p_first_fin
+            }
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -5000
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -300
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -300
+            }
+            army_experience = -30
+        }
+        days_remove = 75
+        remove_effect = {
+            load_oob = "CHI_50division_plan_fs"
+            set_country_flag = CHI_f_d_p_second_fin
+        }
+    }
+    CHI_fifty_division_plan_third = {
+        icon = generic_military
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                infantry_equipment > 2999
+            }
+            has_equipment = {
+                support_equipment > 299
+            }
+            has_equipment = {
+                artillery_equipment > 299
+            }
+            has_army_experience > 50
+            custom_trigger_tooltip = {
+                tooltip = CHI_fifty_division_plan_third_tt
+                has_country_flag = CHI_f_d_p_second_fin
+            }
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -3000
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -300
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -300
+            }
+            army_experience = -50
+        }
+        days_remove = 100
+        remove_effect = {
+            load_oob = "CHI_50division_plan_t"
+            set_country_flag = CHI_f_d_p_third_fin
+        }
+    }
+    CHI_fifty_division_plan_four = {
+        icon = generic_military
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                motorized_equipment > 499
+            }
+            has_equipment = {
+                infantry_equipment > 1999
+            }
+            has_equipment = {
+                support_equipment > 199
+            }
+            has_equipment = {
+                artillery_equipment > 199
+            }
+            has_army_experience > 30
+            custom_trigger_tooltip = {
+                tooltip = CHI_fifty_division_plan_four_tt
+                has_country_flag = CHI_f_d_p_third_fin
+            }
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = motorized_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -2000
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -200
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -200
+            }
+            army_experience = -30
+        }
+        days_remove = 100
+        remove_effect = {
+            load_oob = "CHI_50division_plan_f"
+            set_country_flag = CHI_f_d_p_four_fin
+        }
+    }
+    CHI_fifty_division_plan_final = {
+        icon = generic_military
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                modern_tank_equipment > 999
+            }
+            has_equipment = {
+                mechanized_equipment > 1999
+            }
+            has_equipment = {
+                motorized_equipment > 1999
+            }
+            has_equipment = {
+                infantry_equipment > 999
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+            has_equipment = {
+                artillery_equipment > 399
+            }
+            has_army_experience > 50
+            custom_trigger_tooltip = {
+                tooltip = CHI_fifty_division_plan_final_tt
+                has_country_flag = CHI_f_d_p_four_fin
+            }
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = modern_tank_equipment
+                amount = -1000
+            }
+            add_equipment_to_stockpile = {
+                type = mechanized_equipment
+                amount = -2000
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment
+                amount = -2000
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -1000
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -400
+            }
+            army_experience = -50
+        }
+        days_remove = 120
+        remove_effect = {
+            load_oob = "CHI_50division_plan_fin"
+            clr_country_flag = CHI_f_d_p_first_fin
+            clr_country_flag = CHI_f_d_p_second_fin
+            clr_country_flag = CHI_f_d_p_third_fin
+            clr_country_flag = CHI_f_d_p_four_fin
+        }
+    }
+}
+CHI_deci_cate_attempt_make_car = {
+    CHI_support_automobile_industry = {
+        icon = gre_investment_decisions
+        fire_only_once = yes
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        days_remove = 100
+        modifier = {
+            civilian_factory_use = 5
+        }
+        remove_effect = {
+            set_country_flag = CHI_support_automobile_industry_finished
+        }
+    }
+    CHI_gift_car_to_rural_area = {
+        fire_only_once = yes
+        available = {
+            has_equipment = {
+                motorized_equipment > 4999
+            }
+        }
+        days_remove = 50
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = motorized_equipment
+                amount = -5000
+            }
+        }
+        remove_effect = {
+            add_stability = 0.05
+            set_country_flag = CHI_gift_car_to_rural_area_finished
+        }
+    }
+    CHI_maintenance_traffic_road = {
+        icon = generic_construction
+        fire_only_once = yes
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        days_remove = 200
+        modifier = {
+            civilian_factory_use = 5
+        }
+        remove_effect = {
+            set_country_flag = CHI_maintenance_traffic_road_finished
+            if = {
+                limit = {
+                    has_full_control_of_state = 325
+                }
+                325 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 747
+                }
+                747 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 283
+                }
+                283 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 617
+                }
+                617 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 594
+                }
+                594 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 595
+                }
+                595 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    CHI_high_way_construction = {
+        icon = generic_construction
+        fire_only_once = yes
+        available = {
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        days_remove = 200
+        modifier = {
+            civilian_factory_use = 5
+        }
+        remove_effect = {
+            set_country_flag = CHI_high_way_construction_finished
+            if = {
+                limit = {
+                    has_full_control_of_state = 814
+                }
+                814 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 3
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 608
+                }
+                608 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 3
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 614
+                }
+                614 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 3
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 615
+                }
+                615 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 3
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    CHI_construct_car_factory = {
+        icon = generic_factory
+        fire_only_once = yes
+        available = {
+            num_of_civilian_factories_available_for_projects > 9
+        }
+        days_remove = 200
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            set_country_flag = CHI_construct_car_factory_finished
+            if = {
+                limit = {
+                    has_full_control_of_state = 620
+                }
+                620 = {
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 814
+                }
+                814 = {
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 613
+                }
+                613 = {
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    has_full_control_of_state = 596
+                }
+                596 = {
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    CHI_complete_motorization_plan = {
+        icon = eng_trade_unions_support
+        fire_only_once = yes
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = CHI_complete_motorization_plan_tt
+                has_country_flag = CHI_support_automobile_industry_finished
+                has_country_flag = CHI_gift_car_to_rural_area_finished
+                has_country_flag = CHI_maintenance_traffic_road_finished
+                has_country_flag = CHI_high_way_construction_finished
+                has_country_flag = CHI_construct_car_factory_finished
+            }
+        }
+        cost = 100
+        days_remove = 50
+        remove_effect = {
+            add_stability = 0.2
+            add_ideas = CHI_automotive_society
+        }
+    }
+}

@@ -5,7 +5,7 @@ focus_tree = {
 		modifier = {
 			add = 10
 			OR = {
-				tag = SPA
+				#tag = SPA
 				tag = SPC
 				tag = SPF
 				tag = SPR
@@ -13,7 +13,7 @@ focus_tree = {
 		}
 	}
 	default = no
-##############################   スペイン国(SPA)   ##############################
+##############################   スペイン国(SPR)   ##############################
 	focus = {
 		id = SPR_seihu
 		icon = GFX_goal_generic_demand_territory
@@ -450,6 +450,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SPR_huranksiji
 		}
+		available = { hidden_trigger = { always = no } }
 		x = 29
 		y = 1
 		completion_reward = {
@@ -462,6 +463,7 @@ focus_tree = {
 		cost = 7.00
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_hurankohaijyo }
+		available = { hidden_trigger = { always = no } }
 		x = 17
 		y = 2
 		completion_reward = {
@@ -905,6 +907,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SPR_hurankohaijyo
 		}
+		available = { hidden_trigger = { always = no } }
 		x = 33
 		y = 1
 		completion_reward = {
@@ -923,6 +926,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SPR_outouha
 		}
+		available = { hidden_trigger = { always = no } }
 		x = 31
 		y = 2
 		completion_reward = {
@@ -2025,11 +2029,19 @@ focus_tree = {
 		icon = GFX_focus_spr_maintain_the_republic
 		cost = 1.00
 		ai_will_do = { factor = 10 }
-		prerequisite = {
-			focus = SPR_huranksiji
-		}
-		mutually_exclusive = {
-			focus = SPR_franco
+		prerequisite = { focus = SPR_huranksiji }
+		mutually_exclusive = { focus = SPR_franco }
+		available = { hidden_trigger = { always = no } }
+		allow_branch = {
+			NOT = {
+				has_country_flag = winner_democrat
+				has_country_flag = spa_policy
+				has_country_flag = spc_policy
+				has_country_flag = spf_policy
+				has_country_flag = spr_policy
+				has_country_flag = spx_policy
+				has_country_flag = spr_extra_policy
+			}
 		}
 		x = 49
 		y = 2
@@ -2540,7 +2552,7 @@ focus_tree = {
 				}
 				create_wargoal = {
 					type = annex_everything
-					target = PRA
+					target = PAR
 				}
 				create_wargoal = {
 					type = annex_everything

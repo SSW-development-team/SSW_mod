@@ -113,6 +113,11 @@ add_opinion_modifier = { target = SER modifier = hostile_status }
 
 add_ideas = {
 	limited_conscription
+	BUL_Hristo_Kalfov
+	BUL_Georgi_Kulishev
+	BUL_Dobri_Bozhilov
+	BUL_Alexander_Stanishev
+	BUL_Rusi_Rusev
 }
 
 set_politics = {
@@ -137,6 +142,7 @@ create_country_leader = { #ボグダン・フィロフ
 	name = "Bogdan Filov"
 	desc = "POLITICS_BOGDAN_FILOV_DESC"
 	picture = "gfx/leaders/BUL/Portrait_Bogdan_Filov.dds"
+	traits = {BUL_cultural_person}
 	expire = "1965.1.1"
 	ideology = national_fascism_ideology
 }
@@ -144,34 +150,39 @@ create_country_leader = { #シメオン二世
 	name = "Simeon II"
 	desc = "POLITICS_SIMEON_II_DESC"
 	picture = "gfx/leaders/BUL/Portrait_Simeon_II.dds"
+	traits = {BUL_our_Tsar}
 	expire = "2021.1.1"
 	ideology = absolute_monarchism_ideology
 }
 create_country_leader = { #コンスタンティン・ムラヴィエフ
 	name = "Konstantin Muraviev"
 	desc = "POLITICS_KONSTANTIN_MURAVIEV_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Konstantin_Muraviev.dds"
+	traits = {silent_workhorse compassionate_commoner}
 	expire = "1965.1.31"
 	ideology = peasantism_ideology
 }
 create_country_leader = { #キモン・ゲオルギエフ
 	name = "Kimon Georgiev"
 	desc = "POLITICS_KIMON_GEORGIEV_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Kimon_Georgiev.dds"
+	traits = {BUL_coup_maker}
 	expire = "1969.9.28"
-	ideology = classical_communism_ideology
+	ideology = social_democracy_ideology
 }
 create_country_leader = { #カルロ・ルカノフ
 	name = "Karlo Lukanov"
 	desc = "POLITICS_KARLO_LUKANOV_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Karlo_Lukanov.dds"
+	traits = {BUL_bolshevik_member}
 	expire = "1982.7.15"
-	ideology = social_democracy_ideology
+	ideology = classical_communism_ideology
 }
 create_country_leader = { #アレクサンドル・ツァンコフ・スタリスキ
 	name = "Aleksandar Tsankov Staliyski"
 	desc = "POLITICS_ALEKSANDAR_TSANKOV_STALIYSKI_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Aleksandar_Tsankov_Staliyski.dds"
+	traits = {BUL_far_right_legal_scholar}
 	expire = "1965.1.1"
 	ideology = corporatocracism_ideology
 }
@@ -179,13 +190,15 @@ create_country_leader = { #アレクサンドル・ツァンコフ
 	name = "Aleksandar Tsankov"
 	desc = "POLITICS_ALEKSANDAR_TSANKOV_DESC"
 	picture = "gfx/leaders/BUL/Portrait_Aleksandar_Tsankov.dds"
+	traits = {BUL_founder_nati_soc_mov}
 	expire = "1959.7.27"
 	ideology = national_socialism_ideology
 }
 create_country_leader = { #シメオン・ラデフ
 	name = "Simeon Radev"
 	desc = "POLITICS_SIMEON_RADEV_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Simeon_Radev.dds"
+	traits = {BUL_cultural_person}
 	expire = "1967.2.15"
 	ideology = social_liberalism_ideology
 }
@@ -193,27 +206,28 @@ create_country_leader = { #トドル・パブロフ
 	name = "Todor Pavlov"
 	desc = "POLITICS_TODOR_PAVLOV_DESC"
 	picture = "gfx/leaders/BUL/Portrait_Todor_Pavlov.dds"
+	traits = {BUL_marxist_philosopher}
 	expire = "1977.5.8"
 	ideology = progressive_communism_ideology
 }
 create_country_leader = { #コミューン評議会
 	name = "Commune Council"
 	desc = "POLITICS_COMMUNE_COUNCIL_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Commune_Council.dds"
 	expire = "2020.1.1"
 	ideology = anarchism_ideology
 }
 create_country_leader = { #シメオン2世摂政評議会
 	name = "Regents for Tsar Simeon II"
 	desc = "POLITICS_REGENTS_FOR_TSAR_SIMEON_II_DESC"
-	#picture = ""
+	picture = "gfx/leaders/BUL/Portrait_Regents_Simeon_II.dds"
 	expire = "1955.6.16"
 	ideology = authority_democracy_ideology
 }
 
 create_field_marshal = {
 	name = "Nikola Mihov"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Nikola_Mihov.dds"
 	id = 71
 	traits = { fortress_buster career_officer politically_connected organizer}
 	skill = 5
@@ -224,7 +238,7 @@ create_field_marshal = {
 }
 create_field_marshal = {
 	name = "Georgi Popov"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Georgi_Popov.dds"
 	id = 72
 	traits = { war_hero skilled_staffer infantry_officer }
 	skill = 4
@@ -235,7 +249,7 @@ create_field_marshal = {
 }
 create_corps_commander = {
 	name = "Asen Sirakov"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Asen_Sirakov.dds"
 	id = 73
 	#traits = 
 	skill = 1
@@ -246,7 +260,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Ivan Marinov"
-	#gfx = 
+	#Portrait_path = 
 	id = 74
 	#traits = 
 	skill = 2
@@ -257,7 +271,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Kiril Stanchev"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Kiril_Stanchev.dds"
 	id = 75
 	#traits = 
 	skill = 2
@@ -268,7 +282,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Konstantin Lukash"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Konstantin_Lukash.dds"
 	id = 76
 	traits = { infantry_officer infantry_leader}
 	skill = 3
@@ -279,7 +293,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Asen Nikolov"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Asen_Nikolov.dds"
 	id = 77
 	traits = { infantry_officer career_officer}
 	skill = 3
@@ -290,7 +304,7 @@ create_corps_commander = {
 }
 create_corps_commander = {
 	name = "Angel Dotsev"
-	#gfx = 
+	Portrait_path = "gfx/leaders/BUL/Portrait_Angel_Dotsev.dds"
 	id = 78
 	traits = {organizer}
 	skill = 2
@@ -298,4 +312,48 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 3
 	logistics_skill = 3
+}
+create_navy_leader = {
+	name = "Asen Toshev"
+	Portrait_path = "gfx/leaders/BUL/Portrait_Asen_Toshev.dds"
+	id = 79
+	traits = {fleet_protector lancer}
+	skill = 3
+	attack_skill = 1
+	defense_skill = 2
+	maneuvering_skill = 3
+	coordination_skill = 3
+}
+create_navy_leader = {
+	name = "Branimir Ormanov"
+	Portrait_path = "gfx/leaders/BUL/Portrait_Branimir_Ormanov.dds"
+	id = 80
+	traits = {navy_career_officer}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 1
+	maneuvering_skill = 2
+	coordination_skill = 2
+}
+create_navy_leader = {
+	name = "Sava Ivanov"
+	Portrait_path = "gfx/leaders/BUL/Portrait_Sava_Ivanov.dds"
+	id = 101
+	traits = {}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	maneuvering_skill = 2
+	coordination_skill = 1
+}
+create_navy_leader = {
+	name = "Valentin Paspaleev"
+	Portrait_path = "gfx/leaders/BUL/Portrait_Valentin_Paspaleev.dds"
+	id = 102
+	traits = {}
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	maneuvering_skill = 1
+	coordination_skill = 1
 }

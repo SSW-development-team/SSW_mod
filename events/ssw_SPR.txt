@@ -1505,10 +1505,11 @@ country_event = {
 		name = ssw_spr.1004.a
 		ai_chance = { base = 100 }
 		hidden_effect = {
+			set_global_flag = spr_preferential_treatment
 			SPR = { add_ideas = winning_event_1 }
-			SPA = { add_ideas = losing_event_1 }
-			SPC = { add_ideas = losing_event_1 }
-			SPF = { add_ideas = losing_event_1 }
+			SPA = { add_ideas = losing_event_3 }
+			SPC = { add_ideas = losing_event_3 }
+			SPF = { add_ideas = losing_event_3 }
 		}
 	}
 	option = {
@@ -1516,10 +1517,11 @@ country_event = {
 		ai_chance = { base = 0 }
 		SPA = { change_tag_from = SPR }
 		hidden_effect = {
+			set_global_flag = spa_preferential_treatment
 			SPA = { add_ideas = winning_event_1 }
-			SPR = { add_ideas = losing_event_1 }
-			SPC = { add_ideas = losing_event_1 }
-			SPF = { add_ideas = losing_event_1 }
+			SPR = { add_ideas = losing_event_3 }
+			SPC = { add_ideas = losing_event_3 }
+			SPF = { add_ideas = losing_event_3 }
 		}
 	}
 	option = {
@@ -1527,10 +1529,11 @@ country_event = {
 		ai_chance = { base = 0 }
 		SPF = { change_tag_from = SPR }
 		hidden_effect = {
+			set_global_flag = spf_preferential_treatment
 			SPF = { add_ideas = winning_event_1 }
-			SPA = { add_ideas = losing_event_1 }
-			SPC = { add_ideas = losing_event_1 }
-			SPR = { add_ideas = losing_event_1 }
+			SPA = { add_ideas = losing_event_3 }
+			SPC = { add_ideas = losing_event_3 }
+			SPR = { add_ideas = losing_event_3 }
 		}
 	}
 	option = {
@@ -1538,10 +1541,11 @@ country_event = {
 		ai_chance = { base = 0 }
 		SPC = { change_tag_from = SPR }
 		hidden_effect = {
+			set_global_flag = spc_preferential_treatment
 			SPC = { add_ideas = winning_event_1 }
-			SPA = { add_ideas = losing_event_1 }
-			SPR = { add_ideas = losing_event_1 }
-			SPF = { add_ideas = losing_event_1 }
+			SPA = { add_ideas = losing_event_3 }
+			SPR = { add_ideas = losing_event_3 }
+			SPF = { add_ideas = losing_event_3 }
 		}
 	}
 }
@@ -1593,12 +1597,24 @@ country_event = {
 	mean_time_to_happen = { days = 7 }
 	option = {
 		name = ssw_spr.1008.a
-		ai_chance = { factor = 70 }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_global_flag = spr_preferential_treatment
+			}
+		}
 		SPR = { country_event = { id = ssw_spr.1009 days = 1 } }
 	}
 	option = {
 		name = ssw_spr.1008.b
-		ai_chance = { factor = 30 }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_global_flag = spf_preferential_treatment
+			}
+		}
 		set_country_flag = spanish_power_struggle
 		if = {
 			limit = { is_subject = yes }
@@ -1639,12 +1655,24 @@ country_event = {
 	mean_time_to_happen = { days = 7 }
 	option = {
 		name = ssw_spr.1010.a
-		ai_chance = { factor = 70 }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_global_flag = spa_preferential_treatment
+			}
+		}
 		SPA = { country_event = { id = ssw_spr.1011 days = 1 } }
 	}
 	option = {
 		name = ssw_spr.1010.b
-		ai_chance = { factor = 30 }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_global_flag = spc_preferential_treatment
+			}
+		}
 		set_country_flag = spanish_power_struggle
 		if = {
 			limit = { is_subject = yes }
@@ -1682,4 +1710,54 @@ country_event = {
 		name = ssw_spr.1012.a
 		ai_chance = { base = 100 }
 	}
+}
+country_event = {
+	id = ssw_spr.1013
+	hidden = yes
+	trigger = {
+		always = no
+		any_other_country = {
+			has_war_with = ROOT
+			num_subjects > 0
+			surrender_progress > 0.7
+		}
+	}
+	fire_only_once = no
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		every_other_country = {
+			limit = {
+				has_war_with = ROOT
+				num_subjects > 0
+				surrender_progress > 0.7
+			}
+			country_event = { id = ssw_spr.1014 }
+		}
+	}
+	option = { name = ssw_spr.1013.a }
+}
+country_event = {
+	id = ssw_spr.1014
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		every_other_country = {
+			limit = {
+				has_war = yes
+				is_subject_of = ROOT
+				has_capitulated = no
+			}
+			transfer_units_fraction = {
+				target = OVERLORD
+				size = 1
+			}
+			add_ideas = losing_event_2
+			capital_scope = { FROM = { set_state_controller = PREV } }
+			#every_state = {
+			#	limit = { is_owned_by = PREV }
+			#	FROM = { set_state_controller = PREV }
+			#}
+		}
+	}
+	option = { name = ssw_spr.1014.a }
 }

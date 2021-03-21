@@ -16,6 +16,21 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = { ROOT = { num_subjects > 0 } }
+				every_other_country = {
+					limit = { is_subject_of = ROOT }
+					ROOT = { annex_country = { target = PREV transfer_troops = no } }
+				}
+				every_state = {
+					limit = { is_controlled_by = ROOT }
+					FROM = { set_state_controller = PREV }
+				}
+			}
+		}
+	}
 	on_peaceconference_ended = {
 		effect = {
 			if = {
@@ -175,6 +190,17 @@ on_actions = {
 					limit = { is_core_of = MBR }
 					remove_core_of = MBR
 				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					exists = yes
+					NOT = { has_country_flag = THE_COUNTRY_EXITS_GAMESTART }
+				}
+				set_country_flag = THE_COUNTRY_EXITS_GAMESTART
 			}
 		}
 	}

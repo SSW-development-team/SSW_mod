@@ -332,3 +332,110 @@ country_event = { #選挙結果
         }
     }
 }
+country_event = { #FROMが軍事顧問団を再招待
+    id = ssw_chi.11
+    title = ssw_chi.11.t
+    desc = ssw_chi.11.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { #よかろう
+        name = ssw_chi.11.a
+        ai_chance = {
+            base = 70
+            modifier = {
+                has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+                factor = 2
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.12}
+        }
+    }
+    option = { #我々にそんな余裕はない
+        name = ssw_chi.11.b
+        ai_chance = {
+            base = 30
+            modifier = {
+                OR = {
+                    has_war = yes
+                    has_civil_war = yes
+                }
+                factor = 1.7
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.13}
+        }
+    }
+}
+
+country_event = { #Fromが再招待を承認
+    id = ssw_chi.12
+    title = ssw_chi.12.t
+    desc = ssw_chi.12.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { #大変結構！
+        name = ssw_chi.12.a
+        add_ideas = CHI_GER_military_advisor_group
+    }
+}
+country_event = { #Fromが再招待を拒否
+    id = ssw_chi.13
+    title = ssw_chi.13.t
+    desc = ssw_chi.13.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { #仕方あるまい
+        name = ssw_chi.13.a
+    }
+}
+
+country_event = { #三峡ダムの完成！
+    id = ssw_chi.14
+    title = ssw_chi.14.t
+    desc = ssw_chi.14.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = { #素晴らしい！
+        name = ssw_chi.14.a
+        add_stability = 0.2
+        add_political_power = 300
+        if = {
+            limit = {
+                has_full_control_of_state = 620
+            }
+            620 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 605
+            }
+            605 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 750
+            }
+            750 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 748
+            }
+            748 = {
+                add_extra_state_shared_building_slots = 5
+            }
+        }
+        add_ideas = CHI_changjiang_wealth
+    }
+}

@@ -47,6 +47,9 @@ country_event = { #暗黒の日曜日
             complete_national_focus = BUL_Black_Sunday
             complete_national_focus = BUL_protect_the_royal_family
         }
+        hidden_effect = {
+            country_event = {id = ssw_bul_hide.5 days = 500}
+        }
     }
 }
 
@@ -433,6 +436,7 @@ country_event = { #ハンガリーが提案を承諾
                 give_military_access = BUL
                 remove_from_faction = CRO
             }
+            set_country_flag = BUL_HUN_agree_divi
         }
     }
 }
@@ -490,7 +494,7 @@ country_event = { #ブルガリアがクロアチアの従属解除を求める
                         value = 50
                     }
                     BUL = {
-                        has_completed_focus = BUL_support_pro_german
+                        has_completed_focus = BUL_support_pro_german 
                     }
                 }
                 factor = 2
@@ -957,6 +961,14 @@ country_event = { #国家社会主義者が権力を確保
             ruling_party = national_socialism
             elections_allowed = no
         }
+        swap_ideas = {
+            remove_idea = BUL_Hristo_Kalfov
+            add_idea = BUL_Petar_Gabrovski
+        }
+        swap_ideas = {
+            remove_idea = BUL_Georgi_Kulishev
+            add_idea = BUL_Parvan_Draganov
+        }
     }
     option = { #この国は大丈夫か？
         name = ssw_bul.25.b
@@ -971,6 +983,14 @@ country_event = { #国家社会主義者が権力を確保
         set_politics = {
             ruling_party = national_socialism
             elections_allowed = no
+        }
+        swap_ideas = {
+            remove_idea = BUL_Hristo_Kalfov
+            add_idea = BUL_Petar_Gabrovski
+        }
+        swap_ideas = {
+            remove_idea = BUL_Georgi_Kulishev
+            add_idea = BUL_Parvan_Draganov
         }
     }
 }
@@ -1050,13 +1070,14 @@ country_event = { #地方の統制
             ideology = national_socialism
             popularity = 0.02
         }
-    }
-    option = { #地方自治体の権力を拡大する
-        name = ssw_bul.27.b
         add_popularity = {
             ideology = social_democracy
             popularity = 0.05
         }
+        set_country_flag = BUL_centralized
+    }
+    option = { #地方自治体の権力を拡大する
+        name = ssw_bul.27.b
         add_popularity = {
             ideology = social_liberalism
             popularity = 0.05
@@ -1077,6 +1098,7 @@ country_event = { #地方の統制
             ideology = anarchism
             popularity = 0.06
         }
+        set_country_flag = BUL_anarcy_flag
     }
 }
 country_event = { #政治権限の調整
@@ -1111,6 +1133,7 @@ country_event = { #政治権限の調整
             ideology = authority_despotism
             popularity = 0.04
         }
+        set_country_flag = BUL_absolutism
     }
     option = { #議会にも権限を与える
         name = ssw_bul.28.c
@@ -1122,6 +1145,7 @@ country_event = { #政治権限の調整
             ideology = social_liberalism
             popularity = 0.06
         }
+        set_country_flag = BUL_parliamentary_power
     }
 }
 country_event = { #扇動者の対処
@@ -1186,6 +1210,7 @@ country_event = { #扇動者の対処
             ideology = corporatocracism
             popularity = 0.01
         }
+        set_country_flag = BUL_not_killed_radical
     }
 }
 country_event = { #シメオン二世の成人
@@ -1203,13 +1228,473 @@ country_event = { #シメオン二世の成人
     }
     option = { #シメオン二世万歳！
         name = ssw_bul.30.a
-        retire_ideology_leader = authority_democracy_ideology
+        retire_ideology_leader = authority_democracy
         create_country_leader = {
             name = "Simeon II"
             desc = "POLITICS_SIMEON_II_DESC"
             picture = "gfx/leaders/BUL/Portrait_Simeon_II.dds"
             expire = 2021.1.1
             ideology = authority_democracy_ideology
+        }
+    }
+}
+
+country_event = { #投票結果
+    id = ssw_bul.31
+    title = ssw_bul.31.t
+    desc = ssw_bul.31.d
+    picture = GFX_report_event_election_vote
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #我々の勝利だ！
+        name = ssw_bul.31.a
+        remove_ideas = BUL_political_instability
+        if = {
+            limit = {
+                check_variable = {BUL_commu > BUL_autho}
+                check_variable = {BUL_commu > BUL_soci}
+                check_variable = {BUL_commu > BUL_status}
+            }
+            if = {
+                limit = {
+                    has_country_flag = BUL_absolutism
+                }
+                set_politics = {
+                    ruling_party = classical_communism
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Georgi_Traykov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Dobri_Bozhilov
+                    add_idea = BUL_Ivan_Stefanov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Alexander_Stanishev
+                    add_idea = BUL_Rusi_Hristozov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Rusi_Rusev
+                    add_idea = BUL_Petar_Panchevski
+                }
+            }
+            else = {
+                set_politics = {
+                    ruling_party = progressive_communism
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Georgi_Traykov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Dobri_Bozhilov
+                    add_idea = BUL_Ivan_Stefanov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Alexander_Stanishev
+                    add_idea = BUL_Rusi_Hristozov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Rusi_Rusev
+                    add_idea = BUL_Kimon_Georgiev_army
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {BUL_autho > BUL_commu}
+                check_variable = {BUL_autho > BUL_soci}
+                check_variable = {BUL_autho > BUL_status}
+            }
+            if = {
+                limit = {
+                    has_country_flag = BUL_absolutism
+                }
+                set_politics = {
+                    ruling_party = authority_despotism
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Kiril
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Georgi_Kulishev
+                    add_idea = BUL_Bogdan_Filov_dip
+                }
+            }
+            else = {
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Kiril
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Alexander_Stanishev
+                    add_idea = BUL_Nikola_Nedev
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {BUL_soci > BUL_autho}
+                check_variable = {BUL_soci > BUL_commu}
+                check_variable = {BUL_soci > BUL_status}
+            }
+            if = {
+                limit = {
+                    has_country_flag = BUL_centralized
+                    has_country_flag = BUL_parliamentary_power
+                }
+                set_politics = {
+                    ruling_party = social_democracy
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Stoycho_Moushanov
+                }
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = BUL_parliamentary_power
+                }
+                set_politics = {
+                    ruling_party = social_liberalism
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Stoycho_Moushanov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Georgi_Kulishev
+                    add_idea = BUL_Petko_Staynov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Dobri_Bozhilov
+                    add_idea = BUL_Dimitar_Savov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Rusi_Rusev
+                    add_idea = BUL_Kimon_Georgiev_army
+                }
+            }
+            else = {
+                set_politics = {
+                    ruling_party = social_conservatism
+                    elections_allowed = no
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Hristo_Kalfov
+                    add_idea = BUL_Stoycho_Moushanov
+                }
+                swap_ideas = {
+                    remove_idea = BUL_Alexander_Stanishev
+                    add_idea = BUL_Virgil_Dimov
+                }
+            }
+        }
+        else = {
+        }
+        if = {
+            limit = {
+                OR = {
+                    check_variable = {BUL_commu > 50}
+                    check_variable = {BUL_autho > 50}
+                    check_variable = {BUL_soci > 50}
+                }
+            }
+            add_stability = 0.15
+        }
+    }
+}
+
+country_event = {
+    id = ssw_bul_hide.2
+    hidden = yes
+    mean_time_to_happen = {
+        days = 10
+    }
+    trigger = {
+        has_completed_focus = BUL_regime_stability
+        tag = BUL
+        BUL = {
+            NOT = {has_country_flag = BUL_election_finished}
+            NOT = {has_country_flag = BUL_supported_commu}
+        }
+    }
+    option = {
+        name = ssw_bul_hide.2.a
+        if = {
+            limit = {
+                has_country_flag = BUL_absolutism
+            }
+            add_popularity = {
+                ideology = classical_communism
+                popularity = 0.035
+            }
+        }
+        else = {
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = 0.035
+            }
+        }
+    }
+}
+country_event = {
+    id = ssw_bul_hide.3
+    hidden = yes
+    mean_time_to_happen = {
+        days = 10
+    }
+    trigger = {
+        has_completed_focus = BUL_regime_stability
+        tag = BUL
+        BUL = {
+            NOT = {has_country_flag = BUL_election_finished}
+            NOT = {has_country_flag = BUL_supported_autho}
+        }
+    }
+    option = {
+        name = ssw_bul_hide.3.a
+        if = {
+            limit = {
+                has_country_flag = BUL_absolutism
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = 0.035
+            }
+        }
+        else = {
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.035
+            }
+        }
+    }
+}
+country_event = {
+    id = ssw_bul_hide.4
+    hidden = yes
+    mean_time_to_happen = {
+        days = 10
+    }
+    trigger = {
+        has_completed_focus = BUL_regime_stability
+        tag = BUL
+        BUL = {
+            NOT = {has_country_flag = BUL_election_finished}
+            NOT = {has_country_flag = BUL_supported_soci}
+        }
+    }
+    option = {
+        name = ssw_bul_hide.4.a
+        if = {
+            limit = {
+                has_country_flag = BUL_centralized
+                has_country_flag = BUL_parliamentary_power
+            }
+            add_popularity = {
+                ideology = social_democracy
+                popularity = 0.035
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = BUL_parliamentary_power
+            }
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = 0.035
+            }
+        }
+        else = {
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = 0.035
+            }
+        }
+    }
+}
+country_event = {
+    id = ssw_bul_hide.5
+    hidden = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_bul_hide.5.a
+        trigger = {
+            AND = {
+                has_country_flag = BUL_not_killed_radical
+                has_country_flag = BUL_anarcy_flag
+            }
+            has_idea = BUL_political_instability
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = 0.05
+        }
+        clr_country_flag = BUL_anarcy_flag
+        set_country_flag = BUL_anarchism_flag
+        country_event = {id = ssw_bul.32 days = 10}
+    }
+    option = {
+        name = ssw_bul_hide.5.b
+        trigger = {
+            has_country_flag = BUL_not_killed_radical
+            has_idea = BUL_political_instability
+        }
+        add_popularity = {
+            ideology = corporatocracism
+            popularity = 0.05
+        }
+        set_country_flag = BUL_corporatocracism_flag
+        country_event = {id = ssw_bul.32 days = 10}
+    }
+    option = {
+        name = ssw_bul_hide.5.a
+        trigger = {
+            has_idea = BUL_political_instability
+            has_country_flag = BUL_not_killed_radical
+        }
+        if = {
+            limit = {
+                has_country_flag = BUL_anarcy_flag
+            }
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.05
+            }
+            clr_country_flag = BUL_anarcy_flag
+            set_country_flag = BUL_anarchism_flag
+        }
+        else = {
+            add_popularity = {
+                ideology = corporatocracism
+                popularity = 0.05
+            }
+            set_country_flag = BUL_corporatocracism_flag
+        }
+        country_event = {id = ssw_bul.32 days = 10}
+    }
+    option = {
+        name = ssw_bul_hide.5.c
+        trigger = {
+            OR = {
+                NOT = {has_idea = BUL_political_instability}
+                NOT = {has_country_flag = BUL_not_killed_radical}
+            }
+        }
+    }
+}
+country_event = { #過激派が権力を拡大
+    id = ssw_bul.32
+    title = ssw_bul.32.t
+    desc = ssw_bul.32.d
+    picture = GFX_report_event_american_hunger_march
+    is_triggered_only = yes
+    option = { #最早手遅れか…？
+        name = ssw_bul.32.a
+        trigger = {
+            has_idea = BUL_political_instability
+        }
+        if = {
+            limit = {
+                has_country_flag = BUL_anarchism_flag
+            }
+            add_stability = -0.08
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.15
+            }
+            if = {
+                limit = {
+                    NOT = {has_idea = BUL_expansion_radical_a}
+                }
+                add_ideas = BUL_expansion_radical_a
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = BUL_corporatocracism_flag
+            }
+            add_stability = -0.08
+            add_popularity = {
+                ideology = corporatocracism
+                popularity = 0.15
+            }
+            if = {
+                limit = {
+                    NOT = {has_idea = BUL_expansion_radical_c}
+                }
+                add_ideas = BUL_expansion_radical_c
+            }
+        }
+        hidden_effect = {
+            if = {
+                limit = {
+                    OR = {
+                        has_stability < 0.4
+                        anarchism > 0.4
+                        corporatocracism > 0.4
+                    }
+                }
+                country_event = {id = ssw_bul.33}
+            }
+            else_if = {
+                limit = {
+                    has_idea = BUL_political_instability
+                }
+                country_event = {id = ssw_bul.32 days = 30}
+            }
+        }
+    }
+    option = {
+        name = ssw_bul.32.b
+        trigger = {
+            NOT = {has_idea = BUL_political_instability}
+        }
+        remove_ideas = BUL_expansion_radical_a
+        remove_ideas = BUL_expansion_radical_c
+        add_stability = 0.05
+    }
+}
+
+country_event = { #過激派が権力を確保
+    id = ssw_bul.33
+    title = ssw_bul.33.t
+    desc = ssw_bul.33.d
+    picture = GFX_report_event_bul_imro_chieftain
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これからは我々の時代だ
+        name = ssw_bul.33.a
+        remove_ideas = BUL_political_instability
+        if = {
+            limit = {
+                has_country_flag = BUL_anarchism_flag
+            }
+            set_politics = {
+                ruling_party = anarchism
+                elections_allowed = no
+            }
+        }
+        else_if = {
+            limit = {
+                has_country_flag = BUL_corporatocracism_flag
+            }
+            set_politics = {
+                ruling_party = corporatocracism
+                elections_allowed = no
+            }
         }
     }
 }

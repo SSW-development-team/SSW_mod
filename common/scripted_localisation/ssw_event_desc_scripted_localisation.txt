@@ -144,27 +144,17 @@ defined_text = {
 		localization_key = "[GET_COUNTRY_INFO_PAGE_TEXT_TUR]"
 	}
 	text = {
-		trigger = {
-			NOT = {
-				OR = {
-					tag = JAP
-					tag = SER
-					tag = POR
-					tag = ITA
-					tag = KOR
-					tag = SWE
-					tag = UTC
-					tag = FSA
-					tag = LIB
-					tag = ENG
-					tag = RUS
-					tag = MEX
-					tag = SPE
-					tag = LFF
-					tag = TUR
+		trigger = { tag = GER }
+		localization_key = "[GET_COUNTRY_INFO_PAGE_TEXT_GER]"
+	}
+	text = {
+		trigger = { has_autonomy_state = reichskommissariat }
+		localization_key = "[GET_COUNTRY_INFO_PAGE_TEXT_Lebensraum]"
+	}
 
-				} 
-			}
+	text = {
+		trigger = {
+			always = yes
 		}
 		localization_key = "[GET_COUNTRY_INFO_PAGE_TEXT]"
 	}
@@ -278,7 +268,21 @@ defined_text = {
 		localization_key = COUNTRY_INFO_1_ITA
 	}
 }
+defined_text = {
+	name = GET_COUNTRY_INFO_PAGE_TEXT_GER
+	text = {
+		trigger = { check_variable = { COUNTRY_INFO_PAGE = 0 } }
+		localization_key = COUNTRY_INFO_1_GER
+	}
+}
 
+defined_text = {
+	name = GET_COUNTRY_INFO_PAGE_TEXT_Lebensraum
+	text = {
+		trigger = { check_variable = { COUNTRY_INFO_PAGE = 0 } }
+		localization_key = COUNTRY_INFO_1_Lebensraum
+	}
+}
 defined_text = {
 	name = GET_COUNTRY_INFO_PAGE_TEXT
 	text = {
@@ -289,6 +293,7 @@ defined_text = {
 
 defined_text = {
 	name = GET_POSTER
+
 	text = {
 		trigger = { tag = JAP }
 		localization_key = "GFX_SSW_OpeningScreen_Poster_Japan"
@@ -338,9 +343,23 @@ defined_text = {
 		localization_key = "GFX_SSW_OpeningScreen_Poster_GER"
 	}
 	text = {
+		trigger = { tag = MEX }
+		localization_key = "GFX_SSW_OpeningScreen_Poster_MEX"
+	}
+	text = {
+		trigger = { tag = CAN }
+		localization_key = "GFX_SSW_OpeningScreen_Poster_CAN"
+	}
+
+	text = {
+		trigger = { has_autonomy_state = reichskommissariat }
+		localization_key = "GFX_SSW_OpeningScreen_Poster_Lebensraum"
+	}
+	text = {
 		trigger = {
 			always = yes
 		}
 		localization_key = "GFX_SSW_OpeningScreen_Poster"
-    }
+   	 }
+
 }

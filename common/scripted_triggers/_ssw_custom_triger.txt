@@ -1,0 +1,93 @@
+puppet_and_faction_of_ROOT = {
+	every_country = {
+		limit = {
+			OR = {
+				is_puppet_of = ROOT
+				is_in_faction_with = ROOT
+			}
+		}
+	}
+}
+#大陸設定準拠のトリガー
+this_is_capital_and_europe = {
+	AND = {
+		is_on_continent = europe
+		is_capital = yes
+	}
+}
+capital_is_europe = {
+	any_owned_state = { this_is_capital_and_europe = yes }
+}
+
+this_is_capital_and_south_america = {
+	AND = {
+		is_on_continent = south_america
+		is_capital = yes
+	}
+}
+capital_is_south_america = {
+	any_owned_state = { this_is_capital_and_south_america = yes }
+}
+
+this_is_capital_and_north_america = {
+	AND = {
+		is_on_continent = north_america
+		is_capital = yes
+	}
+}
+capital_is_north_america = {
+	any_owned_state = { this_is_capital_and_north_america = yes }
+}
+
+this_is_capital_and_asia = {
+	AND = {
+		is_on_continent = asia
+		is_capital = yes
+	}
+}
+capital_is_asia = {
+	any_owned_state = { this_is_capital_and_asia = yes }
+}
+
+#大陸設定以上の細分地域準拠のトリガー
+this_is_bulkan_states = {
+	OR = {
+		region = 24#バルカン西部
+		region = 26#バルカン東部
+		region = 27#バルカン北部
+		region = 25#ギリシャ
+	}
+}
+any_owned_state_in_bulkan = {
+		any_owned_state = { this_is_bulkan_states = yes }
+	}
+}
+this_is_scandinavian_states = {
+	OR = {
+		region = 11#ノルウェー南部
+		region = 191#ノルウェー北部
+		region = 27#スウェーデン北部
+		region = 10#スウェーデン南部
+		region = 10#フィンランド
+		state = 215#北部カレリア
+		state = 146#カレリア
+	}
+}
+any_owned_state_in_scandinavian = {
+		any_owned_state = { this_is_scandinavian_states = yes }
+	}
+}
+this_is_mid_america_states = {
+	OR = {
+		region = 34
+		region = 205
+		region = 53
+		region = 170
+	}
+}
+any_owned_state_in_mid_america = {
+		any_owned_state = { this_is_mid_america_states = yes }
+	}
+}
+
+			

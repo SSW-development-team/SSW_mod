@@ -26,9 +26,15 @@ RUS_reintegrate_states = {
 				original_tag = RUS
 				original_tag = SOV
 				original_tag = TOA
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = TUV_russia
+				AND = {
+					tag = CHL
+					LFF = { has_completed_focus = LFF_place_to_return_for_stalin }
+				}
 			}
 			hidden_trigger = {
 				FROM = {
@@ -54,9 +60,15 @@ RUS_reintegrate_states = {
 				original_tag = RUS
 				original_tag = SOV
 				original_tag = TOA
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = TUV_russia
+				AND = {
+					tag = CHL
+					LFF = { has_completed_focus = LFF_place_to_return_for_stalin }
+				}
 			}
 			hidden_trigger = {
 				FROM = {
@@ -1559,24 +1571,8 @@ RUS_change_capital = {
 	capital_moscow = {
 		icon = generic_form_nation
 		available = {
-			OR = {
-				original_tag = ACO
-				original_tag = AMC
-				original_tag = BLO
-				original_tag = FAR
-				original_tag = NBL
-				original_tag = RBL
-				original_tag = RLB
-				original_tag = RSE
-				original_tag = RUS
-				original_tag = SOV
-				original_tag = TOA
-				has_cosmetic_tag = RUS_empire
-				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
-			}
 			NOT = { has_country_flag = configuration_capital_of_russia }
-			controls_state = 219
+			has_full_control_of_state = 219
 			195 = { is_capital = no }
 			219 = { is_capital = no }
 		}
@@ -1596,12 +1592,14 @@ RUS_change_capital = {
 				original_tag = RUS
 				original_tag = SOV
 				original_tag = TOA
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = TUV_russia
 			}
 			NOT = { has_country_flag = configuration_capital_of_russia }
-			controls_state = 219
+			has_full_control_of_state = 219
 			195 = { is_capital = no }
 			219 = { is_capital = no }
 		}
@@ -1616,24 +1614,8 @@ RUS_change_capital = {
 	capital_petersburg = {
 		icon = generic_form_nation
 		available = {
-			OR = {
-				original_tag = ACO
-				original_tag = AMC
-				original_tag = BLO
-				original_tag = FAR
-				original_tag = NBL
-				original_tag = RBL
-				original_tag = RLB
-				original_tag = RSE
-				original_tag = RUS
-				original_tag = SOV
-				original_tag = TOA
-				has_cosmetic_tag = RUS_empire
-				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
-			}
 			NOT = { has_country_flag = configuration_capital_of_russia }
-			controls_state = 195
+			has_full_control_of_state = 195
 			195 = { is_capital = no }
 			219 = { is_capital = no }
 		}
@@ -1653,12 +1635,14 @@ RUS_change_capital = {
 				original_tag = RUS
 				original_tag = SOV
 				original_tag = TOA
+				has_cosmetic_tag = AMR_russia
+				has_cosmetic_tag = MOS_russia
 				has_cosmetic_tag = RUS_empire
 				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				has_cosmetic_tag = TUV_russia
 			}
 			NOT = { has_country_flag = configuration_capital_of_russia }
-			controls_state = 195
+			has_full_control_of_state = 195
 			195 = { is_capital = no }
 			219 = { is_capital = no }
 		}
@@ -1669,6 +1653,35 @@ RUS_change_capital = {
 			hidden_effect = {
 				set_country_flag = configuration_capital_of_russia
 				set_country_flag = return_capital_of_petersburg
+			}
+		}
+	}
+	capital_moscow_for_chile = {
+		icon = generic_form_nation
+		name = capital_moscow
+		available = {
+			NOT = { has_country_flag = configuration_capital_of_russia }
+			has_full_control_of_state = 219
+			195 = { is_capital = no }
+			219 = { is_capital = no }
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		visible = {
+			tag = CHL
+			has_cosmetic_tag = SOV
+			has_full_control_of_state = 219
+			LFF = { has_completed_focus = LFF_place_to_return_for_stalin }
+			NOT = { has_country_flag = configuration_capital_of_russia }
+			195 = { is_capital = no }
+			219 = { is_capital = no }
+		}
+		complete_effect = {
+			set_capital = 219
+			hidden_effect = {
+				set_country_flag = configuration_capital_of_russia
+				set_country_flag = return_capital_of_moscow
 			}
 		}
 	}

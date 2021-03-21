@@ -166,7 +166,6 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 has_large_ally_not_pick_closed_economy = {
 	any_of_scopes = {
 		array = faction_members
-		
 		NOT = { tag = PREV }
 		num_of_military_factories > 30
 	}
@@ -204,12 +203,12 @@ is_owned_by_ROOT_or_subject = {
 		}
 	}
 }
-is_controlled_by_ROOT_or_ally = { controller = { is_ally_with = ROOT } }
-is_owned_by_ROOT_or_ally = { owner = { is_ally_with = ROOT } }
+is_controlled_by_ROOT_or_ally = { controller = { is_in_faction_with = ROOT } }
+is_owned_by_ROOT_or_ally = { owner = { is_in_faction_with = ROOT } }
 is_owned_by_ROOT_or_war_ally = {
 	owner = {
 		OR = {
-			is_ally_with = ROOT
+			is_in_faction_with = ROOT
 			has_war_together_with = ROOT
 		}
 	}
@@ -234,13 +233,13 @@ is_owned_and_controlled_by_ROOT_or_subject = {
 is_owned_and_controlled_by_ROOT_or_ally = {
 	owner = {
 		controls_state = PREV
-		is_ally_with = ROOT
+		is_in_faction_with = ROOT
 	}
 }
 is_actual_neighbor_of_ROOT_or_ally = {
 	any_neighbor_country = {
 		is_owner_neighbor_of = PREV
-		is_ally_with = ROOT
+		is_in_faction_with = ROOT
 	}
 }
 is_claim_or_core_or_ambition_of_ROOT = {
@@ -289,5 +288,12 @@ is_not_claim_or_core_of_PREV = {
 	NOT = {
 		is_claimed_by = PREV
 		is_core_of = PREV
+	}
+}
+is_controlled_by_myself_or_allies = {
+	OR = {
+		is_controlled_by = ROOT
+		controller = { is_in_faction_with = ROOT }
+		controller = { is_subject_of = ROOT }
 	}
 }

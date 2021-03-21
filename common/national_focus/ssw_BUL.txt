@@ -13,7 +13,7 @@ focus_tree={
     #産業ツリー
     focus = { #東欧の優等生
         id = BUL_industry_1
-        icon = GFX_goal_unknown
+        icon = GFX_goal_generic_demand_territory
         cost = 10
         search_filters = {
 			FOCUS_FILTER_INDUSTRY
@@ -1816,7 +1816,23 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
-            remove_ideas = BUL_political_instability
+            activate_decision = BUL_election_finish
+            activate_decision = BUL_update_exit_poll_result
+            set_temp_variable = {temp1 = var:party_popularity_100@progressive_communism}
+            set_temp_variable = {temp2 = var:party_popularity_100@classical_communism}
+            add_to_temp_variable = {temp1 = temp2}
+            set_variable = {BUL_commu = temp1}
+            set_temp_variable = {temp3 = var:party_popularity_100@authority_democracy}
+            set_temp_variable = {temp4 = var:party_popularity_100@authority_despotism}
+            add_to_temp_variable = {temp3 = temp4}
+            set_variable = {BUL_autho = temp3}
+            set_temp_variable = {temp5 = var:party_popularity_100@social_conservatism}
+            set_temp_variable = {temp6 = var:party_popularity_100@social_democracy}
+            set_temp_variable = {temp7 = var:party_popularity_100@social_liberalism}
+            add_to_temp_variable = {temp5 = temp6}
+            add_to_temp_variable = {temp5 = temp7}
+            set_variable = {BUL_soci = temp5}
+            set_variable = {BUL_status = var:party_popularity_100@national_fascism}
         }
     }
 
@@ -1828,9 +1844,19 @@ focus_tree={
         prerequisite = {
             focus = BUL_regime_stability
         }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
+        }
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            set_temp_variable ={maj = BUL.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
         }
     }
 
@@ -1841,6 +1867,9 @@ focus_tree={
         y = 5
         prerequisite = {
             focus = BUL_regime_stability
+        }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
         }
         cost = 10
         ai_will_do = {
@@ -1889,6 +1918,7 @@ focus_tree={
         }
         available_if_capitulated = yes
         completion_reward = {
+            army_experience = 10
             803 = {
                 add_building_construction = {
                     type = infrastructure
@@ -2058,6 +2088,13 @@ focus_tree={
         prerequisite = {
             focus = BUL_cooperate_with_HUN
         }
+        bypass = {
+            NOT = {country_exists = CRO}
+            custom_trigger_tooltip = {
+                tooltip = BUL_end_CRO_tt
+                NOT = {has_country_flag = BUL_HUN_agree_divi}
+            }
+        }
         available_if_capitulated = yes
         search_filters = {
             FOCUS_FILTER_ANNEXATION
@@ -2094,6 +2131,14 @@ focus_tree={
                 }
                 GER = {
                     country_event = {id = ssw_bul.14}
+                }
+            }
+            else_if = {
+                limit = {
+                    has_country_flag = BUL_HUN_agree_divi
+                }
+                HUN = {
+                    remove_from_faction = CRO
                 }
             }
         }
@@ -2147,9 +2192,7 @@ focus_tree={
             }
             if = {
                 limit = {
-                    has_non_aggression_pact_with = HUN
-                    has_military_access_to = HUN
-                    gives_military_access_to = HUN
+                    has_country_flag = BUL_HUN_agree_divi
                 }
                 HUN = {
                     declare_war_on = {
@@ -2325,6 +2368,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            army_experience = 10
             341 = {
                 add_claim_by = BUL
             }
@@ -2434,6 +2478,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            navy_experience = 10
             add_tech_bonus = {
                 bonus = 1.5
                 uses = 2
@@ -2494,6 +2539,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            air_experience = 10
             add_tech_bonus = {
                 bonus = 1
                 uses = 2
@@ -2606,6 +2652,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            army_experience = 10
             106 = {
                 add_building_construction = {
                     type = infrastructure

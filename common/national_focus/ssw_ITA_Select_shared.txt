@@ -2,7 +2,7 @@
 shared_focus = {
 	id = ITA_focus_Rome_Conquered
 	icon = GFX_goal_tfv_strengthen_commonwealth_ties
-	cost = 1.40
+	cost = 1.00
 	available = {
 	}
 	ai_will_do = {
@@ -23,55 +23,20 @@ shared_focus = {
 				custom_effect_tooltip = ssw_ITA_Rome_Conquered
 	}
  }
- #ドゥーチェの下で
+ #選挙の実施
  shared_focus = {
-	id = ITA_focus_Duce
-	  icon = GFX_goal_support_fascism
-	  cost = 2.14
+	id = ITA_focus_Conduct_election
+	  icon = GFX_ITA_focus_Conduct_election
+	  cost = 2.00
 	  prerequisite = {
 		   focus = ITA_focus_Rome_Conquered
 		   }
 		   mutually_exclusive = { 
-				focus = ITA_focus_Kings
-				focus = ITA_focus_Free
-				 }
+		   }
 	available = {
 	}
 	ai_will_do = {
 	  factor = 10
-   }
-   bypass = {
-   }
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 2
-	y = 2
-	completion_reward = {
-		   country_event = {
-				id = SSW_ITA.9
-				}
-				custom_effect_tooltip =ssw_ITA_Duce
-				add_ideas = ITA_idea_10
-	}
- }
- #王の下で
- shared_focus = {
-	id = ITA_focus_Kings
-	icon = GFX_focus_eng_imperial_federation
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Rome_Conquered
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_Duce
-		   focus = ITA_focus_Free
-		 }
-	available = {
-	}
-	ai_will_do = {
-	  factor = 5
    }
    bypass = {
    }
@@ -80,31 +45,30 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
 	x = 6
-	y = 2
+	y = 1
 	completion_reward = {
-	  country_event = {
-		   id = SSW_ITA.10
-		   }
-	  custom_effect_tooltip =ssw_ITA_Kings
-	  add_ideas = ITA_idea_11
+		   country_event = {
+				id = SSW_ITA.9
+				}
+				custom_effect_tooltip =ssw_ITA_Duce
+				add_ideas = ITA_idea_10
 	}
  }
- #自由のもとで
+ #選挙実施の決定
  shared_focus = {
-	id = ITA_focus_Free
-	icon = GFX_goal_support_democracy
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Rome_Conquered
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_Duce
-		   focus = ITA_focus_Kings
-		 }
+	id = ITA_focus_Decision_to_Conduct_Election
+	  icon = GFX_goal_support_fascism
+	  cost = 2.00
+	  prerequisite = {
+		   focus = ITA_focus_Conduct_election
+		   }
+		   mutually_exclusive = { 
+		   }
 	available = {
+		always = no
 	}
 	ai_will_do = {
-	  factor = 5
+	  factor = 10
    }
    bypass = {
    }
@@ -112,27 +76,48 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 10
+	x = 5
 	y = 2
 	completion_reward = {
-	  country_event = {
-		   id = SSW_ITA.11
-		   }
-	  custom_effect_tooltip =ssw_ITA_Free
-	  add_ideas = ITA_idea_12
 	}
  }
- #バルボによって
+ #選挙の非実施
  shared_focus = {
-	id = ITA_focus_by_Balbo
-	icon = GFX_ITA_Balbo_Face
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Duce
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_by_Mussolini
-		 }
+	id = ITA_focus_Decision_to_no_Conduct_Election
+	  icon = GFX_goal_support_fascism
+	  cost = 2.00
+	  prerequisite = {
+		   focus = ITA_focus_Conduct_election
+		   }
+		   mutually_exclusive = { 
+		   }
+	available = {
+		always = no
+	}
+	ai_will_do = {
+	  factor = 10
+   }
+   bypass = {
+   }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 7
+	y = 2
+	completion_reward = {
+	}
+ }
+ #政治体制の選択
+ shared_focus = {
+	id = ITA_focus_Choice_political_system
+	  icon = GFX_goal_support_fascism
+	  cost = 3.00
+	  prerequisite = {
+		   focus = ITA_focus_Conduct_election
+		   }
+		   mutually_exclusive = { 
+		   }
 	available = {
 	}
 	ai_will_do = {
@@ -144,68 +129,60 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 1
-	y = 4
+	x = 7
+	y = 3
 	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_by_Balbo
-	  country_event = {
-		   id = SSW_ITA.3
-	  }
-		custom_effect_tooltip = ssw_ITA_making
-		set_country_flag = Italian_future_by_Balbo
 	}
  }
- #ムッソリーニによって
+ #産業体制に関する選挙
  shared_focus = {
-	id = ITA_focus_by_Mussolini
-	icon = GFX_ITA_Mussolini
-	cost = 2.14
+	id = ITA_focus_industrial_system_Election
+	icon = GFX_focus_eng_imperial_federation
+	cost = 3.00
 	prerequisite = {
-		 focus = ITA_focus_Duce
+		 focus = ITA_focus_Decision_to_Conduct_Election
 		 }
 	mutually_exclusive = { 
-		   focus = ITA_focus_by_Balbo
-		 }
-	available = {
-	}
-	ai_will_do = {
-	  factor = 8
-	}
-   bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 3
-	y = 4
-	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_by_Mussolini
-	  country_event = {
-		   id = SSW_ITA.4
-	  }
-	  custom_effect_tooltip = ssw_ITA_making
-	  set_country_flag = Italian_future_by_Mussolini
-	}
- }
- #サヴォイア家によって
- shared_focus = {
-	id = ITA_focus_Savoia
-	icon = GFX_ITA_Savoie_family_crest
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Kings
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_Genoa
 		 }
 	available = {
 	}
 	ai_will_do = {
 	  factor = 5
-	}
+   }
    bypass = {
+   }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 5
+	y = 3
+	completion_reward = {
+		custom_effect_tooltip = SSW_ITA_focus_industrial_system_Election
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.10
+			}
+		}
 	}
+}
+#政治体制に関する選挙
+shared_focus = {
+	id = ITA_focus_political_system_Election
+	icon = GFX_focus_eng_imperial_federation
+	cost = 3.00
+	prerequisite = {
+		 focus = ITA_focus_Decision_to_Conduct_Election
+		 }
+	mutually_exclusive = { 
+		 }
+	available = {
+	}
+	ai_will_do = {
+	  factor = 5
+   }
+   bypass = {
+   }
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -213,111 +190,44 @@ shared_focus = {
 	x = 5
 	y = 4
 	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_Savoia
-	  country_event = {
-		   id = SSW_ITA.5
-	  }
-	  custom_effect_tooltip = ssw_ITA_making
-	  set_country_flag = Italian_future_by_Savoia
+		custom_effect_tooltip = SSW_ITA_focus_political_system_Election
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.10
+			}
+		}
 	}
- }
- #ジェノヴァ家によって
- shared_focus = {
-	id = ITA_focus_Genoa
-	icon = GFX_ITA_Genoese_family_crest_icons
-	cost = 2.14
+}
+#国内体制の再整備
+shared_focus = {
+	id = ITA_focus_Reorganization_domestic_system
+	icon = GFX_focus_eng_imperial_federation
+	cost = 3.00
 	prerequisite = {
-		 focus = ITA_focus_Kings
+		 focus = ITA_focus_Decision_to_Conduct_Election
 		 }
 	mutually_exclusive = { 
-		   focus = ITA_focus_Savoia
 		 }
 	available = {
 	}
 	ai_will_do = {
 	  factor = 5
-	}
+   }
    bypass = {
-	}
+   }
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 7
+	x = 5
 	y = 4
 	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_Genoa
-	  country_event = {
-		   id = SSW_ITA.6
-	  }
-	  custom_effect_tooltip = ssw_ITA_making
-	  set_country_flag = Italian_future_by_Genoa
-	}
- }
- #カエサルにならう
- shared_focus = {
-	id = ITA_focus_Caesar
-	icon = GFX_ITA_Caesar_side
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Free
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_equality
-		 }
-	available = {
-	}
-	ai_will_do = {
-	  factor = 5
-	}
-   bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 9
-	y = 4
-	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_Caesar
-	  country_event = {
-		   id = SSW_ITA.7
-	  }
-	  custom_effect_tooltip = ssw_ITA_making
-	  set_country_flag = Italian_future_by_Caesar
-	}
- }
- #平等に
- shared_focus = {
-	id = ITA_focus_equality
-	icon = GFX_goal_generic_war_with_comintern
-	cost = 2.14
-	prerequisite = {
-		 focus = ITA_focus_Free
-		 }
-	mutually_exclusive = { 
-		   focus = ITA_focus_Caesar
-		 }
-	available = {
-	}
-	ai_will_do = {
-	  factor = 5
-	}
-   bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 11
-	y = 4
-	completion_reward = {
-	  custom_effect_tooltip =ssw_ITA_equality
-	  country_event = {
-		   id = SSW_ITA.8
-	  }
-	  custom_effect_tooltip = ssw_ITA_making
-	  set_country_flag = Italian_future_by_equality
+		custom_effect_tooltip = SSW_ITA_focus_political_system_Election
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.10
+			}
+		}
 	}
 }
 #####政権奪取ルート####
@@ -415,5 +325,6 @@ shared_focus = {
 	x = 15
 	y = 2
 	completion_reward = {
+		ITA_Mussolini_Lifting_the_ban_on_Faction_Decisions = yes
 	}
 }

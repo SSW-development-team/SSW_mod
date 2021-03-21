@@ -1,0 +1,1249 @@
+focus_tree = {
+	id = SSW_Burma
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BRM
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 10 y = 10 }	
+###Politics###
+	focus = {
+		id = brm_politics_in_burma
+		icon = GFX_focus_generic_self_management
+		cost = 1
+		x = 14
+		y = 0
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+	}
+	focus = {
+		id = brm_changes_in_the_interim_government
+		icon = GFX_goal_unknown
+		cost = 1
+		prerequisite = {
+			focus = brm_politics_in_burma
+		}
+		x = 14
+		y = 1
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+	}
+	focus = {
+		id = brm_from_three_man
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = brm_changes_in_the_interim_government
+		}
+		x = 14
+		y = 2
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+		
+		completion_reward = {
+		country_event = {
+			id = ssw_brm.1
+			}
+		}
+	}
+###U Nu Root###	
+
+	focus = {
+		id = brm_pious_u_nu
+		icon = GFX_goal_unknown
+		cost = 10.00
+		available = {
+			always = no
+		}
+		prerequisite = {
+			focus = brm_from_three_man
+		}
+		mutually_exclusive = {
+			focus = brm_ba_maus_guaidance
+		}
+		x = 6
+		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+
+	}
+	focus = {
+		id = brm_support_aung_san
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_pious_u_nu
+		}
+		x = 6
+		y = 4
+
+	}
+
+	focus = {
+		id = brm_support_buddhist
+		icon = GFX_goal_tfv_smiling_buddha
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_aung_san
+		}
+		x = 6
+		y = 5
+
+	}
+	focus = {
+		id = brm_seeking_equaliy_rerationship_with_japan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_buddhist
+		}
+		x = 4
+		y = 6
+
+	}
+	focus = {
+		id = brm_pyi_taw_thar_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_buddhist
+		}
+		x = 6
+		y = 6
+
+	}
+	focus = {
+		id = partial_itroduction_of_buddhist_education
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_buddhist
+		}
+		x = 8
+		y = 6
+
+	}
+
+	focus = {
+		id = brm_burmas_underground_resources
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_seeking_equaliy_rerationship_with_japan
+			focus = brm_pyi_taw_thar_plan
+			focus = partial_itroduction_of_buddhist_education
+		}
+		x = 5
+		y = 7
+
+	}
+	focus = {
+		id = brm_start_democratisation_reforms
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = brm_pyi_taw_thar_plan
+			focus = partial_itroduction_of_buddhist_education
+			focus = brm_seeking_equaliy_rerationship_with_japan
+		}
+		x = 7
+		y = 7
+
+	}
+	focus = {
+		id = brm_support_from_japanese_company
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmas_underground_resources
+		}
+		x = 3
+		y = 8
+
+	}
+	focus = {
+		id = brm_maintain_roads
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmas_underground_resources
+		}
+		x = 5
+		y = 8
+
+	}
+	focus = {
+		id = brm_negotiations_with_the_japanese_army_in_burma
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_start_democratisation_reforms
+		}
+		x = 7
+		y = 8
+
+	}
+	focus = {
+		id = brm_local_democratisation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_start_democratisation_reforms
+		}
+		x = 9
+		y = 8
+
+	}
+
+	focus = {
+		id = brm_ridistribution_of_agricultural_land
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_from_japanese_company
+			focus = brm_maintain_roads
+			focus = brm_negotiations_with_the_japanese_army_in_burma
+			focus = brm_local_democratisation
+		}
+		x = 3
+		y = 9
+
+	}
+	focus = {
+		id = brm_attempts_at_social_welfare
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_from_japanese_company
+			focus = brm_maintain_roads
+			focus = brm_negotiations_with_the_japanese_army_in_burma
+			focus = brm_local_democratisation
+		}
+		x = 5
+		y = 9
+
+	}
+	focus = {
+		id = brm_civilian_system
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_from_japanese_company
+			focus = brm_maintain_roads
+			focus = brm_negotiations_with_the_japanese_army_in_burma
+			focus = brm_local_democratisation
+		}
+		x = 7
+		y = 9
+
+	}
+	focus = {
+		id = brm_ethnic_autonomy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_support_from_japanese_company
+			focus = brm_maintain_roads
+			focus = brm_negotiations_with_the_japanese_army_in_burma
+			focus = brm_local_democratisation
+		}
+		x = 9
+		y = 9
+
+	}
+	focus = {
+		id = brm_freedom_election
+		icon = GFX_goal_continuous_boost_freedom
+		cost = 10.00
+		prerequisite = {
+			focus = brm_ridistribution_of_agricultural_land
+			focus = brm_attempts_at_social_welfare
+			focus = brm_civilian_system
+			focus = brm_ethnic_autonomy
+		}
+		x = 6
+		y = 10
+
+	}
+###Ba Mau Root###
+
+	focus = {
+		id = brm_ba_maus_guaidance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		available = {
+			always = no
+		}
+		prerequisite = {
+			focus = brm_from_three_man
+		}
+		mutually_exclusive = {
+			focus = brm_pious_u_nu
+			focus = brm_socialist_ne_win
+		}
+		x = 14
+		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+	}
+	focus = {
+		id = brm_friendship_with_japan
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 10.00
+		prerequisite = {
+			focus = brm_ba_maus_guaidance
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = brm_loans_from_japanese_investors
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_friendship_with_japan
+		}
+		x = 12
+		y = 5
+
+	}
+	focus = {
+		id = brm_expanding_the_powers_of_military_advisors
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_friendship_with_japan
+		}
+		x = 14
+		y = 5
+
+	}
+	focus = {
+		id = brm_legacy_of_the_poorest_party
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_friendship_with_japan
+		}
+		x = 16
+		y = 5
+
+	}
+
+	focus = {
+		id = brm_japanese_burma_company
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_loans_from_japanese_investors
+		}
+		prerequisite = {
+			focus = brm_expanding_the_powers_of_military_advisors
+		}
+		x = 13
+		y = 6
+
+	}
+
+	focus = {
+		id = brm_aid_for_rural
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_legacy_of_the_poorest_party
+		}
+		prerequisite = {
+			focus = brm_expanding_the_powers_of_military_advisors
+		}
+		x = 15
+		y = 6
+
+	}
+
+	focus = {
+		id = brm_supremancy_of_naingandaw_adipadi
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_japanese_burma_company
+			focus = brm_aid_for_rural
+		}
+		x = 14
+		y = 7
+
+	}
+	focus = {
+		id = brm_protection_of_the_agriculture
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_supremancy_of_naingandaw_adipadi
+		}
+		x = 16
+		y = 8
+
+	}
+	focus = {
+		id = the_quest_for_breed_improvment
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_protection_of_the_agriculture
+		}
+		x = 16
+		y = 10
+
+	}
+	focus = {
+		id = brm_loyality_to_ba_maw
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_supremancy_of_naingandaw_adipadi
+		}
+		x = 14
+		y = 9
+
+	}
+	focus = {
+		id = brm_bloddy_jewel
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_expanding_of_the_mining_industry
+		}
+		x = 12
+		y = 10
+
+	}
+	focus = {
+		id = brm_strengthening_our_links_with_japan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_bloddy_jewel
+			focus = the_quest_for_breed_improvment
+		}
+		x = 14
+		y = 11
+
+	}
+	focus = {
+		id = brm_to_strong_burma
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_strengthening_our_links_with_japan
+		}
+		x = 14
+		y = 12
+
+	}
+###Ne Win Root###
+
+	focus = {
+		id = brm_socialist_ne_win
+		icon = GFX_goal_unknown
+		cost = 10.00
+		available = {
+			always = no
+		}
+		prerequisite = {
+			focus = brm_from_three_man
+		}
+		mutually_exclusive = {
+			focus = brm_ba_maus_guaidance
+		}
+		x = 22
+		y = 3
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		available_if_capitulated = yes
+
+	}
+	focus = {
+		id = brm_removal_of_karen_officers
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_socialist_ne_win
+		}
+		x = 22
+		y = 4
+
+	}
+	focus = {
+		id = brm_burmesse_way_to_socialism
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = brm_removal_of_karen_officers
+		}
+		x = 22
+		y = 5
+
+	}
+	focus = {
+		id = brm_primaly_education_for_all
+		icon = GFX_focus_generic_military_academy
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmesse_way_to_socialism
+		}
+		x = 21
+		y = 6
+
+	}	
+
+	focus = {
+		id = brm_blockage_economy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_primaly_education_for_all
+		}
+		x = 20
+		y = 7
+
+	}
+	focus = {
+		id = brm_relief_for_farmers
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_primaly_education_for_all
+		}
+		x = 22
+		y = 7
+
+	}
+	focus = {
+		id = brm_summgling_busts
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_blockage_economy
+		}
+		prerequisite = {
+			focus = brm_relief_for_farmers
+		}
+		x = 21
+		y = 8
+
+	}
+	focus = {
+		id = brm_buddhist_values
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmesse_way_to_socialism
+		}
+		x = 23
+		y = 6
+
+	}
+	focus = {
+		id = brm_maintenance_of_medical_facilities
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_primaly_education_for_all
+		}
+		prerequisite = {
+			focus = brm_buddhist_values
+		}
+		x = 24
+		y = 7
+
+	}
+	focus = {
+		id = brm_a_charenge_to_the_japanese
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_maintenance_of_medical_facilities
+		}
+		prerequisite = {
+			focus = brm_relief_for_farmers
+		}
+		x = 23
+		y = 8
+
+	}
+
+	focus = {
+		id = brm_making_buddhism_the_state_religion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_summgling_busts
+		}
+		prerequisite = {
+			focus = brm_a_charenge_to_the_japanese
+		}
+		x = 22
+		y = 9
+
+	}
+	focus = {
+		id = brm_father_the_army
+		icon = GFX_focus_generic_military_mission
+		cost = 10.00
+		prerequisite = {
+			focus = brm_a_charenge_to_the_japanese
+		}
+		x = 24
+		y = 9
+
+	}
+	focus = {
+		id = brm_demand_for_reduction_of_japanese_troops_in_burma
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_nationalisation_of_compant
+			focus = brm_making_buddhism_the_state_religion
+			focus = brm_father_the_army
+		}
+		x = 22
+		y = 10
+
+	}
+	focus = {
+		id = brm_towards_further_socialism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_demand_for_reduction_of_japanese_troops_in_burma
+		}
+		x = 22
+		y = 11
+
+	}
+##National_Diffence###
+	focus = {
+		id = brm_burma_national_army
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 33
+		y = 0
+
+	}
+
+###Army###
+	focus = {
+		id = brm_burmese_army
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_national_army
+		}
+		x = 33
+		y = 1
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	focus = {
+		id = brm_weapons_from_japan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmese_army
+		}
+		x = 31
+		y = 2
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = brm_mountain_training
+		icon = GFX_focus_GRE_a_land_of_mountains
+		cost = 10.00
+		prerequisite = {
+			focus = brm_weapons_from_japan
+		}
+		x = 31
+		y = 3
+
+	}
+	focus = {
+		id = brm_anti_guerrila_warfare_assumptions
+		icon = GFX_focus_generic_manpower
+		cost = 10.00
+		prerequisite = {
+			focus = brm_mountain_training
+		}
+		x = 31
+		y = 4
+
+	}
+	focus = {
+		id = brm_japanese_advisors
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmese_army
+		}
+		x = 33
+		y = 2
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = brm_reconciliation_with_kachin_officers
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burmese_army
+		}
+		x = 35
+		y = 2
+
+	}
+	focus = {
+		id = brm_opening_burma_national_defence_academy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_weapons_from_japan
+		}
+		prerequisite = {
+			focus = brm_japanese_advisors
+		}
+		prerequisite = {
+			focus = brm_reconciliation_with_kachin_officers
+		}
+		x = 33
+		y = 3
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	focus = {
+		id = brm_organisation_of_the_militia_units
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_reconciliation_with_kachin_officers
+		}
+		x = 35
+		y = 3
+
+	}
+	focus = {
+		id = brm_emphasis_on_light_infantry
+		icon = GFX_focus_mex_support_general_cedillo
+		cost = 10.00
+		prerequisite = {
+			focus = brm_organisation_of_the_militia_units
+		}
+		x = 35
+		y = 4
+
+	}
+	focus = {
+		id = brm_hunter_of_the_mountain_and_forests
+		icon = GFX_focus_mex_soldaderas
+		cost = 10.00
+		prerequisite = {
+			focus = brm_emphasis_on_light_infantry
+			focus = brm_anti_guerrila_warfare_assumptions
+		}
+		x = 33
+		y = 5
+		completion_reward = {
+			add_ideas = BRM_hunter_of_mountain_and_jungle
+		}
+	}
+###Air Force###	
+
+	focus = {
+		id = brm_burma_air_forece
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_national_army
+		}
+		x = 28
+		y = 1
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = brm_research_air_craft_technologies
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_air_forece
+		}
+		x = 27
+		y = 2
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = brm_aircraft_made_in_japan
+		icon = GFX_focus_jap_zero
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_air_forece
+		}
+		x = 29
+		y = 2
+
+	}
+	focus = {
+		id = brm_airfield_at_hmawbi
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_aircraft_made_in_japan
+			focus = brm_research_air_craft_technologies
+		}
+		x = 28
+		y = 3
+		
+		search_filters = {   FOCUS_FILTER_RESEARCH }
+
+		available_if_capitulated = yes
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+###Navy###
+	focus = {
+		id = brm_burma_navy
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_national_army
+		}
+		x = 38
+		y = 1
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+		navy_experience = 25
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+	focus = {
+		id = brm_cosaldeffence_ships
+		icon = GFX_focus_generic_coastal_fort
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_navy
+		}
+		x = 37
+		y = 2
+
+	}
+	focus = {
+		id = brm_ships_from_ijn
+		icon = GFX_focus_generic_cruiser2
+		cost = 10.00
+		prerequisite = {
+			focus = brm_burma_navy
+		}
+		x = 39
+		y = 2
+
+	}
+	focus = {
+		id = brm_domestic_shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = brm_ships_from_ijn
+			focus = brm_cosaldeffence_ships
+		}
+		x = 38
+		y = 3
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+###Expansion Way###
+	focus = {
+		id = brm_outside_burma
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 33
+		y = 7
+
+	}
+
+	focus = {
+		id = bur_co_prosperity
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = brm_outside_burma
+		}
+		x = 32
+		y = 8
+
+	}
+	focus = {
+		id = brm_expansion_of_the_thai_burma_railway
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = bur_co_prosperity
+		}
+		x = 32
+		y = 9
+
+	}
+	focus = {
+		id = brm_cooperation_with_the_alied_forces
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_expansion_of_the_thai_burma_railway
+		}
+		x = 30
+		y = 10
+
+	}
+	focus = {
+		id = brm_export_of_timber
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_expansion_of_the_thai_burma_railway
+		}
+		x = 32
+		y = 10
+
+		completion_reward = {
+			add_political_power = 120
+			add_ideas = BRM_wood_trade
+		}
+	}
+
+	focus = {
+		id = brm_a_look_of_hostility
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_outside_burma
+		}
+		x = 34
+		y = 8
+
+	}
+	focus = {
+		id = brm_nation_difence
+		icon = GFX_goal_generic_fortify_city
+		cost = 10.00
+		prerequisite = {
+			focus = brm_a_look_of_hostility
+		}
+		x = 34
+		y = 9
+
+	}
+	focus = {
+		id = brm_opning_up_the_whole_of_shan_state
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_nation_difence
+		}
+		x = 34
+		y = 10
+
+	}
+
+	focus = {
+		id = brm_reclaiming_of_the_seven_sister_states
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_nation_difence
+		}
+		x = 36
+		y = 10
+
+	}
+
+	focus = {
+		id = brm_expanding_of_the_mining_industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_supremancy_of_naingandaw_adipadi
+		}
+		x = 12
+		y = 8
+
+	}
+
+	focus = {
+		id = brm_nationalisation_of_compant
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = brm_summgling_busts
+		}
+		x = 20
+		y = 9
+
+	}
+}

@@ -391,11 +391,12 @@ fate_of_countries_category_western_europe = {
 			NOT = { country_exists = AUS }
 			any_state = {
 				is_fully_controlled_by = ROOT
-				is_core_of = AUS
+				has_state_flag = maybe_core_AUS
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_HUN
+					state = 39
+					state = 981
 				}
 			}
 			AUS = { capital_scope = { is_fully_controlled_by = ROOT } }
@@ -407,7 +408,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = AUS
-				AUS = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				AUS = { capital_scope = { is_valid_annexation_state = no } }
 				has_country_flag = continue_to_occupy_austria
 			}
 		}
@@ -486,7 +487,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = BEL
-				BEL = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				BEL = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_belgium }
 			}
 		}
@@ -564,7 +565,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = SWI
-				SWI = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				SWI = { capital_scope = { is_valid_annexation_state = no } }
 				has_country_flag = continue_to_occupy_switzerland
 			}
 		}
@@ -601,7 +602,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = LUX
-				LUX = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				LUX = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_luxembourg }
 			}
 		}
@@ -638,7 +639,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = LIE
-				LIE = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				LIE = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_liechtenstein }
 			}
 		}
@@ -676,7 +677,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = ENG
-				ENG = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				ENG = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_britain }
 			}
 		}
@@ -808,7 +809,7 @@ fate_of_countries_category_western_europe = {
 		cancel_trigger = {
 			OR = {
 				country_exists = CZE
-				CZE = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				CZE = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_czech }
 			}
 		}
@@ -827,7 +828,10 @@ fate_of_countries_category_western_europe = {
 		cost = 0
 		fire_only_once = no
 		activation = {
-			NOT = { country_exists = ITA }
+			NOT = {
+				country_exists = IPF
+				country_exists = ITA
+			}
 			any_state = {
 				is_fully_controlled_by = ROOT
 				has_state_flag = maybe_core_ITA_GAMESTART
@@ -843,6 +847,7 @@ fate_of_countries_category_western_europe = {
 					has_state_flag = maybe_core_SWI
 				}
 			}
+			IPF = { capital_scope = { is_fully_controlled_by = ROOT } }
 			ITA = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
@@ -851,8 +856,10 @@ fate_of_countries_category_western_europe = {
 		}
 		cancel_trigger = {
 			OR = {
+				country_exists = IPF
 				country_exists = ITA
-				ITA = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				IPF = { capital_scope = { is_valid_annexation_state = no } }
+				ITA = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_italy }
 			}
 		}
@@ -927,10 +934,10 @@ fate_of_countries_category_western_europe = {
 				country_exists = SPC
 				country_exists = SPF
 				country_exists = SPR
-				SPA = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
-				SPC = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
-				SPF = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
-				SPR = { capital_scope = { NOT = { is_fully_controlled_by = ROOT } } }
+				SPA = { capital_scope = { is_valid_annexation_state = no } }
+				SPC = { capital_scope = { is_valid_annexation_state = no } }
+				SPF = { capital_scope = { is_valid_annexation_state = no } }
+				SPR = { capital_scope = { is_valid_annexation_state = no } }
 				has_country_flag = continue_to_occupy_spain
 			}
 		}

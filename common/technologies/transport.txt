@@ -1,0 +1,559 @@
+technologies = {
+	@1918 = -1
+	@1938 = 2
+	@1941 = 5
+	@1944 = 7
+	@1945 = 8
+	@1946 = 9
+	@1947 = 10
+	@1948 = 11
+	@1949 = 12
+	@1950 = 13
+	@1951 = 14
+	@1952 = 16
+	@1953 = 18
+	@1954 = 20
+	@1955 = 22
+	@1956 = 24
+	@1957 = 26
+	@1958 = 28
+	@1961 = 31
+	@1964 = 34
+	@1967 = 37
+
+
+	motorised_infantry = {
+		enable_subunits = {
+			motorized
+		}
+		enable_equipments = {
+			motorized_equipment_1
+		}
+		on_research_complete = {
+			limit = {
+				NOT = {
+					has_template_containing_unit = motorized
+				}
+			}
+			hidden_effect = {
+				load_oob = "unlock_motorized"
+			}
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+		path = {
+			leads_to_tech = mechanised_infantry
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = armored_car1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1936
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = 0
+			}
+		}
+		folder = {
+			name = support_folder
+			position = {
+				x = 9
+				y = 0
+			}
+		}
+		sub_technologies = {
+			motorized_rocket_unit
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	motorized_rocket_unit = {
+		enable_subunits = {
+			motorized_rocket_brigade
+		}
+		enable_equipments = {
+			motorized_rocket_equipment_1
+		}
+		research_cost = 1.5
+		start_year = 1939
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = SOV
+			}
+		}
+		categories = {
+			mot_rockets
+		}
+	}
+	armored_car1 = {
+		enable_subunits = {
+			armored_car
+		}
+		enable_equipments = {
+			gw_armored_car_equipment
+		}
+		allow_branch = {
+			has_dlc = "La Resistance"
+		}
+		path = {
+			leads_to_tech = armored_car2
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1914
+		folder = {
+			name = transport_folder
+			position = {
+				x = 4
+				y = 0
+			}
+		}
+		categories = {
+			motorized_equipment
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	armored_car2 = {
+		enable_equipments = {
+			armored_car_equipment_1
+		}
+		path = {
+			leads_to_tech = armored_car3
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1946
+		folder = {
+			name = transport_folder
+			position = {
+				x = 4
+				y = 4
+			}
+		}
+		categories = {
+			motorized_equipment
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	armored_car3 = {
+		enable_equipments = {
+			armored_car_equipment_2
+		}
+		research_cost = 2
+		start_year = 1942
+		folder = {
+			name = transport_folder
+			position = {
+				x = 4
+				y = @1950
+			}
+		}
+		categories = {
+			motorized_equipment
+			armor
+		}
+		sub_technologies = {
+			armored_car_at_upgrade
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	armored_car_at_upgrade = {
+		enable_equipments = {
+			armored_car_at_equipment
+		}
+		research_cost = 1
+		start_year = 1942
+		sub_tech_index = 1
+		categories = {
+			motorized_equipment
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1938.1.1"
+			}
+			modifier = {
+				factor = 2
+				date > "1939.1.1"
+			}
+			modifier = {
+				is_major = no
+				factor = 0.5
+			}
+		}
+	}
+	mechanised_infantry = {
+		enable_equipments = {
+			mechanized_equipment_1
+		}
+		motorized = {
+			hardness = 1
+		}
+		mot_artillery_brigade = {
+			hardness = 1
+		}
+		mot_anti_tank_brigade = {
+			hardness = 1
+		}
+		mot_anti_air_brigade = {
+			hardness = 1
+		}
+		mot_rocket_artillery_brigade = {
+			hardness = 1
+		}
+		path = {
+			leads_to_tech = mechanised_infantry2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = amphibious_mechanized_infantry
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1940
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = 3
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = USA
+				factor = 2
+			}
+		}
+	}
+	amphibious_mechanized_infantry = {
+		enable_equipments = {
+			amphibious_mechanized_equipment_1
+		}
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
+		enable_subunits = {
+			amphibious_mechanized
+		}
+		path = {
+			leads_to_tech = amphibious_mechanized_infantry_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1941
+		folder = {
+			name = transport_folder
+			position = {
+				x = 2
+				y = 2
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			tp_tech
+		}
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = USA
+				factor = 2
+			}
+		}
+	}
+	amphibious_mechanized_infantry_2 = {
+		enable_equipments = {
+			amphibious_mechanized_equipment_2
+		}
+		research_cost = 2
+		start_year = 1946
+		folder = {
+			name = transport_folder
+			position = {
+				x = 2
+				y = @1946
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+			tp_tech
+		}
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	mechanised_infantry2 = {
+		enable_equipments = {
+			mechanized_equipment_2
+		}
+		path = {
+			leads_to_tech = mechanised_infantry3
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1942
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = 6
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mechanised_infantry3 = {
+		enable_equipments = {
+			mechanized_equipment_3
+		}
+		mechanized = {
+			soft_attack = 0.15
+			hard_attack = 0.15
+		}
+		path = {
+			leads_to_tech = mechanised_infantry4
+			research_cost_coeff = 1
+		}
+		research_cost = 3
+		start_year = 1946
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = 9
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mechanised_infantry4 = {
+		xp_research_type = army
+		xp_research_cost = 50
+		xp_research_bonus = 0.5
+		enable_equipments = {
+			mechanized_equipment_4
+		}
+		path = {
+			leads_to_tech = mechanised_infantry5
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1951
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = @1951
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mechanised_infantry5 = {
+		xp_research_type = army
+		xp_research_cost = 50
+		xp_research_bonus = 0.5
+		enable_equipments = {
+			mechanized_equipment_5
+		}
+		path = {
+			leads_to_tech = mechanised_infantry6
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1954
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = @1954
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mechanised_infantry6 = {
+		xp_research_type = army
+		xp_research_cost = 50
+		xp_research_bonus = 0.5
+		enable_equipments = {
+			mechanized_equipment_6
+		}
+		path = {
+			leads_to_tech = mechanised_infantry7
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1958
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = @1958
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mechanised_infantry7 = {
+		xp_research_type = army
+		xp_research_cost = 50
+		xp_research_bonus = 0.5
+		enable_equipments = {
+			mechanized_equipment_7
+		}
+		path = {
+			leads_to_tech = mechanised_infantry8
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1964
+		folder = {
+			name = transport_folder
+			position = {
+				x = 0
+				y = @1964
+			}
+		}
+		categories = {
+			motorized_equipment
+			infantry_tech
+			cat_mechanized_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+}

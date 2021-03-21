@@ -5,14 +5,21 @@ set_convoys = 5
 
 set_technology = {
 	infantry_weapons = 1
+	motorised_infantry = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	artillery1 = 1
+	improved_medium_tank = 1
 }
 add_ideas = {
 	civilian_economy
-	CHI_idea_2
-	CHI_idea_3
-	CHI_idea_4
 	CHI_unenacted_constitution
-	CHI_reckless_rapid_industrialization
+	CHI_Bai_Chongxi
+	CHI_Lu_Han
+	CHI_Zhou_Fohai
+	CHI_Yan_Xishan
+	CHI_Tang_Shengzhi
 }
 set_variable = {
 	var = CHI_inf_l_w_d_m_w
@@ -30,24 +37,63 @@ set_variable = {
 	var = CHI_inf_l_w_d_m_a
 	value = -0.1
 }
+set_variable = {
+	var = CHI_r_r_i_d_m_s
+	value = -0.1
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_ic
+	value = -0.1
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_co
+	value = -0.2
+}
+set_variable = {
+	var = CHI_r_r_i_d_m_ef
+	value = -0.15
+}
 add_dynamic_modifier = {
 	modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
 }
+add_dynamic_modifier = {
+	modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+}
 set_politics = {
-	ruling_party = authority_despotism
+	ruling_party = authority_democracy
 	last_election = "1950.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	authority_despotism = 100
+	#anarchism
+	authority_democracy = 35
+	progressive_communism = 2
+	#classical_communism
+	social_democracy = 35
+	#social_liberalism
+	social_conservatism = 15
+	authority_despotism = 10
+	national_fascism = 3
+	#national_socialism
+	#corporatocracism
 }
 create_country_leader = {
-	name = "Chen Gongbo"
+	name = "Fu Zuoyi"
 	desc = ""
-	picture = "gfx/leaders/CHI/Portrait_Chen_Gongbo.dds"
+	picture = "gfx/leaders/CHI/Portrait_Fu_Zuoyi.dds"
 	expire = "1965.1.1"
 	ideology = social_liberalism_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Chiang Kai-shek"
+	desc = ""
+	picture = "gfx/leaders/CHI/Portrait_Chiang_Kai_shek.dds"
+	expire = "1965.1.1"
+	ideology = authority_despotism_ideology
 	traits = {
 		#
 	}
@@ -57,10 +103,42 @@ create_country_leader = {
 	desc = ""
 	picture = "gfx/leaders/CHI/Portrait_Gu_Zhutong.dds"
 	expire = "1965.1.1"
-	ideology = authority_despotism_ideology
+	ideology = authority_democracy_ideology
 	traits = {
 		#
 	}
+}
+create_country_leader = {
+	name = "Hu Yaobang"
+	desc = ""
+	picture = "gfx/leaders/CHI/Portrait_Hu_Yaobang.dds"
+	expire = 1965.1.1
+	ideology = progressive_communism_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Wang Jingwei"
+	desc = ""
+	picture = "gfx/leaders/CHI/Portrait_Wang_Jingwei.dds"
+	expire = 1965.1.1
+	ideology = social_democracy_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Long Yun"
+	desc = ""
+	#picture =
+	expire = 1965.1.1
+	ideology =  social_conservatism_ideology
+	#traits = {}
+}
+create_country_leader = {
+	name = "Dai Li"
+	desc = ""
+	picture = "gfx/leaders/CHI/Portrait_Dai_Li.dds"
+	expire = 1965.1.1
+	ideology = national_fascism_ideology
+	#traits = {}
 }
 
 set_autonomy = {	target = TOK	autonomous_state = dominion	}
@@ -122,7 +200,7 @@ create_field_marshal = {
 	name = "He Yingqin"	
 	picture = ""
 	traits = {
-		charismatic
+		inspirational_leader
 		thorough_planner
 	}
 	skill = 3
@@ -136,8 +214,8 @@ create_corps_commander = {
 	name = "Zhang Zizhong"	
 	picture = ""
 	traits = {
-		reckless
-		infantry_officer
+		trait_reckless
+		infantry_expert
 	}
 	skill = 4
 	attack_skill = 3
@@ -150,7 +228,7 @@ create_corps_commander = {
 	name = "Zhang Lingfu"	
 	picture = ""
 	traits = {
-		reckless
+		trait_reckless
 		ambusher
 	}
 	skill = 4
@@ -164,7 +242,7 @@ create_corps_commander = {
 	name = "Chen Mingren"	
 	picture = ""
 	traits = {
-		engineer
+		trait_engineer
 	}
 	skill = 3
 	attack_skill = 3
@@ -268,8 +346,8 @@ create_corps_commander = {
 	name = "Sun Li-jen"	
 	picture = ""
 	traits = {
-		improvisation_expert
-		engineer
+		expert_improviser
+		trait_engineer
 	}
 	skill = 3
 	attack_skill = 2
@@ -282,14 +360,14 @@ create_corps_commander = {
 	name = "Feng Yu-hsiang"	
 	picture = ""
 	traits = {
-		infantry_officer
 		infantry_leader
+		infantry_expert
 		organizer
 	}
 	skill = 2
 	attack_skill = 2
 	defense_skill = 2
-	planning_skill = 2
+	planning_skill = 4
 	logistics_skill = 4
 }
 
@@ -303,14 +381,13 @@ create_corps_commander = {
 	attack_skill = 1
 	defense_skill = 1
 	planning_skill = 2
-	logistics_skill = 4
+	logistics_skill = 2
 }
 
 create_corps_commander = {
 	name = "yè péng ・カーン"	
 	picture = ""
 	traits = {
-		
 	}
 	skill = 1
 	attack_skill = 1
