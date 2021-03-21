@@ -1,5 +1,5 @@
 focus_tree = {
-	id = ssw_leftist_front_focus
+	id = ssw_leftist_front
 	country = {
 		factor = 0
 		modifier = {
@@ -729,6 +729,38 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = { #軍拡の再開
@@ -1124,6 +1156,1335 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			add_ideas = lff_ideas_17
+		}
+	}
+	focus = { #アラスカを要求
+		id = LFF_demand_alaska
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = LFF_with_foster }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			ARC = { controls_state = 463 }
+		}
+		bypass = { NOT = { ARC = { controls_state = 463 } } }
+		x = 0
+		y = 2
+		relative_position_id = LFF_with_foster
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			ARC = { country_event = { id = ssw_lff.11 } }
+		}
+	}
+	focus = { #メキシコ侵攻
+		id = LFF_invasion_of_mexico
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = LFF_demand_alaska }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_demand_alaska
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = MEX
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MEX
+			}
+		}
+	}
+	focus = { #戦艦建造に向けて
+		id = LFF_battleship_construction
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = LFF_invasion_of_mexico }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_invasion_of_mexico
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_18
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 6
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #キューバ侵攻
+		id = LFF_invasion_of_cuba
+		icon = GFX_focus_por_recover_latin_america
+		prerequisite = { focus = LFF_battleship_construction }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_battleship_construction
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = CUB
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CUB
+			}
+		}
+	}
+	focus = { #ロッキー計画
+		id = LFF_rocky_plan
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = LFF_invasion_of_cuba }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_political_power > 777
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_invasion_of_cuba
+		cost = 30
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = -777
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #造船所を増設
+		id = LFF_shipyard_revolution
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = LFF_rocky_plan }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_rocky_plan
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { #強固な研究体制
+		id = LFF_strong_research_system
+		icon = GFX_focus_research
+		prerequisite = { focus = LFF_shipyard_revolution }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_shipyard_revolution
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 6
+				category = infantry_weapons
+				category = artillery
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = cas_bomber
+			}
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.5
+				uses = 2
+				category = fleet_in_being_tree
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 2
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+			}
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 1.0
+				uses = 3
+				category = electronics
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 3
+				category = industry
+			}
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = { #再始動
+		id = LFF_reboot
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = LFF_manufacture_of_fighters_and_bombers }
+		prerequisite = { focus = LFF_everyone_is_heroes }
+		prerequisite = { focus = LFF_strong_research_system }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_strong_research_system
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = 200
+			add_war_support = 0.05
+		}
+	}
+	focus = { #スターリンの洗礼を受けよ
+		id = LFF_team_up_with_stalin
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = LFF_manufacture_of_fighters_and_bombers }
+		prerequisite = { focus = LFF_reboot }
+		mutually_exclusive = { focus = LFF_go_our_way }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			NOT = { is_in_faction_with = CHL }
+			CHL = {
+				has_completed_focus = CHL_daigo
+				is_faction_leader = yes
+			}
+		}
+		bypass = {
+			OR = {
+				is_subject_of = CHL
+				is_in_faction_with = CHL
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = LFF_reboot
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			CHL = { country_event = { id = ssw_faction.4 } }
+		}
+	}
+	focus = { #スターリンの帰るべき場所
+		id = LFF_place_to_return_for_stalin
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = LFF_team_up_with_stalin }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = RUS
+				NOT = { country_exists = RUS }
+			}
+			OR = {
+				has_war_with = SOV
+				NOT = { country_exists = SOV }
+			}
+		}
+		x = 0
+		y = 6
+		relative_position_id = LFF_team_up_with_stalin
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = RUS
+		will_lead_to_war_with = SOV
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+			CHL = { set_cosmetic_tag = SOV }
+			SOV = { set_cosmetic_tag = RUS }
+			every_state = {
+				limit = { has_state_flag = maybe_old_territory_RUSSIA }
+				add_claim_by = CHL
+			}
+		}
+	}
+	focus = { #我々の道を進め
+		id = LFF_go_our_way
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = LFF_everyone_is_heroes }
+		prerequisite = { focus = LFF_reboot }
+		mutually_exclusive = { focus = LFF_team_up_with_stalin }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = LFF_reboot
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_faction = JAP_the_new_international
+			every_other_country = {
+				limit = {
+					OR = {
+						original_tag = ARG
+						original_tag = BOL
+						original_tag = BRA
+						original_tag = CHL
+						original_tag = CMB
+						original_tag = COL
+						original_tag = COS
+						original_tag = CSB
+						original_tag = CUB
+						original_tag = DOM
+						original_tag = ECU
+						original_tag = ELS
+						original_tag = GUA
+						original_tag = HAI
+						original_tag = HON
+						original_tag = JAM
+						original_tag = NIC
+						original_tag = PAN
+						original_tag = PAR
+						original_tag = PRU
+						original_tag = URG
+					}
+					OR = {
+						has_government = progressive_communism
+						has_government = classical_communism
+					}
+					exists = yes
+					is_puppet = no
+					is_in_faction = no
+					NOT = {
+						original_tag = LFF
+						has_war_with = ROOT
+					}
+				}
+				country_event = { id = ssw_faction.1 days = 1 }
+			}
+		}
+	}
+	focus = { #古き体制への制裁
+		id = LFF_sanctions_on_the_old_regime
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = LFF_go_our_way }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = ENG
+				NOT = { country_exists = ENG }
+			}
+			OR = {
+				has_war_with = ITA
+				NOT = { country_exists = ITA }
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_go_our_way
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = ENG
+		will_lead_to_war_with = ITA
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+			}
+		}
+	}
+	focus = { #恩を仇で返す者へ
+		id = LFF_to_those_who_give_back_their_favor
+		icon = GFX_focus_attack_china
+		prerequisite = { focus = LFF_sanctions_on_the_old_regime }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = CHI
+				NOT = { country_exists = CHI }
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_sanctions_on_the_old_regime
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = CHI
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+		}
+	}
+	focus = { #古きロシアを一掃
+		id = LFF_clean_up_old_russia
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = LFF_to_those_who_give_back_their_favor }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = RUS
+				NOT = { country_exists = RUS }
+			}
+			OR = {
+				has_war_with = SOV
+				NOT = { country_exists = SOV }
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_to_those_who_give_back_their_favor
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = RUS
+		will_lead_to_war_with = SOV
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+		}
+	}
+	focus = { #赤軍の改革
+		id = LFF_red_army_reform
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = {
+			focus = LFF_team_up_with_stalin
+			focus = LFF_go_our_way
+		}
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = LFF_go_our_way
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_19
+		}
+	}
+	focus = { #新たな空軍戦略
+		id = LFF_new_air_force_strategy
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = LFF_red_army_reform }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_red_army_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = lff_ideas_20
+		}
+	}
+	focus = { #中南米の属国化
+		id = LFF_latin_american_client_state
+		icon = GFX_focus_por_recover_latin_america
+		prerequisite = { focus = LFF_new_air_force_strategy }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_new_air_force_strategy
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					exists = yes
+					OR = {
+						original_tag = ARG
+						original_tag = BOL
+						original_tag = BRA
+						original_tag = CHL
+						original_tag = CMB
+						original_tag = COL
+						original_tag = COS
+						original_tag = CSB
+						original_tag = CUB
+						original_tag = DOM
+						original_tag = ECU
+						original_tag = ELS
+						original_tag = GUA
+						original_tag = HAI
+						original_tag = HON
+						original_tag = JAM
+						original_tag = NIC
+						original_tag = PAN
+						original_tag = PAR
+						original_tag = PRU
+						original_tag = URG
+					}
+					NOT = { is_in_faction_with = LFF }
+				}
+				LFF = {
+					create_wargoal = { 
+						type = annex_everything
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+	focus = { #日本へ復讐
+		id = LFF_revenge_on_japan
+		icon = GFX_focus_attack_japan
+		prerequisite = { focus = LFF_place_to_return_for_stalin }
+		prerequisite = { focus = LFF_clean_up_old_russia }
+		prerequisite = { focus = LFF_latin_american_client_state }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "William Z. Foster"
+			}
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = JAP
+				NOT = { country_exists = JAP }
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = LFF_latin_american_client_state
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		will_lead_to_war_with = JAP
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = JAP
+			}
 		}
 	}
 ########## ブラウダールート ##########

@@ -1844,9 +1844,19 @@ focus_tree={
         prerequisite = {
             focus = BUL_regime_stability
         }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
+        }
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            set_temp_variable ={maj = BUL.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
         }
     }
 
@@ -1857,6 +1867,9 @@ focus_tree={
         y = 5
         prerequisite = {
             focus = BUL_regime_stability
+        }
+        available = {
+            NOT = {has_idea = BUL_political_instability}
         }
         cost = 10
         ai_will_do = {
@@ -1905,6 +1918,7 @@ focus_tree={
         }
         available_if_capitulated = yes
         completion_reward = {
+            army_experience = 10
             803 = {
                 add_building_construction = {
                     type = infrastructure
@@ -2354,6 +2368,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            army_experience = 10
             341 = {
                 add_claim_by = BUL
             }
@@ -2463,6 +2478,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            navy_experience = 10
             add_tech_bonus = {
                 bonus = 1.5
                 uses = 2
@@ -2523,6 +2539,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            air_experience = 10
             add_tech_bonus = {
                 bonus = 1
                 uses = 2
@@ -2635,6 +2652,7 @@ focus_tree={
             }
         }
         completion_reward = {
+            army_experience = 10
             106 = {
                 add_building_construction = {
                     type = infrastructure

@@ -18,6 +18,18 @@ focus_tree = {
 		}
 		x = 7
 		y = 0
+		ai_will_do = {
+			factor = 50
+		}
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			reverse_add_opinion_modifier = {
 				target = GER
@@ -39,6 +51,19 @@ focus_tree = {
 		}
 		x = 14
 		y = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			add_stability = -0.05
 			add_political_power = 150
@@ -54,6 +79,19 @@ focus_tree = {
 		}
 		x = 31
 		y = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			reverse_add_opinion_modifier = {
 				target = ITA
@@ -71,6 +109,19 @@ focus_tree = {
 		cost = 10.00
 		x = 7
 		y = 8
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			
 			army_experience = 30
@@ -86,6 +137,28 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 3
+				category = cas_bomber 
+			}
+
+			air_experience = 5
+		}
 
 	}
 	focus = {
@@ -97,7 +170,28 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			
+			air_experience = 5
+			add_tech_bonus = {
+				bonus = 0.3
+				uses = 2
+				category = tactical_bomber 
+			}
+		}
 	}
 	focus = {
 		id = CRO_navy_start
@@ -105,6 +199,28 @@ focus_tree = {
 		cost = 10.00
 		x = 26
 		y = 8
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			any_owned_state = {
+				limit = {
+					always = yes
+				}
+				is_coastal = yes}
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+
+		completion_reward = {
+			
+			navy_experience = 20
+		}
 
 	}
 	focus = {
@@ -116,6 +232,31 @@ focus_tree = {
 		}
 		x = 5
 		y = 1
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			country_event = {
 				id = SSW_CRO.1
@@ -137,6 +278,31 @@ focus_tree = {
 		}
 		x = 3
 		y = 2
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			air_experience = 25
 			add_tech_bonus = {
@@ -148,7 +314,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_himmler
-		icon = GFX_goal_unknown
+		icon = GFX_focus_Himmler_ico
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_luftwaffe
@@ -158,6 +324,31 @@ focus_tree = {
 		}
 		x = 1
 		y = 3
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 10
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 				reverse_add_opinion_modifier = {
 				target = HLH
@@ -182,6 +373,31 @@ focus_tree = {
 		}
 		x = 1
 		y = 4
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_ideas = SSW_ideas_CRO_tomislav
@@ -198,6 +414,30 @@ focus_tree = {
 		}
 		x = 7
 		y = 2
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			109 = {
 				add_extra_state_shared_building_slots = 2
@@ -212,7 +452,7 @@ focus_tree = {
 
 	focus = {
 		id = CRO_german_goebbels
-		icon = GFX_goal_unknown
+		icon = GFX_focus_Gering_ico
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_volkswagen
@@ -225,6 +465,19 @@ focus_tree = {
 		}
 		x = 5
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 				reverse_add_opinion_modifier = {
 				target = GER
@@ -245,6 +498,31 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			country_event = {
 				id = SSW_CRO.2
@@ -262,17 +540,41 @@ focus_tree = {
 		}
 		x = 3
 		y = 5
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_political_power = 150
 				add_war_support = 0.1
 			}
 		}
-#よくわからんからあとで！！！！！！！！！！！！！！！！！！！！！
 	}
 	focus = {
 		id = CRO_balkan_start
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_treaty
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_start
@@ -280,6 +582,46 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 1
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			HUN = {
+				add_opinion_modifier = {
+					target = CRO
+					modifier = CRO_german_start_opinion
+				}
+			}
+			BUL = {
+				add_opinion_modifier = {
+					target = CRO
+					modifier = CRO_german_start_opinion
+				}
+			}
+
+		}
 
 	}
 	focus = {
@@ -291,6 +633,31 @@ focus_tree = {
 		}
 		x = 9
 		y = 3
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_ideas = SSW_ideas_CRO_ssboost
@@ -306,6 +673,30 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_ideas = SSW_ideas_CRO_ban
@@ -322,6 +713,39 @@ focus_tree = {
 		}
 		x = 7
 		y = 5
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_political_power = 20
+			add_stability = -0.05
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.2
+			}
+		}
 
 	}
 	focus = {
@@ -336,6 +760,31 @@ focus_tree = {
 		}
 		x = 5
 		y = 6
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 			add_ideas = SSW_ideas_CRO_mutualcooperation
@@ -347,11 +796,37 @@ focus_tree = {
 		id = CRO_balkan_vojvodina
 		icon = GFX_goal_unknown
 		cost = 10.00
-		prerequisite = {
-			focus = CRO_balkan_start
-		}
+		prerequisite = { focus = CRO_balkan_start }
 		x = 11
 		y = 2
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 1
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			country_event = { id = SSW_CRO.4 }
+		}
 
 	}
 	focus = {
@@ -363,6 +838,43 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 1
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = HUN
+				modifier = CRO_corporate_with_cro_opinion
+			}
+			add_opinion_modifier = {
+				target = HUN
+				modifier = CRO_corporate_with_hun_opinion
+			}
+	
+		}
+
 
 	}
 	focus = {
@@ -374,6 +886,70 @@ focus_tree = {
 		}
 		x = 11
 		y = 5
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+			modifier = {
+				factor = 1
+				has_global_flag = GER_civil_war  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			104 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11741 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11899
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6799 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11574
+					instant_build = yes
+				}
+			}
+			109 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6647
+					instant_build = yes
+				}
+
+			}
+			
+		}
+
 
 	}
 	focus = {
@@ -388,6 +964,35 @@ focus_tree = {
 		}
 		x = 9
 		y = 6
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 60  
+			}
+		}
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_state_core  = 971
+			add_state_core  = 976		
+			add_state_core  = 972
+			add_stability = -0.05
+			add_ideas = SSW_ideas_balkan_serbiaban
+		}
+
+
 
 	}
 	focus = {
@@ -399,6 +1004,23 @@ focus_tree = {
 		}
 		x = 9
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_command_power = 50	
+		}
+
 
 	}
 	focus = {
@@ -410,6 +1032,28 @@ focus_tree = {
 		}
 		x = 11
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			}
+			
+		}
+
 
 	}
 	focus = {
@@ -421,6 +1065,28 @@ focus_tree = {
 		}
 		x = 11
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+					
+			add_tech_bonus = {
+				bonus = 0.3
+				uses = 5
+				category = land_doctrine
+			}
+		}
+
 
 	}
 	focus = {
@@ -432,6 +1098,19 @@ focus_tree = {
 		}
 		x = 12
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			804 = {
 			add_building_construction = {
@@ -467,6 +1146,40 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_global_flag = Danubian_war 
+			}
+			modifier = {
+				has_global_flag = danubian_war_end 
+				add = 10  
+			}
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+			971 = {
+				add_compliance = 30
+			}
+			972 = {
+			   add_compliance = 30
+			}
+			976 = {
+				add_compliance = 30
+			}
+			add_stability = 0.05
+		}
 
 	}
 	focus = {
@@ -478,6 +1191,19 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				country_event = {
@@ -486,6 +1212,7 @@ focus_tree = {
 				add_ideas = SSW_ideas_CRO_italyborderboost
 			}
 		}
+		
 	}
 	focus = {
 		id = CRO_nationalism_germanrestriction
@@ -496,11 +1223,32 @@ focus_tree = {
 		}
 		x = 16
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = GER
+				modifier = CRO_nationalism_germanrestriction_opinion
+			}
+	
+		}
 
 	}
 	focus = {
 		id = CRO_nationalism_vojvodinadefence
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_fortify_city
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_italyborderboost
@@ -510,6 +1258,55 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			104 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11741 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11899
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6799 
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11574
+					instant_build = yes
+				}
+			}
+			109 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6647
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -521,7 +1318,26 @@ focus_tree = {
 		}
 		x = 14
 		y = 4
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = national_fascism
+				popularity = -0.2
+			}
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = CRO_nationalism_coop
@@ -532,6 +1348,19 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_ideas = SSW_ideas_CRO_coop
@@ -540,7 +1369,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_zagrebpriority
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_reduce_training_time
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_start
@@ -551,7 +1380,29 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			109 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+
+		}
 	}
 	focus = {
 		id = CRO_industrial1_cravat
@@ -562,7 +1413,22 @@ focus_tree = {
 		}
 		x = 18
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_industrial1_cravat
+		}
 	}
 	focus = {
 		id = CRO_nationalism_nationalism
@@ -573,6 +1439,19 @@ focus_tree = {
 		}
 		x = 18
 		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			CRO = {
 				add_ideas = SSW_ideas_CRO_nationalism
@@ -588,6 +1467,35 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			set_party_name = {
+				ideology = national_fascism
+				long_name = CRO_national_transitional_council_long
+				name = CRO_national_transitional_council
+			}
+			create_country_leader = {
+				name = "Nikola Mandic"
+				desc = ""
+				picture = "gfx/leaders/CRO/Portrait_nikola_mandic.dds"
+				expire = "1970.1.1"
+				ideology = national_fascism
+				traits = {
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -600,11 +1508,26 @@ focus_tree = {
 		}
 		x = 16
 		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		create_country_leader = {
+			ideas = SSW_ideas_CRO_nationalism_ban
+		}
 
 	}
 	focus = {
 		id = CRO_industrial1_wholecountry
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ITA_Old_Crane
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_sart
@@ -615,11 +1538,27 @@ focus_tree = {
 		}
 		x = 24
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_industrial1_wholecountry
+
+		}
 	}
 	focus = {
 		id = CRO_industrial1_splitshipyard
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_build_navy
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_zagrebpriority
@@ -627,11 +1566,30 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SSW_ideas_CRO_industrial1_splitshipyard
+				days = 720
+			}
+		}
 
 	}
 	focus = {
 		id = CRO_industrial1_makeupforpoorindustry
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_non_factory_construct
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_cravat
@@ -641,6 +1599,32 @@ focus_tree = {
 		}
 		x = 20
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SSW_ideas_CRO_industrial1_makeupforpoorindustry
+				days = 360 
+			}
+			add_tech_bonus = {
+				bonus = 0.05
+				uses = 1
+				category = industry 
+			}
+
+
+		}
 
 	}
 	focus = {
@@ -655,6 +1639,27 @@ focus_tree = {
 		}
 		x = 23
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = naval_equipment 
+			}
+
+		}
 
 	}
 	focus = {
@@ -666,6 +1671,22 @@ focus_tree = {
 		}
 		x = 23
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_fleet_school
+		}
 
 	}
 	focus = {
@@ -677,6 +1698,22 @@ focus_tree = {
 		}
 		x = 23
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_fleet_production_plan
+		}
 
 	}
 	focus = {
@@ -691,6 +1728,27 @@ focus_tree = {
 		}
 		x = 21
 		y = 12
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.50
+				uses = 2
+				category = ss_tech 
+			}
+
+		}
 
 	}
 	focus = {
@@ -702,6 +1760,22 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_industrial1_multilingualfacilitation
+		}
 
 	}
 	focus = {
@@ -716,11 +1790,36 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SSW_ideas_CRO_industrial1_traditionalindustry
+				days = 180
+			}
+			add_tech_bonus = {
+				bonus = 0.08
+				uses = 1
+				category = excavation_tech 
+			}
+
+		}
 
 	}
 	focus = {
 		id = CRO_industrial1_universityofzagreb
-		icon = GFX_goal_unknown
+		icon = GFX_focus_research2
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_makeupforpoorindustry
@@ -730,6 +1829,28 @@ focus_tree = {
 		}
 		x = 22
 		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_industrial1_universityofzagreb
+			add_tech_bonus = {
+				bonus = 0.15
+				uses = 5
+				category = industry 
+			}
+
+		}
 
 	}
 	focus = {
@@ -741,6 +1862,25 @@ focus_tree = {
 		}
 		x = 24
 		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SSW_ideas_CRO_4th_industrial_plan
+				days = 720
+			}
+		}
 
 	}
 	focus = {
@@ -752,6 +1892,38 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			104 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+			}
+			804 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+			}
+
+		}
 
 	}
 	focus = {
@@ -763,11 +1935,34 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			109 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+
+			}
+		}
 
 	}
 	focus = {
 		id = CRO_industrial1_laborobligation
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_naval_production
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_dinaricalpsbridge
@@ -777,11 +1972,27 @@ focus_tree = {
 		}
 		x = 24
 		y = 7
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_work_is_duty
+		}
 
 	}
 	focus = {
 		id = CRO_navy_italy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_destroyer
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_fleetexpansion
@@ -791,17 +2002,64 @@ focus_tree = {
 		}
 		x = 25
 		y = 12
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = dd_tech 
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = cl_tech 
+			}
+
+		}
 
 	}
 	focus = {
 		id = CRO_navy_fleetmaintecance
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_cruiser2
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_italy
 		}
 		x = 25
 		y = 13
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.2
+				uses = 2
+				category = ca_tech 
+			}
+
+		}
 
 	}
 	focus = {
@@ -813,7 +2071,22 @@ focus_tree = {
 		}
 		x = 29
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_italy_freezadarborder
+		}
 	}
 	focus = {
 		id = CRO_italy_croatstatusinistria
@@ -824,11 +2097,27 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			country_event = { id = SSW_CRO.6 }
+		}
 
 	}
 	focus = {
 		id = CRO_navy_maintain
-		icon = GFX_goal_unknown
+		icon = GFX_LTV_ship
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_start
@@ -838,6 +2127,28 @@ focus_tree = {
 		}
 		x = 29
 		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = naval_equipment 
+			}
+
+		}
+
 
 	}
 	focus = {
@@ -849,6 +2160,27 @@ focus_tree = {
 		}
 		x = 29
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = dd_tech 
+			}
+
+		}
 
 	}
 	focus = {
@@ -861,6 +2193,27 @@ focus_tree = {
 		}
 		x = 26
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = naval_doctrine 
+			}
+
+		}
 
 	}
 	focus = {
@@ -872,6 +2225,22 @@ focus_tree = {
 		}
 		x = 29
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_small_fleet
+		}
 
 	}
 	focus = {
@@ -883,6 +2252,25 @@ focus_tree = {
 		}
 		x = 33
 		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea =SSW_ideas_CRO_italy_monarchism
+				days = 720
+			}
+		}
 
 	}
 	focus = {
@@ -894,6 +2282,23 @@ focus_tree = {
 		}
 		x = 33
 		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+				add_ideas =SSW_ideas_CRO_italy_serbia
+
+		}
 
 	}
 	focus = {
@@ -906,6 +2311,34 @@ focus_tree = {
 		}
 		x = 27
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_state = {
+				limit = {
+					is_owned_by = CRO
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}	
+			}
+			ITA = {
+				add_ideas = SSW_ideas_CRO_trade_with_Croatia
+			}
+		}
 
 	}
 	focus = {
@@ -918,6 +2351,34 @@ focus_tree = {
 		}
 		x = 31
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = authority_despotism
+			}
+			create_country_leader = {
+				name = "Tomislav II"
+				desc = ""
+				picture = "gfx/leaders/CRO/Portrait_Tomislav_2.dds"
+				expire = "1965.1.1"
+				ideology = authority_despotism
+				traits = {
+					CRO_reluctant_monarch
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -935,17 +2396,54 @@ focus_tree = {
 		}
 		x = 16
 		y = 7
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_state_claim = 102
+			add_state_claim = 941
+			add_state_claim = 103
+			add_state_claim = 163
+			add_state_claim = 736
+
+		}
 
 	}
 	focus = {
 		id = CRO_italy_bosniamonarchy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_abdicate
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_serbia
 		}
 		x = 35
 		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_italy_bosniamonarchy
+		}
 
 	}
 	focus = {
@@ -957,6 +2455,22 @@ focus_tree = {
 		}
 		x = 31
 		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_italy_constitutionalmonarchy
+		}
 
 	}
 	focus = {
@@ -968,6 +2482,33 @@ focus_tree = {
 		}
 		x = 27
 		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			army_experience = 30
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = mountaineers_tech
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+
+		}
 
 	}
 	focus = {
@@ -982,7 +2523,26 @@ focus_tree = {
 		}
 		x = 31
 		y = 5
+		ai_will_do = {
+			factor = 0
+		}
 
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			ITA = {
+				add_to_faction = CRO
+			}
+			add_to_tech_sharing_group = rome_commerce_research
+
+		}
 	}
 	focus = {
 		id = CRO_army_germanequipment1
@@ -993,6 +2553,24 @@ focus_tree = {
 		}
 		x = 7
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			GER = {
+				country_event = { id = SSW_CRO.7 }
+			}
+		}
 
 	}
 	focus = {
@@ -1004,8 +2582,24 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
-			custom_effect_tooltip = SSW_CRO_tooltip_1
+			custom_effect_tooltip = SSW_CRO_tooltip_2
+			hidden_effect = {
+				load_oob = "CRO_ss_template"
+			}
 		}
 
 	}
@@ -1018,17 +2612,53 @@ focus_tree = {
 		}
 		x = 3
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = SSW_CRO_tooltip_1
+			hidden_effect = {
+				load_oob = "CRO_ss"
+			}
+
+		}
 
 	}
 	focus = {
 		id = CRO_army_chetnikmodern
-		icon = GFX_goal_unknown
+		icon = GFX_bonus_mp
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_ss
 		}
 		x = 5
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_army_chetnikmodern
+		}
 
 	}
 	focus = {
@@ -1040,6 +2670,22 @@ focus_tree = {
 		}
 		x = 3
 		y = 12
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_army_militaryacademy
+		}
 
 	}
 	focus = {
@@ -1051,6 +2697,24 @@ focus_tree = {
 		}
 		x = 7
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+				GER = {
+					country_event = { id = SSW_CRO.10 }
+				}		
+		}
 
 	}
 	focus = {
@@ -1065,6 +2729,31 @@ focus_tree = {
 		}
 		x = 7
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			GER = {
+				create_production_license = {
+					target = CRO
+					equipment = {
+					type = infantry_equipment_5
+					}
+					cost_factor = 0
+				}
+			}
+
+		}
 
 	}
 	focus = {
@@ -1079,17 +2768,64 @@ focus_tree = {
 		}
 		x = 9
 		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons 
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery 
+			}
+
+		}
 
 	}
 	focus = {
 		id = CRO_army_tankresearch
-		icon = GFX_goal_unknown
+		icon = GFX_ITA_Tank_Raid
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_researchcoop
 		}
 		x = 9
 		y = 12
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = armor 
+			}
+	
+		}
 
 	}
 	focus = {
@@ -1101,6 +2837,32 @@ focus_tree = {
 		}
 		x = 7
 		y = 12
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = industry 
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+			}
+
+		}
 
 	}
 	focus = {
@@ -1113,6 +2875,36 @@ focus_tree = {
 		}
 		x = 7
 		y = 13
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
 
 	}
 	focus = {
@@ -1124,17 +2916,50 @@ focus_tree = {
 		}
 		x = 16
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = SSW_CRO_tooltip_3
+			
+		}
 
 	}
 	focus = {
 		id = CRO_airforce_saetta
-		icon = GFX_goal_unknown
+		icon = GFX_focus_usa_escort_fighters
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_italystart
 		}
 		x = 20
 		y = 9
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_airforce_saetta	
+		}
 
 	}
 	focus = {
@@ -1146,22 +2971,64 @@ focus_tree = {
 		}
 		x = 16
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = cas_bomber 
+			}
+
+		}
 
 	}
 	focus = {
 		id = CRO_airforce_longdistanceflight
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_bomber
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_saetta
 		}
 		x = 20
 		y = 10
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = cat_strategic_bomber 
+			}
+	
+		}
 
 	}
 	focus = {
 		id = CRO_airforce_airbase
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_doctrine
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_bomber
@@ -1169,6 +3036,31 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_state = {
+				limit = {
+					is_owned_by = CRO
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1180,6 +3072,36 @@ focus_tree = {
 		}
 		x = 13
 		y = 12
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = light_air 
+				}
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = medium_air 
+				}
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = heavy_air 
+				}	
+		}
 
 	}
 	focus = {
@@ -1194,6 +3116,27 @@ focus_tree = {
 		}
 		x = 11
 		y = 13
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.3
+				uses = 2
+				category = rocketry 
+			}
+	
+		}
 
 	}
 	focus = {
@@ -1205,6 +3148,26 @@ focus_tree = {
 		}
 		x = 25
 		y = 14
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SSW_ideas_CRO_fleet_production_plan
+				add_idea = SSW_ideas_CRO_fleet_production_plan_2
+			}
+
+		}
 
 	}
 	focus = {
@@ -1216,17 +3179,52 @@ focus_tree = {
 		}
 		x = 21
 		y = 13
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SSW_ideas_CRO_wolfpack
+		}
 
 	}
 	focus = {
 		id = CRO_navy_massproduction
-		icon = GFX_goal_unknown
+		icon = GFX_LTV_kuubo
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_wolfpack
 		}
 		x = 21
 		y = 14
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SSW_ideas_CRO_wolfpack
+				add_idea = SSW_ideas_CRO_wolfpack_2
+			}
+		}
 
 	}
 }
