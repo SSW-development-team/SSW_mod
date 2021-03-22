@@ -647,6 +647,7 @@ focus_tree={
             focus = BUL_worker_union
         }
         completion_reward = {
+            add_stability = 0.08
             every_owned_state = {
                 limit = {
                     free_building_slots = {
@@ -1852,6 +1853,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            add_stability = 0.1
             set_temp_variable ={maj = BUL.highest_party_ideology}
             add_popularity = {
                 ideology = var:maj
@@ -2949,6 +2951,13 @@ focus_tree={
         }
         ai_will_do = {
             factor = 10
+            modifier = {
+                OR = {
+                    has_tech = trench_warfare
+                    has_tech = mass_assault
+                }
+                factor = 0
+            }
         }
         cost = 5
         completion_reward = {
@@ -3365,6 +3374,10 @@ focus_tree={
         }
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_tech = trade_interdiction
+                factor = 0
+            }
         }
         cost = 5
         completion_reward = {
@@ -3602,6 +3615,9 @@ focus_tree={
         }
         prerequisite = {
             focus = BUL_check_tactic
+        }
+        ai_will_do = {
+            factor = 10
         }
         cost = 10
         completion_reward = {
