@@ -1,5 +1,5 @@
 name="The Sun Shining on the World"
-version="1.10"
+version="1.15“Dunăre or Duna”"
 dependencies={
 	"Japanese Language mod"
 }
