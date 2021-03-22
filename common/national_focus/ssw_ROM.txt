@@ -501,7 +501,7 @@ focus_tree = {
 	focus = {
 		id = Waves_of_people
 		icon = GFX_goal_generic_support_fascism
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Fraternity_of_Cross
 		}
@@ -517,7 +517,7 @@ focus_tree = {
 	focus = {
 		id = Reorganaized_the_army
 		icon = GFX_goal_rhineland
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = MIlitary_unity
 		}
@@ -531,7 +531,7 @@ focus_tree = {
 	focus = {
 		id = Total_war
 		icon = GFX_goal_generic_major_war
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Reorganaized_the_army
 		}
@@ -553,21 +553,21 @@ focus_tree = {
 	focus = {
 		id = Plan_of_great_army
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Total_war
 		}
 		x = 6
 		y = 4
 		completion_reward = {
-			
+			add_ideas = ROM_Plan_of_great_army_idea
 		}
 
 	}
 	focus = {
 		id = Training_aristocratic_officer
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Total_war
 		}
@@ -580,7 +580,7 @@ focus_tree = {
 	focus = {
 		id = Traditionalism
 		icon = GFX_goal_generic_more_territorial_claims
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Reorganaized_the_army
 		}
@@ -685,13 +685,20 @@ focus_tree = {
 	focus = {
 		id = Remember_Marasesti
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Traditionalism
 		}
 		x = 12
 		y = 4
 		completion_reward = {
+			war_support_factor = 0.05
+			add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 1.0
+							uses = 1
+							category = land_doctrine
+						}
 			
 		}
 
@@ -706,14 +713,14 @@ focus_tree = {
 		x = 14
 		y = 4
 		completion_reward = {
-			
+			add_idea = ROM_legacy_of_mountain_warfare_idea
 		}
 
 	}
 	focus = {
 		id = Supremacy_of_firepower
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = legacy_of_mountain_warfare
 			focus = Remember_Marasesti
@@ -721,14 +728,14 @@ focus_tree = {
 		x = 12
 		y = 5
 		completion_reward = {
-			
+			add_ideas = ROM_Supremacy_of_firepower_idea
 		}
 
 	}
 	focus = {
 		id = Take_advantage_of_mountaingun
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = legacy_of_mountain_warfare
 		}
@@ -738,7 +745,12 @@ focus_tree = {
 		x = 14
 		y = 5
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = ROM_modern_artillery
+				bonus = 1.25
+				uses = 1
+				category = artillery	
+			}
 		}
 
 	}
@@ -755,7 +767,7 @@ focus_tree = {
 		x = 12
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_Start_the_General_Staff_Office_idea
 		}
 
 	}
@@ -769,21 +781,29 @@ focus_tree = {
 		x = 11
 		y = 7
 		completion_reward = {
-			
+			add_ideas = ROM_Strengthen_conscripiton_idea
 		}
 
 	}
 	focus = {
 		id = Forceing_home_front
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Start_the_General_Staff_Office
 		}
 		x = 13
 		y = 7
 		completion_reward = {
-			
+			add_stability = -0.05
+			army_experience = 20
+			add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.25
+							uses = 2
+							category = land_doctrine
+						}
+
 		}
 
 	}
@@ -800,7 +820,7 @@ focus_tree = {
 		x = 14
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_The_reenact_battles_from_the_Kharkiv_idea
 		}
 
 	}
@@ -814,14 +834,17 @@ focus_tree = {
 		x = 15
 		y = 7
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_legacy_of_mountain_warfare_idea
+				add_idea = ROM_Use_river_idea
+							}
 		}
 
 	}
 	focus = {
 		id = Forcible_motorizing
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Training_aristocratic_officer
 		}
@@ -849,6 +872,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		completion_reward = {
+			add_ideas = ROM_Armor_supremacy_idea
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 1
@@ -899,7 +923,7 @@ focus_tree = {
 	focus = {
 		id = Extend_faur_industry
 		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Plan_of_great_army
 		}
@@ -909,20 +933,20 @@ focus_tree = {
 		x = 8
 		y = 5
 		completion_reward = {
-		
+			unlock_decision_category_tooltip = ROM_Extend_faur_industry
 		}
 	}
 	focus = {
 		id = Detailed_plan
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Extend_faur_industry
 		}
 		x = 8
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_Detailed_plan_idea
 		}
 
 	}
@@ -937,7 +961,10 @@ focus_tree = {
 		x = 9
 		y = 7
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_Detailed_plan_idea
+				add_idea = ROM_Reforming_Marele_Cartier_General_idea
+							}
 		}
 	}
 	focus = {
@@ -963,37 +990,48 @@ focus_tree = {
 	focus = {
 		id = Restart_navy
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		x = 35
 		y = 2
 		completion_reward = {
-			
+			navy_experience = 20
+			add_tech_bonus = {
+							name = ROM_Navy_Strategy
+							bonus = 1.0
+							uses = 1
+							category = naval_doctrine
+						}
 		}
 	}
 	focus = {
 		id = Black_sea_submarin
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Restart_navy
 		}
 		x = 32
 		y = 3
 		completion_reward = {
-			
+					add_tech_bonus = {
+							name = FSA_crow
+							bonus = 1.0
+							uses = 1
+							category = ss_tech
+						}
 		}
 	}
 	focus = {
 		id = Buy_Uboat
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Black_sea_submarin
 		}
 		x = 32
 		y = 4
 		completion_reward = {
-			
+			add_ideas = ROM_Uboat_idea
 		}
 	}
 	focus = {
@@ -1006,7 +1044,10 @@ focus_tree = {
 		x = 32
 		y = 5
 		completion_reward = {
-			
+			swap_ideas = {
+    		remove_idea = ROM_Uboat_idea
+    		add_idea = ROM_Improved_Sub
+}
 		}
 	}
 	focus = {
@@ -1019,13 +1060,38 @@ focus_tree = {
 		x = 35
 		y = 3
 		completion_reward = {
-			
+			if = {
+							limit = {
+									has_full_control_of_state = 973
+								}
+							973 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = dockyard
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+						if = {
+							limit = {
+									has_full_control_of_state = 766
+								}
+							766 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = dockyard
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
 		}
 	}
 	focus = {
 		id = Averescu_class_battleship
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Ambition_of_Great_navy
 		}
@@ -1034,9 +1100,15 @@ focus_tree = {
 		}
 		x = 34
 		y = 4
-		completion_reward = {
-			
-		}
+			completion_reward = {
+					add_tech_bonus = {
+							name = ROM_Averescu_class_battleship
+							bonus = 1.5
+							uses = 1
+							category = bb_tech
+						}
+				}
+
 	}
 	focus = {
 		id = Rule_of_Black_sea
@@ -1048,7 +1120,20 @@ focus_tree = {
 		x = 34
 		y = 5
 		completion_reward = {
-			
+			add_ideas = ROM_Battle_ship_idea
+			if = {
+							limit = {
+									has_full_control_of_state = 973
+								}
+							973 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = dockyard
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
 		}
 	}
 	focus = {
@@ -1064,7 +1149,14 @@ focus_tree = {
 		x = 36
 		y = 4
 		completion_reward = {
-			
+			add_political_power = -25
+			add_tech_bonus = {
+							name = ROM_Navy_Strategy
+							bonus = 0.75
+							uses = 1
+							category = naval_doctrine
+						}
+
 		}
 	}
 	focus = {
@@ -1077,7 +1169,7 @@ focus_tree = {
 		x = 36
 		y = 5
 		completion_reward = {
-			
+			add_ideas = ROM_Thousands_of_navalship_idea
 		}
 	}	
 
@@ -1086,11 +1178,11 @@ focus_tree = {
 	focus = {
 		id = Reorganaized_the_air_force
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		x = 41
 		y = 2
 		completion_reward = {
-			
+			air_experience = 50
 		}
 	}
 	focus = {
@@ -1103,20 +1195,36 @@ focus_tree = {
 		x = 40
 		y = 3
 		completion_reward = {
-			
+			if = {
+							limit = {
+									has_full_control_of_state = 84
+								}
+							84 = {
+									add_building_construction = {
+											type = air_base
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
 		}
 	}
 	focus = {
 		id = Focus_doctrine
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_the_air_force
 		}
 		x = 42
 		y = 3
 		completion_reward = {
-			
+			add_tech_bonus = {
+							name = air_doctrine
+							bonus = 1.0
+							uses = 1
+							category = air_doctrine
+						}
 		}
 	}
 	focus = {
@@ -1154,13 +1262,13 @@ focus_tree = {
 		x = 41
 		y = 4
 		completion_reward = {
-			
+			unlock_decision_category_tooltip = ROM_investment_in_the_aviation_industry
 		}
 	}
 	focus = {
 		id = Factory_of_yassy
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Large_investment_in_the_aviation_industry
 			focus = Lisence
@@ -1168,7 +1276,19 @@ focus_tree = {
 		x = 39
 		y = 5
 		completion_reward = {
-			
+			if = {
+							limit = {
+									has_full_control_of_state = 79
+								}
+						79 = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
 		}
 	}
 	focus = {
@@ -1200,20 +1320,32 @@ focus_tree = {
 		x = 40
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_State_run_enterprise_idea
 		}
 	}
 	focus = {
 		id = Galati_test_airfield
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Large_investment_in_the_aviation_industry
 		}
 		x = 41
 		y = 5
 		completion_reward = {
-			
+			if = {
+							limit = {
+									has_full_control_of_state = 79
+								}
+							79 = {
+									add_building_construction = {
+											type = air_base
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+			air_experience = 20
 		}
 	}
 	focus = {
@@ -1232,13 +1364,13 @@ focus_tree = {
 		x = 42
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_Private_enterprise_idea
 		}
 	}
 	focus = {
 		id = High_altitude_fighter
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Private_enterprise
 			focus = State_run_enterprise
@@ -1246,7 +1378,7 @@ focus_tree = {
 		x = 41
 		y = 7
 		completion_reward = {
-			
+			add_ideas = ROM_High_altitude_fighter_idea
 		}
 	}	
 
@@ -1259,7 +1391,7 @@ focus_tree = {
  	focus = {
 		id = Reconstruction_plan
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = Lose
 			focus = Win
@@ -1267,7 +1399,7 @@ focus_tree = {
 		x = 19
 		y = 10
 		completion_reward = {
-			
+			add_ideas = ROM_Reconstruction_plan_idea
 		}
 	}
 	focus = {
@@ -1280,13 +1412,13 @@ focus_tree = {
 		x = 19
 		y = 11
 		completion_reward = {
-			
+			add_ideas = ROM_Do_all_that_nation_have_got_idea
 		}
 	}
 	focus = {
 		id = Strengthen_relations_with_finance
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Do_all_that_nation_have_got
 		}
@@ -1296,7 +1428,7 @@ focus_tree = {
 		x = 20
 		y = 12
 		completion_reward = {
-			
+			add_ideas = ROM_Strengthen_relations_with_finance_idea
 		}
 	}
 	focus = {
@@ -1309,26 +1441,53 @@ focus_tree = {
 		x = 20
 		y = 13
 		completion_reward = {
-			
+			if = {
+							limit = {
+									has_full_control_of_state = 46
+								}
+							46 = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+			46 = {
+							if = {
+									limit = {
+											has_full_control_of_state = 46
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
 		}
 	}
 	focus = {
 		id = Support_Bank
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 8.00
 		prerequisite = {
 			focus = Strengthen_relations_with_finance
 		}
 		x = 22
 		y = 13
 		completion_reward = {
-			
+			swap_ideas = {
+    		remove_idea = ROM_Strengthen_relations_with_finance_idea
+    		add_idea = ROM_Support_Bank_idea
+			}
 		}
 	}
 	focus = {
 		id = Revived_land
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Support_Bank
 		}
@@ -1344,20 +1503,23 @@ focus_tree = {
 		x = 19
 		y = 14
 		completion_reward = {
-			
+			remove_ideas = ROM_Reconstruction_plan_idea
 		}
 	}
 	focus = {
 		id = Protect_romanian_refugee
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Revived_land
+		}
+		available = {
+			has_completed_focus = Win
 		}
 		x = 18
 		y = 15
 		completion_reward = {
-			
+			add_ideas = ROM_Protect_romanian_refugee_idea
 		}
 	}
 	focus = {
@@ -1367,24 +1529,28 @@ focus_tree = {
 		prerequisite = {
 			focus = Revived_land
 		}
+		available = {
+			has_completed_focus = Lose
+		}
 		x = 20
 		y = 15
 		completion_reward = {
-			
+			add_ideas = ROM_For_lackland_idea
 		}
 	}
 	focus = {
 		id = Romanian_expansionism
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = For_lackland
 			focus = Protect_romanian_refugee
 		}
+
 		x = 19
 		y = 16
 		completion_reward = {
-			
+			add_ideas = ROM_Romanian_expansionism_idea
 		}
 	}
 	focus = {
@@ -1397,13 +1563,18 @@ focus_tree = {
 		x = 18
 		y = 13
 		completion_reward = {
-			
+			add_tech_bonus = {
+					name = industrial_bonus
+					bonus = 1
+					uses = 2
+					category = industry
+			}
 		}
 	}
 	focus = {
 		id = Investment_in_rural_communities
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Do_all_that_nation_have_got
 		}
@@ -1413,20 +1584,20 @@ focus_tree = {
 		x = 18
 		y = 12
 		completion_reward = {
-			
+			add_stability = 0.05
 		}
 	}
 	focus = {
 		id = Relief_fund
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 8.00
 		prerequisite = {
 			focus = Investment_in_rural_communities
 		}
 		x = 16
 		y = 13
 		completion_reward = {
-			
+			add_ideas = ROM_Relief_fund_idea
 		}
 	}
  
@@ -1435,7 +1606,7 @@ focus_tree = {
  	focus = {
 		id = Win
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = Destroy_Holy_Crown
 		}
@@ -1632,9 +1803,17 @@ focus_tree = {
 		x = 12
 		y = 10
 		completion_reward = {
-			swap_ideas = {
+			if = {
+				limit = {
+					has_idea = Military_unity
+				}
+				swap_ideas = {
 				remove_idea = Military_unity
 				add_idea = Establish_military_dictatorship
+							}
+				else = {
+					add_ideas = Military_unity
+				}
 			}
 		}
 	}
@@ -1801,7 +1980,7 @@ focus_tree = {
  	focus = {
 		id = Lose
 		icon = GFX_goal_unknown
-		cost = 5.00
+		cost = 4.00
 		prerequisite = {
 			focus = Destroy_Holy_Crown
 		}
