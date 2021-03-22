@@ -1,14 +1,11 @@
 ﻿capital = 43
 oob = "HUN_1950"
-
-set_convoys = 5
+set_convoys = 0
 set_research_slots = 3
-set_stability = 0.60
-set_war_support = 0.60
-
+set_stability = 0.4
+set_war_support = 0.7
 add_opinion_modifier = { target = ROM modifier = hostile_status }
 add_opinion_modifier = { target = SER modifier = hostile_status }
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons = 1
@@ -111,11 +108,10 @@ set_technology = {
 	fuel_refining4 = 1
 	artillery1 = 1
 }
-
 add_ideas = {
 	civilian_economy
+	HUN_restoration_flame_1
 }
-
 set_politics = {
 	ruling_party = authority_democracy
 	last_election = "1950.1.1"
@@ -123,79 +119,93 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	authority_democracy= 100
+	authority_democracy = 61
+	national_fascism = 12
+	social_conservatism = 9
+	authority_despotism = 7
+	progressive_communism = 7
+	corporatocracism = 4
 }
-
 create_country_leader = {
-	name = "Szombathelyi Ferenc"
-	desc = "POLITICS_DEMCHUGDONGRUB_DESC"
-	picture = "GFX/leaders/HUN/Portrait_Ferenc_Szombathelyi.dds"
+	name = "Ferenc Szombathelyi"
+	desc = ""
+	picture = "gfx/leaders/HUN/Portrait_Ferenc_Szombathelyi.dds"
 	expire = "1965.1.1"
 	ideology = authority_democracy_ideology
+	traits = { anti_communist }
 }
-
+create_field_marshal = {
+	name = "Ferenc Szombathelyi"
+	picture = "Portrait_Ferenc_Szombathelyi.dds"
+	traits = { aggressive_assaulter }
+	skill = 5
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
 create_corps_commander = {
 	name = "Sandor Kepiro"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Sandor_Kepiro.dds"
 	traits = {  }
-	skill = 1
+	skill = 3
 	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
+	defense_skill = 2
+	planning_skill = 3
 	logistics_skill = 1
 }
 create_corps_commander = {
 	name = "Lajos Veress"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Lajos_Veress.dds"
 	traits = { army_cavalry_1 }
-	skill = 1
+	skill = 2
 	attack_skill = 1
-	defense_skill = 1
+	defense_skill = 2
 	planning_skill = 1
-	logistics_skill = 1
+	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "Geza Lakatos"
+	name = "Géza Lakatos"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Geza_Lakatos.dds"
 	traits = {  }
 	skill = 2
-	attack_skill = 1
+	attack_skill = 2
 	defense_skill = 1
-	planning_skill = 1
+	planning_skill = 2
 	logistics_skill = 1
 }
 create_corps_commander = {
-	name = "Beregffy Karolyi"
+	name = "Károly Beregfy"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Beregffy_Karolyi.dds"
 	traits = {  }
 	skill = 2
-	attack_skill = 1
-	defense_skill = 1
+	attack_skill = 2
+	defense_skill = 2
 	planning_skill = 1
 	logistics_skill = 1
 }
 create_corps_commander = {
-	name = "Laszlo_Deseo"
+	name = "László Deseő"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Laszlo_Deseo.dds"
 	traits = {  }
 	skill = 2
 	attack_skill = 1
 	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "Ivan Hindy"
+	name = "Iván Hindy"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Ivan_Hindy.dds"
 	traits = {  }
-	skill = 1
-	attack_skill = 1
+	skill = 2
+	attack_skill = 2
 	defense_skill = 1
 	planning_skill = 1
-	logistics_skill = 1
+	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "Jeno Major"
+	name = "Jenő Major"
 	portrait_path = "gfx/leaders/HUN/SSW_Portrait_Jeno_Major.dds"
 	traits = {  }
 	skill = 1
