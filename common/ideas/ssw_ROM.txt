@@ -10,11 +10,6 @@ ideas = {
 			removal_cost = -1
 			picture = a
 			modifier = {
-				political_power_factor = -0.05
-				high_command_cost_factor = -0.25
-				air_chief_cost_factor = -0.2
-				army_chief_cost_factor =-0.2
-				navy_chief_cost_factor = -0.2
 			}
 		}
 		Codreanu_children = {
@@ -873,8 +868,103 @@ ideas = {
 								
 			}
 		}
+	}
+	
+ #工業
+	industrial_concern = {
+		
+		ROM_CFR = {
+			allowed = {
+				original_tag = ROM
+			}
+			picture = a
+			research_bonus = {
+				industry = 0.15
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.25
+			}
+			traits = { industrial_concern }
+		}
+		ROM_MALAXA = {
+			picture = a
+			allowed = {
+				original_tag = ROM
+			}
+			research_bonus = {
+				industry = 0.15
+			}
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+			}
+			traits = { industrial_concern }
+		}
+		ROM_ROMLOC = {
+		
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			cost = 100
+			research_bonus = {
+				industry = 0.15
+			}
+			traits = { industrial_concern }
+		}
+	}
+	materiel_manufacturer = {
+	
+		ROM_FAUR = {
+			allowed = {
+				original_tag = ROM
+			}
+			picture = a
+			available = {
+				has_completed_focus = Extend_faur_industry
+			}
+			research_bonus = {
+				motorized_equipment = 0.1
+			}
+			cost = 50
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.15
+			}
+			traits = { motorized_equipment_manufacturer }
+		}
+		ROM_cugir = {
+			
+			picture = idea_ROM_cugir 
 
 
+			allowed = {
+				original_TAG = ROM
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+		}
+		ROM_resita = {
+			
+			picture = generic_artillery_manufacturer_1
 
+
+			allowed = {
+				original_TAG = ROM
+			}
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+			
+		}
 	}
 }

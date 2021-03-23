@@ -82,8 +82,8 @@ ROM_investment_in_the_aviation_industry = {
 
 }
 
-ROM_Extend_faur_industry = {
-	ROM_Odessa = {
+ROM_Extend_faur_industry = {#フォー工場はブカレストの工場
+	ROM_Extend_industry1 = {
 		icon = chromium
 		allowed = {
 			tag = ROM
@@ -99,22 +99,22 @@ ROM_Extend_faur_industry = {
 		days_remove = 50
 		remove_effect = {
 			if = {
-							limit = {
-									has_full_control_of_state = 192
-								}
-							192 = {
-									add_extra_state_shared_building_slots = 1
-									add_building_construction = {
-											type = arms_factory
-											level = 1
-											instant_build = yes
-										}
-								}
-						}
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 
-	ROM_Odessa = {
+	ROM_Extend_industry2 = {
 		icon = chromium
 		allowed = {
 			tag = ROM
@@ -130,22 +130,22 @@ ROM_Extend_faur_industry = {
 		days_remove = 50
 		remove_effect = {
 			if = {
-							limit = {
-									has_full_control_of_state = 78
-								}
-							78 = {
-									add_extra_state_shared_building_slots = 1
-									add_building_construction = {
-											type = arms_factory
-											level = 1
-											instant_build = yes
-										}
-								}
-						}
+				limit = {
+					has_full_control_of_state = 82
+				}
+				82 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 
-	ROM_Odessa = {
+	ROM_Extend_industry3 = {
 		icon = chromium
 		allowed = {
 			tag = ROM
@@ -161,22 +161,22 @@ ROM_Extend_faur_industry = {
 		days_remove = 50
 		remove_effect = {
 			if = {
-							limit = {
-									has_full_control_of_state = 46
-								}
-							46 = {
-									add_extra_state_shared_building_slots = 1
-									add_building_construction = {
-											type = arms_factory
-											level = 1
-											instant_build = yes
-										}
-								}
-						}
+				limit = {
+					has_full_control_of_state = 84
+				}
+				84 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 
-	ROM_Odessa = {
+	ROM_Extend_industry4 = {
 		icon = chromium
 		allowed = {
 			tag = ROM
@@ -184,30 +184,56 @@ ROM_Extend_faur_industry = {
         available = {
 			has_completed_focus = Extend_faur_industry
 		}
-		cost = 40
+		cost = 75
 		ai_will_do = {
 			factor = 0.1
 		}
 		fire_only_once = yes
-		days_remove = 50
+		days_remove = 90
 		remove_effect = {
 			if = {
-							limit = {
-									has_full_control_of_state = 79
-								}
-							79 = {
-									add_extra_state_shared_building_slots = 1
-									add_building_construction = {
-											type = arms_factory
-											level = 1
-											instant_build = yes
-										}
-								}
-						}
+				limit = {
+					has_full_control_of_state = 81
+				}
+				81 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 973
+				}
+				973 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 
-	ROM_faur = {
+	ROM_FAUR = {
 		icon = chromium
 		allowed = {
 			tag = ROM
@@ -222,7 +248,7 @@ ROM_Extend_faur_industry = {
 		modifier = {
 			consumer_goods_factor = 0.05
 			industrial_capacity_factory = 0.1
-			industrial_capacity_dockyard = 0.05
+			production_factory_efficiency_gain_factor = 0.05
 		}
 		fire_only_once = yes
 		days_remove = 50
