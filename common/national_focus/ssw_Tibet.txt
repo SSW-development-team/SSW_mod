@@ -19,11 +19,27 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_the_tibetan_army
-		icon = GFX_goal_unknown
+		icon = GFX_focus_TIB_tibetan_army
 		cost = 10.00
 		x = 48
 		y = 0
-
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+		}
+		bypass = {
+		}
+		search_filters = {  }
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 2.0
+				uses = 1
+				category = land_doctrine
+			}
+		}
 	}
 	focus = {
 		id = TIB_buy_the_machine
@@ -31,7 +47,18 @@ focus_tree = {
 		cost = 10.00
 		x = 45
 		y = 6
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 2.0
+				uses = 2
+				category = industry
+			}
+		}
+		add_timed_idea = {
+			idea = TIB_machine_tools
+			day = 730
+		}
 	}
 	focus = {
 		id = TIB_find_way
@@ -40,9 +67,16 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_start_politic_reform
 		}
+		completion_reward = {
+			country_event = {
+				id = tibet.1
+				days = 5
+			}
+		}
 		x = 20
 		y = 1
-
+		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICS }
 	}
 	focus = {
 		id = TIB_reform_politic
@@ -53,6 +87,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_traditional_government
+		}
+		available = {
+			always = no
 		}
 		x = 9
 		y = 2
@@ -267,6 +304,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_reform_politic
+		}
+		available = {
+			always = no
 		}
 		x = 30
 		y = 2
