@@ -133,7 +133,7 @@ country_event = {
 	}
 	title = SSW_SER.6.t
 	picture = GFX_report_event_generic_ruins
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_SER.6.d
 	trigger = {
@@ -154,7 +154,7 @@ country_event = {
 	}
 	title = SSW_SER.7.t
 	picture = GFX_report_event_generic_ruins
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_SER.7.d
 	trigger = {
@@ -167,48 +167,5 @@ country_event = {
 	option = {
 		name = SSW_SER.7.a
 		SER_focus_reload_winer_focus_tree = yes
-	}
-}
-#国内少数民族への対処
-country_event = {
-    id = SSW_SER.8
-	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event SSW_SER.8"
-	}
-	title = SSW_SER.8.t
-	picture = GFX_report_event_generic_ruins
-	is_triggered_only = yes
-	fire_only_once = yes
-	desc = SSW_SER.8.d
-	option = {#民族の同化
-		name = SSW_SER.8.a
-		add_stability = -0.05
-		add_ideas = SER_idea_38
-	}
-	option = {#現状維持
-		name = SSW_SER.8.b
-		add_stability = 0.05
-	}
-}
-#宗教問題
-country_event = {
-    id = SSW_SER.9
-	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event SSW_SER.9"
-	}
-	title = SSW_SER.9.t
-	picture = GFX_report_event_generic_ruins
-	is_triggered_only = yes
-	fire_only_once = yes
-	desc = SSW_SER.9.d
-	option = {#宗教の統一
-		name = SSW_SER.9.a
-		add_stability = -0.10
-		SER_Ruling_party_support_rises = yes
-	}
-	option = {#他宗教の承認
-		name = SSW_SER.9.b
-		add_stability = 0.10
-		add_ideas = SER_idea_39
 	}
 }
