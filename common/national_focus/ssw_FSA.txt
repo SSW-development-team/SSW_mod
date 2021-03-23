@@ -1,710 +1,2217 @@
- focus_tree = {
- 	id = FSA
- 	country = {
- 		factor = 0
- 		modifier = {
- 			add = 10
- 			tag = FSA
- 		}
- 	}
- 	default = no
- 	focus = {
- 		id = FSA_Start_of_the_Second_American_Civil_War
- 		icon = GFX_goal_generic_forceful_treaty
- 		cost = 5
- 		x = 12
- 		y = 0
- 	}
- 	focus = {
- 		id = FSA_The_civil_war_is_won
- 		icon = GFX_goal_generic_demand_territory
- 		cost = 5
- 		x = 36
- 		y = 0
- 	}
- 	focus = {
- 		id = FSA_Reorganization_of_the_U_S_Army
- 		icon = GFX_goal_unknown
- 		cost = 10
- 		x = 47
- 		y = 1
- 	}
- 	focus = {
- 		id = 太平洋艦隊
- 		icon = GFX_goal_unknown
- 		cost = 10
- 		x = 55
- 		y = 1
- 	}
- 	focus = {
- 		id = 空を統べる
- 		icon = GFX_goal_unknown
- 		cost = 10
- 		x = 51
- 		y = 1
- 	}
- 	focus = {
- 		id = 民兵の徴募
- 		icon = GFX_goal_rhineland
- 		cost = 5
- 		prerequisite = {
- 			focus = 第二次アメリカ内戦の開始
- 		}
- 		x = 12
- 		y = 1
- 	}
- 	focus = {
- 		id = 装備の購入先
- 		icon = GFX_goal_generic_army_artillery
- 		cost = 5
- 		prerequisite = {
- 			focus = 民兵の徴募
- 		}
- 		x = 12
- 		y = 2
- 	}
- 	focus = {
- 		id = デヴァースプランを採用
- 		icon = GFX_focus_hol_the_foundations_of_defense
- 		cost = 5
- 		prerequisite = {
- 			focus = 装備の購入先
- 		}
- 		mutually_exclusive = {
- 			focus = モーズレープラン
- 		}
- 		x = 7
- 		y = 3
- 	}
- 	focus = {
- 		id = ドイツに支援を求める
- 		icon = GFX_focus_chi_mission_to_germany
- 		cost = 5
- 		prerequisite = {
- 			focus = 装備の購入先
- 		}
- 		mutually_exclusive = {
- 			focus = イギリスに支援を求める
- 		}
- 		x = 10
- 		y = 4
- 	}
- 	focus = {
- 		id = ドイツ兵器の購入
- 		icon = GFX_goal_generic_small_arms
- 		cost = 5
- 		prerequisite = {
- 			focus = ドイツに支援を求める
- 		}
- 		x = 10
- 		y = 5
- 	}
- 	focus = {
- 		id = イギリスに支援を求める
- 		icon = GFX_focus_chi_british_cooperation
- 		cost = 3
- 		prerequisite = {
- 			focus = 装備の購入先
- 		}
- 		mutually_exclusive = {
- 			focus = ドイツに支援を求める
- 		}
- 		x = 14
- 		y = 4
- 	}
- 	focus = {
- 		id = イギリス兵器の購入
- 		icon = GFX_goal_generic_small_arms
- 		cost = 5
- 		prerequisite = {
- 			focus = イギリスに支援を求める
- 		}
- 		x = 14
- 		y = 5
- 	}
- 	focus = {
- 		id = 自国での兵器生産
- 		icon = GFX_goal_generic_small_arms
- 		cost = 5
- 		prerequisite = {
- 			focus = イギリス兵器の購入
- 			focus = ドイツ兵器の購入
- 		}
- 		x = 12
- 		y = 7
- 	}
- 	focus = {
- 		id = モーズレープラン
- 		icon = GFX_focus_hol_the_foundations_of_defense
- 		cost = 5
- 		prerequisite = {
- 			focus = 装備の購入先
- 		}
- 		mutually_exclusive = {
- 			focus = デヴァースプランを採用
- 		}
- 		x = 17
- 		y = 3
- 	}
- 	focus = {
- 		id = すべての兵士に銃を
- 		icon = GFX_goal_generic_political_pressure
- 		cost = 5
- 		prerequisite = {
- 			focus = モーズレープラン
- 		}
- 		x = 17
- 		y = 5
- 	}
- 	focus = {
- 		id = 総合参謀本部
- 		icon = GFX_goal_generic_army_doctrines
- 		cost = 5
- 		prerequisite = {
- 			focus = すべての兵士に銃を
- 		}
- 		x = 15
- 		y = 6
- 	}
- 	focus = {
- 		id = 優秀な将校達
- 		icon = GFX_goal_generic_national_unity
- 		cost = 5
- 		prerequisite = {
- 			focus = すべての兵士に銃を
- 		}
- 		x = 19
- 		y = 6
- 	}
- 	focus = {
- 		id = 新型歩兵装備の開発
- 		icon = GFX_goal_generic_army_artillery
- 		cost = 5
- 		prerequisite = {
- 			focus = 優秀な将校達
- 		}
- 		prerequisite = {
- 			focus = 総合参謀本部
- 		}
- 		x = 17
- 		y = 7
- 	}
- 	focus = {
- 		id = 大規模な戦闘計画
- 		icon = GFX_goal_generic_cavalry
- 		cost = 5
- 		prerequisite = {
- 			focus = 新型歩兵装備の開発
- 		}
- 		x = 17
- 		y = 8
- 	}
- 	focus = {
- 		id = 国際社会への復帰
- 		icon = GFX_goal_generic_national_unity
- 		cost = 5
- 		prerequisite = {
- 			focus = 内戦に勝利!
- 		}
- 		x = 29
- 		y = 1
- 	}
- 	focus = {
- 		id = 厳正中立
- 		icon = GFX_goal_generic_neutrality_focus
- 		cost = 5
- 		prerequisite = {
- 			focus = 国際社会への復帰
- 		}
- 		mutually_exclusive = {
- 			focus = ドイツへ接近
- 			focus = イギリスへ接近
- 			focus = 日本へ接近
- 		}
- 		x = 23
- 		y = 2
- 	}
- 	focus = {
- 		id = 中立法の可決
- 		icon = GFX_focus_hol_the_foundations_of_defense
- 		cost = 10
- 		prerequisite = {
- 			focus = 厳正中立
- 		}
- 		x = 23
- 		y = 4
- 	}
- 	focus = {
- 		id = 中立を保つ為の力
- 		icon = GFX_goal_generic_military_sphere
- 		cost = 5
- 		prerequisite = {
- 			focus = 中立法の可決
- 		}
- 		x = 23
- 		y = 5
- 	}
- 	focus = {
- 		id = アメリカ国防軍の拡張
- 		icon = GFX_goal_generic_political_pressure
- 		cost = 10
- 		prerequisite = {
- 			focus = 中立を保つ為の力
- 		}
- 		x = 22
- 		y = 6
- 	}
- 	focus = {
- 		id = アメリカ海軍の再建
- 		icon = GFX_goal_generic_navy_doctrines_tactics
- 		cost = 10
- 		prerequisite = {
- 			focus = 中立を保つ為の力
- 		}
- 		x = 24
- 		y = 6
- 	}
- 	focus = {
- 		id = 永世中立宣言
- 		icon = GFX_goal_generic_demand_territory
- 		cost = 10
- 		prerequisite = {
- 			focus = アメリカ海軍の再建
- 		}
- 		prerequisite = {
- 			focus = アメリカ国防軍の拡張
- 		}
- 		x = 23
- 		y = 7
- 	}
- 	focus = {
- 		id = ドイツへ接近
- 		icon = GFX_goal_generic_improve_relations
- 		cost = 5
- 		prerequisite = {
- 			focus = 国際社会への復帰
- 		}
- 		mutually_exclusive = {
- 			focus = 日本へ接近
- 			focus = イギリスへ接近
- 			focus = 厳正中立
- 		}
- 		x = 27
- 		y = 2
- 	}
- 	focus = {
- 		id = ドイツ指導部の招待
- 		icon = GFX_goal_support_fascism
- 		cost = 10
- 		prerequisite = {
- 			focus = ドイツへ接近
- 		}
- 		x = 26
- 		y = 4
- 	}
- 	focus = {
- 		id = ナチズムを崇拝
- 		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
- 		cost = 10
- 		prerequisite = {
- 			focus = ドイツへ接近
- 		}
- 		x = 28
- 		y = 4
- 	}
- 	focus = {
- 		id = 宗教化された政府
- 		icon = GFX_focus_generic_strike_at_democracy1
- 		cost = 10
- 		prerequisite = {
- 			focus = ナチズムを崇拝
- 		}
- 		prerequisite = {
- 			focus = ドイツ指導部の招待
- 		}
- 		x = 27
- 		y = 5
- 	}
- 	focus = {
- 		id = 民主主義を禁止
- 		icon = GFX_focus_spr_masters_of_our_own_fate
- 		cost = 10
- 		prerequisite = {
- 			focus = 宗教化された政府
- 		}
- 		x = 26
- 		y = 6
- 	}
- 	focus = {
- 		id = 共産主義を禁止
- 		icon = GFX_focus_spr_masters_of_our_own_fate
- 		cost = 10
- 		prerequisite = {
- 			focus = 宗教化された政府
- 		}
- 		x = 28
- 		y = 6
- 	}
- 	focus = {
- 		id = 枢軸国に加盟
- 		icon = GFX_focus_chi_mission_to_germany
- 		cost = 10
- 		prerequisite = {
- 			focus = 共産主義を禁止
- 		}
- 		prerequisite = {
- 			focus = 民主主義を禁止
- 		}
- 		x = 27
- 		y = 7
- 	}
- 	focus = {
- 		id = 日本へ接近
- 		icon = GFX_goal_generic_improve_relations
- 		cost = 5
- 		prerequisite = {
- 			focus = 国際社会への復帰
- 		}
- 		mutually_exclusive = {
- 			focus = ドイツへ接近
- 			focus = イギリスへ接近
- 			focus = 厳正中立
- 		}
- 		x = 31
- 		y = 2
- 	}
- 	focus = {
- 		id = 太平洋を統べる者
- 		icon = GFX_focus_jap_pacific_guardian
- 		cost = 10
- 		prerequisite = {
- 			focus = 日本へ接近
- 		}
- 		x = 31
- 		y = 4
- 	}
- 	focus = {
- 		id = 日本の海軍設計者を採用
- 		icon = GFX_focus_generic_cruiser2
- 		cost = 10
- 		prerequisite = {
- 			focus = 太平洋を統べる者
- 		}
- 		x = 31
- 		y = 5
- 	}
- 	focus = {
- 		id = ハワイ交渉
- 		icon = GFX_goal_generic_intelligence_exchange
- 		cost = 10
- 		prerequisite = {
- 			focus = 日本の海軍設計者を採用
- 		}
- 		x = 30
- 		y = 6
- 	}
- 	focus = {
- 		id = 太平洋の一部地域の管轄を要求
- 		icon = GFX_goal_generic_intelligence_exchange
- 		cost = 10
- 		prerequisite = {
- 			focus = 日本の海軍設計者を採用
- 		}
- 		x = 32
- 		y = 6
- 	}
- 	focus = {
- 		id = 大東亜共栄圏に加盟
- 		icon = GFX_focus_chi_collaboration_with_the_japanese
- 		cost = 10
- 		prerequisite = {
- 			focus = 太平洋の一部地域の管轄を要求
- 		}
- 		prerequisite = {
- 			focus = ハワイ交渉
- 		}
- 		x = 31
- 		y = 7
- 	}
- 	focus = {
- 		id = イギリスへ接近
- 		icon = GFX_goal_generic_improve_relations
- 		cost = 5
- 		prerequisite = {
- 			focus = 国際社会への復帰
- 		}
- 		mutually_exclusive = {
- 			focus = ドイツへ接近
- 			focus = 日本へ接近
- 			focus = 厳正中立
- 		}
- 		x = 35
- 		y = 2
- 	}
- 	focus = {
- 		id = 相互経済援助
- 		icon = GFX_goal_generic_national_unity
- 		cost = 10
- 		prerequisite = {
- 			focus = イギリスへ接近
- 		}
- 		x = 34
- 		y = 4
- 	}
- 	focus = {
- 		id = 民主主義を採用
- 		icon = GFX_goal_generic_propaganda
- 		cost = 10
- 		prerequisite = {
- 			focus = イギリスへ接近
- 		}
- 		x = 36
- 		y = 4
- 	}
- 	focus = {
- 		id = 平和の砦
- 		icon = GFX_goal_generic_fortify_city
- 		cost = 10
- 		prerequisite = {
- 			focus = 民主主義を採用
- 		}
- 		prerequisite = {
- 			focus = 相互経済援助
- 		}
- 		x = 35
- 		y = 5
- 	}
- 	focus = {
- 		id = 自由を掲げろ
- 		icon = GFX_goal_support_democracy
- 		cost = 10
- 		prerequisite = {
- 			focus = 平和の砦
- 		}
- 		x = 35
- 		y = 6
- 	}
- 	focus = {
- 		id = コモンウェルスに加盟
- 		icon = GFX_focus_chi_british_cooperation
- 		cost = 10
- 		prerequisite = {
- 			focus = 自由を掲げろ
- 		}
- 		x = 35
- 		y = 7
- 	}
- 	focus = {
- 		id = アメリカ連合国
- 		icon = GFX_focus_usa_honor_the_confederacy
- 		cost = 20
- 		prerequisite = {
- 			focus = 枢軸国に加盟
- 			focus = 永世中立宣言
- 			focus = 大東亜共栄圏に加盟
- 			focus = コモンウェルスに加盟
- 		}
- 		x = 29
- 		y = 8
- 	}
- 	focus = {
- 		id = 内戦の傷
- 		icon = GFX_focus_spa_the_war_of_vengeance
- 		cost = 10
- 		prerequisite = {
- 			focus = 内戦に勝利!
- 		}
- 		x = 42
- 		y = 1
- 	}
- 	focus = {
- 		id = 南部地域の工業化
- 		icon = GFX_goal_generic_construct_mil_factory
- 		cost = 10
- 		prerequisite = {
- 			focus = 内戦の傷
- 		}
- 		x = 41
- 		y = 2
- 	}
- 	focus = {
- 		id = 優秀な研究者を地方から招集
- 		icon = GFX_goal_generic_scientific_exchange
- 		cost = 10
- 		prerequisite = {
- 			focus = 内戦の傷
- 		}
- 		x = 43
- 		y = 2
- 	}
- 	focus = {
- 		id = 占領地の再統合
- 		icon = GFX_focus_generic_treaty
- 		cost = 10
- 		prerequisite = {
- 			focus = 優秀な研究者を地方から招集
- 		}
- 		prerequisite = {
- 			focus = 南部地域の工業化
- 		}
- 		x = 42
- 		y = 3
- 	}
- 	focus = {
- 		id = 穏やかな回復
- 		icon = GFX_goal_generic_consumer_goods
- 		cost = 10
- 		prerequisite = {
- 			focus = 占領地の再統合
- 		}
- 		x = 42
- 		y = 4
- 	}
- 	focus = {
- 		id = 景気回復
- 		icon = GFX_goal_generic_positive_trade_relations
- 		cost = 10
- 		prerequisite = {
- 			focus = 穏やかな回復
- 		}
- 		x = 42
- 		y = 5
- 	}
- 	focus = {
- 		id = 統一されたアメリカ政府
- 		icon = GFX_focus_generic_diplomatic_treaty
- 		cost = 10
- 		prerequisite = {
- 			focus = 景気回復
- 		}
- 		x = 42
- 		y = 6
- 	}
- 	focus = {
- 		id = 火力集中計画
- 		icon = GFX_goal_generic_position_armies
- 		cost = 5
- 		prerequisite = {
- 			focus = デヴァースプランを採用
- 		}
- 		x = 7
- 		y = 5
- 	}
- 	focus = {
- 		id = 野砲生産ラインの見直し
- 		icon = GFX_goal_generic_production2
- 		cost = 5
- 		prerequisite = {
- 			focus = 火力集中計画
- 		}
- 		x = 5
- 		y = 6
- 	}
- 	focus = {
- 		id = 高度に組織化された軍隊
- 		icon = GFX_goal_rhineland
- 		cost = 5
- 		prerequisite = {
- 			focus = 火力集中計画
- 		}
- 		x = 9
- 		y = 6
- 	}
- 	focus = {
- 		id = 新型野砲の開発
- 		icon = GFX_goal_generic_army_artillery
- 		cost = 5
- 		prerequisite = {
- 			focus = 高度に組織化された軍隊
- 		}
- 		prerequisite = {
- 			focus = 野砲生産ラインの見直し
- 		}
- 		x = 7
- 		y = 7
- 	}
- 	focus = {
- 		id = 圧倒的火力
- 		icon = GFX_goal_generic_army_artillery2
- 		cost = 5
- 		prerequisite = {
- 			focus = 新型野砲の開発
- 		}
- 		x = 7
- 		y = 8
- 	}
- 	focus = {
- 		id = 生まれ変わった軍隊
- 		icon = GFX_goal_generic_axis_build_infantry
- 		cost = 5
- 		prerequisite = {
- 			focus = 大規模な戦闘計画
- 			focus = 圧倒的火力
- 		}
- 		x = 12
- 		y = 9
- 	}
- 	focus = {
- 		id = バハカルフォルニアの要求
- 		icon = GFX_goal_generic_major_war
- 		cost = 10
- 		prerequisite = {
- 			focus = 生存圏の主張
- 		}
- 		x = 29
- 		y = 10
- 	}
- 	focus = {
- 		id = メキシコの解体
- 		icon = GFX_focus_attack_mexico
- 		cost = 10
- 		prerequisite = {
- 			focus = バハカルフォルニアの要求
- 		}
- 		x = 29
- 		y = 11
- 	}
- 	focus = {
- 		id = 生存圏の主張
- 		icon = GFX_focus_generic_strike_at_democracy2
- 		cost = 10
- 		prerequisite = {
- 			focus = アメリカ連合国
- 		}
- 		x = 29
- 		y = 9
- 	}
- 	focus = {
- 		id = 中央アメリカを統合
- 		icon = GFX_focus_mex_jefe_maximo
- 		cost = 10
- 		prerequisite = {
- 			focus = メキシコの解体
- 		}
- 		x = 27
- 		y = 12
- 	}
- 	focus = {
- 		id = 南アメリカを統合
- 		icon = GFX_focus_por_recover_latin_america
- 		cost = 10
- 		prerequisite = {
- 			focus = メキシコの解体
- 		}
- 		x = 31
- 		y = 12
- 	}
- 	focus = {
- 		id = 大陸の覇者
- 		icon = GFX_focus_SAF_colonialist_crusade
- 		cost = 10
- 		prerequisite = {
- 			focus = 南アメリカを統合
- 		}
- 		prerequisite = {
- 			focus = 中央アメリカを統合
- 		}
- 		x = 29
- 		y = 13
- 	}
- }
+focus_tree = {
+	id = FSA
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FSA
+		}
+	}
+	default = no
+	focus = {
+		id = FSA_My_Seven_Minutes_in_Eternity
+		icon = GFX_goal_generic_propaganda
+		cost = 1.00
+		x = 14
+		y = 1
+			ai_will_do = {
+					factor = 80
+				}
+			completion_reward = {
+					add_political_power = 77
+					country_event = {
+							id = SSW_FSA.1
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_integrate_into_pentagon
+		icon = GFX_focus_usa_build_the_pentagon
+		cost = 5.00
+		x = 39
+		y = 2
+			completion_reward = {
+					army_experience = 20
+					navy_experience = 20
+					air_experience = 20
+					add_ideas = FSA_integrate_into_pentagon_idea
+				}
+
+	}
+	focus = {
+		id = newfocus_111
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 24
+		y = 15
+
+	}
+	focus = {
+		id = FSA_Poverty
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_My_Seven_Minutes_in_Eternity
+		}
+		x = 12
+		y = 2
+			ai_will_do = {
+					factor = 60
+				}
+			completion_reward = {
+					add_ideas = war_economy
+					country_event = {
+							id = SSW_FSA.4
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Veterans
+		icon = GFX_focus_generic_little_entente
+		cost = 4.00
+		prerequisite = {
+			focus = FSA_My_Seven_Minutes_in_Eternity
+		}
+		x = 16
+		y = 2
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.2
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Prepair_War
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Poverty
+		}
+		prerequisite = {
+			focus = FSA_Veterans
+		}
+		x = 14
+		y = 3
+			ai_will_do = {
+					factor = 30
+				}
+			completion_reward = {
+					add_war_support = 0.05
+					add_timed_idea = {
+							idea = FSA_Prepare_war_idea
+							days = 120
+						}
+					add_state_core = 371
+					add_state_core = 911
+				}
+
+	}
+	focus = {
+		id = FSA_East_Coast
+		icon = GFX_focus_generic_industry_3
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Prepair_War
+		}
+		x = 5
+		y = 4
+			completion_reward = {
+					359 = {
+							if = {
+									limit = {
+											is_controlled_by = ROOT
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					362 = {
+							if = {
+									limit = {
+											is_controlled_by = ROOT
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					363 = {
+							if = {
+									limit = {
+											is_controlled_by = ROOT
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 1
+							category = industry
+						}
+					add_ideas = FSA_Industry_of_the_east_coast_ideas
+				}
+
+	}
+	focus = {
+		id = FSA_resources_development
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_East_Coast
+		}
+		x = 3
+		y = 5
+			completion_reward = {
+					unlock_decision_category_tooltip = FSA_resources_development_d
+				}
+
+	}
+	focus = {
+		id = FSA_Picatinny_Arsenal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_East_Coast
+		}
+		x = 7
+		y = 5
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 359
+								}
+							359 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_The_continuation_of_fascism_policies
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Prepair_War
+		}
+		mutually_exclusive = {
+			focus = FSA_Spiritualism
+		}
+		x = 11
+		y = 4
+			ai_will_do = {
+					factor = 60
+				}
+			completion_reward = {
+					add_ideas = FSA_The_continuation_of_fascism_policies_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Spiritualism
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Prepair_War
+		}
+		mutually_exclusive = {
+			focus = FSA_The_continuation_of_fascism_policies
+		}
+		x = 17
+		y = 4
+			completion_reward = {
+					add_stability = 0.05
+					add_political_power = 75
+				}
+
+	}
+	focus = {
+		id = FSA_Focus_on_Internal_affairs
+		icon = GFX_focus_generic_self_management
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_The_continuation_of_fascism_policies
+			focus = FSA_Spiritualism
+		}
+		x = 14
+		y = 5
+			completion_reward = {
+					add_political_power = 90
+				}
+
+	}
+	focus = {
+		id = FSA_Forced_labor_in_the_POW_camp
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_The_continuation_of_fascism_policies
+		}
+		x = 11
+		y = 5
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.7
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Destiny_to_win
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Spiritualism
+		}
+		x = 17
+		y = 5
+			completion_reward = {
+					add_ideas = FSA_Destiny_to_win_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Black_Containment_States
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 2.00
+		prerequisite = {
+			focus = FSA_Focus_on_Internal_affairs
+			focus = FSA_Forced_labor_in_the_POW_camp
+			focus = FSA_Destiny_to_win
+		}
+		x = 14
+		y = 6
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = BLS
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_SLIA
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Forced_labor_in_the_POW_camp
+		}
+		x = 10
+		y = 6
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.8
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Law_and_Order
+		icon = GFX_focus_eng_special_air_service
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Forced_labor_in_the_POW_camp
+		}
+		x = 12
+		y = 6
+			completion_reward = {
+					add_ideas = FSA_Order_and_justice_ideas
+				}
+
+	}
+	focus = {
+		id = FSA_Eradicate_the_leftists
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 2.30
+		prerequisite = {
+			focus = FSA_Black_Containment_States
+		}
+		x = 13
+		y = 7
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = LFF
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_The_Second_Silver_rebolution
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_SLIA
+		}
+		prerequisite = {
+			focus = FSA_Law_and_Order
+		}
+		x = 11
+		y = 7
+			completion_reward = {
+					add_political_power = 75
+				}
+
+	}
+	focus = {
+		id = FSA_North
+		icon = GFX_focus_attack_canada
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Black_Containment_States
+		}
+		x = 15
+		y = 7
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = NEL
+						}
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = CAN
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Propagation
+		icon = GFX_goal_generic_propaganda
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Destiny_to_win
+		}
+		x = 16
+		y = 6
+			completion_reward = {
+				add_ideas = FSA_Propagation_idea
+			}
+
+	}
+	focus = {
+		id = FSA_Public_school
+		icon = GFX_goal_generic_consumer_goods
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Destiny_to_win
+		}
+		x = 18
+		y = 6
+			completion_reward = {
+					add_ideas = FSA_Public_school
+				}
+
+	}
+	focus = {
+		id = FSA_Maintaining_public_safety
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Propagation
+		}
+		prerequisite = {
+			focus = FSA_Public_school
+		}
+		x = 17
+		y = 7
+			completion_reward = {
+				add_ideas = FSA_Maintaining_public_safety
+			}
+
+	}
+	focus = {
+		id = FSA_Joint_Strategy_Meeting
+		icon = GFX_focus_generic_military_mission
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Prepair_War
+		}
+		x = 22
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 1.0
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Minuteman
+		icon = GFX_focus_generic_manpower
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Joint_Strategy_Meeting
+		}
+		x = 21
+		y = 5
+			completion_reward = {
+					add_ideas = FSA_Minuteman_ideas
+				}
+
+	}
+	focus = {
+		id = FSA_Tank
+		icon = GFX_goal_generic_build_airforce
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Minuteman
+		}
+		x = 21
+		y = 6
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = FSA_Temporary_airfield
+		icon = GFX_goal_generic_build_airforce
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Tank
+		}
+		x = 21
+		y = 7
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 360
+								}
+							360 = {
+									add_building_construction = {
+											type = air_base
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Unrestricted_submarine_operations
+		icon = GFX_goal_generic_navy_anti_submarine
+		cost = 4.00
+		prerequisite = {
+			focus = FSA_Joint_Strategy_Meeting
+		}
+		x = 23
+		y = 5
+			completion_reward = {
+					unlock_decision_category_tooltip = FSA_sub_d
+				}
+
+	}
+	focus = {
+		id = FSA_Expand_shipyard
+		icon = GFX_goal_generic_build_navy
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Unrestricted_submarine_operations
+		}
+		x = 23
+		y = 6
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 361
+								}
+							361 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = dockyard
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Atlantic_Strategy
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Expand_shipyard
+		}
+		x = 23
+		y = 7
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_Atlantic_Strategy
+							bonus = 1.0
+							uses = 1
+							category = naval_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Improve_Equipment
+		icon = GFX_focus_secret_rearmament
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_integrate_into_pentagon
+		}
+		x = 31
+		y = 3
+
+	}
+	focus = {
+		id = FSA_teichos_constantinus
+		icon = GFX_goal_generic_defence
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Improve_Equipment
+		}
+		mutually_exclusive = {
+			focus = FSA_Hit_the_wedge
+		}
+		x = 29
+		y = 4
+			completion_reward = {
+					360 = {
+							if = {
+									limit = {
+											is_controlled_by = FSA
+										}
+									hidden_effect = {
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 3687
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 6705
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 2
+													province = 11800
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 3802
+													instant_build = yes
+												}
+										}
+								}
+						}
+					362 = {
+							if = {
+									limit = {
+											is_controlled_by = FSA
+										}
+									hidden_effect = {
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 6850
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 801
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 10441
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 6971
+													instant_build = yes
+												}
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_teichos_theodosiakon
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_teichos_constantinus
+		}
+		x = 28
+		y = 5
+			completion_reward = {
+					360 = {
+							if = {
+									limit = {
+											is_controlled_by = FSA
+										}
+									hidden_effect = {
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 9662
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 11648
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 9836
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 3697
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 894
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 3897
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 891
+													instant_build = yes
+												}
+										}
+								}
+						}
+					359 = {
+							if = {
+									limit = {
+											is_controlled_by = FSA
+										}
+									hidden_effect = {
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 3693
+													instant_build = yes
+												}
+											add_building_construction = {
+													type = bunker
+													level = 1
+													province = 6882
+													instant_build = yes
+												}
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_apocalypse_knight
+		icon = GFX_focus_GRE_byzantine_themata
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_teichos_constantinus
+		}
+		x = 30
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 1
+							technology = infantry_weapons
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Epuipment_update
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_teichos_theodosiakon
+		}
+		prerequisite = {
+			focus = FSA_apocalypse_knight
+		}
+		x = 26
+		y = 6
+
+	}
+	focus = {
+		id = FSA_battery
+		icon = GFX_goal_generic_army_artillery2
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_apocalypse_knight
+		}
+		prerequisite = {
+			focus = FSA_teichos_theodosiakon
+		}
+		x = 30
+		y = 6
+
+	}
+	focus = {
+		id = FSA_troops_of_god
+		icon = GFX_focus_generic_little_entente
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_teichos_theodosiakon
+		}
+		prerequisite = {
+			focus = FSA_apocalypse_knight
+		}
+		x = 28
+		y = 6
+			completion_reward = {
+					add_ideas = FSA_troops_of_god_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Hit_the_wedge
+		icon = GFX_focus_generic_license_production
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Improve_Equipment
+		}
+		mutually_exclusive = {
+			focus = FSA_teichos_constantinus
+		}
+		x = 33
+		y = 4
+		ai_will_do = {
+					factor = 20
+				}
+			completion_reward = {
+					add_ideas = FSA_hit_the_wedge
+				}
+
+	}
+	focus = {
+		id = FSA_Panzergrenadier
+		icon = GFX_goal_rhineland
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Hit_the_wedge
+		}
+		x = 32
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 1
+							technology = mechanised_infantry
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Merkabah
+		icon = GFX_goal_generic_army_tanks
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Hit_the_wedge
+		}
+		x = 34
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							ahead_reduction = 1
+							technology = basic_medium_tank
+						}
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 2
+							category = armor
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_mobile_firepower
+		icon = GFX_focus_generic_army_tanks2
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Panzergrenadier
+		}
+		prerequisite = {
+			focus = FSA_Merkabah
+		}
+		x = 32
+		y = 6
+
+	}
+	focus = {
+		id = FSA_Modern_Crusader
+		icon = GFX_focus_generic_little_entente
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Merkabah
+		}
+		prerequisite = {
+			focus = FSA_Panzergrenadier
+		}
+		x = 34
+		y = 6
+			completion_reward = {
+					add_ideas = FSA_Modern_Crusader_idea
+				}
+
+	}
+	focus = {
+		id = FSA_reform_air_force
+		icon = GFX_goal_generic_army_doctrines
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_integrate_into_pentagon
+		}
+		x = 39
+		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doctrine
+							bonus = 1.0
+							uses = 1
+							category = air_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Airborne_Operation
+		icon = GFX_focus_generic_paratrooper
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_reform_air_force
+			focus = FSA_Improve_Equipment
+		}
+		x = 36
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = para_tech
+							bonus = 0.5
+							uses = 1
+							category = para_tech
+						}
+					add_ideas = FSA_Airborne_Operation
+				}
+
+	}
+	focus = {
+		id = FSA_Fire_support
+		icon = GFX_goal_generic_army_artillery2
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Merkabah
+		}
+		prerequisite = {
+			focus = FSA_Panzergrenadier
+		}
+		x = 36
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 1
+							technology = infantry_weapons
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_completion_of_doctrine
+		icon = GFX_focus_generic_combined_arms
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Epuipment_update
+			focus = FSA_troops_of_god
+			focus = FSA_battery
+			focus = FSA_mobile_firepower
+			focus = FSA_Modern_Crusader
+			focus = FSA_Fire_support
+		}
+		x = 31
+		y = 7
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 1.0
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Next_generation_Fighter
+		icon = GFX_goal_generic_air_fighter
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_reform_air_force
+		}
+		x = 38
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = light_fighter
+							bonus = 1.0
+							uses = 1
+							category = light_fighter
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_protection_from_the_sky
+		icon = GFX_goal_generic_air_fighter
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Next_generation_Fighter
+		}
+		x = 38
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = tactical_bomber
+							bonus = 1.0
+							uses = 1
+							category = tactical_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Air_strategy
+		icon = GFX_goal_generic_air_doctrine
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_protection_from_the_sky
+		}
+		x = 38
+		y = 6
+			completion_reward = {
+				add_tech_bonus = {
+							name = air_doctrine
+							bonus = 1
+							uses = 1
+							category = air_doctrine
+						}
+			}
+
+	}
+	focus = {
+		id = FSA_Buget_for_Airport
+		icon = GFX_goal_generic_air_production
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_reform_air_force
+		}
+		x = 40
+		y = 4
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 368
+								}
+							368 = {
+									add_building_construction = {
+											type = air_base
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Sowing
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Buget_for_Airport
+		}
+		x = 41
+		y = 5
+			completion_reward = {
+					add_ideas = FSA_Sowing_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Wide_area_air_defense_system
+		icon = GFX_goal_generic_air_fighter2
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Sowing
+		}
+		x = 40
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 1
+							category = radar_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Federal_Air_Force
+		icon = GFX_goal_generic_air_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Air_strategy
+		}
+		prerequisite = {
+			focus = FSA_Wide_area_air_defense_system
+		}
+		x = 39
+		y = 7
+			completion_reward = {
+				add_ideas = FSA_Federal_air_force_idea
+			}
+
+	}
+	focus = {
+		id = newfocus_117
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Sowing
+		}
+		x = 42
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doctrine
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_prepare_ark_plan
+		icon = GFX_goal_generic_navy_battleship
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_integrate_into_pentagon
+		}
+		x = 49
+		y = 3
+			completion_reward = {
+					add_ideas = FSA_ark_plans
+					if = {
+							limit = {
+									has_full_control_of_state = 361
+								}
+							361 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = dockyard
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = FSA_Atlantic_Strategy
+							bonus = 1.0
+							uses = 1
+							category = naval_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Air_superiority_at_sea
+		icon = GFX_goal_generic_air_fighter2
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_reform_air_force
+			focus = FSA_prepare_ark_plan
+		}
+		x = 43
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 2
+							category = cv_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Carrier_based_aircraft
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Air_superiority_at_sea
+		}
+		x = 43
+		y = 5
+			completion_reward = {
+					air_experience = 25
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 2
+							category = naval_bomber
+							category = cas_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = newfocus_118
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Carrier_based_aircraft
+		}
+		prerequisite = {
+			focus = FSA_Sowing
+		}
+		x = 44
+		y = 6
+
+	}
+	focus = {
+		id = FSA_gofer
+		icon = GFX_focus_spa_the_spanish_miracle
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_prepare_ark_plan
+		}
+		x = 48
+		y = 4
+			completion_reward = {
+					add_ideas = FSA_gofer_tree
+				}
+
+	}
+	focus = {
+		id = FSA_elephant
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 7.00
+		prerequisite = {
+			focus = FSA_gofer
+		}
+		x = 45
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_elephant
+							bonus = 1.0
+							uses = 2
+							category = bb_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_cattle
+		icon = GFX_focus_generic_cruiser2
+		cost = 6.00
+		prerequisite = {
+			focus = FSA_gofer
+		}
+		x = 48
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_cattle
+							bonus = 1.0
+							uses = 2
+							category = cl_tech
+							category = ca_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_treetop_of_olive
+		icon = GFX_focus_eng_special_air_service
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_prepare_ark_plan
+		}
+		x = 50
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_treetop_of_olive
+							bonus = 1.0
+							uses = 2
+							category = naval_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_cat
+		icon = GFX_focus_generic_destroyer
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_treetop_of_olive
+		}
+		x = 50
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_cat
+							bonus = 1.0
+							uses = 2
+							category = dd_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Dominate_the_Sky
+		icon = GFX_focus_cze_military_aeronautical_institute
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Federal_Air_Force
+		}
+		x = 39
+		y = 8
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doctrine
+							bonus = 1.0
+							uses = 1
+							category = air_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Productivity_of_Pittsburgh
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_resources_development
+			focus = FSA_Industry_of_Florida
+			focus = FSA_Picatinny_Arsenal
+		}
+		x = 3
+		y = 6
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 360
+								}
+							360 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Norfolk_Navel_Shipyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Picatinny_Arsenal
+			focus = FSA_Industry_of_Florida
+			focus = FSA_resources_development
+		}
+		x = 7
+		y = 6
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 362
+								}
+							362 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Christian_Commonwealth
+		icon = GFX_focus_spa_the_spanish_miracle
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Newport_News_Shipbuilding
+			focus = FSA_Develop_South_States
+			focus = FSA_Rock_Island_Arsenal
+			focus = FSA_The_Second_Silver_rebolution
+			focus = FSA_Eradicate_the_leftists
+			focus = FSA_North
+			focus = FSA_Maintaining_public_safety
+			focus = FSA_Temporary_airfield
+			focus = FSA_Atlantic_Strategy
+		}
+		x = 14
+		y = 8
+
+	}
+	focus = {
+		id = FSA_Rock_Island_Arsenal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Norfolk_Navel_Shipyard
+			focus = FSA_University_of_Galahad
+			focus = FSA_Productivity_of_Pittsburgh
+		}
+		x = 7
+		y = 7
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 370
+								}
+							370 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_University_of_Galahad
+		icon = GFX_goal_continuous_research
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Picatinny_Arsenal
+			focus = FSA_Industry_of_Florida
+			focus = FSA_resources_development
+		}
+		x = 5
+		y = 6
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.5
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Industry_of_Florida
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_East_Coast
+		}
+		x = 5
+		y = 5
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 366
+								}
+							360 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Develop_South_States
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Productivity_of_Pittsburgh
+			focus = FSA_University_of_Galahad
+			focus = FSA_Norfolk_Navel_Shipyard
+		}
+		x = 5
+		y = 7
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 365
+								}
+							365 = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					if = {
+							limit = {
+									has_full_control_of_state = 364
+								}
+							364 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Newport_News_Shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Productivity_of_Pittsburgh
+			focus = FSA_University_of_Galahad
+			focus = FSA_Norfolk_Navel_Shipyard
+		}
+		x = 3
+		y = 7
+			completion_reward = {
+					if = {
+							limit = {
+									has_full_control_of_state = 362
+								}
+							362 = {
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_crow
+		icon = GFX_goal_generic_navy_submarine
+		cost = 4.00
+		prerequisite = {
+			focus = FSA_treetop_of_olive
+		}
+		x = 53
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = FSA_crow
+							bonus = 1.0
+							uses = 1
+							category = ss_tech
+						}
+				}
+
+	}
+	focus = {
+		id = FSA_Departure
+		icon = GFX_focus_por_portuguese_legion
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_elephant
+		}
+		prerequisite = {
+			focus = FSA_crow
+		}
+		prerequisite = {
+			focus = FSA_cattle
+		}
+		prerequisite = {
+			focus = FSA_cat
+		}
+		x = 49
+		y = 6
+
+	}
+	focus = {
+		id = FSA_Washington_Germania_Axis
+		icon = GFX_focus_chi_mission_to_germany
+		cost = 4.00
+		prerequisite = {
+			focus = FSA_Christian_Commonwealth
+		}
+		mutually_exclusive = {
+			focus = FSA_Neo_Monroe_Doctrine
+		}
+		x = 16
+		y = 9
+
+	}
+	focus = {
+		id = FSA_Neo_Monroe_Doctrine
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 4.00
+		prerequisite = {
+			focus = FSA_Christian_Commonwealth
+		}
+		mutually_exclusive = {
+			focus = FSA_Washington_Germania_Axis
+		}
+		x = 12
+		y = 9
+			completion_reward = {
+					add_ideas = FSA_Neo_Monroe_Doctrine_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Mexican_Peace
+		icon = GFX_focus_attack_mexico
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Neo_Monroe_Doctrine
+		}
+		x = 9
+		y = 10
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = MEX
+						}
+				}
+
+	}
+	focus = {
+		id = newfocus_72
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_79
+		}
+		prerequisite = {
+			focus = FSA_Local_Industry
+		}
+		x = 5
+		y = 13
+
+	}
+	focus = {
+		id = FSA_Christian_Economics
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Neo_Monroe_Doctrine
+			focus = FSA_Washington_Germania_Axis
+		}
+		x = 14
+		y = 10
+			completion_reward = {
+					add_ideas = FSA_Christian_Economics_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Fate_of_Canada
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Christian_Economics
+		}
+		x = 16
+		y = 11
+			completion_reward = {
+				completion_reward = {
+					country_event = {
+							id = SSW_FSA.9
+							days = 1
+						}
+				}
+			}
+
+	}
+	focus = {
+		id = FSA_Federal_Aid_Highway_Act
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Christian_Economics
+		}
+		x = 12
+		y = 11
+			completion_reward = {
+					unlock_decision_category_tooltip = FSA_Federal_Aid_Highway_Act_d
+				}
+
+	}
+	focus = {
+		id = newfocus_76
+		icon = GFX_focus_spr_crush_the_revolution
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_85
+		}
+		x = 20
+		y = 11
+
+	}
+	focus = {
+		id = FSA_Inland
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_80
+		}
+		x = 5
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_78
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_96
+		}
+		x = 23
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_79
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Inland
+		}
+		x = 4
+		y = 12
+			completion_reward = {
+					add_ideas = FSA_The_Army_Goes_Roling_Along_idea
+				}
+
+	}
+	focus = {
+		id = newfocus_80
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Neo_Monroe_Doctrine
+		}
+		x = 4
+		y = 10
+
+	}
+	focus = {
+		id = FSA_Reconstruct_Pacific_Fleet
+		icon = GFX_goal_generic_production2
+		cost = 5.00
+		prerequisite = {
+			focus = newfocus_105
+		}
+		prerequisite = {
+			focus = newfocus_104
+		}
+		x = 24
+		y = 14
+			completion_reward = {
+					add_ideas = FSA_Reconstruct_Pacific_Fleet_idea
+				}
+
+	}
+	focus = {
+		id = newfocus_82
+		icon = GFX_focus_focus_fra_fascist_threat
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_85
+		}
+		x = 18
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_83
+		icon = GFX_focus_eng_special_air_service
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Different_races_are_also_children_of_God
+		}
+		x = 14
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_84
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Mexican_Peace
+		}
+		x = 8
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_85
+		icon = GFX_focus_SAF_support_ossewabrandwag
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Washington_Germania_Axis
+		}
+		x = 19
+		y = 10
+
+	}
+	focus = {
+		id = FSA_the_capital_of_setting_sun
+		icon = GFX_focus_attack_japan
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Pro
+		}
+		x = 14
+		y = 15
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = JAP
+						}
+					add_state_core = 629
+					add_state_core = 463
+				}
+
+	}
+	focus = {
+		id = newfocus_87
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Mexican_Peace
+		}
+		x = 10
+		y = 11
+
+	}
+	focus = {
+		id = FSA_exterminate_Communist_in_the_South_America
+		icon = GFX_focus_por_latin_american_communism
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_102
+		}
+		prerequisite = {
+			focus = newfocus_109
+		}
+		x = 9
+		y = 13
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = CHL
+						}
+				}
+
+	}
+	focus = {
+		id = newfocus_89
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_82
+		}
+		x = 18
+		y = 12
+
+	}
+	focus = {
+		id = FSA_Different_races_are_also_children_of_God
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Federal_Aid_Highway_Act
+		}
+		prerequisite = {
+			focus = FSA_Fate_of_Canada
+		}
+		prerequisite = {
+			focus = FSA_Peaants_are_the_custodians_of_Grace
+		}
+		x = 14
+		y = 12
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.999
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = newfocus_91
+		icon = GFX_goal_generic_position_armies
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Different_races_are_also_children_of_God
+		}
+		x = 12
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_92
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_78
+		}
+		x = 24
+		y = 12
+			completion_reward = {
+				add_tech_bonus = {
+					name = industrial_bonus
+					bonus = 1
+					uses = 2
+					category = industry
+			}
+		}
+
+	}
+	focus = {
+		id = newfocus_93
+		icon = GFX_focus_TUR_ratify_the_six_arrows
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Different_races_are_also_children_of_God
+		}
+		x = 16
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_94
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_97
+		}
+		x = 26
+		y = 12
+			completion_reward = {
+					add_ideas = FSA_Air_Craft_Force_idea
+				}
+
+	}
+	focus = {
+		id = FSA_Peaants_are_the_custodians_of_Grace
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5.00
+		prerequisite = {
+			focus = FSA_Christian_Economics
+		}
+		x = 14
+		y = 11
+			completion_reward = {
+					country_event = {
+							id = SSW_FSA.6
+							days = 1
+						}
+				}
+
+	}
+	focus = {
+		id = newfocus_96
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Washington_Germania_Axis
+		}
+		x = 24
+		y = 10
+
+	}
+	focus = {
+		id = newfocus_97
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_96
+		}
+		x = 26
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_98
+		icon = GFX_goal_continuous_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_80
+		}
+		x = 2
+		y = 11
+
+	}
+	focus = {
+		id = newfocus_99
+		icon = GFX_focus_GRE_byzantine_themata
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_98
+		}
+		x = 2
+		y = 12
+
+	}
+	focus = {
+		id = newfocus_100
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_99
+		}
+		x = 2
+		y = 13
+
+	}
+	focus = {
+		id = FSA_Local_War
+		icon = GFX_focus_generic_combined_arms
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_72
+		}
+		prerequisite = {
+			focus = newfocus_100
+		}
+		x = 4
+		y = 14
+			completion_reward = {
+					add_ideas = FSA_Local_War_idea
+				}
+
+	}
+	focus = {
+		id = newfocus_102
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_84
+		}
+		x = 8
+		y = 12
+
+	}
+	focus = {
+		id = FSA_Dawn
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_the_capital_of_setting_sun
+		}
+		x = 14
+		y = 16
+
+	}
+	focus = {
+		id = newfocus_104
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_94
+		}
+		x = 26
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_105
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_92
+		}
+		prerequisite = {
+			focus = FSA_Technology
+		}
+		x = 23
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_106
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_76
+		}
+		x = 20
+		y = 12
+
+	}
+	focus = {
+		id = FSA_JAP_Pro
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_91
+		}
+		prerequisite = {
+			focus = newfocus_83
+		}
+		prerequisite = {
+			focus = newfocus_93
+		}
+		x = 14
+		y = 14
+			completion_reward = {
+				add_timed_idea = {
+							idea = FSA_jap_idea
+							days = 120
+						}
+			}
+
+	}
+	focus = {
+		id = newfocus_109
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_87
+		}
+		x = 10
+		y = 12
+
+	}
+	focus = {
+		id = newfocus_110
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_89
+		}
+		prerequisite = {
+			focus = newfocus_106
+		}
+		x = 19
+		y = 13
+
+	}
+	focus = {
+		id = newfocus_112
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_exterminate_Communist_in_the_South_America
+		}
+		x = 9
+		y = 14
+
+	}
+	focus = {
+		id = FSA_Support_GER
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_110
+		}
+		x = 19
+		y = 14
+
+	}
+	focus = {
+		id = FSA_Local_Industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FSA_Inland
+		}
+		x = 6
+		y = 12
+			completion_reward = {
+					add_tech_bonus= {
+ 							bonus = 1.0
+							uses = 1
+							category = electronics
+				}
+		}
+
+	}
+	focus = {
+		id = FSA_Technology
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_78
+		}
+		x = 22
+		y = 12
+
+	}
+}

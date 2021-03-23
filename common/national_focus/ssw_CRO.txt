@@ -11,7 +11,7 @@ focus_tree = {
 	default = no
 	focus = {
 		id = CRO_german_start
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Croatia_Germany_Friendship
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CRO_nationalism_start
@@ -28,7 +28,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			reverse_add_opinion_modifier = {
@@ -43,7 +43,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_start
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Mutual
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CRO_german_start
@@ -62,7 +62,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			add_stability = -0.05
@@ -72,7 +72,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_sart
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Croatia_Itary_Friendship
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CRO_nationalism_start
@@ -90,7 +90,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			reverse_add_opinion_modifier = {
@@ -105,7 +105,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_start
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_army_reorganization
 		cost = 10.00
 		x = 7
 		y = 8
@@ -130,7 +130,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_germanstart
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_airforce_germany
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CRO_airforce_italystart
@@ -148,7 +148,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -163,8 +163,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_italystart
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_air_fighter2
 		mutually_exclusive = {
 			focus = CRO_airforce_germanstart
 		}
@@ -181,7 +180,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			
@@ -195,7 +194,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_start
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_navy_cruiser
 		cost = 10.00
 		x = 26
 		y = 8
@@ -204,10 +203,8 @@ focus_tree = {
 		}
 		available = {
 			any_owned_state = {
-				limit = {
-					always = yes
-				}
-				is_coastal = yes}
+				is_coastal = yes
+			}
 		}
 		bypass = {
 		}
@@ -225,7 +222,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_steal
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_steel
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_start
@@ -255,7 +252,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			country_event = {
@@ -271,7 +268,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_luftwaffe
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_fighter
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_steal
@@ -366,7 +363,7 @@ focus_tree = {
 			
 	focus = {
 		id = CRO_german_tomislav
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_himmler
@@ -407,7 +404,7 @@ focus_tree = {
 
 	focus = {
 		id = CRO_german_volkswagen
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Volkswagen
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_start
@@ -491,7 +488,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_nsdap
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_military_deal
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_goebbels
@@ -532,7 +529,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_eagle
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_territory_or_war
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_tomislav
@@ -626,7 +623,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_ssboost
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_army_reorganization
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_volkswagen
@@ -666,7 +663,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_ban
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_ssboost
@@ -706,7 +703,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_powerboost
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_attack_allies
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_ban
@@ -750,7 +747,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_german_entente
-		icon = GFX_goal_unknown
+		icon = GFX_goal_tripartite_pact
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_german_eagle
@@ -794,7 +791,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_balkan_vojvodina
-		icon = GFX_goal_unknown
+		icon = GFX_goal_demand_sudetenland
 		cost = 10.00
 		prerequisite = { focus = CRO_balkan_start }
 		x = 11
@@ -822,7 +819,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
 			country_event = { id = SSW_CRO.4 }
@@ -831,7 +828,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_balkan_hungary
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Mutual_recognition_with_Hungary
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_balkan_vojvodina
@@ -879,7 +876,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_balkan_ribbentrop
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_balkan_hungary
@@ -954,7 +951,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_balkan_serbiaban
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_suppression
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_balkan_ribbentrop
@@ -997,7 +994,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_cplang
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_position_armies
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_start
@@ -1025,7 +1022,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_warlessons
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_army_doctrines
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_cplang
@@ -1043,7 +1040,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -1058,7 +1055,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_doctrine
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_build_tank
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_warlessons
@@ -1076,7 +1073,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 					
@@ -1091,7 +1088,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_herzegovina
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_military
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_start
@@ -1136,7 +1133,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_balkan_autonomy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_dangerous_deal
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_balkan_ribbentrop
@@ -1184,7 +1181,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_italyborderboost
-		icon = GFX_goal_unknown
+		icon = GFX_focus_secret_rearmament
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_start
@@ -1216,7 +1213,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_germanrestriction
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_out_the_german
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_start
@@ -1248,7 +1245,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_vojvodinadefence
-		icon = GFX_goal_generic_fortify_city
+		icon = GFX_focus_CRO_voyvobina
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_italyborderboost
@@ -1311,7 +1308,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_pavelic
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_vojvodinadefence
@@ -1341,7 +1338,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_coop
-		icon = GFX_goal_unknown
+		icon = GFX_goal_molotov_ribbentrop_pact
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_pavelic
@@ -1406,7 +1403,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_cravat
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_product_kurabato
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_zagrebpriority
@@ -1432,7 +1429,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_nationalism
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_propaganda
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_vojvodinadefence
@@ -1460,7 +1457,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_party
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_demand_territory
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_nationalism
@@ -1486,6 +1483,7 @@ focus_tree = {
 				long_name = CRO_national_transitional_council_long
 				name = CRO_national_transitional_council
 			}
+			add_ideas = CRO_Nikola_Mandic
 			create_country_leader = {
 				name = "Nikola Mandic"
 				desc = ""
@@ -1500,7 +1498,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_ban
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_military_sphere
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_party
@@ -1629,7 +1627,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_restartnavy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_build_navy
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_start
@@ -1650,7 +1648,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -1664,7 +1662,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_officertraining
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_army_helmet
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_restartnavy
@@ -1682,7 +1680,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_ideas = SSW_ideas_CRO_fleet_school
@@ -1691,7 +1689,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_fleetexpansion
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_navy_battleship
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_officertraining
@@ -1709,7 +1707,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_ideas = SSW_ideas_CRO_fleet_production_plan
@@ -1718,7 +1716,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_uboat
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_navy_submarine
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_fleetexpansion
@@ -1739,7 +1737,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -1753,7 +1751,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_multilingualfacilitation
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_repairments
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_wholecountry
@@ -1780,7 +1778,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_traditionalindustry
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_splitshipyard
@@ -1855,7 +1853,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_vierjahresplancopy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_Croatian_4th_plan
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_universityofzagreb
@@ -1885,7 +1883,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_dinaricalpsbridge
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_bridge_alps
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_vierjahresplancopy
@@ -1928,7 +1926,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_industrial1_croatianautobahn
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ITA_Autostrada
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_industrial1_vierjahresplancopy
@@ -2013,7 +2011,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2050,7 +2048,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2064,7 +2062,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_freezadarborder
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_positive_trade_relations
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_sart
@@ -2090,7 +2088,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_croatstatusinistria
-		icon = GFX_goal_unknown
+		icon = GFX_focus_spr_masters_of_our_own_fate
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_freezadarborder
@@ -2138,7 +2136,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2153,7 +2151,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_modernization
-		icon = GFX_goal_unknown
+		icon = GFX_goal_poland_goal
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_maintain
@@ -2171,7 +2169,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2185,7 +2183,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_counterattackdoctrine
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_amphibious_assault
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_modernization
@@ -2204,7 +2202,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2218,7 +2216,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_smallscale
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_destryers
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_modernization
@@ -2236,7 +2234,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_ideas = SSW_ideas_CRO_small_fleet
@@ -2245,7 +2243,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_monarchism
-		icon = GFX_goal_unknown
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_sart
@@ -2275,7 +2273,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_serbia
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_monarchy_1
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_monarchism
@@ -2303,7 +2301,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_tradetreatyrome
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_croatstatusinistria
@@ -2343,7 +2341,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_tomislav
-		icon = GFX_goal_unknown
+		icon = GFX_focus_YUG_banovina_of_croatia
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_serbia
@@ -2368,6 +2366,8 @@ focus_tree = {
 			set_politics = {
 				ruling_party = authority_despotism
 			}
+			add_ideas = CRO_Tomislav_2
+
 			create_country_leader = {
 				name = "Tomislav II"
 				desc = ""
@@ -2383,7 +2383,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_nationalism_great
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_great_croatia
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_nationalism_coop
@@ -2448,7 +2448,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_constitutionalmonarchy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_home_defense
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_tomislav
@@ -2475,7 +2475,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_arditi
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_military_deal
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_tradetreatyrome
@@ -2513,7 +2513,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_italy_balkanally
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_reconstruction_kingdom
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_italy_constitutionalmonarchy
@@ -2546,7 +2546,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_germanequipment1
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_german_weapon
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_start
@@ -2575,7 +2575,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_ss
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ss_loyalty
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_start
@@ -2605,7 +2605,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_sscroatian
-		icon = GFX_goal_unknown
+		icon = GFX_focus_geaman_eng
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_ss
@@ -2663,7 +2663,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_militaryacademy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_sscroatian
@@ -2690,7 +2690,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_germanequipment2
-		icon = GFX_goal_unknown
+		icon = GFX_focus_CRO_german_weapon_2
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_germanequipment1
@@ -2719,7 +2719,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_licensedproduction
-		icon = GFX_goal_unknown
+		icon = GFX_focus_secret_rearmament
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_germanequipment2
@@ -2758,7 +2758,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_researchcoop
-		icon = GFX_goal_unknown
+		icon = GFX_goal_tfv_generic_tech_sharing
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_germanequipment2
@@ -2779,7 +2779,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2816,7 +2816,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2830,7 +2830,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_reverseengineering
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_repairments
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_licensedproduction
@@ -2848,7 +2848,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2867,7 +2867,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_army_militaryresearchbudget
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_production
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_army_tankresearch
@@ -2886,7 +2886,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2909,7 +2909,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_arado
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_production
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_germanstart
@@ -2927,7 +2927,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			custom_effect_tooltip = SSW_CRO_tooltip_3
@@ -2955,7 +2955,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_ideas = SSW_ideas_CRO_airforce_saetta	
@@ -2964,7 +2964,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_bomber
-		icon = GFX_goal_unknown
+		icon = GFX_goal_poland_goal
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_arado
@@ -2982,7 +2982,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3014,7 +3014,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3047,7 +3047,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			random_state = {
@@ -3065,7 +3065,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_highaltitudeairplane
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_air_fighter2
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_airbase
@@ -3083,7 +3083,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 				add_tech_bonus = {
@@ -3106,7 +3106,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_airforce_jetresearch
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rocketry
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_airforce_highaltitudeairplane
@@ -3127,7 +3127,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3141,7 +3141,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_order
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_navy_battleship
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_fleetmaintecance
@@ -3159,7 +3159,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			swap_ideas = {
@@ -3172,7 +3172,7 @@ focus_tree = {
 	}
 	focus = {
 		id = CRO_navy_wolfpack
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_navy_anti_submarine
 		cost = 10.00
 		prerequisite = {
 			focus = CRO_navy_uboat
@@ -3217,7 +3217,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			swap_ideas = {

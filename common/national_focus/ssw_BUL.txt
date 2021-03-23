@@ -105,7 +105,7 @@ focus_tree={
                 limit = {
                     free_building_slots = {
                         building = industrial_complex
-                        size > 1
+                        size > 0
                         include_locked = yes
                     }
                     OR = {
@@ -135,7 +135,7 @@ focus_tree={
                 limit = {
                     free_building_slots = {
                         building = industrial_complex
-                        size > 1
+                        size > 0
                         include_locked = yes
                     }
                     OR = {
@@ -408,7 +408,7 @@ focus_tree={
                 limit = {
                     free_building_slots = {
                         building = industrial_complex
-                        size > 1
+                        size > 0
                         include_locked = yes
                     }
                     OR = {
@@ -438,7 +438,7 @@ focus_tree={
                 limit = {
                     free_building_slots = {
                         building = industrial_complex
-                        size > 1
+                        size > 0
                         include_locked = yes
                     }
                     OR = {
@@ -474,35 +474,35 @@ focus_tree={
                     }
                 }
                 random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = industrial_complex
-                        size > 1
-                        include_locked = yes
+                    limit = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 0
+                            include_locked = yes
+                        }
+                        OR = {
+				    		is_in_home_area = yes
+				    		NOT = {
+				    			owner = {
+				    				any_owned_state = {
+				    					free_building_slots = {
+				    						building = industrial_complex
+				    						size > 0
+				    						include_locked = yes
+				    					}
+				    					is_in_home_area = yes
+				    				}
+				    			}
+				    		}
+				    	}
                     }
-                    OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = industrial_complex
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
                 }
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 1
-                    instant_build = yes
-                }
-            }
             }
         }
     }
@@ -647,6 +647,7 @@ focus_tree={
             focus = BUL_worker_union
         }
         completion_reward = {
+            add_stability = 0.08
             every_owned_state = {
                 limit = {
                     free_building_slots = {
@@ -1811,6 +1812,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_deal_with_agitators
         }
+        bypass = {
+            NOT = {has_idea = BUL_political_instability}
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -1852,6 +1856,7 @@ focus_tree={
             factor = 10
         }
         completion_reward = {
+            add_stability = 0.1
             set_temp_variable ={maj = BUL.highest_party_ideology}
             add_popularity = {
                 ideology = var:maj
@@ -1874,6 +1879,550 @@ focus_tree={
         cost = 10
         ai_will_do = {
             factor = 10
+        }
+        completion_reward = {
+            country_event = {id = ssw_bul.34}
+        }
+    }
+
+    focus = { #ハンガリー人労働者の権利
+        id = BUL_hungarian_worker_right
+        icon = GFX_focus_hol_the_foundations_of_defense
+        x = 22
+        y = 6
+        prerequisite = {
+            focus = BUL_support_the_people
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.08
+            random_owned_state = {
+                    limit = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 0
+                            include_locked = yes
+                        }
+                        OR = {
+				    		is_in_home_area = yes
+				    		NOT = {
+				    			owner = {
+				    				any_owned_state = {
+				    					free_building_slots = {
+				    						building = industrial_complex
+				    						size > 0
+				    						include_locked = yes
+				    					}
+				    					is_in_home_area = yes
+				    				}
+				    			}
+				    		}
+				    	}
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+            }
+        }
+    }
+
+    focus = { #民主主義を推奨
+        id = BUL_democracy_recomemnd
+        icon = GFX_goal_support_democracy
+        x = 24
+        y = 6
+        prerequisite = {
+            focus = BUL_negotiation_with_British
+        }
+        available = {
+            NOT = {has_government = anarchism}
+            NOT = {has_completed_focus = BUL_revolution}
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.15
+        }
+    }
+
+    focus = { #ブルガリア型民主主義
+        id = BUL_bulgarian_democracy
+        icon = GFX_focus_BUL_consolidate_the_third_bulgarian_state
+        x = 23
+        y = 7
+        prerequisite = {
+            focus = BUL_hungarian_worker_right
+        }
+        prerequisite = {
+            focus = BUL_democracy_recomemnd
+        }
+        available = {
+            NOT = {has_government = anarchism}
+            NOT = {has_completed_focus = BUL_revolution}
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_bulgarian_democratic
+        }
+    }
+
+    focus = { #革命
+        id = BUL_revolution
+        icon = GFX_focus_RUS_anarchist_politics
+        x = 21
+        y = 9
+        available = {
+            has_completed_focus = BUL_hungarian_worker_right
+            has_completed_focus = BUL_worker_union
+            NOT = {has_completed_focus = BUL_democracy_recomemnd}
+            NOT = {has_completed_focus = BUL_bulgarian_democracy}
+            custom_trigger_tooltip = {
+                tooltip = BUL_revolution_tt
+                has_country_flag = BUL_not_killed_radical
+            }
+        }
+        bypass = {
+            has_government = anarchism
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 5
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.1
+            }
+            add_ideas = BUL_expand_anarchism
+        }
+    }
+
+    focus = { #政府を一新
+        id = BUL_renewal_gov
+        icon = GFX_focus_focus_fra_revolution_utmost
+        x = 21
+        y = 10
+        prerequisite = {
+            focus = BUL_revolution
+        }
+        available = {
+            anarchism > 0.5
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = -0.07
+            set_politics = {
+                ruling_party = anarchism
+                elections_allowed = no
+            }
+            leave_faction = yes
+            hidden_effect = {
+                remove_ideas = {
+                    BUL_Hristo_Kalfov
+                    BUL_Stoycho_Moushanov
+                    BUL_Petar_Gabrovski
+                    BUL_Kiril
+                    BUL_Georgi_Traykov
+                    BUL_Georgi_Kulishev
+                    BUL_Petko_Staynov
+                    BUL_Bogdan_Filov_dip
+                    BUL_Parvan_Draganov
+                    BUL_Dobri_Bozhilov
+                    BUL_Dimitar_Savov
+                    BUL_Ivan_Stefanov
+                    BUL_Virgil_Dimov
+                    BUL_Alexander_Stanishev
+                    BUL_Nikola_Nedev
+                    BUL_Rusi_Hristozov
+                    BUL_Rusi_Rusev
+                    BUL_Petar_Panchevski
+                    BUL_Kimon_Georgiev_army
+                }
+            }
+        }
+    }
+
+    focus = { #農業の推進
+        id = BUL_promote_agric
+        icon = GFX_focus_hol_abandon_the_gold_standard
+        x = 20
+        y = 11
+        prerequisite = {
+            focus = BUL_renewal_gov
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_promote_agriculture
+        }
+    }
+
+    focus = { #反対派の弾圧
+        id = BUL_opposition_crackdown
+        icon = GFX_focus_spr_class_war
+        x = 22
+        y = 11
+        prerequisite = {
+            focus = BUL_renewal_gov
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = -0.05
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = classical_communism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = national_fascism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = national_socialism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = corporatocracism
+                popularity = -0.03
+            }
+        }
+    }
+
+    focus = { #政府援助の停止
+        id = BUL_suspension_gov_assist
+        icon = GFX_focus_renounce_the_treaty_of_trianon
+        x = 20
+        y = 12
+        prerequisite = {
+            focus = BUL_promote_agric
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_promote_agriculture
+                add_idea = BUL_road_self_sufficiency
+            }
+        }
+    }
+
+    focus = { #思想統一
+        id = BUL_unification_idea
+        icon = GFX_goal_generic_propaganda
+        x = 22
+        y = 12
+        prerequisite = {
+            focus = BUL_opposition_crackdown
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.02
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.1
+            }
+        }
+    }
+
+    focus = { #自給自足の推進
+        id = BUL_promote_self_sufficiency
+        icon = GFX_goal_generic_consumer_goods
+        x = 20
+        y = 13
+        prerequisite = {
+            focus = BUL_suspension_gov_assist
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_road_self_sufficiency
+                add_idea = BUL_promotion_self_sufficiency
+            }
+        }
+    }
+
+    focus = { #統治方針の更新
+        id = BUL_update_gov_policy
+        icon = GFX_focus_generic_self_management
+        x = 22
+        y = 13
+        prerequisite = {
+            focus = BUL_unification_idea
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.05
+            add_ideas = BUL_updated_policy
+        }
+    }
+
+    focus = { #革命の波及
+        id = BUL_ripple_revolution
+        icon = GFX_focus_spr_anarchism_knows_no_borders
+        x = 21
+        y = 14
+        prerequisite = {
+            focus = BUL_promote_self_sufficiency
+        }
+        prerequisite = {
+            focus = BUL_update_gov_policy
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_expand_revolutuin
+        }
+    }
+
+    focus = { #セルビアでの革命
+        id = BUL_SER_revolution
+        icon = GFX_focus_RUS_defense_council
+        x = 21
+        y = 15
+        prerequisite = {
+            focus = BUL_ripple_revolution
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 250000
+            }
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    SER = {
+                        NOT = {has_government = anarchism}
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = -2000
+                }
+                SER = {
+                    country_event = {id = ssw_bul.50}
+                }
+            }
+            else = {
+                SER = {
+                    country_event = {id = ssw_bul.53}
+                }
+            }
+        }
+    }
+
+    focus = { #セルビアの統合
+        id = BUL_integrate_SER
+        icon = GFX_goal_generic_alliance
+        x = 20
+        y = 16
+        prerequisite = {
+            focus = BUL_SER_revolution
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 15
+        completion_reward = {
+            if = {
+                limit = {
+                    SER = {
+                        is_puppet_of = BUL
+                    }
+                }
+                annex_country = {
+                    target = SER
+                    transfer_troops = yes
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = SER
+                    NOT = {is_core_of = BUL}
+                }
+                add_compliance = 30
+            }
+        }
+    }
+
+    focus = { #セルビア人の観察
+        id = BUL_serbian_observation
+        icon = GFX_focus_spr_torchbearers_of_tomorrow
+        x = 22
+        y = 16
+        prerequisite = {
+            focus = BUL_SER_revolution
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            add_ideas = BUL_SER_observe
+        }
+    }
+
+    focus = { #セルビア人の扱い
+        id = BUL_serbian_transfer
+        icon = GFX_goal_generic_national_unity
+        x = 22
+        y = 17
+        prerequisite = {
+            focus = BUL_serbian_observation
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_SER_observe
+                add_idea = BUL_SER_treatment
+            }
+        }
+    }
+
+    focus = { #反乱の鎮圧
+        id = BUL_rebellion_suppress
+        icon = GFX_goal_demand_sudetenland
+        x = 22
+        y = 18
+        prerequisite = {
+            focus = BUL_serbian_transfer
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_SER_treatment
+                add_idea = BUL_gov_occupy_territory
+            }
+        }
+    }
+
+    focus = { #完璧だ！
+        id = BUL_perfect
+        icon = GFX_focus_RUS_anarchist_politics
+        x = 21
+        y = 19
+        prerequisite = {
+            focus = BUL_integrate_SER
+        }
+        prerequisite = {
+            focus = BUL_rebellion_suppress
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        available = {
+            NOT = {country_exists = SER}
+            has_full_control_of_state = 107
+        }
+        completion_reward = {
+            add_stability = 0.1
+            every_state = {
+                limit = {
+                    is_core_of = SER
+                }
+                add_core_of = BUL
+            }
         }
     }
 
@@ -2886,6 +3435,740 @@ focus_tree={
                 target = GRE
                 type = annex_everything
             }
+        }
+    }
+
+#軍事ツリー
+    focus = { #軍の改革
+        id = BUL_military_reform
+        icon = GFX_focus_chi_army_reform
+        x = 47
+        y = 0
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            army_experience = 10
+            navy_experience = 10
+            air_experience = 10
+        }
+    }
+
+    focus = { #陸軍改革
+        id = BUL_army_reform
+        icon = GFX_goal_generic_axis_build_infantry
+        x = 43
+        y = 1
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        prerequisite = {
+            focus = BUL_military_reform
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            army_experience = 10
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #ドイツ・イタリア式
+        id = BUL_GER_ITA_style
+        icon = GFX_goal_support_fascism
+        x = 42
+        y = 2
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        prerequisite = {
+            focus = BUL_army_reform
+        }
+        mutually_exclusive = {
+            focus = BUL_independent_research
+        }
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_tech = trench_warfare
+                    has_tech = mass_assault
+                }
+                factor = 0
+            }
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = cat_mobile_warfare
+                category = cat_superior_firepower
+            }
+        }
+    }
+    focus = { #独自研究
+        id = BUL_independent_research
+        icon = GFX_goal_generic_military_sphere
+        x = 44
+        y = 2
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        prerequisite = {
+            focus = BUL_army_reform
+        }
+        mutually_exclusive = {
+            focus = BUL_GER_ITA_style
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = cat_grand_battle_plan
+                category = cat_mass_assault
+            }
+        }
+    }
+    focus = { #軍需産業の拡大
+        id = BUL_expand_munitions_industry
+        icon = GFX_goal_generic_construct_mil_factory
+        x = 40
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_INDUSTRY
+        }
+        prerequisite = {
+            focus = BUL_GER_ITA_style
+            focus = BUL_independent_research
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #戦車研究
+        id = BUL_tank_research
+        icon = GFX_focus_generic_army_tanks2
+        x = 42
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        prerequisite = {
+            focus = BUL_GER_ITA_style
+            focus = BUL_independent_research
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            if = {
+                limit = {
+                    has_completed_focus = BUL_GER_ITA_style
+                }
+                add_tech_bonus = {
+                    bonus = 1.2
+                    uses = 2
+                    category = armor
+                }
+            }
+            else = {
+                add_tech_bonus = {
+                    bonus = 1
+                    uses = 2
+                    category = armor
+                }
+            }
+        }
+    }
+    focus = { #歩兵の近代化
+        id = BUL_infantry_modernize
+        icon = GFX_focus_generic_manpower
+        x = 44
+        y = 3
+        prerequisite = {
+            focus = BUL_GER_ITA_style
+            focus = BUL_independent_research
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 3
+                category = infantry_weapons
+                category = support_tech
+            }
+        }
+    }
+    focus = { #司令部の経験
+        id = BUL_command_exp
+        icon = GFX_goal_generic_position_armies
+        x = 43
+        y = 4
+        prerequisite = {
+            focus = BUL_tank_research
+        }
+        prerequisite = {
+            focus = BUL_infantry_modernize
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_ideas = BUL_experience_headquarter
+        }
+    }
+
+    focus = { #空軍改革
+        id = BUL_air_reform
+        icon = GFX_goal_generic_build_airforce
+        x = 47
+        y = 1
+        prerequisite = {
+            focus = BUL_military_reform
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            air_experience = 10
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = air_doctrine
+            }
+        }
+    }
+    focus = { #戦闘機開発
+        id = BUL_fighter_develop
+        icon = GFX_goal_generic_air_fighter
+        x = 46
+        y = 2
+        prerequisite = {
+            focus = BUL_air_reform
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.9
+                uses = 2
+                category = light_fighter
+                category = cat_heavy_fighter
+            }
+        }
+    }
+    focus = { #爆撃機研究
+        id = BUL_bomber_research
+        icon = GFX_goal_generic_air_bomber
+        x = 48
+        y = 2
+        prerequisite = {
+            focus = BUL_air_reform
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.9
+                uses = 2
+                category = tactical_bomber
+                category = cat_strategic_bomber
+            }
+        }
+    }
+    focus = { #航空戦術
+        id = BUL_air_tactics
+        icon = GFX_goal_generic_air_doctrine
+        x = 46
+        y = 3
+        prerequisite = {
+            focus = BUL_fighter_develop
+        }
+        prerequisite = {
+            focus = BUL_bomber_research
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = air_doctrine
+            }
+        }
+    }
+    focus = { #ジェット機開発
+        id = BUL_jet_aircraft_dev
+        icon = GFX_focus_JAP_develop_the_new_aircraft
+        x = 48
+        y = 3
+        prerequisite = {
+            focus = BUL_fighter_develop
+        }
+        prerequisite = {
+            focus = BUL_bomber_research
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.8
+                uses = 2
+                category = jet_technology
+            }
+        }
+    }
+    focus = { #飛行場の整備
+        id = BUL_air_base_maintenance
+        icon = GFX_goal_generic_air_production
+        x = 47
+        y = 4
+        prerequisite = {
+            focus = BUL_air_tactics
+        }
+        prerequisite = {
+            focus = BUL_jet_aircraft_dev
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = air_base
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = air_base
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_building_construction = {
+                    type = air_base
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = air_base
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = air_base
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_building_construction = {
+                    type = air_base
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    focus = { #海軍改革
+        id = BUL_navy_reform
+        icon = GFX_goal_generic_build_navy
+        x = 51
+        y = 1
+        prerequisite = {
+            focus = BUL_military_reform
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            navy_experience = 10
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = naval_doctrine
+            }
+        }
+    }
+    focus = { #黒海艦隊
+        id = BUL_black_sea_fleet
+        icon = GFX_focus_generic_navy_battleship2
+        x = 50
+        y = 2
+        prerequisite = {
+            focus = BUL_navy_reform
+        }
+        mutually_exclusive = {
+            focus = BUL_wolfpack_tactic
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_tech = trade_interdiction
+                factor = 0
+            }
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = cat_fleet_in_being
+                category = cat_base_strike
+            }
+        }
+    }
+    focus = { #群狼戦術
+        id = BUL_wolfpack_tactic
+        icon = GFX_goal_generic_wolf_pack
+        x = 52
+        y = 2
+        prerequisite = {
+            focus = BUL_navy_reform
+        }
+        mutually_exclusive = {
+            focus = BUL_black_sea_fleet
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = cat_trade_interdiction
+            }
+        }
+    }
+    focus = { #艦隊の設計
+        id = BUL_fleet_design
+        icon = GFX_focus_generic_destroyer
+        x = 50
+        y = 3
+        prerequisite = {
+            focus = BUL_black_sea_fleet
+            focus = BUL_wolfpack_tactic
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 4
+                category = naval_equipment
+            }
+        }
+    }
+    focus = { #潜水艦の開発
+        id = BUL_submarine_develop
+        icon = GFX_goal_generic_navy_submarine
+        x = 52
+        y = 3
+        prerequisite = {
+            focus = BUL_black_sea_fleet
+            focus = BUL_wolfpack_tactic
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.8
+                uses = 2
+                category = ss_tech
+            }
+        }
+    }
+    focus = { #造船所の拡大
+        id = BUL_expansion_shipyard
+        icon = GFX_goal_generic_construct_naval_dockyard
+        x = 54
+        y = 3
+        prerequisite = {
+            focus = BUL_black_sea_fleet
+            focus = BUL_wolfpack_tactic
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    is_coastal = yes
+                    free_building_slots = {
+                        building = dockyard
+                        size > 1
+                        include_locked = yes
+                    }
+                    OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #戦術の確認
+        id = BUL_check_tactic
+        icon = GFX_goal_generic_navy_doctrines_tactics
+        x = 51
+        y = 4
+        prerequisite = {
+            focus = BUL_fleet_design
+        }
+        prerequisite = {
+            focus = BUL_submarine_develop
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            if = {
+                limit = {
+                    has_completed_focus = BUL_black_sea_fleet
+                }
+                add_ideas = BUL_navy_tactics_1
+            }
+            else_if = {
+                limit = {
+                    has_completed_focus = BUL_wolfpack_tactic
+                }
+                add_ideas = BUL_navy_tactics_2
+            }
+        }
+    }
+    focus = { #近接航空支援
+        id = BUL_close_air_support
+        icon = GFX_goal_generic_CAS
+        x = 45
+        y = 4
+        prerequisite = {
+            focus = BUL_tank_research
+            focus = BUL_infantry_modernize
+        }
+        prerequisite = {
+            focus = BUL_air_tactics
+            focus = BUL_jet_aircraft_dev
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = cas_bomber
+            }
+        }
+    }
+    focus = { #対艦攻撃
+        id = BUL_anti_ship_attack
+        icon = GFX_goal_generic_air_naval_bomber
+        x = 49
+        y = 4
+        prerequisite = {
+            focus = BUL_air_tactics
+            focus = BUL_jet_aircraft_dev
+        }
+        prerequisite = {
+            focus = BUL_fleet_design
+            focus = BUL_submarine_develop
+        }
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = naval_air
+            }
+        }
+    }
+    focus = { #軍全体の協力
+        id = BUL_army_wide_cooperation
+        icon = GFX_focus_generic_combined_arms
+        x = 47
+        y = 5
+        prerequisite = {
+            focus = BUL_command_exp
+        }
+        prerequisite = {
+            focus = BUL_air_base_maintenance
+        }
+        prerequisite = {
+            focus = BUL_check_tactic
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        completion_reward = {
+            add_ideas = BUL_combined_arms
         }
     }
 }
