@@ -474,35 +474,35 @@ focus_tree={
                     }
                 }
                 random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = industrial_complex
-                        size > 0
-                        include_locked = yes
+                    limit = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 0
+                            include_locked = yes
+                        }
+                        OR = {
+				    		is_in_home_area = yes
+				    		NOT = {
+				    			owner = {
+				    				any_owned_state = {
+				    					free_building_slots = {
+				    						building = industrial_complex
+				    						size > 0
+				    						include_locked = yes
+				    					}
+				    					is_in_home_area = yes
+				    				}
+				    			}
+				    		}
+				    	}
                     }
-                    OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = industrial_complex
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
                 }
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 1
-                    instant_build = yes
-                }
-            }
             }
         }
     }
@@ -1882,6 +1882,547 @@ focus_tree={
         }
         completion_reward = {
             country_event = {id = ssw_bul.34}
+        }
+    }
+
+    focus = { #ハンガリー人労働者の権利
+        id = BUL_hungarian_worker_right
+        icon = GFX_focus_hol_the_foundations_of_defense
+        x = 22
+        y = 6
+        prerequisite = {
+            focus = BUL_support_the_people
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.08
+            random_owned_state = {
+                    limit = {
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 0
+                            include_locked = yes
+                        }
+                        OR = {
+				    		is_in_home_area = yes
+				    		NOT = {
+				    			owner = {
+				    				any_owned_state = {
+				    					free_building_slots = {
+				    						building = industrial_complex
+				    						size > 0
+				    						include_locked = yes
+				    					}
+				    					is_in_home_area = yes
+				    				}
+				    			}
+				    		}
+				    	}
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+            }
+        }
+    }
+
+    focus = { #民主主義を推奨
+        id = BUL_democracy_recomemnd
+        icon = GFX_goal_support_democracy
+        x = 24
+        y = 6
+        prerequisite = {
+            focus = BUL_negotiation_with_British
+        }
+        available = {
+            NOT = {has_government = anarchism}
+            NOT = {has_completed_focus = BUL_revolution}
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.15
+        }
+    }
+
+    focus = { #ブルガリア型民主主義
+        id = BUL_bulgarian_democracy
+        icon = GFX_focus_BUL_consolidate_the_third_bulgarian_state
+        x = 23
+        y = 7
+        prerequisite = {
+            focus = BUL_hungarian_worker_right
+        }
+        prerequisite = {
+            focus = BUL_democracy_recomemnd
+        }
+        available = {
+            NOT = {has_government = anarchism}
+            NOT = {has_completed_focus = BUL_revolution}
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_bulgarian_democratic
+        }
+    }
+
+    focus = { #革命
+        id = BUL_revolution
+        icon = GFX_focus_RUS_anarchist_politics
+        x = 21
+        y = 9
+        available = {
+            has_completed_focus = BUL_hungarian_worker_right
+            has_completed_focus = BUL_worker_union
+            NOT = {has_completed_focus = BUL_democracy_recomemnd}
+            NOT = {has_completed_focus = BUL_bulgarian_democracy}
+            custom_trigger_tooltip = {
+                tooltip = BUL_revolution_tt
+                has_country_flag = BUL_not_killed_radical
+            }
+        }
+        bypass = {
+            has_government = anarchism
+        }
+        cost = 5
+        ai_will_do = {
+            factor = 5
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.1
+            }
+            add_ideas = BUL_expand_anarchism
+        }
+    }
+
+    focus = { #政府を一新
+        id = BUL_renewal_gov
+        icon = GFX_focus_focus_fra_revolution_utmost
+        x = 21
+        y = 10
+        prerequisite = {
+            focus = BUL_revolution
+        }
+        available = {
+            anarchism > 0.5
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = -0.07
+            set_politics = {
+                ruling_party = anarchism
+                elections_allowed = no
+            }
+            leave_faction = yes
+            hidden_effect = {
+                remove_ideas = {
+                    BUL_Hristo_Kalfov
+                    BUL_Stoycho_Moushanov
+                    BUL_Petar_Gabrovski
+                    BUL_Kiril
+                    BUL_Georgi_Traykov
+                    BUL_Georgi_Kulishev
+                    BUL_Petko_Staynov
+                    BUL_Bogdan_Filov_dip
+                    BUL_Parvan_Draganov
+                    BUL_Dobri_Bozhilov
+                    BUL_Dimitar_Savov
+                    BUL_Ivan_Stefanov
+                    BUL_Virgil_Dimov
+                    BUL_Alexander_Stanishev
+                    BUL_Nikola_Nedev
+                    BUL_Rusi_Hristozov
+                    BUL_Rusi_Rusev
+                    BUL_Petar_Panchevski
+                    BUL_Kimon_Georgiev_army
+                }
+            }
+        }
+    }
+
+    focus = { #農業の推進
+        id = BUL_promote_agric
+        icon = GFX_focus_hol_abandon_the_gold_standard
+        x = 20
+        y = 11
+        prerequisite = {
+            focus = BUL_renewal_gov
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_promote_agriculture
+        }
+    }
+
+    focus = { #反対派の弾圧
+        id = BUL_opposition_crackdown
+        icon = GFX_focus_spr_class_war
+        x = 22
+        y = 11
+        prerequisite = {
+            focus = BUL_renewal_gov
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = -0.05
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = classical_communism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = national_fascism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = national_socialism
+                popularity = -0.03
+            }
+            add_popularity = {
+                ideology = corporatocracism
+                popularity = -0.03
+            }
+        }
+    }
+
+    focus = { #政府援助の停止
+        id = BUL_suspension_gov_assist
+        icon = GFX_focus_renounce_the_treaty_of_trianon
+        x = 20
+        y = 12
+        prerequisite = {
+            focus = BUL_promote_agric
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_promote_agriculture
+                add_idea = BUL_road_self_sufficiency
+            }
+        }
+    }
+
+    focus = { #思想統一
+        id = BUL_unification_idea
+        icon = GFX_goal_generic_propaganda
+        x = 22
+        y = 12
+        prerequisite = {
+            focus = BUL_opposition_crackdown
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.02
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.1
+            }
+        }
+    }
+
+    focus = { #自給自足の推進
+        id = BUL_promote_self_sufficiency
+        icon = GFX_goal_generic_consumer_goods
+        x = 20
+        y = 13
+        prerequisite = {
+            focus = BUL_suspension_gov_assist
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_road_self_sufficiency
+                add_idea = BUL_promotion_self_sufficiency
+            }
+        }
+    }
+
+    focus = { #統治方針の更新
+        id = BUL_update_gov_policy
+        icon = GFX_focus_generic_self_management
+        x = 22
+        y = 13
+        prerequisite = {
+            focus = BUL_unification_idea
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_stability = 0.05
+            add_ideas = BUL_updated_policy
+        }
+    }
+
+    focus = { #革命の波及
+        id = BUL_ripple_revolution
+        icon = GFX_focus_spr_anarchism_knows_no_borders
+        x = 21
+        y = 14
+        prerequisite = {
+            focus = BUL_promote_self_sufficiency
+        }
+        prerequisite = {
+            focus = BUL_update_gov_policy
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            add_ideas = BUL_expand_revolutuin
+        }
+    }
+
+    focus = { #セルビアでの革命
+        id = BUL_SER_revolution
+        icon = GFX_focus_RUS_defense_council
+        x = 21
+        y = 15
+        prerequisite = {
+            focus = BUL_ripple_revolution
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = BUL_finished_Danubian_war
+                has_global_flag = danubian_war_end
+            }
+            has_army_manpower = {
+                size > 250000
+            }
+        }
+        cost = 10
+        ai_will_do = {
+            factor = 10
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    SER = {
+                        NOT = {has_government = anarchism}
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = -2000
+                }
+                SER = {
+                    country_event = {id = ssw_bul.50}
+                }
+            }
+            else = {
+                SER = {
+                    country_event = {id = ssw_bul.53}
+                }
+            }
+        }
+    }
+
+    focus = { #セルビアの統合
+        id = BUL_integrate_SER
+        icon = GFX_goal_generic_alliance
+        x = 20
+        y = 16
+        prerequisite = {
+            focus = BUL_SER_revolution
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 15
+        completion_reward = {
+            if = {
+                limit = {
+                    SER = {
+                        is_puppet_of = BUL
+                    }
+                }
+                annex_country = {
+                    target = SER
+                    transfer_troops = yes
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = SER
+                    NOT = {is_core_of = BUL}
+                }
+                add_compliance = 30
+            }
+        }
+    }
+
+    focus = { #セルビア人の観察
+        id = BUL_serbian_observation
+        icon = GFX_focus_spr_torchbearers_of_tomorrow
+        x = 22
+        y = 16
+        prerequisite = {
+            focus = BUL_SER_revolution
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            add_ideas = BUL_SER_observe
+        }
+    }
+
+    focus = { #セルビア人の扱い
+        id = BUL_serbian_transfer
+        icon = GFX_goal_generic_national_unity
+        x = 22
+        y = 17
+        prerequisite = {
+            focus = BUL_serbian_observation
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_SER_observe
+                add_idea = BUL_SER_treatment
+            }
+        }
+    }
+
+    focus = { #反乱の鎮圧
+        id = BUL_rebellion_suppress
+        icon = GFX_goal_demand_sudetenland
+        x = 22
+        y = 18
+        prerequisite = {
+            focus = BUL_serbian_transfer
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                SER = {
+                    is_puppet_of = BUL
+                }
+                NOT = {country_exists = SER}
+            }
+        }
+        cost = 10
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = BUL_SER_treatment
+                add_idea = BUL_gov_occupy_territory
+            }
+        }
+    }
+
+    focus = { #完璧だ！
+        id = BUL_perfect
+        icon = GFX_focus_RUS_anarchist_politics
+        x = 21
+        y = 19
+        prerequisite = {
+            focus = BUL_integrate_SER
+        }
+        prerequisite = {
+            focus = BUL_rebellion_suppress
+        }
+        ai_will_do = {
+            factor = 10
+        }
+        cost = 10
+        available = {
+            NOT = {country_exists = SER}
+            has_full_control_of_state = 107
+        }
+        completion_reward = {
+            add_stability = 0.1
+            every_state = {
+                limit = {
+                    is_core_of = SER
+                }
+                add_core_of = BUL
+            }
         }
     }
 

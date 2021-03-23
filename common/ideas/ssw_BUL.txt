@@ -340,19 +340,20 @@ ideas = {
 
         BUL_border_survey = { #国境部の調査
             allowed = {
-                NOT = {
-                    OR = {
-                        controls_state = 184
-                        owns_state = 184
-                    }
-                    OR = {
-                        controls_state = 731
-                        owns_state = 731
-                    }
-                }
+                always = yes
             }
             allowed_civil_war = {
                 always = no
+            }
+            cancel = {
+                OR = {
+                    controls_state = 184
+                    owns_state = 184
+                }
+                OR = {
+                    controls_state = 731
+                    owns_state = 731
+                }
             }
             picture = ast_naval_auxiliary_patrol
             modifier = {
@@ -585,7 +586,7 @@ ideas = {
             }
         }
 
-        BUL_ship_price_BUL = {
+        BUL_ship_price_BUL = { #艦船の代金
             allowed = {
                 always = yes
             }
@@ -607,6 +608,170 @@ ideas = {
             picture = generic_goods_red_bonus
             modifier = {
                 consumer_goods_factor = -0.04
+            }
+        }
+
+        BUL_bulgarian_democratic = { #ブルガリア型民主主義
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = neutrality_idea
+            modifier = {
+                stability_factor = 0.03
+                political_power_factor = 0.15
+                drift_defence_factor = 0.1
+                conscription_factor = 0.06
+                opinion_gain_monthly_same_ideology_factor = 0.1
+            }
+        }
+
+        BUL_expand_anarchism = { #アナーキズムの拡大
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            cancel = {
+                OR = {
+                    has_government = anarchism
+                    has_completed_focus = BUL_bulgarian_democracy
+                }
+            }
+            picture = SPR_anarchist_public_transport
+            modifier = {
+                stability_factor = -0.1
+                anarchism_drift = 0.15
+            }
+        }
+
+        BUL_promote_agriculture = { #農業の推進
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_agrarian_society
+            modifier = {
+                conscription_factor = 0.03
+                global_building_slots_factor = 0.08
+            }
+        }
+
+        BUL_road_self_sufficiency = { #自給自足への道
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_agrarian_society
+            modifier = {
+                stability_factor = -0.05
+                consumer_goods_factor = -0.04
+                conscription_factor = 0.03
+                global_building_slots_factor = 0.08
+            }
+        }
+
+        BUL_promotion_self_sufficiency = { #自給自足の推進
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = SPR_anarchist_society
+            modifier = {
+                stability_factor = -0.02
+                consumer_goods_factor = -0.04
+                local_resources_factor = 0.08
+                conscription_factor = 0.03
+                global_building_slots_factor = 0.08
+                production_lack_of_resource_penalty_factor = -0.05
+            }
+        }
+
+        BUL_updated_policy = { #更新された統治方針
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_political_support
+            modifier = {
+                war_support_factor = 0.02
+                political_power_factor = 0.05
+                anarchism_drift = 0.05
+                conscription = 0.005
+            }
+        }
+
+        BUL_expand_revolutuin = { #革命の波及
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = SPR_international_brigades
+            modifier = {
+                war_support_factor = 0.1
+                conscription = 0.01
+                mobilization_speed = 0.1
+                justify_war_goal_time = -0.25
+                generate_wargoal_tension = -0.3
+            }
+        }
+
+        BUL_SER_observe = { #セルビア人の観察
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = tfv_can_conscription_crisis
+            modifier = {
+                resistance_damage_to_garrison = -0.05
+                occupation_cost = -0.05
+            }
+        }
+        BUL_SER_treatment = { #セルビア人の扱い
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = tfv_can_conscription_crisis
+            modifier = {
+                stability_factor = 0.03
+                resistance_damage_to_garrison = -0.05
+                occupation_cost = -0.05
+                non_core_manpower = 0.03
+                compliance_growth = 0.08
+            }
+        }
+        BUL_gov_occupy_territory = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = SPR_masters_of_our_own_fate
+            modifier = {
+                stability_factor = 0.05
+                resistance_damage_to_garrison = -0.05
+                occupation_cost = -0.05
+                non_core_manpower = 0.05
+                compliance_growth = 0.15
             }
         }
     }
@@ -1170,7 +1335,7 @@ ideas = {
             allowed = {
                 original_tag = BUL
             }
-            #picture =
+            picture = SSW_BUL_National_Military_University
             research_bonus = {
                 land_doctrine = 0.08
             }
@@ -1182,7 +1347,7 @@ ideas = {
             allowed = {
                 original_tag = BUL
             }
-            #picture =
+            picture = SSW_BUL_Nikola_Vaptsarov_Naval_Academy
             research_bonus = {
                 air_doctrine = 0.08
             }

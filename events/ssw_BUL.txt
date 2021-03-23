@@ -1532,38 +1532,10 @@ country_event = {
     option = {
         name = ssw_bul_hide.5.a
         trigger = {
-            AND = {
-                has_country_flag = BUL_not_killed_radical
-                has_country_flag = BUL_anarcy_flag
-            }
-            has_idea = BUL_political_instability
-        }
-        add_popularity = {
-            ideology = anarchism
-            popularity = 0.05
-        }
-        clr_country_flag = BUL_anarcy_flag
-        set_country_flag = BUL_anarchism_flag
-        country_event = {id = ssw_bul.32 days = 10}
-    }
-    option = {
-        name = ssw_bul_hide.5.b
-        trigger = {
-            has_country_flag = BUL_not_killed_radical
-            has_idea = BUL_political_instability
-        }
-        add_popularity = {
-            ideology = corporatocracism
-            popularity = 0.05
-        }
-        set_country_flag = BUL_corporatocracism_flag
-        country_event = {id = ssw_bul.32 days = 10}
-    }
-    option = {
-        name = ssw_bul_hide.5.a
-        trigger = {
             has_idea = BUL_political_instability
             has_country_flag = BUL_not_killed_radical
+            NOT = {has_government = anarchism}
+            NOT = {has_government = corporatocracism}
         }
         if = {
             limit = {
@@ -1591,6 +1563,8 @@ country_event = {
             OR = {
                 NOT = {has_idea = BUL_political_instability}
                 NOT = {has_country_flag = BUL_not_killed_radical}
+                has_government = anarchism
+                has_government = corporatocracism
             }
         }
     }
@@ -1706,6 +1680,9 @@ country_event = { #イギリスへの外交使節
     picture = GFX_report_event_gre_allied_diplomacy
     fire_only_once = yes
     is_triggered_only = yes
+    immediate = {
+        log = "BUL check"
+    }
     option = { #幸運を祈る
         name = ssw_bul.34.a
         trigger = {
@@ -1800,6 +1777,13 @@ country_event = { #ブルガリアが技術協力を提案
             modifier = {
                 has_war_with = BUL
                 factor = 0
+            }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
             }
         }
         add_ideas = BUL_research_cooperation_ENG
@@ -1914,6 +1898,13 @@ country_event = { #ブルガリアが歩兵銃の支援を求める
                 }
                 factor = 0
             }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
+            }
         }
         send_equipment = {
             type = infantry_equipment
@@ -1961,8 +1952,15 @@ country_event = { #ブルガリアが艦船の建造を依頼
             base = 70
             modifier = {
                 has_war = yes
+                factor = 0.7
             }
-            factor = 0.7
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
+            }
         }
         add_timed_idea = {
             idea = BUL_ship_price_ENG
@@ -2028,6 +2026,13 @@ country_event = { #ブルガリアが航空機の支援を求める
                 }
                 factor = 2
             }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
+            }
         }
         send_equipment = {
             type = fighter_equipment
@@ -2061,6 +2066,13 @@ country_event = { #ブルガリアが航空機の支援を求める
                     }
                 }
                 factor = 2
+            }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
             }
         }
         send_equipment = {
@@ -2144,6 +2156,8 @@ country_event = { #ブルガリアが独立保障を求める
     title = ssw_bul.45.t
     desc = ssw_bul.45.d
     picture = GFX_report_event_generic_sign_treaty1
+    fire_only_once = yes
+    is_triggered_only = yes
     immediate = {
         hidden_effect = {
             country_event = {id = ssw_bul.47 days = 1}
@@ -2170,6 +2184,13 @@ country_event = { #ブルガリアが独立保障を求める
                     value > 50
                 }
                 factor = 2
+            }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
             }
         }
         give_guarantee = BUL
@@ -2242,6 +2263,13 @@ country_event = { #ブルガリアが陣営への加入を打診
                     has_war = yes
                 }
                 factor = 0.1
+            }
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value < 0
+                }
+                factor = 0.7
             }
         }
         if = {
@@ -2340,3 +2368,173 @@ country_event = { #依頼の艦船が到着
         load_oob = BUL_event_navy
     }
 }
+
+country_event = { #ブルガリアがアナキストによる政府の解体を要求
+    id = ssw_bul.50
+    title = ssw_bul.50.t
+    desc = ssw_bul.50.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    picture = GFX_report_event_spr_anarchist_uprising
+    option = { #ふざけるな！
+        name = ssw_bul.50.a
+        ai_chance = {
+            base = 90
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio < 0.8
+                }
+                factor = 0.5
+            }
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio > 1.5
+                }
+                factor = 2
+            }
+            modifier = {
+                has_stability < 0.4
+                factor = 0.8
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.51}
+        }
+        hidden_effect = {
+            country_event = {id = ssw_bul.54 days = 15}
+        }
+    }
+    option = { #受け入れるしかない
+        name = ssw_bul.50.b
+        ai_chance = {
+            base = 10
+        }
+        BUL = {
+            country_event = {id = ssw_bul.52}
+        }
+    }
+}
+country_event = { #セルビアが要求を拒否
+    id = ssw_bul.51
+    title = ssw_bul.51.t
+    desc = ssw_bul.51.d
+    picture = GFX_report_event_spr_anarchist_uprising2
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #ならば戦争だ！
+        name = ssw_bul.51.a
+        ai_chance = {
+            base = 80
+            modifier = {
+                strength_ratio = {
+                    tag = SER
+                    ratio < 0.5
+                }
+                factor = 0.2
+            }
+        }
+        declare_war_on = {
+            target = SER
+            type = puppet_wargoal_focus
+        }
+    }
+    option = { #引くしかない…
+        name = ssw_bul.51.b
+        ai_chance = {
+            base = 20
+        }
+    }
+}
+country_event = { #セルビアが要求を受諾
+    id = ssw_bul.52
+    title = ssw_bul.52.t
+    desc = ssw_bul.52.d
+    picture = GFX_report_event_spr_anarchist_success
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構！
+        name = ssw_bul.52.a
+        puppet = SER
+        if = {
+            limit = {
+                SER = {
+                    NOT = {has_government = anarchism}
+                }
+            }
+            SER = {
+                set_politics = {
+                    ruling_party = anarchism
+                    elections_allowed = no
+                }
+                add_popularity = {
+                    ideology = anarchism
+                    popularity = 0.3
+                }
+            }
+        }
+    }
+}
+
+country_event = { #ブルガリアが従属を要求
+    id = ssw_bul.53
+    title = ssw_bul.53.t
+    desc = ssw_bul.53.d
+    picture = GFX_report_event_spr_anarchists
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #我々は独自で行く
+        name = ssw_bul.53.a
+        ai_chance = {
+            base = 70
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio < 0.8
+                }
+                factor = 0.5
+            }
+            modifier = {
+                strength_ratio = {
+                    tag = BUL
+                    ratio > 1.5
+                }
+                factor = 2
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.51}
+        }
+    }
+    option = { #それもありだな
+        name = ssw_bul.53.b
+        ai_chance = {
+            base = 30
+            modifier = {
+                has_opinion = {
+                    target = BUL
+                    value > 50
+                }
+                factor = 1.5
+            }
+        }
+        BUL = {
+            country_event = {id = ssw_bul.52}
+        }
+    }
+}
+
+country_event = { #アナーキストによる暴動
+    id = ssw_bul.54
+    title = ssw_bul.54.t
+    desc = ssw_bul.54.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    picture = GFX_report_event_spr_anarchists2
+    option = { #なんてことだ
+        name = ssw_bul.54.a
+        add_stability = -0.15
+        add_war_support = -0.2
+    }
+} 
