@@ -731,15 +731,15 @@ shared_focus = {
     y = 6
     completion_reward = {
         add_to_variable = {
-            var = Martial_Law_in_Serbia_var
+            var = Martial_Law_in_North_var
             value = 3
         }
         add_to_variable = {
-            var = Martial_Law_in_Morava_var
+            var = Martial_Law_in_Central_var
             value = 3
         }
         add_to_variable = {
-            var = Martial_Law_in_Kosovo_var
+            var = Martial_Law_in_South_var
             value = 3
         }
         add_days_remove = {
@@ -828,6 +828,20 @@ shared_focus = {
     x = 9
     y = 2
     completion_reward = {
+        add_stability = 0.10
+        activate_decision = SER_Establishment_of_Election_Committee
+        add_to_variable = {
+            var = Set_up_polling_station_North_var
+            value = 1
+        }
+        add_to_variable = {
+            var = Set_up_polling_station_in_Central_var
+            value = 1
+        }
+        add_to_variable = {
+            var = Set_up_polling_station_in_South_var
+            value = 1
+        }
     }
 }
 #暫定政府の招集
@@ -951,6 +965,22 @@ shared_focus = {
     mutually_exclusive = {
         }
     available = {
+        custom_trigger_tooltip = SER_Truly_free_and_fair_elections_trigger_tooltip
+        check_variable = {
+            var = Set_up_polling_station_North_var
+            value = 2
+            compare = equals
+        }
+        check_variable = {
+            var = Set_up_polling_station_in_Central_var
+            value = 2
+            compare = equals
+        }
+        check_variable = {
+            var = Set_up_polling_station_in_South_var
+            value = 2
+            compare = equals
+        }
     }
     ai_will_do = {
         factor = 5
@@ -2225,7 +2255,7 @@ shared_focus = {
 #ユーゴスラビアの復活
 shared_focus = {
     id = SER_Resurgence_of_Yugoslavia
-    icon = GFX_focus_generic_treaty
+    icon = GFX_SER_Resurgence_of_Yugoslavia
     cost = 8.00
     prerequisite = {
         focus = SER_Winer

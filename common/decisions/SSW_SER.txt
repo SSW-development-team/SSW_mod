@@ -1,20 +1,39 @@
 SER_Gradual_lifting_of_martial_law = {
-    SER_Gradual_lifting_of_martial_law_in_Serbia_first = {
+    SER_Gradual_lifting_of_martial_law_in_North_first = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            107 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Serbia_var
-                value = 3
-                compare = equals
+            OR = {
+                109 = {
+                    is_owned_by = SER
+                }
+                104 = {
+                    is_owned_by = SER
+                }
+                971 = {
+                    is_owned_by = SER
+                }
+                764 = {
+                    is_owned_by = SER
+                }
+                45 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_North_var
+            value = 3
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -22,27 +41,47 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Serbia_var
+                var = Martial_Law_in_North_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_North_first_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Serbia_second = {
+    SER_Gradual_lifting_of_martial_law_in_North_second = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            107 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Serbia_var
-                value = 2
-                compare = equals
+            OR = {
+                109 = {
+                    is_owned_by = SER
+                }
+                104 = {
+                    is_owned_by = SER
+                }
+                971 = {
+                    is_owned_by = SER
+                }
+                764 = {
+                    is_owned_by = SER
+                }
+                45 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_North_var
+            value = 2
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -50,27 +89,47 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Serbia_var
+                var = Martial_Law_in_North_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_North_second_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Serbia_third = {
+    SER_Gradual_lifting_of_martial_law_in_North_third = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            107 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Serbia_var
-                value = 1
-                compare = equals
+            OR = {
+                109 = {
+                    is_owned_by = SER
+                }
+                104 = {
+                    is_owned_by = SER
+                }
+                971 = {
+                    is_owned_by = SER
+                }
+                764 = {
+                    is_owned_by = SER
+                }
+                45 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_North_var
+            value = 1
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -78,28 +137,48 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Serbia_var
+                var = Martial_Law_in_North_var
                 value = -1
             }
             set_country_flag = SER_Lifting_martial_law_Serbia
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_North_third_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Morava_first = {
+    SER_Gradual_lifting_of_martial_law_in_Central_first = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            108 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Morava_var
-                value = 3
-                compare = equals
+            OR = {
+                976 = {
+                    is_owned_by = SER
+                }
+                972 = {
+                    is_owned_by = SER
+                }
+                107 = {
+                    is_owned_by = SER
+                }
+                105 = {
+                    is_owned_by = SER
+                }
+                977 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_Central_var
+            value = 3
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -107,27 +186,47 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Morava_var
+                var = Martial_Law_in_Central_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_Central_first_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Morava_second = {
+    SER_Gradual_lifting_of_martial_law_in_Central_second = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            108 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Morava_var
-                value = 2
-                compare = equals
+            OR = {
+                976 = {
+                    is_owned_by = SER
+                }
+                972 = {
+                    is_owned_by = SER
+                }
+                107 = {
+                    is_owned_by = SER
+                }
+                105 = {
+                    is_owned_by = SER
+                }
+                977 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_Central_var
+            value = 2
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -135,27 +234,47 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Morava_var
+                var = Martial_Law_in_Central_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_Central_second_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Morava_third = {
+    SER_Gradual_lifting_of_martial_law_in_Central_third = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            108 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Morava_var
-                value = 1
-                compare = equals
+            OR = {
+                976 = {
+                    is_owned_by = SER
+                }
+                972 = {
+                    is_owned_by = SER
+                }
+                107 = {
+                    is_owned_by = SER
+                }
+                105 = {
+                    is_owned_by = SER
+                }
+                977 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_Central_var
+            value = 1
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -163,28 +282,45 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Morava_var
+                var = Martial_Law_in_Central_var
                 value = -1
             }
             set_country_flag = SER_Lifting_martial_law_Morava
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_Central_third_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Kosovo_first = {
+    SER_Gradual_lifting_of_martial_law_in_South_first = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            802 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Kosovo_var
-                value = 3
-                compare = equals
+            OR = {
+                108 = {
+                    is_owned_by = SER
+                }
+                802 = {
+                    is_owned_by = SER
+                }
+                975 = {
+                    is_owned_by = SER
+                }
+                803 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_South_var
+            value = 3
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -192,27 +328,44 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Kosovo_var
+                var = Martial_Law_in_South_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_South_first_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Kosovo_second = {
+    SER_Gradual_lifting_of_martial_law_in_South_second = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            802 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Kosovo_var
-                value = 2
-                compare = equals
+            OR = {
+                108 = {
+                    is_owned_by = SER
+                }
+                802 = {
+                    is_owned_by = SER
+                }
+                975 = {
+                    is_owned_by = SER
+                }
+                803 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_South_var
+            value = 2
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -220,27 +373,44 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Kosovo_var
+                var = Martial_Law_in_South_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_South_second_tooltip
 		}
     }
-    SER_Gradual_lifting_of_martial_law_in_Kosovo_third = {
+    SER_Gradual_lifting_of_martial_law_in_South_third = {
         icon = generic_speech #アイコン
 		ai_will_do = {
 			factor = 12 #AIが踏む確率
 		}
 		allowed = {
 			original_tag = SER #踏めるようになる条件
-            owns_state = 107
+            802 = {
+                is_owned_by = SER
+            }
             has_stability > 0.05
-            check_variable = {
-                var = Martial_Law_in_Kosovo_var
-                value = 1
-                compare = equals
+            OR = {
+                108 = {
+                    is_owned_by = SER
+                }
+                802 = {
+                    is_owned_by = SER
+                }
+                975 = {
+                    is_owned_by = SER
+                }
+                803 = {
+                    is_owned_by = SER
+                }
             }
 		}
 		visible = { #見えるようになる条件
+        check_variable = {
+            var = Martial_Law_in_South_var
+            value = 1
+            compare = equals
+        }
 		}
 		cost = 30 #消費する政治力
 		fire_only_once = yes #何回も使えるか
@@ -248,9 +418,10 @@ SER_Gradual_lifting_of_martial_law = {
 		remove_effect = {
             add_stability = -0.05
             add_to_variable = {
-                var = Martial_Law_in_Kosovo_var
+                var = Martial_Law_in_South_var
                 value = -1
             }
+            custom_effect_tooltip = SER_Gradual_lifting_of_martial_law_in_South_third_tooltip
             set_country_flag = SER_Lifting_martial_law_Kosovo
 		}
     }
@@ -267,21 +438,22 @@ SER_Gradual_lifting_of_martial_law = {
 		fire_only_once = yes #何回も使えるか
 		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
 		remove_effect = {
+            custom_effect_tooltip = SER_martial_law_time_limit_tooltip
             if = {
                 limit = {
                     OR = {
                         check_variable = {
-                            var = Martial_Law_in_Serbia_var
+                            var = Martial_Law_in_North_var
                             value = 3
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Morava_var
+                            var = Martial_Law_in_Central_var
                             value = 3
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Kosovo_var
+                            var = Martial_Law_in_South_var
                             value = 3
                             compare = equals
                         }
@@ -299,17 +471,17 @@ SER_Gradual_lifting_of_martial_law = {
                 limit = {
                     OR = {
                         check_variable = {
-                            var = Martial_Law_in_Serbia_var
+                            var = Martial_Law_in_North_var
                             value = 2
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Morava_var
+                            var = Martial_Law_in_Central_var
                             value = 2
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Kosovo_var
+                            var = Martial_Law_in_South_var
                             value = 2
                             compare = equals
                         }
@@ -327,17 +499,17 @@ SER_Gradual_lifting_of_martial_law = {
                 limit = {
                     OR = {
                         check_variable = {
-                            var = Martial_Law_in_Serbia_var
+                            var = Martial_Law_in_North_var
                             value = 1
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Morava_var
+                            var = Martial_Law_in_Central_var
                             value = 1
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Kosovo_var
+                            var = Martial_Law_in_South_var
                             value = 1
                             compare = equals
                         }
@@ -355,17 +527,17 @@ SER_Gradual_lifting_of_martial_law = {
                 limit = {
                     AND = {
                         check_variable = {
-                            var = Martial_Law_in_Serbia_var
+                            var = Martial_Law_in_North_var
                             value = 0
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Morava_var
+                            var = Martial_Law_in_Central_var
                             value = 0
                             compare = equals
                         }
                         check_variable = {
-                            var = Martial_Law_in_Kosovo_var
+                            var = Martial_Law_in_South_var
                             value = 0
                             compare = equals
                         }
@@ -595,6 +767,146 @@ SER_Restoration_of_Greater_Serbia_territory = {
                 45 = {
                     add_core_of = ROOT
                 }
+            }
+		}
+    }
+}
+SER_Establishment_of_Election_Committee = {
+    SER_Set_up_polling_station_North = {
+        icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+            has_political_power > 25
+            has_manpower > 250
+            OR = {
+                109 = {
+                    is_owned_by = SER
+                }
+                104 = {
+                    is_owned_by = SER
+                }
+                971 = {
+                    is_owned_by = SER
+                }
+                764 = {
+                    is_owned_by = SER
+                }
+                45 = {
+                    is_owned_by = SER
+                }
+            }
+		}
+		visible = { #見えるようになる条件
+        check_variable = {
+            var = Set_up_polling_station_North_var
+            value = 1
+            compare = equals
+        }
+		}
+		cost = 25 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 45 #決定したときにディシジョンを取得しきれる日数
+        state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_array = SER.core_states
+		remove_effect = {
+            add_manpower = -250
+            add_to_variable = {
+                var = Set_up_polling_station_North_var
+                value = 1
+            }
+		}
+    }
+    SER_Set_up_polling_station_in_Central = {
+        icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+            has_political_power > 25
+            has_manpower > 250
+            OR = {
+                976 = {
+                    is_owned_by = SER
+                }
+                972 = {
+                    is_owned_by = SER
+                }
+                107 = {
+                    is_owned_by = SER
+                }
+                105 = {
+                    is_owned_by = SER
+                }
+                977 = {
+                    is_owned_by = SER
+                }
+            }
+		}
+		visible = { #見えるようになる条件
+        check_variable = {
+            var = Set_up_polling_station_in_Central_var
+            value = 1
+            compare = equals
+        }
+		}
+		cost = 25 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 45 #決定したときにディシジョンを取得しきれる日数
+        state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_array = SER.core_states
+		remove_effect = {
+            add_manpower = -250
+            add_to_variable = {
+                var = Set_up_polling_station_in_Central_var
+                value = 1
+            }
+		}
+    }
+    SER_Set_up_polling_station_in_South = {
+        icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+            has_political_power > 25
+            has_manpower > 250
+            OR = {
+                108 = {
+                    is_owned_by = SER
+                }
+                802 = {
+                    is_owned_by = SER
+                }
+                975 = {
+                    is_owned_by = SER
+                }
+                803 = {
+                    is_owned_by = SER
+                }
+            }
+		}
+		visible = { #見えるようになる条件
+        check_variable = {
+            var = Set_up_polling_station_in_South_var
+            value = 1
+            compare = equals
+        }
+		}
+		cost = 25 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 45 #決定したときにディシジョンを取得しきれる日数
+        state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_array = SER.core_states
+		remove_effect = {
+            add_manpower = -250
+            add_to_variable = {
+                var = Set_up_polling_station_in_South_var
+                value = 1
             }
 		}
     }
