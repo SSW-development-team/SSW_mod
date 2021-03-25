@@ -928,6 +928,20 @@ Balkan_fede_concept = {
         }
         ai_will_do= {
             factor = 5
+            modifier = {
+                strength_ratio = {
+                    tag = FROM
+                    ratio < 0.8
+                }
+                factor = 0
+            }
+            modifier = {
+                strength_ratio = {
+                    tag = FROM
+                    ratio > 2
+                }
+                factor = 2
+            }
         }
         cost = 100
         icon = generic_political_discourse
