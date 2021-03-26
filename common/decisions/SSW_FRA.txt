@@ -1,9 +1,65 @@
 FRA_Kenryoku_toso = {#権力闘争
 
-	FRA_dec_Worker_support = {#労働者への支援
+	FRA_dec_Opposition_demonstrations = { #タイムイベ
 		icon = eng_trade_unions_support
 		available = {
-				
+
+		}
+
+		activation = {
+			has_country_flag = FRA_Opposition_demonstrations
+		}
+
+		is_good = no
+
+		days_mission_timeout = 30
+
+		fire_only_once = yes
+
+		timeout_effect = {
+			custom_effect_tooltip = pawer_up_regi
+			hidden_effect = {
+				add_to_variable = {
+					var = political_strife_regi
+					value = 1
+				}
+			}
+			custom_effect_tooltip = pawer_up_mil
+			hidden_effect ={
+				add_to_variable = {
+					var = political_strife_mil
+					value = 1
+				}
+			}
+		}
+	}
+
+	FRA_dec_Dealing_with_opposition_demonstrations = {
+		icon = eng_trade_unions_support
+		visible = {
+			has_decision = FRA_dec_Opposition_demonstrations
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+
+		remove_effect = {
+			custom_effect_tooltip = pawer_up_gov
+			hidden_effect = {
+				add_to_variable = {
+					var = political_strife_gov
+					value = 2
+				}
+			}
+		}
+		
+	}
+
+	FRA_dec_Worker_support = {#労働者への支援
+		icon = eng_trade_unions_support
+		visible = {
+			always = no
 		}
 		ai_will_do = {
 			factor = 100
@@ -26,13 +82,13 @@ FRA_Kenryoku_toso = {#権力闘争
 
 	FRA_dec_Opposition_crackdown = {#反対派の弾圧
 		icon = eng_trade_unions_support
-		available = {
-				
+		visible = {
+			always = no	
 		}
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 1
 		days_remove = 20
 		modifier = {
 			
@@ -42,7 +98,7 @@ FRA_Kenryoku_toso = {#権力闘争
 			hidden_effect ={
 				add_to_variable = {
 					var = political_strife_regi
-					value = 10
+					value = 1
 				}
 			}
 		}
@@ -50,8 +106,8 @@ FRA_Kenryoku_toso = {#権力闘争
 
 	FRA_dec_Democratic_arrest = {#民主主義者の逮捕
 		icon = eng_trade_unions_support
-		available = {
-				
+		visible = {
+			always = no	
 		}
 		ai_will_do = {
 			factor = 100
@@ -70,14 +126,13 @@ FRA_Kenryoku_toso = {#権力闘争
 					value = 25
 				}
 			}
-			
 		}
 	}
 
 	FRA_dec_Media_acquisition = {#メディアの買収
 		icon = eng_trade_unions_support
-		available = {
-				
+		visible = {
+			always = no	
 		}
 		ai_will_do = {
 			factor = 100
