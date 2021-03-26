@@ -27,6 +27,12 @@ focus_tree = {
 		id = HUN_2
 		icon = GFX_focus_hun_elect_a_king
 		prerequisite = { focus = HUN_1 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_1
@@ -64,6 +70,12 @@ focus_tree = {
 			focus = HUN_7
 			focus = HUN_8
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -11
 		y = 1
 		relative_position_id = HUN_2
@@ -96,6 +108,12 @@ focus_tree = {
 			focus = HUN_6
 			focus = HUN_7
 			focus = HUN_8
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
 		}
 		prerequisite = { focus = HUN_2 }
 		x = -9
@@ -132,6 +150,12 @@ focus_tree = {
 			focus = HUN_7
 			focus = HUN_8
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -7
 		y = 1
 		relative_position_id = HUN_2
@@ -166,6 +190,12 @@ focus_tree = {
 			focus = HUN_9
 			focus = HUN_8
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -4
 		y = 1
 		relative_position_id = HUN_2
@@ -174,6 +204,14 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			if = {
+				limit = { has_idea = HUN_restoration_flame_1 }
+				swap_ideas = {
+					remove_idea = HUN_restoration_flame_1
+					add_idea = hun_ideas_2
+				}
+				else = { add_ideas = hun_ideas_2 }
+			}
 			add_popularity = {
 				ideology = authority_despotism
 				popularity = 0.15
@@ -191,6 +229,12 @@ focus_tree = {
 			focus = HUN_7
 			focus = HUN_9
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		prerequisite = { focus = HUN_2 }
 		x = -2
 		y = 1
@@ -200,8 +244,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			if = {
+				limit = { has_idea = HUN_restoration_flame_1 }
+				swap_ideas = {
+					remove_idea = HUN_restoration_flame_1
+					add_idea = hun_ideas_6
+				}
+				else = { add_ideas = hun_ideas_6 }
+			}
 			add_popularity = {
-				ideology = authority_despotism
+				ideology = national_fascism
 				popularity = 0.15
 			}
 			add_stability = 0.05
@@ -218,6 +270,12 @@ focus_tree = {
 			focus = HUN_7
 			focus = HUN_8
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_2
@@ -226,6 +284,14 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			if = {
+				limit = { has_idea = HUN_restoration_flame_1 }
+				swap_ideas = {
+					remove_idea = HUN_restoration_flame_1
+					add_idea = hun_ideas_7
+				}
+				else = { add_ideas = hun_ideas_7 }
+			}
 			add_popularity = {
 				ideology = authority_despotism
 				popularity = 0.15
@@ -303,6 +369,12 @@ focus_tree = {
 		id = HUN_13
 		icon = GFX_focus_generic_home_defense
 		prerequisite = { focus = HUN_4 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_4
@@ -311,7 +383,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			#country_event = { id = ssw_hun.0 }
+			country_event = { id = ssw_hun.0 }
 		}
 	}
 	focus = {
@@ -319,6 +391,12 @@ focus_tree = {
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		prerequisite = { focus = HUN_5 }
 		mutually_exclusive = { focus = HUN_15 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_5
@@ -327,7 +405,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			#ENG = { country_event = { id = ssw_hun.1 } }
+			ENG = { country_event = { id = ssw_hun.1 days = 1 } }
 		}
 	}
 	focus = {
@@ -335,6 +413,12 @@ focus_tree = {
 		icon = GFX_focus_eng_bring_the_dominions_back_into_the_fold
 		prerequisite = { focus = HUN_5 }
 		mutually_exclusive = { focus = HUN_14 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_5
@@ -343,13 +427,19 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			#ENG = { country_event = { id = ssw_hun.2 } }
+			ENG = { country_event = { id = ssw_hun.2 days = 1 } }
 		}
 	}
 	focus = {
 		id = HUN_16
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = HUN_6 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_6
@@ -365,6 +455,12 @@ focus_tree = {
 		id = HUN_17
 		icon = GFX_focus_generic_support_the_left_right
 		prerequisite = { focus = HUN_7 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_7
@@ -373,13 +469,19 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			country_event = { id = ssw_hun.6 days = 1 }
 		}
 	}
 	focus = {
 		id = HUN_18
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = HUN_8 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_8
@@ -388,7 +490,24 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			retire_ideology_leader = national_fascism
+			create_country_leader = {
+				name = "Princess Maria Francesca"
+				desc = ""
+				picture = "gfx/leaders/HUN/Portrait_Hungary_Maria_Francesca.dds"
+				expire = "2001.12.7"
+				ideology = national_fascism_ideology
+				traits = {
+				}
+			}
+			set_politics = {
+				ruling_party = national_fascism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.2
+			}
 		}
 	}
 	focus = {
@@ -456,7 +575,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			custom_effect_tooltip = kari_kouka_tt
+			
 		}
 	}
 	focus = {
@@ -471,7 +590,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			custom_effect_tooltip = kari_kouka_tt
+			
 		}
 	}
 	focus = {
@@ -496,6 +615,12 @@ focus_tree = {
 		id = HUN_25
 		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = HUN_13 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_13
@@ -511,6 +636,12 @@ focus_tree = {
 		id = HUN_26
 		icon = GFX_goal_generic_build_tank
 		prerequisite = { focus = HUN_14 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_14
@@ -526,6 +657,12 @@ focus_tree = {
 		id = HUN_27
 		icon = GFX_goal_generic_build_airforce
 		prerequisite = { focus = HUN_15 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_15
@@ -541,6 +678,12 @@ focus_tree = {
 		id = HUN_28
 		icon = GFX_focus_generic_japanese_imperial_glory
 		prerequisite = { focus = HUN_16 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_16
@@ -556,6 +699,12 @@ focus_tree = {
 		id = HUN_29
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = HUN_17 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_17
@@ -571,6 +720,12 @@ focus_tree = {
 		id = HUN_30
 		icon = GFX_focus_generic_italy_first
 		prerequisite = { focus = HUN_18 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_18
@@ -586,6 +741,12 @@ focus_tree = {
 		id = HUN_31
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = HUN_9 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = HUN_9
@@ -693,6 +854,12 @@ focus_tree = {
 		id = HUN_38
 		icon = GFX_goal_generic_national_unity
 		prerequisite = { focus = HUN_25 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_25
@@ -708,6 +875,12 @@ focus_tree = {
 		id = HUN_39
 		icon = GFX_goal_generic_alliance
 		prerequisite = { focus = HUN_26 focus = HUN_27 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_26
@@ -724,6 +897,12 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = HUN_28 }
 		mutually_exclusive = { focus = HUN_41 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_28
@@ -740,6 +919,12 @@ focus_tree = {
 		icon = GFX_focus_generic_join_comintern
 		prerequisite = { focus = HUN_28 }
 		mutually_exclusive = { focus = HUN_40 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_28
@@ -755,6 +940,12 @@ focus_tree = {
 		id = HUN_42
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = HUN_29 focus = HUN_30 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		mutually_exclusive = { focus = HUN_43 }
 		x = 1
 		y = 1
@@ -772,6 +963,12 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = HUN_31 focus = HUN_30 }
 		mutually_exclusive = { focus = HUN_42 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_30
@@ -887,6 +1084,12 @@ focus_tree = {
 			focus = HUN_54
 			focus = HUN_55
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_38
@@ -908,6 +1111,12 @@ focus_tree = {
 			focus = HUN_53
 			focus = HUN_54
 			focus = HUN_55
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
 		}
 		x = 0
 		y = 1
@@ -931,6 +1140,12 @@ focus_tree = {
 			focus = HUN_54
 			focus = HUN_55
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_40
@@ -953,6 +1168,12 @@ focus_tree = {
 			focus = HUN_54
 			focus = HUN_55
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_41
@@ -974,6 +1195,12 @@ focus_tree = {
 			focus = HUN_53
 			focus = HUN_52
 			focus = HUN_55
+		}
+		available = {
+			OR = {
+				has_completed_focus = HUN_10
+				has_completed_focus = HUN_11
+			}
 		}
 		x = 0
 		y = 1
@@ -1001,6 +1228,12 @@ focus_tree = {
 			focus = HUN_52
 			focus = HUN_53
 			focus = HUN_54
+		}
+		available = {
+			OR = {
+				has_completed_focus = HUN_10
+				has_completed_focus = HUN_11
+			}
 		}
 		x = 5
 		y = 1
@@ -1049,6 +1282,14 @@ focus_tree = {
 		prerequisite = { focus = HUN_48 }
 		prerequisite = { focus = HUN_49 }
 		mutually_exclusive = { focus = HUN_59 }
+		available = {
+			has_completed_focus = HUN_12
+			OR = {
+				has_completed_focus = HUN_7
+				has_completed_focus = HUN_8
+				has_completed_focus = HUN_9
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_49
@@ -1065,6 +1306,14 @@ focus_tree = {
 		icon = GFX_goal_anschluss
 		prerequisite = { focus = HUN_49 }
 		mutually_exclusive = { focus = HUN_58 }
+		available = {
+			has_completed_focus = HUN_12
+			OR = {
+				has_completed_focus = HUN_7
+				has_completed_focus = HUN_8
+				has_completed_focus = HUN_9
+			}
+		}
 		x = 2
 		y = 1
 		relative_position_id = HUN_49
@@ -1080,6 +1329,12 @@ focus_tree = {
 		id = HUN_60
 		icon = GFX_focus_chi_reach_out_to_france
 		prerequisite = { focus = HUN_50 focus = HUN_51 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_50
@@ -1095,6 +1350,12 @@ focus_tree = {
 		id = HUN_61
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = HUN_51 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_51
@@ -1110,6 +1371,12 @@ focus_tree = {
 		id = HUN_62
 		icon = GFX_focus_generic_military_mission
 		prerequisite = { focus = HUN_52 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_52
@@ -1125,6 +1392,12 @@ focus_tree = {
 		id = HUN_63
 		icon = GFX_goal_generic_consumer_goods
 		prerequisite = { focus = HUN_53 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 2
 		y = 1
 		relative_position_id = HUN_53
@@ -1261,6 +1534,12 @@ focus_tree = {
 		id = HUN_72
 		icon = GFX_focus_focus_fra_national_resistance_council
 		prerequisite = { focus = HUN_50 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = HUN_50
@@ -1276,6 +1555,12 @@ focus_tree = {
 		id = HUN_73
 		icon = GFX_goal_generic_construct_civilian
 		prerequisite = { focus = HUN_61 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_61
@@ -1291,6 +1576,12 @@ focus_tree = {
 		id = HUN_74
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = HUN_61 focus = HUN_62 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_61
@@ -1306,6 +1597,12 @@ focus_tree = {
 		id = HUN_75
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		prerequisite = { focus = HUN_62 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_62
@@ -1321,6 +1618,13 @@ focus_tree = {
 		id = HUN_76
 		icon = GFX_focus_BUL_balkan_federation_of_socialist_republics
 		prerequisite = { focus = HUN_63 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+			
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_63
@@ -1336,6 +1640,13 @@ focus_tree = {
 		id = HUN_77
 		icon = GFX_goal_generic_war_with_comintern
 		prerequisite = { focus = HUN_63 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+			
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_63
@@ -1473,6 +1784,12 @@ focus_tree = {
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = HUN_60 }
 		prerequisite = { focus = HUN_72 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = HUN_60
@@ -1489,6 +1806,12 @@ focus_tree = {
 		icon = GFX_focus_generic_military_mission
 		prerequisite = { focus = HUN_73 }
 		prerequisite = { focus = HUN_74 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_73
@@ -1505,6 +1828,12 @@ focus_tree = {
 		icon = GFX_focus_ger_return_of_the_kaiser
 		prerequisite = { focus = HUN_74 }
 		prerequisite = { focus = HUN_75 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_74
@@ -1520,6 +1849,12 @@ focus_tree = {
 		id = HUN_89
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
 		prerequisite = { focus = HUN_63 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_a_republic_tt
+				NOT = { has_cosmetic_tag = HUN_republic }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = HUN_63

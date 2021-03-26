@@ -543,3 +543,249 @@ country_event = { #ÉgÉDÉîÉ@ÇÃâ^ñΩ
 		set_country_flag = continue_to_occupy_tuva
 	}
 }
+country_event = { #É|Å[ÉâÉìÉhÇÃâ^ñΩ
+	id = ssw_foc_eastern_europe.2
+	title = ssw_foc_eastern_europe.2.title
+	desc = ssw_foc_eastern_europe.2.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.2.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_POL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			POL = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = POL
+	}
+	option = {
+		name = ssw_foc_eastern_europe.2.b
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				GAL = { is_subject_of = ROOT }
+				is_in_faction_with = GAL
+				original_tag = GAL
+			}
+			LMK = { capital_scope = { is_fully_controlled_by = GAL } }
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_POL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GAL = {
+				transfer_state = PREV
+				set_cosmetic_tag = POL
+			}
+			add_core_of = GAL
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.2.c
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				LMK = { is_subject_of = ROOT }
+				is_in_faction_with = LMK
+				original_tag = LMK
+			}
+			GAL = { capital_scope = { is_fully_controlled_by = LMK } }
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_POL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			LMK = {
+				transfer_state = PREV
+				set_cosmetic_tag = POL
+			}
+			add_core_of = LMK
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_poland
+	}
+}
+country_event = { #ÉKÉäÉcÉBÉAÅÅÉçÉhÉÅÉäÉAÇÃâ^ñΩ
+	id = ssw_foc_eastern_europe.3
+	title = ssw_foc_eastern_europe.3.title
+	desc = ssw_foc_eastern_europe.3.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.3.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GAL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GAL = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = GAL
+	}
+	option = {
+		name = ssw_foc_eastern_europe.3.b
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				POL = { is_subject_of = ROOT }
+				is_in_faction_with = POL
+				original_tag = POL
+			}
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GAL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			POL = { transfer_state = PREV }
+			add_core_of = POL
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.3.c
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				LMK = { is_subject_of = ROOT }
+				is_in_faction_with = LMK
+				original_tag = LMK
+			}
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GAL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			LMK = {
+				transfer_state = PREV
+				set_cosmetic_tag = GAL
+			}
+			add_core_of = LMK
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_galicia_lodomeria
+	}
+}
+country_event = { #ÉåÉÄÉRÇÃâ^ñΩ
+	id = ssw_foc_eastern_europe.4
+	title = ssw_foc_eastern_europe.4.title
+	desc = ssw_foc_eastern_europe.4.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.4.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_LMK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			LMK = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = LMK
+	}
+	option = {
+		name = ssw_foc_eastern_europe.4.b
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				POL = { is_subject_of = ROOT }
+				is_in_faction_with = POL
+				original_tag = POL
+			}
+			GAL = { capital_scope = { is_fully_controlled_by = POL } }
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_LMK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			POL = { transfer_state = PREV }
+			add_core_of = POL
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.4.c
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				GAL = { is_subject_of = ROOT }
+				is_in_faction_with = GAL
+				original_tag = GAL
+			}
+		}
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_LMK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GAL = { transfer_state = PREV }
+			add_core_of = GAL
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_galicia_lodomeria
+	}
+}

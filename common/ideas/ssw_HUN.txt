@@ -1,9 +1,40 @@
 ideas = {
+	naval_manufacturer = {
+		designer = yes
+		HUN_ganz_danubius = {
+			picture = generic_naval_manufacturer_1
+			available = { has_completed_focus = HUN_naval_warfare }
+			allowed = { original_tag = HUN }
+			cost = 150
+			research_bonus = { naval_equipment = 0.15 }
+			traits = { naval_manufacturer }
+		}
+	}
+	industrial_concern = {
+		HUN_mavag = {
+			picture = generic_industrial_concern_1
+			allowed = { original_tag = HUN }
+			cost = 150
+			research_bonus = { industry = 0.15 }
+			traits = { industrial_concern }
+		}
+	}
+	materiel_manufacturer = {
+		designer = yes
+		HUN_femaru_fegyver_es_gepgyar = {
+			picture = generic_infantry_equipment_manufacturer_2
+			allowed = { original_tag = HUN }
+			cost = 150
+			research_bonus = { infantry_weapons = 0.15 }
+			traits = { infantry_equipment_manufacturer }
+		}
+	}
 	aircraft_manufacturer = { 
 		designer = yes
 		Szent_Istburn_ege = {
 			allowed = { original_tag = HUN }
-			available = { date < 1956.06.01 }
+			cost = 150
+			available = { date < 1956.6.1 }
 			research_bonus = { air_equipment = 0.10 }
 			equipment_bonus = {
 				jet_muitirole_equipment = {
@@ -17,7 +48,7 @@ ideas = {
 		}
 		Szent_Istburn_ege_2 = {
 			allowed = { original_tag = HUN }
-			available = { date < 1956.06.01 }
+			available = { date < 1956.6.1 }
 			research_bonus = { air_equipment = 0.05 }
 			equipment_bonus = {
 				jet_muitirole_equipment = {
@@ -31,20 +62,32 @@ ideas = {
 		}
 	}
 	country = {
-		HUN_restoration_flame_1 = {
+		HUN_restoration_flame_1 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
 			picture = HUN_hungarian_monarchy
 			modifier = {
 				authority_despotism_drift = 0.05
 				stability_weekly = 0.02
 			}
 		}
-		HUN_restoration_flame_2 = {
+		HUN_restoration_flame_2 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
 			name = HUN_restoration_flame_1
 			picture = HUN_hungarian_monarchy
 			modifier = {
@@ -52,10 +95,16 @@ ideas = {
 				stability_weekly = 0.02
 			}
 		}
-		HUN_restoration_flame_3 = {
+		HUN_restoration_flame_3 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
 			name = HUN_restoration_flame_1
 			picture = HUN_hungarian_monarchy
 			modifier = {
@@ -63,10 +112,16 @@ ideas = {
 				stability_weekly = 0.02
 			}
 		}
-		HUN_restoration_flame_4 = {
+		HUN_restoration_flame_4 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
 			name = HUN_restoration_flame_1
 			picture = HUN_hungarian_monarchy
 			modifier = {
@@ -74,10 +129,16 @@ ideas = {
 				stability_weekly = 0.02
 			}
 		}
-		HUN_restoration_flame_5 = {
+		HUN_restoration_flame_5 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
 			name = HUN_restoration_flame_1
 			picture = HUN_hungarian_monarchy
 			modifier = {
@@ -85,21 +146,21 @@ ideas = {
 				stability_weekly = 0.02
 			}
 		}
-		HUN_investing_in_laboratories_1 = {
+		HUN_investing_in_laboratories_1 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
 			picture = generic_research_bonus
 			modifier = { research_speed_factor = 0.07 }
 		}
-		HUN_investing_in_laboratories_2 = {
+		HUN_investing_in_laboratories_2 = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
 			picture = generic_research_bonus
 			modifier = { research_speed_factor = 0.15 }
 		}
-		HUN_heroism = {
+		HUN_heroism = { #不明
 			allowed = { always = yes }
 			removal_cost = -1
 			allowed_civil_war = { always = yes }
@@ -111,7 +172,7 @@ ideas = {
 				offence = 0.07
 			}
 		}
-		HUN_secret_rearmament = {
+		HUN_secret_rearmament = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -120,7 +181,7 @@ ideas = {
 				industrial_capacity_factory = 0.05
 			}
 		}
-		HUN_invite_foreign_investors = {
+		HUN_invite_foreign_investors = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -130,28 +191,28 @@ ideas = {
 				production_speed_industrial_complex_factor = 0.1
 			}
 		}
-		HUN_indigenous_designs = {
+		HUN_indigenous_designs = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = generic_air_research
 			research_bonus = { air_equipment = 0.15 }
 		}
-		HUN_license_foreign = {
+		HUN_license_foreign = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = generic_license_production
 			modifier = { license_air_purchase_cost = -0.5 }
 		}
-		HUN_naval_warfare = {
+		HUN_naval_warfare = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = { industrial_capacity_dockyard = 0.1 }
 		}
-		HUN_assault_gun_focus = {
+		HUN_assault_gun_focus = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -169,6 +230,110 @@ ideas = {
 					build_cost_ic = -0.1
 					instant = yes
 				}
+			}
+		}
+		HUN_prince_henry = { #グロスター公ヘンリー
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = { stability_factor = 0.1 }
+		}
+		HUN_princess_alexandra = { #ファイフ公アレクサンドラ
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = { stability_factor = 0.1 }
+		}
+		HUN_prince_carnegie = { #ファイフ公カーネギー
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = { stability_factor = 0.1 }
+		}
+		hun_ideas_2 = { #回顧主義の台頭
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				authority_despotism_drift = 0.05
+			}
+		}
+		hun_ideas_3 = { #ハプスブルク家の帰還
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				authority_despotism_drift = 0.1
+			}
+		}
+		hun_ideas_4 = { #節度ある君主権
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				defensive_war_stability_factor = 0.2
+			}
+		}
+		hun_ideas_5 = { #強力な君主権
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				offensive_war_stability_factor = 0.2
+			}
+		}
+		hun_ideas_6 = { #イタリアの影響
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				national_fascism_drift = 0.05
+			}
+		}
+		hun_ideas_7 = { #摂政への信頼
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = not_a_republic_tt
+					NOT = { has_cosmetic_tag = HUN_republic }
+				}
+			}
+			modifier = {
+				authority_despotism_drift = 0.05
+				stability_factor = 0.1
+				research_speed_factor = 0.02
 			}
 		}
 	}

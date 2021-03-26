@@ -219,16 +219,6 @@ on_actions = {
 				limit = { is_core_of = ROM }
 				set_state_flag = maybe_core_ROM_GAMESTART
 			}
-			#スロヴァキア(請求権)(中核州)(ゲーム開始時)
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = SLO
-						is_claimed_by = SLO
-					}
-				}
-				set_state_flag = maybe_core_claim_SLO_GAMESTART
-			}
 ##############################   中核州(削除済み)   ##############################
 			#ヴュルテンベルク(中核州)(ゲーム開始時)
 			50 = { set_state_flag = maybe_core_WUR }
@@ -255,12 +245,50 @@ on_actions = {
 			965 = { set_state_flag = maybe_core_PRE }
 			966 = { set_state_flag = maybe_core_PRE }
 			978 = { set_state_flag = maybe_core_PRE }
+##############################   請求権(一部)   ##############################
+			
+##############################   請求権(全体)   ##############################
+			
+##############################   請求権(削除済み)   ##############################
+			
+##############################   中核州&請求権(一部)   ##############################
+			
+##############################   中核州&請求権(全体)   ##############################
+			#スロヴァキア(請求権)(中核州)(ゲーム開始時)
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = SLO
+						is_claimed_by = SLO
+					}
+				}
+				set_state_flag = maybe_core_claim_SLO_GAMESTART
+			}
+##############################   中核州&請求権(削除済み)   ##############################
+			
+##############################   領有州(一部)   ##############################
+			
 ##############################   領有州(全体)   ##############################
+			#スペイン
 			every_state = {
 				limit = { is_owned_by = SPR }
 				set_state_flag = maybe_own_SPR_GAMESTART
 			}
-##############################   大規模な領有州   ##############################
+##############################   領有州(削除済み)   ##############################
+			
+##############################   最小領土   ##############################
+			#ポーランド
+			10 = { set_state_flag = maybe_less_POL_GAMESTART }
+			90 = { set_state_flag = maybe_less_POL_GAMESTART }
+			92 = { set_state_flag = maybe_less_POL_GAMESTART }
+			#ガリツィア＝ロドメリア
+			88 = { set_state_flag = maybe_less_GAL_GAMESTART }
+			89 = { set_state_flag = maybe_less_GAL_GAMESTART }
+			91 = { set_state_flag = maybe_less_GAL_GAMESTART }
+			#レムコ
+			1208 = { set_state_flag = maybe_less_LMK_GAMESTART }
+			1209 = { set_state_flag = maybe_less_LMK_GAMESTART }
+##############################   その他   ##############################
 			#ロシア構成国
 			every_state = {
 				limit = {
