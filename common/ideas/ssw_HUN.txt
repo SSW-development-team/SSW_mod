@@ -1,4 +1,89 @@
 ideas = {
+	political_leader = {
+		HUN_miklos_kallay_ssw = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { prince_of_terror }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
+	}
+	minister_of_foreign_affairs = {
+		HUN_dome_sztojay_ssw = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { emergency_powers }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
+	}
+	minister_of_finance = {
+		HUN_imredy_bela_ssw = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { economist }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
+	}
+	minister_of_interior = {
+		HUN_miklos_bonczos_ssw = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { tenacious_negotiator }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
+	}
+	minister_of_army = {
+		HUN_bela_miklos_ssw = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { A_taciturn_hawk }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
+	}
 	naval_manufacturer = {
 		designer = yes
 		HUN_ganz_danubius = {
@@ -250,6 +335,15 @@ ideas = {
 			removal_cost = -1
 			modifier = { stability_factor = 0.1 }
 		}
+		hun_ideas_1 = { #柔軟な外交
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_democratic_drift_bonus
+			modifier = {
+				opinion_gain_monthly_factor = 0.15
+			}
+		}
 		hun_ideas_2 = { #回顧主義の台頭
 			allowed = { always = yes }
 			removal_cost = -1
@@ -334,6 +428,72 @@ ideas = {
 				authority_despotism_drift = 0.05
 				stability_factor = 0.1
 				research_speed_factor = 0.02
+			}
+		}
+		hun_ideas_8 = { #正統ドイツへの支援
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = triumphant_will
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+		hun_ideas_9 = { #経済振興
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_goods_red_bonus
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		hun_ideas_10 = { #ハンガリーからの支援
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_infantry_bonus
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+		hun_ideas_11 = { #武器の売却
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_infantry_bonus
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+		}
+		hun_ideas_12 = { #来るべき時に備えて
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_exploit_mines
+			modifier = {
+				war_support_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		hun_ideas_13 = { #イシュトヴァーンを目指して
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = generic_fascism_drift_bonus
+			modifier = {
+				defensive_war_stability_factor = 0.2
+				offensive_war_stability_factor = 0.15
+			}
+		}
+		hun_ideas_14 = { #小枢軸圏からの禁輸
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = eng_tackle_capitalism
+			modifier = {
+				stability_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
 			}
 		}
 	}

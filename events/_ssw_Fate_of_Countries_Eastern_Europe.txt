@@ -789,3 +789,61 @@ country_event = { #ÉåÉÄÉRÇÃâ^ñΩ
 		set_country_flag = continue_to_occupy_galicia_lodomeria
 	}
 }
+country_event = { #ÉnÉìÉKÉäÅ[ÇÃâ^ñΩ
+	id = ssw_foc_eastern_europe.5
+	title = ssw_foc_eastern_europe.5.title
+	desc = ssw_foc_eastern_europe.5.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.5.a
+		trigger = {
+			NOT = {
+				has_government = progressive_communism
+				has_government = classical_communism
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HUN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			HUN = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = HUN
+	}
+	option = {
+		name = ssw_foc_eastern_europe.5.b
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HUN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			HUN = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = HUN_republic
+			}
+		}
+		puppet = HUN
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_hungary
+	}
+}

@@ -195,102 +195,119 @@ country_event = { #アレクサンドラ女王の崩御
 		}
 	}
 }
-country_event = { #
+country_event = { #国防軍の亡命者
 	id = ssw_hun.9
 	title = ssw_hun.9.title
 	desc = ssw_hun.9.desc
 	is_triggered_only = yes
-    option = { #
+    option = { #頼もしいぞ！
 		name = ssw_hun.9.a
-		ai_chance = { base = 50 }
-	}
-    option = { #
-		name = ssw_hun.9.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
+		add_manpower = 2000
 	}
 }
-country_event = { #
+country_event = { #武器の売却
 	id = ssw_hun.10
 	title = ssw_hun.10.title
 	desc = ssw_hun.10.desc
 	is_triggered_only = yes
-    option = { #
+    option = { #生産活動に注力できるな…
 		name = ssw_hun.10.a
-		ai_chance = { base = 50 }
-	}
-    option = { #
-		name = ssw_hun.10.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
+		add_timed_idea = { idea = hun_ideas_11 days = 90 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -2500
+			producer = HUN
+		}
 	}
 }
-country_event = { #
+country_event = { #ブダペスト会談
 	id = ssw_hun.11
 	title = ssw_hun.11.title
 	desc = ssw_hun.11.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #敵対国たちに禁輸を課そう…
 		name = ssw_hun.11.a
 		ai_chance = { base = 50 }
+		ROM = { add_ideas = hun_ideas_14 }
 	}
-	option = { #
+	option = { #共同演習を実行しよう。
 		name = ssw_hun.11.b
 		ai_chance = { base = 50 }
+		army_experience = 20
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = land_doctrine
+		}
 	}
 }
-country_event = { #
+country_event = { #モンテネグロ編入を要求
 	id = ssw_hun.12
 	title = ssw_hun.12.title
 	desc = ssw_hun.12.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #了承だ。
 		name = ssw_hun.12.a
 		ai_chance = { base = 50 }
+		custom_effect_tooltip = GAME_OVER_TT
+		FROM = { annex_country = { target = MNT transfer_troops = yes } }
 	}
-	option = { #
+	option = { #嫌だね！
 		name = ssw_hun.12.b
 		ai_chance = { base = 50 }
+		FROM = { country_event = { id = ssw_hun.13 days = 1 } }
 	}
 }
-country_event = { #
+country_event = { #モンテネグロの反抗
 	id = ssw_hun.13
 	title = ssw_hun.13.title
 	desc = ssw_hun.13.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #くたばれ！
 		name = ssw_hun.13.a
-		ai_chance = { base = 50 }
-	}
-	option = { #
-		name = ssw_hun.13.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
+		create_wargoal = {
+			type = annex_everything
+			target = MNT
+		}
 	}
 }
-country_event = { #
+country_event = { #スロヴァキアの保護を要求
 	id = ssw_hun.14
 	title = ssw_hun.14.title
 	desc = ssw_hun.14.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #承諾しよう。
 		name = ssw_hun.14.a
 		ai_chance = { base = 50 }
+		FROM = {
+			set_autonomy = {
+				target = SLO
+				autonomous_state = colony
+			}
+		}
 	}
-	option = { #
+	option = { #誰が屈すると？
 		name = ssw_hun.14.b
 		ai_chance = { base = 50 }
+		FROM = { country_event = { id = ssw_hun.15 days = 1 } }
 	}
 }
-country_event = { #
+country_event = { #スロヴァキアの反抗
 	id = ssw_hun.15
 	title = ssw_hun.15.title
 	desc = ssw_hun.15.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #くたばれ！
 		name = ssw_hun.15.a
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
 	}
-	option = { #
-		name = ssw_hun.15.b
-		ai_chance = { base = 50 }
+	create_wargoal = {
+		type = annex_everything
+		target = SLO
 	}
 }
 country_event = { #

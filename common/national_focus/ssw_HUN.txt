@@ -13,6 +13,12 @@ focus_tree = {
 		id = HUN_1
 		icon = GFX_goal_generic_neutrality_focus
 		available = { has_global_flag = danubian_war_end }
+		allow_branch = {
+			OR = {
+				NOT = { has_global_flag = danubian_war_end }
+				has_global_flag = little_axis_victory
+			}
+		}
 		x = 0
 		y = 0
 		cost = 7
@@ -57,6 +63,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			add_political_power = 150
+			add_ideas = hun_ideas_1
 		}
 	}
 	focus = {
@@ -315,10 +322,14 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			add_opinion_modifier = { target = BUL modifier = SSW_friendly }
+			add_opinion_modifier = { target = CRO modifier = SSW_friendly }
+			add_opinion_modifier = { target = ROM modifier = SSW_friendly }
+			add_opinion_modifier = { target = SER modifier = SSW_friendly }
 			reverse_add_opinion_modifier = { target = BUL modifier = SSW_friendly }
 			reverse_add_opinion_modifier = { target = CRO modifier = SSW_friendly }
-			reverse_add_opinion_modifier = { target = ROM modifier = SSW_dislike }
-			reverse_add_opinion_modifier = { target = SER modifier = SSW_dislike }
+			reverse_add_opinion_modifier = { target = ROM modifier = SSW_friendly }
+			reverse_add_opinion_modifier = { target = SER modifier = SSW_friendly }
 		}
 	}
 	focus = {
@@ -337,10 +348,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
+			add_opinion_modifier = { target = BUL modifier = SSW_friendly }
+			add_opinion_modifier = { target = CRO modifier = SSW_friendly }
 			reverse_add_opinion_modifier = { target = BUL modifier = SSW_friendly }
 			reverse_add_opinion_modifier = { target = CRO modifier = SSW_friendly }
-			reverse_add_opinion_modifier = { target = ROM modifier = SSW_dislike }
-			reverse_add_opinion_modifier = { target = SER modifier = SSW_dislike }
 		}
 	}
 	focus = {
@@ -359,10 +370,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			reverse_add_opinion_modifier = { target = BUL modifier = SSW_dislike }
-			reverse_add_opinion_modifier = { target = CRO modifier = SSW_dislike }
-			reverse_add_opinion_modifier = { target = ROM modifier = SSW_dislike }
-			reverse_add_opinion_modifier = { target = SER modifier = SSW_dislike }
+			every_other_country = {
+				limit = {
+					OR = {
+						is_neighbor_of = ROOT
+						original_tag = BUL
+					}
+				}
+				add_opinion_modifier = { target = ROOT modifier = SSW_dislike }
+			}
 		}
 	}
 	focus = {
@@ -522,7 +538,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_9
+			CRO = { add_ideas = hun_ideas_9 }
 		}
 	}
 	focus = {
@@ -541,7 +558,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			send_equipment = { target = LTV type = infantry_equipment amount = 1000 }
+			country_event = { id = ssw_hun.9 days = 1 }
+			set_country_flag = intervention_vorbeck
 		}
 	}
 	focus = {
@@ -560,7 +579,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_timed_idea = { idea = hun_ideas_8 days = 180 }
+			GER = { add_timed_idea = { idea = hun_ideas_10 days = 180 } }
+			set_country_flag = intervention_nazism
 		}
 	}
 	focus = {
@@ -575,7 +596,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			give_guarantee = BUL
+			give_guarantee = CRO
+			BUL = { give_guarantee = ROOT }
+			CRO = { give_guarantee = ROOT }
 		}
 	}
 	focus = {
@@ -590,7 +614,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			country_event = { id = ssw_hun.11 days = 1 }
 		}
 	}
 	focus = {
@@ -609,6 +633,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			add_stability = 0.05
+			add_ideas = hun_ideas_13
 		}
 	}
 	focus = {
@@ -763,6 +788,18 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = HUN_19 }
 		prerequisite = { focus = HUN_20 }
+		available = {
+			OR = {
+				has_full_control_of_state = 76
+				has_full_control_of_state = 84
+			}
+		}
+		bypass = {
+			NOT = {
+				has_full_control_of_state = 76
+				has_full_control_of_state = 84
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_19
@@ -771,7 +808,73 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			reverse_add_opinion_modifier = { target = ROM modifier = SSW_dislike }
+			if = {
+            	limit = { has_full_control_of_state = 76 }
+            	add_building_construction = {
+					type = bunker
+					level = 2
+					province = 711
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 727
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3689
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9685
+					instant_build = yes
+				}
+			}
+			if = {
+            	limit = { has_full_control_of_state = 84 }
+            	add_building_construction = {
+					type = bunker
+					level = 2
+					province = 690
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3665
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3676
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6679
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6709
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9619
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -786,13 +889,25 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			unlock_decision_tooltip = declaration_of_war_with_nazism
+			unlock_decision_tooltip = declaration_of_war_with_vorbeck
 		}
 	}
 	focus = {
 		id = HUN_34
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = HUN_21 focus = HUN_22 focus = HUN_24 }
+		available = {
+			is_neighbor_of = SLO
+			SLO = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = SLO
+				NOT = { country_exists = SLO }
+			}
+		}
+		will_lead_to_war_with = SLO
 		x = 1
 		y = 1
 		relative_position_id = HUN_21
@@ -801,7 +916,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			SLO = { country_event = { id = ssw_hun.14 days = 1 } }
 		}
 	}
 	focus = {
@@ -817,13 +932,22 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			give_military_access = CRO
+			CRO = { give_military_access = ROOT }
 		}
 	}
 	focus = {
 		id = HUN_36
 		icon = GFX_focus_generic_strike_at_democracy3
 		prerequisite = { focus = HUN_24 }
+		available = {
+			is_neighbor_of = CRO
+			any_state = {
+				is_controlled_by = CRO
+				is_coastal = yes
+			}
+		}
+		will_lead_to_war_with = CRO
 		x = 0
 		y = 1
 		relative_position_id = HUN_24
@@ -832,13 +956,42 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CRO
+						is_claimed_by = CRO
+					}
+				}
+				add_core_of = ROOT
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CRO
+			}
+			add_tech_bonus = {
+				name = HUN_36
+				bonus = 0.5
+				uses = 2
+				technology = naval_doctrine
+			}
 		}
 	}
 	focus = {
 		id = HUN_37
 		icon = GFX_focus_YUG_dissolve_serbia
 		prerequisite = { focus = HUN_24 }
+		available = {
+			is_neighbor_of = MNT
+			MNT = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = MNT
+				NOT = { country_exists = MNT }
+			}
+		}
+		will_lead_to_war_with = MNT
 		x = 2
 		y = 1
 		relative_position_id = HUN_24
@@ -847,7 +1000,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			MNT = { country_event = { id = ssw_hun.12 days = 1 } }
 		}
 	}
 	focus = {
@@ -992,7 +1145,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = { is_core_of = SER }
+				add_state_modifier = { modifier = { local_supplies = 0.3 } }
+			}
 		}
 	}
 	focus = {
@@ -1008,7 +1164,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_unit_leader = { add_skill_level = 1 }
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -1024,7 +1181,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			country_event = { id = ssw_hun.10 days = 1 }
 		}
 	}
 	focus = {
@@ -1039,13 +1196,23 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_12
 		}
 	}
 	focus = {
 		id = HUN_48
 		icon = GFX_focus_generic_concessions
 		prerequisite = { focus = HUN_23 focus = HUN_24 }
+		available = {
+			has_full_control_of_state = 76
+			has_full_control_of_state = 84
+		}
+		bypass = {
+			OR = {
+				NOT = { has_full_control_of_state = 76 }
+				NOT = { has_full_control_of_state = 84 }
+			}
+		}
 		x = 1
 		y = 2
 		relative_position_id = HUN_23
@@ -1054,7 +1221,32 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			76 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			84 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -1070,7 +1262,20 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			navy_experience = 50
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 1
+				uses = 5
+				category = bc_tech
+				category = bb_tech
+				category = cl_tech
+				category = ca_tech
+				category = cv_tech
+				category = dd_tech
+				category = ss_tech
+			}
 		}
 	}
 	focus = {
