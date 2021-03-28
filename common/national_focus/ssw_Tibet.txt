@@ -14,9 +14,13 @@ focus_tree = {
 		cost = 5.00
 		x = 20
 		y = 0
-		ai_will_do = {
-			factor = 25
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
 		}
+		bypass = {}
+		ai_will_do = { factor = 25 }
 		completion_reward = {
 			add_political_power = 50
 		}
@@ -27,13 +31,13 @@ focus_tree = {
 		cost = 8.00
 		x = 48
 		y = 0
-		ai_will_do = {
-			factor = 5
-		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 		available = {
 		}
-		bypass = {
-		}
+		bypass = {}
+		ai_will_do = { factor = 20 }
 		search_filters = {  }
 		completion_reward = {
 			army_experience = 25
@@ -51,6 +55,13 @@ focus_tree = {
 		cost = 10.00
 		x = 45
 		y = 6
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 20 }
 		completion_reward = {
 			add_tech_bonus = {
 				name = land_doc_bonus
@@ -81,6 +92,12 @@ focus_tree = {
 		x = 20
 		y = 1
 		ai_will_do = { factor = 10 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
 		search_filters = { FOCUS_FILTER_POLITICS }
 	}
 	focus = {
@@ -116,6 +133,7 @@ focus_tree = {
 		available_if_capitulated = no
 		available = {
 		}
+		bypass = {}
 		completion_reward = {
 			add_popularity = {
 				ideology = progressive_communism
@@ -125,6 +143,7 @@ focus_tree = {
 				ideology = classical_communism 
 				popularity = 0.15
 			}
+			add_ideas = TIB_phuntsok_wangyal
 		}
 		x = 3
 		y = 3
@@ -136,6 +155,19 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_support_bapa_wangyal
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.15
+			}
 		}
 		mutually_exclusive = {
 			focus = TIB_shut_spiritual_opiates_out

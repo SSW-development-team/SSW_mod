@@ -202,6 +202,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_phuntsok_wangyal = {
+			picture = phuntsok_wangyal
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_army = {
 		TIB_wangchen_gelek = {
@@ -218,6 +234,27 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+			}
+		}
+	}
+	industrial_concern = {
+		TIB_ministry_of_communications = {
+			picture = generic_electronics_concern_3
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				has_completed_focus = TIB_electrical_machine_office
+			}
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+
+			ai_will_do = {
+				factor = 1
 			}
 		}
 	}
