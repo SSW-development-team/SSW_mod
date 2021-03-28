@@ -14,9 +14,13 @@ focus_tree = {
 		cost = 5.00
 		x = 20
 		y = 0
-		ai_will_do = {
-			factor = 25
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
 		}
+		bypass = {}
+		ai_will_do = { factor = 25 }
 		completion_reward = {
 			add_political_power = 50
 		}
@@ -27,13 +31,13 @@ focus_tree = {
 		cost = 8.00
 		x = 48
 		y = 0
-		ai_will_do = {
-			factor = 5
-		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 		available = {
 		}
-		bypass = {
-		}
+		bypass = {}
+		ai_will_do = { factor = 20 }
 		search_filters = {  }
 		completion_reward = {
 			army_experience = 25
@@ -51,6 +55,13 @@ focus_tree = {
 		cost = 10.00
 		x = 45
 		y = 6
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 20 }
 		completion_reward = {
 			add_tech_bonus = {
 				name = land_doc_bonus
@@ -81,6 +92,12 @@ focus_tree = {
 		x = 20
 		y = 1
 		ai_will_do = { factor = 10 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
 		search_filters = { FOCUS_FILTER_POLITICS }
 	}
 	focus = {
@@ -110,6 +127,24 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_chinese_model
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = classical_communism 
+				popularity = 0.15
+			}
+			add_ideas = TIB_phuntsok_wangyal
+		}
 		x = 3
 		y = 3
 
@@ -120,6 +155,19 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_support_bapa_wangyal
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.15
+			}
 		}
 		mutually_exclusive = {
 			focus = TIB_shut_spiritual_opiates_out
@@ -724,6 +772,28 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_expanding_lhasa_arsenal
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			add_tech_bonus = {
+				category = infantry_tech
+				bonus = 2
+				uses = 2
+				name = TIB_improved_gunpowder_inf
+			}
+			add_tech_bonus = {
+				category = artillery
+				bonus = 2
+				uses = 2
+				name = TIB_improved_gunpowder_art
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		x = 42
 		y = 4
 
@@ -735,6 +805,21 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_buy_the_machine
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+				name = TIB_construct_roads
+			}
+			add_ideas = TIB_const_road
+		}
 		x = 43
 		y = 7
 
@@ -745,6 +830,57 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_construct_roads
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			OR = {
+				controls_state = 920
+				controls_state = 601
+				controls_state = 757
+			}
+		}
+		completion_reward = {
+			TIB = {
+				if = {
+					limit = {
+						controls_state = 920
+					}
+					920 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 601
+					}
+					601 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 757
+					}
+					757 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
 		}
 		x = 42
 		y = 8
@@ -768,6 +904,57 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_construct_roads
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			OR = {
+				controls_state = 758
+				controls_state = 918
+				controls_state = 919
+			}
+		}
+		completion_reward = {
+			TIB = {
+				if = {
+					limit = {
+						controls_state = 758
+					}
+					758 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 918
+					}
+					918 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 919
+					}
+					919 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
 		x = 44
 		y = 8
 
@@ -790,6 +977,93 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_build_bridges
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			TIB = {
+				has_war_with = {
+					any_country = {
+						limit = {
+							OR = {
+								controls_state = 287
+								controls_state = 617
+								controls_state = 618
+							}
+						}
+					}
+				}
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			if = {
+				limit = {
+					TIB = {
+						controls_state = 287
+					}
+				}
+				287 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					TIB = {
+						controls_state = 617
+					}
+				}
+				617 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					TIB = {
+						controls_state = 618
+					}
+				}
+				618 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					TIB = {
+						NOT = {
+							OR = {
+								controls_state = 287
+								controls_state = 617
+								controls_state = 618
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						OR = {
+							controls_state = 287
+							controls_state = 617
+							controls_state = 618
+						}
+					}
+					country_event = tibet.2
+				}
+			}			
 		}
 		x = 43
 		y = 10
@@ -868,9 +1142,27 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_buy_the_machine
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			controls_state = 757
+		}
+		bypass = {}
+		completion_reward = {
+			757 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 		x = 47
 		y = 7
-
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 	}
 	focus = {
 		id = TIB_power_station
