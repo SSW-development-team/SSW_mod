@@ -62,11 +62,21 @@ country_event = { #会議
     is_triggered_only = yes
     option = { #親ドイツ派を支持
         name = ssw_bul.2.a
+        ai_chance = {
+            base = 50
+            modifier = {
+                has_global_flag = GER_civil_war_end
+                add = 10
+            }
+        }
         set_country_flag = BUL_support_pro_german
         remove_ideas = BUL_political_instability
     }
     option = { #マケドニアから来た男を支持
         name = ssw_bul.2.b
+        ai_chance = {
+            base = 50
+        }
         remove_ideas = BUL_political_instability
     }
 }
@@ -361,11 +371,17 @@ country_event = { #要塞の建築計画
     is_triggered_only = yes
     option = { #ギリシャとルーマニアとの国境に
         name = ssw_bul.10.a
+        ai_chance = {
+            base = 30
+        }
         activate_decision = BUL_build_fortress_GRE_border
         activate_decision = BUL_build_fortress_ROM_border
     }
     option = { #イタリア以外の全ての国境に
         name = ssw_bul.10.b
+        ai_chance = {
+            base = 20
+        }
         activate_decision = BUL_build_fortress_GRE_border
         activate_decision = BUL_build_fortress_ROM_border
         activate_decision = BUL_build_fortress_SER_border
@@ -373,6 +389,9 @@ country_event = { #要塞の建築計画
     }
     option = { #例外なく全ての国境に
         name = ssw_bul.10.c
+        ai_chance = {
+            base = 10
+        }
         activate_decision = BUL_build_fortress_GRE_border
         activate_decision = BUL_build_fortress_ROM_border
         activate_decision = BUL_build_fortress_SER_border
@@ -381,6 +400,20 @@ country_event = { #要塞の建築計画
     }
     option = { #要塞など必要ない
         name = ssw_bul.10.e
+        ai_chance = {
+            base = 20
+            modifier = {
+                AND = {
+                    NOT = {has_war_with = GRE}
+                    NOT = {has_war_with = ROM}
+                    NOT = {has_war_with = SER}
+                    NOT = {has_war_with = TUR}
+                    NOT = {has_war_with = ALB}
+                    has_war = yes
+                }
+                factor = 2
+            }
+        }
         add_timed_idea = {
             idea = BUL_budget_redistribution
             days = 140
@@ -1003,6 +1036,9 @@ country_event = { #都市の統制
     is_triggered_only = yes
     option = { #警察によって扇動者を捕らえる
         name = ssw_bul.26.a
+        ai_chance = {
+            base = 50
+        }
         add_popularity = {
             ideology = social_democracy
             popularity = 0.04
@@ -1023,6 +1059,9 @@ country_event = { #都市の統制
     option = { #軍から治安部隊を組織し鎮圧する
         name = ssw_bul.26.b
         add_stability = -0.05
+        ai_chance = {
+            base = 50
+        }
         add_popularity = {
             ideology = progressive_communism
             popularity = 0.04
@@ -1054,6 +1093,9 @@ country_event = { #地方の統制
     is_triggered_only = yes
     option = { #中央の権力により統制を行う
         name = ssw_bul.27.a
+        ai_chance = {
+            base = 47
+        }
         add_popularity = {
             ideology = progressive_communism
             popularity = 0.05
@@ -1078,6 +1120,9 @@ country_event = { #地方の統制
     }
     option = { #地方自治体の権力を拡大する
         name = ssw_bul.27.b
+        ai_chance = {
+            base = 47
+        }
         add_popularity = {
             ideology = social_liberalism
             popularity = 0.05
@@ -1093,6 +1138,9 @@ country_event = { #地方の統制
     }
     option = { #国民に自衛を求める
         name = ssw_bul.27.c
+        ai_chance = {
+            base = 6
+        }
         add_stability = -0.05
         add_popularity = {
             ideology = anarchism
@@ -1110,6 +1158,9 @@ country_event = { #政治権限の調整
     is_triggered_only = yes
     option = { #各大臣、各省庁により権力を分配する
         name = ssw_bul.28.a
+        ai_chance = {
+            base = 33
+        }
         add_popularity = {
             ideology = progressive_communism
             popularity = 0.05
@@ -1125,6 +1176,9 @@ country_event = { #政治権限の調整
     }
     option = { #トップがより多くの権限を持つべきだ
         name = ssw_bul.28.b
+        ai_chance = {
+            base = 33
+        }
         add_popularity = {
             ideology = classical_communism
             popularity = 0.04
@@ -1137,6 +1191,9 @@ country_event = { #政治権限の調整
     }
     option = { #議会にも権限を与える
         name = ssw_bul.28.c
+        ai_chance = {
+            base = 33
+        }
         add_popularity = {
             ideology = social_democracy
             popularity = 0.06
@@ -1157,6 +1214,9 @@ country_event = { #扇動者の対処
     is_triggered_only = yes
     option = { #命を奪う必要はない。寛容に行こう
         name = ssw_bul.29.a
+        ai_chance = {
+            base = 40
+        }
         add_stability = -0.03
         add_popularity = {
             ideology = classical_communism
@@ -1173,6 +1233,9 @@ country_event = { #扇動者の対処
     }
     option = { #ダメだ！奴らは根絶やしにしなければならない
         name = ssw_bul.29.b
+        ai_chance = {
+            base = 40
+        }
         add_popularity = {
             ideology = progressive_communism
             popularity = -0.06
@@ -1196,6 +1259,13 @@ country_event = { #扇動者の対処
     }
     option = { #優秀な人材は政府に組み込むべきではないか？
         name = ssw_bul.29.c
+        ai_chance = {
+            base = 20
+            modifier = {
+                has_country_flag = BUL_anarcy_flag
+                factor = 3
+            }
+        }
         add_stability = -0.02
         add_political_power = 30
         add_popularity = {
@@ -1686,7 +1756,7 @@ country_event = { #イギリスへの外交使節
     option = { #幸運を祈る
         name = ssw_bul.34.a
         trigger = {
-            OR = {
+            AND = {
                 NOT = {has_government = anarchism}
                 NOT = {has_government = corporatocracism}
             }
