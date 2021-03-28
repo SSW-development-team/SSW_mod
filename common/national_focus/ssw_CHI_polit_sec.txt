@@ -6,6 +6,12 @@ shared_focus = { #三人組の台頭
     ai_will_do = {
         factor = 10
     }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_rise_triumvirate_tt
+            has_country_flag = CHI_three_route
+        }
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -14,6 +20,30 @@ shared_focus = { #三人組の台頭
     }
     x = 11
     y = 0
+    completion_reward = {
+        add_political_power = 50
+        set_politics = {
+            ruling_party = authority_despotism
+            elections_allowed = no
+        }
+        set_party_name = {
+            ideology = social_conservatism
+            long_name = CHI_soci_cons_three
+            name = CHI_soci_cons_three
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.15
+        }
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.1
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.05
+        }
+    }
 }
 shared_focus = { #戒厳令再び
     id = CHI_martial_law_again
@@ -34,6 +64,11 @@ shared_focus = { #戒厳令再び
     x = 9
     y = 1
     completion_reward = {
+        custom_effect_tooltip = CHI_martial_law_again_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #連邦主義者の摘発
@@ -55,6 +90,11 @@ shared_focus = { #連邦主義者の摘発
     x = 8
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_expose_federalist_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ppf
+            value = 0.05
+        }
     }
 }
 shared_focus = { #軍閥の粛清
@@ -76,6 +116,7 @@ shared_focus = { #軍閥の粛清
     x = 8
     y = 3
     completion_reward = {
+        add_political_power = -100
     }
 }
 shared_focus = { #汪先生を忘れるな！
@@ -97,6 +138,11 @@ shared_focus = { #汪先生を忘れるな！
     x = 10
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_dont_forget_Dr_wang_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ws
+            value = 0.05
+        }
     }
 }
 shared_focus = { #左派への責任追及
@@ -118,6 +164,11 @@ shared_focus = { #左派への責任追及
     x = 10
     y = 3
     completion_reward = {
+        custom_effect_tooltip = CHI_hold_left_account_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #反攻派の権力掌握
@@ -142,6 +193,11 @@ shared_focus = { #反攻派の権力掌握
     x = 9
     y = 4
     completion_reward = {
+        custom_effect_tooltip = CHI_counter_offense_seizue_power_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ppf
+            value = 0.1
+        }
     }
 }
 shared_focus = { #三人組の中で
@@ -163,6 +219,7 @@ shared_focus = { #三人組の中で
     x = 14
     y = 1
     completion_reward = {
+        country_event = {id = ssw_chi.18}
     }
 }
 shared_focus = { #戴笠の野望
@@ -171,6 +228,12 @@ shared_focus = { #戴笠の野望
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_Dai_li_ambition_t_tt
+            has_country_flag = CHI_Dai_li_route
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -190,6 +253,11 @@ shared_focus = { #戴笠の野望
     x = 12
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_three_route_first_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #藍衣社による情報収集
@@ -211,6 +279,13 @@ shared_focus = { #藍衣社による情報収集
     x = 12
     y = 3
     completion_reward = {
+        add_stability = 0.05
+        add_political_power = 50
+        custom_effect_tooltip = CHI_three_route_secound_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ws
+            value = 0.05
+        }
     }
 }
 shared_focus = { #藍衣社の揺ぎ無き規律
@@ -232,6 +307,7 @@ shared_focus = { #藍衣社の揺ぎ無き規律
     x = 12
     y = 4
     completion_reward = {
+        add_ideas = CHI_Blue_shirts_guidance
     }
 }
 shared_focus = { #蒋介石の再起
@@ -240,6 +316,12 @@ shared_focus = { #蒋介石の再起
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_Chiang_Kai_resurgence_t_tt
+            has_country_flag = CHI_Chiang_Kai_route
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -259,6 +341,11 @@ shared_focus = { #蒋介石の再起
     x = 14
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_three_route_first_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #強き指導者を宣伝
@@ -280,6 +367,12 @@ shared_focus = { #強き指導者を宣伝
     x = 14
     y = 3
     completion_reward = {
+        add_war_support = 0.1
+        custom_effect_tooltip = CHI_three_route_secound_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ws
+            value = 0.05
+        }
     }
 }
 shared_focus = { #国家の安定化に向けて
@@ -301,6 +394,7 @@ shared_focus = { #国家の安定化に向けて
     x = 14
     y = 4
     completion_reward = {
+        add_ideas = CHI_revival_generalissimo
     }
 }
 shared_focus = { #張群の交渉
@@ -309,6 +403,12 @@ shared_focus = { #張群の交渉
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = CHI_negotiation_Cheung_Kong_t_tt
+            has_country_flag = CHI_Cheung_Kong_route
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -328,6 +428,11 @@ shared_focus = { #張群の交渉
     x = 16
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_three_route_first_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #民主化の約束
@@ -349,6 +454,12 @@ shared_focus = { #民主化の約束
     x = 16
     y = 3
     completion_reward = {
+        add_political_power = 100
+        custom_effect_tooltip = CHI_three_route_secound_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ws
+            value = 0.05
+        }
     }
 }
 shared_focus = { #融和の主張
@@ -370,6 +481,7 @@ shared_focus = { #融和の主張
     x = 16
     y = 4
     completion_reward = {
+        add_ideas = CHI_Cheung_Kong_mercy
     }
 }
 shared_focus = { #新政権に向けて
@@ -393,6 +505,11 @@ shared_focus = { #新政権に向けて
     x = 14
     y = 5
     completion_reward = {
+        custom_effect_tooltip = CHI_toward_new_gov_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_ppf
+            value = 0.05
+        }
     }
 }
 shared_focus = { #一人の総統
@@ -417,6 +534,7 @@ shared_focus = { #一人の総統
     x = 11
     y = 6
     completion_reward = {
+        add_political_power = 50
     }
 }
 
@@ -430,6 +548,7 @@ shared_focus = { #戴笠総統
     }
     available = {
         has_completed_focus = CHI_one_president
+        has_completed_focus = CHI_Dai_li_ambition
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -440,6 +559,14 @@ shared_focus = { #戴笠総統
     x = 10
     y = 9
     completion_reward = {
+        set_politics = {
+            ruling_party = national_fascism
+            elections_allowed = no
+        }
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.35
+        }
     }
 }
 shared_focus = { #三民主義青年団を組織化
@@ -461,6 +588,7 @@ shared_focus = { #三民主義青年団を組織化
     x = 9
     y = 10
     completion_reward = {
+        add_ideas = CHI_three_pep_principle_youth_group
     }
 }
 shared_focus = { #国有化運動
@@ -482,6 +610,59 @@ shared_focus = { #国有化運動
     x = 11
     y = 10
     completion_reward = {
+        add_political_power = -200
+        if = {
+            limit = {
+                has_full_control_of_state = 608
+            }
+            608 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 814
+            }
+            814 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 592
+            }
+            592 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 620
+            }
+            620 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 shared_focus = { #蜘蛛の巣
@@ -503,6 +684,7 @@ shared_focus = { #蜘蛛の巣
     x = 8
     y = 11
     completion_reward = {
+        add_ideas = CHI_mighty_intelligence_agency
     }
 }
 shared_focus = { #民族主義の協調
@@ -527,6 +709,7 @@ shared_focus = { #民族主義の協調
     x = 10
     y = 11
     completion_reward = {
+        add_ideas = CHI_nationalism
     }
 }
 shared_focus = { #欧州からの思想
@@ -548,6 +731,11 @@ shared_focus = { #欧州からの思想
     x = 12
     y = 11
     completion_reward = {
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.15
+        }
+        add_war_support = 0.05
     }
 }
 shared_focus = { #警察国家
@@ -572,6 +760,10 @@ shared_focus = { #警察国家
     x = 9
     y = 12
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_mighty_intelligence_agency
+            add_idea = CHI_mighty_intelligence_agency_2
+        }
     }
 }
 shared_focus = { #反抗的民族の弾圧
@@ -593,6 +785,8 @@ shared_focus = { #反抗的民族の弾圧
     x = 9
     y = 13
     completion_reward = {
+        add_political_power = -100
+        add_stability = 0.1
     }
 }
 shared_focus = { #三民主義の本質
@@ -617,6 +811,11 @@ shared_focus = { #三民主義の本質
     x = 11
     y = 12
     completion_reward = {
+        add_political_power = 50
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.1
+        }
     }
 }
 shared_focus = { #思想教育
@@ -638,6 +837,10 @@ shared_focus = { #思想教育
     x = 11
     y = 13
     completion_reward = {
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.2
+        }
     }
 }
 shared_focus = { #藍色の民国
@@ -662,6 +865,10 @@ shared_focus = { #藍色の民国
     x = 10
     y = 14
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_Blue_shirts_guidance
+            add_idea = CHI_Blue_shirts_guidance_2
+        }
     }
 }
 
@@ -675,6 +882,7 @@ shared_focus = { #蒋介石の復権
     }
     available = {
         has_completed_focus = CHI_one_president
+        has_completed_focus = CHI_Chiang_Kai_shek_restoration
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -685,6 +893,14 @@ shared_focus = { #蒋介石の復権
     x = 18
     y = 9
     completion_reward = {
+        set_politics = {
+            ruling_party = authority_despotism
+            elections_allowed = no
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.4
+        }
     }
 }
 shared_focus = { #軍閥時代の終焉
@@ -706,6 +922,15 @@ shared_focus = { #軍閥時代の終焉
     x = 16
     y = 10
     completion_reward = {
+        add_war_support = 0.1
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.15
+        }
+        remove_unit_leader = 155
+        remove_unit_leader = 139
+        remove_unit_leader = 153
+        remove_unit_leader = 148
     }
 }
 shared_focus = { #アカの徹底的排除
@@ -727,6 +952,16 @@ shared_focus = { #アカの徹底的排除
     x = 18
     y = 10
     completion_reward = {
+        add_stability = 0.1
+        add_war_support = 0.1
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.2
+        }
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = -0.2
+        }
     }
 }
 shared_focus = { #党内での覇権
@@ -748,6 +983,11 @@ shared_focus = { #党内での覇権
     x = 20
     y = 10
     completion_reward = {
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.1
+        }
+        add_stability = 0.1
     }
 }
 shared_focus = { #英雄としての蒋介石
@@ -772,6 +1012,8 @@ shared_focus = { #英雄としての蒋介石
     x = 17
     y = 11
     completion_reward = {
+        add_political_power = 200
+        add_ideas = CHI_permanent_fuhrer
     }
 }
 shared_focus = { #四大家族の団結
@@ -796,6 +1038,7 @@ shared_focus = { #四大家族の団結
     x = 19
     y = 11
     completion_reward = {
+        add_ideas = CHI_four_great_family
     }
 }
 shared_focus = { #ドイツ製兵器を研究
@@ -820,6 +1063,11 @@ shared_focus = { #ドイツ製兵器を研究
     x = 16
     y = 12
     completion_reward = {
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 3
+            category = armor
+        }
     }
 }
 shared_focus = { #戒厳令の継続
@@ -844,6 +1092,7 @@ shared_focus = { #戒厳令の継続
     x = 18
     y = 12
     completion_reward = {
+        add_political_power = -200
     }
 }
 shared_focus = { #聡明な妻
@@ -865,6 +1114,7 @@ shared_focus = { #聡明な妻
     x = 18
     y = 13
     completion_reward = {
+        add_political_power = 50
     }
 }
 shared_focus = { #絶対的指導者
@@ -886,6 +1136,10 @@ shared_focus = { #絶対的指導者
     x = 18
     y = 14
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_permanent_fuhrer
+            add_idea = CHI_permanent_fuhrer_2
+        }
     }
 }
 shared_focus = { #アメリカ人亡命者を招待
@@ -910,6 +1164,7 @@ shared_focus = { #アメリカ人亡命者を招待
     x = 20
     y = 12
     completion_reward = {
+        add_ideas = CHI_american_asylum_seekers
     }
 }
 
@@ -923,6 +1178,7 @@ shared_focus = { #張群の指導
     }
     available = {
         has_completed_focus = CHI_one_president
+        has_completed_focus = CHI_negotiation_Cheung_Kong
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -933,6 +1189,14 @@ shared_focus = { #張群の指導
     x = 26
     y = 9
     completion_reward = {
+        set_politics = {
+            ruling_party = social_conservatism
+            elections_allowed = no
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.3
+        }
     }
 }
 shared_focus = { #政学系の理想
@@ -954,6 +1218,11 @@ shared_focus = { #政学系の理想
     x = 25
     y = 10
     completion_reward = {
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.15
+        }
+        add_political_power = 100
     }
 }
 shared_focus = { #民主主義への移行
@@ -975,6 +1244,7 @@ shared_focus = { #民主主義への移行
     x = 27
     y = 10
     completion_reward = {
+        add_ideas = CHI_democratize_china
     }
 }
 shared_focus = { #農地改革の継続
@@ -996,6 +1266,7 @@ shared_focus = { #農地改革の継続
     x = 24
     y = 11
     completion_reward = {
+        add_ideas = CHI_industrial_reform
     }
 }
 shared_focus = { #価格統制の実施
@@ -1017,6 +1288,10 @@ shared_focus = { #価格統制の実施
     x = 24
     y = 12
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_industrial_reform
+            add_idea = CHI_industrial_reform_2
+        }
     }
 }
 shared_focus = { #経済の安定化
@@ -1038,6 +1313,10 @@ shared_focus = { #経済の安定化
     x = 25
     y = 13
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_industrial_reform_2
+            add_idea = CHI_industrial_reform_3
+        }
     }
 }
 shared_focus = { #国内の融和
@@ -1062,6 +1341,7 @@ shared_focus = { #国内の融和
     x = 26
     y = 11
     completion_reward = {
+        add_stability = 0.1
     }
 }
 shared_focus = { #同盟国との友好
@@ -1082,6 +1362,25 @@ shared_focus = { #同盟国との友好
     }
     x = 26
     y = 12
+    completion_reward = {
+        add_opinion_modifier = {
+            target = SIA
+            modifier = SSW_CHI_TAI_friendship
+        }
+        reverse_add_opinion_modifier = {
+            target = SIA
+            modifier = SSW_CHI_TAI_friendship
+        }
+        add_opinion_modifier = {
+            target = PAK
+            modifier = SSW_CHI_PAK_friendship
+        }
+        reverse_add_opinion_modifier = {
+            target = PAK
+            modifier = SSW_CHI_PAK_friendship
+        }
+        add_political_power = 50
+    }
 }
 shared_focus = { #報道規制の解除
     id = CHI_lift_press_restrict
@@ -1102,6 +1401,22 @@ shared_focus = { #報道規制の解除
     x = 28
     y = 11
     completion_reward = {
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.08
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = 0.15
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.08
+        }
+        add_popularity = {
+            authority_democracy
+            popularity = 0.08
+        }
     }
 }
 shared_focus = { #節度ある自由
@@ -1123,6 +1438,10 @@ shared_focus = { #節度ある自由
     x = 28
     y = 12
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_democratize_china
+            add_idea = CHI_democratize_china_2
+        }
     }
 }
 shared_focus = { #自由の保護
@@ -1144,6 +1463,8 @@ shared_focus = { #自由の保護
     x = 27
     y = 13
     completion_reward = {
+        add_stability = 0.2
+        add_political_power = 100
     }
 }
 
@@ -1156,7 +1477,10 @@ shared_focus = { #後継者、陳公博
         factor = 10
     }
     available = {
-        has_completed_focus = CHI_one_president
+        custom_trigger_tooltip = {
+            tooltip = CHI_successor_Chen_Gongbo_tt
+            has_country_flag = CHI_Chen_route
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no

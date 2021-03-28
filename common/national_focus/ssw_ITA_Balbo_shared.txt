@@ -1360,6 +1360,33 @@ shared_focus = {
 	completion_reward = {
 	}
 }
+#艦上航空機の空軍化
+shared_focus = {
+	id = ITA_focus_balbo_Conversion_of_shipboard_aircraft_to_air_force
+	icon = GFX_ITA_Italian_Airforce
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_absolute_air_superiority
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 26
+	y = 3
+	completion_reward = {
+		custom_effect_tooltip = ssw_ITA_focus_balbo_Conversion_of_shipboard_aircraft_to_air_force_tooltip 
+	}
+}
 #レーダー網の整備
 shared_focus = {
 	id = ITA_focus_balbo_Development_radar_network
@@ -1981,6 +2008,110 @@ shared_focus = {
 		add_timed_idea = {
 			idea = ITA_idea_54
 			days = 200
+		}
+	}
+}
+#導入戦術の検討
+shared_focus = {
+	id = ITA_focus_balbo_Consideration_of_implementation_tactics
+	icon = GFX_ITA_Military_Pensions
+	cost = 3.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Policy_for_reducing_the_amount
+		focus = ITA_focus_balbo_Payment_Policy
+		}
+	mutually_exclusive = {
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 40
+	y = 6
+	completion_reward = {
+		country_event = {
+			id = SSW_ITA.17
+		}
+	}
+}
+#機動戦への移行
+shared_focus = {
+	id = ITA_focus_balbo_Transition_to_Mobile_Warfare
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Consideration_of_implementation_tactics
+		}
+	mutually_exclusive = {
+		}
+	available = {
+		always = no
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 37
+	y = 7
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+			category = cat_mobile_warfare 
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = armor 
+		}
+	}
+}
+#多様な戦術の導入
+shared_focus = {
+	id = ITA_focus_balbo_Implement_variety_of_tactics
+	icon = GFX_ITA_Military_Pensions
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Consideration_of_implementation_tactics
+		}
+	mutually_exclusive = {
+		}
+	available = {
+		always = no
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 7
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+			category = cat_grand_battle_plan 
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = infantry_tech 
 		}
 	}
 }
@@ -3231,6 +3362,34 @@ shared_focus = {
 		}
 	}
 }
+#国土の対戦争化
+shared_focus = {
+	id = ITA_focus_colony_albania_dev_War_on_Land
+	icon = GFX_ITA_Italian_Albania
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_colony_albania_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		IT4 = { is_subject_of = ITA }
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = -8
+	y = 14
+	completion_reward = {
+		
+	}
+}
 ###ジブラルタルルート###
 #ジブラルタルの開発
 shared_focus = {
@@ -3257,6 +3416,10 @@ shared_focus = {
 	x = -18
 	y = 14
 	completion_reward = {
+		add_ideas = ITA_idea_80
+		IT7 = {
+			add_ideas = ITA_idea_80
+		}
 	}
 }
 ###スエズルート###
@@ -3392,6 +3555,9 @@ shared_focus = {
 			tooltip = ssw_ITA_Balbo_event_focus_Danubian_war_tree
 		}
 		always = no
+		NOT = {
+			has_global_flag = danubian_war_end
+		}
     }
     ai_will_do = {
     factor = 5
