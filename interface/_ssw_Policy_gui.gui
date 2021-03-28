@@ -1,0 +1,187 @@
+guiTypes = {
+	containerWindowType = {
+		name = "SSW_Policy_top_bar_container"
+		position = { x = 0 y = 0 }
+		size = { width = 10 height = 10 }
+		orientation = upper_left
+
+		buttonType = {
+			name = "select_policy_bar_button"
+			position = { x = 440 y = 200 }
+			quadTextureSprite = "GFX_JAP_OPEN_HOR"
+		}
+	}
+	containerWindowType = {
+		name = "SSW_Policy_tab"
+		position = { x=535 y=80 }
+		size = { width = 675 height = 860}
+		
+		show_sound = menu_open_window
+		
+		background = {
+			name = "Background"		
+			spriteType ="GFX_tiled_bg"
+		}
+		iconType = {
+			name = "policy_tab_title_bg"
+			position = { x = 3 y = 5 }
+			quadTextureSprite = "GFX_header_bg"
+		}
+		instantTextboxType = {
+			name = "political_title"
+			position = { x = 45 y = 8 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "POLITIC_TEXT"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+		containerWindowType = {
+			name = "SSW_Policy_tab_focuses"
+			position = { x=0 y=120 }
+			size = { width = 855 height = 800 }
+
+			buttonType = {
+				name = "economy_focus_icon_button"
+				spriteType = "GFX_Policy_Economy"
+				position = { x = 15 y = -75 }
+				scale = 0.8
+			}
+			buttonType = {
+				name = "social_focus_icon_button"
+				spriteType = "GFX_Policy_Social"
+				position = { x = 340 y = -75 }
+				scale = 0.8
+			}
+			buttonType = {
+				name = "military_focus_icon_button"
+				spriteType = "GFX_Policy_Military"
+				position = { x = 15 y = 330 }
+				scale = 0.8
+			}
+			buttonType = {
+				name = "diplomacy_focus_icon_button"
+				spriteType = "GFX_Policy_diplomacy"
+				position = { x = 340 y = 330 }
+				scale = 0.8
+			}
+		}
+		buttonType = {
+			name = "close_button"
+			position = { x = -45 y = 8 }
+			orientation = upper_right
+			quadTextureSprite = "GFX_closebutton"
+			shortcut = "ESCAPE"
+		}
+	}
+	containerWindowType = {
+		name = "SSW_Policy_tab_economy"
+		position = { x=545 y=120 }
+		size = { width = 655 height = 810 }
+		
+		background = {
+			name = "Background"		
+			spriteType ="GFX_tiled_decisions_bg_small"
+		}
+		buttonType = {
+			name = "back_button"
+			position = { x = 8 y = 8 }
+			orientation = upper_left
+			quadTextureSprite = "GFX_backbutton32"
+			shortcut = "ESCAPE"
+		}
+		containerWindowType = {
+		name = "SSW_Policy_tab_economy_inflation_late"
+		position = { x=20 y=50 }
+		size = { width = 530 height = 70 }
+		
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "country_inflation_late_text"
+				position = { x = 30 y = 15 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "INFLATION_LATE_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_LATE_TEXT"
+			}
+			instantTextboxType = {
+				name = "country_inflation_late_for_consumer_goods_factor_text"
+				position = { x = 300 y = 25 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "INFLATION_LATE_FOR_CONSUMER_GOODS_FACTOR_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_LATE_TEXT"
+			}
+		}
+		containerWindowType = {
+		name = "SSW_Policy_tab_economy_tax_late"
+		position = { x=20 y=140 }
+		size = { width = 530 height = 250 }
+		
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "country_tax_late_text"
+				position = { x = 30 y = 15 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "TAX_LATE_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_TAX_LATE_TEXT"
+			}
+			containerWindowType = {
+				name = "SSW_Policy_tab_economy_tax_late_scroll_bar"
+				position = { x=30 y=125 }
+				size = { width = 470 height = 18 }
+		
+				background = {
+				name = "Background"		
+				spriteType ="GFX_scrollbar_horisontal_bg"
+				}
+				instantTextboxType = {
+					name = "country_tax_late_text"
+					position = { x = 30 y = 15 }
+					font = "hoi_36header"
+					borderSize = {x = 0 y = 0}
+					text = "TAX_LATE_TEXT"
+					maxWidth = 400
+					maxHeight = 20
+					pdx_tooltip = "DESC_TAX_LATE_TEXT"
+				}
+			}
+			instantTextboxType = {
+				name = "country_tax_late_text_s_20"
+				position = { x = 22 y = 146 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TAX_LATE_FOR_STABILITY_FACTOR_20_TEXT"
+				maxWidth = 50
+				maxHeight = 20
+				pdx_tooltip = "DESC_TAX_LATE_TEXT"
+			}
+
+			instantTextboxType = {
+				name = "country_tax_late_text_c_5"
+				position = { x = 22 y = 105 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TAX_LATE_FOR_CONSUMER_GOODS_FACTOR_5_TEXT"
+				maxWidth = 50
+				maxHeight = 20
+				pdx_tooltip = "DESC_TAX_LATE_TEXT"
+			}
+		}
+	}
+}
