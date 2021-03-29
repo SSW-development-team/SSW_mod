@@ -59,9 +59,35 @@ scripted_gui = {
 		ai_enabled = {
 			always = no
 		}
+		triggers = {
+			repayment_value_decrease_right_click_enabled = {
+			
+			}
+		}
 		effects = {
 			back_button_click = {
 				set_variable = { selected_policy_button = 0 }
+			}
+			repayment_value_increase_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 1 }
+			}
+			repayment_value_increase_shift_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 10 }
+			}
+			repayment_value_increase_control_shift_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 100 }
+			}
+			repayment_value_decrease_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 1 }
+			}
+			repayment_value_decrease_shift_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 10 }
+			}
+			repayment_value_decrease_control_shift_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 100 }
+			}
+			repayment_button_click  = {
+				subtract_from_variable = { country_debt_value = country_debt_repayment_amout }
 			}
 		}
 	}
