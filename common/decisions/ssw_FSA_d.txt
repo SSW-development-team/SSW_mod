@@ -1,0 +1,662 @@
+FSA_resources_development_d = {
+	FSA_expand_the_chromium_mine = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_resources_development
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			368 = {
+				add_resource = {
+					type = aluminum
+					amount = 3
+				}
+			}
+		}
+	}
+	FSA_expand_the_iron_mine = {
+		icon = steel
+		allowed = {
+			tag = FSA
+		}
+		available = {
+			has_completed_focus = FSA_resources_development
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			364 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	FSA_expand_the_oil_field = {
+		icon = oil
+		allowed = {
+			tag = FSA
+		}
+		available = {
+			has_completed_focus = FSA_resources_development
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 90
+		remove_effect = {
+			360 = {
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+		}
+	}
+    FSA_expand_Industry = {
+		icon = steel
+		allowed = {
+			tag = FSA
+		}
+		available = {
+			has_completed_focus = FSA_resources_development
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 0.4
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			359 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = synthetic_refinery
+									level = 2
+									instant_build = yes
+										}
+								}
+		}
+	}
+    
+}
+
+FSA_sub_d = {
+
+    FSA_Unrestricted_submarine_operations_d = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Unrestricted_submarine_operations
+            NOT = {
+				has_idea = FSA_Unrestricted_submarine_operations_idea
+			}
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 3
+		remove_effect = {
+			add_ideas = FSA_Unrestricted_submarine_operations_idea
+            if = {
+				limit = {
+					CAN = {
+						has_war = no
+					}
+				}
+				CAN = { add_war_support = 0.03 }
+			}
+            if = {
+				limit = {
+					ENG = {
+						has_war = no
+					}
+				}
+				ENG = { add_war_support = 0.025 }
+			}
+            if = {
+				limit = {
+					MEX = {
+						has_war = no
+					}
+				}
+				MEX = { add_war_support = 0.02 }
+			}
+		}
+	}
+
+    FSA_Operation_canceled = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Unrestricted_submarine_operations
+            has_idea = FSA_Unrestricted_submarine_operations_idea
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = no
+		days_remove = 30
+		remove_effect = {
+			remove_ideas = FSA_Unrestricted_submarine_operations_idea
+		}
+	}
+
+
+}
+
+FSA_Education_of_non_whites = {
+
+	FSA_people_requiring_protection = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_country_flag = FSA_Education
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			add_ideas = FSA_people_requiring_protection_idea
+		}
+	}
+
+	FSA_Education_system = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_country_flag = FSA_Education
+			has_idea = FSA_people_requiring_protection_idea
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			swap_ideas = {
+    		remove_idea = FSA_people_requiring_protection_idea
+    		add_idea = FSA_Education_system_idea
+			}
+		}
+	}
+
+	FSA_Federal_Employment_Agency = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_country_flag = FSA_Education
+			has_idea = FSA_Education_system_idea
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 75
+		remove_effect = {
+			add_ideas = FSA_Federal_Employment_Agency_idea
+			add_state_core = 1117
+			add_state_core = 372
+			add_state_core = 373
+		}
+	}
+
+}
+
+FSA_Purification_of_America = {
+
+	FSA_Suppression_of_BLS = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_country_flag = FSA_Pirification
+		}
+		complete_effect = {
+			hidden_effect = {
+				country_event = {
+							id = SSW_FSA.3
+							days = 20
+						}
+			}
+		}
+		cost = 10
+		ai_will_do = {
+			factor = 0.1
+		}
+		modifier = {
+			political_power_gain = -1
+		}
+		fire_only_once = yes
+		days_remove = 60
+		remove_effect = {
+			1117 = {
+				add_manpower = -1851595
+			}
+			372 = {
+				add_manpower = -1118452
+			}
+			373 = {
+				add_manpower = -1674568
+			}
+			add_state_core = 1117
+		add_state_core = 372
+		add_state_core = 373
+		add_ideas = FSA_White_supremacy
+		}
+	}
+
+
+	FSA_Anglo_Israelism = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_country_flag = FSA_Pirification
+			has_idea = FSA_White_supremacy
+		}
+		cost = 75
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 80
+		remove_effect = {
+			swap_ideas = {
+    		remove_idea = FSA_White_supremacy
+    		add_idea = FSA_Anglo_Israelism_idea
+			}
+		}
+	}
+
+}
+
+FSA_Federal_Aid_Highway_Act_d = {
+
+	FSA_Federal_Aid_Highway_Act2_d = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Federal_Aid_Highway_Act
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			add_ideas = FSA_High_way
+		}
+	}
+
+	FSA_Federal_cent = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Federal_Aid_Highway_Act
+			has_idea = FSA_High_way
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			261 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			396 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			395 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			392 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			
+
+		}
+	}
+
+	FSA_Federal_Aid_Highway_north = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Federal_Aid_Highway_Act
+			has_idea = FSA_High_way
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			384 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}
+			381 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}
+			1129 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}			
+		}
+	}
+
+	FSA_Federal_Aid_Highway_west = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Federal_Aid_Highway_Act
+			has_idea = FSA_High_way
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			1115 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}
+			387 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}
+			379 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}			
+		}
+	}
+
+	FSA_Federal_Aid_Highway_south = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_completed_focus = FSA_Federal_Aid_Highway_Act
+			has_idea = FSA_High_way
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		fire_only_once = yes
+		days_remove = 50
+		remove_effect = {
+			903 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 2
+								instant_build = yes
+										}
+								}
+			904 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			905 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}			
+		}
+	}
+
+}
+
+
+FSA_urgent_national_highway_d = {
+
+	FSA_Federal__Highway_in = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_war_with = UTC
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			362 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			369 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			368 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}	
+		}
+	}
+
+	FSA_Federal__Highway_south = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_war_with = UTC
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			367= {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			370 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			1125 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			1124 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			
+		}
+	}
+
+	FSA_Federal__Highway_south = {
+		icon = chromium
+		allowed = {
+			tag = FSA
+		}
+        available = {
+			has_war_with = UTC
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 5
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			910= {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			1126 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			364 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			366 = {
+						add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+										}
+								}
+			
+		}
+	}
+
+
+
+}

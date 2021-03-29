@@ -8,13 +8,14 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = { x = 50 y = 1400 }
 ########################
-####POLITICAL BRANCH####	
+####POLITICAL BRANCH####
 ########################
 	
 	focus = {
 		id = Antonescu_speech
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_focus_ROM_speech_antonescu
 		cost = 1.00
 		x = 19
 		y = 0
@@ -63,7 +64,7 @@ focus_tree = {
 
 	focus = {
 		id = MIlitary_unity
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ROM_Military_Unit
 		cost = 0
 		available = {
 			hidden_trigger = { always = no }
@@ -77,7 +78,53 @@ focus_tree = {
 		x = 18
 		y = 1
 		completion_reward = {
-			add_ideas = Military_unity
+			custom_effect_tooltip = Military_unity_tt
+			hidden_effect = {
+				create_corps_commander = {
+					name = "Constantin Vasiliu-Rascanu"
+					picture = "Portrait_Constantin_Vasiliu_Rascanu.dds"
+					id = 120
+					traits = { infantry_officer brilliant_strategist }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
+				}
+				create_corps_commander = {
+					name = "Dumitru Damaceanu"
+					picture = "Portrait_Dumitru_Damaceanu.dds"
+					id = 113
+					traits = { cavalry_officer }
+					skill = 2
+					attack_skill = 2
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+				}
+				create_corps_commander = {
+				name = "Aurel Aldea"
+				picture = "Portrait_Aurel_Aldea.dds"
+				id = 110
+				traits = { bearer_of_artillery }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+				}
+				create_corps_commander = {#工兵
+					name = "Constantin Constantinescu-Claps"
+					picture = "Portrait_Constantin_Constantinescu_Claps.dds"
+					id = 109
+					traits = { trait_engineer  }
+					skill = 3
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 3
+					logistics_skill = 2
+				}
+			}
 		}
 	}
 	focus = {
@@ -158,7 +205,7 @@ focus_tree = {
 
 	focus = {
 		id = Codreanu_children
-		icon = GFX_goal_unknown
+		icon = GFX_focus_ROM_codreanu_children
 		cost = 0
 		available = {
 			hidden_trigger = { always = no }
@@ -172,14 +219,13 @@ focus_tree = {
 		x = 20
 		y = 1
 		completion_reward = {
-			add_ideas = Codreanu_children
 		}
 
 	}
 	focus = {
 		id = committee_of_ROMANIANZATION
 		icon = GFX_goal_generic_forceful_treaty
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Codreanu_children
 		}
@@ -196,10 +242,8 @@ focus_tree = {
 		icon = GFX_goal_support_fascism
 		cost = 5.00
 		available = {
-			trigger = {
-				has_global_flag = GER_civil_war
-				national_fascism > 0.5
-			}
+			has_global_flag = GER_civil_war
+			national_fascism > 0.5
 		}
 		prerequisite = {
 			focus = committee_of_ROMANIANZATION
@@ -313,7 +357,7 @@ focus_tree = {
 
 	focus = {
 		id = Reorganaized_Nest
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_support_the_left_right
 		cost = 5.00
 		prerequisite = {
 			focus = Codreanu_children
@@ -329,7 +373,9 @@ focus_tree = {
 		id = Legion_school
 		icon = GFX_goal_generic_demand_territory
 		available = {
-			hidden_trigger = { 
+			NOT = { has_war = yes }
+			custom_trigger_tooltip = {
+				tooltip = legion_school_tt
 				has_completed_focus = Waves_of_people
 			}
 		}
@@ -409,7 +455,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Legion_senatus
-		icon = GFX_goal_generic_occypy_states_ongoing_war
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_Nest
@@ -430,7 +476,7 @@ focus_tree = {
 		x = 26
 		y = 4
 		completion_reward = {
-			add_idea = Cult_of_death1
+			add_ideas = Cult_of_death1
 			add_war_support = 0.10
 			add_popularity = {
 				ideology = national_fascism
@@ -500,8 +546,8 @@ focus_tree = {
 	}
 	focus = {
 		id = Waves_of_people
-		icon = GFX_goal_generic_support_fascism
-		cost = 10.00
+		icon = GFX_goal_support_fascism
+		cost = 6.00
 		prerequisite = {
 			focus = Fraternity_of_Cross
 		}
@@ -517,7 +563,7 @@ focus_tree = {
 	focus = {
 		id = Reorganaized_the_army
 		icon = GFX_goal_rhineland
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = MIlitary_unity
 		}
@@ -531,7 +577,7 @@ focus_tree = {
 	focus = {
 		id = Total_war
 		icon = GFX_goal_generic_major_war
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Reorganaized_the_army
 		}
@@ -552,22 +598,22 @@ focus_tree = {
 	}
 	focus = {
 		id = Plan_of_great_army
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_focus_generic_little_entente
+		cost = 5.00
 		prerequisite = {
 			focus = Total_war
 		}
 		x = 6
 		y = 4
 		completion_reward = {
-			
+			add_ideas = ROM_Plan_of_great_army_idea
 		}
 
 	}
 	focus = {
 		id = Training_aristocratic_officer
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_focus_generic_military_academy
+		cost = 6.00
 		prerequisite = {
 			focus = Total_war
 		}
@@ -580,7 +626,7 @@ focus_tree = {
 	focus = {
 		id = Traditionalism
 		icon = GFX_goal_generic_more_territorial_claims
-		cost = 10.00
+		cost = 6.00
 		prerequisite = {
 			focus = Reorganaized_the_army
 		}
@@ -684,21 +730,28 @@ focus_tree = {
 	}
 	focus = {
 		id = Remember_Marasesti
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 5.00
 		prerequisite = {
 			focus = Traditionalism
 		}
 		x = 12
 		y = 4
 		completion_reward = {
+			war_support_factor = 0.05
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
 			
 		}
 
 	}
 	focus = {
 		id = legacy_of_mountain_warfare
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_special_forces
 		cost = 10.00
 		prerequisite = {
 			focus = Traditionalism
@@ -706,14 +759,13 @@ focus_tree = {
 		x = 14
 		y = 4
 		completion_reward = {
-			
+			add_idea = ROM_legacy_of_mountain_warfare_idea
 		}
-
 	}
 	focus = {
 		id = Supremacy_of_firepower
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_army_artillery
+		cost = 5.00
 		prerequisite = {
 			focus = legacy_of_mountain_warfare
 			focus = Remember_Marasesti
@@ -721,14 +773,14 @@ focus_tree = {
 		x = 12
 		y = 5
 		completion_reward = {
-			
+			add_ideas = ROM_Supremacy_of_firepower_idea
 		}
 
 	}
 	focus = {
 		id = Take_advantage_of_mountaingun
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_army_artillery2
+		cost = 5.00
 		prerequisite = {
 			focus = legacy_of_mountain_warfare
 		}
@@ -738,12 +790,18 @@ focus_tree = {
 		x = 14
 		y = 5
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = ROM_modern_artillery
+				bonus = 1.25
+				uses = 1
+				category = artillery
+			}
 		}
 
 	}
-	focus = {
-		id = Start_the_General_Staff_Office
+
+	focus = {#多分名前変えます
+		id = Start_the_General_Staff_Office 
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -755,13 +813,13 @@ focus_tree = {
 		x = 12
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_Start_the_General_Staff_Office_idea
 		}
 
 	}
 	focus = {
 		id = Strengthen_conscripiton
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_forceful_treaty
 		cost = 10.00
 		prerequisite = {
 			focus = Start_the_General_Staff_Office
@@ -769,27 +827,35 @@ focus_tree = {
 		x = 11
 		y = 7
 		completion_reward = {
-			
+			add_ideas = ROM_Strengthen_conscripiton_idea
 		}
 
 	}
 	focus = {
 		id = Forceing_home_front
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5.00
 		prerequisite = {
 			focus = Start_the_General_Staff_Office
 		}
 		x = 13
 		y = 7
 		completion_reward = {
-			
+			add_stability = -0.05
+			army_experience = 20
+			add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.25
+							uses = 2
+							category = land_doctrine
+						}
+
 		}
 
 	}
 	focus = {
 		id = The_reenact_battles_from_the_Kharkiv
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_army_reform
 		cost = 10.00
 		prerequisite = {
 			focus = Take_advantage_of_mountaingun
@@ -800,13 +866,13 @@ focus_tree = {
 		x = 14
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_The_reenact_battles_from_the_Kharkiv_idea
 		}
 
 	}
 	focus = {
 		id = Use_river
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_military
 		cost = 10.00
 		prerequisite = {
 			focus = The_reenact_battles_from_the_Kharkiv
@@ -814,14 +880,17 @@ focus_tree = {
 		x = 15
 		y = 7
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_legacy_of_mountain_warfare_idea
+				add_idea = ROM_Use_river_idea
+							}
 		}
 
 	}
 	focus = {
 		id = Forcible_motorizing
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_army_motorized
+		cost = 5.00
 		prerequisite = {
 			focus = Training_aristocratic_officer
 		}
@@ -831,6 +900,10 @@ focus_tree = {
 		x = 6
 		y = 5
 		completion_reward = {
+			add_timed_idea = {
+				idea = Motorize_idea
+				days = 270
+			}
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 1
@@ -841,7 +914,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Armor_supremacy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_tank_production
 		cost = 10.00
 		prerequisite = {
 			focus = Forcible_motorizing
@@ -849,6 +922,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		completion_reward = {
+			add_ideas = ROM_Armor_supremacy_idea
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 1
@@ -899,7 +973,7 @@ focus_tree = {
 	focus = {
 		id = Extend_faur_industry
 		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Plan_of_great_army
 		}
@@ -909,26 +983,26 @@ focus_tree = {
 		x = 8
 		y = 5
 		completion_reward = {
-		
+			unlock_decision_category_tooltip = ROM_Extend_faur_industry
 		}
 	}
 	focus = {
 		id = Detailed_plan
-		icon = GFX_goal_unknown
-		cost = 10.00
+		icon = GFX_goal_generic_military_sphere
+		cost = 5.00
 		prerequisite = {
 			focus = Extend_faur_industry
 		}
 		x = 8
 		y = 6
 		completion_reward = {
-			
+			add_ideas = ROM_Detailed_plan_idea
 		}
 
 	}
 	focus = {
 		id = Reforming_Marele_Cartier_General
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_army_reform
 		cost = 10.00
 		prerequisite = {
 			focus = Armor_supremacy
@@ -937,12 +1011,15 @@ focus_tree = {
 		x = 9
 		y = 7
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = ROM_Detailed_plan_idea
+				add_idea = ROM_Reforming_Marele_Cartier_General_idea
+							}
 		}
 	}
 	focus = {
 		id = Maneuver_in_the_Timisoara
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_preserve_romania
 		cost = 10.00
 		prerequisite = {
 			focus = Reforming_Marele_Cartier_General
@@ -954,7 +1031,9 @@ focus_tree = {
 		x = 10
 		y = 8
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.4
+			}
 		}
 	}
 	
@@ -1776,9 +1855,17 @@ focus_tree = {
 		x = 12
 		y = 10
 		completion_reward = {
-			swap_ideas = {
+			if = {
+				limit = {
+					has_idea = Military_unity
+				}
+				swap_ideas = {
 				remove_idea = Military_unity
 				add_idea = Establish_military_dictatorship
+							}
+				else = {
+					add_ideas = Military_unity
+				}
 			}
 		}
 	}

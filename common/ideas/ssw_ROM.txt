@@ -21,8 +21,6 @@ ideas = {
 			}
 			removal_cost = -1
 			picture = a
-			modifier = {
-			}
 		}
 		Restoration = {
 			allowed = {
@@ -33,8 +31,6 @@ ideas = {
 			}
 			removal_cost = -1
 			picture = a
-			modifier = {
-			}
 		}
 		Legion = {
 			allowed = {
@@ -58,6 +54,12 @@ ideas = {
 			removal_cost = -1
 			picture = a
 			modifier = {
+				political_power_factor = -0.15
+				high_command_cost_factor = -0.25
+				air_chief_cost_factor = -0.2
+				army_chief_cost_factor =-0.2
+				navy_chief_cost_factor = -0.2
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		ROM_war_college = {
@@ -96,6 +98,25 @@ ideas = {
 				air_chief_cost_factor = -0.25
 			}
 		}
+		Prepara_total_war_idea2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = a
+			removal_cost = -1
+			modifier = {
+				mobilization_laws_cost_factor = -0.5
+				economy_cost_factor = -0.5
+				high_command_cost_factor = -0.25
+				army_chief_cost_factor = -0.25
+				navy_chief_cost_factor = -0.25
+				air_chief_cost_factor = -0.25
+				max_planning = 0.15
+			}
+		}
 		Secure_war_expenditures_idea = {
 			allowed = {
 				always = yes
@@ -122,11 +143,11 @@ ideas = {
 			modifier = {
 				stability_factor = -0.15
 				war_support_factor = 0.15
-				targeted_modifier = {
-					tag = HUN
-					attack_bonus_against = 0.05
-					defense_bonus_against = 0.05
-				}
+			}
+			targeted_modifier = {
+				tag = HUN
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
 			}
 		}
 		Lack_Great_Romania_2 = {
@@ -141,11 +162,11 @@ ideas = {
 			modifier = {
 				stability_factor = -0.2
 				war_support_factor = 0.3
-				targeted_modifier = {
-					tag = HUN
-					attack_bonus_against = 0.1
-					defense_bonus_against = 0.1
-				}
+			}
+			targeted_modifier = {
+				tag = HUN
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 		Agricultural_Fund = {
@@ -299,14 +320,14 @@ ideas = {
 			}
 			removal_cost = -1
 			picture = a
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+				}
+			}
 			modifier = {
 				conscription_factor = 0.1
 				production_speed_arms_factory_factor = 0.1
-				equipment_bonus = {
-					infantry_equipment = {
-						build_cost_ic = -0.1
-					}
-				}
 			}
 		}
 		NEW_HERO = {
@@ -326,6 +347,123 @@ ideas = {
 				army_defence_factor = 0.15
 			}
 		}
+		Motorize_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			equipment_bonus = {
+				motorized_equipment = {
+					build_cost_ic = -0.15
+				}
+			}
+		}
+		MCG = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				planning_speed = 0.10
+				training_time_factor = -0.15
+			}
+		}
+		Home_front_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				stability_factor = -0.15
+				consumer_goods_factor = -0.1
+				industrial_capacity_factory = 0.05
+			}
+		}
+		Extend_conscript = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				conscription = 0.05
+			}
+		}
+		Artillery_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				army_artillery_attack_factor = 0.15
+				army_artillery_defence_factor = 0.1
+			}
+		}
+		Legacy_of_marasesti = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				experience_gain_army = 0.05
+			}
+		}
+		Legacy_of_marasesti2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				experience_gain_army = 0.05
+				attrition = -0.2
+				army_morale_factor = 0.1
+			}
+		}
+		GSO = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = a
+			modifier = {
+				max_planning = 0.1
+				planning_speed = 0.1
+			}
+		}
+
+
+
+
 
 		ROM_Uboat_idea = {
 			allowed = {
@@ -453,8 +591,8 @@ ideas = {
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = {
-						consumer_goods_factor = -0.05
-						political_power_gain = -0.1
+				consumer_goods_factor = -0.05
+				political_power_gain = -0.1
 			}
 		}
 
@@ -468,9 +606,9 @@ ideas = {
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = {
-						consumer_goods_factor = -0.1
-						political_power_gain = -0.25
-						economy_cost_factor = -0.25
+				consumer_goods_factor = -0.1
+				political_power_gain = -0.25
+				economy_cost_factor = -0.25
 			}
 		}
 
@@ -484,9 +622,9 @@ ideas = {
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = {
-						offensive_war_stability_factor = 0.1
-							justify_war_goal_time = -0.2
-							generate_wargoal_tension = -0.2
+				offensive_war_stability_factor = 0.1
+				justify_war_goal_time = -0.2
+				generate_wargoal_tension = -0.2
 			}
 		}
 
@@ -500,8 +638,8 @@ ideas = {
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = {
-						weekly_manpower = 100
-						compliance_gain = 0.3
+				weekly_manpower = 100
+				compliance_gain = 0.3
 
 
 			}
@@ -517,10 +655,9 @@ ideas = {
 			removal_cost = -1
 			picture = generic_navy_bonus
 			modifier = {
-						army_core_attack_factor = 0.1
-						army_core_defence_factor = 0.1
-						war_support_factor = 0.03
-						
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+				war_support_factor = 0.03
 
 			}
 		}
@@ -579,7 +716,590 @@ ideas = {
 							air_superiority_efficiency = 0.1	
 			}
 		}
+		ROM_legacy_of_mountain_warfare_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				special_forces_cap = 0.3
+				special_forces_out_of_supply_factor = 0.3
+				terrain_penalty_reduction = 0.1
+			}
+		}
 
+		ROM_Supremacy_of_firepower_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				army_artillery_attack_factor = 0.1
 
+			}
+		}
+
+		ROM_Start_the_General_Staff_Office_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				max_command_power = 50
+				planning_speed = 0.05
+			}
+		}
+
+		ROM_Strengthen_conscripiton_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				stability_factor = -0.01
+				conscription = 0.03
+			}
+		}
+
+		ROM_The_reenact_battles_from_the_Kharkiv_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				army_attack_factor = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+
+		ROM_Use_river_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				special_forces_cap = 0.3
+				special_forces_out_of_supply_factor = 0.3
+				terrain_penalty_reduction = 0.2
+				max_dig_in_factor = 0.05
+			}
+		}
+
+		ROM_Plan_of_great_army_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				conscription = 0.02
+			}
+		}
+
+		ROM_Armor_supremacy_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				army_armor_attack_factor = 0.1
+			}
+		}
+
+		ROM_Detailed_plan_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				max_planning = 0.05
+
+			}
+		}
+
+		ROM_Reforming_Marele_Cartier_General_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				max_planning = 0.05
+			}
+		}
 	}
+ #陸軍長官
+	army_chief = {
+
+		SSW_constantin_sanatescu = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		SSW_ion_antonescu = {
+			
+			picture = a
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Gheorghe_Mihail = {
+			
+			picture = a
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Iacobici_Iosif = {
+			
+			picture = a
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { army_armored_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+ #空軍
+	air_chief = {
+
+		SSW_Emanoil_Ionescu = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		SSW_gheorghe_jienescu = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { air_chief_reform_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Teodorescu_Paul = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { air_air_superiority_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+ #海軍
+	navy_chief = {
+
+		SSW_nicolae_sova = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { navy_chief_commerce_raiding_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		SSW_Ion_Georgescu = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { navy_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Petre_Barbuneanu = {
+			
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+
+			
+			traits = { navy_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	 #最高司令部
+	high_command = {
+
+		SSW_gheorghe_avramescu = {
+			ledger = army
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = generic_army_europe_2
+			
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		SSW_Costin_Ionascu = {
+			ledger = army
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = generic_army_europe_3
+			
+			traits = { army_commando_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		SSW_Cretulescu_Ilie = {
+			ledger = army
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = generic_air_europe_3
+			
+			traits = { air_strategic_bombing_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		SSW_MihailRacovita = {
+			ledger = army
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Burduloiu_Ioan_Traian = {
+			ledger = air
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Ermil_Gheorghiu = {
+			ledger = air
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_George_Davidescu = {
+			ledger = air
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Gheorghe_Vasiliu = {
+			ledger = air
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Eugeniu_Savulescu = {
+			ledger = navy
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SSW_Horia-Macellariu = {
+			ledger = navy
+			
+			
+			allowed = {
+				original_tag = ROM
+			}
+			
+			picture = a
+			
+			traits = {  }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+ #工業
+	industrial_concern = {
+		
+		ROM_CFR = {
+			allowed = {
+				original_tag = ROM
+			}
+			picture = a
+			research_bonus = {
+				industry = 0.15
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.25
+			}
+			traits = { industrial_concern }
+		}
+		ROM_MALAXA = {
+			picture = a
+			allowed = {
+				original_tag = ROM
+			}
+			research_bonus = {
+				industry = 0.15
+			}
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+			}
+			traits = { industrial_concern }
+		}
+		ROM_ROMLOC = {
+		
+			picture = a
+			
+			allowed = {
+				original_tag = ROM
+			}
+			cost = 100
+			research_bonus = {
+				industry = 0.15
+			}
+			traits = { industrial_concern }
+		}
+	}
+
+	materiel_manufacturer = {
+	
+		ROM_FAUR = {
+			allowed = {
+				original_tag = ROM
+			}
+			picture = a
+			available = {
+				has_completed_focus = Extend_faur_industry
+			}
+			research_bonus = {
+				motorized_equipment = 0.1
+			}
+			cost = 50
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.15
+			}
+			traits = { motorized_equipment_manufacturer }
+		}
+		ROM_cugir = {
+			
+			picture = idea_ROM_cugir 
+			allowed = {
+				original_TAG = ROM
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+		}
+		ROM_resita = {
+			
+			picture = generic_artillery_manufacturer_1
+
+
+			allowed = {
+				original_TAG = ROM
+			}
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+			
+		}
+	}
+	
 }

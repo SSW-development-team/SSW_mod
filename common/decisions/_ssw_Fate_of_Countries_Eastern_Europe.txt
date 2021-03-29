@@ -82,4 +82,152 @@ fate_of_countries_category_eastern_europe = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	fate_of_poland = { #É|Å[ÉâÉìÉhÇÃâ^ñΩ
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = POL }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_POL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			POL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_poland }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				country_exists = POL
+				POL = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_poland }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.2 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_poland
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_galicia_lodomeria = { #ÉKÉäÉcÉBÉAÅÅÉçÉhÉÅÉäÉAÇÃâ^ñΩ
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = GAL }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GAL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GAL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_galicia_lodomeria }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				country_exists = GAL
+				GAL = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_galicia_lodomeria }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.3 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_galicia_lodomeria
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_lemko = { #ÉåÉÄÉRÇÃâ^ñΩ
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = LMK }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_LMK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			LMK = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_lemko }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				country_exists = LMK
+				LMK = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_lemko }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.4 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_lemko
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_hungary = { #ÉnÉìÉKÉäÅ[ÇÃâ^ñΩ
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = HUN }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HUN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			HUN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_hungary }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				country_exists = HUN
+				HUN = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_hungary }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.5 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_hungary
+		}
+		ai_will_do = { factor = 100 }
+	}
 }

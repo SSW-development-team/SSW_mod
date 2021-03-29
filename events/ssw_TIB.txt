@@ -1,6 +1,123 @@
 add_namespace = tibet
 
 country_event = {
+	id = tibet.1
+	title = tibet.1.t
+	desc = tibet.1.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.1.a
+		ai_chance = {
+			factor = 20
+		}
+		complete_national_focus = TIB_reform_politic
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = classical_communism 
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democracy 
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = tibet.1.b
+		ai_chance = {
+			factor = 20
+		}
+		complete_national_focus = TIB_traditional_government
+	}
+}
+country_event = {
+	id = tibet.2
+	title = tibet.2.t
+	desc = tibet.2.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.2.a
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				OR = {
+					287 = {
+						controller = {
+							has_war_with = TIB
+						}
+					}
+					617 = {
+						controller = {
+							has_war_with = TIB
+						}
+					}
+					618 = {
+						controller = {
+							has_war_with = TIB
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				controls_state = 287
+			}
+			287 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				controls_state = 617
+			}
+			617 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				controls_state = 618
+			}
+			618 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = tibet.2.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+country_event = {
 	id = tibet.1000 #Himmler(Lhunpolto) appear
 	title = tibet.1000.t
 	desc = tibet.1000.desc

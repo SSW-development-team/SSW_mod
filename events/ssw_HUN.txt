@@ -1,0 +1,382 @@
+add_namespace = ssw_hun
+country_event = { #ベルナドッテの後継者
+	id = ssw_hun.0
+	title = ssw_hun.0.title
+	desc = ssw_hun.0.desc
+	is_triggered_only = yes
+    option = { #シグヴァルド王
+		name = ssw_hun.0.a
+		ai_chance = { base = 50 }
+		retire_ideology_leader = social_conservatism
+		create_country_leader = {
+			name = "Sigvard Bernadotte"
+			desc = ""
+			picture = "gfx/leaders/HUN/Portrait_Hungary_Sigvard_Bernadotte.dds"
+			expire = "2002.2.4"
+			ideology = social_conservatism_ideology
+			traits = {
+				genial_anti_revolutionary
+				the_sacred_king
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservatism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = 0.2
+		}
+	}
+    option = { #レナート王
+		name = ssw_hun.0.b
+		ai_chance = { base = 50 }
+		retire_ideology_leader = social_conservatism
+		create_country_leader = {
+			name = "Lennart Bernadotte"
+			desc = ""
+			picture = "gfx/leaders/HUN/Portrait_Hungary_Lennart_Bernadotte.dds"
+			expire = "2004.12.21"
+			ideology = peasantism_ideology
+			traits = {
+				compassionate_gentleman
+				Charisma
+			}
+		}
+		set_politics = {
+			ruling_party = social_conservatism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = 0.2
+		}
+	}
+}
+country_event = { #ハンガリーがグロスター公に王位就任を要請
+	id = ssw_hun.1
+	title = ssw_hun.1.title
+	desc = ssw_hun.1.desc
+	is_triggered_only = yes
+    option = { #いいだろう。
+		name = ssw_hun.1.a
+		ai_chance = { base = 90 }
+		HUN = { country_event = { id = ssw_hun.3 days = 1 } }
+	}
+    option = { #ダメだ！
+		name = ssw_hun.1.b
+		ai_chance = { base = 10 }
+		HUN = { country_event = { id = ssw_hun.5 days = 1 } }
+	}
+}
+country_event = { #ハンガリーがファイフ公に王位就任を要請
+	id = ssw_hun.2
+	title = ssw_hun.2.title
+	desc = ssw_hun.2.desc
+	is_triggered_only = yes
+    option = { #いいだろう。
+		name = ssw_hun.2.a
+		ai_chance = { base = 90 }
+		HUN = { country_event = { id = ssw_hun.4 days = 1 } }
+	}
+    option = { #ダメだ！
+		name = ssw_hun.2.b
+		ai_chance = { base = 10 }
+		HUN = { country_event = { id = ssw_hun.5 days = 1 } }
+	}
+}
+country_event = { #ヘンリー王子の戴冠
+	id = ssw_hun.3
+	title = ssw_hun.3.title
+	desc = ssw_hun.3.desc
+	is_triggered_only = yes
+    option = { #準備を進めろ！
+		name = ssw_hun.3.a
+		ai_chance = { base = 100 }
+		add_ideas = HUN_prince_henry
+	}
+}
+country_event = { #アレクサンドラ王女の戴冠
+	id = ssw_hun.4
+	title = ssw_hun.4.title
+	desc = ssw_hun.4.desc
+	is_triggered_only = yes
+    option = { #準備を進めろ！
+		name = ssw_hun.4.a
+		ai_chance = { base = 100 }
+		add_ideas = HUN_princess_alexandra
+	}
+}
+country_event = { #イギリス政府が拒否
+	id = ssw_hun.5
+	title = ssw_hun.5.title
+	desc = ssw_hun.5.desc
+	is_triggered_only = yes
+    option = { #もはや王はいらん！
+		name = ssw_hun.5.a
+		ai_chance = { base = 50 }
+		set_cosmetic_tag = HUN_republic
+		add_opinion_modifier = { target = ENG modifier = SSW_dislike }
+		reverse_add_opinion_modifier = { target = ENG modifier = SSW_dislike }
+	}
+}
+country_event = { #ハプスブルク家のハンガリー帰還
+	id = ssw_hun.6
+	title = ssw_hun.6.title
+	desc = news.290.desc
+	is_triggered_only = yes
+    option = { #帝国の復活は近い…
+		name = ssw_hun.6.a
+		ai_chance = { base = 50 }
+		retire_ideology_leader = authority_democracy
+		retire_ideology_leader = authority_despotism
+		create_country_leader = {
+			name = "Otto von Habsburg"
+			desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+			picture = "gfx/leaders/HUN/Portrait_otto_von_hapsburg.dds"
+			expire = "2011.7.4"
+			ideology = authority_democracy_ideology
+			traits = {
+			}
+		}
+		create_country_leader = {
+			name = "Otto von Habsburg"
+			desc = "POLITICS_OTTO_VON_HABSBURG_DESC"
+			picture = "gfx/leaders/HUN/Portrait_otto_von_hapsburg.dds"
+			expire = "2011.7.4"
+			ideology = absolute_monarchism_ideology
+			traits = {
+			}
+		}
+		set_politics = {
+			ruling_party = authority_despotism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.2
+		}
+	}
+}
+news_event = { #ハンガリーで国王が戴冠
+	id = ssw_hun.7
+	title = ssw_hun.7.title
+	desc = ssw_hun.7.desc
+	is_triggered_only = yes
+    option = { #神よ、皇帝を守り給え…
+		name = ssw_hun.7.a
+		ai_chance = { base = 100 }
+		trigger = { original_tag = HUN }
+	}
+    option = { #え？今まで共和制じゃなかったの！？
+		name = ssw_hun.7.b
+		ai_chance = { base = 100 }
+		trigger = { NOT = { original_tag = HUN } }
+	}
+}
+country_event = { #アレクサンドラ女王の崩御
+	id = ssw_hun.8
+	title = ssw_hun.8.title
+	desc = ssw_hun.8.desc
+	trigger = {
+		original_tag = HUN
+		date > 1959.2.26
+		has_idea = HUN_princess_alexandra
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+    option = { #カーネギー王子万歳！
+		name = ssw_hun.8.a
+		ai_chance = { base = 100 }
+		set_global_flag = princess_alexandra_dead
+		swap_ideas = {
+			remove_idea = HUN_princess_alexandra
+			add_idea = HUN_prince_carnegie
+		}
+	}
+}
+country_event = { #国防軍の亡命者
+	id = ssw_hun.9
+	title = ssw_hun.9.title
+	desc = ssw_hun.9.desc
+	is_triggered_only = yes
+    option = { #頼もしいぞ！
+		name = ssw_hun.9.a
+		ai_chance = { base = 100 }
+		add_manpower = 2000
+	}
+}
+country_event = { #武器の売却
+	id = ssw_hun.10
+	title = ssw_hun.10.title
+	desc = ssw_hun.10.desc
+	is_triggered_only = yes
+    option = { #生産活動に注力できるな…
+		name = ssw_hun.10.a
+		ai_chance = { base = 100 }
+		add_timed_idea = { idea = hun_ideas_11 days = 90 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -2500
+			producer = HUN
+		}
+	}
+}
+country_event = { #ブダペスト会談
+	id = ssw_hun.11
+	title = ssw_hun.11.title
+	desc = ssw_hun.11.desc
+	is_triggered_only = yes
+	option = { #敵対国たちに禁輸を課そう…
+		name = ssw_hun.11.a
+		ai_chance = { base = 50 }
+		ROM = { add_ideas = hun_ideas_14 }
+	}
+	option = { #共同演習を実行しよう。
+		name = ssw_hun.11.b
+		ai_chance = { base = 50 }
+		army_experience = 20
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = land_doctrine
+		}
+	}
+}
+country_event = { #モンテネグロ編入を要求
+	id = ssw_hun.12
+	title = ssw_hun.12.title
+	desc = ssw_hun.12.desc
+	is_triggered_only = yes
+	option = { #了承だ。
+		name = ssw_hun.12.a
+		ai_chance = { base = 50 }
+		custom_effect_tooltip = GAME_OVER_TT
+		FROM = { annex_country = { target = MNT transfer_troops = yes } }
+	}
+	option = { #嫌だね！
+		name = ssw_hun.12.b
+		ai_chance = { base = 50 }
+		FROM = { country_event = { id = ssw_hun.13 days = 1 } }
+	}
+}
+country_event = { #モンテネグロの反抗
+	id = ssw_hun.13
+	title = ssw_hun.13.title
+	desc = ssw_hun.13.desc
+	is_triggered_only = yes
+	option = { #くたばれ！
+		name = ssw_hun.13.a
+		ai_chance = { base = 100 }
+		create_wargoal = {
+			type = annex_everything
+			target = MNT
+		}
+	}
+}
+country_event = { #スロヴァキアの保護を要求
+	id = ssw_hun.14
+	title = ssw_hun.14.title
+	desc = ssw_hun.14.desc
+	is_triggered_only = yes
+	option = { #承諾しよう。
+		name = ssw_hun.14.a
+		ai_chance = { base = 50 }
+		FROM = {
+			set_autonomy = {
+				target = SLO
+				autonomous_state = colony
+			}
+		}
+	}
+	option = { #誰が屈すると？
+		name = ssw_hun.14.b
+		ai_chance = { base = 50 }
+		FROM = { country_event = { id = ssw_hun.15 days = 1 } }
+	}
+}
+country_event = { #スロヴァキアの反抗
+	id = ssw_hun.15
+	title = ssw_hun.15.title
+	desc = ssw_hun.15.desc
+	is_triggered_only = yes
+	option = { #くたばれ！
+		name = ssw_hun.15.a
+		ai_chance = { base = 100 }
+	}
+	create_wargoal = {
+		type = annex_everything
+		target = SLO
+	}
+}
+country_event = { #
+	id = ssw_hun.16
+	title = ssw_hun.16.title
+	desc = ssw_hun.16.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.16.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.16.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.17
+	title = ssw_hun.17.title
+	desc = ssw_hun.17.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.17.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.17.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.18
+	title = ssw_hun.18.title
+	desc = ssw_hun.18.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.18.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.18.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.19
+	title = ssw_hun.19.title
+	desc = ssw_hun.19.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.19.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.19.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.20
+	title = ssw_hun.20.title
+	desc = ssw_hun.20.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.20.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.20.b
+		ai_chance = { base = 50 }
+	}
+}

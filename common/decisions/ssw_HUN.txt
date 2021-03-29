@@ -1,0 +1,78 @@
+HUN_debug_decisions = {
+	HUN_little_axis = {
+		icon = ger_reichskommissariats
+		available = { is_debug = yes }
+		visible = {
+			is_debug = yes
+			original_tag = HUN
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			if = {
+            	limit = { has_global_flag = little_axis_victory }
+            	clr_global_flag = little_axis_victory
+            	else = { set_global_flag = little_axis_victory }
+        	}
+		}
+	}
+	HUN_balkan_order = {
+		icon = ger_reichskommissariats
+		available = { is_debug = yes }
+		visible = {
+			is_debug = yes
+			original_tag = HUN
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			if = {
+            	limit = { has_global_flag = balkan_order_victory }
+            	clr_global_flag = balkan_order_victory
+            	else = { set_global_flag = balkan_order_victory }
+        	}
+		}
+	}
+	HUN_danubian_war = {
+		icon = ger_reichskommissariats
+		available = { is_debug = yes }
+		visible = {
+			is_debug = yes
+			original_tag = HUN
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			if = {
+            	limit = { has_global_flag = danubian_war_end }
+            	clr_global_flag = danubian_war_end
+            	else = { set_global_flag = danubian_war_end }
+        	}
+		}
+	}
+	HUN_test = {
+		icon = ger_reichskommissariats
+		available = {
+			is_debug = yes
+			OR = {
+				NOT = {
+					original_tag = ITA
+					original_tag = GER
+					original_tag = JAP
+				}
+				has_government = anarchism
+			}
+		}
+		visible = { is_debug = yes }
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
+	}
+}

@@ -1,0 +1,94 @@
+scripted_gui = {
+	SSW_Policy_top_bar = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "SSW_Policy_top_bar_container"
+
+		visible = {
+			is_ai = no
+		}
+		
+		ai_enabled = {
+			always = no
+		}
+
+		effects = {
+			select_policy_bar_button_click = {
+				if = {
+					limit = { 
+						check_variable = { selected_policy_bar_button = 1 } #if open
+					}
+					set_variable = { selected_policy_bar_button = 0 } #close tab
+				}
+				else = {
+					set_variable = { selected_policy_bar_button = 1 }
+				}
+			}
+		}
+	}
+	
+	SSW_Policy_tab_view = {
+		window_name = "SSW_Policy_tab"
+		context_type = player_context
+
+		visible = {
+			check_variable = { selected_policy_bar_button = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_bar_button = 0 }
+				set_variable = { selected_policy_button = 0 }
+			}
+			economy_focus_icon_button_click = {
+				set_variable = { selected_policy_button = 1 }
+			}
+		}
+	}
+	SSW_Policy_tab_economy_view = {
+		window_name = "SSW_Policy_tab_economy"
+		context_type = player_context
+
+		visible = {
+			check_variable = { selected_policy_button = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		triggers = {
+			repayment_value_decrease_right_click_enabled = {
+			
+			}
+		}
+		effects = {
+			back_button_click = {
+				set_variable = { selected_policy_button = 0 }
+			}
+			repayment_value_increase_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 1 }
+			}
+			repayment_value_increase_shift_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 10 }
+			}
+			repayment_value_increase_control_shift_click = {
+				add_to_variable = { var = country_debt_repayment_amout value = 100 }
+			}
+			repayment_value_decrease_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 1 }
+			}
+			repayment_value_decrease_shift_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 10 }
+			}
+			repayment_value_decrease_control_shift_click = {
+				subtract_from_variable = { var = country_debt_repayment_amout value = 100 }
+			}
+			repayment_button_click  = {
+				subtract_from_variable = { country_debt_value = country_debt_repayment_amout }
+			}
+		}
+	}
+}

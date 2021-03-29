@@ -14,6 +14,11 @@ set_war_support = 0.6
 
 set_convoys = 20
 
+create_import = {
+		resource = steel
+		factories = 2
+		exporter = GER
+}
 #country_event = { id = Danubian_war.1 days = 20 } #先祖伝来の地
 
 set_technology = {
@@ -24,7 +29,6 @@ set_technology = {
 	infantry_weapons2 = 1
 	ssw_infantry_weapons = 1
 	improved_infantry_weapons_2 = 1
-	ssw_infantry_weapons2 = 1
 	support_weapons = 1
 	support_weapons2 = 1
 	night_vision = 1
@@ -46,6 +50,7 @@ set_technology = {
 	paratroopers2 = 1
 	tech_mountaineers = 1
 	tech_mountaineers2 = 1
+	tech_mountaineers3 = 1
 	tech_special_forces = 1
 	improved_special_forces = 1
 	survival_training = 1
@@ -117,6 +122,13 @@ set_technology = {
 	fuel_refining3 = 1
 	fuel_refining4 = 1
 	artillery1 = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antiair1 = 1
+	antiair2 = 1
+	advanced_light_tank = 1
+	improved_medium_tank = 1
 }
 
 if = {
@@ -155,16 +167,249 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	authority_despotism = 100
+	progressive_communism = 0
+	classical_communism = 2
+	social_democracy = 9
+	social_liberalism = 12
+	social_conservatism = 19 
+	authority_democracy = 11
+	authority_despotism = 42
+	national_fascism = 5
 }
 
 create_country_leader = {
 	name = "Ion Victor Antonescu"
 	desc = "POLITICS_ION_VICTOR_ANTONESCU_DESC"
 	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
-	expire = "1965.1.1"
+	expire = "1970.1.1"
 	ideology = military_junta_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Georghe Gheroghiu-Dej"
+	desc = "POLITICS_GEORGHE_DEJ_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1965.3.19"
+	ideology = progressive_communism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Petru Groze"
+	desc = "POLITICS_PETRU_GROZA_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1958.1.7"
+	ideology = classical_communism_ideology
 	traits = {
 		#
 	}
+}
+create_country_leader = {
+	name = "Constantin Title Petrescu"
+	desc = "POLITICS_CONSTANTIN_TITLE_PETRESCU_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1957.9.2"
+	ideology = social_democracy_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Ion Miharache"
+	desc = "POLITICS_ION_MIHARACHE_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1963.2.5"
+	ideology = social_liberalism_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Georghe Tatarescu"
+	desc = "POLITICS_GEORGHE_TATARESCU_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1957.3.28"
+	ideology = social_conservatism_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Mihai Ⅰ"
+	desc = "POLITICS_MIHAI_1_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "2017.12.5"
+	ideology = authority_democracy_ideology
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Radu Mironovici"
+	desc = "POLITICS_RADU_MIRONOVICI_DESC"
+	picture = "gfx/leaders/ROM/Portrait_Ion_Victor_Antonescu.dds"
+	expire = "1979.7.29"
+	ideology = national_fascism_ideology
+	traits = {
+		#
+	}
+}
+create_field_marshal = {
+	name = "Ion Victor Antonescu"
+	picture = "Portrait_Ion_Victor_Antonescu.dds"
+	id = 106
+	traits = { offensive_doctrine aggressive_assaulter inspirational_leader }
+	skill = 5
+	attack_skill = 5
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Gheorghe Avramescu"
+	picture = "Portrait_Gheorghe_Avramescu_ssw.dds"
+	id = 107
+	traits = { trait_mountaineer infantry_expert }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 2
+}
+create_corps_commander = {#山岳
+	name = "Mihail Lascar"
+	picture = "Portrait_Mihail_Lascar.dds"
+	id = 108
+	traits = { trait_mountaineer inflexible_strategist infantry_leader }
+	skill = 4
+	attack_skill = 2
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Corune Radu"
+	picture = "Portrait_Corune_Radu.dds"
+	id = 111
+	traits = { cavalry_leader brilliant_strategist combined_arms_expert }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Ilie Cretulescu"
+	picture = "Portrait_Ilie_Cretulescu.dds"
+	id = 112
+	traits = { trait_mountaineer }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Ioan Dumitrache"
+	picture = "Portrait_Ioan_Dumitrache.dds"
+	id = 114
+	traits = { trait_mountaineer infantry_officer inflexible_strategist }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Leonard Mociulschi"
+	picture = "Portrait_Leonard_Mociulschi.dds"
+	id = 115
+	traits = { trait_mountaineer  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Nicolae_Macici"
+	picture = "Portrait_Nicolae_Macici.dds"
+	id = 116
+	traits = { harsh_leader  }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Mihail Racovita"
+	picture = "Portrait_Mihail_Racovita.dds"
+	id = 117
+	traits = {  }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 4
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Nicolae Dascalescu"
+	picture = "Portrait_Nicolae_Dascalescu.dds"
+	id = 118
+	traits = { bearer_of_artillery infantry_expert }
+	skill = 4
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Radu Baldescu"
+	picture = "Portrait_Radu_Baldescu.dds"
+	id = 119
+	traits = {
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_navy_leader = {
+	name = "Emil Grecescu"
+	picture = "Portrait_Emil_Grecescu.dds"
+	id = 121
+	traits = {
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+create_navy_leader = {
+	name = "Eugeniu Savulescu"
+	picture = "Portrait_Eugeniu_Savulescu.dds"
+	id = 122
+	traits = {
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_navy_leader = {
+	name = "Ioan_Cristescu"
+	picture = "Portrait_Ioan_Cristescu.dds"
+	id = 123
+	traits = {
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
 }

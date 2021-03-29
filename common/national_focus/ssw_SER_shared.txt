@@ -495,7 +495,7 @@ shared_focus = {
 #軍事政権の確立
 shared_focus = {
     id = SER_Establishment_of_military_government
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_strike_at_democracy1
     cost = 8.00
     prerequisite = {
         focus = SER_Military_coup
@@ -536,7 +536,7 @@ shared_focus = {
 #アレクサンダル皇太子への禅譲
 shared_focus = {
     id = SER_Zen_to_Crown_Prince_Aleksandar
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_home_defense
     cost = 8.00
     prerequisite = {
         focus = SER_Establishment_of_military_government
@@ -563,7 +563,7 @@ shared_focus = {
 #王党派の拠点の排除
 shared_focus = {
     id = SER_Elimination_of_Royalist_strongholds
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_demand_sudetenland
     cost = 4.00
     prerequisite = {
         focus = SER_Zen_to_Crown_Prince_Aleksandar
@@ -590,7 +590,7 @@ shared_focus = {
 #新たな役人の派遣
 shared_focus = {
     id = SER_Dispatch_of_New_Officials
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_military_mission
     cost = 8.00
     prerequisite = {
         focus = SER_Elimination_of_Royalist_strongholds
@@ -620,7 +620,7 @@ shared_focus = {
 #強固な政府
 shared_focus = {
     id = SER_Strong_government
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_support_the_left_right
     cost = 8.00
     prerequisite = {
         focus = SER_Dispatch_of_New_Officials
@@ -647,7 +647,7 @@ shared_focus = {
 #統制経済
 shared_focus = {
     id = SER_controlled_economy
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_production
     cost = 6.00
     prerequisite = {
         focus = SER_Elimination_of_Royalist_strongholds
@@ -706,7 +706,7 @@ shared_focus = {
 #戒厳令の段階的緩和
 shared_focus = {
     id = SER_Gradual_Easing_of_Martial_Law
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_strike_at_democracy2
     cost = 8.00
     prerequisite = {
         focus = SER_Strong_government
@@ -731,15 +731,15 @@ shared_focus = {
     y = 6
     completion_reward = {
         add_to_variable = {
-            var = Martial_Law_in_Serbia_var
+            var = Martial_Law_in_North_var
             value = 3
         }
         add_to_variable = {
-            var = Martial_Law_in_Morava_var
+            var = Martial_Law_in_Central_var
             value = 3
         }
         add_to_variable = {
-            var = Martial_Law_in_Kosovo_var
+            var = Martial_Law_in_South_var
             value = 3
         }
         add_days_remove = {
@@ -828,6 +828,20 @@ shared_focus = {
     x = 9
     y = 2
     completion_reward = {
+        add_stability = 0.10
+        activate_decision = SER_Establishment_of_Election_Committee
+        add_to_variable = {
+            var = Set_up_polling_station_North_var
+            value = 1
+        }
+        add_to_variable = {
+            var = Set_up_polling_station_in_Central_var
+            value = 1
+        }
+        add_to_variable = {
+            var = Set_up_polling_station_in_South_var
+            value = 1
+        }
     }
 }
 #暫定政府の招集
@@ -951,6 +965,24 @@ shared_focus = {
     mutually_exclusive = {
         }
     available = {
+        custom_trigger_tooltip = {
+            tooltip = SER_Truly_free_and_fair_elections_trigger_tooltip
+        check_variable = {
+            var = Set_up_polling_station_North_var
+            value = 2
+            compare = equals
+        }
+        check_variable = {
+            var = Set_up_polling_station_in_Central_var
+            value = 2
+            compare = equals
+        }
+        check_variable = {
+            var = Set_up_polling_station_in_South_var
+            value = 2
+            compare = equals
+        }
+        }
     }
     ai_will_do = {
         factor = 5
@@ -1002,7 +1034,7 @@ shared_focus = {
 #不況への対処
 shared_focus = {
     id = SER_Coping_with_Recession
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_consumer_goods
     cost = 8.00
     prerequisite = {
         }
@@ -1031,7 +1063,7 @@ shared_focus = {
 #農地改革
 shared_focus = {
     id = SER_Farmland_Reform
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_construction2
     cost = 8.00
     prerequisite = {
         focus = SER_Coping_with_Recession
@@ -1141,7 +1173,7 @@ shared_focus = {
 #品種改良の奨励
 shared_focus = {
     id = SER_Encouragement_of_breed_improvement
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_reichsautobahn
     cost = 8.00
     prerequisite = {
         focus = SER_Farmland_Reform
@@ -1171,7 +1203,7 @@ shared_focus = {
 #技術者の招致
 shared_focus = {
     id = SER_Invite_engineers
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_military_academy
     cost = 8.00
     prerequisite = {
         focus = SER_Encouragement_of_breed_improvement
@@ -1202,7 +1234,7 @@ shared_focus = {
 #手厚い保障
 shared_focus = {
     id = SER_Generous_coverage
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_concessions
     cost = 8.00
     prerequisite = {
         focus = SER_Encouragement_of_breed_improvement
@@ -1229,7 +1261,7 @@ shared_focus = {
 #開墾キャンペーン
 shared_focus = {
     id = SER_Cultivation_Campaign
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_industry_1
     cost = 8.00
     prerequisite = {
         focus = SER_Generous_coverage
@@ -1263,7 +1295,7 @@ shared_focus = {
 #作物研究所
 shared_focus = {
     id = SER_Crop_Research_Institute
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_research2
     cost = 8.00
     prerequisite = {
         focus = SER_Cultivation_Campaign
@@ -1290,7 +1322,7 @@ shared_focus = {
 #働くか食うか滅びるか
 shared_focus = {
     id = SER_work_or_eat_or_perish
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_CZE_german_puppet
     cost = 8.00
     prerequisite = {
         focus = SER_Cultivation_Campaign
@@ -1317,7 +1349,7 @@ shared_focus = {
 #大学への補助金
 shared_focus = {
     id = SER_Grants_to_universities
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_tfv_generic_tech_sharing
     cost = 7.00
     prerequisite = {
         focus = SER_Invite_engineers
@@ -1370,7 +1402,7 @@ shared_focus = {
 #秘密裏の動員開始
 shared_focus = {
     id = SER_Commence_clandestine_mobilization
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_usa_honor_the_confederacy
     cost = 8.00
     prerequisite = {
         focus = SER_Kurayeva_Conference
@@ -1401,7 +1433,7 @@ shared_focus = {
 #イタリアへの歎願
 shared_focus = {
     id = SER_Plea_to_Italy
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_befriend_italy
     cost = 4.00
     prerequisite = {
         focus = SER_Kurayeva_Conference
@@ -1432,7 +1464,7 @@ shared_focus = {
 #イギリスからの密輸
 shared_focus = {
     id = SER_Smuggling_from_Britain
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_prc_infiltration
     cost = 8.00
     prerequisite = {
         focus = SER_Plea_to_Italy
@@ -1499,7 +1531,7 @@ shared_focus = {
 #国境地帯の武器庫への襲撃
 shared_focus = {
     id = SER_Raid_on_arm_depot_in_border_region
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_provoke_border_clashes
     cost = 4.00
     prerequisite = {
         focus = SER_Smuggling_from_Britain
@@ -1537,7 +1569,7 @@ shared_focus = {
 #クロアチアとの要塞戦
 shared_focus = {
     id = SER_Fortress_War_with_Croatia
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_fortify_city
     cost = 8.00
     prerequisite = {
         focus = SER_Commence_clandestine_mobilization
@@ -1635,7 +1667,7 @@ shared_focus = {
 #戦え！セルビア人よ！
 shared_focus = {
     id = SER_Fight_Serbs
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_political_pressure
     cost = 2.00
     prerequisite = {
         focus = SER_Fortress_War_with_Croatia
@@ -1662,7 +1694,7 @@ shared_focus = {
 #宿敵との対決
 shared_focus = {
     id = SER_Confrontation_with_the_nemesis
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_YUG_banovina_of_croatia
     cost = 1.00
     prerequisite = {
         focus = SER_Fight_Serbs
@@ -1692,20 +1724,18 @@ shared_focus = {
 #敗北
 shared_focus = {
     id = SER_Loser
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_CZE_german_puppet
     cost = 1.00
     prerequisite = {
         }
     mutually_exclusive = {
         }
     available = {
-        always = no
     }
     ai_will_do = {
         factor = 5
     }
     bypass = {
-        has_global_flag = SER_Surrenders_Donauwar
     }
     cancel_if_invalid = yes
     continue_if_invalid = no
@@ -1719,7 +1749,7 @@ shared_focus = {
 #敗戦責任
 shared_focus = {
     id = SER_responsibility_for_war
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_secret_weapon
     cost = 8.00
     prerequisite = {
         focus = SER_Loser
@@ -1752,7 +1782,7 @@ shared_focus = {
 #裏切り者の粛清
 shared_focus = {
     id = SER_Purge_of_Traitors
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_mex_arrest_general_cedillo
     cost = 8.00
     prerequisite = {
         focus = SER_responsibility_for_war
@@ -1779,7 +1809,7 @@ shared_focus = {
 #プロバガンダ戦略
 shared_focus = {
     id = SER_propaganda_strategy
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_propaganda
     cost = 4.00
     prerequisite = {
         focus = SER_Purge_of_Traitors
@@ -1806,7 +1836,7 @@ shared_focus = {
 #復讐への準備
 shared_focus = {
     id = SER_Prepare_for_revenge
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_AST_squander_bug
     cost = 4.00
     prerequisite = {
         focus = SER_propaganda_strategy
@@ -1837,7 +1867,7 @@ shared_focus = {
 #モンテネグロの不安定化
 shared_focus = {
     id = SER_Destabilization_of_Montenegro
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_strike_at_democracy2
     cost = 6.00
     prerequisite = {
         focus = SER_Prepare_for_revenge
@@ -1870,7 +1900,7 @@ shared_focus = {
 #かつての敵
 shared_focus = {
     id = SER_former_enemy
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_diplomatic_treaty
     cost = 8.00
     prerequisite = {
         focus = SER_Destabilization_of_Montenegro
@@ -1901,7 +1931,7 @@ shared_focus = {
 #復興への道のり
 shared_focus = {
     id = SER_Road_to_Recovery
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_spr_torchbearers_of_tomorrow
     cost = 8.00
     prerequisite = {
         focus = SER_Loser
@@ -1931,7 +1961,7 @@ shared_focus = {
 #復員事業
 shared_focus = {
     id = SER_demobilization_project
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_military_academy
     cost = 4.50
     prerequisite = {
         focus = SER_Road_to_Recovery
@@ -1958,7 +1988,7 @@ shared_focus = {
 #負傷兵への早急な処置
 shared_focus = {
     id = SER_Prompt_treatment_of_wounded_soldiers
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_allies_build_infantry
     cost = 8.00
     prerequisite = {
         focus = SER_demobilization_project
@@ -1985,7 +2015,7 @@ shared_focus = {
 #迅速な軍の再生
 shared_focus = {
     id = SER_Rapid_military_regeneration
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_intelligence_exchange
     cost = 8.00
     prerequisite = {
         focus = SER_demobilization_project
@@ -2015,7 +2045,7 @@ shared_focus = {
 #反イスラム義勇兵
 shared_focus = {
     id = SER_antiIslamic_volunteer_army
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_military_deal
     cost = 8.00
     prerequisite = {
         focus = SER_Rapid_military_regeneration
@@ -2043,7 +2073,7 @@ shared_focus = {
 #軍事研究所
 shared_focus = {
     id = SER_Military_Institute
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_scientific_exchange
     cost = 9.00
     prerequisite = {
         focus = SER_antiIslamic_volunteer_army
@@ -2070,7 +2100,7 @@ shared_focus = {
 #立ち上がれ！
 shared_focus = {
     id = SER_Get_up
-    icon = GFX_focus_generic_treaty
+    icon = GFX_focus_generic_strike_at_democracy1
     cost = 7.00
     prerequisite = {
         focus = SER_Military_Institute
@@ -2111,24 +2141,17 @@ shared_focus = {
 #勝利
 shared_focus = {
     id = SER_Winer
-    icon = GFX_focus_generic_treaty
+    icon = GFX_goal_generic_more_territorial_claims
     cost = 1.00
     prerequisite = {
         }
     mutually_exclusive = {
         }
     available = {
-        always = no
     }
     ai_will_do = {
-        factor = 5
     }
     bypass = {
-        has_global_flag = Danubian_war
-        has_war = no
-        NOT = {
-        has_global_flag = SER_Surrenders_Donauwar
-        }
     }
     cancel_if_invalid = yes
     continue_if_invalid = no
@@ -2137,5 +2160,419 @@ shared_focus = {
     x = 16
     y = 10
     completion_reward = {
+        add_war_support = -0.20
+    }
+}
+#クロアチア人への対処
+shared_focus = {
+    id = SER_Dealing_with_Croatian
+    icon = GFX_goal_rhineland
+    cost = 6.00
+    prerequisite = {
+        focus = SER_Winer
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 14
+    y = 11
+    completion_reward = {
+        add_ideas = SER_idea_37
+        add_stability = -0.10
+        add_equipment_to_stockpile = {
+            type = infantry_equipment
+            amount = -5000
+        }
+        add_manpower = -1000
+    }
+}
+#国内少数民族への対処
+shared_focus = {
+    id = SER_Addressing_domestic_ethnic_minorities
+    icon = GFX_focus_generic_self_management
+    cost = 7.00
+    prerequisite = {
+        focus = SER_Dealing_with_Croatian
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 14
+    y = 12
+    completion_reward = {
+        country_event = {
+            id = SSW_SER.8
+        }
+    }
+}
+#宗教問題
+shared_focus = {
+    id = SER_religious_problem
+    icon = GFX_focus_generic_treaty
+    cost = 7.00
+    prerequisite = {
+        focus = SER_Addressing_domestic_ethnic_minorities
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 14
+    y = 13
+    completion_reward = {
+        country_event = {
+            id = SSW_SER.9
+        }
+    }
+}
+#ユーゴスラビアの復活
+shared_focus = {
+    id = SER_Resurgence_of_Yugoslavia
+    icon = GFX_SER_Resurgence_of_Yugoslavia
+    cost = 8.00
+    prerequisite = {
+        focus = SER_Winer
+        }
+    mutually_exclusive = {
+        focus = SER_Greater_Serbia
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 16
+    y = 11
+    completion_reward = {
+        hidden_effect = {
+            104 = {
+                add_core_of = ROOT
+            }
+            804 = {
+                add_core_of = ROOT
+            }
+        }
+        activate_decision = SER_Restoration_of_Yugoslav_territory
+        add_ideas = SER_idea_40
+    }
+}
+#ブルガリアへの追撃
+shared_focus = {
+    id = SER_Pursuit_of_Bulgaria
+    icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
+    cost = 7.00
+    prerequisite = {
+        focus = SER_Resurgence_of_Yugoslavia
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 16
+    y = 12
+    completion_reward = {
+        create_wargoal = {
+            type = puppet_wargoal_focus
+            target = BUL
+        }
+    }
+}
+#大元を叩く
+shared_focus = {
+    id = SER_Strike_at_source_of_problem
+    icon = GFX_TUR_Ottoman_empire_flag
+    cost = 7.00
+    prerequisite = {
+        focus = SER_Pursuit_of_Bulgaria
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 16
+    y = 13
+    completion_reward = {
+        create_wargoal = {
+            type = take_state_focus
+            target = TUR
+        }
+    }
+}
+#大セルビア
+shared_focus = {
+    id = SER_Greater_Serbia
+    icon = GFX_focus_unknown
+    cost = 7.00
+    prerequisite = {
+        focus = SER_Winer
+        }
+    mutually_exclusive = {
+        focus = SER_Resurgence_of_Yugoslavia
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 18
+    y = 11
+    completion_reward = {
+        hidden_effect = {
+            104 = {
+                add_core_of = ROOT
+            }
+        }
+        CRO = {
+            remove_state_core = 104
+            remove_state_core = 804
+        }
+        release = CRO
+        puppet = CRO
+        add_stability = 0.05
+        add_war_support = -0.05
+        activate_decision = SER_Restoration_of_Greater_Serbia_territory
+    }
+}
+#コソボの内地統合
+shared_focus = {
+    id = SER_Integration_of_Kosovo
+    icon = GFX_goal_generic_territory_or_war
+    cost = 6.00
+    prerequisite = {
+        focus = SER_Greater_Serbia
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 18
+    y = 12
+    completion_reward = {
+        hidden_effect = {
+            802 = {
+                add_core_of = ROOT
+            }
+        }
+    }
+}
+#宥和憲法
+shared_focus = {
+    id = SER_appeasement_constitution
+    icon = GFX_focus_hol_the_foundations_of_defense
+    cost = 6.00
+    prerequisite = {
+        focus = SER_Integration_of_Kosovo
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 18
+    y = 13
+    completion_reward = {
+        add_stability = 0.20
+        add_political_power = 50
+    }
+}
+#ベオグラード鉄道
+shared_focus = {
+    id = SER_Belgrade_Railway
+    icon = GFX_goal_generic_construct_infrastructure
+    cost = 7.00
+    prerequisite = {
+        focus = SER_appeasement_constitution
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 18
+    y = 14
+    completion_reward = {
+        976 = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+        }
+        107 = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+        }
+        105 = {
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+        }
+    }
+}
+#新たな大学
+shared_focus = {
+    id = SER_New_University
+    icon = GFX_focus_usa_guarantee_the_american_dream
+    cost = 8.00
+    prerequisite = {
+        focus = SER_religious_problem
+        }
+        prerequisite = {
+            focus = SER_Strike_at_source_of_problem
+            focus = SER_Belgrade_Railway
+            }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 16
+    y = 15
+    completion_reward = {
+        add_research_slot = 1
+    }
+}
+#人心の安定
+shared_focus = {
+    id = SER_personal_stability
+    icon = GFX_goal_generic_major_alliance
+    cost = 7.00
+    prerequisite = {
+        focus = SER_New_University
+        }
+    mutually_exclusive = {
+        }
+    available = {
+    }
+    ai_will_do = {
+        factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 16
+    y = 16
+    completion_reward = {
+        add_stability = 0.15
+        add_political_power = 300
+        SER_Ruling_party_support_rises_30 = yes
     }
 }

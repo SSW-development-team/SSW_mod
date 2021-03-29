@@ -1,17 +1,123 @@
 ideas = {
 	country = {
+		TIB_the_nobles = {
+			picture = prc_low_popular_support2
+			removal_cost = -1
+			allowed = {
+				original_tag = TIB
+			}
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = 0.1
+				consumer_goods_factor = 0.05
+				political_power_gain = -0.1
+			}
+		}
+		TIB_the_monasteries_4 = {
+			allowed = {
+				original_tag = TIB
+			}
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		TIB_unmodernization_industries = {
+			allowed = {
+				original_tag = TIB
+			}
+			modifier = {
+				industry_free_repair_factor = -0.3
+				production_speed_buildings_factor = -0.25
+				local_resources_factor = -0.2
+				production_factory_max_efficiency_factor = -0.1
+			}
+		}
+		TIB_poorly_organized_army = {
+
+			picture = tfv_can_conscription_crisis
+		
+			allowed = {
+				original_tag = TIB
+			}
+
+			removal_cost = -1
+		
+			modifier = {
+				max_planning = -0.15
+				planning_speed = -0.1
+				army_org_Factor = -0.1
+				army_morale_factor = -0.1
+				military_leader_cost_factor = 50
+			}
+		}
 		TIB_14th_dalai_lama = {
 			picture = 14th_dalai_lama
 			removal_cost = -1
+			allowed = {
+				original_tag = TIB
+			}
 			modifier = {
 				stability_factor = 0.1
 				political_power_factor = 0.1
+			}
+		}
+		TIB_machine_tools = {
+			picture = generic_local_self_management
+			removal_cost = -1
+			allowed = {
+				original_tag = TIB
+			}
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		TIB_const_road = {
+			picture = generic_build_infrastructure
+			removal_cost = -1
+			allowed = {
+				original_tag = TIB
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.2
 			}
 		}
 	}
 	political_leader = {
 		TIB_langdun = {
 			picture = yapshi_langdun
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_reting_rinpoche_idea = {
+			picture = reting_rinpoche
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_taktra_rinpoche_idea = {
+			picture = taktra_rinpoche
 			removal_cost = -1
 			available = {
 				custom_trigger_tooltip = {
@@ -96,6 +202,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_phuntsok_wangyal = {
+			picture = phuntsok_wangyal
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_army = {
 		TIB_wangchen_gelek = {
@@ -112,6 +234,27 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+			}
+		}
+	}
+	industrial_concern = {
+		TIB_ministry_of_communications = {
+			picture = generic_electronics_concern_3
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				has_completed_focus = TIB_electrical_machine_office
+			}
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+
+			ai_will_do = {
+				factor = 1
 			}
 		}
 	}
