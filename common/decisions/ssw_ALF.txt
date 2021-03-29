@@ -1,0 +1,327 @@
+ALF_cat_dec_Militia = { #カテゴリーID
+	alf_dec_militia_Washington = { #ディシジョンID
+		icon = generic_army_support #アイコン
+		ai_will_do = {
+			factor = 100 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+
+		cost = 10 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			hidden_effect = {
+				386 = { #湧かせる州
+					limit = {
+						ROOT = {
+							has_full_control_of_state = PREV
+						}
+					}
+					prioritize = { #不明・・・
+						64
+					}
+					create_unit = { #師団作成
+						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
+					}
+					create_unit = {
+						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
+					}
+					create_unit = { #師団作成
+						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
+					}
+				}
+			}
+			custom_effect_tooltip = SSW_militia_was_tt
+		}
+	}
+}
+
+ALF_cat_dec_infullence_mafia = { #カテゴリーID
+	alf_dec_Arresting_the_Mafia = { #ディシジョンID
+		icon = generic_political_discourse #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_1
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_1
+				add_idea = SSW_ideas_influence_2
+			}
+		}
+	}
+
+	alf_dec_Clean_up_mafia_ties_from_politics = { #ディシジョンID
+		icon = generic_political_discourse #アイコン
+		ai_will_do = {
+			factor = 70 #AIが踏む確率
+		}
+		available = {
+			original_tag = ALF #踏めるようになる条件
+			NOT = {
+				AND = {
+					has_decision = alf_dec_Wipe_out_the_mafia
+					has_decision = alf_dec_Contact_with_the_mafia_in_political_circles
+					has_decision = alf_dec_Backing_the_Mafia
+				}
+			}
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_2
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_2
+				add_idea = SSW_ideas_influence_3
+			}
+		}
+	}
+	alf_dec_Wipe_out_the_mafia = { #ディシジョンID
+		icon = generic_police_action #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+			NOT = {
+					has_decision = alf_dec_Arresting_the_Mafia
+			}
+			NOT = {
+					has_decision = alf_dec_Clean_up_mafia_ties_from_politics
+			}
+			NOT = {
+					has_decision = alf_dec_Backing_the_Mafia
+			}
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_2
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 15 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.3
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_2
+				add_idea = SSW_ideas_influence_3
+			}
+			add_stability = -0.06
+		}
+	}
+	alf_dec_Contact_with_the_mafia_in_political_circles = { #ディシジョンID
+		icon = gre_investment_decisions #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_2
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 20 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.5
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_2
+				add_idea = SSW_ideas_influence_1
+			}
+		}
+	}
+	alf_dec_Backing_the_Mafia = { #ディシジョンID
+		icon = hol_attract_foreign_investors #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_2
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.5
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_2
+				add_idea = SSW_ideas_influence_1
+			}
+			add_stability = -0.1
+		}
+	}
+
+	alf_dec_Acceptance_of_Narcotics = { #ディシジョンID
+		icon = hol_attract_foreign_investors #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_3
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.5
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_3
+				add_idea = SSW_ideas_influence_2
+			}
+			add_stability = -0.1
+		}
+	}
+	alf_dec_Drug_busts = { #ディシジョンID
+		icon = generic_political_discourse #アイコン
+		ai_will_do = {
+			factor = 70 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_3
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_3
+				add_idea = SSW_ideas_influence_4
+			}
+		}
+	}
+
+	alf_dec_Receive_assistance = { #ディシジョンID
+		icon = hol_attract_foreign_investors #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_4
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 25 #決定したときにディシジョンを取得しきれる日数
+		modifier = {
+			consumer_goods_factor = -0.05
+		}
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_4
+				add_idea = SSW_ideas_influence_3
+			}
+			add_stability = -0.1
+		}
+	}
+	alf_dec_Expulsion_of_the_Mafia = { #ディシジョンID
+		icon = generic_assassination #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_4
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_4
+				add_idea = SSW_ideas_influence_5
+			}
+		}
+	}
+
+	alf_dec_Eradicating_the_Mafia = { #ディシジョンID
+		icon = generic_assassination #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_5
+		}
+		cost = 100 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			remove_ideas = SSW_ideas_influence_5
+		}
+	}
+	alf_dec_Ignore_the_expansion_of_the_mafia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ALF #踏めるようになる条件
+		}
+		visible = { #見えるようになる条件
+			has_idea = SSW_ideas_influence_5
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = no #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		modifier = {　#ディシジョン選択中の効果
+            political_power_gain = -0.25
+        }
+		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
+			swap_ideas = {
+				remove_idea = SSW_ideas_influence_5
+				add_idea = SSW_ideas_influence_4
+			}
+		}
+	}
+}

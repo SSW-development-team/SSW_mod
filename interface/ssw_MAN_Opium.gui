@@ -1,0 +1,183 @@
+guiTypes = {
+	containerWindowType = {
+		name = "SSW_MAN_Opium_container"
+		position = { x = 0 y = 0 }
+		size = { width = 10 height = 10 }
+		orientation = upper_left
+
+		buttonType = {
+			name = "view_OPI_button"
+			position = { x = 180 y = 200 }
+			quadTextureSprite = "GFX_MAN_OPEN_OPI"
+		}
+	}
+	
+	containerWindowType = {
+		name = "OPI_Opium_container"
+		orientation = center
+		position = { x = -265 y = -460 }
+		size = { width = 800 height = 900 }
+		
+		background = {	
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_bg"
+		}
+		containerWindowType = {
+			name = "OPI_Opium_title_container"
+			orientation = center
+			position = { x = -400 y = -450 }
+			size = { width = 800 height = 100 }
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_tiled_bg"
+			}
+			
+			instantTextBoxType = {
+				name = "Manchuria_Opium_title"
+				position = { x =-150 y = -25 }
+				orientation = center
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "MO_TITLE"
+				maxWidth = 300
+				maxHeight = 20
+				fixedsize = yes	
+				format = centre 
+			}
+		}
+
+		containerWindowType = {
+			name = "OPI_Opium_Opi_container"
+			orientation = center
+			position = { x =  -400  y = -358 }
+			size = { width = 800 height = 500 }
+			
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_tiled_bg"
+			}
+			containerWindowType = {
+				name = "OPI_Opium_Opi_container_2"
+				orientation = center
+				position = { x =  -385  y = -235 }
+				size = { width = 768 height = 470 }
+				
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_decisions_bg_small"
+				}
+				gridboxtype = {
+					name = "OPI_container"
+					position = { x = 14 y = 0 }
+					slotsize = { width = 100%% height = 0 }
+					max_slots_OPIizontal = 1
+					add_OPIizontal = no
+				}
+				instantTextBoxType = {
+					name = "OPI_title"
+					position = { x =-475 y = 190 }
+					orientation = center
+					font = "hoi_24header"
+					borderSize = {x = 0 y = 0}
+					text = "OPI_TITLE"
+					maxWidth = 400
+					maxHeight = 20
+					fixedsize = yes	
+					format = centre 
+				}
+				iconType = {
+					name = "MAN_opium_bar"
+					spriteType = "GFX_MAN_progress"
+					position = { x = 90 y = 12 }
+					pdx_tooltip = MAN_opium_bar_tt
+				}
+
+				containerWindowType = {
+					name = "SSW_MAN_tab_opium_regulation"
+					position = { x=200 y=50 }
+					size = { width = 550 height = 85 }
+					
+					background = {
+						name = "Background"		
+						spriteType ="GFX_tiled_decisions_bg_small"
+					}
+					containerWindowType = {
+						name = "SSW_MAN_tab_opium_regulation_slider"
+						position = { x=-15 y=40 }
+						size = { width = 550 height = 170 }
+						
+						containerWindowType = {
+							name = "SSW_MAN_tab_opium_regulation_slider_bg"
+							position = { x=50 y=5 }
+							size = { width = 360 height = 10 }
+							background = {
+								name = "Background"		
+								spriteType ="GFX_scroll_track"
+							}
+						}
+						iconType = {
+							name = "SliderButton"	
+							quadTextureSprite = "GFX_scroll_drager"
+							position = { x=225 y =2}
+						}
+						buttonType = {
+							name = "SliderDown"	
+							quadTextureSprite = "GFX_scroll_left"
+							position = { x=35 y =2}
+						}
+						buttonType = {
+							name = "SliderUp"	
+							quadTextureSprite = "GFX_scroll_right"
+							position = { x= 410 y =2}
+						}
+						containerWindowType = {
+							name = "SSW_MAN_tab_opium_regulation_info"
+							position = { x=430 y=-40 }
+							size = { width = 135 height = 87 }
+							
+							background = {
+								name = "Background"		
+								spriteType ="GFX_tiled_decisions_bg_small"
+							}
+							iconType = {
+								name = "goods_icon"	
+								quadTextureSprite = "GFX_consumer_goods_icon"
+								position = { x=10 y =18}
+								scale = 0.5
+							}
+							instantTextboxType = {
+								name = "goods_text"
+								position = { x= 55 y = 10}
+								font = "hoi_30header"
+								text = "[GOODS_TEXT]"
+								maxWidth = 80
+								format = left
+							}
+							iconType = {
+								name = "opium_icon"	
+								quadTextureSprite = "GFX_MAN_opium_icon"
+								position = { x=13 y =53}
+								scale = 0.5
+							}
+							instantTextboxType = {
+								name = "plus_stability_text"
+								position = { x= 55 y = 48 }
+								font = "hoi_30header"
+								text = "[PLUS_STABILITY_TEXT]"
+								maxWidth = 80
+								format = left
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		buttonType = {
+			name = "OPI_close_button"
+			position = { x = 753 y = 15 }
+			quadTextureSprite = "GFX_closebutton"
+			sOPItcut = ESCAPE
+		}
+	}
+}

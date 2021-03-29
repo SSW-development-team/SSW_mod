@@ -1,0 +1,539 @@
+ITA_Expanding_the_Outstrada = { #カテゴリーID
+	#北部地域での拡張
+    ITA_Expansion_in_the_northern_region = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ITA #踏めるようになる条件
+			ITA = {
+				any_owned_state_in_north_italy = yes
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_in_the_northern_region
+			every_owned_state = {
+				limit = {
+					is_north_italy_states = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#南部地域での拡張
+	ITA_Expansion_in_the_southern_region = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ITA #踏めるようになる条件
+			ITA = {
+				any_owned_state_in_south_italy = yes
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_in_the_southern_region
+			every_owned_state = {
+				limit = {
+					is_south_italy_states = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+		}
+	}
+    }
+	#アドリア海地域への拡張
+	ITA_Expansion_to_the_Adriatic_region = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 1 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = ITA #踏めるようになる条件
+			ITA = {
+				any_owned_state_in_Adriatic_region = yes
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			set_country_flag = complate_ITA_Expansion_to_the_Adriatic_region
+			every_owned_state = {
+				limit = {
+					is_Adriatic_region_states = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#計画の完了
+	ITA_Complete_the_plan = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			custom_effect_tooltip = SSW_ITA_Complete_the_plan_tooltip
+			original_tag = ITA
+			has_country_flag = complate_ITA_Expansion_in_the_northern_region
+			has_country_flag = complate_ITA_Expansion_in_the_southern_region
+			has_country_flag = complate_ITA_Expansion_to_the_Adriatic_region
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+		}
+	}
+}
+ITA_Influence_of_Fascist_Factions = {
+}
+ITA_East_Africa_Military_development_in_various_regions = {
+	ITA_East_Africa_Building_Factory_in_Ethiopia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Ethiopia = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Ethiopia_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Eritrea = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Eritrea = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 20 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 20 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Eritrea_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Somalia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Somalia = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Somalia_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Kenya = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Kenya = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Kenya_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+ITA_East_Africa_Industrial_development_in_various_regions = {
+	ITA_East_Africa_Building_Factory_in_Ethiopia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Ethiopia = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Ethiopia_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Eritrea = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Eritrea = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 20 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 20 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Eritrea_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Somalia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Somalia = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Somalia_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Building_Factory_in_Kenya = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Kenya = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Kenya_states = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+ITA_East_Africa_Military_development_of_each_coastal_region = {
+	ITA_East_Africa_Construction_shipyard_in_Kenya = {
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Kenya = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 30 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Kenya_states = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Construction_shipyard_in_Eritrea = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Eritrea = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 20 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 20 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Eritrea_states = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Construction_shipyard_in_Somalia = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Somalia = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Somalia_states = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	ITA_East_Africa_Construction_shipyard_in_Djibouti = { #ディシジョンID
+		icon = generic_speech #アイコン
+		ai_will_do = {
+			factor = 12 #AIが踏む確率
+		}
+		allowed = {
+			original_tag = NEA
+			IT3 = {
+				is_subject_of = ITA
+				any_owned_state_in_Kenya = yes
+			}
+			NOT = {
+				has_country_flag = ETH_start_indep_war
+			}
+		}
+		visible = { #見えるようになる条件
+		}
+		cost = 50 #消費する政治力
+		fire_only_once = yes #何回も使えるか
+		days_remove = 50 #決定したときにディシジョンを取得しきれる日数
+		remove_effect = {
+			every_owned_state = {
+				limit = {
+					is_Djibouti_states = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
