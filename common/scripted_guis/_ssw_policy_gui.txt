@@ -60,11 +60,26 @@ scripted_gui = {
 			always = no
 		}
 		triggers = {
-			repayment_value_decrease_right_click_enabled = {
-			
+			YES_button_Light_1_visible = {
+			check_variable = { corporate_law_Antitrust = 1 }
+			}
+			YES_button_Black_1_visible = {
+			check_variable = { corporate_law_Antitrust = 0 }
+			}
+			NO_button_Light_1_visible = {
+			check_variable = { corporate_law_Antitrust = 0 }
+			}
+			NO_button_Black_1_visible = {
+			check_variable = { corporate_law_Antitrust = 1 }
 			}
 		}
 		effects = {
+			YES_button_Light_1_click = {
+			set_variable = { corporate_law_Antitrust = 1 }
+			}
+			NO_button_Black_1_click = {
+			set_variable = { corporate_law_Antitrust = 0 }
+			}
 			back_button_click = {
 				set_variable = { selected_policy_button = 0 }
 			}
