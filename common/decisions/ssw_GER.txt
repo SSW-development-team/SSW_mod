@@ -1095,9 +1095,78 @@ GER_civill_war_propaganda = {
 }
 
 GER_civill_war_Government = {
-	GCW_propaganda = {
+	GCW_propaganda = {#プロパガンダ活動
 		icon = decision_eng_propaganda_campaigns
 		fire_only_once = no
+		days_re_enable = 30
+	visible = {
+		
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 7
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_political_power = 100
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 10
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 10
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 10
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 10
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 10
+					}
+				}
+
+				
+	}
+	}
+	GCW_Purge_of_the_infidel = {#不届き者の粛清
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
 	visible = {
 		
 	}
@@ -1105,22 +1174,1729 @@ GER_civill_war_Government = {
 		factor = 100
 	}
 	cost = 50
-	days_remove = 7
+	days_remove = 10
 	modifier = {
 		
 	}
 	remove_effect = {
-		ROOT = {
+				add_stability = -0.1
+				add_war_support = 0.1
+				custom_effect_tooltip = Influence_tooltip
 				if = {
 					limit = {
 						original_tag = GER
 					}
 					add_to_variable = { 
-						var = goring_Influence 
-						value = 10
-					} 
+						var = gepperus_Influence
+						value = 20
+					}
 				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 20
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 25
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 20
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 20
+					}
+				}
+	}
+	}
+	GCW_has_infra = {#住民の生活の保障
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		NOT = {
+			has_equipment = {
+				support_equipment = 100
+			}
+		}
+	}
+	visible = {
+		
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 50
+	days_remove = 15
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -100
+				}
+				add_stability = 0.1
+				add_war_support = 0.1
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 25
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 35
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_goring_air_raid_himmer = {#ヒムラー派閥への爆撃作戦
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		has_equipment = {
+			strat_bomber_equipment > 20
+		}
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 10
+	}
+	cost = 10
+	days_remove = 15
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = strat_bomber_equipment
+					amount = -15
+				}
+				custom_effect_tooltip = himmer_Influence_tooltip_dawn
+				add_to_variable = { 
+					var = himmer_Influence
+					value = -30
+				}
+	}
+	}
+	GCW_goring_air_raid_gepperus = {#ゲッペルス派閥への爆撃作戦
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		has_equipment = {
+			strat_bomber_equipment > 20
+		}
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 10
+	days_remove = 15
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = strat_bomber_equipment
+					amount = -15
+				}
+				custom_effect_tooltip = gepperus_Influence_tooltip_dawn
+				add_to_variable = { 
+					var = gepperus_Influence
+					value = -30
+				}
+	}
+	}
+	GCW_goring_air_raid_anti_nazi = {#反ナチス勢力への爆撃作戦
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		has_equipment = {
+			strat_bomber_equipment > 20
+		}
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 90
+	}
+	cost = 10
+	days_remove = 15
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = strat_bomber_equipment
+					amount = -15
+				}
+				custom_effect_tooltip = anti_nazi_Influence_tooltip_dawn
+				add_to_variable = { 
+					var = anti_nazi_Influence
+					value = -30
+				}
+	}
+	}
+	GCW_goring_air_raid_anti_nazi = {#ボルマン派閥への爆撃作戦
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		has_equipment = {
+			strat_bomber_equipment > 20
+		}
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 50
+	}
+	cost = 10
+	days_remove = 15
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = strat_bomber_equipment
+					amount = -15
+				}
+				custom_effect_tooltip = borman_Influence_tooltip_dawn
+				add_to_variable = { 
+					var = borman_Influence
+					value = -30
+				}
+	}
+	}
+	GCW_goring_air_propagand = {#空からのビラ巻き
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				add_to_variable = { 
+					var = goring_Influence
+					value = 30
+				}
+	}
+	}
+	GCW_himmer_SS_intelligence = {#SSの潜入
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		
+	}
+	visible = {
+		original_tag = HLH
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	
+	remove_effect = {
+				set_variable = {
+					intelligence_rate_gepperus = decryption_progress@GER
+				}
+				set_variable = {
+					intelligence_rate_goring = decryption_progress@HGR
+				}
+				set_variable = {
+					intelligence_rate_borman = decryption_progress@MBR
+				}
+				set_variable = {
+					intelligence_rate_anti_nazi = decryption_progress@LTV
+				}
+				set_country_flag = SS_intelligence
+				custom_effect_tooltip = Influence_tooltip_dawn_enemy
+				add_to_variable = { 
+					var = goring_Influence
+					value = -10
+				}
+				add_to_variable = { 
+					var = gepperus_Influence
+					value = -10
+				}
+				add_to_variable = { 
+					var = borman_Influence
+					value = -10
+				}
+				add_to_variable = { 
+					var = anti_nazi_Influence
+					value = -10
+				}
+	}
+	}
+	GCW_himmer_SS_intelligence_goring = {#ゲーリング派閥への工作活動
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		days_re_enable = 30
+	available = {
+		decryption_progress = { target = HGR value > 0.5 }
+	}
+	visible = {
+		original_tag = HLH
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	
+	remove_effect = {
+				custom_effect_tooltip = goring_Influence_tooltip_dawn
+						add_to_variable = { 
+							var = goring_Influence
+							value = -50
+						}
+				}
+				
+	}
+	GCW_himmer_SS_intelligence_himmer = {#ヒムラー派閥への工作活動
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		days_re_enable = 30
+	available = {
+		decryption_progress = { target = HLH value > 0.5 }
+	}
+	visible = {
+		original_tag = HLH
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	
+	remove_effect = {
+				custom_effect_tooltip = himmer_Influence_tooltip_dawn
+						add_to_variable = { 
+							var = himmer_Influence
+							value = -50
+						}
+				}
+				
+	}
+	GCW_himmer_SS_intelligence_gepperus = {#ゲッペルス派閥への工作活動
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		decryption_progress = { target = GER value > 0.5 }
+	}
+	visible = {
+		original_tag = HLH
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	
+	remove_effect = {
+				custom_effect_tooltip = gepperus_Influence_tooltip_dawn
+						add_to_variable = { 
+							var = gepperus_Influence
+							value = -50
+						}
+				}
+				
+	}
+	GCW_himmer_SS_intelligence_borman = {#ボルマン派閥への工作活動
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+		days_re_enable = 30
+	available = {
+		decryption_progress = { target = MBR value > 0.5 }
+	}
+	visible = {
+		original_tag = HLH
+	}
+	ai_will_do = {
+		factor = 150
+	}
+	cost = 100
+	days_remove = 7
+	modifier = {
+		
+	}
+	
+	remove_effect = {
+				custom_effect_tooltip = borman_Influence_tooltip_dawn
+						add_to_variable = { 
+							var = borman_Influence
+							value = -50
+						}
+				}
+				
+	}
+	GCW_has_rineland = {#ラインラントからの銃器
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	allowed = {
+		OR = {
+			original_tag = HGR
+            original_tag = LTV
+            original_tag = HLH
+            original_tag = GER
+            original_tag = MBR
+		}
+	}
+	is_good = yes
+	activation = {
+		51 = {is_controlled_by = ROOT}
+	}
+	days_mission_timeout = 30
+	timeout_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_3
+					amount = 1000
+				}
+				
+	}
+	}
+	GCW_has_humburg = {#海からの支援物資
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	allowed = {
+		OR = {
+			original_tag = HGR
+            original_tag = LTV
+            original_tag = HLH
+            original_tag = GER
+            original_tag = MBR
+		}
+	}
+	is_good = yes
+	activation = {
+		58 = {is_controlled_by = ROOT}
+	}
+	days_mission_timeout = 30
+	timeout_effect = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+				}
+				add_political_power = 25
+				
+	}
+	}
+	GCW_has_belrin = {#ゲルマニアの支配者
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	allowed = {
+		OR = {
+			original_tag = HGR
+            original_tag = LTV
+            original_tag = HLH
+            original_tag = GER
+            original_tag = MBR
+		}
+	}
+	is_good = yes
+	activation = {
+		965 = {is_controlled_by = ROOT}
+	}
+	days_mission_timeout = 30
+	timeout_effect = {
+		custom_effect_tooltip = Influence_tooltip
+		if = {
+			limit = {
+				original_tag = GER
+			}
+			add_to_variable = { 
+				var = gepperus_Influence
+				value = 10
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = HGR
+			}
+			add_to_variable = { 
+				var = goring_Influence
+				value = 10
+			}
+		}
+
+		else_if = {
+			limit = {
+				original_tag = HLH
+			}
+			add_to_variable = { 
+				var = himmer_Influence
+				value = 10
+			}
+		}
+
+		else_if = {
+			limit = {
+				original_tag = LTV
+			}
+			add_to_variable = { 
+				var = anti_nazi_Influence
+				value = 10
+			}
+		}
+		else_if = {
+			limit = {
+				original_tag = MBR
+			}
+			add_to_variable = { 
+				var = borman_Influence
+				value = 10
+			}
+		}
+	}
+	}
+	GCW_has_keniberg = {#東からの穀物
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	allowed = {
+		OR = {
+			original_tag = HGR
+            original_tag = LTV
+            original_tag = HLH
+            original_tag = GER
+            original_tag = MBR
+		}
+	}
+	is_good = yes
+	activation = {
+		763 = {is_controlled_by = ROOT}
+	}
+	days_mission_timeout = 30
+	timeout_effect = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 100
+				}
+				
+	}
+	}
+	
+	GCW_has_dorto = {#ドルトムントの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		57 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = LTV
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_hano = {#ハノーファーの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		59 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = LTV
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_hunbrug = {#ハンブルクの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		58 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = LTV
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_essen = {#エッセンの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		51 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_kerun = {#ケルンの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		1022 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_bon = {#ボンの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		1023 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_frank = {#フランクフルトの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		55 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_syut = {#シュトゥットガルトの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		50 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_sutora = {#ストラスブールの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		28 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HLH
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_myun = {#ミュンヘンの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		52 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HGR
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_gra = {#ウィーンの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		4 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = HGR
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_raipu = {#ライプツィヒの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		65 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = GER
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 40
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 40
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 40
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 40
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 40
+					}
+				}
+	}
+	}
+	GCW_has_danzi = {#ダンツィヒの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		85 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = GER
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_has_keniberg = {#ケーニヒスベルクの確保
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+		763 = {is_controlled_by = ROOT}
+	}
+	visible = {
+		NOT = {
+			original_tag = MBR
+		}
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	cost = 0
+	days_remove = 10
+	modifier = {
+		
+	}
+	remove_effect = {
+				custom_effect_tooltip = Influence_tooltip
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					add_to_variable = { 
+						var = gepperus_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = HGR
+					}
+					add_to_variable = { 
+						var = goring_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = HLH
+					}
+					add_to_variable = { 
+						var = himmer_Influence
+						value = 30
+					}
+				}
+
+				else_if = {
+					limit = {
+						original_tag = LTV
+					}
+					add_to_variable = { 
+						var = anti_nazi_Influence
+						value = 30
+					}
+				}
+				else_if = {
+					limit = {
+						original_tag = MBR
+					}
+					add_to_variable = { 
+						var = borman_Influence
+						value = 30
+					}
+				}
+	}
+	}
+	GCW_debug_goring = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		add_to_variable = { 
+			var = goring_Influence
+			value = 1000
+		}
+	}
+	}
+	GCW_debug_geppe = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		add_to_variable = { 
+			var = gepperus_Influence
+			value = 1000
+		}
+	}
+	}
+	GCW_debug_borman = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		add_to_variable = { 
+			var = borman_Influence
+			value = 1000
+		}
+	}
+	}
+	GCW_debug_anti_nazi = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		add_to_variable = { 
+			var = anti_nazi_Influence
+			value = 1000
+		}
+	}
+	}
+	GCW_debug_himmer = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		add_to_variable = { 
+			var = himmer_Influence
+			value = 1000
+		}
+	}
+	}
+	GCW_debug_all_clear = {#デバッグ用
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = no
+	visible = {
+		is_debug = yes
+	}
+	ai_will_do = {
+		factor = 0
+	}
+	cost = 0
+	days_remove = 0
+	modifier = {
+		
+	}
+	remove_effect = {
+		set_variable = {#ゲーリング用
+				var = goring_Influence
+				value = 0
+			}
+
+			set_variable = {#ヒムラー用
+				var = himmer_Influence
+				value = 0
+			}
+
+			set_variable = {#ゲッペルス用
+				var = gepperus_Influence
+				value = 0
+			}
+
+			set_variable = {#ボルマン用
+				var = borman_Influence
+				value = 0
+			}
+
+			set_variable = {#反ナチ用
+				var = anti_nazi_Influence
+				value = 0
 			}
 	}
 	}
+	
 }
