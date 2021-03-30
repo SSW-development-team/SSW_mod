@@ -34,6 +34,7 @@ focus_tree={
         cost = 10
         search_filters = {
             FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_RESEARCH
         }
         x = 5
         y = 1
@@ -78,6 +79,7 @@ focus_tree={
         cost = 10
         search_filters = {
             FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
         }
         x = 4
         y = 3
@@ -101,6 +103,7 @@ focus_tree={
 			}
         }
         completion_reward = {
+            add_stability = 0.03
             random_owned_state = {
                 limit = {
                     free_building_slots = {
@@ -357,6 +360,7 @@ focus_tree={
         cost = 10
         search_filters = {
             FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_RESEARCH
         }
         x = 9
         y = 1
@@ -533,6 +537,7 @@ focus_tree={
         cost = 10
         search_filters = {
             FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
         }
         x = 10
         y = 2
@@ -633,6 +638,7 @@ focus_tree={
         cost = 10
         search_filters = {
             FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
         }
         x = 7
         y = 5
@@ -657,9 +663,14 @@ focus_tree={
                 }
                 add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
+            }
+            add_resource = {
+                type = steel
+                amount = 16
+                state = 48
             }
         }
     }
@@ -1184,6 +1195,7 @@ focus_tree={
         y = 7
         search_filters = {
             FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_RESEARCH
         }
         prerequisite = {
             focus = BUL_support_from_german
@@ -1219,7 +1231,7 @@ focus_tree={
                 has_global_flag = danubian_war_end
             }
             has_army_manpower = {
-                size > 260000
+                size > 210000
             }
         }
         available_if_capitulated = yes
@@ -1306,6 +1318,9 @@ focus_tree={
         y = 10
         search_filters = {
             FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_WAR_SUPPORT
+            FOCUS_FILTER_STABILITY
+            FOCUS_FILTER_MANPOWER
         }
         prerequisite = {
             focus = BUL_mutual_defense_agreement
@@ -1439,6 +1454,7 @@ focus_tree={
         y = 7
         search_filters = {
             FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_RESEARCH
         }
         prerequisite = {
             focus = BUL_build_fortress
@@ -1495,6 +1511,7 @@ focus_tree={
         y = 8
         search_filters = {
             FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_STABILITY
         }
         prerequisite = {
             focus = BUL_Mikhailov_tactics
@@ -1518,6 +1535,8 @@ focus_tree={
         y = 9
         search_filters = {
             FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_WAR_SUPPORT
+            FOCUS_FILTER_MANPOWER
         }
         prerequisite = {
             focus = BUL_influence_on_the_royal_family
@@ -1548,7 +1567,7 @@ focus_tree={
                 has_global_flag = danubian_war_end
             }
             has_army_manpower = {
-                size > 300000
+                size > 250000
             }
         }
         available_if_capitulated = yes
@@ -1812,6 +1831,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_deal_with_agitators
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         bypass = {
             NOT = {has_idea = BUL_political_instability}
         }
@@ -1855,6 +1877,10 @@ focus_tree={
         available = {
             NOT = {has_idea = BUL_political_instability}
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_STABILITY
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -1880,9 +1906,17 @@ focus_tree={
         available = {
             NOT = {has_idea = BUL_political_instability}
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_country_flag = BUL_anarcy_flag
+                has_country_flag = BUL_not_killed_radical
+                factor = 0.5
+            }
         }
         completion_reward = {
             country_event = {id = ssw_bul.34}
@@ -1897,12 +1931,21 @@ focus_tree={
         prerequisite = {
             focus = BUL_support_the_people
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
+        }
         cost = 10
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_country_flag = BUL_anarcy_flag
+                factor = 2
+            }
         }
         completion_reward = {
-            add_stability = 0.08
+            add_stability = 0.1
             random_owned_state = {
                     limit = {
                         free_building_slots = {
@@ -1948,16 +1991,25 @@ focus_tree={
             NOT = {has_government = anarchism}
             NOT = {has_completed_focus = BUL_revolution}
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_STABILITY
+        }
         cost = 5
         ai_will_do = {
             factor = 10
+            modifier = {
+                has_country_flag = BUL_anarcy_flag
+                has_country_flag = BUL_not_killed_radical
+                factor = 0.2
+            }
         }
         completion_reward = {
             add_stability = 0.15
         }
     }
 
-    focus = { #ブルガリア型民主主義
+    focus = { #最適な統治
         id = BUL_bulgarian_democracy
         icon = GFX_focus_BUL_consolidate_the_third_bulgarian_state
         x = 23
@@ -1967,6 +2019,9 @@ focus_tree={
         }
         prerequisite = {
             focus = BUL_democracy_recomemnd
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
         }
         available = {
             NOT = {has_government = anarchism}
@@ -1999,9 +2054,17 @@ focus_tree={
         bypass = {
             has_government = anarchism
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         cost = 5
         ai_will_do = {
             factor = 5
+            modifier = {
+                has_country_flag = BUL_anarcy_flag
+                has_country_flag = BUL_not_killed_radical
+                factor = 5
+            }
         }
         completion_reward = {
             add_popularity = {
@@ -2022,6 +2085,9 @@ focus_tree={
         }
         available = {
             anarchism > 0.5
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
         }
         cost = 10
         ai_will_do = {
@@ -2068,6 +2134,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_renewal_gov
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -2084,6 +2153,9 @@ focus_tree={
         y = 11
         prerequisite = {
             focus = BUL_renewal_gov
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
         }
         cost = 10
         ai_will_do = {
@@ -2142,6 +2214,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_promote_agric
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -2161,6 +2236,10 @@ focus_tree={
         y = 12
         prerequisite = {
             focus = BUL_opposition_crackdown
+        }
+        search_filters = {
+            FOCUS_FILTER_STABILITY
+            FOCUS_FILTER_POLITICAL
         }
         cost = 10
         ai_will_do = {
@@ -2183,6 +2262,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_suspension_gov_assist
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -2202,6 +2284,10 @@ focus_tree={
         y = 13
         prerequisite = {
             focus = BUL_unification_idea
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_STABILITY
         }
         cost = 10
         ai_will_do = {
@@ -2224,6 +2310,10 @@ focus_tree={
         prerequisite = {
             focus = BUL_update_gov_policy
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_WAR_SUPPORT
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -2241,13 +2331,17 @@ focus_tree={
         prerequisite = {
             focus = BUL_ripple_revolution
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_ANNEXATION
+        }
         available = {
             custom_trigger_tooltip = {
                 tooltip = BUL_finished_Danubian_war
                 has_global_flag = danubian_war_end
             }
             has_army_manpower = {
-                size > 250000
+                size > 200000
             }
         }
         cost = 10
@@ -2284,6 +2378,9 @@ focus_tree={
         y = 16
         prerequisite = {
             focus = BUL_SER_revolution
+        }
+        search_filters = {
+            FOCUS_FILTER_ANNEXATION
         }
         ai_will_do = {
             factor = 10
@@ -2327,6 +2424,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_SER_revolution
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         ai_will_do = {
             factor = 10
         }
@@ -2351,6 +2451,9 @@ focus_tree={
         y = 17
         prerequisite = {
             focus = BUL_serbian_observation
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
         }
         ai_will_do = {
             factor = 10
@@ -2383,6 +2486,9 @@ focus_tree={
         ai_will_do = {
             factor = 10
         }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
         available = {
             OR = {
                 SER = {
@@ -2410,6 +2516,11 @@ focus_tree={
         }
         prerequisite = {
             focus = BUL_rebellion_suppress
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+            FOCUS_FILTER_ANNEXATION
+            FOCUS_FILTER_STABILITY
         }
         ai_will_do = {
             factor = 10
@@ -2445,6 +2556,7 @@ focus_tree={
         y = 0
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+            FOCUS_FILTER_WAR_SUPPORT
         }
         cost = 10
         ai_will_do = {
@@ -2537,7 +2649,7 @@ focus_tree={
                 has_non_aggression_pact_with = SER
             }
             has_army_manpower = {
-                size > 260000
+                size > 210000
             }
         }
         search_filters = {
@@ -2731,7 +2843,7 @@ focus_tree={
                 }
             }
             has_army_manpower = {
-                size > 300000
+                size > 250000
             }
         }
         search_filters = {
@@ -2874,7 +2986,7 @@ focus_tree={
                 has_non_aggression_pact_with = HUN
             }
             has_army_manpower = {
-                size > 320000
+                size > 270000
             }
         }
         available_if_capitulated = yes
@@ -2990,6 +3102,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+            FOCUS_FILTER_RESEARCH
         }
         cost = 10
         ai_will_do = {
@@ -3025,6 +3138,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_ANNEXATION
+            FOCUS_FILTER_RESEARCH
         }
         cost = 10
         ai_will_do = {
@@ -3094,6 +3208,9 @@ focus_tree={
         prerequisite = {
             focus = BUL_deployment_of_flam
         }
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
         cost = 10
         ai_will_do = {
             factor = 10
@@ -3120,6 +3237,9 @@ focus_tree={
         y = 6
         prerequisite = {
             focus = BUL_secure_transportships
+        }
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
         }
         cost = 10
         ai_will_do = {
@@ -3153,7 +3273,7 @@ focus_tree={
                 has_non_aggression_pact_with = TUR
             }
             has_army_manpower = {
-                size > 320000
+                size > 270000
             }
         }
         search_filters = {
@@ -3196,7 +3316,7 @@ focus_tree={
                 has_global_flag = danubian_war_end
             }
             has_army_manpower = {
-                size > 280000
+                size > 230000
             }
         }
         search_filters = {
@@ -3500,6 +3620,7 @@ focus_tree={
         y = 2
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         prerequisite = {
             focus = BUL_army_reform
@@ -3534,6 +3655,7 @@ focus_tree={
         y = 2
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         prerequisite = {
             focus = BUL_army_reform
@@ -3611,6 +3733,7 @@ focus_tree={
         y = 3
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         prerequisite = {
             focus = BUL_GER_ITA_style
@@ -3651,6 +3774,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3698,6 +3822,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3722,6 +3847,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3746,6 +3872,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3773,6 +3900,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3799,6 +3927,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3902,6 +4031,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3929,6 +4059,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3960,6 +4091,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -3984,6 +4116,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -4008,6 +4141,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -4032,6 +4166,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_INDUSTRY
         }
         ai_will_do = {
             factor = 10
@@ -4119,6 +4254,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
@@ -4147,6 +4283,7 @@ focus_tree={
         }
         search_filters = {
             FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_RESEARCH
         }
         ai_will_do = {
             factor = 10
