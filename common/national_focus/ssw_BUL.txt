@@ -1070,10 +1070,7 @@ focus_tree={
                     modifier = SSW_BUL_support_pro_GER_fact
                 }
             }
-            add_timed_idea = {
-                idea = BUL_support_pro_german_fact
-                days = 420
-            }
+            add_ideas = BUL_support_pro_german_fact
         }
     }
 
@@ -2730,7 +2727,7 @@ focus_tree={
         }
         bypass = {
             NOT = {
-                OR = {
+                AND = {
                     country_exists = HUN
                     country_exists = CRO
                 }
@@ -2763,10 +2760,16 @@ focus_tree={
             focus = BUL_cooperate_with_HUN
         }
         bypass = {
-            NOT = {country_exists = CRO}
-            custom_trigger_tooltip = {
-                tooltip = BUL_end_CRO_tt
-                NOT = {has_country_flag = BUL_HUN_agree_divi}
+            OR = {
+                NOT = {country_exists = CRO}
+                custom_trigger_tooltip = {
+                    tooltip = BUL_end_CRO_tt
+                    country_exists = CRO
+                    NOT = {has_country_flag = BUL_HUN_agree_divi}
+                }
+                CRO = {
+                    is_puppet_of = GER
+                }
             }
         }
         available_if_capitulated = yes

@@ -1206,11 +1206,13 @@ Balkan_fede_concept = {
         ai_will_do= {
             factor = 5
             modifier = {
-                strength_ratio = {
-                    tag = FROM
-                    ratio < 0.8
+                OR = {
+                    strength_ratio = {
+                        tag = FROM
+                        ratio < 0.8
+                    }
+                    alliance_strength_ratio < 0.8
                 }
-                alliance_strength_ratio < 0.8
                 factor = 0
             }
             modifier = {
