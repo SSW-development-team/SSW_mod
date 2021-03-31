@@ -267,9 +267,29 @@ country_event = { #FROMが自らの主導を要求
     option =  { #奴らはふざけているのか？
         name = ssw_Balkan.3.a
         ai_chance = {
-            base = 100
+            base = 70
+            modifier = {
+                OR = {
+                    strength_ratio = {
+                        tag = FROM
+                        ratio < 0.8
+                    }
+                    alliance_strength_ratio < 0.8
+                }
+                factor = 0
+            }
         }
         clr_country_flag = Balkan_fede_nego
+        if = {
+            limit = {
+                has_non_aggression_pact_with = FROM
+            }
+            diplomatic_relation	= {
+                country = FROM
+                relation = non_aggression_pact
+                active = no
+            }
+        }
         create_wargoal = {
             type = annex_everything
             target = FROM
@@ -352,6 +372,12 @@ country_event = { #FROMが自らの主導を要求
                 flag = Balkan_fede_agree
                 value = 7
             }
+        }
+    }
+    option = { #今回は諦めよう
+        name = ssw_Balkan.3.c
+        ai_chance = {
+            base = 30
         }
     }
 }
