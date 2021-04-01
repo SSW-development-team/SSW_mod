@@ -1038,7 +1038,12 @@ Balkan_fede_concept = {
                 set_cosmetic_tag = Balkan_federation
                 if = {
                     limit = {
-                        BUL = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            BUL = {has_country_flag = Balkan_fede_agree}
+                            BUL = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = BUL
@@ -1047,7 +1052,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        HUN = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            HUN = {has_country_flag = Balkan_fede_agree}
+                            HUN = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = HUN
@@ -1056,7 +1066,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        CRO = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            CRO = {has_country_flag = Balkan_fede_agree}
+                            CRO = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = CRO
@@ -1065,7 +1080,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        SER = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            SER = {has_country_flag = Balkan_fede_agree}
+                            SER = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = SER
@@ -1074,7 +1094,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        GRE = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            GRE = {has_country_flag = Balkan_fede_agree}
+                            GRE = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = GRE
@@ -1083,7 +1108,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        ROM = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            ROM = {has_country_flag = Balkan_fede_agree}
+                            ROM = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = ROM
@@ -1092,7 +1122,12 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        ALB = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            ALB = {has_country_flag = Balkan_fede_agree}
+                            ALB = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = ALB
@@ -1101,10 +1136,43 @@ Balkan_fede_concept = {
                 }
                 if = {
                     limit = {
-                        SLV = {has_country_flag = Balkan_fede_agree}
+                        OR = {
+                            SLV = {has_country_flag = Balkan_fede_agree}
+                            SLV = {
+                                is_puppet_of = ROOT
+                            }
+                        }
                     }
                     annex_country = {
                         target = SLV
+                        transfer_troops = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            MNT = {has_country_flag = Balkan_fede_agree}
+                            MNT = {
+                                is_puppet_of = ROOT
+                            }
+                        }
+                    }
+                    annex_country = {
+                        target = MNT
+                        transfer_troops = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            DET = {has_country_flag = Balkan_fede_agree}
+                            DET = {
+                                is_puppet_of = ROOT
+                            }
+                        }
+                    }
+                    annex_country = {
+                        target = DET
                         transfer_troops = yes
                     }
                 }
@@ -1201,6 +1269,9 @@ Balkan_fede_concept = {
         visible = {
             FROM = {
                 exists = yes
+            }
+            FROM = {
+                NOT = {is_puppet_of = ROOT}
             }
         }
         ai_will_do= {
