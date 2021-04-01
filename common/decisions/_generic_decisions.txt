@@ -675,7 +675,16 @@ SSW_foreign_support = {
 		}
 		cost = 25
 		fire_only_once = no
-		ai_will_do = { factor = 1 }
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				free_building_slots = {
+					building = arms_factory
+					size < 2
+				}
+			}			
+		}
 		days_remove = 49
 		modifier = { political_power_gain = -1 }
 		visible = {
