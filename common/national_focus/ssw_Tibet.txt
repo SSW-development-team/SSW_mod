@@ -377,7 +377,19 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 3 }
+		completion_reward = {
+			hidden_effect = {
+				country_event = tibet.5
+			}
+			custom_effect_tooltip = TIB_dalai_lamas_government_tt
+		}
 	}
 	focus = {
 		id = TIB_partial_constitutional_monarchy
@@ -520,8 +532,21 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_traditional_government
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 3 }
 		mutually_exclusive = {
 			focus = TIB_dalai_lamas_government
+		}
+		completion_reward = {
+			hidden_effect = {
+				country_event = tibet.3
+			}
+			custom_effect_tooltip = TIB_regency_seize_power_tt
 		}
 		x = 35
 		y = 3
@@ -537,6 +562,26 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_taktra_rinpoche
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_country_flag = TIB_reting_temple_sup
+		}
+		bypass = {}
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			hidden_effect = {
+				add_ideas = TIB_reting_rinpoche_idea
+			}
+			custom_effect_tooltip = TIB_reting_rinpoche_tt
+			add_popularity = {
+				ideology = national_socialism 
+				popularity = 0.20
+			}
+			add_stability = -0.03
+			add_war_support = 0.05
+		}
 		x = 34
 		y = 4
 
@@ -548,9 +593,32 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_reting_rinpoche
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_ideas = TIB_reting_rinpoche_idea
+		}
+		bypass = {}
+		completion_reward = {
+			set_politics = {
+				ruling_party = national_socialism
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+			}
+			random_army_leader = {
+				limit = {
+					has_id = 5701
+				}
+				retire = yes
+			}
+			add_political_power = 50
+			TIB_up_monastery = yes
+		}
 		x = 34
 		y = 5
-
+		search_filters = { FOCUS_FILTER_POLITICS }
 	}
 	focus = {
 		id = TIB_taktra_rinpoche
@@ -561,6 +629,24 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_reting_rinpoche
+		}
+		available = {
+			has_country_flag = TIB_taktra_prepare_coup
+		}
+		bypass = {}
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			hidden_effect = {
+				add_ideas = TIB_taktra_rinpoche_idea
+			}
+			custom_effect_tooltip = TIB_taktra_rinpoche_tt
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.20
+			}
+			add_war_support = 0.05
+			add_political_power = -25
+			TIB_up_monastery = yes
 		}
 		x = 36
 		y = 4
@@ -575,7 +661,22 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_ideas = TIB_taktra_rinpoche_idea
+		}
+		bypass = {}
+		completion_reward = {
+			set_politics = {
+				ruling_party = national_fascism
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+			}
+			country_event = tibet.6
+		}
 	}
 	focus = {
 		id = TIB_chinese_deportation
