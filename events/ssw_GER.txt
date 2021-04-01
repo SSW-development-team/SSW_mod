@@ -28,27 +28,27 @@ country_event = {#総統の演説
 		add_political_power = 5
 		hidden_effect = {
 			set_variable = {#ゲーリング用
-				var = goring_Influence
+				var = global.goring_Influence
 				value = 0
 			}
 
 			set_variable = {#ヒムラー用
-				var = himmer_Influence
+				var = global.himmer_Influence
 				value = 0
 			}
 
 			set_variable = {#ゲッペルス用
-				var = gepperus_Influence
+				var = global.gepperus_Influence
 				value = 0
 			}
 
 			set_variable = {#ボルマン用
-				var = borman_Influence
+				var = global.borman_Influence
 				value = 0
 			}
 
 			set_variable = {#反ナチ用
-				var = anti_nazi_Influence
+				var = global.anti_nazi_Influence
 				value = 0
 			}
 		}
@@ -117,7 +117,7 @@ country_event = {#錯乱
 		ai_chance = { factor = 1 }
 		add_political_power = -25
 		add_to_variable = { 
-			var = goring_Influence
+			var = global.goring_Influence
 			value = 20
 		} 
 	}
@@ -184,7 +184,7 @@ country_event = {#確認
 		ai_chance = { factor = 1 }
 		add_political_power = -25
 		add_to_variable = { 
-			var = himmer_Influence
+			var = global.himmer_Influence
 			value = 20
 		} 
 	}
@@ -252,7 +252,7 @@ country_event = {#大演説
 		ai_chance = { factor = 1 }
 		add_political_power = -25
 		add_to_variable = { 
-			var = gepperus_Influence
+			var = global.gepperus_Influence
 			value = 20
 		} 
 	}
@@ -294,7 +294,7 @@ country_event = {#副総統の危機
 		ai_chance = { factor = 1 }
 		add_political_power = -5
 		add_to_variable = { 
-			var = gepperus_Influence
+			var = global.gepperus_Influence
 			value = -10
 		}
 	}
@@ -311,11 +311,11 @@ country_event = {#影の告発
 		ai_chance = { factor = 1 }
 		add_political_power = -5
 		add_to_variable = { 
-			var = himmer_Influence
+			var = global.himmer_Influence
 			value = -10
 		}
 		add_to_variable = { 
-			var = goring_Influence
+			var = global.goring_Influence
 			value = -10
 		}
 	}
@@ -332,7 +332,7 @@ country_event = {#啼鳥
 		ai_chance = { factor = 1 }
 		add_political_power = 25
 		add_to_variable = { 
-			var = borman_Influence
+			var = global.borman_Influence
 			value = 10
 		}
 	}
@@ -432,6 +432,182 @@ country_event = {#ボルマンの提言
 		name = SSW_GER.65.a
 		ai_chance = { factor = 1 }
 		add_political_power = 10
+	}
+}
+country_event = {#正統政府の確定
+	id = SSW_GER.66
+	title = SSW_GER.66.t
+	desc = SSW_GER.66.d
+	picture = GFX_report_event_spr_franco_victory
+	is_triggered_only = yes
+	option = {
+		name = SSW_GER.66.a
+		ai_chance = { factor = 1 }
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						global.goring_Influence > global.himmer_Influence
+					}
+					check_variable = {
+						global.goring_Influence > global.gepperus_Influence
+					}
+					check_variable = {
+						global.goring_Influence > global.borman_Influence
+					}
+					check_variable = {
+						global.goring_Influence > global.anti_nazi_Influence
+					}
+				}
+			}
+			HGR = {
+				add_ideas = GER_true_govament
+			}
+			GER = {
+				add_ideas = GER_false_govament
+			}
+			HLH = {
+				add_ideas = GER_false_govament
+			}
+			MBR = {
+				add_ideas = GER_false_govament
+			}
+			LTV = {
+				add_ideas = GER_false_govament
+			}
+		}
+		else_if = {
+			limit = {
+				AND = {
+					check_variable = {
+						global.himmer_Influence > global.himmer_Influence
+					}
+					check_variable = {
+						global.himmer_Influence > global.goring_Influence_high
+					}
+					check_variable = {
+						global.himmer_Influence > global.borman_Influence
+					}
+					check_variable = {
+						global.himmer_Influence > global.anti_nazi_Influence
+					}
+				}
+			}
+			HLH = {
+				add_ideas = GER_true_govament
+			}
+			HGR = {
+				add_ideas = GER_false_govament
+			}
+			GER = {
+				add_ideas = GER_false_govament
+			}
+			MBR = {
+				add_ideas = GER_false_govament
+			}
+			LTV = {
+				add_ideas = GER_false_govament
+			}
+		}
+		else_if = {
+			limit = {
+				AND = {
+					check_variable = {
+						global.gepperus_Influence > global.himmer_Influence
+					}
+					check_variable = {
+						global.gepperus_Influence > global.goring_Influence
+					}
+					check_variable = {
+						global.gepperus_Influence > global.borman_Influence
+					}
+					check_variable = {
+						global.gepperus_Influence > global.anti_nazi_Influence
+					}
+				}
+			}
+			GER = {
+				add_ideas = GER_true_govament
+			}
+			HGR = {
+				add_ideas = GER_false_govament
+			}
+			HLH = {
+				add_ideas = GER_false_govament
+			}
+			MBR = {
+				add_ideas = GER_false_govament
+			}
+			LTV = {
+				add_ideas = GER_false_govament
+			}
+		}
+		else_if = {
+			limit = {
+				AND = {
+					check_variable = {
+						global.borman_Influence > global.himmer_Influence
+					}
+					check_variable = {
+						global.borman_Influence > global.gepperus_Influence
+					}
+					check_variable = {
+						global.borman_Influence > global.goring_Influence
+					}
+					check_variable = {
+						global.borman_Influence > global.anti_nazi_Influence
+					}
+				}
+			}
+			MBR = {
+				add_ideas = GER_true_govament
+			}
+			HGR = {
+				add_ideas = GER_false_govament
+			}
+			HLH = {
+				add_ideas = GER_false_govament
+			}
+			GER = {
+				add_ideas = GER_false_govament
+			}
+			LTV = {
+				add_ideas = GER_false_govament
+			}
+		}
+		else_if = {
+			limit = {
+				AND = {
+					check_variable = {
+						global.anti_nazi_Influence > global.himmer_Influence
+					}
+					check_variable = {
+						global.anti_nazi_Influence > global.gepperus_Influence
+					}
+					check_variable = {
+						global.anti_nazi_Influence > global.borman_Influence
+					}
+					check_variable = {
+						global.anti_nazi_Influence > global.goring_Influence
+					}
+				}
+			}
+			LTV = {
+				add_ideas = GER_true_govament
+			}
+			HGR = {
+				add_ideas = GER_false_govament
+			}
+			HLH = {
+				add_ideas = GER_false_govament
+			}
+			MBR = {
+				add_ideas = GER_false_govament
+			}
+			GER = {
+				add_ideas = GER_false_govament
+			}
+		}
 	}
 }
 
@@ -1347,7 +1523,7 @@ country_event = {
 	option = {
 		name = SSW_GER.11.a
 		hidden_effect = {
-			every_unit_leader
+			every_unit_leader = {
 				limit = {
 					OR = {
 						has_id = 1
