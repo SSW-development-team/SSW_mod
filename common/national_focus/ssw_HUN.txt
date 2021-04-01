@@ -1,4 +1,4 @@
-focus_tree = {
+﻿focus_tree = {
 	id = ssw_hungary
 	country = {
 		factor = 0
@@ -13,12 +13,12 @@ focus_tree = {
 		id = HUN_1
 		icon = GFX_goal_generic_neutrality_focus
 		available = { has_global_flag = danubian_war_end }
-		allow_branch = {
-			OR = {
-				NOT = { has_global_flag = danubian_war_end }
-				has_global_flag = little_axis_victory
-			}
-		}
+		#allow_branch = {
+		#	OR = {
+		#		NOT = { has_global_flag = danubian_war_end }
+		#		has_global_flag = little_axis_victory
+		#	}
+		#}
 		x = 0
 		y = 0
 		cost = 7
@@ -184,6 +184,7 @@ focus_tree = {
 				popularity = 0.15
 			}
 			add_stability = 0.05
+			add_ideas = HUN_nobuhito
 		}
 	}
 	focus = {
@@ -464,7 +465,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_opinion_modifier = { target = JAP modifier = SSW_thanks }
+			reverse_add_opinion_modifier = { target = JAP modifier = SSW_friendly }
 		}
 	}
 	focus = {
@@ -654,7 +656,11 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_political_power = 150
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -675,7 +681,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
 		}
 	}
 	focus = {
@@ -696,7 +707,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1
+				uses = 2
+				category = air_doctrine
+			}
 		}
 	}
 	focus = {
@@ -717,7 +733,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -738,7 +757,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -759,7 +781,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -780,7 +805,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			retire_ideology_leader = authority_democracy
+			create_country_leader = {
+				name = "Miklós Horthy"
+				desc = "POLITICS_MIKLOS_HORTHY_DESC"
+				picture = "Portrait_Hungary_Miklos_Horthy.dds"
+				expire = "1957.2.9"
+				ideology = reactionary_ideology
+				traits = { anti_communist }
+			}
 		}
 	}
 	focus = {
@@ -1021,7 +1054,11 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -1033,6 +1070,15 @@ focus_tree = {
 				tooltip = not_a_republic_tt
 				NOT = { has_cosmetic_tag = HUN_republic }
 			}
+			country_exists = ENG
+			ENG = { is_faction_leader = yes }
+		}
+		bypass = {
+			OR = {
+				is_subject_of = ENG
+				is_in_faction_with = ENG
+				ENG = { is_faction_leader = no }
+			}
 		}
 		x = 1
 		y = 1
@@ -1042,7 +1088,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			ENG = { country_event = { id = ssw_faction.4 } }
 		}
 	}
 	focus = {
@@ -1055,6 +1101,15 @@ focus_tree = {
 				tooltip = not_a_republic_tt
 				NOT = { has_cosmetic_tag = HUN_republic }
 			}
+			country_exists = JAP
+			JAP = { is_faction_leader = yes }
+		}
+		bypass = {
+			OR = {
+				is_subject_of = JAP
+				is_in_faction_with = JAP
+				JAP = { is_faction_leader = no }
+			}
 		}
 		x = -1
 		y = 1
@@ -1064,7 +1119,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			JAP = { country_event = { id = ssw_faction.4 } }
 		}
 	}
 	focus = {
@@ -1086,7 +1141,18 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			if = {
+				limit = { has_idea = HUN_restoration_flame_5 }
+				swap_ideas = {
+					remove_idea = HUN_restoration_flame_5
+					add_idea = HUN_restoration_flame_2
+				}
+				else = { add_ideas = HUN_restoration_flame_2 }
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -1108,7 +1174,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_4
 		}
 	}
 	focus = {
@@ -1130,7 +1196,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_5
 		}
 	}
 	focus = {
@@ -1147,7 +1213,7 @@ focus_tree = {
 		completion_reward = {
 			every_state = {
 				limit = { is_core_of = SER }
-				add_state_modifier = { modifier = { local_supplies = 0.3 } }
+				add_state_modifier = { modifier = { compliance_gain = 0.1 } }
 			}
 		}
 	}
@@ -1267,7 +1333,7 @@ focus_tree = {
 				name = capital_ships_bonus
 				bonus = 1.0
 				ahead_reduction = 1
-				uses = 5
+				uses = 2
 				category = bc_tech
 				category = bb_tech
 				category = cl_tech
@@ -1303,7 +1369,22 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_other_country = {
+				limit = {
+					OR = {
+						has_government = social_democracy
+						has_government = social_liberalism
+						has_government = social_conservatism
+					}
+				}
+				add_opinion_modifier = { target = ROOT modifier = SSW_friendly }
+				hidden_effect = {
+					add_ai_strategy = { type = alliance id = ROOT value = 50 }
+					add_ai_strategy = { type = protect id = ROOT value = 50 }
+					add_ai_strategy = { type = send_volunteers_desire id = ROOT value = 50 }
+					add_ai_strategy = { type = support id = ROOT value = 50 }
+				}
+			}
 		}
 	}
 	focus = {
@@ -1331,7 +1412,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_to_tech_sharing_group = commonwealth_research
+			ENG = { add_to_tech_sharing_group = commonwealth_research }
+			every_other_country = {
+				limit = { is_in_faction_with = ENG }
+				add_to_tech_sharing_group = commonwealth_research
+			}
 		}
 	}
 	focus = {
@@ -1359,7 +1445,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_to_tech_sharing_group = JAP_ultimate_deterrence
+			JAP = { add_to_tech_sharing_group = JAP_ultimate_deterrence }
+			every_other_country = {
+				limit = { is_in_faction_with = JAP }
+				add_to_tech_sharing_group = JAP_ultimate_deterrence
+			}
 		}
 	}
 	focus = {
@@ -1387,7 +1478,24 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			set_politics = {
+				ruling_party = progressive_communism
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.2
+			}
+			retire_ideology_leader = progressive_communism
+			create_country_leader = {
+				name = "László Rajk"
+				desc = "POLITICS_LASZLO_RAJK_DESC"
+				picture = "gfx/leaders/HUN/Portrait_Hungary_Laszlo_Rajk.dds"
+				expire = "1965.1.1"
+				ideology = monarchical_socialism_ideology
+				traits = {
+				}
+			}
 		}
 	}
 	focus = {
@@ -1415,7 +1523,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_15
+			set_cosmetic_tag = AUS_austria_hungary
+			every_state = {
+				limit = { has_state_flag = maybe_old_territory_AUSTRIA_HUNGARY }
+				add_claim_by = ROOT
+			}
 		}
 	}
 	focus = {
@@ -1448,13 +1561,34 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = {
+					OR = {
+						state = 4
+						has_state_flag = maybe_core_AUS
+					}
+					NOT = { state = 39 }
+				}
+				add_claim_by = ROOT
+				ROOT = { transfer_state = PREV }
+			}
 		}
 	}
 	focus = {
 		id = HUN_56
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = HUN_47 }
+		available = {
+			is_neighbor_of = SER
+			SER = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = SER
+				NOT = { country_exists = SER }
+			}
+		}
+		will_lead_to_war_with = SER
 		x = 0
 		y = 1
 		relative_position_id = HUN_47
@@ -1463,13 +1597,27 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			create_wargoal = {
+				type = annex_everything
+				target = SER
+			}
 		}
 	}
 	focus = {
 		id = HUN_57
 		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = HUN_48 }
+		available = {
+			is_neighbor_of = ROM
+			ROM = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = ROM
+				NOT = { country_exists = ROM }
+			}
+		}
+		will_lead_to_war_with = ROM
 		x = 0
 		y = 1
 		relative_position_id = HUN_48
@@ -1478,7 +1626,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			create_wargoal = {
+				type = annex_everything
+				target = ROM
+			}
 		}
 	}
 	focus = {
@@ -1503,7 +1654,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_opinion_modifier = { target = ITA modifier = SSW_dislike }
+			navy_experience = 50
 		}
 	}
 	focus = {
@@ -1527,7 +1679,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			2 = { add_extra_state_shared_building_slots = 1 }
+			43 = { add_extra_state_shared_building_slots = 1 }
+			add_ai_strategy = { type = befriend id = ITA value = 200 }
+			ITA = { add_ai_strategy = { type = befriend id = ROOT value = 200 } }
 		}
 	}
 	focus = {
@@ -1548,7 +1703,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			43 = { add_extra_state_shared_building_slots = 1 }
+			add_ai_strategy = { type = befriend id = FRA value = 200 }
+			FRA = {
+				add_ai_strategy = { type = befriend id = ROOT value = 200 }
+				capital_scope = { add_extra_state_shared_building_slots = 1 }
+			}
 		}
 	}
 	focus = {
@@ -1569,7 +1729,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_stability = 0.03
+			add_ideas = hun_ideas_21
 		}
 	}
 	focus = {
@@ -1590,7 +1751,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			43 = { add_extra_state_shared_building_slots = 1 }
+			add_ai_strategy = { type = befriend id = JAP value = 200 }
+			JAP = {
+				add_ai_strategy = { type = befriend id = ROOT value = 200 }
+				capital_scope = { add_extra_state_shared_building_slots = 1 }
+			}
 		}
 	}
 	focus = {
@@ -1611,7 +1777,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_22
 		}
 	}
 	focus = {
@@ -1626,7 +1792,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_16
 		}
 	}
 	focus = {
@@ -1641,13 +1807,24 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			country_event = { id = ssw_hun.16 }
 		}
 	}
 	focus = {
 		id = HUN_66
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = HUN_54 }
+		available = {
+			is_neighbor_of = CZE
+			CZE = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = CZE
+				NOT = { country_exists = CZE }
+			}
+		}
+		will_lead_to_war_with = CZE
 		x = 2
 		y = 1
 		relative_position_id = HUN_54
@@ -1656,7 +1833,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			CZE = { country_event = { id = ssw_hun.17 } }
 		}
 	}
 	focus = {
@@ -1671,13 +1848,25 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			103 = {
+				owner = {
+					country_event = { id = ssw_hun.24 }
+					add_opinion_modifier = { target = HUN modifier = SSW_angry }
+				}
+			}
 		}
 	}
 	focus = {
 		id = HUN_68
 		icon = GFX_focus_BUL_consolidate_the_third_bulgarian_state
 		prerequisite = { focus = HUN_55 }
+		available = { BUL = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = BUL
+				NOT = { country_exists = BUL }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_55
@@ -1686,7 +1875,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_opinion_modifier = { target = BUL modifier = SSW_friendly }
+			43 = { add_extra_state_shared_building_slots = 1 }
+			48 = { add_extra_state_shared_building_slots = 1 }
 		}
 	}
 	focus = {
@@ -1702,7 +1893,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			ALB = { country_event = { id = ssw_hun.25 } }
 		}
 	}
 	focus = {
@@ -1717,13 +1908,26 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				uses = 2
+				category = bc_tech
+				category = bb_tech
+				category = cl_tech
+				category = ca_tech
+				category = cv_tech
+				category = dd_tech
+				category = ss_tech
+			}
 		}
 	}
 	focus = {
 		id = HUN_71
 		icon = GFX_focus_mex_privatisation
 		prerequisite = { focus = HUN_59 }
+		available = { ITA = { controls_state = 102 } }
+		bypass = { NOT = { ITA = { controls_state = 102 } } }
 		x = 0
 		y = 1
 		relative_position_id = HUN_59
@@ -1732,7 +1936,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			ITA = { country_event = { id = ssw_hun.26 } }
 		}
 	}
 	focus = {
@@ -1753,7 +1957,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_23
 		}
 	}
 	focus = {
@@ -1774,7 +1978,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			43 = {
+				add_resource = {
+	                type = aluminium
+	                amount = 24
+	            }
+	        }
 		}
 	}
 	focus = {
@@ -1795,7 +2004,38 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -1816,7 +2056,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_opinion_modifier = { target = JAP modifier = SSW_friendly }
+			JAP = { add_opinion_modifier = { target = ROOT modifier = SSW_friendly } }
 		}
 	}
 	focus = {
@@ -1828,7 +2069,25 @@ focus_tree = {
 				tooltip = not_a_republic_tt
 				NOT = { has_cosmetic_tag = HUN_republic }
 			}
-			
+			has_army_manpower = { size > 999999 }
+		}
+		bypass = {
+			OR = {
+				has_war_with = BUL
+				NOT = { country_exists = BUL }
+			}
+			OR = {
+				has_war_with = CRO
+				NOT = { country_exists = CRO }
+			}
+			OR = {
+				has_war_with = ROM
+				NOT = { country_exists = ROM }
+			}
+			OR = {
+				has_war_with = SER
+				NOT = { country_exists = SER }
+			}
 		}
 		x = -1
 		y = 1
@@ -1838,7 +2097,22 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CRO
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ROM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SER
+			}
 		}
 	}
 	focus = {
@@ -1850,7 +2124,6 @@ focus_tree = {
 				tooltip = not_a_republic_tt
 				NOT = { has_cosmetic_tag = HUN_republic }
 			}
-			
 		}
 		x = 1
 		y = 1
@@ -1860,7 +2133,11 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = classical_communism
+				popularity = -0.05
+			}
 		}
 	}
 	focus = {
@@ -1875,13 +2152,27 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			random_state = {
+				limit = {
+					is_controlled_by = ROOT
+					is_capital = yes
+				}
+				add_resource = {
+	                type = aluminium
+	                amount = 24
+	            }
+	            add_resource = {
+	                type = steel
+	                amount = 24
+	            }
+			}
 		}
 	}
 	focus = {
 		id = HUN_79
 		icon = GFX_focus_generic_strike_at_democracy1
 		prerequisite = { focus = HUN_66 }
+		available = { 71 = { is_controlled_by_myself_or_allies = yes } }
 		x = -1
 		y = 1
 		relative_position_id = HUN_66
@@ -1890,7 +2181,23 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 71
+					num_provinces = 4
+					on_win = ssw_hun.18
+					on_lose = ssw_hun.19
+					on_cancel = ssw_hun.20
+				}
+				defender = {
+					state = 88
+					num_provinces = 4
+					on_win = ssw_hun.19
+					on_lose = ssw_hun.18
+					on_cancel = ssw_hun.20
+				}
+			}
 		}
 	}
 	focus = {
@@ -1905,7 +2212,17 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CZE
+						has_state_flag = has_state_flag = maybe_core_CZE
+					}
+				}
+				add_claim_by = ROOT
+				ROOT = { transfer_state = PREV }
+			}
+			add_ideas = hun_ideas_18
 		}
 	}
 	focus = {
@@ -1921,13 +2238,25 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_17
+			set_cosmetic_tag = AUS_austria_hungary
+			every_state = {
+				limit = { has_state_flag = maybe_old_territory_AUSTRIA_HUNGARY }
+				add_claim_by = ROOT
+			}
 		}
 	}
 	focus = {
 		id = HUN_82
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = HUN_68 }
+		available = { GRE = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = GRE
+				NOT = { country_exists = GRE }
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_68
@@ -1936,7 +2265,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_opinion_modifier = { target = GRE modifier = SSW_friendly }
+			43 = { add_extra_state_shared_building_slots = 1 }
+			836 = { add_extra_state_shared_building_slots = 1 }
 		}
 	}
 	focus = {
@@ -1951,13 +2282,42 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = { is_core_of = ROM }
+				add_claim_by = ROOT
+			}
+			every_state = {
+				limit = { is_core_of = SER }
+				add_claim_by = ROOT
+			}
 		}
 	}
 	focus = {
 		id = HUN_84
 		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = HUN_70 }
+		available = {
+			OR = {
+				is_neighbor_of = IPF
+				is_neighbor_of = ITA
+			}
+			OR = {
+				IPF = { exists = yes }
+				ITA = { exists = yes }
+			}
+		}
+		bypass = {
+			OR = {
+				has_war_with = IPF
+				NOT = { country_exists = IPF }
+			}
+			OR = {
+				has_war_with = ITA
+				NOT = { country_exists = ITA }
+			}
+		}
+		will_lead_to_war_with = IPF
+		will_lead_to_war_with = ITA
 		x = 0
 		y = 1
 		relative_position_id = HUN_70
@@ -1966,13 +2326,37 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			if = {
+				limit = { IPF = { exists = yes } }
+				create_wargoal = {
+					type = annex_everything
+					target = IPF
+				}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+			}
 		}
 	}
 	focus = {
 		id = HUN_85
 		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = HUN_71 }
+		available = {
+			country_exists = ITA
+			ITA = {
+				is_faction_leader = yes
+				has_opinion = { target = ROOT value > 49 }
+			}
+		}
+		bypass = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+				ITA = { is_faction_leader = no }
+			}
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_71
@@ -1981,7 +2365,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			ITA = { country_event = { id = ssw_faction.4 } }
 		}
 	}
 	focus = {
@@ -2003,7 +2387,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			unlock_decision_tooltip = supporting_rebels
 		}
 	}
 	focus = {
@@ -2025,7 +2409,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_25
 		}
 	}
 	focus = {
@@ -2047,7 +2431,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			JAP = { puppet = ROOT }
+			if = {
+				limit = { has_idea = HUN_nobuhito }
+				swap_ideas = {
+					remove_idea = HUN_nobuhito
+					add_idea = SSW_JAP_Hirohito
+				}
+				else = { add_ideas = SSW_JAP_Hirohito }
+			}
 		}
 	}
 	focus = {
@@ -2068,7 +2460,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			set_cosmetic_tag = HUN_GREATER
 		}
 	}
 	focus = {
@@ -2085,7 +2477,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			unlock_decision_tooltip = redux_great_core
 		}
 	}
 	focus = {
@@ -2102,7 +2494,31 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			52 = { add_core_of = ROOT }
+			53 = { add_core_of = ROOT }
+			54 = { add_core_of = ROOT }
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = GER
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = LTV
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = HGR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = HLH
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MBR
+				}
+			}
 		}
 	}
 	focus = {
@@ -2110,6 +2526,10 @@ focus_tree = {
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = HUN_83 }
 		prerequisite = { focus = HUN_84 }
+		available = {
+			46 = { is_controlled_by_myself_or_allies = yes }
+			107 = { is_controlled_by_myself_or_allies = yes }
+		}
 		x = -1
 		y = 1
 		relative_position_id = HUN_84
@@ -2118,7 +2538,14 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			every_state = {
+				limit = { is_core_of = ROM }
+				add_core_of = ROOT
+			}
+			every_state = {
+				limit = { is_core_of = SER }
+				add_core_of = ROOT
+			}
 		}
 	}
 	focus = {
@@ -2133,7 +2560,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			unlock_decision_tooltip = crafting_in_poland
 		}
 	}
 	focus = {
@@ -2158,7 +2585,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			
+			add_ideas = hun_ideas_26
 		}
 	}
 	focus = {

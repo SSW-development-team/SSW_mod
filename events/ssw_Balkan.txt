@@ -20,7 +20,7 @@ country_event = { #FROMがバルカン連邦構想を提示
             base = 10
             modifier = {
                 is_puppet = yes
-                factor = 0
+                factor = 0.5
             }
             modifier = {
                 FROM = {
@@ -52,6 +52,8 @@ country_event = { #FROMがバルカン連邦構想を提示
                 NOT = {has_country_flag = Balkan_fede_agree}
                 NOT = {tag = ITA}
                 NOT = {tag = TUR}
+                NOT = {tag = DET}
+                is_puppet = no
             }
         }
         ai_chance = {
@@ -244,6 +246,17 @@ country_event = { #FROMが提案に同意
                 }
             }
         }
+        else_if = {
+            limit = {
+                tag = MNT
+            }
+            FROM = {
+                set_country_flag = {
+                    flag = Balkan_fede_agree
+                    value = 8
+                }
+            }
+        }
     }
 }
 
@@ -255,9 +268,29 @@ country_event = { #FROMが自らの主導を要求
     option =  { #奴らはふざけているのか？
         name = ssw_Balkan.3.a
         ai_chance = {
-            base = 100
+            base = 70
+            modifier = {
+                OR = {
+                    strength_ratio = {
+                        tag = FROM
+                        ratio < 0.8
+                    }
+                    alliance_strength_ratio < 0.8
+                }
+                factor = 0
+            }
         }
         clr_country_flag = Balkan_fede_nego
+        if = {
+            limit = {
+                has_non_aggression_pact_with = FROM
+            }
+            diplomatic_relation	= {
+                country = FROM
+                relation = non_aggression_pact
+                active = no
+            }
+        }
         create_wargoal = {
             type = annex_everything
             target = FROM
@@ -342,6 +375,12 @@ country_event = { #FROMが自らの主導を要求
             }
         }
     }
+    option = { #今回は諦めよう
+        name = ssw_Balkan.3.c
+        ai_chance = {
+            base = 30
+        }
+    }
 }
 
 country_event = { #FROMが提案を拒否
@@ -368,6 +407,96 @@ country_event = { #FROMが提案に同意
         clr_country_flag = Balkan_fede_nego
         FROM = {
             set_country_flag = Balkan_fede_agree
+        }
+    }
+}
+
+news_event = { #バルカン連邦の成立
+    id = ssw_Balkan.6
+    title = ssw_Balkan.6.t
+    desc = ssw_Balkan.6.d
+    picture = GFX_news_event_061
+    is_triggered_only = yes
+    fire_only_once = yes
+    major = yes
+    option = {
+        name = ssw_Balkan.6.a
+        trigger = {
+            has_cosmetic_tag = Balkan_federation
+        }
+    }
+    option = {
+        name = ssw_Balkan.6.b
+        trigger = {
+            OR = {
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = GER
+                original_tag = ITA
+                original_tag = RUS
+                original_tag = TUR
+            }
+        }
+    }
+    option = {
+        name = ssw_Balkan.6.c
+        trigger = {
+            NOT = {
+                OR = {
+                    has_cosmetic_tag = Balkan_federation
+                    original_tag = ENG
+                    original_tag = FRA
+                    original_tag = GER
+                    original_tag = ITA
+                    original_tag = RUS
+                    original_tag = TUR
+                }
+            }
+        }
+    }
+}
+
+news_event = {
+    id = ssw_Balkan.7
+    title = ssw_Balkan.7.t
+    desc = ssw_Balkan.7.d
+    picture = GFX_news_event_061
+    is_triggered_only = yes
+    fire_only_once = yes
+    major = yes
+    option = {
+        name = ssw_Balkan.7.a
+        trigger = {
+            has_cosmetic_tag = Balkan_federation
+        }
+    }
+    option = {
+        name = ssw_Balkan.7.b
+        trigger = {
+            OR = {
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = GER
+                original_tag = ITA
+                original_tag = RUS
+                original_tag = TUR
+            }
+        }
+    }
+    option = {
+        name = ssw_Balkan.7.c
+        trigger = {
+            NOT = {
+                OR = {
+                    has_cosmetic_tag = Balkan_federation
+                    original_tag = ENG
+                    original_tag = FRA
+                    original_tag = GER
+                    original_tag = ITA
+                    original_tag = RUS
+                    original_tag = TUR
+                }
+            }
         }
     }
 }

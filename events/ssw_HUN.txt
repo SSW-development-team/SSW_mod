@@ -94,6 +94,14 @@ country_event = { #ヘンリー王子の戴冠
 		name = ssw_hun.3.a
 		ai_chance = { base = 100 }
 		add_ideas = HUN_prince_henry
+		set_politics = {
+			ruling_party = social_liberalism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.2
+		}
 	}
 }
 country_event = { #アレクサンドラ王女の戴冠
@@ -105,6 +113,14 @@ country_event = { #アレクサンドラ王女の戴冠
 		name = ssw_hun.4.a
 		ai_chance = { base = 100 }
 		add_ideas = HUN_princess_alexandra
+		set_politics = {
+			ruling_party = social_liberalism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.2
+		}
 	}
 }
 country_event = { #イギリス政府が拒否
@@ -310,73 +326,243 @@ country_event = { #スロヴァキアの反抗
 		target = SLO
 	}
 }
-country_event = { #
+country_event = { #オーストリアの編入
 	id = ssw_hun.16
 	title = ssw_hun.16.title
 	desc = ssw_hun.16.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #やむを得ない…
 		name = ssw_hun.16.a
-		ai_chance = { base = 50 }
-	}
-	option = { #
-		name = ssw_hun.16.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
+		every_state = {
+			limit = {
+				OR = {
+					state = 4
+					has_state_flag = maybe_core_AUS
+				}
+				NOT = { state = 39 }
+			}
+			add_claim_by = ROOT
+			ROOT = { transfer_state = PREV }
+		}
+		4 = { controller = { country_event = { id = ssw_hun.22 days = 1 } } }
 	}
 }
-country_event = { #
+country_event = { #ボヘミアの保護を要求
 	id = ssw_hun.17
 	title = ssw_hun.17.title
 	desc = ssw_hun.17.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #承諾しよう。
 		name = ssw_hun.17.a
 		ai_chance = { base = 50 }
+		FROM = {
+			set_autonomy = {
+				target = CZE
+				autonomous_state = colony
+			}
+		}
 	}
-	option = { #
+	option = { #誰が屈すると？
 		name = ssw_hun.17.b
 		ai_chance = { base = 50 }
+		FROM = { country_event = { id = ssw_hun.21 days = 1 } }
 	}
 }
-country_event = { #
+country_event = { #国境紛争でハンガリーが勝利
 	id = ssw_hun.18
 	title = ssw_hun.18.title
 	desc = ssw_hun.18.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #また古い地図の出来上がりか…
 		name = ssw_hun.18.a
-		ai_chance = { base = 50 }
+		trigger = { original_tag = HUN }
+		ai_chance = { base = 100 }
+		every_state = {
+			limit = {
+				OR = {
+					has_state_flag = maybe_less_GAL_GAMESTART
+					has_state_flag = maybe_less_LMK_GAMESTART
+				}
+			}
+			add_claim_by = HUN
+			HUN = { transfer_state = PREV }
+		}
 	}
-	option = { #
+	option = { #卑怯者め…
 		name = ssw_hun.18.b
-		ai_chance = { base = 50 }
+		trigger = { NOT = { original_tag = HUN } }
+		ai_chance = { base = 100 }
 	}
 }
-country_event = { #
+country_event = { #国境紛争でハンガリーが敗北
 	id = ssw_hun.19
 	title = ssw_hun.19.title
 	desc = ssw_hun.19.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #何も変わらないのか…
 		name = ssw_hun.19.a
-		ai_chance = { base = 50 }
-	}
-	option = { #
-		name = ssw_hun.19.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
 	}
 }
-country_event = { #
+country_event = { #国境紛争が中止
 	id = ssw_hun.20
 	title = ssw_hun.20.title
 	desc = ssw_hun.20.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #愚かな戦いだったな
 		name = ssw_hun.20.a
+		ai_chance = { base = 100 }
+	}
+}
+country_event = { #ボヘミアの反抗
+	id = ssw_hun.21
+	title = ssw_hun.21.title
+	desc = ssw_hun.21.desc
+	is_triggered_only = yes
+	option = { #くたばれ！
+		name = ssw_hun.21.a
+		ai_chance = { base = 100 }
+	}
+	create_wargoal = {
+		type = annex_everything
+		target = CZE
+	}
+}
+country_event = { #オーストリアが奪われた！
+	id = ssw_hun.22
+	title = ssw_hun.22.title
+	desc = ssw_hun.22.desc
+	is_triggered_only = yes
+	option = { #痛い目に合わせてやるぞ…！
+		name = ssw_hun.22.a
+		ai_chance = { base = 100 }
+		country_event = { id = ssw_hun.23 days = 1095 }
+	}
+}
+country_event = { #オーストリアの復讐
+	id = ssw_hun.23
+	title = ssw_hun.23.title
+	desc = ssw_hun.23.desc
+	is_triggered_only = yes
+	option = { #よこせ！
+		name = ssw_hun.23.a
+		ai_chance = { base = 100 }
+		random_other_country = {
+			limit = { controls_state = 4 }
+			ROOT = {
+				create_wargoal = {
+					type = annex_everything
+					target = PREV
+				}
+			}
+		}
+	}
+}
+country_event = { #ダルマチアの扇動
+	id = ssw_hun.24
+	title = ssw_hun.24.title
+	desc = ssw_hun.24.desc
+	is_triggered_only = yes
+	option = { #おのれハンガリーめ…
+		name = ssw_hun.24.a
+		ai_chance = { base = 100 }
+		DAL = { transfer_state = 103 }
+		HUN = { puppet = DAL }
+	}
+}
+country_event = { #ハンガリーが従属を要求
+	id = ssw_hun.25
+	title = ssw_hun.25.title
+	desc = ssw_hun.25.desc
+	is_triggered_only = yes
+	option = { #おのれ…
+		name = ssw_hun.25.a
+		ai_chance = { base = 100 }
+		HUN = { puppet = ALB }
+		if = {
+			limit = { ALB = { controls_state = 805 } }
+			GRE = { transfer_state = 805 }
+		}
+		if = {
+			limit = { ALB = { controls_state = 807 } }
+			MAC = { transfer_state = 807 }
+		}
+	}
+}
+country_event = { #コペル編入を提案
+	id = ssw_hun.26
+	title = ssw_hun.26.title
+	desc = ssw_hun.26.desc
+	is_triggered_only = yes
+	option = { #よかろう
+		name = ssw_hun.26.a
+		ai_chance = { base = 80 }
+		add_ideas = hun_ideas_20
+		HUN = {
+			transfer_state = 102
+			add_state_core = 102
+			add_ideas = hun_ideas_19
+		}
+	}
+	option = { #嫌だね
+		name = ssw_hun.26.b
+		ai_chance = { base = 20 }
+	}
+}
+country_event = { #
+	id = ssw_hun.27
+	title = ssw_hun.27.title
+	desc = ssw_hun.27.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.27.a
 		ai_chance = { base = 50 }
 	}
 	option = { #
-		name = ssw_hun.20.b
+		name = ssw_hun.27.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.28
+	title = ssw_hun.28.title
+	desc = ssw_hun.28.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.28.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.28.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.29
+	title = ssw_hun.29.title
+	desc = ssw_hun.29.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.29.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.29.b
+		ai_chance = { base = 50 }
+	}
+}
+country_event = { #
+	id = ssw_hun.30
+	title = ssw_hun.30.title
+	desc = ssw_hun.30.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_hun.30.a
+		ai_chance = { base = 50 }
+	}
+	option = { #
+		name = ssw_hun.30.b
 		ai_chance = { base = 50 }
 	}
 }
