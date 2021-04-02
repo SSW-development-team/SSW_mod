@@ -511,7 +511,7 @@ focus_tree = {
 			focus = TIB_reorganization_ganden_phodrang
 		}
 		x = 29
-		y = 9
+		y = 10
 
 	}
 	focus = {
@@ -774,6 +774,24 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_reinforce_army
 		}
+		available = {
+			OR = {
+				any_neighbor_state = {
+					state = 278
+				}
+				controls_state = 278
+			}
+		}
+		completion_reward = {
+			918 = {
+				add_manpower = 3412
+			}
+			add_ideas = TIB_dessert_proof
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 		x = 39
 		y = 4
 
@@ -1320,6 +1338,22 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_the_trapchi_factory
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		completion_reward = {
+			757 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 		x = 48
 		y = 8
@@ -1869,6 +1903,53 @@ focus_tree = {
 			focus = TIB_religion_and_politic
 			focus = TIB_religious_state
 		}
+		available = {
+			MON = {
+				NOT = {
+					has_government = classical_communism
+					has_government = progressive_communism
+				}
+			}
+		}
+		bypass = {
+			MON = {
+				is_subject_of = TIB
+			}
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = TIB_ally_with_dobdob
+				}
+				MON = {
+					add_ideas = TIB_mongol_lama_authority
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = TIB_partial_constitutional_monarchy
+				}
+				MON = {
+					add_ideas = TIB_mongol_lama_democratic	
+				}
+			}
+			MON = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = TIB_send_lama
+				}
+			}
+			TIB = {
+				add_opinion_modifier = {
+					target = MON
+					modifier = TIB_send_lama
+				}
+			}
+		}
 		x = 26
 		y = 8
 
@@ -1916,9 +1997,34 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_send_lama_to_mongol
 		}
+		available = {
+			any_neighbor_country = {
+				NOT = {
+					original_tag = MON
+				}
+			}
+		}
+		bypass = {
+			any_neighbor_country = {
+				original_tag = MON
+			}
+		}
+		completion_reward = {
+			TIB = {
+				add_state_claim = 287
+				add_state_claim = 617
+				add_state_claim = 618
+				add_state_claim = 619
+				add_state_claim = 759
+				add_state_claim = 760
+			}
+		}
 		x = 26
 		y = 9
-
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 	}
 	focus = {
 		id = TIB_annex_mongol
@@ -1949,6 +2055,19 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_establish_dzong
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = TIB_geological
+			set_country_flag = {
+				flag = TIB_geological_survey_flag
+				days = 280
+				value = 1
+			}
+			custom_effect_tooltip = TIB_geological_survey_tt
+		}
 		x = 24
 		y = 10
 
@@ -1959,6 +2078,33 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_geological_survey
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_geological_survey_flag
+			}
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 30
+				state = 917
+			}
+			add_resource = {
+				type = oil
+				amount = 3
+				state = 601
+			}
+			add_resource = {
+				type = tungsten
+				amount = 26
+				state = 918
+			}
+			add_ideas = TIB_gold_mines
 		}
 		x = 24
 		y = 11
