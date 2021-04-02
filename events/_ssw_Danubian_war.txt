@@ -96,6 +96,10 @@ country_event = { #バルカン新秩序がハンガリーへ侵攻
 			}
 		}
 		hidden_effect = {
+			every_country = {
+                limit = { capital_is_europe = yes }
+                set_country_flag = big_event_custom_donau_war
+            }
 			ROM = {
 				country_event = {
 					id = Danubian_war.19
@@ -107,12 +111,6 @@ country_event = { #バルカン新秩序がハンガリーへ侵攻
 				country_event = { id = Danubian_war.18 }
 				set_major = yes
 			}
-			every_country = {
-                limit = {
-                    capital_is_europe = yes
-                }
-            set_country_flag = big_event_custom_donau_war
-            }			
 			CRO = { set_major = yes }
 			BUL = { set_major = yes }
 			SER = { set_major = yes }
@@ -385,47 +383,6 @@ country_event = { #
 	option = { #
 		name = Danubian_war.14.a
 		ai_chance = { base = 1 }
-		DET = {
-			add_state_core = 766
-			add_state_core = 192
-			add_state_core = 198
-			add_state_claim = 78
-			transfer_state = 766
-			transfer_state = 78
-			transfer_state = 192
-			transfer_state = 198
-		}
-		ROM = {
-			transfer_state = 81
-			transfer_state = 46
-			transfer_state = 79
-			transfer_state = 80
-		}
-		BUL = {
-			transfer_state = 973
-			transfer_state = 975
-			add_state_claim = 973
-			add_state_claim = 975
-		}
-		SER = {
-			transfer_state = 802
-			transfer_state = 108
-			transfer_state = 107
-		}
-		MNT = { transfer_state = 105 }
-		CRO = {
-			transfer_state = 971
-			transfer_state = 976
-			transfer_state = 972
-			transfer_state = 977
-			add_state_claim = 977
-		}
-		HUN = {
-			transfer_state = 83
-			transfer_state = 82
-			transfer_state = 84
-			transfer_state = 764
-		}
 		every_country = {
 			limit = {
 				OR = {
@@ -452,6 +409,81 @@ country_event = { #
 			set_autonomy = {
 				target = SER
 				autonomy_state = autonomy_free
+			}
+		}
+		DET = {
+			add_state_core = 766
+			add_state_core = 192
+			add_state_core = 198
+			add_state_claim = 78
+			transfer_state = 766
+			transfer_state = 78
+			transfer_state = 192
+			transfer_state = 198
+		}
+		ROM = {
+			transfer_state = 81
+			transfer_state = 46
+			transfer_state = 79
+			transfer_state = 80
+			set_popularities = {
+				classical_communism = 2
+				social_democracy = 9
+				social_liberalism = 12
+				social_conservatism = 19 
+				authority_democracy = 11
+				authority_despotism = 42
+				national_fascism = 5
+			}
+			set_politics = {
+				ruling_party = authority_despotism
+				elections_allowed = no
+			}
+		}
+		BUL = {
+			transfer_state = 973
+			transfer_state = 975
+			add_state_claim = 973
+			add_state_claim = 975
+		}
+		SER = {
+			transfer_state = 802
+			transfer_state = 108
+			transfer_state = 107
+			set_politics = {
+				ruling_party = authority_democracy
+				elections_allowed = no
+			}
+			set_popularities = {
+				anarchism = 0
+				progressive_communism = 11
+				classical_communism = 1
+				social_democracy = 7
+				social_liberalism = 3
+				social_conservatism = 5
+				authority_democracy = 35
+				authority_despotism = 20
+				national_fascism = 15
+				national_socialism = 3
+				corporatocracism = 0
+			}
+		}
+		MNT = { transfer_state = 105 }
+		CRO = {
+			transfer_state = 971
+			transfer_state = 976
+			transfer_state = 972
+			transfer_state = 977
+			add_state_claim = 977
+		}
+		HUN = {
+			transfer_state = 83
+			transfer_state = 82
+			transfer_state = 84
+			transfer_state = 764
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.05
 			}
 		}
 		hidden_effect = {
@@ -924,17 +956,6 @@ country_event = { #
 	option = { #
 		name = Danubian_war.28.a
 		ai_chance = { base = 1 }
-		BUL = {
-			transfer_state = 48
-			transfer_state = 212
-			transfer_state = 801
-		}
-		HUN = {
-			transfer_state = 43
-			transfer_state = 155
-			transfer_state = 1138
-			set_cosmetic_tag = HUN_republic
-		}
 		every_country = {
 			limit = {
 				OR = {
@@ -960,6 +981,45 @@ country_event = { #
 				is_faction_leader = yes
 			}
 			dismantle_faction = yes
+		}
+		BUL = {
+			transfer_state = 48
+			transfer_state = 212
+			transfer_state = 801
+			set_popularities = {
+				national_fascism = 38
+				authority_despotism = 12
+				authority_democracy = 13
+				social_conservatism = 12
+				social_liberalism = 7
+				social_democracy = 7
+				progressive_communism = 6
+				classical_communism = 4
+				national_socialism = 1
+			}
+			set_politics = {
+				ruling_party = national_fascism
+				elections_allowed = no
+			}
+		}
+		HUN = {
+			transfer_state = 43
+			transfer_state = 155
+			transfer_state = 1138
+			set_popularities = {
+				authority_democracy = 61
+				national_fascism = 12
+				social_conservatism = 9
+				authority_despotism = 7
+				progressive_communism = 7
+				corporatocracism = 4
+			}
+			set_politics = {
+				ruling_party = authority_democracy
+				elections_allowed = no
+			}
+			set_country_flag = lose_danubian_war
+			set_cosmetic_tag = HUN_republic
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
