@@ -1309,6 +1309,29 @@ GER_civill_war_Government = {
 				}
 	}
 	}
+	GCW_goring_plane_modding = {#旅客機と輸送機の改造
+		icon = decision_eng_propaganda_campaigns
+		fire_only_once = yes
+	available = {
+	}
+	visible = {
+		original_tag = HGR
+	}
+	ai_will_do = {
+		factor = 200
+	}
+	cost = 50
+	days_remove = 30
+	modifier = {
+		
+	}
+	remove_effect = {
+				add_equipment_to_stockpile = {
+					type = strat_bomber_equipment
+					amount = 100
+				}
+	}
+	}
 	GCW_goring_air_raid_himmer = {#ヒムラー派閥への爆撃作戦
 		icon = decision_eng_propaganda_campaigns
 		fire_only_once = no
@@ -1386,7 +1409,7 @@ GER_civill_war_Government = {
 		original_tag = HGR
 	}
 	ai_will_do = {
-		factor = 90
+		factor = 200
 	}
 	cost = 10
 	days_remove = 15
@@ -1405,7 +1428,7 @@ GER_civill_war_Government = {
 				}
 	}
 	}
-	GCW_goring_air_raid_anti_nazi = {#ボルマン派閥への爆撃作戦
+	GCW_goring_air_raid_borman = {#ボルマン派閥への爆撃作戦
 		icon = decision_eng_propaganda_campaigns
 		fire_only_once = no
 		days_re_enable = 30
@@ -1450,7 +1473,7 @@ GER_civill_war_Government = {
 	ai_will_do = {
 		factor = 150
 	}
-	cost = 100
+	cost = 50
 	days_remove = 7
 	modifier = {
 		
@@ -1499,19 +1522,19 @@ GER_civill_war_Government = {
 				custom_effect_tooltip = Influence_tooltip_dawn_enemy
 				add_to_variable = { 
 					var = global.goring_Influence
-					value = -10
+					value = -20
 				}
 				add_to_variable = { 
 					var = global.gepperus_Influence
-					value = -10
+					value = -20
 				}
 				add_to_variable = { 
 					var = global.borman_Influence
-					value = -10
+					value = -20
 				}
 				add_to_variable = { 
 					var = global.anti_nazi_Influence
-					value = -10
+					value = -20
 				}
 	}
 	}
@@ -1528,7 +1551,7 @@ GER_civill_war_Government = {
 	ai_will_do = {
 		factor = 150
 	}
-	cost = 100
+	cost = 10
 	days_remove = 7
 	modifier = {
 		
@@ -1556,7 +1579,7 @@ GER_civill_war_Government = {
 	ai_will_do = {
 		factor = 150
 	}
-	cost = 100
+	cost = 10
 	days_remove = 7
 	modifier = {
 		
@@ -1584,7 +1607,7 @@ GER_civill_war_Government = {
 	ai_will_do = {
 		factor = 150
 	}
-	cost = 100
+	cost = 10
 	days_remove = 7
 	modifier = {
 		
@@ -1612,7 +1635,7 @@ GER_civill_war_Government = {
 	ai_will_do = {
 		factor = 150
 	}
-	cost = 100
+	cost = 10
 	days_remove = 7
 	modifier = {
 		
@@ -1648,7 +1671,7 @@ GER_civill_war_Government = {
 				custom_effect_tooltip = global.himmer_Influence_tooltip_dawn
 				add_to_variable = { 
 					var = global.anti_nazi_Influence
-					value = 30
+					value = 20
 				}
 	}
 	}
@@ -1665,7 +1688,7 @@ GER_civill_war_Government = {
 		factor = 10
 	}
 	cost = 100
-	days_remove = 30
+	days_remove = 20
 	modifier = {
 		
 	}
@@ -1684,7 +1707,7 @@ GER_civill_war_Government = {
 	}
 	allowed = {
 		AND = {
-			51 = {is_controlled_by = ROOT}
+			1022 = {is_controlled_by = ROOT}
 			OR = {
 				original_tag = HGR
 				original_tag = LTV
@@ -1773,7 +1796,7 @@ GER_civill_war_Government = {
 		965 = {is_controlled_by = ROOT}
 		has_country_flag = GER_dec_civil_war
 	}
-	days_mission_timeout = 30
+	days_mission_timeout = 60
 	timeout_effect = {
 		custom_effect_tooltip = Influence_tooltip
 		if = {

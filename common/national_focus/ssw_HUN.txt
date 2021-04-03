@@ -824,15 +824,13 @@
 		prerequisite = { focus = HUN_19 }
 		prerequisite = { focus = HUN_20 }
 		available = {
-			OR = {
-				has_full_control_of_state = 76
-				has_full_control_of_state = 84
-			}
+			has_full_control_of_state = 76
+			has_full_control_of_state = 84
 		}
 		bypass = {
-			NOT = {
-				has_full_control_of_state = 76
-				has_full_control_of_state = 84
+			OR = {
+				NOT = { has_full_control_of_state = 76 }
+				NOT = { has_full_control_of_state = 84 }
 			}
 		}
 		x = 1
@@ -2825,7 +2823,10 @@
 	focus = {
 		id = HUN_115
 		icon = GFX_goal_generic_dangerous_deal
-		available = { has_country_flag = lose_danubian_war }
+		available = {
+			has_global_flag = danubian_war_end
+			has_country_flag = lose_danubian_war
+		}
 		allow_branch = { has_country_flag = lose_danubian_war }
 		x = 0
 		y = 0

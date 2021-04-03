@@ -25,16 +25,1134 @@ focus_tree = {
 				has_country_flag = spa_policy
 				has_country_flag = spc_policy
 				has_country_flag = spf_policy
+				has_country_flag = spf_additional_1
+				has_country_flag = spf_additional_2
+				has_country_flag = spf_additional_3
 				has_country_flag = spr_policy
 				has_country_flag = spx_policy
+				has_country_flag = spr_additional_1
 				has_country_flag = spr_extra_policy
 			}
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 31
 		y = 0
 		completion_reward = {
             add_political_power = 60
         }
+	}
+	focus = {
+		id = SPR_constitutional_monarchy
+		icon = GFX_goal_support_democracy
+		cost = 0
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = SPR_huranksiji }
+		mutually_exclusive = {
+			focus = SPR_franco
+			focus = SPR_outouha
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = { hidden_trigger = { always = no } }
+		allow_branch = {
+			has_country_flag = winner_democrat
+			NOT = {
+				has_country_flag = spa_policy
+				has_country_flag = spc_policy
+				has_country_flag = spf_policy
+				has_country_flag = spf_additional_1
+				has_country_flag = spf_additional_2
+				has_country_flag = spf_additional_3
+				has_country_flag = spr_policy
+				has_country_flag = spx_policy
+				has_country_flag = spr_additional_1
+				has_country_flag = spr_extra_policy
+			}
+		}
+		x = 49
+		y = 2
+		completion_reward = {
+			custom_effect_tooltip = ssw_unlock_focuses_tt
+			remove_ideas = spr_debahu_02
+			set_politics = {
+				ruling_party = authority_democracy
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = authority_democracy
+				popularity = 0.5
+			}
+			add_political_power = 50
+			retire_ideology_leader = authority_democracy
+			create_country_leader = {
+				name = "Juan III"
+				desc = "POLITICS_JUAN_III_DESC"
+				picture = "gfx/leaders/SPR/Portrait_Spain_Juan_III.dds"
+				expire = "1993.4.1"
+				ideology = authority_democracy_ideology
+				traits = {
+				}
+			}
+			set_party_name = {
+				ideology = authority_democracy
+				long_name = SPR_monarchism_party_long
+				name = SPR_monarchism_party
+			}
+		}
+	}
+	focus = {
+		id = SPR_team_up_with_england
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = SPR_constitutional_monarchy }
+		mutually_exclusive = {
+			focus = SPR_team_up_with_italy
+			focus = SPR_team_up_with_vorbeck
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			country_exists = ENG
+			ENG = { is_faction_leader = yes }
+		}
+		bypass = {
+			OR = {
+				is_subject_of = ENG
+				is_in_faction_with = ENG
+				ENG = { is_faction_leader = no }
+			}
+		}
+		x = 6
+		y = 1
+		relative_position_id = SPR_constitutional_monarchy
+		cost = 7
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			ENG = { country_event = { id = ssw_faction.4 } }
+		}
+	}
+	focus = {
+		id = SPR_team_up_with_italy
+		icon = GFX_focus_befriend_italy
+		prerequisite = { focus = SPR_constitutional_monarchy }
+		mutually_exclusive = {
+			focus = SPR_team_up_with_england
+			focus = SPR_team_up_with_vorbeck
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			country_exists = ITA
+			ITA = { is_faction_leader = yes }
+		}
+		bypass = {
+			OR = {
+				is_subject_of = ITA
+				is_in_faction_with = ITA
+				ITA = { is_faction_leader = no }
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPR_constitutional_monarchy
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			ITA = { country_event = { id = ssw_faction.4 } }
+		}
+	}
+	focus = {
+		id = SPR_cooperation_with_fascists
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = SPR_team_up_with_italy }
+		x = 0
+		y = 1
+		relative_position_id = SPR_team_up_with_italy
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			remove_ideas = spr_debahu_03
+		}
+	}
+	focus = {
+		id = SPR_focus_on_the_munitions_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPR_team_up_with_italy }
+		x = 2
+		y = 1
+		relative_position_id = SPR_team_up_with_italy
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_focus_on_the_private_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SPR_team_up_with_italy }
+		x = -2
+		y = 1
+		relative_position_id = SPR_team_up_with_italy
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_shipyard_construction
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SPR_focus_on_the_private_industry }
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPR_focus_on_the_private_industry
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_claim_portugal
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = SPR_focus_on_the_munitions_industry }
+		prerequisite = { focus = SPR_focus_on_the_private_industry }
+		x = 2
+		y = 1
+		relative_position_id = SPR_focus_on_the_private_industry
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			set_cosmetic_tag = SPR_iberia
+			every_state = {
+				limit = {
+					is_core_of = POR
+					is_fully_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				add_core_of = ROOT
+			}
+			if = {
+				limit = { POR = { exists = yes } }
+				create_wargoal = {
+					type = annex_everything
+					target = POR
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_under_control_of_mexico
+		icon = GFX_focus_mex_jefe_maximo
+		prerequisite = { focus = SPR_claim_portugal }
+		available = { MEX = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = MEX
+				NOT = { country_exists = MEX }
+			}
+		}
+		will_lead_to_war_with = MEX
+		x = -1
+		y = 1
+		relative_position_id = SPR_claim_portugal
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MEX
+			}
+		}
+	}
+	focus = {
+		id = SPR_desire_for_brazil
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = SPR_claim_portugal }
+		available = { BRA = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = BRA
+				NOT = { country_exists = BRA }
+			}
+		}
+		will_lead_to_war_with = BRA
+		x = 1
+		y = 1
+		relative_position_id = SPR_claim_portugal
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BRA
+			}
+		}
+	}
+	focus = {
+		id = SPR_friendship_with_hungary
+		icon = GFX_LTV_Hungry
+		prerequisite = {
+			focus = SPR_under_control_of_mexico
+			focus = SPR_desire_for_brazil
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPR_under_control_of_mexico
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_opinion_modifier = { target = HUN modifier = SSW_friendly }
+			reverse_add_opinion_modifier = { target = HUN modifier = SSW_friendly }
+			capital_scope = { add_extra_state_shared_building_slots = 1 }
+			add_ai_strategy = { type = befriend id = HUN value = 200 }
+			HUN = {
+				add_ai_strategy = { type = befriend id = ROOT value = 200 }
+				capital_scope = { add_extra_state_shared_building_slots = 1 }
+			}
+		}
+	}
+	focus = {
+		id = SPR_friendship_with_japan
+		icon = GFX_focus_jap_pacific_guardian
+		prerequisite = {
+			focus = SPR_under_control_of_mexico
+			focus = SPR_desire_for_brazil
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPR_under_control_of_mexico
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_opinion_modifier = { target = JAP modifier = SSW_friendly }
+			reverse_add_opinion_modifier = { target = JAP modifier = SSW_friendly }
+			capital_scope = { add_extra_state_shared_building_slots = 1 }
+			add_ai_strategy = { type = befriend id = JAP value = 200 }
+			JAP = {
+				add_ai_strategy = { type = befriend id = ROOT value = 200 }
+				capital_scope = { add_extra_state_shared_building_slots = 1 }
+			}
+		}
+	}
+	focus = {
+		id = SPR_air_force_reform
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = SPR_friendship_with_hungary }
+		prerequisite = { focus = SPR_friendship_with_japan }
+		x = -1
+		y = 1
+		relative_position_id = SPR_friendship_with_hungary
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1
+				uses = 6
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = SPR_focus_on_the_present
+		icon = GFX_goal_generic_national_unity
+		mutually_exclusive = { focus = SPR_focus_on_the_future }
+		prerequisite = { focus = SPR_air_force_reform }
+		x = -3
+		y = 1
+		relative_position_id = SPR_air_force_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = SPR_focus_on_the_future
+		icon = GFX_goal_generic_demand_territory
+		mutually_exclusive = { focus = SPR_focus_on_the_present }
+		prerequisite = { focus = SPR_air_force_reform }
+		x = -1
+		y = 1
+		relative_position_id = SPR_air_force_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.15
+		}
+	}
+	focus = {
+		id = SPR_navy_strengthening
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = SPR_air_force_reform }
+		mutually_exclusive = { focus = SPR_army_strengthening }
+		x = 1
+		y = 1
+		relative_position_id = SPR_air_force_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = spa_ideas_1
+		}
+	}
+	focus = {
+		id = SPR_army_strengthening
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = SPR_air_force_reform }
+		mutually_exclusive = { focus = SPR_navy_strengthening }
+		x = 3
+		y = 1
+		relative_position_id = SPR_air_force_reform
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = spa_ideas_2
+		}
+	}
+	focus = {
+		id = SPR_national_unity
+		icon = GFX_focus_spa_the_war_of_vengeance
+		prerequisite = {
+			focus = SPR_focus_on_the_present
+			focus = SPR_focus_on_the_future
+			focus = SPR_navy_strengthening
+			focus = SPR_army_strengthening
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPR_focus_on_the_future
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = SPR_development_of_the_catalunya_region
+		icon = GFX_goal_generic_construct_military
+		prerequisite = {
+			focus = SPR_ocean_tactics
+			focus = SPR_desire_for_brazil
+		}
+		available = { has_full_control_of_state = 165 }
+		bypass = { NOT = { has_full_control_of_state = 165 } }
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_ocean_tactics
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			165 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_development_of_the_balearic_islands
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SPR_development_of_the_catalunya_region }
+		available = { has_full_control_of_state = 177 }
+		bypass = { NOT = { has_full_control_of_state = 177 } }
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_development_of_the_catalunya_region
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			177 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_development_of_the_canary_islands
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SPR_development_of_the_balearic_islands }
+		available = { has_full_control_of_state = 178 }
+		bypass = { NOT = { has_full_control_of_state = 178 } }
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_development_of_the_balearic_islands
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			178 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_development_of_the_madrid
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SPR_development_of_the_catalunya_region }
+		available = { has_full_control_of_state = 41 }
+		bypass = { NOT = { has_full_control_of_state = 41 } }
+		x = 5
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_development_of_the_catalunya_region
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			41 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_increase_research_facilities
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SPR_development_of_the_madrid }
+		available = { amount_research_slots < 9 }
+		bypass = { amount_research_slots > 8 }
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_development_of_the_madrid
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = SPR_team_up_with_vorbeck
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = SPR_constitutional_monarchy }
+		mutually_exclusive = {
+			focus = SPR_team_up_with_england
+			focus = SPR_team_up_with_italy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_global_flag = GER_civil_war_end
+			country_exists = LTV
+			LTV = { is_faction_leader = yes }
+		}
+		bypass = {
+			has_global_flag = GER_civil_war_end
+			OR = {
+				is_subject_of = LTV
+				is_in_faction_with = LTV
+				LTV = { is_faction_leader = no }
+			}
+		}
+		x = -6
+		y = 1
+		relative_position_id = SPR_constitutional_monarchy
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			LTV = { country_event = { id = ssw_faction.4 } }
+		}
+	}
+	focus = {
+		id = SPR_pan_europeanism
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = SPR_team_up_with_vorbeck }
+		x = -1
+		y = 1
+		relative_position_id = SPR_team_up_with_vorbeck
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.15
+			add_stability = 0.15
+			every_other_country = {
+				limit = {
+					NOT = {
+						has_government = anarchism
+						has_government = progressive_communism
+						has_government = classical_communism
+					}
+					capital_scope = { is_on_continent = europe }
+					NOT = { original_tag = SPR }
+				}
+				ROOT = {
+					add_opinion_modifier = { target = PREV modifier = SSW_friendly }
+					reverse_add_opinion_modifier = { target = PREV modifier = SSW_friendly }
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_strengthening_democracy
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SPR_team_up_with_vorbeck }
+		x = 1
+		y = 1
+		relative_position_id = SPR_team_up_with_vorbeck
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_popularity = {
+				ideology = authority_democracy
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = SPR_accelerate_armoring
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SPR_pan_europeanism }
+		prerequisite = { focus = SPR_strengthening_democracy }
+		x = -1
+		y = 1
+		relative_position_id = SPR_strengthening_democracy
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 6
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = SPR_pacific_threat
+		icon = GFX_focus_attack_japan
+		prerequisite = { focus = SPR_accelerate_armoring }
+		available = {
+			has_army_manpower = { size > 999999 }
+			JAP = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = JAP
+				NOT = { country_exists = JAP }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = JAP
+		x = 0
+		y = 1
+		relative_position_id = SPR_accelerate_armoring
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = JAP
+			}
+		}
+	}
+	focus = {
+		id = SPR_new_continent_threat
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = SPR_accelerate_armoring }
+		available = {
+			has_army_manpower = { size > 999999 }
+			ALF = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = ALF
+				NOT = { country_exists = ALF }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = ALF
+		x = -2
+		y = 1
+		relative_position_id = SPR_accelerate_armoring
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ALF
+			}
+		}
+	}
+	focus = {
+		id = SPR_asian_threat
+		icon = GFX_focus_attack_china
+		prerequisite = { focus = SPR_accelerate_armoring }
+		available = {
+			has_army_manpower = { size > 999999 }
+			CHI = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = CHI
+				NOT = { country_exists = CHI }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = CHI
+		x = 2
+		y = 1
+		relative_position_id = SPR_accelerate_armoring
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+		}
+	}
+	focus = {
+		id = SPR_british_navy
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SPR_team_up_with_england }
+		x = -1
+		y = 1
+		relative_position_id = SPR_team_up_with_england
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = uk_carrier_focus
+				bonus = 1.0
+				uses = 3
+				category = cv_tech
+			}
+			add_tech_bonus = {
+				name = uk_battleship_focus
+				bonus = 1.0
+				uses = 3
+				category = bb_tech
+			}
+		}
+	}
+	focus = {
+		id = SPR_ocean_tactics
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPR_british_navy }
+		x = 0
+		y = 2
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_british_navy
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = uk_waves_focus
+				bonus = 1.0
+				uses = 3
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = SPR_protect_vatican
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = SPR_ocean_tactics }
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_ocean_tactics
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_opinion_modifier = { target = VAC modifier = SSW_friendly }
+			reverse_add_opinion_modifier = { target = VAC modifier = SSW_friendly }
+			diplomatic_relation = { country = VAC relation = non_aggression_pact }
+			give_guarantee = VAC
+		}
+	}
+	focus = {
+		id = SPR_partnering_industry_with_the_uk
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPR_team_up_with_england }
+		x = 1
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_team_up_with_england
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 3
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 3
+			}
+		}
+	}
+	focus = {
+		id = SPR_expanding_industrial_alliances
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SPR_partnering_industry_with_the_uk }
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_partnering_industry_with_the_uk
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 3
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 3
+			}
+		}
+	}
+	focus = {
+		id = SPR_expansionism
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SPR_team_up_with_england }
+		mutually_exclusive = { focus = SPR_international_cooperation }
+		x = 3
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_team_up_with_england
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = SPR_international_cooperation
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SPR_team_up_with_england }
+		mutually_exclusive = { focus = SPR_expansionism }
+		x = 5
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_team_up_with_england
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPR_destroy_french_fascism
+		icon = ITA_anti_fascism
+		prerequisite = { focus = SPR_expansionism }
+		available = { FRA = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = FRA
+				NOT = { country_exists = FRA }
+				FRA = {
+					NOT = {
+						has_government = national_fascism
+						has_government = national_socialism
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = FRA
+		x = 0
+		y = 1
+		relative_position_id = SPR_expansionism
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FRA
+			}
+		}
+	}
+	focus = {
+		id = SPR_destroy_german_fascism
+		icon = GFX_focus_attack_germany
+		prerequisite = { focus = SPR_destroy_french_fascism }
+		available = { GER = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = GER
+				NOT = { country_exists = GER }
+				GER = {
+					NOT = {
+						has_government = national_fascism
+						has_government = national_socialism
+					}
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = GER
+		x = 0
+		y = 1
+		relative_position_id = SPR_destroy_french_fascism
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
+		}
+	}
+	focus = {
+		id = SPR_guarantee_european_freedom
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = SPR_international_cooperation }
+		x = 0
+		y = 1
+		relative_position_id = SPR_international_cooperation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					OR = {
+						has_government = social_democracy
+						has_government = social_liberalism
+						has_government = social_conservatism
+						has_government = authority_democracy
+					}
+					is_major = no
+					capital_scope = { is_on_continent = europe }
+					NOT = { original_tag = SPR }
+				}
+				ROOT = { give_guarantee = PREV }
+			}
+		}
+	}
+	focus = {
+		id = SPR_cooperation_with_small_and_medium_sized_countries
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SPR_guarantee_european_freedom }
+		x = 0
+		y = 1
+		relative_position_id = SPR_guarantee_european_freedom
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					OR = {
+						has_government = social_democracy
+						has_government = social_liberalism
+						has_government = social_conservatism
+						has_government = authority_democracy
+					}
+					is_major = no
+					capital_scope = { is_on_continent = europe }
+					NOT = { original_tag = SPR }
+				}
+				ROOT = {
+					add_opinion_modifier = { target = PREV modifier = SSW_friendly }
+					reverse_add_opinion_modifier = { target = PREV modifier = SSW_friendly }
+					diplomatic_relation = { country = PREV relation = non_aggression_pact }
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPR_diplomatic_superiority
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = {
+			focus = SPR_cooperation_with_small_and_medium_sized_countries
+			focus = SPR_destroy_german_fascism
+		}
+		x = -1
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SPR_cooperation_with_small_and_medium_sized_countries
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = 200
+			remove_ideas = spr_debahu_03
+		}
 	}
 	focus = {
 		id = SPR_kougyou_kougyouka
@@ -43,6 +1161,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		x = 5
 		y = 0
+		
 		completion_reward = {
 			
 			793 = {
@@ -76,6 +1195,7 @@ focus_tree = {
 		id = SPR_kougyou_kikai
 		icon = GFX_goal_generic_construction
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kougyouka
@@ -95,6 +1215,7 @@ focus_tree = {
 		id = SPR_faranhe_sekitan
 		icon = GFX_goal_generic_oil_refinery
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kikai
@@ -114,6 +1235,7 @@ focus_tree = {
 		id = SPR_kougyou_kouzan
 		icon = GFX_focus_generic_steel
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_sekitan
@@ -133,6 +1255,7 @@ focus_tree = {
 		id = SPR_kougyou_hokubuzousen
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kougyouka
@@ -156,6 +1279,7 @@ focus_tree = {
 		id = SPR_faraneh_hondokougyouka
 		icon = GFX_focus_generic_industry_2
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kikai
@@ -179,6 +1303,7 @@ focus_tree = {
 		id = SPR_kougyou_hondomottokougyou
 		icon = GFX_focus_generic_industry_3
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faraneh_hondokougyouka
@@ -202,6 +1327,7 @@ focus_tree = {
 		id = SPR_kougyou_nouti
 		icon = GFX_focus_NZL_bob_semple_tank
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_hondomottokougyou
@@ -229,6 +1355,7 @@ focus_tree = {
 		id = SPR_kougyou_saikutu
 		icon = GFX_goal_generic_construction2
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kougyouka
@@ -248,6 +1375,7 @@ focus_tree = {
 		id = SPR_faranhe_syokumintikougyouka
 		icon = GFX_focus_generic_industry_2
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_saikutu
@@ -271,6 +1399,7 @@ focus_tree = {
 		id = SPR_faranhe_syokumintimottokougyou
 		icon = GFX_focus_generic_industry_3
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_syokumintikougyouka
@@ -294,6 +1423,7 @@ focus_tree = {
 		id = SPR_kougyou_kenkyuu
 		icon = GFX_focus_research
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_syokumintimottokougyou
@@ -309,6 +1439,7 @@ focus_tree = {
 		id = SPR_kougyou_nannbuzousen
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kougyouka
@@ -332,6 +1463,7 @@ focus_tree = {
 		id = SPR_kougyou_yuden
 		icon = GFX_goal_generic_oil_refinery
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_syokumintimottokougyou
@@ -351,6 +1483,7 @@ focus_tree = {
 		id = SPR_kougyou_gomu
 		icon = GFX_focus_generic_rubber
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_yuden
@@ -370,6 +1503,7 @@ focus_tree = {
 		id = SPR_kougyou_boukisaito
 		icon = GFX_focus_generic_aluminum
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_saikutu
@@ -389,6 +1523,7 @@ focus_tree = {
 		id = SPR_kougyou_reametaru
 		icon = GFX_focus_generic_tungsten
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_boukisaito
@@ -409,6 +1544,7 @@ focus_tree = {
 		id = SPR_kougyou_morokko
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_reametaru
@@ -442,31 +1578,35 @@ focus_tree = {
 	focus = {
 		id = SPR_hurankohaijyo
 		icon = GFX_goal_generic_forceful_treaty
-		cost = 1.00
-		ai_will_do = { factor = 10 }
+		cost = 0.00
+		ai_will_do = { factor = 0 }
 		prerequisite = {
 			focus = SPR_seihu
 		}
 		mutually_exclusive = {
 			focus = SPR_huranksiji
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = { hidden_trigger = { always = no } }
 		x = 29
 		y = 1
 		completion_reward = {
+            custom_effect_tooltip = ssw_unlock_focuses_tt
             add_political_power = 40
         }
 	}
 	focus = {
 		id = SPR_faranhe
 		icon = GFX_focus_spa_the_phalanx_ascendant
-		cost = 7.00
+		cost = 0.00
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_hurankohaijyo }
 		available = { hidden_trigger = { always = no } }
 		x = 17
 		y = 2
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = ssw_unlock_focuses_tt
 			remove_ideas = spr_debahu_03
 			add_political_power = 40
 			retire_ideology_leader = national_fascism
@@ -494,6 +1634,7 @@ focus_tree = {
 		prerequisite = { focus = SPR_faranhe }
 		x = 14
 		y = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_timed_idea = { idea = spr_ideas_01 days = 365 }
 		}
@@ -506,6 +1647,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe_minzokudanatu
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 13
 		y = 4
 		completion_reward = { remove_ideas = { spr_debahu_01 } }
@@ -520,6 +1662,7 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			172 = {
 				add_extra_state_shared_building_slots = 2
@@ -539,6 +1682,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 16
 		y = 3
 		completion_reward = {
@@ -553,6 +1697,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 18
 		y = 3
 		completion_reward = {
@@ -568,6 +1713,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe_hurankokorosu
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_outouhakorosu
 		}
@@ -585,6 +1731,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe_ittoudokusai
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 17
 		y = 5
 		completion_reward = {
@@ -602,6 +1749,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe_sensouseisaku
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = { has_army_manpower = { size > 499999 } }
 		x = 15
 		y = 6
@@ -624,6 +1772,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_faranhe_sensouseisaku
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = { has_army_manpower = { size > 499999 } }
 		x = 19
 		y = 6
@@ -643,6 +1792,7 @@ focus_tree = {
 		icon = GFX_goal_generic_dangerous_deal
 		cost = 3.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_huransukorosu
 		}
@@ -655,12 +1805,13 @@ focus_tree = {
 			ITA = { country_event = { id = ssw_spr.1 days = 1 } }
 		}
 	}
-	focus = { #’n’†ŠCŠCŒR‚ÌÝ—§
+	focus = {
 		id = SPR_faranhe_barearesusintyuu
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 7.00
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_faranhe_ahurikabunkatu }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
 			any_state = {
 				is_coastal = yes
@@ -702,6 +1853,7 @@ focus_tree = {
 	focus = {
 		id = SPR_faranhe_itariakorosu
 		icon = GFX_focus_attack_italy
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 6.00
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_faranhe_barearesusintyuu }
@@ -729,6 +1881,7 @@ focus_tree = {
 		}
 		x = 19
 		y = 8
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			GER = {
 					country_event = { id = ssw_spr.3 days = 1 }
@@ -747,6 +1900,7 @@ focus_tree = {
 		available = { has_army_manpower = { size > 499999 } }
 		x = 19
 		y = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		bypass = {		
 			has_war_with = ENG
 		}
@@ -763,6 +1917,7 @@ focus_tree = {
 		icon = GFX_focus_generic_little_entente
 		cost = 6.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe
 		}
@@ -780,6 +1935,7 @@ focus_tree = {
 		icon = GFX_goal_generic_special_forces
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_kokkanoguntaika
 		}
@@ -798,6 +1954,7 @@ focus_tree = {
 		icon = GFX_focus_generic_military_academy
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_kokkanoguntaika
 		}
@@ -821,6 +1978,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civilian
 		cost = 8.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_sangakuhei
 		}
@@ -842,6 +2000,7 @@ focus_tree = {
 		icon = GFX_goal_generic_build_navy
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_porutokorosu
 		}
@@ -859,6 +2018,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_kaigungunkaku
 		}
@@ -878,6 +2038,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 7.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_faranhe_kaigungunkaku
 		}
@@ -899,8 +2060,9 @@ focus_tree = {
 	focus = {
 		id = SPR_huranksiji
 		icon = GFX_goal_generic_major_alliance
-		cost = 1.00
-		ai_will_do = { factor = 10 }
+		cost = 0.00
+		ai_will_do = { factor = 0 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_seihu
 		}
@@ -911,6 +2073,7 @@ focus_tree = {
 		x = 33
 		y = 1
 		completion_reward = {
+            custom_effect_tooltip = ssw_unlock_focuses_tt
             add_political_power = 40
         }
 
@@ -918,27 +2081,28 @@ focus_tree = {
 	focus = {
 		id = SPR_franco
 		icon = GFX_focus_spa_caudillo_of_spain
-		cost = 1.00
+		cost = 0.00
 		ai_will_do = { factor = 10 }
-		prerequisite = {
-			focus = SPR_huranksiji
-		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = SPR_huranksiji }
 		mutually_exclusive = {
 			focus = SPR_outouha
+			focus = SPR_constitutional_monarchy
 		}
 		available = { hidden_trigger = { always = no } }
 		x = 31
 		y = 2
 		completion_reward = {
+            custom_effect_tooltip = ssw_unlock_focuses_tt
             add_political_power = 30
         }
-
 	}
 	focus = {
 		id = SPR_franco_gunhenotyuusei
 		icon = GFX_focus_generic_manpower
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_franco
 		}
@@ -956,6 +2120,7 @@ focus_tree = {
 		icon = GFX_focus_secret_rearmament
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_franco_gunhenotyuusei
 		}
@@ -973,6 +2138,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 5.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_franco_gunhenotyuusei
 		}
@@ -996,6 +2162,7 @@ focus_tree = {
 		icon = GFX_focus_befriend_italy
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = { focus = SPR_franco }
 		x = 31
 		y = 3
@@ -1043,6 +2210,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_battleship
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_franco_itariadoumei
 		}
@@ -1063,6 +2231,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_motorized
 		cost = 6.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = { focus = SPR_franco_itariadoumei }
 		x = 31
 		y = 5
@@ -1080,6 +2249,7 @@ focus_tree = {
 		relative_position_id = SPR_franco_kokusakujidousya
 		cost = 5
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -1184,6 +2354,7 @@ focus_tree = {
 		relative_position_id = SPR_franco_kokusakujidousya
 		cost = 5
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -1286,6 +2457,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_franco_kokusakujidousya
 		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		x = 31
 		y = 7
 		completion_reward = {
@@ -1302,6 +2474,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = { focus = SPR_franco_itariadoumei }
 		x = 32
 		y = 4
@@ -1315,6 +2488,7 @@ focus_tree = {
 		icon = GFX_goal_generic_positive_trade_relations
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = {
 			focus = SPR_franco_itariasyussi
 		}
@@ -1333,6 +2507,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_doctrines
 		cost = 3.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		prerequisite = {
 			focus = SPR_guntai
 		}
@@ -1352,6 +2527,7 @@ focus_tree = {
 		icon = GFX_goal_generic_axis_build_infantry
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		prerequisite = {
 			focus = SPR_guntai_rikugun
 		}
@@ -1378,6 +2554,7 @@ focus_tree = {
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 6.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		prerequisite = {
 			focus = SPR_guntai_rikugun
 		}
@@ -1402,6 +2579,7 @@ focus_tree = {
 		icon = GFX_goal_generic_special_forces
 		cost = 6.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		prerequisite = {
 			focus = SPR_guntai_kihei
 		}
@@ -1422,6 +2600,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_artillery2
 		cost = 4.00
 		ai_will_do = { factor = 10 }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		prerequisite = {
 			focus = SPR_guntai_rikugun
 		}
@@ -1446,6 +2625,7 @@ focus_tree = {
 		id = SPR_guntai_houhei
 		icon = GFX_goal_generic_army_artillery
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_daikibosakusen
@@ -1466,6 +2646,7 @@ focus_tree = {
 		id = SPR_franco_tetunosyuukyou
 		icon = GFX_focus_spa_fuse_the_parties
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco
@@ -1483,6 +2664,7 @@ focus_tree = {
 		id = SPR_franco_katorikkukyouryoku
 		icon = GFX_focus_por_concordat
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_tetunosyuukyou
@@ -1501,6 +2683,7 @@ focus_tree = {
 		id = SPR_franco_minzoku
 		icon = GFX_goal_generic_political_pressure
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_katorikkukyouryoku
@@ -1520,6 +2703,7 @@ focus_tree = {
 		id = SPR_franco_outouha
 		icon = GFX_focus_rom_royal_dictatorship
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_tetunosyuukyou
@@ -1538,6 +2722,7 @@ focus_tree = {
 		id = SPR_franco_kyoukaidoumei
 		icon = GFX_focus_por_iberian_summit
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_franco_katorikkukyouryoku }
 		prerequisite = { focus = SPR_franco_outouha }
@@ -1568,6 +2753,7 @@ focus_tree = {
 		id = SPR_franco_youroppa
 		icon = GFX_goal_continuous_increase_nu
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_franco_kyoukaidoumei }
 		x = 36
@@ -1630,6 +2816,7 @@ focus_tree = {
 		id = SPR_franco_amerika
 		icon = GFX_goal_generic_national_unity
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_franco_youroppa }
 		x = 35
@@ -1709,6 +2896,7 @@ focus_tree = {
 		id = SPR_franco_tyuubei
 		icon = GFX_goal_generic_national_unity
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_youroppa
@@ -1842,6 +3030,7 @@ focus_tree = {
 		id = SPR_faranhe_nihon
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_amerika
@@ -1859,6 +3048,7 @@ focus_tree = {
 		id = SPR_franco_banpaku
 		icon = GFX_focus_spr_torchbearers_of_tomorrow
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_jidousyahanbai
@@ -1876,6 +3066,7 @@ focus_tree = {
 		id = SPR_guntai_kidousen
 		icon = GFX_goal_generic_army_tanks
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_rikugun
@@ -1901,6 +3092,7 @@ focus_tree = {
 		id = SPR_guntai_sensya
 		icon = GFX_goal_continuous_armor_production
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kidousen
@@ -1919,6 +3111,7 @@ focus_tree = {
 	focus = {
 		id = SPR_franco_kyoukainoeenjyo
 		icon = GFX_focus_generic_self_management
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		cost = 4.00
 		ai_will_do = { factor = 10 }
 		prerequisite = {
@@ -1935,6 +3128,7 @@ focus_tree = {
 		id = SPR_franco_katorikkukyouiku
 		icon = GFX_goal_generic_scientific_exchange
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_kyoukainoeenjyo
@@ -1953,6 +3147,7 @@ focus_tree = {
 		id = SPR_faranhe_kyoukainokosyo
 		icon = GFX_focus_research2
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_katorikkukyouiku
@@ -1967,6 +3162,7 @@ focus_tree = {
 		id = SPR_guntai_kaigun
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai
@@ -1985,7 +3181,8 @@ focus_tree = {
 	focus = {
 		id = SPR_guntai_kaiheitai
 		icon = GFX_goal_generic_amphibious_assault
-		cost = 10.00
+		cost = 7.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_rikugun
@@ -2009,6 +3206,7 @@ focus_tree = {
 		id = SPR_guntai_jyouriksuen
 		icon = GFX_goal_continuous_naval_production
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaiheitai
@@ -2027,10 +3225,14 @@ focus_tree = {
 	focus = {
 		id = SPR_outouha
 		icon = GFX_focus_spr_maintain_the_republic
-		cost = 1.00
+		cost = 0.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = SPR_huranksiji }
-		mutually_exclusive = { focus = SPR_franco }
+		mutually_exclusive = {
+			focus = SPR_franco
+			focus = SPR_constitutional_monarchy
+		}
 		available = { hidden_trigger = { always = no } }
 		allow_branch = {
 			NOT = {
@@ -2038,7 +3240,11 @@ focus_tree = {
 				has_country_flag = spa_policy
 				has_country_flag = spc_policy
 				has_country_flag = spf_policy
+				has_country_flag = spf_additional_1
+				has_country_flag = spf_additional_2
+				has_country_flag = spf_additional_3
 				has_country_flag = spr_policy
+				has_country_flag = spr_additional_1
 				has_country_flag = spx_policy
 				has_country_flag = spr_extra_policy
 			}
@@ -2046,6 +3252,7 @@ focus_tree = {
 		x = 49
 		y = 2
 		completion_reward = {
+			custom_effect_tooltip = ssw_unlock_focuses_tt
 			set_politics = {
 				ruling_party = authority_despotism
 				elections_allowed = no
@@ -2076,6 +3283,7 @@ focus_tree = {
 		id = SPR_outouha_keizaiseisaku
 		icon = GFX_focus_hol_the_foundations_of_defense
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha
@@ -2099,6 +3307,7 @@ focus_tree = {
 		id = SPR_outouha_noumin
 		icon = GFX_focus_generic_military_academy
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_keizaiseisaku
@@ -2116,6 +3325,7 @@ focus_tree = {
 		id = SPR_outouha_hinnou
 		icon = GFX_focus_generic_concessions
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_keizaiseisaku
@@ -2132,6 +3342,7 @@ focus_tree = {
 		id = SPR_outouha_totinoumin
 		icon = GFX_goal_continuous_boost_freedom
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_hinnou
@@ -2153,6 +3364,7 @@ focus_tree = {
 		id = SPR_outouha_koujyoukyoukai
 		icon = GFX_goal_generic_construct_civ_factory
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_totinoumin
@@ -2174,6 +3386,7 @@ focus_tree = {
 		id = SPR_outouha_ouritutosyo
 		icon = GFX_goal_tfv_generic_tech_sharing
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_totinoumin
@@ -2189,6 +3402,7 @@ focus_tree = {
 		id = SPR_guntai_bouekisosi
 		icon = GFX_goal_generic_wolf_pack
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaigun
@@ -2214,6 +3428,7 @@ focus_tree = {
 		id = SPR_guntai_kantaihozen
 		icon = GFX_goal_generic_navy_battleship
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaigun
@@ -2239,6 +3454,7 @@ focus_tree = {
 		id = SPR_guntai_kutikukan
 		icon = GFX_focus_generic_destroyer
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_bouekisosi
@@ -2261,6 +3477,7 @@ focus_tree = {
 		id = SPR_outouha_koujyououke
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_totinoumin
@@ -2284,6 +3501,7 @@ focus_tree = {
 		id = SPR_guntai_kitikougeki
 		icon = GFX_goal_generic_occupy_start_war
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaigun
@@ -2303,7 +3521,7 @@ focus_tree = {
 					category = cat_base_strike
 				}
 		}
-
+		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
 		id = SPR_outouha_kokuoukikan
@@ -2323,12 +3541,13 @@ focus_tree = {
 				add_idea = spr_ideas_1999
 			}
 		}
-
+		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
 	focus = {
 		id = SPR_outouha_kizokunokikan
 		icon = GFX_focus_generic_royal_wedding
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kokuoukikan
@@ -2340,11 +3559,11 @@ focus_tree = {
 			
 		}
 	}
-
 	focus = {
 		id = SPR_outouha_noud
 		icon = GFX_goal_continuous_restrict_freedom
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kizokunokikan
@@ -2358,11 +3577,11 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = SPR_outouha_tougyuujyou
 		icon = GFX_goal_demand_sudetenland
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kokuoukikan
@@ -2378,6 +3597,7 @@ focus_tree = {
 		id = SPR_outouha_ouryou
 		icon = GFX_focus_generic_monarchy_2
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kokuoukikan
@@ -2399,7 +3619,8 @@ focus_tree = {
 	focus = {
 		id = SPR_outouha_mutekikantai
 		icon = GFX_goal_generic_navy_battleship
-		cost = 10.00
+		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kizokunokikan
@@ -2433,6 +3654,7 @@ focus_tree = {
 		id = SPR_outouha_igirisu
 		icon = GFX_focus_chi_british_cooperation
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_mutekikantai
@@ -2450,6 +3672,7 @@ focus_tree = {
 		id = SPR_outouha_porutoseihuku
 		icon = GFX_focus_generic_attack_portugal
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_mutekikantai
@@ -2469,6 +3692,7 @@ focus_tree = {
 		id = SPR_outouha_taiseiyouseiha
 		icon = GFX_focus_generic_coastal_fort
 		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_porutoseihuku
@@ -2495,6 +3719,7 @@ focus_tree = {
 		id = SPR_outouha_doitusyokuminti
 		icon = GFX_goal_tripartite_pact
 		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_igirisu
@@ -2515,6 +3740,7 @@ focus_tree = {
 		id = SPR_outouha_amerikasyokumintika
 		icon = GFX_focus_mex_jefe_maximo
 		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_doitusyokuminti
@@ -2642,6 +3868,7 @@ focus_tree = {
 		id = nuebakasutera
 		icon = GFX_goal_generic_territory_or_war
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_amerikasyokumintika
@@ -2695,6 +3922,7 @@ focus_tree = {
 		id = SPR_outouha_rioderapurata
 		icon = GFX_goal_generic_territory_or_war
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_amerikasyokumintika
@@ -2748,6 +3976,7 @@ focus_tree = {
 		id = SPR_guntai_kuugun
 		icon = GFX_goal_generic_air_doctrine
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai
@@ -2767,6 +3996,7 @@ focus_tree = {
 		id = SPR_guntai_kaigunkoukuutai
 		icon = GFX_goal_generic_air_naval_bomber
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaigun
@@ -2789,6 +4019,7 @@ focus_tree = {
 		id = SPR_guntai_reedaa
 		icon = GFX_focus_generic_cryptologic_bomb
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kaigunkoukuutai
@@ -2809,6 +4040,7 @@ focus_tree = {
 		id = SPR_outouha_peruu
 		icon = GFX_goal_generic_territory_or_war
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_amerikasyokumintika
@@ -2822,7 +4054,6 @@ focus_tree = {
 			owns_state = 649
 		}
 		completion_reward = {
-			
 			303 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -2862,6 +4093,7 @@ focus_tree = {
 		id = SPR_guntai_senryakuhakai
 		icon = GFX_focus_CZE_military_aeronautical_institute
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kuugun
@@ -2886,6 +4118,7 @@ focus_tree = {
 	focus = {
 		id = SPR_guntai_ryakubaku
 		icon = GFX_goal_generic_air_bomber
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		cost = 5.00
 		ai_will_do = { factor = 10 }
 		prerequisite = {
@@ -2905,6 +4138,7 @@ focus_tree = {
 	focus = {
 		id = SPR_guntai_senjyousien
 		icon = GFX_focus_YUG_ikarus
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		cost = 4.00
 		ai_will_do = { factor = 10 }
 		prerequisite = {
@@ -2931,6 +4165,7 @@ focus_tree = {
 		id = SPR_guntai_jyusen
 		icon = GFX_focus_usa_escort_fighters
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_senjyousien
@@ -2951,6 +4186,7 @@ focus_tree = {
 		id = SPR_outouha_kyoukairengou
 		icon = GFX_focus_spa_no_compromise_on_carlist_ideals
 		cost = 2.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha
@@ -2966,6 +4202,7 @@ focus_tree = {
 		id = SPR_outouha_kokuounosinnsei
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kyoukairengou
@@ -2984,6 +4221,7 @@ focus_tree = {
 		id = SPR_outouha_kamigasorewo
 		icon = GFX_focus_AST_squander_bug
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kokuounosinnsei
@@ -3002,6 +4240,7 @@ focus_tree = {
 		id = SPR_outouha_jinei
 		icon = GFX_focus_spa_supremacy_of_the_communion
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_porutoseihuku
@@ -3023,6 +4262,7 @@ focus_tree = {
 		id = SPR_outouha_ikyouseibatu
 		icon = GFX_focus_RAJ_lions_of_the_great_war
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_jinei
@@ -3039,6 +4279,7 @@ focus_tree = {
 		id = SPR_outouha_toruko
 		icon = GFX_focus_attack_japan
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_ikyouseibatu
@@ -3057,6 +4298,7 @@ focus_tree = {
 		id = SPR_guntai_sakusenseigou
 		icon = GFX_focus_chi_flying_tigers
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kuugun
@@ -3083,6 +4325,7 @@ focus_tree = {
 		id = SPR_guntai_jyutubaku
 		icon = GFX_goal_generic_occupy_start_war
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_senjyousien
@@ -3103,6 +4346,7 @@ focus_tree = {
 		id = SPR_outouha_kyoukaiseisin
 		icon = GFX_focus_spr_torchbearers_of_tomorrow
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kyoukairengou
@@ -3119,6 +4363,7 @@ focus_tree = {
 		id = SPR_outouha_jyuujigun
 		icon = GFX_focus_generic_manpower
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kyoukaiseisin
@@ -3137,6 +4382,7 @@ focus_tree = {
 		id = SPR_outouha_kyoukouryou
 		icon = GFX_focus_attack_italy
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kamigasorewo
@@ -3155,6 +4401,7 @@ focus_tree = {
 		id = SPR_outouha_itanseibatu
 		icon = GFX_focus_spr_crush_the_revolution
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_jinei
@@ -3171,6 +4418,7 @@ focus_tree = {
 		id = SPR_outouha_doituoui
 		icon = GFX_focus_attack_germany
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_itanseibatu
@@ -3189,6 +4437,7 @@ focus_tree = {
 		id = SPR_guntai_keisen
 		icon = GFX_goal_generic_air_fighter
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_sakusenseigou
@@ -3208,6 +4457,7 @@ focus_tree = {
 		id = SPR_outouha_sebiriadaiseidou
 		icon = GFX_focus_spa_save_the_alcazar
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kyoukairengou
@@ -3230,6 +4480,7 @@ focus_tree = {
 		id = SPR_outouha_reondaiseidou
 		icon = GFX_focus_spa_save_the_alcazar
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_sebiriadaiseidou
@@ -3252,6 +4503,7 @@ focus_tree = {
 		id = SPR_outouha_arumudena
 		icon = GFX_focus_spa_save_the_alcazar
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_reondaiseidou
@@ -3274,6 +4526,7 @@ focus_tree = {
 		id = SPR_kougyou_toti
 		icon = GFX_goal_generic_construct_civilian
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_nouti
@@ -3301,6 +4554,7 @@ focus_tree = {
 		id = SPR_kougyou_porutogaru
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_kougyou_kouzan
@@ -3327,6 +4581,7 @@ focus_tree = {
 		id = SPR_faranhe_katarunyasyokumin
 		icon = GFX_focus_generic_the_giant_wakes
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_danatukanryou
@@ -3350,6 +4605,7 @@ focus_tree = {
 		id = SPR_faranhe_doitudoumei
 		icon = GFX_focus_chi_mission_to_germany
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_ahurikabunkatu
@@ -3367,6 +4623,7 @@ focus_tree = {
 		id = SPR_faranhe_rikugungunkaku
 		icon = GFX_goal_generic_axis_build_infantry
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_huransukorosu
@@ -3381,6 +4638,7 @@ focus_tree = {
 		id = SPR_franco_taihou
 		icon = GFX_goal_generic_army_artillery2
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_hoheijyuu
@@ -3399,6 +4657,7 @@ focus_tree = {
 		id = SPR_franco_seisanzouka
 		icon = GFX_focus_generic_combined_arms
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_gunkoujyou
@@ -3419,6 +4678,7 @@ focus_tree = {
 		id = SPR_franco_sensya
 		icon = GFX_focus_generic_tank_production
 		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_taihou
@@ -3437,6 +4697,7 @@ focus_tree = {
 		id = SPR_franco_jidousyadou
 		icon = GFX_goal_generic_construct_infrastructure
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_itariasyussi
@@ -3480,6 +4741,7 @@ focus_tree = {
 		id = SPR_franco_suiryoku
 		icon = GFX_goal_continuous_non_factory_construct
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_seisanzouka
@@ -3495,6 +4757,7 @@ focus_tree = {
 		id = SPR_franco_rosutyairudo
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_suiryoku
@@ -3514,6 +4777,7 @@ focus_tree = {
 		id = SPR_franco_kokusaitousikaigi
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_rosutyairudo
@@ -3534,6 +4798,7 @@ focus_tree = {
 		id = SPR_franco_orinpia
 		icon = GFX_focus_spa_unify_the_nationalist_front
 		cost = 10.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_kokusaitousikaigi
@@ -3587,6 +4852,7 @@ focus_tree = {
 		id = SPR_outouha_santaeria
 		icon = GFX_focus_spa_the_spanish_miracle
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_kyoukairengou
@@ -3609,6 +4875,7 @@ focus_tree = {
 		id = SPR_outouha_toredo
 		icon = GFX_focus_spa_the_spanish_miracle
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_santaeria
@@ -3631,6 +4898,7 @@ focus_tree = {
 		id = SPR_outouha_burugosu
 		icon = GFX_focus_spa_the_spanish_miracle
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_toredo
@@ -3653,6 +4921,7 @@ focus_tree = {
 		id = SPR_outouha_kokkanokyoukaika
 		icon = GFX_focus_spa_unify_the_nationalist_front
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_arumudena
@@ -3673,6 +4942,7 @@ focus_tree = {
 		id = SPR_outouha_nuebaguranada
 		icon = GFX_focus_mex_redeem_aztlan
 		cost = 4.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_amerikasyokumintika
@@ -3726,6 +4996,7 @@ focus_tree = {
 		id = SPR_outouha_indeliasu
 		icon = GFX_focus_generic_self_management
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_outouha_peruu
@@ -3751,6 +5022,7 @@ focus_tree = {
 		id = SPR_guntai_hohei
 		icon = GFX_focus_prc_infiltration
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_daikibosakusen
@@ -3770,6 +5042,7 @@ focus_tree = {
 		id = SPR_guntai_jidousya
 		icon = GFX_goal_generic_army_motorized
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_yuuseikaryoku
@@ -3790,6 +5063,7 @@ focus_tree = {
 		id = SPR_guntai_dengekisen
 		icon = GFX_focus_generic_army_tanks2
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_sensya
@@ -3811,6 +5085,7 @@ focus_tree = {
 		id = SPR_guntai_hougekisen
 		icon = GFX_goal_generic_army_doctrines
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_jidousya
@@ -3832,6 +5107,7 @@ focus_tree = {
 		id = SPR_guntai_zangousen
 		icon = GFX_focus_spr_no_pasaran
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_houhei
@@ -3853,6 +5129,7 @@ focus_tree = {
 		id = SPR_guntai_senkan
 		icon = GFX_focus_generic_navy_battleship2
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kantaihozen
@@ -3872,6 +5149,7 @@ focus_tree = {
 		id = SPR_guntai_sensuikan
 		icon = GFX_goal_generic_navy_submarine
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_bouekisosi
@@ -3892,6 +5170,7 @@ focus_tree = {
 		id = SPR_guntai_kuubo
 		icon = GFX_goal_generic_navy_carrier
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kitikougeki
@@ -3911,6 +5190,7 @@ focus_tree = {
 		id = SPR_guntai_jyunyoukan
 		icon = GFX_focus_generic_cruiser2
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_bouekisosi
@@ -3933,6 +5213,7 @@ focus_tree = {
 		id = SPR_guntai_santelisima
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 10.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kantaihozen
@@ -3998,6 +5279,7 @@ focus_tree = {
 		id = SPR_guntai_kansaiki
 		icon = GFX_focus_generic_air_defense
 		cost = 10.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_kitikougeki
@@ -4018,6 +5300,7 @@ focus_tree = {
 		id = SPR_guntai_kinsetuki
 		icon = GFX_goal_generic_CAS
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_jyusen
@@ -4039,6 +5322,7 @@ focus_tree = {
 		id = SPR_guntai_seikuusen
 		icon = GFX_focus_rocketry
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_jyutubaku
@@ -4059,6 +5343,7 @@ focus_tree = {
 		id = SPR_guntai_ryakubakukyori
 		icon = GFX_focus_wonderweapons
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_guntai_ryakubaku
@@ -4079,6 +5364,7 @@ focus_tree = {
 		id = SPR_faranhe_kougekisen
 		icon = GFX_goal_generic_army_doctrines
 		cost = 5.00
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_rikugungunkaku
@@ -4098,6 +5384,7 @@ focus_tree = {
 		id = SPR_faranhe_doitu
 		icon = GFX_focus_attack_germany
 		cost = 8.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_itariakorosu
@@ -4120,6 +5407,7 @@ focus_tree = {
 		id = SPR_faranhe_koujyoutukure
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 7.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_faranhe_rikugungunkaku
@@ -4143,6 +5431,7 @@ focus_tree = {
 		id = SPR_faranhe_nannbeiyusyutu
 		icon = GFX_goal_generic_trade
 		cost = 3.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_taihou
@@ -4187,6 +5476,7 @@ focus_tree = {
 		id = SPR_fanco_tyouhei
 		icon = GFX_focus_prc_infiltration
 		cost = 6.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_franco_gunhenotyuusei
@@ -4204,6 +5494,7 @@ focus_tree = {
 		id = SPR_fanco_uha
 		icon = GFX_focus_generic_military_mission
 		cost = 9.00
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 10 }
 		prerequisite = {
 			focus = SPR_fanco_tyouhei
