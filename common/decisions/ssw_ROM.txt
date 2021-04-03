@@ -257,3 +257,489 @@ ROM_Extend_faur_industry = {#フォー工場はブカレストの工場
 		}
 	}
 }
+ROM_Rearmament_Program = {
+	ROM_Rearmament_Program_Mutineer_1 = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = ROM_Rearmament_Program_Mutineer_1
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	ROM_Rearmament_Program_Mutineer_2 = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+			has_country_flag = ROM_Rearmament_Program_Mutineer_1
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	ROM_Rearmament_Program_Moldova = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 79
+				}
+				79 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	ROM_Rearmament_Program_add_infantry_weapons = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = ROM
+			}
+		}
+		remove_effect = {
+		}
+	}
+	ROM_Rearmament_Program_add_support_weapons = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = ROM
+			}
+		}
+		remove_effect = {
+		}
+	}
+	ROM_Rearmament_Program_add_artillery_equipment = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 60
+		complete_effec = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 250
+				producer = ROM
+			}
+		}
+		remove_effect = {
+		}
+	}
+	ROM_Rearmament_Program_add_motorized_equipment = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 90
+		complete_effec = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 200
+				producer = ROM
+			}
+		}
+		remove_effect = {
+		}
+	}
+	ROM_Rearmament_Program_add_medium_tank_equipment = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = no
+		days_remove = 90
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment
+				amount = 100
+				producer = ROM
+			}
+		}
+		remove_effect = {
+		}
+	}
+
+}
+ROM_Grabbing_Foreign_Capital_de = {
+	ROM_Equity_Investment_in_GER_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.02
+          	}
+		remove_effect = {
+			hidden_effect = {
+				set_country_flag = Equity_Investment_in_GER_Capital
+			}
+		}
+	}
+	ROM_Equity_Investment_in_ITA_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.02
+          	}
+		remove_effect = {
+			hidden_effect = {
+				set_country_flag = Equity_Investment_in_ITA_Capital
+			}
+		}
+	}
+	ROM_Equity_Investment_in_HOL_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.02
+          	}
+		remove_effect = {
+			hidden_effect = {
+				set_country_flag = Equity_Investment_in_HOL_Capital
+			}
+		}
+	}
+	ROM_Acquisition_of_GER_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+			has_country_flag = Equity_Investment_in_GER_Capital
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.04
+          	}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_3
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_4
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_2
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_3
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_1
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_2
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_1
+			}
+
+		}
+	}
+	ROM_Acquisition_of_ITA_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+			has_country_flag = Equity_Investment_in_ITA_Capital
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.04
+          	}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_3
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_4
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_2
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_3
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_1
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_2
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_1
+			}
+
+		}
+	}
+	ROM_Acquisition_of_HOL_Capital = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+			has_country_flag = Equity_Investment_in_HOL_Capital
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.1
+		}
+		fire_only_once = yes
+		days_remove = 50
+          	modifier = {
+               		consumer_goods_factor = 0.04
+          	}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_3
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_4
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_2
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_3
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital_1
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_2
+			}
+
+			if = {
+				limit = {
+					has_idea = ROM_Grabbing_Foreign_Capital
+				}
+				add_ideas = ROM_Grabbing_Foreign_Capital_1
+			}
+
+		}
+	}
+}
+ROM_Balkan_Alliance = {
+	ROM_SER_Approached_to_Join_the_Camp = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+			has_country_flag = ROM_SER_Problem
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.2
+		}
+		fire_only_once = yes
+		complete_effect = {
+			SER = {
+				country_event = {
+					id = SSW_ROM.49 days = 3
+				}
+			}
+		}
+	}
+	ROM_GRE_Approached_to_Join_the_Camp = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.2
+		}
+		fire_only_once = yes
+		complete_effect = {
+			GRE = {
+				country_event = {
+					id = SSW_ROM.49 days = 3
+				}
+			}
+		}
+	}
+	ROM_TUR_Approached_to_Join_the_Camp = {
+		icon = chromium
+		allowed = {
+			tag = ROM
+		}
+		visible = {
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 0.2
+		}
+		fire_only_once = yes
+		complete_effect = {
+			TUR = {
+				country_event = {
+					id = SSW_ROM.49 days = 3
+				}
+			}
+		}
+	}
+
+}

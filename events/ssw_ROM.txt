@@ -34,7 +34,7 @@ country_event = {
 			create_country_leader = {
 				name = "Constantin Sanatescu"
 				desc = "POLITICS_CONSTANTIN_SANATESCU_DESC"
-				picture = "Portrait_Constantin_Sanatescu.dds"
+				picture = "gfx/leaders/ROM/Portrait_Constantin_Sanatescu.dds"
 				expire = "1965.1.1"
 				ideology = military_junta_ideology
 				traits = {
@@ -53,7 +53,7 @@ country_event = {
 			create_country_leader = {
 				name = "Ion Gigurtu"
 				desc = "POLITICS_ION_GIGURTU_DESC"
-				picture = "Portrait_Ion_Gigurtu.dds"
+				picture = "gfx/leaders/ROM/Portrait_Ion_Gigurtu.dds"
 				expire = "1965.1.1"
 				ideology = military_junta_ideology
 				traits = {
@@ -99,3 +99,1180 @@ country_event = {
 		war_support_factor = 0.1
 	}
 }
+country_event = {
+	id = SSW_ROM.5
+	title = SSW_ROM.5.t
+	desc = SSW_ROM.5.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#国民自由党の勝利
+		name = SSW_ROM.5.a
+		country_event = {id = SSW_ROM.6 }
+	}
+	option ={#国民農民党の勝利
+		name = SSW_ROM.5.b
+		complete_national_focus = National_Peasants_Party
+	}
+
+}
+country_event = {
+	id = SSW_ROM.6
+	title = SSW_ROM.6.t
+	desc = SSW_ROM.6.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.6.a
+		ai_chance = { factor = 75 }
+
+		country_event = {id = SSW_ROM.7 }
+
+	}
+	option ={#
+		name = SSW_ROM.6.b
+		ai_chance = { factor = 25 }
+
+		complete_national_focus = Old_liberal
+	}
+
+}
+country_event = {
+	id = SSW_ROM.7
+	title = SSW_ROM.7.t
+	desc = SSW_ROM.7.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.7.a
+		ai_chance = { factor = 66 }
+
+		complete_national_focus = Yang_liberal
+
+	}
+	option ={#
+		name = SSW_ROM.7.b
+		ai_chance = { factor = 34 }
+
+		complete_national_focus = Form_a_cabnet_by_carlist
+	}
+
+}
+country_event = {#王室財産
+	id = SSW_ROM.8
+	title = SSW_ROM.8.t
+	desc = SSW_ROM.8.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.8.a
+		ai_chance = { factor = 33 }
+
+		add_research_slot = 1
+	}
+	option ={#
+		name = SSW_ROM.8.b
+		ai_chance = { factor = 34 }
+
+		add_timed_idea = {
+			idea = ROM_Royalties_idea
+			days = 120
+		}
+	}
+	option ={#
+		name = SSW_ROM.8.c
+		ai_chance = { factor = 33 }
+
+		add_political_power = 200
+	}
+}
+country_event = {#国家復興戦線
+	id = SSW_ROM.9
+	title = SSW_ROM.9.t
+	desc = SSW_ROM.9.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.9.a
+		ai_chance = { factor = 100 }
+
+		add_ideas = ROM_Straja_Tarii
+		set_party_name = {
+			ideology = authority_democracy
+			long_name = ROM_National_Renaissance_Front_long
+			name = ROM_National_Renaissance_Front
+		}
+
+		set_politics = {
+			parties = {
+				authority_democracy = {
+					popularity = 88
+				}
+				authority_despotism = {
+					popularity = 0
+				}
+				social_conservatism = {
+					popularity = 0
+				}
+				social_liberalism = {
+					popularity = 0
+				}
+				social_democracy = {
+					popularity = 7
+				}
+				national_fascism = {
+					popularity = 3
+				}
+				classical_communism = {
+					popularity = 2
+				}
+				progressive_communism = {
+					popularity = 0
+				}
+				anarchism = {
+					popularity = 0
+				}
+			}
+			ruling_party = authority_democracy
+		}
+	}
+	option ={#
+		name = SSW_ROM.9.b
+		ai_chance = { factor = 0 }
+
+		country_event = {
+			id = SSW_ROM.10
+			days = 5
+		}
+	}
+}
+country_event = {#党内の派閥との交渉
+	id = SSW_ROM.10
+	title = SSW_ROM.10.t
+	desc = SSW_ROM.10.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.10.a
+		country_event = {
+			id = SSW_ROM.13
+			days = 12
+		}
+		random_list = {
+            50 = {
+				country_event = {
+					id = SSW_ROM.11
+					days = 5
+				}
+            }
+			50 = {
+				country_event = {
+					id = SSW_ROM.12
+					days = 5
+				}
+			}
+		}
+	}
+}
+country_event = {#党内のまとめあげに成功
+	id = SSW_ROM.11
+	title = SSW_ROM.11.t
+	desc = SSW_ROM.11.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.11.a
+
+	}
+}
+country_event = {#党内のまとめあげに失敗
+	id = SSW_ROM.12
+	title = SSW_ROM.12.t
+	desc = SSW_ROM.12.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.12.a
+
+	}
+}
+country_event = {#軍部との交渉
+	id = SSW_ROM.13
+	title = SSW_ROM.13.t
+	desc = SSW_ROM.13.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.13.a
+		country_event = {
+			id = SSW_ROM.16
+			days = 12
+		}
+		random_list = {
+			
+            99 = {
+				country_event = {
+					id = SSW_ROM.14
+					days = 5
+				}
+            }
+			1 = {
+				country_event = {
+					id = SSW_ROM.15
+					days = 5
+				}
+			}
+		}
+
+	}
+}
+country_event = {#軍部のまとめあげに成功
+	id = SSW_ROM.14
+	title = SSW_ROM.14.t
+	desc = SSW_ROM.14.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.14.a
+		hidden_effect = {
+			set_country_flag = ROM_Millitary_corporate
+		}
+	}
+}
+country_event = {#軍部のまとめあげに失敗
+	id = SSW_ROM.15
+	title = SSW_ROM.15.t
+	desc = SSW_ROM.15.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.15.a
+
+	}
+}
+country_event = {#農民党との交渉
+	id = SSW_ROM.16
+	title = SSW_ROM.16.t
+	desc = SSW_ROM.16.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.16.a
+		random_list = {
+			
+            99 = {
+				country_event = {
+					id = SSW_ROM.17
+					days = 5
+				}
+            }
+			1 = {
+				country_event = {
+					id = SSW_ROM.18
+					days = 5
+				}
+			}
+		}
+
+	}
+}
+country_event = {#農民党のまとめあげに成功
+	id = SSW_ROM.17
+	title = SSW_ROM.17.t
+	desc = SSW_ROM.17.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.17.a
+		country_event = {
+			id = SSW_ROM.19
+			days = 5
+		}
+
+
+	}
+}
+country_event = {#農民党のまとめあげに失敗
+	id = SSW_ROM.18
+	title = SSW_ROM.18.t
+	desc = SSW_ROM.18.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.18.a
+		country_event = {
+			id = SSW_ROM.20
+			days = 2
+		}
+
+	}
+}
+country_event = {#国家復興戦線の樹立
+	id = SSW_ROM.19
+	title = SSW_ROM.19.t
+	desc = SSW_ROM.19.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#
+		name = SSW_ROM.19.a
+		ai_chance = { factor = 100 }
+
+		add_ideas = ROM_Straja_Tarii
+		if = {
+			limit = {
+				has_country_flag = ROM_Millitary_corporate
+			}
+			set_politics = {
+				parties = {
+					authority_democracy = {
+						popularity = 88
+					}
+					authority_despotism = {
+						popularity = 0
+					}
+					social_conservatism = {
+						popularity = 0
+					}
+					social_liberalism = {
+						popularity = 0
+					}
+					social_democracy = {
+						popularity = 7
+					}
+					national_fascism = {
+						popularity = 3
+					}
+					classical_communism = {
+						popularity = 2
+					}
+					progressive_communism = {
+						popularity = 0
+					}
+					anarchism = {
+						popularity = 0
+					}
+				}
+				ruling_party = authority_democracy
+			}
+	
+		}
+		else = {
+			set_politics = {
+				parties = {
+					authority_democracy = {
+						popularity = 81
+					}
+					authority_despotism = {
+						popularity = 7
+					}
+					social_conservatism = {
+						popularity = 0
+					}
+					social_liberalism = {
+						popularity = 0
+					}
+					social_democracy = {
+						popularity = 7
+					}
+					national_fascism = {
+						popularity = 3
+					}
+					classical_communism = {
+						popularity = 2
+					}
+					progressive_communism = {
+						popularity = 0
+					}
+					anarchism = {
+						popularity = 0
+					}
+				}
+				ruling_party = authority_democracy
+			}
+	
+		}
+
+	}
+}
+country_event = {#農民党からの提案
+	id = SSW_ROM.20
+	title = SSW_ROM.20.t
+	desc = SSW_ROM.20.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={#十分のめる案だ
+		name = SSW_ROM.20.a
+		if = {
+			limit = {
+				has_country_flag = ROM_Millitary_corporate
+			}
+			set_politics = {
+				parties = {
+					authority_democracy = {
+						popularity = 88
+					}
+					authority_despotism = {
+						popularity = 0
+					}
+					social_conservatism = {
+						popularity = 0
+					}
+					social_liberalism = {
+						popularity = 0
+					}
+					social_democracy = {
+						popularity = 7
+					}
+					national_fascism = {
+						popularity = 3
+					}
+					classical_communism = {
+						popularity = 2
+					}
+					progressive_communism = {
+						popularity = 0
+					}
+					anarchism = {
+						popularity = 0
+					}
+				}
+				ruling_party = authority_democracy
+			}
+	
+		}
+		else = {
+			set_politics = {
+				parties = {
+					authority_democracy = {
+						popularity = 81
+					}
+					authority_despotism = {
+						popularity = 7
+					}
+					social_conservatism = {
+						popularity = 0
+					}
+					social_liberalism = {
+						popularity = 0
+					}
+					social_democracy = {
+						popularity = 7
+					}
+					national_fascism = {
+						popularity = 3
+					}
+					classical_communism = {
+						popularity = 2
+					}
+					progressive_communism = {
+						popularity = 0
+					}
+					anarchism = {
+						popularity = 0
+					}
+				}
+				ruling_party = authority_democracy
+			}
+	
+		}
+	}
+	option ={#
+		name = SSW_ROM.20.b
+		set_party_name = {
+			ideology = authority_democracy
+			long_name = ROM_National_Renaissance_Front_long
+			name = ROM_National_Renaissance_Front
+		}
+		set_politics = {
+			parties = {
+				authority_democracy = {
+					popularity = 88
+				}
+				authority_despotism = {
+					popularity = 0
+				}
+				social_conservatism = {
+					popularity = 0
+				}
+				social_liberalism = {
+					popularity = 0
+				}
+				social_democracy = {
+					popularity = 7
+				}
+				national_fascism = {
+					popularity = 3
+				}
+				classical_communism = {
+					popularity = 2
+				}
+				progressive_communism = {
+					popularity = 0
+				}
+				anarchism = {
+					popularity = 0
+				}
+			}
+			ruling_party = authority_democracy
+		}
+	}
+
+}
+country_event = {#ヤシ裁判
+	id = SSW_ROM.21
+	title = SSW_ROM.21.t
+	desc = SSW_ROM.21.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.21.a
+		ai_chance = { factor = 100 }
+
+		add_stability = 0.05
+	}
+}
+
+country_event = {#鉄衛団の残党？
+	id = SSW_ROM.22
+	title = SSW_ROM.22.t
+	desc = SSW_ROM.22.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.22.a
+		ai_chance = { factor = 100 }
+
+	}
+	option ={
+		name = SSW_ROM.22.b
+		remove_ideas = SSW_Gheorghe_Manu
+	}
+}
+country_event = {#ユリウ・マニウの死去
+	id = SSW_ROM.23
+	title = SSW_ROM.23.t
+	desc = SSW_ROM.23.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.23.a
+		ai_chance = { factor = 100 }
+
+		add_stability = -0.01
+		country_event = {
+			id = SSW_ROM.24
+			days = 2
+		}
+		remove_ideas = SSW_Iuliu_Maniu
+
+	}
+}
+country_event = {#後継者選挙
+	id = SSW_ROM.24
+	title = SSW_ROM.24.t
+	desc = SSW_ROM.24.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.24.a
+		ai_chance = { factor = 100 }
+
+		add_ideas = SSW_Ion_Miharache
+	}
+	option ={
+		name = SSW_ROM.24.b
+		ai_chance = { factor = 100 }
+
+		add_ideas = SSW_Ionel_Pop
+	}
+}
+country_event = {#農地改革
+	id = SSW_ROM.25
+	title = SSW_ROM.25.t
+	desc = SSW_ROM.25.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.25.a
+		ai_chance = { factor = 100 }
+
+		add_political_power = -50
+		country_event = {
+			id = SSW_ROM.26
+			days = 2
+		}
+	}
+	option ={
+		name = SSW_ROM.25.b
+		add_ideas = ROM_Farmland_Reform_2
+	}
+}
+country_event = {#強行採決
+	id = SSW_ROM.26
+	title = SSW_ROM.26.t
+	desc = SSW_ROM.26.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.26.a
+		ai_chance = { factor = 100 }
+
+		add_ideas = ROM_Farmland_Reform_1
+	}
+}
+country_event = {#イギリス秘密条約
+	id = SSW_ROM.27
+	title = SSW_ROM.27.t
+	desc = SSW_ROM.27.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.27.a
+		ai_chance = { factor = 100 }
+
+		give_guarantee = ROM
+		ROM = {
+			set_country_flag = ROM_ENG_treaty
+		}
+	}
+	option ={
+		name = SSW_ROM.27.b
+		ai_chance = { factor = 0 }
+		reverse_add_opinion_modifier = {
+			target = ROM
+			modifier = SSW_ROM_refuse_friendship
+		}
+	}
+}
+country_event = {#ルーマニア＝ロシア連合
+	id = SSW_ROM.28
+	title = SSW_ROM.28.t
+	desc = SSW_ROM.28.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.28.a
+		ai_chance = { factor = 100 }
+
+		ROM = {
+			country_event = SSW_ROM.29 days = 1
+		} 
+	}
+	option ={
+		name = SSW_ROM.28.b
+		reverse_add_opinion_modifier = {
+			target = ROM
+			modifier = SSW_ROM_refuse_friendship
+		}
+	}
+}
+country_event = {#ルーマニア＝ロシア連合
+	id = SSW_ROM.29
+	title = SSW_ROM.29.t
+	desc = SSW_ROM.29.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.29.a
+		ai_chance = { factor = 100 }
+
+		set_rule = {
+			can_create_factions = yes
+		}
+		create_faction = Rumania_Russia_faction
+		add_to_faction = RUS
+		news_event = { id = ssw_news_rom.1 }
+	}
+}
+country_event = {#ファシストへの妥協
+	id = SSW_ROM.30
+	title = SSW_ROM.30.t
+	desc = SSW_ROM.30.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.30.a
+		ai_chance = { factor = 100 }
+
+		add_stability = -0.1
+		set_country_flag = Compromise_to_Facist
+	}
+	option ={
+		name = SSW_ROM.30.b
+	}
+
+}
+country_event = {#ドナウ戦争での勝利
+	id = SSW_ROM.31
+	title = SSW_ROM.31.t
+	desc = SSW_ROM.31.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.30.a
+		ai_chance = { factor = 100 }
+		complete_national_focus = Enabling_act_of_Sima
+
+	}
+	option ={
+		name = SSW_ROM.30.b
+		ai_chance = { factor = 100 }
+		complete_national_focus = Keep_military_dictatorship
+	}
+
+}
+country_event = {#和解
+	id = SSW_ROM.32
+	title = SSW_ROM.32.t
+	desc = SSW_ROM.32.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.32.a
+		ai_chance = { factor = 100 }
+		set_politics = {
+			ruling_party = authority_democracy
+		}
+		add_popularity = {
+			ideology = authority_democracy
+			popularity = 0.25
+		}
+	}
+}
+country_event = {#ブルガリアとの交渉
+	id = SSW_ROM.33
+	title = SSW_ROM.33.t
+	desc = SSW_ROM.33.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.33.a
+		ai_chance = { factor = 100 }
+		BUL = {
+			transfer_state = 211
+
+			country_event = {
+				id = SSW_ROM.34
+			}
+		}
+	}
+	option ={
+		name = SSW_ROM.33.b
+		ai_chance = { factor = 100 }
+		add_opinion_modifier = {
+			target = ROM
+			modifier = SSW_not_Return_Territory
+		}
+
+	}
+
+}
+country_event = {#ルーマニアが領土を変換
+	id = SSW_ROM.34
+	title = SSW_ROM.34.t
+	desc = SSW_ROM.34.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+
+	option ={
+		name = SSW_ROM.34.a
+		ai_chance = { factor = 100 }
+		add_opinion_modifier = {
+			target = ROM
+			modifier = SSW_Return_Territory
+		}
+	}
+}
+country_event = {#トランシルバニア大演習
+	id = SSW_ROM.35
+	title = SSW_ROM.35.t
+	desc = SSW_ROM.35.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.35.a
+		ai_chance = { factor = 100 }
+		army_experience = 30
+		air_experience = 15 
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 1.00
+			uses = 2
+			category = land_doctrine
+		}
+		add_tech_bonus = {
+			name = air_doc_bonus
+			bonus = 1.00
+			uses = 1
+			category = air_doctrine
+		}
+
+	}
+}
+
+country_event = {#領土問題
+	id = SSW_ROM.36
+	title = SSW_ROM.36.t
+	desc = SSW_ROM.36.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.36.a
+		ai_chance = { factor = 100 }
+		HUN = {
+			transfer_state = 154
+			add_opinion_modifier = {
+				target = ROM
+				modifier = SSW_Return_Territory_HUN
+			}
+	
+		}
+	}
+	option ={
+		name = SSW_ROM.36.b
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {#行進
+	id = SSW_ROM.37
+	title = SSW_ROM.37.t
+	desc = SSW_ROM.37.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.37.a
+		ai_chance = { factor = 100 }
+		add_war_support = 0.1
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.10
+		}
+	}
+}
+country_event = {#革命軍団
+	id = SSW_ROM.38
+	title = SSW_ROM.38.t
+	desc = SSW_ROM.38.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.38.a
+		ai_chance = { factor = 100 }
+		add_war_support = 0.1
+		set_cosmetic_tag = ROM_Legion_State
+		hidden_effect = {
+			random_list = {
+    	        75 = {
+					country_event = {
+						id = SSW_ROM.39
+						days = 5
+					}
+            	}
+				15 = {
+					country_event = {
+						id = SSW_ROM.40
+						days = 5
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {#ミハイ一世亡命
+	id = SSW_ROM.39
+	title = SSW_ROM.39.t
+	desc = SSW_ROM.39.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.39.a
+		ai_chance = { factor = 100 }
+		set_political_party = {
+			ideology = authority_democracy
+			popularity = 3
+		}
+	}
+}
+country_event = {#ミハイ一世暗殺
+	id = SSW_ROM.40
+	title = SSW_ROM.40.t
+	desc = SSW_ROM.40.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.40.a
+		ai_chance = { factor = 100 }
+		set_political_party = {
+			ideology = authority_democracy
+			popularity = 0
+		}
+
+	}
+}
+country_event = {#ハンガリーとの交渉
+	id = SSW_ROM.41
+	title = SSW_ROM.41.t
+	desc = SSW_ROM.41.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.41.a
+		ai_chance = { factor = 100 }
+		transfer_state = 154
+		country_event = {
+			id = SSW_ROM.41
+			day = 5
+		}
+	}
+}
+country_event = {#Bulgariaとの交渉
+	id = SSW_ROM.42
+	title = SSW_ROM.42.t
+	desc = SSW_ROM.42.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.42.a
+		ai_chance = { factor = 100 }
+		add_relation_modifier = {
+			target = BUL
+			modifier = SSW_Return_not_Territory
+		}
+
+	}
+	option ={
+		name = SSW_ROM.42.b
+		ai_chance = { factor = 0 }
+	}
+
+}
+country_event = {#ティミショアラ会議
+	id = SSW_ROM.43
+	title = SSW_ROM.43.t
+	desc = SSW_ROM.43.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.43.a
+		ai_chance = { factor = 100 }
+		country_event = {
+			id = SSW_ROM.44 days = 2
+		}
+	}
+}
+country_event = {#バナト領有問題
+	id = SSW_ROM.44
+	title = SSW_ROM.44.t
+	desc = SSW_ROM.44.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.44.a
+		ai_chance = { factor = 100 }
+		add_state_claim = 764
+	}
+	option ={
+		name = SSW_ROM.44.b
+		ai_chance = { factor = 100 }
+		SER = {
+			country_event = {
+				id = SSW_ROM.45 days = 2
+			}
+		}
+	}
+}
+country_event = {#セルビア領内のルーマニア人問題
+	id = SSW_ROM.45
+	title = SSW_ROM.45.t
+	desc = SSW_ROM.45.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.45.a
+		ai_chance = { factor = 100 }
+		SER = {
+			country_event = {
+				id = SSW_ROM.46 days = 2
+			}
+		}
+	}
+	option ={
+		name = SSW_ROM.45.b
+		ai_chance = { factor = 5 }
+		add_stability = -0.05
+	}
+}
+country_event = {#国内のルーマニア人問題
+	id = SSW_ROM.46
+	title = SSW_ROM.46.t
+	desc = SSW_ROM.46.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.46.a
+		ai_chance = { factor = 100 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.47 days = 2
+			}
+		}
+	}
+	option ={
+		name = SSW_ROM.46.b
+		ai_chance = { factor = 100 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.48 days = 2
+			}
+		}
+	}
+}
+country_event = {#ルーマニア自治権の約束
+	id = SSW_ROM.47
+	title = SSW_ROM.47.t
+	desc = SSW_ROM.47.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.47.a
+		ai_chance = { factor = 100 }
+		add_opinion_modifier = {
+			target = SER
+			modifier = SSW_ROM_SER_1
+		}
+		set_country_flag = ROM_SER_Problem
+	}
+}
+country_event = {#国内のルーマニア人問題
+	id = SSW_ROM.48
+	title = SSW_ROM.48.t
+	desc = SSW_ROM.48.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.48.a
+		ai_chance = { factor = 100 }
+		add_opinion_modifier = {
+			target = SER
+			modifier = SSW_ROM_SER_2
+		}
+
+	}
+}
+country_event = {#ルーマニアが陣営に招待
+	id = SSW_ROM.49
+	title = SSW_ROM.49.t
+	desc = SSW_ROM.49.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.49.a
+		ai_chance = { factor = 100 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.50 days = 2
+			}
+		}
+	}
+	option ={
+		name = SSW_ROM.49.a
+		ai_chance = { factor = 80 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.51 days = 2
+			}
+		}
+
+	}
+
+}
+country_event = {#[FROM.GetName]は我が国の招待を受諾
+	id = SSW_ROM.50
+	title = SSW_ROM.50.t
+	desc = SSW_ROM.50.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.50.a
+		ai_chance = { factor = 100 }
+		add_to_faction = FROM
+	}
+}
+country_event = {#[FROM.GetName]は我が国の招待を拒否
+	id = SSW_ROM.51
+	title = SSW_ROM.51.t
+	desc = SSW_ROM.51.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.51.a
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+news_event = {
+	id = ssw_news_rom.1
+	title = ssw_news_rom.1.title
+	desc = ssw_news_rom.1.desc
+	picture = GFX_news_event_french_parade
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_news_rom.1.a
+		trigger = { 
+			OR = {
+				original_tag = RUS
+				original_tag = ROM
+			}
+		}
+	}
+	option = {
+		name = ssw_news_rom.1.b
+		trigger = { 
+			NOT = { 
+				OR = {
+					original_tag = RUS
+					original_tag = ROM
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
