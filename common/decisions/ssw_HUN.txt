@@ -8,7 +8,7 @@ test_debug_decisions = {
 		}
 		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 10 }
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			if = {
             	limit = { has_global_flag = little_axis_victory }
@@ -26,7 +26,7 @@ test_debug_decisions = {
 		}
 		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 10 }
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			if = {
             	limit = { has_global_flag = balkan_order_victory }
@@ -44,12 +44,30 @@ test_debug_decisions = {
 		}
 		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 10 }
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			if = {
             	limit = { has_global_flag = danubian_war_end }
             	clr_global_flag = danubian_war_end
             	else = { set_global_flag = danubian_war_end }
+        	}
+		}
+	}
+	HUN_lose_danubian_war = {
+		icon = ger_reichskommissariats
+		available = { is_debug = yes }
+		visible = {
+			is_debug = yes
+			original_tag = HUN
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			if = {
+            	limit = { has_country_flag = lose_danubian_war }
+            	clr_country_flag = lose_danubian_war
+            	else = { set_country_flag = lose_danubian_war }
         	}
 		}
 	}
@@ -73,6 +91,24 @@ test_debug_decisions = {
 		complete_effect = {
 			add_political_power = 100
 			add_stability = 0.05
+		}
+	}
+	SPR_democrat = {
+		icon = ger_reichskommissariats
+		available = { is_debug = yes }
+		visible = {
+			is_debug = yes
+			original_tag = SPR
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			if = {
+            	limit = { has_country_flag = winner_democrat }
+            	clr_country_flag = winner_democrat
+            	else = { set_country_flag = winner_democrat }
+        	}
 		}
 	}
 }
