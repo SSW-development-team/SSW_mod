@@ -1,266 +1,67 @@
-	shared_focus = {
-		id = ALF_Reorganization_of_the_federation_government
-		icon = GFX_focus_attack_wsl
-		cost = 10.00
-		x = 10
-		y = 0
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			add_ideas = ssw_ideas_ALF_Reorganization_of_the_Federation_Government
-		}
-
+shared_focus = {
+	id = ALF_The_First_War
+	icon = GFX_focus_attack_wsl
+	cost = 10.00
+	x = 10
+	y = 0
+	ai_will_do = {
+			factor = 100
 	}
-	shared_focus = {
-		id = ALF_California_Plan
-		icon = GFX_focus_ALF_California_Plan
-		cost = 10.00
-		x = -3
-		y = 1
-		relative_position_id = ALF_Reorganization_of_the_federation_government
-		prerequisite = {
-			focus = ALF_Reorganization_of_the_federation_government
-    		}
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			897 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			898 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			378 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-
-		}
-
+	available = {
 	}
-	shared_focus = {
-		id = ALF_War_Preparation
-		icon = GFX_focus_secret_rearmament
-		cost = 10.00
-		x = -1
-		y = 1
-		relative_position_id = ALF_California_Plan
-		prerequisite = {
-			focus = ALF_California_Plan
-    		}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		add_ideas = ssw_ideas_ALF_Aim_for_the_Short_Term
+	}
+}
+shared_focus = {
+	id = ALF_support_with_JAP
+	icon = GFX_focus_attack_wsl
+	cost = 10.00
+	x = 0
+	y = 2
+	relative_position_id = ALF_The_First_War
+	prerequisite = {
+		focus = ALF_The_First_War
+	}
 
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			add_timed_idea = {
-				idea = ssw_ideas_ALF_War_Preparation
-				days = 150
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		897 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
 			}
 		}
-
-	}
-	shared_focus = {
-		id = ALF_Reorganization_of_the_Army
-		icon = GFX_goal_generic_military_sphere
-		cost = 10.00
-		x = 0
-		y = 1
-		relative_position_id = ALF_Reorganization_of_the_federation_government
-		prerequisite = {
-			focus = ALF_Reorganization_of_the_federation_government
-    		}
-
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			army_experience = 100
-		}
-
-	}
-	shared_focus = {
-		id = ALF_Legitimate_Government
-		icon = GFX_focus_usa_recruit_the_free_corps
-		cost = 10.00
-		x = 0
-		y = 1
-		relative_position_id = ALF_Reorganization_of_the_Army
-		prerequisite = {
-			focus = ALF_Reorganization_of_the_Army
-    		}
-
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = ssw_ideas_ALF_Divided_Nation
-				add_idea = ssw_ideas_ALF_Divided_Nation_2
+		898 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
 			}
 		}
-
-	}
-	shared_focus = {
-		id = ALF_Strengthen_Production_of_Munitions
-		icon = GFX_goal_continuous_repairments
-		cost = 10.00
-		x = 3
-		y = 1
-		relative_position_id = ALF_Reorganization_of_the_federation_government
-		prerequisite = {
-			focus = ALF_Reorganization_of_the_federation_government
-    		}
-
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			897 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			898 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-
-		}
-
-	}
-	shared_focus = {
-		id = ALF_Expansion_of_Air_Power
-		icon = GFX_goal_continuous_air_production
-		cost = 10.00
-		x = 1
-		y = 1
-		relative_position_id = ALF_Strengthen_Production_of_Munitions
-		prerequisite = {
-			focus = ALF_Strengthen_Production_of_Munitions
-    		}
-
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			air_experience = 15
-			add_ideas = ssw_ideas_ALF_Expansion_of_Air_Power
-		}
-
-	}
-	shared_focus = {
-		id = ALF_Unification_War
-		icon = GFX_goal_generic_construction
-		cost = 5.00
-		x = 0
-		y = 1
-		relative_position_id = ALF_Legitimate_Government
-		prerequisite = {
-			focus = ALF_Expansion_of_Air_Power
-    		}
-		prerequisite = {
-			focus = ALF_Legitimate_Government
-    		}
-		prerequisite = {
-			focus = ALF_War_Preparation
-    		}
-
-
-		ai_will_do = {
-				factor = 100
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			declare_war_on = {
-				target = LFF
-				type = take_core_state
-			}
-			add_timed_idea = {
-				idea = ssw_ideas_ALF_Aim_for_the_Short_Term
-				days = 200
+		378 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
 			}
 		}
-
-	}
+}
+}
