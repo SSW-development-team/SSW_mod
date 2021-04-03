@@ -63,12 +63,16 @@ GER_is_debug = {
 GER_civill_war_Government = {#正統政府をめぐって
     priority = 40
     icon = military_operation
-	
-    allowed = {
-	    original_tag = GER
-    }
 
     visible = {
-        has_country_flag = GER_dec_civil_war
+        and = {
+            NOT = {
+                has_country_flag = GCW_win_limit
+            }
+            has_country_flag = GER_dec_civil_war
+            NOT = {
+                has_country_flag = GER_civil_war_end
+            }
+        }
     }
 }

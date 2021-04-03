@@ -4,7 +4,10 @@ ideas = {
 			picture = prc_low_popular_support2
 			removal_cost = -1
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				stability_factor = -0.15
@@ -15,7 +18,10 @@ ideas = {
 		}
 		TIB_the_monasteries_1 = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				political_power_factor = -0.15
@@ -25,7 +31,10 @@ ideas = {
 		}
 		TIB_the_monasteries_2 = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				political_power_factor = -0.1
@@ -35,7 +44,13 @@ ideas = {
 		}
 		TIB_the_monasteries_3 = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = classical_communism
+					has_government = progressive_communism
+				}
 			}
 			modifier = {
 				war_support_factor = -0.05
@@ -43,7 +58,13 @@ ideas = {
 		}
 		TIB_the_monasteries_4 = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = classical_communism
+					has_government = progressive_communism
+				}
 			}
 			modifier = {
 				stability_factor = 0.05
@@ -52,7 +73,13 @@ ideas = {
 		}
 		TIB_the_monasteries_5 = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = classical_communism
+					has_government = progressive_communism
+				}
 			}
 			modifier = {
 				stability_factor = 0.05
@@ -63,7 +90,13 @@ ideas = {
 		}
 		TIB_the_monasteries_gov = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = classical_communism
+					has_government = progressive_communism
+				}
 			}
 			modifier = {
 				consumer_goods_factor = -0.05
@@ -74,7 +107,10 @@ ideas = {
 		}
 		TIB_unmodernization_industries = {
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
 			}
 			modifier = {
 				industry_free_repair_factor = -0.3
@@ -88,7 +124,10 @@ ideas = {
 			picture = tfv_can_conscription_crisis
 		
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
 			}
 
 			removal_cost = -1
@@ -105,7 +144,10 @@ ideas = {
 			picture = 14th_dalai_lama
 			removal_cost = -1
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				stability_factor = 0.1
@@ -116,7 +158,10 @@ ideas = {
 			picture = generic_local_self_management
 			removal_cost = -1
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				production_factory_max_efficiency_factor = 0.05
@@ -126,10 +171,81 @@ ideas = {
 			picture = generic_build_infrastructure
 			removal_cost = -1
 			allowed = {
-				original_tag = TIB
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
 			}
 			modifier = {
 				production_speed_infrastructure_factor = 0.2
+			}
+		}
+		TIB_dessert_proof = {
+			picture = TIB_hot_proof
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				acclimatization_hot_climate_gain_factor = 0.2
+				terrain_penalty_reduction = 0.1
+			}
+		}
+		TIB_mongol_lama_democratic = {
+			picture = TIB_hot_proof
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				social_conservatism_drift = 0.25
+				social_conservatism_acceptance = 0.5
+			}
+		}
+		TIB_mongol_lama_authority = {
+			picture = TIB_hot_proof
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				authority_despotism_drift = 0.25
+				authority_despotism_acceptance = 0.5
+			}
+		}
+		TIB_geological = {
+			picture = generic_exploit_mines
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				local_resources_factor = 0.2
+			}
+		}
+		TIB_gold_mines = {
+			picture = SPR_seize_the_gold_reserves
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
 			}
 		}
 	}
@@ -148,6 +264,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				TIB_from_lhasa
 			}
 		}
 		TIB_reting_rinpoche_idea = {
