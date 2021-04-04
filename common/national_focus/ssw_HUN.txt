@@ -303,7 +303,7 @@
 				else = { add_ideas = hun_ideas_7 }
 			}
 			add_popularity = {
-				ideology = authority_despotism
+				ideology = authority_democracy
 				popularity = 0.15
 			}
 			add_stability = 0.05
@@ -2836,6 +2836,28 @@
 		ai_will_do = { factor = 100 }
 		completion_reward = {
 			add_political_power = 100
+		}
+	}
+	focus = {
+		id = HUN_116
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = HUN_115 }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "László Rajk"
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_115
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.07
 		}
 	}
 ################################################################################################################

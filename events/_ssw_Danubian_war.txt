@@ -5,7 +5,13 @@ country_event = { #先祖伝来の地
 	title = Danubian_war.1.t
 	desc = Danubian_war.1.d
 	picture = GFX_Ancestral_land
-	is_triggered_only = yes
+	trigger = {
+		date > 1950.11.1
+		NOT = { has_global_flag = Danubian_war }
+		original_tag = ROM
+	}
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
 	option = { #利害は一致する、セルビアと協力しよう
 		name = Danubian_war.1.a
 		ai_chance = { base = 99 }
@@ -375,7 +381,22 @@ country_event = { #
 
 country_event = { #
 	id = Danubian_war.14
-	immediate = { log = "[GetDateText]: [Root.GetName]: event Danubian_war.14" }
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event Danubian_war.14"
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_faction_leader = yes
+					OR = {
+						original_tag = BUL
+						original_tag = CRO
+						original_tag = HUN
+					}
+				}
+				dismantle_faction = yes
+			}
+		}
+	}
 	title = Danubian_war.14.t
 	desc = Danubian_war.14.d
 	#picture = 
@@ -383,17 +404,6 @@ country_event = { #
 	option = { #
 		name = Danubian_war.14.a
 		ai_chance = { base = 1 }
-		every_country = {
-			limit = {
-				OR = {
-					original_tag = BUL
-					original_tag = CRO
-					original_tag = HUN
-				}
-				is_faction_leader = yes
-			}
-			dismantle_faction = yes
-		}
 		every_country = {
 			limit = {
 				OR = {
@@ -948,7 +958,21 @@ news_event = { #
 }
 country_event = { #
 	id = Danubian_war.28
-	immediate = { log = "[GetDateText]: [Root.GetName]: event Danubian_war.28" }
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event Danubian_war.28"
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_faction_leader = yes
+					OR = {
+						original_tag = ROM
+						original_tag = SER
+					}
+				}
+				dismantle_faction = yes
+			}
+		}
+	}
 	title = Danubian_war.28.title
 	desc = Danubian_war.28.desc
 	#picture = 
@@ -971,16 +995,6 @@ country_event = { #
 				target = HUN
 				autonomy_state = autonomy_free
 			}
-		}
-		every_country = {
-			limit = {
-				OR = {
-					original_tag = SER
-					original_tag = ROM
-				}
-				is_faction_leader = yes
-			}
-			dismantle_faction = yes
 		}
 		BUL = {
 			transfer_state = 48
@@ -1020,6 +1034,10 @@ country_event = { #
 			}
 			set_country_flag = lose_danubian_war
 			set_cosmetic_tag = HUN_republic
+			if = {
+				limit = { has_idea = HUN_restoration_flame_1 }
+				remove_ideas = HUN_restoration_flame_1
+			}
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
@@ -1058,6 +1076,7 @@ country_event = { #
 				transfer_state = 940
 				annex_country = { target = CRO transfer_troops = yes }
 			}
+			HUN = { country_event = { id = ssw_hun.27 days = 49 } }
 		}
 	}
 }
@@ -1131,7 +1150,7 @@ country_event = { #ハンガリーが降伏直前に…
 		name = Danubian_war.29.b
 		ai_chance = { base = 20 }
 		start_civil_war = {
-			ideology = authority_despotism
+			ideology = social_liberalism
 			size = 0.2
 		}
 	}

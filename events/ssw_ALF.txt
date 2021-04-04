@@ -3,7 +3,7 @@ add_namespace = SSW_ALF
 country_event = { #
 	id = SSW_ALF.1
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.1"}
-	title = SSW_ALF.1.t
+	title = SSW_ALF.1.title
 	desc = SSW_ALF.1.desc
 	#picture = 
 	
@@ -12,20 +12,32 @@ country_event = { #
 	
 	option = { #
 		name = SSW_ALF.1.a
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 98 }
+		country_event = {
+			id = SSW_ALF.2
+		}
+		set_variable = { var = ALF_war_with_LFF value = 1 }
 	}
 	option = { #
 		name = SSW_ALF.1.b
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 2 }
+		country_event = {
+			id = SSW_ALF.2
+		}
+		set_variable = { var = ALF_war_with_LFF value = 3 }
+
+	}
+	option = { #
+		name = SSW_ALF.1.c
+		ai_chance = { base = 0 }
+		set_variable = { var = ALF_war_with_LFF value = 5 }
+
 	}
 }
-
 country_event = { #
 	id = SSW_ALF.2
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.2"}
-	title = SSW_ALF.2.t
+	title = SSW_ALF.2.title
 	desc = SSW_ALF.2.desc
 	#picture = 
 	
@@ -34,20 +46,63 @@ country_event = { #
 	
 	option = { #
 		name = SSW_ALF.2.a
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 100 }
+		set_country_flag = ALF_same_time
+		if = {
+			limit = {
+				check_variable = { ALF_war_with_LFF = 1 }
+			}
+			TEX = {
+				country_event = {
+					id = SSW_ALF.3 days = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { ALF_war_with_LFF = 3 }
+			}
+			OKL= {
+				country_event = {
+					id = SSW_ALF.3 days = 3
+				}
+			}
+		}
+
 	}
 	option = { #
 		name = SSW_ALF.2.b
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 5 }
+		set_country_flag = ALF_relate
+		if = {
+			limit = {
+				check_variable = { ALF_war_with_LFF = 1 }
+			}
+			set_variable = { var = ALF_war_with_LFF value = 2 }
+
+			TEX = {
+				country_event = {
+					id = SSW_ALF.3 days = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { ALF_war_with_LFF = 3 }
+			}
+			set_variable = { var = ALF_war_with_LFF value = 4 }
+			OKL= {
+				country_event = {
+					id = SSW_ALF.3 days = 3
+				}
+			}
+		}
 	}
 }
-
 country_event = { #
 	id = SSW_ALF.3
-	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.3"}
-	title = SSW_ALF.3.t
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.3" }
+	title = SSW_ALF.3.title
 	desc = SSW_ALF.3.desc
 	#picture = 
 	
@@ -56,13 +111,77 @@ country_event = { #
 	
 	option = { #
 		name = SSW_ALF.3.a
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 100 }
+		ALF = {
+			country_event = {
+				id = SSW_ALF.4
+			}
+			
+		}
 	}
 	option = { #
 		name = SSW_ALF.3.b
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 0 }
+		ALF = {
+			
+			country_event = {
+				id = SSW_ALF.5
+			}
+			set_variable = { var = ALF_war_with_LFF value = 5 }
+
+		}
+	}
+}
+country_event = { #
+	id = SSW_ALF.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.4" }
+	title = SSW_ALF.4.title
+	desc = SSW_ALF.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.4.a
+		ai_chance = { base = 100 }
+	}
+}
+country_event = { #
+	id = SSW_ALF.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.5" }
+	title = SSW_ALF.5.title
+	desc = SSW_ALF.5.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.5.a
+		ai_chance = { base = 100 }
+		set_country_flag = ALF_secret_agreement_yes
+	}
+}
+country_event = { #
+	id = SSW_ALF.6
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.5" }
+	title = SSW_ALF.6.title
+	desc = SSW_ALF.6.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.6.a
+		ai_chance = { base = 100 }
+		add_timed_idea = {
+			idea = ssw_ideas_ALF_Aim_for_the_Short_Term
+			days = 80
+		}
+
+		declare_war_on = {
+			target = LFF
+			type = annex_everything
+		}
 	}
 }
 
