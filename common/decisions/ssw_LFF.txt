@@ -1,0 +1,44 @@
+LFF_policy = {
+	invade_another_american_countries = {
+		icon = generic_operation
+		available = {
+			has_completed_focus = LFF_resumption_of_domestic_affairs
+			has_army_manpower = { size > 299999 }
+		}
+		visible = {
+			has_completed_focus = LFF_resumption_of_domestic_affairs
+			FROM = {
+				exists = yes
+				OR = {
+					original_tag = BLS
+					original_tag = LUI
+					original_tag = OKL
+					original_tag = TEX
+					original_tag = USA
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				OR = {
+					original_tag = BLS
+					original_tag = LUI
+					original_tag = OKL
+					original_tag = TEX
+					original_tag = USA
+				}
+			}
+		}
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		days_remove = 30
+		remove_effect = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
