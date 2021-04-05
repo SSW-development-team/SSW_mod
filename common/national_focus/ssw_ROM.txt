@@ -196,7 +196,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.56
+			}
 		}
 
 	}
@@ -222,7 +224,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = 0.3
+			}
+			add_stability = 0.1
 		}
 
 	}
@@ -248,7 +262,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.52
+			}
 		}
 
 	}
@@ -264,9 +280,22 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_10
+				NOT = {
+					has_global_flag = GER_civil_war  
+					has_global_flag = GER_civil_war_end  
+				}
+			}
+	
 		}
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_11
+				has_global_flag = GER_civil_war  
+			}
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -274,7 +303,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.53
+			}
 		}
 
 	}
