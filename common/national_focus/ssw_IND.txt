@@ -1,0 +1,867 @@
+focus_tree = {
+	id = ssw_National_India_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = IND
+		}
+	}
+	default = no
+	focus = {
+		id = FID_heika
+		text = 陛下の下で
+		icon = GFX_focus_jap_showa_restoration
+		cost = 10
+		x = 31
+		y = 0
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = FID_rearm
+		text = 軍備拡充の呼びかけ
+		icon = GFX_goal_continuous_def_against_influence
+		cost = 10
+		x = 16
+		y = 0
+		completion_reward = {
+			add_political_power = 120
+			army_experience = 20
+		}
+	}
+	focus = {
+		id = FID_sea_power
+		text = ベンガル造船所の拡大
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10
+		prerequisite = {
+			focus = FID_rearm
+		}
+		x = 9
+		y = 1
+		completion_reward = {
+			navy_experience = 20
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = naval_doctrine
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_battle_ship
+		text = 温故知新
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10
+		prerequisite = {
+			focus = FID_sea_power
+		}
+		mutually_exclusive = {
+			focus = FID_aircraftcarrier
+		}
+		x = 8
+		y = 2
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = bb_tech
+			}
+		}
+	}
+	focus = {
+		id = FID_dockyard_1
+		text = 造船所拡大を継続
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		prerequisite = {
+			focus = FID_battle_ship
+		}
+		x = 8
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_aircraftcarrier
+		text = 海上航空基地
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10
+		prerequisite = {
+			focus = FID_sea_power
+		}
+		mutually_exclusive = {
+			focus = FID_battle_ship
+		}
+		x = 10
+		y = 2
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cv_tech
+			}
+		}
+	}
+	focus = {
+		id = FID_dockyard_2
+		text = 造船所拡大を継続
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		prerequisite = {
+			focus = FID_aircraftcarrier
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_airforce
+		text = 自由インド空軍の設立
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10
+		prerequisite = {
+			focus = FID_rearm
+		}
+		x = 13
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FID_bomber
+		text = 歩兵支援機
+		icon = GFX_focus_usa_escort_fighters
+		cost = 10
+		prerequisite = {
+			focus = FID_airforce
+		}
+		mutually_exclusive = {
+			focus = FID_fighter_1
+		}
+		x = 12
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cas_bomber
+			}
+		}
+	}
+	focus = {
+		id = FID_bomber_2
+		text = 爆撃機開発に注力
+		icon = GFX_goal_generic_air_bomber
+		cost = 10
+		prerequisite = {
+			focus = FID_bomber
+		}
+		x = 12
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+	focus = {
+		id = FID_new_aircraft
+		text = 最新艦上機
+		icon = GFX_focus_jap_zero
+		cost = 10
+		prerequisite = {
+			focus = FID_dockyard_2
+		}
+		prerequisite = {
+			focus = FID_bomber_2
+		}
+		x = 11
+		y = 4
+	}
+	focus = {
+		id = FID_fighter_1
+		text = 制空戦闘機を重視
+		icon = GFX_goal_generic_air_fighter
+		cost = 10
+		prerequisite = {
+			focus = FID_airforce
+		}
+		mutually_exclusive = {
+			focus = FID_bomber
+		}
+		x = 14
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				technology = fighter_1936
+				technology = fighter_1940
+				technology = heavy_fighter_1936
+				technology = heavy_fighter_1940
+			}
+		}
+	}
+	focus = {
+		id = FID_fighter_2
+		text = 防空
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10
+		prerequisite = {
+			focus = FID_fighter_1
+		}
+		x = 14
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				technology = fighter_1936
+				technology = fighter_1940
+				technology = heavy_fighter_1936
+				technology = heavy_fighter_1940
+			}
+		}
+	}
+	focus = {
+		id = FID_manpower
+		text = 我々の潤沢な資源
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		prerequisite = {
+			focus = FID_rearm
+		}
+		mutually_exclusive = {
+			focus = FID_modern_warfare
+		}
+		x = 18
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_mass_assault
+			}
+		}
+	}
+	focus = {
+		id = FID_commandos
+		text = 優者を選抜
+		icon = GFX_focus_generic_military_mission
+		cost = 10
+		prerequisite = {
+			focus = FID_manpower
+		}
+		x = 17
+		y = 2
+		completion_reward = {
+			add_ideas = india_idea_2
+		}
+	}
+	focus = {
+		id = FID_infantry_air
+		text = 歩兵のための空
+		icon = GFX_goal_continuous_air_production
+		cost = 10
+		prerequisite = {
+			focus = FID_commandos
+		}
+		x = 17
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				technology = fighter_1936
+				technology = fighter_1940
+				technology = heavy_fighter_1936
+				technology = heavy_fighter_1940
+			}
+		}
+	}
+	focus = {
+		id = FID_infantry_strategy
+		text = 歩兵のための作戦
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = {
+			focus = FID_manpower
+		}
+		x = 19
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+	focus = {
+		id = FID_modern_warfare
+		text = 現代戦
+		icon = GFX_focus_generic_army_tanks2
+		cost = 10
+		prerequisite = {
+			focus = FID_rearm
+		}
+		mutually_exclusive = {
+			focus = FID_manpower
+		}
+		x = 25
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FID_strategy
+		text = 戦略に注力
+		icon = GFX_focus_generic_license_production
+		cost = 10
+		prerequisite = {
+			focus = FID_modern_warfare
+		}
+		mutually_exclusive = {
+			focus = FID_Industrial_power
+		}
+		x = 23
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 2
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+	focus = {
+		id = FID_cat_mass_assault
+		text = 突撃
+		icon = GFX_focus_focus_fra_revolution_upmost
+		cost = 10
+		prerequisite = {
+			focus = FID_strategy
+			focus = FID_infantry_strategy
+		}
+		mutually_exclusive = {
+			focus = FID_cat_superior_firepower
+		}
+		x = 21
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_mass_assault
+			}
+		}
+	}
+	focus = {
+		id = FID_the_new_stage
+		text = 新たな舞台
+		icon = GFX_focus_generic_paratrooper
+		cost = 10
+		prerequisite = {
+			focus = FID_infantry_air
+		}
+		prerequisite = {
+			focus = FID_cat_mass_assault
+		}
+		x = 19
+		y = 4
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = india_idea_2
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = india_idea_2
+						add_idea = india_idea_3
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_idea = india_idea_2
+				}
+				swap_ideas = {
+					remove_idea = india_idea_2
+					add_idea = india_idea_3
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_cat_superior_firepower
+		text = 剣を以て熊を制す
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		cost = 10
+		prerequisite = {
+			focus = FID_strategy
+		}
+		mutually_exclusive = {
+			focus = FID_cat_mass_assault
+			focus = FID_cat_mobile_warfare
+		}
+		x = 23
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_superior_firepower
+			}
+		}
+	}
+	focus = {
+		id = FID_Industrial_power
+		text = それには工業力がいる
+		icon = GFX_focus_generic_tank_production
+		cost = 10
+		prerequisite = {
+			focus = FID_modern_warfare
+		}
+		mutually_exclusive = {
+			focus = FID_strategy
+		}
+		x = 27
+		y = 2
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = india_idea
+				}
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = india_idea
+						add_idea = india_idea_1
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_idea = india_idea
+				}
+				swap_ideas = {
+					remove_idea = india_idea
+					add_idea = india_idea_1
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_cat_mobile_warfare
+		text = 機動
+		icon = GFX_goal_continuous_armor_production
+		cost = 10
+		prerequisite = {
+			focus = FID_strategy
+			focus = FID_Industrial_power
+		}
+		mutually_exclusive = {
+			focus = FID_cat_superior_firepower
+		}
+		x = 25
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_mobile_warfare
+			}
+		}
+	}
+	focus = {
+		id = FID_its_now
+		text = 時は来た
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		cost = 10
+		prerequisite = {
+			focus = FID_cat_mass_assault
+			focus = FID_cat_superior_firepower
+			focus = FID_cat_mobile_warfare
+		}
+		x = 23
+		y = 4
+		completion_reward = {
+			#war_support_factor = 0.02 モディファイアをcompletion_rewardに直接追加しないでください
+		}
+	}
+	focus = {
+		id = FID_han_o
+		text = 藩王を下す
+		icon = GFX_focus_RAJ_two_nation_theory
+		cost = 10
+		prerequisite = {
+			focus = FID_its_now
+		}
+		x = 22
+		y = 5
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				expire = 0
+				generator = {
+					10
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_Nehru_war
+		text = 逆賊から北西インドを奪還
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 10
+		prerequisite = {
+			focus = FID_its_now
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				expire = 0
+				generator = {
+					10
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_for_that_strategy
+		text = そのための戦略
+		icon = GFX_focus_chi_army_reform
+		cost = 10
+		prerequisite = {
+			focus = FID_Industrial_power
+		}
+		x = 27
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FID_Sovereign_cooperation
+		text = 宗主政府と協力
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 10
+		prerequisite = {
+			focus = FID_heika
+		}
+		x = 29
+		y = 1
+		completion_reward = {
+			add_ideas = india_idea
+		}
+	}
+	focus = {
+		id = FID_Faction_correctness
+		text = 独自派閥を粛正
+		icon = GFX_goal_continuous_suppression
+		cost = 10
+		prerequisite = {
+			focus = FID_Sovereign_cooperation
+		}
+		x = 29
+		y = 2
+		completion_reward = {
+			add_timed_idea = {
+				idea = india_idea_4
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = FID_factory_1
+		text = 内需に注力
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 10
+		prerequisite = {
+			focus = FID_heika
+		}
+		x = 33
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_factory_2
+		text = 公務員雇用の拡大
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10
+		prerequisite = {
+			focus = FID_factory_1
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			add_ideas = india_idea_5
+		}
+	}
+	focus = {
+		id = FID_armor_1
+		text = 日本の軍需産業に習う
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = {
+			focus = FID_Faction_correctness
+		}
+		prerequisite = {
+			focus = FID_factory_2
+		}
+		x = 29
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_armor_2
+		text = さらなる工業化
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = {
+			focus = FID_for_that_strategy
+		}
+		prerequisite = {
+			focus = FID_armor_1
+		}
+		x = 28
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_factory_3
+		text = 大規模なインフラ整備
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10
+		prerequisite = {
+			focus = FID_factory_1
+		}
+		x = 34
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 10
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_factory_4
+		text = 国営企業
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		prerequisite = {
+			focus = FID_factory_2
+		}
+		prerequisite = {
+			focus = FID_factory_3
+		}
+		prerequisite = {
+			focus = FID_factory_3
+		}
+		x = 33
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_factory_5
+		text = 経済の自立
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		prerequisite = {
+			focus = FID_factory_4
+		}
+		x = 33
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FID_as_before
+		text = 全てが元通りに
+		icon = GFX_focus_RAJ_seek_help_from_germany
+		cost = 10
+		prerequisite = {
+			focus = FID_han_o
+		}
+		prerequisite = {
+			focus = FID_Nehru_war
+		}
+		x = 23
+		y = 6
+		completion_reward = {
+			add_ideas = india_idea_6
+		}
+	}
+}
