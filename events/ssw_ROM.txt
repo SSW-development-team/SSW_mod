@@ -864,6 +864,7 @@ country_event = {#和解
 			ideology = authority_democracy
 			popularity = 0.25
 		}
+		
 	}
 }
 country_event = {#ブルガリアとの交渉
@@ -1237,6 +1238,137 @@ country_event = {#[FROM.GetName]は我が国の招待を拒否
 		ai_chance = { factor = 100 }
 	}
 }
+country_event = {#新指導者
+	id = SSW_ROM.52
+	title = SSW_ROM.52.t
+	desc = SSW_ROM.52.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.52.a
+		ai_chance = { factor = 100 }
+		create_country_leader = {
+			name = "Gheorghe Mihail"
+			desc = "POLITICS_HORIA_SIMA_DESC"
+			picture = "gfx/leaders/ROM/Portrait_Gheorghe_Mihail.dds"
+			expire = "1982.5.25"
+			ideology = authority_despotism
+			traits = {
+			}
+		}
+
+	}
+	option ={
+		name = SSW_ROM.52.b
+		ai_chance = { factor = 100 }
+		create_country_leader = {
+			name = "Mihai Antonescu"
+			desc = "POLITICS_HORIA_SIMA_DESC"
+			picture = "gfx/leaders/ROM/Portrait_Mihai_Antonescu.dds"
+			expire = "1982.5.25"
+			ideology = authority_despotism
+			traits = {
+			}
+		}
+	}
+}
+country_event = {#再同盟交渉
+	id = SSW_ROM.53
+	title = SSW_ROM.53.t
+	desc = SSW_ROM.53.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.53.a
+		ai_chance = { factor = 100 }
+		GER = {
+			country_event = {
+				id = SSW_ROM.53
+				days = 3
+			}
+		}
+	}
+}
+country_event = {#ルーマニアとの同盟？
+	id = SSW_ROM.54
+	title = SSW_ROM.54.t
+	desc = SSW_ROM.54.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.54.a
+		ai_chance = { factor = 0 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.55
+				days = 3
+			}
+		}
+		give_guarantee = ROM
+	}
+	option ={
+		name = SSW_ROM.54.b
+		ai_chance = { factor = 100 }
+		ROM = {
+			country_event = {
+				id = SSW_ROM.56
+				days = 3
+			}
+		}
+	}
+
+}
+country_event = {#交渉の成功
+	id = SSW_ROM.55
+	title = SSW_ROM.55.t
+	desc = SSW_ROM.55.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.55.a
+		ai_chance = { factor = 10 }
+	}
+}
+country_event = {#交渉の失敗
+	id = SSW_ROM.55
+	title = SSW_ROM.55.t
+	desc = SSW_ROM.55.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.55.a
+		ai_chance = { factor = 10 }
+	}
+}
+country_event = {#野党との交渉
+	id = SSW_ROM.56
+	title = SSW_ROM.56.t
+	desc = SSW_ROM.56.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.56.a
+		ai_chance = { factor = 10 }
+		country_event = {
+			id = SSW_ROM.57
+			days = 1
+		}
+
+	}
+}
+country_event = {#我々の思い通りだ！
+	id = SSW_ROM.57
+	title = SSW_ROM.57.t
+	desc = SSW_ROM.57.d
+	picture = GFX_report_event
+	is_triggered_only = yes
+	option ={
+		name = SSW_ROM.57.a
+		ai_chance = { factor = 100 }
+		complete_national_focus = National_governmet
+
+	}
+}
 
 
 news_event = {
@@ -1267,6 +1399,8 @@ news_event = {
 		}
 	}
 }
+
+
 
 
 

@@ -40,11 +40,16 @@ focus_tree = {
 	focus = {
 		id = Romania_revanchism
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 3.00
+		cost = 4.00
 		prerequisite = {
-			focus = With_Archangel
-			focus = Authoritative_nation
+			focus = National_governmet
+			focus = Return_Sima
 		}
+		prerequisite = {
+			focus = Confirm_relationship_with_Germany
+			focus = Agricultural_Guarantee_Fund
+		}
+
 		x = 19
 		y = 6
 		ai_will_do = {
@@ -101,7 +106,7 @@ focus_tree = {
 	focus = {
 		id = MIlitary_unity
 		icon = GFX_focus_ROM_Military_Unit
-		cost = 0
+		cost = 1
 		available = {
 			hidden_trigger = { always = no }
 		}
@@ -196,7 +201,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.56
+			}
 		}
 
 	}
@@ -222,7 +229,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = 0.3
+			}
+			add_stability = 0.1
 		}
 
 	}
@@ -248,7 +267,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.52
+			}
 		}
 
 	}
@@ -264,9 +285,22 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_10
+				NOT = {
+					has_global_flag = GER_civil_war  
+					has_global_flag = GER_civil_war_end  
+				}
+			}
+	
 		}
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_11
+				has_global_flag = GER_civil_war  
+			}
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -274,36 +308,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
-		}
-
-	}
-	focus = {
-		id = Authoritative_nation
-		icon = GFX_goal_anschluss
-		cost = 5.00
-		prerequisite = {
-			focus = National_governmet
-		}
-		prerequisite = {
-			focus = Confirm_relationship_with_Germany
-		}
-		x = 17
-		y = 4
-		ai_will_do = {
-			factor = 0
-		}
-		available = {	
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.53
+			}
 		}
 
 	}
@@ -313,7 +320,7 @@ focus_tree = {
 	focus = {
 		id = Codreanu_children
 		icon = GFX_focus_ROM_codreanu_children
-		cost = 50
+		cost = 1
 		available = {
 			hidden_trigger = { always = no }
 		}
@@ -417,7 +424,7 @@ focus_tree = {
 		x = 22
 		y = 2
 		ai_will_do = {
-			factor = 50
+			factor = 30
 		}
 		available = {	
 		}
@@ -498,41 +505,12 @@ focus_tree = {
 		}
 
 	}
-	focus = {
-		id = With_Archangel
-		icon = GFX_focus_ROM_with_engels
-		cost = 2.00
-		prerequisite = {
-			focus = Agricultural_Guarantee_Fund
-		}
-		prerequisite = {
-			focus = Return_Sima
-		}
-		x = 21
-		y = 4
-		ai_will_do = {
-			factor = 10
-		}
-		available = {	
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			
-		}
-
-	}
-
  #RENEW IRON GURAD
 
 	focus = {
 		id = Reorganaized_Nest
-		focus_ROM_with_engelsfocus_ROM_with_engelsfocus_ROM_with_engels		cost = 5.00
+		icon = GFX_focus_ROM_with_engels
+		cost = 5.00
 		prerequisite = {
 			focus = Codreanu_children
 		}
@@ -541,7 +519,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 60
 		}
-		available = {	
+		available = {
+
 		}
 		bypass = {
 		}
@@ -575,6 +554,11 @@ focus_tree = {
 			factor = 100
 		}
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -709,7 +693,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+	
 		}
 		bypass = {
 		}
@@ -725,7 +714,7 @@ focus_tree = {
 	focus = {
 		id = Patriotism_propaganda
 		icon = GFX_goal_generic_propaganda
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Legion_senatus
 		}
@@ -756,7 +745,7 @@ focus_tree = {
 	focus = {
 		id = work_unit
 		icon = GFX_focus_generic_steel
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = Reorganaized_Nest
 		}
@@ -766,6 +755,11 @@ focus_tree = {
 			factor = 10
 		}
 		available = {	
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+
 		}
 		bypass = {
 		}
@@ -791,7 +785,7 @@ focus_tree = {
 	focus = {
 		id = Legion_cooperative
 		icon = GFX_goal_generic_consumer_goods
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = work_unit
 		}
@@ -1652,7 +1646,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 5
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1681,9 +1679,13 @@ focus_tree = {
 		x = 32
 		y = 3
 		ai_will_do = {
-			factor = 5
+			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1738,7 +1740,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1766,7 +1772,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 5
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1819,7 +1829,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1850,7 +1864,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1891,7 +1909,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -1923,7 +1945,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -2287,7 +2313,7 @@ focus_tree = {
  	focus = {
 		id = Reconstruction_plan
 		icon = GFX_focus_ROM_factry_flag
-		cost = 4.00
+		cost = 10.00
 		prerequisite = {
 			focus = Lose
 			focus = Win
@@ -2295,7 +2321,7 @@ focus_tree = {
 		x = 19
 		y = 10
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2320,7 +2346,7 @@ focus_tree = {
 		x = 19
 		y = 11
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2338,7 +2364,7 @@ focus_tree = {
 	focus = {
 		id = Strengthen_relations_with_finance
 		icon = GFX_goal_generic_construct_mil_factory
-		cost = 5.00
+		cost = 10.00
 		prerequisite = {
 			focus = Do_all_that_nation_have_got
 		}
@@ -2373,7 +2399,7 @@ focus_tree = {
 		x = 20
 		y = 13
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2422,7 +2448,7 @@ focus_tree = {
 		x = 22
 		y = 13
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2446,15 +2472,13 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = Support_Bank
+			focus = Mordern_agriculture
+
 		}
 		prerequisite = {
 			focus = Redeveropment_Bucarest
-		}
-		prerequisite = {
-			focus = Mordern_agriculture
-		}
-		prerequisite = {
 			focus = Relief_fund
+
 		}
 		x = 19
 		y = 14
@@ -2532,7 +2556,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Romanian_expansionism
-		icon = GFX_focus_invite_romania
+		icon = GFX_focus_ROM_with_engels
 		cost = 5.00
 		prerequisite = {
 			focus = For_lackland
@@ -2567,7 +2591,7 @@ focus_tree = {
 		x = 18
 		y = 13
 		ai_will_do = {
-			factor = 0
+			factor = 30
 		}
 		available = {	
 		}
@@ -2590,7 +2614,7 @@ focus_tree = {
 	focus = {
 		id = Investment_in_rural_communities
 		icon = GFX_goal_generic_construction
-		cost = 5.00
+		cost = 10.00
 		prerequisite = {
 			focus = Do_all_that_nation_have_got
 		}
@@ -2600,7 +2624,7 @@ focus_tree = {
 		x = 18
 		y = 12
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2625,7 +2649,7 @@ focus_tree = {
 		x = 16
 		y = 13
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		available = {	
 		}
@@ -2658,7 +2682,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+	
 		}
 		bypass = {
 		}
@@ -2689,7 +2718,7 @@ focus_tree = {
 		x = 14
 		y = 10
 		ai_will_do = {
-			factor = 10
+			factor = 15
 		}
 		available = {	
 		}
@@ -2713,7 +2742,7 @@ focus_tree = {
 		x = 15
 		y = 11
 		ai_will_do = {
-			factor = 10
+			factor = 15
 		}
 		available = {	
 		}
@@ -2741,7 +2770,7 @@ focus_tree = {
 		x = 15
 		y = 12
 		ai_will_do = {
-			factor = 10
+			factor = 15
 		}
 		available = {	
 		}
@@ -2767,7 +2796,7 @@ focus_tree = {
 		x = 13
 		y = 11
 		ai_will_do = {
-			factor = 10
+			factor = 15
 		}
 		available = {	
 		}
@@ -2796,7 +2825,7 @@ focus_tree = {
 		x = 13
 		y = 12
 		ai_will_do = {
-			factor = 10
+			factor = 15
 		}
 		available = {	
 		}
@@ -3108,7 +3137,7 @@ focus_tree = {
 		x = 9
 		y = 12
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 		available = {	
 		}
@@ -3400,7 +3429,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_8
+				has_global_flag = little_axis_victory 
+			}
+	
 		}
 		bypass = {
 		}
@@ -3830,7 +3864,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Old_liberal
-		icon = GFX_goal_ITA_com_TUR_alliance
+		icon = GFX_goal_generic_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = Lose
@@ -4012,7 +4046,7 @@ s = {
 	}
 	focus = {
 		id = National_Peasants_Party
-		icon = GFX_ITA_REL_BUL
+		icon = GFX_focus_generic_industry_1
 		cost = 10.00
 		prerequisite = {
 			focus = Lose
@@ -4100,7 +4134,7 @@ s = {
 		x = 28
 		y = 14
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
 		bypass = {
 		}
@@ -4169,7 +4203,7 @@ s = {
 		x = 32
 		y = 14
 		ai_will_do = {
-			factor = 0
+			factor = 5
 		}
 		available = {	
 		}
@@ -4204,7 +4238,7 @@ s = {
 		x = 34
 		y = 14
 		ai_will_do = {
-			factor = 0
+			factor = 20
 		}
 		available = {	
 		}
@@ -4233,7 +4267,7 @@ s = {
 		x = 28
 		y = 15
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
 		available = {	
 		}
@@ -4290,7 +4324,7 @@ s = {
 		x = 32
 		y = 15
 		ai_will_do = {
-			factor = 0
+			factor = 20
 		}
 		available = {	
 		}
@@ -4319,7 +4353,7 @@ s = {
 		x = 34
 		y = 15
 		ai_will_do = {
-			factor = 0
+			factor = 20
 		}
 		available = {	
 		}
@@ -4349,7 +4383,7 @@ s = {
 		x = 28
 		y = 16
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
 		available = {	
 		}
@@ -4418,7 +4452,7 @@ s = {
 		x = 32
 		y = 16
 		ai_will_do = {
-			factor = 0
+			factor = 20
 		}
 		bypass = {
 		}
@@ -4454,7 +4488,7 @@ s = {
 		x = 34
 		y = 16
 		ai_will_do = {
-			factor = 0
+			factor = 20
 		}
 		bypass = {
 		}

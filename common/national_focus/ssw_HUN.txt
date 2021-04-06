@@ -187,6 +187,7 @@
 			}
 			add_stability = 0.05
 			add_ideas = HUN_nobuhito
+			hidden_effect = { news_event = { id = ssw_hun.7 hours = 6 } }
 		}
 	}
 	focus = {
@@ -303,7 +304,7 @@
 				else = { add_ideas = hun_ideas_7 }
 			}
 			add_popularity = {
-				ideology = authority_despotism
+				ideology = authority_democracy
 				popularity = 0.15
 			}
 			add_stability = 0.05
@@ -528,6 +529,7 @@
 				ideology = national_fascism
 				popularity = 0.2
 			}
+			hidden_effect = { news_event = { id = ssw_hun.7 hours = 6 } }
 		}
 	}
 	focus = {
@@ -811,11 +813,31 @@
 			create_country_leader = {
 				name = "Miklós Horthy"
 				desc = "POLITICS_MIKLOS_HORTHY_DESC"
-				picture = "Portrait_Hungary_Miklos_Horthy.dds"
+				picture = "Portrait_Hungary_Miklos_Horthy_King.dds"
 				expire = "1957.2.9"
 				ideology = reactionary_ideology
-				traits = { anti_communist }
+				traits = {
+					anti_communist
+					great_war_hero
+					the_sacred_king
+				}
 			}
+			create_navy_leader = {
+				name = "Miklós Horthy"
+				portrait_path = "gfx/leaders/HUN/Portrait_Hungary_Miklos_Horthy.dds"
+				traits = {
+					gunnery_expert
+					navy_media_personality
+					superior_tactician
+				}
+				skill = 5
+				id = 164
+				attack_skill = 5
+				defense_skill = 5
+				maneuvering_skill = 5
+				coordination_skill = 5
+			}
+			hidden_effect = { news_event = { id = ssw_hun.30 hours = 6 } }
 		}
 	}
 	focus = {
@@ -2836,6 +2858,28 @@
 		ai_will_do = { factor = 100 }
 		completion_reward = {
 			add_political_power = 100
+		}
+	}
+	focus = {
+		id = HUN_116
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = HUN_115 }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "László Rajk"
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_115
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.07
 		}
 	}
 ################################################################################################################

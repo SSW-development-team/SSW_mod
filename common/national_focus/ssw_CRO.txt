@@ -773,7 +773,11 @@ focus_tree = {
 			}
 		}
 
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_4
+				has_global_flag = GER_civil_war_end 	
+			}
 		}
 		bypass = {
 		}
@@ -812,7 +816,11 @@ focus_tree = {
 			}
 		}
 
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = little_axis_victory 
+			}		
 		}
 		bypass = {
 		}
@@ -1641,7 +1649,11 @@ focus_tree = {
 			factor = 50
 		}
 
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -2129,7 +2141,11 @@ focus_tree = {
 			factor = 0
 		}
 
-		available = {	
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+	
 		}
 		bypass = {
 		}
@@ -2587,6 +2603,16 @@ focus_tree = {
 		}
 
 		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SSW_CRO_tooltip_4
+				OR = {
+					has_global_flag = end_vorbeck
+					NOT = {  
+						has_global_flag = GER_civil_war  
+					}
+				}
+			}		
+			
 		}
 		bypass = {
 		}
