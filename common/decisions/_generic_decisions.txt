@@ -327,7 +327,92 @@ use_civilian_factoris_to_add_reserch_slot = {
 			}	
 		}
 	}
-
+}
+sahara_railway_category = {
+	blow_sahara_railway = {
+		icon = GFX_decision_generic_ignite_civil_war
+		available = {
+			controls_state = 513
+			any_enemy_country = { owns_state = 513 }
+		}
+		visible = {
+			has_war = yes
+			controls_state = 513
+			any_enemy_country = { owns_state = 513 }
+			NOT = { has_global_flag = sahara_railway_disabled }
+		}
+		fire_only_once = no
+		days_remove = 35
+		cost = 150
+		modifier = { civilian_factory_use = 5 }
+		remove_effect = {
+			set_global_flag = sahara_railway_disabled
+			country_event = { id = wtt_news.40 hours = 6 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+	build_sahara_railway = {
+		icon = GFX_decision_generic_special_project
+		available = {
+			OR = {
+				has_full_control_of_state = 513
+				any_other_country = {
+					is_in_faction_with = ROOT
+					has_full_control_of_state = 513
+				}
+				any_other_country = {
+					is_subject_of = ROOT
+					has_full_control_of_state = 513
+				}
+				any_other_country = {
+					has_opinion = {
+						target = ROOT
+						value > 49
+					}
+					has_full_control_of_state = 513
+				}
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = sufficient_gdp_is_secured_tt
+					check_variable = { resource_exported > 99 }
+				}
+				is_major = yes
+			}
+			num_of_civilian_factories > 29
+			has_global_flag = sahara_railway_disabled
+		}
+		visible = {
+			OR = {
+				has_full_control_of_state = 513
+				any_other_country = {
+					is_in_faction_with = ROOT
+					has_full_control_of_state = 513
+				}
+				any_other_country = {
+					is_subject_of = ROOT
+					has_full_control_of_state = 513
+				}
+				any_other_country = {
+					has_opinion = {
+						target = ROOT
+						value > 49
+					}
+					has_full_control_of_state = 513
+				}
+			}
+			has_global_flag = sahara_railway_disabled
+		}
+		fire_only_once = no
+		days_remove = 365
+		cost = 150
+		modifier = { civilian_factory_use = 30 }
+		remove_effect = {
+			clr_global_flag = sahara_railway_disabled
+			add_war_support = 0.15
+		}
+		ai_will_do = { factor = 1 }
+	}
 }
 USA_policy = {
 	add_core_states_of_america = {
