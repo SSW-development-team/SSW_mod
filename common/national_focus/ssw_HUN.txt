@@ -16,11 +16,13 @@
 ##################################################            ##################################################
 ################################################################################################################
 ################################################################################################################
+	#正規シナリオ
 	focus = {
 		id = HUN_1
 		icon = GFX_goal_generic_neutrality_focus
 		available = { has_global_flag = danubian_war_end }
-		allow_branch = { NOT = { has_country_flag = lose_danubian_war } }
+		#allow_branch = { NOT = { has_country_flag = lose_danubian_war } }
+		allow_branch = { always = no }
 		x = 0
 		y = 0
 		cost = 7
@@ -1232,7 +1234,10 @@
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			every_state = {
-				limit = { is_core_of = SER }
+				limit = {
+					is_core_of = SER
+					is_controlled_by_myself_or_subject = yes
+				}
 				add_state_modifier = { modifier = { compliance_gain = 0.1 } }
 			}
 		}
@@ -2845,6 +2850,7 @@
 ##################################################            ##################################################
 ################################################################################################################
 ################################################################################################################
+	#序章
 	focus = {
 		id = HUN_115
 		icon = GFX_goal_generic_dangerous_deal
@@ -2852,7 +2858,8 @@
 			has_global_flag = danubian_war_end
 			has_country_flag = lose_danubian_war
 		}
-		allow_branch = { has_country_flag = lose_danubian_war }
+		#allow_branch = { has_country_flag = lose_danubian_war }
+		allow_branch = { always = yes }
 		x = 0
 		y = 0
 		cost = 7
@@ -2885,6 +2892,465 @@
 			add_war_support = 0.07
 		}
 	}
+	focus = {
+		id = HUN_117
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = HUN_116 }
+		mutually_exclusive = { focus = HUN_118 }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "László Rajk"
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = HUN_116
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_leader = {
+						ruling_only = yes
+						name = "László Rajk"
+					}
+				}
+				kill_ideology_leader = progressive_communism
+			}
+			create_country_leader = {
+				name = "Fallen Government"
+				desc = "POLITICS_FALLEN_GOVERNMENT_DESC"
+				picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+				expire = "1965.1.1"
+				ideology = progressive_communism_ideology
+				traits = { cabinet_crisis }
+			}
+			hidden_effect = { news_event = { id = ssw_hun.36 hours = 6 } }
+		}
+	}
+	focus = {
+		id = HUN_118
+		icon = ITA_NEW_ROM
+		prerequisite = { focus = HUN_116 }
+		mutually_exclusive = { focus = HUN_117 }
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "László Rajk"
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = HUN_116
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.2
+			add_stability = 0.2
+		}
+	}
+	#ペリー主義
+	focus = {
+		id = HUN_mysterious_nation
+		icon = GFX_focus_ger_reichskommisariats
+		prerequisite = { focus = HUN_117 }
+		available = {
+			NOT = {
+				has_completed_focus = HUN_cooperation_with_the_labor_union
+				has_completed_focus = HUN_return_to_classical_thought
+				has_completed_focus = HUN_denial_of_struggle
+			}
+		}
+		bypass = { always = no }
+		x = 1
+		y = 1
+		relative_position_id = HUN_117
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 130
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.3
+			}
+		}
+	}
+	focus = {
+		id = HUN_four_year_plan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = HUN_mysterious_nation }
+		x = 2
+		y = 1
+		relative_position_id = HUN_mysterious_nation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = HUN_stabilize_the_administration
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = HUN_mysterious_nation }
+		x = 0
+		y = 1
+		relative_position_id = HUN_mysterious_nation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = national_fascism
+				elections_allowed = no
+			}
+		}
+	}
+	focus = {
+		id = HUN_equipment_production_resumed
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = HUN_mysterious_nation }
+		x = -2
+		y = 1
+		relative_position_id = HUN_mysterious_nation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_purge_socialists
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = HUN_stabilize_the_administration }
+		prerequisite = { focus = HUN_equipment_production_resumed }
+		x = -1
+		y = 1
+		relative_position_id = HUN_stabilize_the_administration
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = HUN_conscript_applicants
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = HUN_four_year_plan }
+		prerequisite = { focus = HUN_stabilize_the_administration }
+		x = 1
+		y = 1
+		relative_position_id = HUN_stabilize_the_administration
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			division_template = {
+				name = "Hungarian Volunteer"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+					engineer = { x = 0 y = 2 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Hungarian Volunteer\" start_experience_factor = 1" 
+					owner = HUN
+					allow_spawning_on_enemy_provs = yes
+					count = 16
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_promotion_of_aluminum_development
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = {
+			focus = HUN_purge_socialists
+			focus = HUN_conscript_applicants
+		}
+		x = -1
+		y = 1
+		relative_position_id = HUN_purge_socialists
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = aluminium
+					amount = 32
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_strengthening_air_power
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = {
+			focus = HUN_purge_socialists
+			focus = HUN_conscript_applicants
+		}
+		x = 1
+		y = 1
+		relative_position_id = HUN_purge_socialists
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 6
+				category = air_doctrine
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_training_of_air_force_soldiers
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = {
+			focus = HUN_purge_socialists
+			focus = HUN_conscript_applicants
+		}
+		x = 1
+		y = 1
+		relative_position_id = HUN_conscript_applicants
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_29
+		}
+	}
+	#サンディカリスム
+	focus = {
+		id = HUN_cooperation_with_the_labor_union
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = HUN_117 }
+		available = {
+			NOT = {
+				has_completed_focus = HUN_mysterious_nation
+				has_completed_focus = HUN_return_to_classical_thought
+				has_completed_focus = HUN_denial_of_struggle
+			}
+		}
+		bypass = { always = no }
+		x = -3
+		y = 1
+		relative_position_id = HUN_117
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 130
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.3
+			}
+		}
+	}
+	#スターリン主義
+	focus = {
+		id = HUN_return_to_classical_thought
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = HUN_117 }
+		available = {
+			NOT = {
+				has_completed_focus = HUN_mysterious_nation
+				has_completed_focus = HUN_cooperation_with_the_labor_union
+				has_completed_focus = HUN_denial_of_struggle
+			}
+		}
+		bypass = { always = no }
+		x = -7
+		y = 1
+		relative_position_id = HUN_117
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 130
+			add_popularity = {
+				ideology = classical_communism
+				popularity = 0.3
+			}
+		}
+	}
+	#無政府主義
+	focus = {
+		id = HUN_denial_of_struggle
+		icon = GFX_focus_RUS_anarchist_politics
+		prerequisite = { focus = HUN_117 }
+		available = {
+			NOT = {
+				has_completed_focus = HUN_mysterious_nation
+				has_completed_focus = HUN_cooperation_with_the_labor_union
+				has_completed_focus = HUN_return_to_classical_thought
+			}
+		}
+		bypass = { always = no }
+		x = -11
+		y = 1
+		relative_position_id = HUN_117
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 130
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.3
+			}
+		}
+	}
+	#国民統一戦線
+	focus = {
+		id = HUN_government_of_national_salvation
+		icon = GFX_LTV_Hungry
+		prerequisite = { focus = HUN_118 }
+		x = 7
+		y = 1
+		relative_position_id = HUN_118
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 130
+			add_popularity = {
+				ideology = national_fascism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = national_socialism
+				popularity = 0.15
+			}
+		}
+	}
 ################################################################################################################
 ################################################################################################################
 ##################################################            ##################################################
@@ -2892,6 +3358,7 @@
 ##################################################            ##################################################
 ################################################################################################################
 ################################################################################################################
+	#軍事・産業ツリー
 	focus = {
 		id = HUN_industrial_revitalization
 		icon = GFX_goal_generic_construction
@@ -2915,7 +3382,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_reintegrate_the_railroads
 		text = HUN_103
@@ -2989,7 +3455,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_support_domestic_industry
 		text = HUN_104
@@ -3052,7 +3517,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_support_urbanization
 		icon = GFX_goal_generic_construction
@@ -3096,7 +3560,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_institute_for_industrial_techniques
 		icon = GFX_focus_research
@@ -3120,7 +3583,6 @@
 			add_ideas = HUN_investing_in_laboratories_1
 		}
 	}
-
 	focus = {
 		id = HUN_announce_the_gyor_program
 		icon = GFX_goal_generic_production
@@ -3199,7 +3661,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_invite_foreign_investors
 		icon = GFX_goal_generic_intelligence_exchange
@@ -3231,7 +3692,6 @@
 			add_ideas = HUN_invite_foreign_investors
 		}
 	}
-
 	focus = {
 		id = HUN_expand_the_manfred_weiss_steel_works
 		icon = GFX_goal_generic_construct_civilian
@@ -3285,7 +3745,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_expand_the_aluminum_industry
 		icon = GFX_goal_generic_construct_civilian
@@ -3322,7 +3781,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_expand_the_technical_university_of_budapest
 		text = HUN_106
@@ -3424,9 +3882,6 @@
 			}
 		}
 	}
-
-	
-
 	focus = {
 		id = HUN_aeronautic_technology_institute
 		text = HUN_108
@@ -3466,7 +3921,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_boost_hungarian_aviation_industry
 		text = HUN_109
@@ -3555,7 +4009,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_synthetic_industry
 		text = HUN_110
@@ -3658,7 +4111,6 @@
 			army_experience = 25
 		}
 	}
-
 	focus = {
 		id = HUN_theoretical_air_efforts
 		icon = GFX_goal_generic_air_doctrine
@@ -3695,7 +4147,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_bled_agreement
 		text = HUN_111
@@ -3717,7 +4168,6 @@
 			air_experience = 50
 		}
 	}
-
 	focus = {
 		id = HUN_establish_the_air_force
 		icon = GFX_goal_generic_build_airforce
@@ -3755,7 +4205,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_indigenous_designs
 		icon = GFX_goal_generic_air_production
@@ -3790,7 +4239,6 @@
 			add_ideas = HUN_indigenous_designs
 		}
 	}
-
 	focus = {
 		id = HUN_heavy_fighter_effort
 		icon = GFX_goal_generic_air_fighter
@@ -3831,7 +4279,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_light_fighter_effort
 		icon = GFX_goal_generic_air_fighter2
@@ -3873,7 +4320,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_cas_focus
 		icon = GFX_goal_generic_CAS
@@ -3914,7 +4360,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_tac_focus
 		icon = GFX_goal_generic_air_bomber
@@ -3953,7 +4398,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_license_foreign_designs
 		icon = GFX_focus_generic_license_production
@@ -3986,7 +4430,6 @@
 			add_ideas = HUN_license_foreign
 		}
 	}
-
 	focus = {
 		id = HUN_fighter_competition
 		text = HUN_112
@@ -4021,7 +4464,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_bomber_competition
 		text = HUN_113
@@ -4055,7 +4497,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_joint_air_development
 		icon = GFX_goal_generic_air_production
@@ -4167,7 +4608,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_the_botond
 		icon = GFX_goal_generic_army_motorized
@@ -4204,7 +4644,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_motorized_logistics
 		icon = GFX_goal_generic_army_motorized
@@ -4242,7 +4681,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_develop_tanks
 		icon = GFX_goal_generic_army_tanks
@@ -4280,7 +4718,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_assault_gun_focus
 		icon = GFX_goal_generic_army_artillery2
@@ -4313,7 +4750,6 @@
 			add_ideas = HUN_assault_gun_focus
 		}
 	}
-
 	focus = {
 		id = HUN_joint_tank_procurement
 		icon = GFX_goal_generic_build_tank
@@ -4344,7 +4780,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_armored_warfare
 		icon = GFX_goal_generic_army_artillery
@@ -4381,7 +4816,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_mobile_corps_doctrine
 		icon = GFX_goal_generic_army_doctrines
@@ -4527,7 +4961,6 @@
 			}
 		}
 	}
-
 	focus = {
 		id = HUN_light_infantry_divisions_doctrine
 		text = HUN_114
@@ -4551,7 +4984,6 @@
 			add_ideas = HUN_heroism
 		}
 	}
-
 	focus = {
 		id = HUN_form_parachute_battalions
 		icon = GFX_focus_generic_paratrooper
@@ -4623,7 +5055,6 @@
 			add_ideas = HUN_naval_warfare
 		}
 	}
-
 	focus = {
 		id = HUN_restauration
 		icon = GFX_goal_generic_navy_doctrines_tactics
@@ -4662,7 +5093,6 @@
 
 		}
 	}
-
 	focus = {
 		id = HUN_capital_ships
 		icon = GFX_goal_generic_navy_battleship
@@ -4701,8 +5131,6 @@
 
 		}
 	}
-
-
 	focus = {
 		id = HUN_reform
 		icon = GFX_goal_generic_wolf_pack
@@ -4742,7 +5170,6 @@
 
 		}
 	}
-
 	focus = {
 		id = HUN_destroyer
 		icon = GFX_goal_generic_navy_anti_submarine
@@ -4780,7 +5207,6 @@
 
 		}
 	}
-
 	focus = {
 		id = HUN_cruisers
 		icon = GFX_goal_generic_navy_cruiser
@@ -4819,7 +5245,6 @@
 
 		}
 	}
-
 	focus = {
 		id = HUN_submarines
 		icon = GFX_goal_generic_navy_submarine
@@ -4857,8 +5282,6 @@
 
 		}
 	}
-
-
 	focus = {
 		id = HUN_carriers
 		icon = GFX_goal_generic_navy_carrier
