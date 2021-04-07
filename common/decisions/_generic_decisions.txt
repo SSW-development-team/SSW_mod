@@ -332,13 +332,53 @@ sahara_railway_category = {
 	blow_sahara_railway = {
 		icon = GFX_decision_generic_ignite_civil_war
 		available = {
-			controls_state = 513
-			any_enemy_country = { owns_state = 513 }
+			OR = {
+				AND = {
+					513 = { is_controlled_by_myself_or_subject = yes }
+					OR = {
+						556 = { controller = { has_war_with = ROOT } }
+						781 = { controller = { has_war_with = ROOT } }
+						929 = { controller = { has_war_with = ROOT } }
+						930 = { controller = { has_war_with = ROOT } }
+					}
+				}
+				AND = {
+					513 = {
+						is_controlled_by_myself_or_subject = yes
+						owner = { has_war_with = ROOT }
+					}
+					556 = { is_controlled_by_myself_or_subject = yes }
+					781 = { is_controlled_by_myself_or_subject = yes }
+					929 = { is_controlled_by_myself_or_subject = yes }
+					930 = { is_controlled_by_myself_or_subject = yes }
+				}
+			}
+			num_of_civilian_factories > 4
 		}
 		visible = {
+			OR = {
+				AND = {
+					513 = { is_controlled_by_myself_or_subject = yes }
+					OR = {
+						556 = { controller = { has_war_with = ROOT } }
+						781 = { controller = { has_war_with = ROOT } }
+						929 = { controller = { has_war_with = ROOT } }
+						930 = { controller = { has_war_with = ROOT } }
+					}
+				}
+				AND = {
+					513 = {
+						is_controlled_by_myself_or_subject = yes
+						owner = { has_war_with = ROOT }
+					}
+					556 = { is_controlled_by_myself_or_subject = yes }
+					781 = { is_controlled_by_myself_or_subject = yes }
+					929 = { is_controlled_by_myself_or_subject = yes }
+					930 = { is_controlled_by_myself_or_subject = yes }
+				}
+			}
+			num_of_civilian_factories > 4
 			has_war = yes
-			controls_state = 513
-			any_enemy_country = { owns_state = 513 }
 			NOT = { has_global_flag = sahara_railway_disabled }
 		}
 		fire_only_once = no
@@ -355,50 +395,104 @@ sahara_railway_category = {
 		icon = GFX_decision_generic_special_project
 		available = {
 			OR = {
-				has_full_control_of_state = 513
-				any_other_country = {
-					is_in_faction_with = ROOT
-					has_full_control_of_state = 513
-				}
-				any_other_country = {
-					is_subject_of = ROOT
-					has_full_control_of_state = 513
-				}
-				any_other_country = {
-					has_opinion = {
-						target = ROOT
-						value > 49
-					}
-					has_full_control_of_state = 513
-				}
-			}
-			OR = {
 				custom_trigger_tooltip = {
 					tooltip = sufficient_gdp_is_secured_tt
 					check_variable = { resource_exported > 99 }
 				}
 				is_major = yes
 			}
+			513 = { is_controlled_by_myself_or_subject = yes }
+			556 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
+			781 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
+			929 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
+			930 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
 			num_of_civilian_factories > 29
 			has_global_flag = sahara_railway_disabled
 		}
 		visible = {
-			OR = {
-				has_full_control_of_state = 513
-				any_other_country = {
-					is_in_faction_with = ROOT
-					has_full_control_of_state = 513
-				}
-				any_other_country = {
-					is_subject_of = ROOT
-					has_full_control_of_state = 513
-				}
-				any_other_country = {
-					has_opinion = {
-						target = ROOT
-						value > 49
+			513 = { is_controlled_by_myself_or_subject = yes }
+			556 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_full_control_of_state = 513
+				}
+			}
+			781 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
+			929 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
+				}
+			}
+			930 = {
+				OR = {
+					is_controlled_by_myself_or_allies = yes
+					controller = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
+					}
 				}
 			}
 			has_global_flag = sahara_railway_disabled

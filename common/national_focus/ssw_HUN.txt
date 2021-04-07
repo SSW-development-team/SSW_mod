@@ -3604,13 +3604,10 @@
 		x = 2
 		y = 14
 		cost = 7
-		ai_will_do = {
-			factor = 10
-		}
+		ai_will_do = { factor = 10 }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			if = {
@@ -3621,9 +3618,16 @@
 				}
 				else = { add_ideas = HUN_secret_rearmament }
 			}
+			if = {
+				limit = { NOT = { has_idea = partial_economic_mobilisation } }
+				add_ideas = partial_economic_mobilisation
+			}
+			unlock_decision_tooltip = conscription_infantry
+			unlock_decision_tooltip = conscription_artillery
+			unlock_decision_tooltip = conscription_cavalry
+			unlock_decision_tooltip = conscription_motorized
 		}
 	}
-
 	focus = {
 		id = HUN_war_games
 		icon = GFX_goal_poland_goal

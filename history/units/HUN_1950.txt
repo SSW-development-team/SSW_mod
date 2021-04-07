@@ -17,16 +17,14 @@ division_template = {
 division_template = {
 	name = "Artillery Division"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 0 y = 3 }
-		infantry = { x = 0 y = 4 }
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+		artillery_brigade = { x = 0 y = 3 }
         infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		artillery_brigade = { x = 1 y = 3 }
-		artillery_brigade = { x = 1 y = 4 }
+		infantry = { x = 1 y = 3 }
 	}
     support = {
         engineer = { x = 0 y = 0 }
@@ -42,7 +40,27 @@ division_template = {
 		cavalry = { x = 0 y = 3 }
 		cavalry = { x = 0 y = 4 }
 	}
-    support = { recon = { x = 0 y = 1 } }
+    support = { recon = { x = 0 y = 0 } }
+}
+division_template = {
+	name = "Motorized-Division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 0 y = 3 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 1 y = 3 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 } 
+	}
 }
 units = {
     division = {
@@ -83,7 +101,7 @@ air_wings = {
 instant_effect = {
 	add_equipment_production = {
 		equipment = {
-			type = infantry_equipment_3
+			type = infantry_equipment_4
 			creator = "HUN"
 		}
 		requested_factories = 3
