@@ -89,29 +89,42 @@ country_event = {
     fire_on_lnly_once = yes
     is_triggered_only = yes
     option = {
-    	name = SSW_FRA.3.a
-        complete_national_focus = FRA_New_France #左派が政権を手動
-        #remove_ideas = The_resurrection_of_the_resistance
-        create_country_leader = {
-	        name = "Maurice Thorez"
-	        expire = "1965.1.1"
-	        ideology = social_democracy_ideology 
-	        traits = {
-	        }
+    	name = SSW_FRA.3.a #警備隊の派遣でいいだろう
+        custom_effect_tooltip = pawer_up_gov
+        hidden_effect ={
+            add_to_variable = {
+                var = political_strife_gov
+                value = 1
+            }
         }
     }
     option = {
-    	name = SSW_FRA.3.b
-        complete_national_focus = FRA_New_France #軍部が主導権を把握
-        #remove_ideas = The_resurrection_of_the_resistance
-        create_country_leader = {
-	        name = "Alphonse Juan"
-	        expire = "1965.1.1"
-	        ideology = authority_democracy_ideology 
-	        traits = {
-	        }
+    	name = SSW_FRA.3.b #軍を派遣しよう
+        custom_effect_tooltip = pawer_up_mil
+        hidden_effect ={
+            add_to_variable = {
+                var = political_strife_mil
+                value = 1
+            }
+        } 
+    }
+    option = {
+        name = SSW_FRA.3.c #放っておけ
+        custom_effect_tooltip = pawer_up_regi
+        hidden_effect = {
+            add_to_variable = {
+                var = political_strife_regi
+                value = 1
+            }
         }
-    } 
+        custom_effect_tooltip = pawer_up_people
+        hidden_effect = {
+            add_to_variable = {
+                var = political_strife_people
+                value = 1
+            }
+        }
+    }
 }
 
 country_event = {
