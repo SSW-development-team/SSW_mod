@@ -42,9 +42,14 @@ focus_tree = {
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 4.00
 		prerequisite = {
-			focus = With_Archangel
-			focus = Authoritative_nation
+			focus = National_governmet
+			focus = Return_Sima
 		}
+		prerequisite = {
+			focus = Confirm_relationship_with_Germany
+			focus = Agricultural_Guarantee_Fund
+		}
+
 		x = 19
 		y = 6
 		ai_will_do = {
@@ -196,7 +201,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.56
+			}
 		}
 
 	}
@@ -222,7 +229,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = 0.3
+			}
+			add_stability = 0.1
 		}
 
 	}
@@ -248,7 +267,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.52
+			}
 		}
 
 	}
@@ -264,9 +285,22 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_10
+				NOT = {
+					has_global_flag = GER_civil_war  
+					has_global_flag = GER_civil_war_end  
+				}
+			}
+	
 		}
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_11
+				has_global_flag = GER_civil_war  
+			}
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -274,36 +308,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
-		}
-
-	}
-	focus = {
-		id = Authoritative_nation
-		icon = GFX_goal_anschluss
-		cost = 5.00
-		prerequisite = {
-			focus = National_governmet
-		}
-		prerequisite = {
-			focus = Confirm_relationship_with_Germany
-		}
-		x = 17
-		y = 4
-		ai_will_do = {
-			factor = 0
-		}
-		available = {	
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			
+			country_event = {
+				id = SSW_ROM.53
+			}
 		}
 
 	}
@@ -498,36 +505,6 @@ focus_tree = {
 		}
 
 	}
-	focus = {
-		id = With_Archangel
-		icon = GFX_focus_ROM_with_engels
-		cost = 5.00
-		prerequisite = {
-			focus = Agricultural_Guarantee_Fund
-		}
-		prerequisite = {
-			focus = Return_Sima
-		}
-		x = 21
-		y = 4
-		ai_will_do = {
-			factor = 10
-		}
-		available = {	
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			
-		}
-
-	}
-
  #RENEW IRON GURAD
 
 	focus = {
@@ -542,7 +519,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 60
 		}
-		available = {	
+		available = {
+
 		}
 		bypass = {
 		}
@@ -576,6 +554,11 @@ focus_tree = {
 			factor = 100
 		}
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -710,7 +693,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {	
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+	
 		}
 		bypass = {
 		}
@@ -767,6 +755,11 @@ focus_tree = {
 			factor = 10
 		}
 		available = {	
+			custom_trigger_tooltip = {
+				tooltip = ROM_tooltip_9
+				has_global_flag = balkan_order_victory  
+			}
+
 		}
 		bypass = {
 		}
@@ -2563,7 +2556,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Romanian_expansionism
-		icon = GFX_focus_invite_romania
+		icon = GFX_focus_ROM_with_engels
 		cost = 5.00
 		prerequisite = {
 			focus = For_lackland
@@ -3871,7 +3864,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Old_liberal
-		icon = GFX_goal_ITA_com_TUR_alliance
+		icon = GFX_goal_generic_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = Lose
@@ -4053,7 +4046,7 @@ s = {
 	}
 	focus = {
 		id = National_Peasants_Party
-		icon = GFX_ITA_REL_BUL
+		icon = GFX_focus_generic_industry_1
 		cost = 10.00
 		prerequisite = {
 			focus = Lose

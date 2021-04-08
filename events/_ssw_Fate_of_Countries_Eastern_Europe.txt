@@ -656,7 +656,19 @@ country_event = { #ƒKƒŠƒcƒBƒAƒƒhƒƒŠƒA‚Ì‰^–½
 	}
 	option = {
 		name = ssw_foc_eastern_europe.3.b
-		ai_chance = { base = 10 }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 20000000
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				POL = { is_subject_of = ROOT }
@@ -737,7 +749,19 @@ country_event = { #ƒŒƒ€ƒR‚Ì‰^–½
 	}
 	option = {
 		name = ssw_foc_eastern_europe.4.b
-		ai_chance = { base = 10 }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 20000000
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				POL = { is_subject_of = ROOT }
@@ -806,6 +830,13 @@ country_event = { #ƒnƒ“ƒKƒŠ[‚Ì‰^–½
 		ai_chance = { base = 10 }
 		every_state = {
 			limit = {
+				has_state_flag = maybe_old_territory_AUSTRIA_HUNGARY
+				NOT = { has_state_flag = maybe_less_HUN_GAMESTART }
+			}
+			remove_core_of = HUN
+		}
+		every_state = {
+			limit = {
 				is_fully_controlled_by = ROOT
 				has_state_flag = maybe_less_HUN_GAMESTART
 				NOT = {
@@ -813,6 +844,7 @@ country_event = { #ƒnƒ“ƒKƒŠ[‚Ì‰^–½
 					is_claimed_by = ROOT
 				}
 			}
+			add_core_of = HUN
 			HUN = {
 				transfer_state = PREV
 				drop_cosmetic_tag = yes
@@ -823,6 +855,13 @@ country_event = { #ƒnƒ“ƒKƒŠ[‚Ì‰^–½
 	option = {
 		name = ssw_foc_eastern_europe.5.b
 		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_old_territory_AUSTRIA_HUNGARY
+				NOT = { has_state_flag = maybe_less_HUN_GAMESTART }
+			}
+			remove_core_of = HUN
+		}
 		every_state = {
 			limit = {
 				is_fully_controlled_by = ROOT
