@@ -600,4 +600,61 @@ HUN_policy = {
 			}
 		}
 	}
+	revenge_on_the_world = {
+		icon = generic_operation
+		available = {
+			has_army_manpower = { size > 999999 }
+			has_completed_focus = HUN_revenge_on_the_world
+		}
+		visible = {
+			has_completed_focus = HUN_revenge_on_the_world
+			OR = {
+				naval_strength_ratio = {
+					tag = FROM
+					ratio > 0.77
+				}
+				AND = {
+					strength_ratio = {
+						tag = FROM
+						ratio > 0.77
+					}
+					FROM = { is_neighbor_of = ROOT }
+				}
+			}
+			FROM = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		target_trigger = {
+			has_completed_focus = HUN_revenge_on_the_world
+			OR = {
+				naval_strength_ratio = {
+					tag = FROM
+					ratio > 0.77
+				}
+				AND = {
+					strength_ratio = {
+						tag = FROM
+						ratio > 0.77
+					}
+					FROM = { is_neighbor_of = ROOT }
+				}
+			}
+			FROM = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		days_remove = 30
+		remove_effect = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
 }

@@ -3020,6 +3020,7 @@
 				ruling_party = national_fascism
 				elections_allowed = no
 			}
+			hidden_effect = { news_event = { id = ssw_hun.37 hours = 6 } }
 		}
 	}
 	focus = {
@@ -3471,6 +3472,7 @@
 				ruling_party = classical_communism
 				elections_allowed = no
 			}
+			hidden_effect = { news_event = { id = ssw_hun.37 hours = 6 } }
 		}
 	}
 	focus = {
@@ -3602,6 +3604,7 @@
 				ideology = syndicalism_ideology
 				traits = {}
 			}
+			hidden_effect = { news_event = { id = ssw_hun.37 hours = 6 } }
 		}
 	}
 	focus = {
@@ -4077,6 +4080,7 @@
 				popularity = 0.1
 			}
 			set_cosmetic_tag = HUN_vanguard_commune
+			add_ideas = HUN_defense_council_idea
 		}
 	}
 	#国民統一戦線
@@ -4101,6 +4105,169 @@
 				ideology = national_socialism
 				popularity = 0.15
 			}
+		}
+	}
+	#反撃主義ツリー
+	focus = {
+		id = HUN_revanchism
+		icon = GFX_LTV_Hungry
+		prerequisite = {
+			focus = HUN_buy_german_weapons
+			focus = HUN_look_out
+			focus = HUN_avant_garde_revolution
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_buy_german_weapons
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_41
+		}
+	}
+	focus = {
+		id = HUN_revenge_on_romania
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = HUN_revanchism }
+		available = {
+			has_army_manpower = { size > 999999 }
+			ROM = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = ROM
+				NOT = { country_exists = ROM }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = ROM
+		x = -2
+		y = 1
+		relative_position_id = HUN_revanchism
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROM
+			}
+		}
+	}
+	focus = {
+		id = HUN_revenge_on_serbia
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = HUN_revanchism }
+		available = {
+			has_army_manpower = { size > 999999 }
+			SER = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = SER
+				NOT = { country_exists = SER }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = SER
+		x = 0
+		y = 1
+		relative_position_id = HUN_revanchism
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SER
+			}
+		}
+	}
+	focus = {
+		id = HUN_revenge_on_slovakia
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = HUN_revanchism }
+		available = {
+			has_army_manpower = { size > 999999 }
+			SLO = { exists = yes }
+		}
+		bypass = {
+			OR = {
+				has_war_with = SLO
+				NOT = { country_exists = SLO }
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		will_lead_to_war_with = SLO
+		x = 2
+		y = 1
+		relative_position_id = HUN_revanchism
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SLO
+			}
+		}
+	}
+	focus = {
+		id = HUN_reunion_with_the_sea
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = HUN_revenge_on_romania }
+		prerequisite = { focus = HUN_revenge_on_serbia }
+		prerequisite = { focus = HUN_revenge_on_slovakia }
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+			ROM = { capital_scope = { is_controlled_by_myself_or_allies = yes } }
+			SER = { capital_scope = { is_controlled_by_myself_or_allies = yes } }
+			SLO = { capital_scope = { is_controlled_by_myself_or_allies = yes } }
+		}
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = HUN_revenge_on_serbia
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_reunion_with_the_sea
+				bonus = 1.77
+				uses = 6
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = HUN_revenge_on_the_world
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = HUN_reunion_with_the_sea }
+		available = {
+			has_army_manpower = { size > 999999 }
+			custom_trigger_tooltip = {
+				tooltip = pledge_revenge_on_the_world_tt
+				OR = {
+					has_cosmetic_tag = HUN_vanguard_commune
+					has_cosmetic_tag = HUN_national_salvation
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		x = 0
+		y = 1
+		relative_position_id = HUN_reunion_with_the_sea
+		cost = 7
+		ai_will_do = { factor = 10 }
+		available_if_capitulated = yes
+		completion_reward = {
+			unlock_decision_tooltip = revenge_on_the_world
 		}
 	}
 ################################################################################################################

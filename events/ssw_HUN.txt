@@ -749,18 +749,20 @@ news_event = { #ハンガリーの英雄が暗殺される
 		ai_chance = { base = 100 }
 	}
 }
-country_event = { #
+news_event = { #ハンガリーの政権が安定化
 	id = ssw_hun.37
 	title = ssw_hun.37.title
 	desc = ssw_hun.37.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #素晴らしい！
 		name = ssw_hun.37.a
-		ai_chance = { base = 50 }
+		trigger = { original_tag = HUN }
+		ai_chance = { base = 100 }
 	}
-	option = { #
+	option = { #馬鹿の一つ覚えだな…
 		name = ssw_hun.37.b
-		ai_chance = { base = 50 }
+		trigger = { NOT = { original_tag = HUN } }
+		ai_chance = { base = 100 }
 	}
 }
 country_event = { #
