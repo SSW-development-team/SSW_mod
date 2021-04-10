@@ -150,6 +150,11 @@ guiTypes = {
 				name = "Background"		
 				spriteType ="GFX_scrollbar_horisontal_bg"
 				}
+				iconType = {
+					name = "scrollbar_point"
+					position = { x = scrollbar_point1XPos y = 0 }
+					quadTextureSprite = "GFX_scroll_drager"
+				}
 			}
 			#安定度
 			instantTextboxType = {
@@ -283,7 +288,7 @@ guiTypes = {
 			}
 		}
 		containerWindowType = {
-			name = "SSW_Policy_tab_economy_foreign_currency"
+			name = "SSW_Policy_tab_economy_GDP"
 			position = { x = 20 y = 400 }
 			size = { width = 530 height = 250 }
 			background = {
@@ -299,86 +304,6 @@ guiTypes = {
 				maxWidth = 400
 				maxHeight = 20
 				pdx_tooltip = "DESC_TAX_LATE_TEXT"
-			}
-			instantTextboxType = {
-				name = "country_debt_text"
-				position = { x = 50 y = 60 }
-				font = "hoi_36header"
-				borderSize = {x = 0 y = 0}
-				text = "DEBT_TEXT"
-				maxWidth = 400
-				maxHeight = 20
-				pdx_tooltip = "DESC_TAX_LATE_TEXT"
-			}
-			instantTextboxType = {
-				name = "country_foreign_currency_0"
-				position = { x = 10 y = 130 }
-				font = "hoi_18mbs"
-				borderSize = {x = 0 y = 0}
-				text = "FOREIGN_CURRENCY_0"
-				maxWidth = 50
-				maxHeight = 20
-				format = centre
-			}
-			instantTextboxType = {
-				name = "country_foreign_currency_10000"
-				position = { x = 450 y = 130 }
-				font = "hoi_18mbs"
-				borderSize = {x = 0 y = 0}
-				text = "FOREIGN_CURRENCY_10000"
-				maxWidth = 50
-				maxHeight = 20
-				format = centre
-			}
-			instantTextboxType = {
-				name = "country_debt_increase_amount"
-				position = { x = 115 y = 200 }
-				font = "hoi_20mbs"
-				borderSize = {x = 0 y = 0}
-				text = "DEBT_INCREASE_AMOUT"
-				maxWidth = 300
-				maxHeight = 20
-				format = centre
-			}
-			instantTextboxType = {
-				name = "country_replayment_amount"
-				position = { x = 274 y = 40 }
-				font = "hoi_20mbs"
-				borderSize = {x = 0 y = 0}
-				text = "DEBT_REPAYMENT_AMOUT"
-				maxWidth = 300
-				maxHeight = 20
-				format = centre
-			}
-			buttonType = {
-			name = "repayment_button"
-			position = { x = 350 y = 58 }
-			quadTextureSprite = "GFX_button_148x34"
-			buttonFont = "hoi_16mbs"
-			buttonText = "Repay"
-			}
-			buttonType = {
-			name = "repayment_value_increase"
-			position = { x = 330 y = 63 }
-			quadTextureSprite = "GFX_scroll_up"
-			buttonFont = "hoi_16mbs"
-			buttonText = ""
-			}
-			buttonType = {
-			name = "repayment_value_decrease"
-			position = { x = 330 y = 75 }
-			quadTextureSprite = "GFX_scroll_down"
-			buttonFont = "hoi_16mbs"
-			buttonText = ""
-			}
-			containerWindowType = {
-				name = "SSW_Policy_tab_economy_foreign_currency_scrool_bar"
-				position = { x = 30 y = 150 }
-				size = { width = 450 height = 18 }
-				background = {
-				name = "Background"
-				spriteType ="GFX_scrollbar_horisontal_bg"
-				}
 			}
 		}
 		containerWindowType = {
@@ -436,6 +361,191 @@ guiTypes = {
 			orientation = upper_left
 			quadTextureSprite = "GFX_95x40_Light_NoButton"
 			shortcut = "ESCAPE"
+			}
+		}
+	}
+	containerWindowType = {
+		name = "SSW_Policy_tab_social_tab"
+		position = { x=545 y=120 }
+		size = { width = 1050 height = 780 }
+		
+		background = {
+			name = "Background"		
+			spriteType ="GFX_tiled_decisions_bg_small"
+		}
+		buttonType = {
+			name = "close_button"
+			position = { x = -45 y = 8 }
+			orientation = upper_right
+			quadTextureSprite = "GFX_closebutton"
+			shortcut = "ESCAPE"
+		}
+		containerWindowType = {
+			name = "SSW_Policy_social_tab_Status"
+			position = { x = 20 y = 40 }
+			size = { width = 1020 height = 700 }
+		
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			containerWindowType = {
+			name = "SSW_Policy_social_tab_Status_industrialization"
+			position = { x = 22 y = 40 }
+			size = { width = 940 height = 150 }
+		
+				background = {
+				name = "Background"		
+				spriteType ="GFX_deployment_item_bg"
+				}
+				instantTextboxType = {
+					name = "industrialization_text0"
+					position = { x = 20 y = 90 }
+					font = "hoi_18mbs"
+					text = "0%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "industrialization_text20"
+					position = { x = 144 y = 90 }
+					font = "hoi_18mbs"
+					text = "20%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_1"
+				position = { x = 20 y = 20 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_status_period_active"
+				}
+				instantTextboxType = {
+					name = "industrialization_level_1_text"
+					position = { x = 325 y = 90 }
+					font = "hoi_18mbs"
+					text = "40%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_1_arrow"
+				position = { x = 157 y = 43 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_arrow_deactive"
+				}
+				instantTextboxType = {
+					name = "industrialization_text40"
+					position = { x = 325 y = 90 }
+					font = "hoi_18mbs"
+					text = "40%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_2"
+				position = { x = 202 y = 20 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_status_period_deactive"
+				}
+				iconType = {
+				name = "industrialization_level_2_arrow"
+				position = { x = 338 y = 43 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_arrow_deactive"
+				}
+				instantTextboxType = {
+					name = "industrialization_text60"
+					position = { x = 507 y = 90 }
+					font = "hoi_18mbs"
+					text = "60%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_3"
+				position = { x = 383 y = 20 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_status_period_deactive"
+				}
+				iconType = {
+				name = "industrialization_level_3_arrow"
+				position = { x = 520 y = 43 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_arrow_deactive"
+				}
+				instantTextboxType = {
+					name = "industrialization_text80"
+					position = { x = 690 y = 90 }
+					font = "hoi_18mbs"
+					text = "80%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_4"
+				position = { x = 565 y = 20 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_status_period_deactive"
+				}
+				iconType = {
+				name = "industrialization_level_4_arrow"
+				position = { x = 703 y = 43 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_arrow_deactive"
+				}
+				instantTextboxType = {
+					name = "industrialization_text100"
+					position = { x = 870 y = 90 }
+					font = "hoi_18mbs"
+					text = "100%"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				iconType = {
+				name = "industrialization_level_5"
+				position = { x = 747 y = 20 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_status_period_deactive"
+				}
+				instantTextboxType = {
+					name = "industrialization_late_text"
+					position = { x = 650 y = 108 }
+					font = "hoi_30header"
+					text = "Industrialization_late_text_per"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+			containerWindowType = {
+			name = "SSW_Policy_social_tab_Status_poverty_rate"
+			position = { x = 22 y = 200 }
+			size = { width = 780 height = 150 }
+		
+				background = {
+				name = "Background"		
+				spriteType ="GFX_deployment_item_bg"
+				}
+			}
+			containerWindowType = {
+			name = "SSW_Policy_social_tab_Status_literacy_rate"
+			position = { x = 22 y = 360 }
+			size = { width = 780 height = 150 }
+		
+				background = {
+				name = "Background"		
+				spriteType ="GFX_deployment_item_bg"
+				}
+			}
+			containerWindowType = {
+			name = "SSW_Policy_social_tab_Status_research_institute"
+			position = { x = 22 y = 520 }
+			size = { width = 780 height = 150 }
+		
+				background = {
+				name = "Background"		
+				spriteType ="GFX_deployment_item_bg"
+				}
 			}
 		}
 	}

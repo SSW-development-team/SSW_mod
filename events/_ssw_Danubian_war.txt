@@ -42,6 +42,8 @@ country_event = { #ニシュ会談
 			add_to_faction = SER
 		}
 		hidden_effect = {
+			ROM = { add_ideas = winning_event_1 }
+			SER = { add_ideas = winning_event_5 }
 			HUN = {
 				country_event = {
 					id = Danubian_war.3
@@ -103,9 +105,12 @@ country_event = { #バルカン新秩序がハンガリーへ侵攻
 		}
 		hidden_effect = {
 			every_country = {
-                limit = { capital_is_europe = yes }
-                set_country_flag = big_event_custom_donau_war
-            }
+                		limit = { 
+					capital_is_europe = yes 
+					is_ai = no
+				}
+                		set_country_flag = big_event_custom_donau_war
+            		}
 			ROM = {
 				country_event = {
 					id = Danubian_war.19
@@ -282,21 +287,26 @@ country_event = { #
 	trigger = {
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
-		original_tag = HUN
+		is_faction_leader = yes
+		OR = {
+			original_tag = BUL
+			original_tag = CRO
+			original_tag = HUN
+		}
 		OR = {
 			NOT = { country_exists = ROM }
 			ROM = { is_subject = yes }
-			ROM = { is_subject_of = HUN }
+			ROM = { is_subject_of = ROOT }
 			any_other_country = {
 				original_tag = ROM
-				has_government = authority_despotism
+				has_government = authority_democracy
 				has_war = no
 			}
 		}
 		OR = {
 			NOT = { country_exists = SER }
 			SER = { is_subject = yes }
-			SER = { is_subject_of = HUN }
+			SER = { is_subject_of = ROOT }
 			any_other_country = {
 				original_tag = SER
 				has_government = authority_despotism
@@ -432,10 +442,9 @@ country_event = { #
 			transfer_state = 198
 		}
 		ROM = {
-			transfer_state = 81
 			transfer_state = 46
 			transfer_state = 79
-			transfer_state = 80
+			transfer_state = 81
 			set_popularities = {
 				classical_communism = 2
 				social_democracy = 9
@@ -457,9 +466,8 @@ country_event = { #
 			add_state_claim = 975
 		}
 		SER = {
-			transfer_state = 802
-			transfer_state = 108
 			transfer_state = 107
+			transfer_state = 108
 			set_politics = {
 				ruling_party = authority_democracy
 				elections_allowed = no
@@ -495,11 +503,25 @@ country_event = { #
 				ideology = national_fascism
 				popularity = 0.05
 			}
+			country_lock_all_division_template = no
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
 			set_global_flag = danubian_war_end
 			set_global_flag = little_axis_victory
+			if = {
+				limit = { country_exists = POL }
+				POL = {
+					transfer_state = 80
+					add_state_claim = 80
+				}
+				else = { ROM = { transfer_state = 80 } }
+			}
+			if = {
+				limit = { country_exists = ALB }
+				ALB = { transfer_state = 802 }
+				else = { KOS = { transfer_state = 802 } }
+			}
 		}
 	}
 }
@@ -823,21 +845,25 @@ country_event = { #
 	trigger = {
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
-		original_tag = ROM
+		is_faction_leader = yes
+		OR = {
+			original_tag = ROM
+			original_tag = SER
+		}
 		OR = {
 			NOT = { country_exists = BUL }
 			BUL = { is_subject = yes }
-			BUL = { is_subject_of = ROM }
+			BUL = { is_subject_of = ROOT }
 			any_other_country = {
 				original_tag = BUL
-				has_government = authority_despotism
+				has_government = progressive_communism
 				has_war = no
 			}
 		}
 		OR = {
 			NOT = { country_exists = CRO }
 			CRO = { is_subject = yes }
-			CRO = { is_subject_of = ROM }
+			CRO = { is_subject_of = ROOT }
 			any_other_country = {
 				original_tag = CRO
 				has_government = authority_despotism
@@ -847,10 +873,10 @@ country_event = { #
 		OR = {
 			NOT = { country_exists = HUN }
 			HUN = { is_subject = yes }
-			HUN = { is_subject_of = ROM }
+			HUN = { is_subject_of = ROOT }
 			any_other_country = {
 				original_tag = HUN
-				has_government = authority_despotism
+				has_government = social_liberalism
 				has_war = no
 			}
 		}
@@ -1038,6 +1064,7 @@ country_event = { #
 				limit = { has_idea = HUN_restoration_flame_1 }
 				remove_ideas = HUN_restoration_flame_1
 			}
+			country_lock_all_division_template = no
 		}
 		hidden_effect = {
 			news_event = { id = Danubian_war.20 }
@@ -1089,7 +1116,16 @@ country_event = { #ハンガリーが降伏直前に…
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
 		original_tag = HUN
-		surrender_progress > 0.6
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = {
+					is_in_faction_with = BUL
+					is_in_faction_with = CRO
+				}
+			}
+		}
 		OR = {
 			has_war_with = ROM
 			has_war_with = SER
@@ -1281,7 +1317,16 @@ country_event = { #クロアチアが降伏直前に…
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
 		original_tag = CRO
-		surrender_progress > 0.6
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = {
+					is_in_faction_with = BUL
+					is_in_faction_with = HUN
+				}
+			}
+		}
 		OR = {
 			has_war_with = ROM
 			has_war_with = SER
@@ -1356,7 +1401,16 @@ country_event = { #ブルガリアが降伏直前に…
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
 		original_tag = BUL
-		surrender_progress > 0.6
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = {
+					is_in_faction_with = CRO
+					is_in_faction_with = HUN
+				}
+			}
+		}
 		OR = {
 			has_war_with = ROM
 			has_war_with = SER
@@ -1417,7 +1471,7 @@ country_event = { #ブルガリアが降伏直前に…
 		name = Danubian_war.29.b
 		ai_chance = { base = 20 }
 		start_civil_war = {
-			ideology = authority_despotism
+			ideology = progressive_communism
 			size = 0.2
 		}
 	}
@@ -1431,7 +1485,13 @@ country_event = { #ルーマニアが降伏直前に…
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
 		original_tag = ROM
-		surrender_progress > 0.6
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = { is_in_faction_with = SER }
+			}
+		}
 		OR = {
 			has_war_with = BUL
 			has_war_with = CRO
@@ -1491,7 +1551,13 @@ country_event = { #セルビアが降伏直前に…
 		has_global_flag = Danubian_war
 		NOT = { has_global_flag = danubian_war_end }
 		original_tag = SER
-		surrender_progress > 0.35
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = { is_in_faction_with = ROM }
+			}
+		}
 		OR = {
 			has_war_with = BUL
 			has_war_with = CRO

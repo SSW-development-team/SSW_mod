@@ -692,6 +692,35 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_chinese_deportation
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = national_fascism
+				}
+				add_popularity = {
+					ideology = national_fascism
+					popularity = 0.20
+				}
+				add_political_power = 100
+			}
+			if = {
+				limit = {
+					has_government = national_socialism
+				}
+				add_popularity = {
+					ideology = national_socialism
+					popularity = 0.20
+				}
+				add_war_support = 0.15
+			}
+		}
 		x = 35
 		y = 7
 
@@ -736,6 +765,12 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_tibetan_army
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_invest_weappon
+				days = 720
+			}
+		}
 		x = 42
 		y = 1
 
@@ -746,6 +781,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_invest_for_weapons
+		
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = 
+				add_idea = TIB_improving_army
+			}
 		}
 		x = 39
 		y = 2

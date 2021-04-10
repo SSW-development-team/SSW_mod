@@ -3,16 +3,16 @@ FRA_Kenryoku_toso = {#権力闘争
 	FRA_dec_Opposition_demonstrations = { #タイムイベ
 		icon = eng_trade_unions_support
 		available = {
-
+			has_country_flag = FRA_Opposition_demonstrations
 		}
 
-		activation = {
+		visible = {
 			has_country_flag = FRA_Opposition_demonstrations
 		}
 
 		is_good = no
 
-		days_mission_timeout = 30
+		days_mission_timeout = 15
 
 		fire_only_once = yes
 
@@ -25,60 +25,136 @@ FRA_Kenryoku_toso = {#権力闘争
 				}
 			}
 			custom_effect_tooltip = pawer_up_mil
-			hidden_effect ={
+			hidden_effect = {
 				add_to_variable = {
 					var = political_strife_mil
 					value = 1
 				}
 			}
+			custom_effect_tooltip = pawer_up_people
+			hidden_effect = {
+				add_to_variable = {
+					var = political_strife_people
+					value = 1
+				}
+			}
+			clr_country_flag = FRA_dec_Opposition_demonstrations
+			set_country_flag = FRA_dec_General_strike_coping
 		}
 	}
 
 	FRA_dec_Dealing_with_opposition_demonstrations = {
 		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_Opposition_demonstrations
+		}
+
 		visible = {
 			has_decision = FRA_dec_Opposition_demonstrations
 		}
 
 		fire_only_once = yes
 
-		cost = 20
+		cost = 30
 
-		remove_effect = {
-			custom_effect_tooltip = pawer_up_gov
-			hidden_effect = {
-				add_to_variable = {
-					var = political_strife_gov
-					value = 2
+		complete_effect = {
+			FRA = {
+				country_event = {
+					id = SSW_FRA.3
+					days = 1
 				}
+				clr_country_flag = FRA_dec_Opposition_demonstrations
+				set_country_flag = FRA_dec_General_strike_coping
 			}
 		}
-		
+	}
+
+	FRA_dec_General_strike_coping = { #タイムイベ
+		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_dec_General_strike_coping
+		}
+
+		visible = {
+			has_country_flag = FRA_dec_General_strike_coping
+		}
+
+		is_good = no
+
+		days_mission_timeout = 30
+
+		fire_only_once = yes
+
+		timeout_effect = {
+			custom_effect_tooltip = pawer_up_regi
+			hidden_effect = {
+			add_to_variable = {
+				var = political_strife_regi
+				value = 1
+			}
+		}
+		custom_effect_tooltip = pawer_up_mil
+			hidden_effect = {
+				add_to_variable = {
+					var = political_strife_mil
+					value = 1
+				}
+			}
+			clr_country_flag = FRA_dec_General_strike_coping
+		}
 	}
 
 	FRA_dec_Worker_support = {#労働者への支援
 		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_dec_General_strike_coping
+		}
+
 		visible = {
-			always = no
+			has_country_flag = FRA_dec_General_strike_coping
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 20
 		}
-		cost = 10
-		days_remove = 20
-		modifier = {
-			
-		}
+		cost = 20
+		days_remove = 10
+
 		remove_effect = {
 			custom_effect_tooltip = pawer_up_gov
 			hidden_effect ={
 				add_to_variable = {
 					var = political_strife_gov
-					value = 10
+					value = 2
 				}
-			}
+			}			
 		}
 	}
+
+	FRA_dec_Guarantee_of_labor_welfare = {#労働福祉の保障
+	icon = eng_trade_unions_support
+	available = {
+		has_country_flag = FRA_dec_General_strike_coping
+	}
+
+	visible = {
+		has_country_flag = FRA_dec_General_strike_coping
+	}
+	ai_will_do = {
+		factor = 20
+	}
+	cost = 15
+	days_remove = 10
+
+	remove_effect = {
+		custom_effect_tooltip = pawer_up_gov
+		hidden_effect ={
+			add_to_variable = {
+				var = political_strife_gov
+				value = 1
+			}
+		}			
+	}
+}
 
 	FRA_dec_Opposition_crackdown = {#反対派の弾圧
 		icon = eng_trade_unions_support
@@ -103,6 +179,8 @@ FRA_Kenryoku_toso = {#権力闘争
 			}
 		}
 	}
+
+	
 
 	FRA_dec_Democratic_arrest = {#民主主義者の逮捕
 		icon = eng_trade_unions_support
