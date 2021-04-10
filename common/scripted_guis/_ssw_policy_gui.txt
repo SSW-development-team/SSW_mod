@@ -44,7 +44,10 @@ scripted_gui = {
 				set_variable = { selected_policy_button = 0 }
 			}
 			economy_focus_icon_button_click = {
-				set_variable = { selected_policy_button = 1 }
+				set_variable = { selected_policy_button_economy = 1 }
+			}
+			social_focus_icon_button_click = {
+				set_variable = { selected_policy_button_social = 1 }
 			}
 		}
 	}
@@ -53,7 +56,7 @@ scripted_gui = {
 		context_type = player_context
 
 		visible = {
-			check_variable = { selected_policy_button = 1 }
+			check_variable = { selected_policy_button_economy = 1 }
 		}
 
 		ai_enabled = {
@@ -81,7 +84,7 @@ scripted_gui = {
 			set_variable = { corporate_law_Antitrust = 0 }
 			}
 			back_button_click = {
-				set_variable = { selected_policy_button = 0 }
+				set_variable = { selected_policy_button_economy = 0 }
 			}
 			repayment_value_increase_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 1 }
@@ -89,7 +92,7 @@ scripted_gui = {
 			repayment_value_increase_shift_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 10 }
 			}
-			repayment_value_increase_control_shift_click = {
+			repayment_value_increase_control_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 100 }
 			}
 			repayment_value_decrease_click = {
@@ -98,12 +101,45 @@ scripted_gui = {
 			repayment_value_decrease_shift_click = {
 				subtract_from_variable = { var = country_debt_repayment_amout value = 10 }
 			}
-			repayment_value_decrease_control_shift_click = {
+			repayment_value_decrease_control_click = {
 				subtract_from_variable = { var = country_debt_repayment_amout value = 100 }
 			}
 			repayment_button_click  = {
 				subtract_from_variable = { country_debt_value = country_debt_repayment_amout }
 			}
+			YES_button_Light_1_click = {
+				add_to_variable = { var = scrollbar_point1XPos value = 1 }
+			}
+		}
+		properties = {
+			scrollbar_point = {
+				x = scrollbar_point1XPos
+				y = scrollbar_point1YPos
+			}
+		}
+	}
+	SSW_Policy_tab_social_view = {
+		window_name = "SSW_Policy_tab_social_tab"
+		context_type = player_context
+
+		visible = {
+			check_variable = { selected_policy_button_social = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		triggers = {
+			industrialization_level_1_visible = {
+				check_variable = { corporate_law_Antitrust < 20 }
+			}
+		}
+		effects = {
+			close_button_click = {
+			set_variable = { selected_policy_button_social = 0 }
+			}
+		}
+		properties = {
 		}
 	}
 }
