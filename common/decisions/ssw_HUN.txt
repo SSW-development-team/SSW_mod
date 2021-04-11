@@ -159,6 +159,7 @@ HUN_policy = {
 		icon = generic_operation
 		available = { has_equipment = { infantry_equipment > 2999 } }
 		visible = {
+			has_completed_focus = HUN_86
 			has_global_flag = GER_civil_war_end
 			FROM = {
 				exists = yes
@@ -195,6 +196,7 @@ HUN_policy = {
 			}
 		}
 		target_trigger = {
+			has_completed_focus = HUN_86
 			has_global_flag = GER_civil_war_end
 			FROM = {
 				exists = yes
@@ -464,113 +466,61 @@ HUN_policy = {
 			}
 		}
 	}
-	HUN_integrate_commune_1 = {
-		name = SPR_integrate_commune
-		icon = generic_nationalism
+	equipment_robbery = {
+		icon = generic_operation
 		available = {
-			NOT = { has_country_flag = adding_state_core }
-			FROM = {
-				OR = {
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
-		}
-		state_target = yes
-		on_map_mode = map_only
-		target_array = controlled_states
-		target_trigger = {
 			has_government = anarchism
 			has_completed_focus = HUN_destruction_of_culture
-			FROM = {
-				NOT = { is_core_of = ROOT }
-				OR = {
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
 		}
-		cost = 0
 		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 14
-		modifier = { political_power_gain = -1 }
 		visible = {
 			has_government = anarchism
-			FROM = {
-				OR = {
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
+			has_completed_focus = HUN_destruction_of_culture
 		}
-		complete_effect = { set_country_flag = adding_state_core }
+		ai_will_do = { factor = 10 }
+		days_remove = 35
+		cost = 50
 		remove_effect = {
-			clr_country_flag = adding_state_core
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_4
-				amount = 3000
+				amount = 1000
 				producer = HUN
 			}
 			add_equipment_to_stockpile = {
 				type = support_equipment_1
-				amount = 3000
+				amount = 1000
 				producer = HUN
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment_1
-				amount = 3000
+				amount = 1000
 				producer = HUN
-			}
-			FROM = {
-				add_core_of = ROOT
-				set_building_level = {
-					type = infrastructure
-					level = 0
-					instant_build = yes
-				}
 			}
 		}
 	}
-	HUN_integrate_commune_2 = {
-		name = SPR_integrate_commune
+	add_core_states_of_integrate_commune = {
 		icon = generic_nationalism
 		available = {
 			NOT = { has_country_flag = adding_state_core }
-			FROM = {
-				NOT = {
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
+			FROM = { NOT = { is_core_of = ROOT } }
 		}
 		state_target = yes
-		on_map_mode = map_only
+		on_map_mode = map_and_decisions_view
 		target_array = controlled_states
 		target_trigger = {
 			has_government = anarchism
-			FROM = {
-				NOT = {
-					is_core_of = ROOT
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
+			has_completed_focus = HUN_destruction_of_culture
+			FROM = { NOT = { is_core_of = ROOT } }
 		}
 		cost = 0
-		fire_only_once = no
+		fire_only_once = yes
 		ai_will_do = { factor = 1 }
 		days_remove = 14
 		modifier = { political_power_gain = -1 }
 		visible = {
 			has_government = anarchism
 			has_completed_focus = HUN_destruction_of_culture
-			FROM = {
-				NOT = {
-					is_island_state = yes
-					any_neighbor_state = { is_core_of = ROOT }
-				}
-			}
+			FROM = { NOT = { is_core_of = ROOT } }
 		}
 		complete_effect = { set_country_flag = adding_state_core }
 		remove_effect = {

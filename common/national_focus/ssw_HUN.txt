@@ -3558,6 +3558,24 @@
 		}
 	}
 	focus = {
+		id = HUN_call_to_the_people
+		icon = GFX_goal_generic_propaganda
+		prerequisite = {
+			focus = HUN_return_to_classical_thought
+			focus = HUN_cooperation_with_the_labor_union
+		}
+		x = -2
+		y = 1
+		relative_position_id = HUN_cooperation_with_the_labor_union
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.15
+		}
+	}
+	focus = {
 		id = HUN_supporting_the_communist_party_moderate
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = HUN_cooperation_with_the_labor_union }
@@ -3843,6 +3861,11 @@
 				ruling_party = anarchism
 				elections_allowed = no
 			}
+			set_party_name = {
+				ideology = anarchism
+				long_name = HUN_anarchism_party_long
+				name = HUN_anarchism_party
+			}
 			retire_ideology_leader = anarchism
 			create_country_leader = {
 				name = "Anarchist Commune"
@@ -4002,7 +4025,8 @@
 					instant_build = yes
 				}
 			}
-			unlock_decision_tooltip = HUN_integrate_commune_1
+			unlock_decision_tooltip = equipment_robbery
+			unlock_decision_tooltip = add_core_states_of_integrate_commune
 		}
 	}
 	focus = {
@@ -4098,13 +4122,477 @@
 		completion_reward = {
 			add_political_power = 130
 			add_popularity = {
-				ideology = national_fascism
+				ideology = progressive_communism
 				popularity = 0.15
 			}
 			add_popularity = {
 				ideology = national_socialism
 				popularity = 0.15
 			}
+			set_party_name = {
+				ideology = progressive_communism
+				long_name = HUN_national_salvation_party_long
+				name = HUN_national_salvation_party
+			}
+			set_party_name = {
+				ideology = national_socialism
+				long_name = HUN_national_salvation_party_gns_long
+				name = HUN_national_salvation_party_gns
+			}
+			set_cosmetic_tag = HUN_national_salvation
+			country_event = { id = ssw_hun.38 days = 1 }
+		}
+	}
+	focus = {
+		id = HUN_accelerate_armoring
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = HUN_government_of_national_salvation }
+		x = -2
+		y = 1
+		relative_position_id = HUN_government_of_national_salvation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.5
+				uses = 10
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = HUN_devil_in_the_sky
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = HUN_government_of_national_salvation }
+		x = 0
+		y = 1
+		relative_position_id = HUN_government_of_national_salvation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_devil_in_the_sky
+				bonus = 1.5
+				uses = 10
+				category = light_fighter
+				category = naval_bomber
+				category = cas_bomber
+				category = tactical_bomber
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus = {
+		id = HUN_secure_industrial_land_in_each_region
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = HUN_government_of_national_salvation }
+		x = 2
+		y = 1
+		relative_position_id = HUN_government_of_national_salvation
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.5
+				uses = 2
+				category = industry
+			}
+			every_state = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 10
+			}
+		}
+	}
+	focus = {
+		id = HUN_army_super_strengthening
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = HUN_accelerate_armoring }
+		prerequisite = { focus = HUN_devil_in_the_sky }
+		prerequisite = { focus = HUN_secure_industrial_land_in_each_region }
+		x = -2
+		y = 1
+		relative_position_id = HUN_accelerate_armoring
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_43
+		}
+	}
+	focus = {
+		id = HUN_review_of_production
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = HUN_accelerate_armoring }
+		prerequisite = { focus = HUN_devil_in_the_sky }
+		prerequisite = { focus = HUN_secure_industrial_land_in_each_region }
+		x = 0
+		y = 1
+		relative_position_id = HUN_accelerate_armoring
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_44
+		}
+	}
+	focus = {
+		id = HUN_super_strengthening_of_the_air_force
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = HUN_accelerate_armoring }
+		prerequisite = { focus = HUN_devil_in_the_sky }
+		prerequisite = { focus = HUN_secure_industrial_land_in_each_region }
+		x = 0
+		y = 1
+		relative_position_id = HUN_devil_in_the_sky
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_45
+		}
+	}
+	focus = {
+		id = HUN_new_research_system
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = HUN_accelerate_armoring }
+		prerequisite = { focus = HUN_devil_in_the_sky }
+		prerequisite = { focus = HUN_secure_industrial_land_in_each_region }
+		x = 0
+		y = 1
+		relative_position_id = HUN_secure_industrial_land_in_each_region
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_46
+		}
+	}
+	focus = {
+		id = HUN_investing_in_the_private_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = HUN_accelerate_armoring }
+		prerequisite = { focus = HUN_devil_in_the_sky }
+		prerequisite = { focus = HUN_secure_industrial_land_in_each_region }
+		x = 2
+		y = 1
+		relative_position_id = HUN_secure_industrial_land_in_each_region
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 10 }
+			every_state = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_new_army
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = HUN_army_super_strengthening }
+		x = 0
+		y = 1
+		relative_position_id = HUN_army_super_strengthening
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = hun_ideas_43 }
+				swap_ideas = {
+					remove_idea = hun_ideas_43
+					add_idea = hun_ideas_47
+				}
+				else = { add_ideas = hun_ideas_47 }
+			}
+		}
+	}
+	focus = {
+		id = HUN_industrial_diversification
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = HUN_review_of_production }
+		x = 0
+		y = 1
+		relative_position_id = HUN_review_of_production
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = hun_ideas_44 }
+				swap_ideas = {
+					remove_idea = hun_ideas_44
+					add_idea = hun_ideas_48
+				}
+				else = { add_ideas = hun_ideas_48 }
+			}
+		}
+	}
+	focus = {
+		id = HUN_improvemen_of_air_force_tactics
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = HUN_super_strengthening_of_the_air_force }
+		x = 0
+		y = 1
+		relative_position_id = HUN_super_strengthening_of_the_air_force
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = hun_ideas_45 }
+				swap_ideas = {
+					remove_idea = hun_ideas_45
+					add_idea = hun_ideas_49
+				}
+				else = { add_ideas = hun_ideas_49 }
+			}
+		}
+	}
+	focus = {
+		id = HUN_nationalization_of_research_institute
+		icon = GFX_focus_research
+		prerequisite = { focus = HUN_new_research_system }
+		x = 0
+		y = 1
+		relative_position_id = HUN_new_research_system
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = hun_ideas_46 }
+				swap_ideas = {
+					remove_idea = hun_ideas_46
+					add_idea = hun_ideas_50
+				}
+				else = { add_ideas = hun_ideas_50 }
+			}
+		}
+	}
+	focus = {
+		id = HUN_strengthening_the_munitions_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = HUN_investing_in_the_private_industry }
+		x = 0
+		y = 1
+		relative_position_id = HUN_investing_in_the_private_industry
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 10 }
+			every_state = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_tomorrow_to_fight
+		icon = GFX_focus_up_joan_of_arc
+		prerequisite = { focus = HUN_new_army }
+		x = 0
+		y = 1
+		relative_position_id = HUN_new_army
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_63
+		}
+	}
+	focus = {
+		id = HUN_support_for_workers
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = HUN_industrial_diversification }
+		x = 0
+		y = 1
+		relative_position_id = HUN_industrial_diversification
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_64
+		}
+	}
+	focus = {
+		id = HUN_national_revolution
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = HUN_improvemen_of_air_force_tactics }
+		x = 0
+		y = 1
+		relative_position_id = HUN_improvemen_of_air_force_tactics
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.1
+			add_ideas = hun_ideas_65
+		}
+	}
+	focus = {
+		id = HUN_improvement_of_spirit
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = HUN_nationalization_of_research_institute }
+		x = 0
+		y = 1
+		relative_position_id = HUN_nationalization_of_research_institute
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+	}
+	focus = {
+		id = HUN_beyond_the_wall_of_thought
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = HUN_strengthening_the_munitions_industry }
+		x = 0
+		y = 1
+		relative_position_id = HUN_strengthening_the_munitions_industry
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = national_socialism
+				popularity = 0.15
+			}
+			hidden_effect = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = HUN_unwavering_nationalism
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = HUN_tomorrow_to_fight }
+		prerequisite = { focus = HUN_support_for_workers }
+		prerequisite = { focus = HUN_national_revolution }
+		prerequisite = { focus = HUN_improvement_of_spirit }
+		prerequisite = { focus = HUN_beyond_the_wall_of_thought }
+		x = -2
+		y = 1
+		relative_position_id = HUN_national_revolution
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = HUN_evolution_of_infantry_equipment
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = HUN_tomorrow_to_fight }
+		prerequisite = { focus = HUN_support_for_workers }
+		prerequisite = { focus = HUN_national_revolution }
+		prerequisite = { focus = HUN_improvement_of_spirit }
+		prerequisite = { focus = HUN_beyond_the_wall_of_thought }
+		x = 0
+		y = 1
+		relative_position_id = HUN_national_revolution
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.5
+				uses = 10
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = HUN_remnants_of_the_kingdom
+		icon = GFX_focus_hun_elect_a_king
+		prerequisite = { focus = HUN_tomorrow_to_fight }
+		prerequisite = { focus = HUN_support_for_workers }
+		prerequisite = { focus = HUN_national_revolution }
+		prerequisite = { focus = HUN_improvement_of_spirit }
+		prerequisite = { focus = HUN_beyond_the_wall_of_thought }
+		x = 2
+		y = 1
+		relative_position_id = HUN_national_revolution
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.5
+				uses = 10
+				category = land_doctrine
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = HUN_my_beloved_homeland
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = HUN_unwavering_nationalism }
+		prerequisite = { focus = HUN_evolution_of_infantry_equipment }
+		prerequisite = { focus = HUN_remnants_of_the_kingdom }
+		x = 0
+		y = 1
+		relative_position_id = HUN_evolution_of_infantry_equipment
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = hun_ideas_66
 		}
 	}
 	#反撃主義ツリー
@@ -4112,6 +4600,7 @@
 		id = HUN_revanchism
 		icon = GFX_LTV_Hungry
 		prerequisite = {
+			focus = HUN_my_beloved_homeland
 			focus = HUN_buy_german_weapons
 			focus = HUN_look_out
 			focus = HUN_avant_garde_revolution
@@ -4132,7 +4621,7 @@
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = HUN_revanchism }
 		available = {
-			has_army_manpower = { size > 999999 }
+			has_army_manpower = { size > 749999 }
 			ROM = { exists = yes }
 		}
 		bypass = {
@@ -4161,7 +4650,7 @@
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = HUN_revanchism }
 		available = {
-			has_army_manpower = { size > 999999 }
+			has_army_manpower = { size > 749999 }
 			SER = { exists = yes }
 		}
 		bypass = {
@@ -4190,7 +4679,7 @@
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = HUN_revanchism }
 		available = {
-			has_army_manpower = { size > 999999 }
+			has_army_manpower = { size > 749999 }
 			SLO = { exists = yes }
 		}
 		bypass = {

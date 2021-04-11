@@ -765,18 +765,32 @@ news_event = { #ハンガリーの政権が安定化
 		ai_chance = { base = 100 }
 	}
 }
-country_event = { #
+country_event = { #新総統
 	id = ssw_hun.38
 	title = ssw_hun.38.title
 	desc = ssw_hun.38.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #ラースローこそが英雄だ。
 		name = ssw_hun.38.a
 		ai_chance = { base = 50 }
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.25
+		}
+		add_ideas = hun_ideas_42
 	}
-	option = { #
+	option = { #フェレンツこそが英雄だ。
 		name = ssw_hun.38.b
 		ai_chance = { base = 50 }
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = national_socialism
+			elections_allowed = no
+		}
+		add_ideas = HUN_inauguration_of_the_new_president
 	}
 }
 country_event = { #

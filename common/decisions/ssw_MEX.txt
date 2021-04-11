@@ -17,7 +17,10 @@ MEX_social_democracy_policy = {
 		}
 		activation = { original_tag = MEX }
 		ai_will_do = { factor = 10 }
-		visible = { original_tag = MEX }
+		visible = {
+			original_tag = MEX
+			NOT = { has_global_flag = mexican_civil_war }
+		}
 		complete_effect = { add_political_power = 50 }
 		timeout_effect = { country_event = { id = ssw_mex.0 hours = 6 } }
 	}
