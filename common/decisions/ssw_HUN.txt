@@ -482,7 +482,7 @@ HUN_policy = {
 		cost = 50
 		remove_effect = {
 			add_equipment_to_stockpile = {
-				type = infantry_equipment_4
+				type = infantry_equipment_2
 				amount = 1000
 				producer = HUN
 			}
@@ -526,7 +526,7 @@ HUN_policy = {
 		remove_effect = {
 			clr_country_flag = adding_state_core
 			add_equipment_to_stockpile = {
-				type = infantry_equipment_4
+				type = infantry_equipment_2
 				amount = 3000
 				producer = HUN
 			}
@@ -605,6 +605,50 @@ HUN_policy = {
 				target = FROM
 				type = annex_everything
 			}
+		}
+	}
+	alliance_with_the_socialist = {
+		icon = generic_operation
+		available = {
+			is_in_faction = no
+			OR = {
+				has_completed_focus = HUN_take_power
+				has_completed_focus = HUN_syndicalism_revolution
+			}
+			NOT = { has_war_with = FROM }
+		}
+		visible = {
+			is_in_faction = no
+			OR = {
+				has_completed_focus = HUN_take_power
+				has_completed_focus = HUN_syndicalism_revolution
+			}
+			NOT = { has_war_with = FROM }
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				OR = {
+					has_government = progressive_communism
+					has_government = classical_communism
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				OR = {
+					has_government = progressive_communism
+					has_government = classical_communism
+				}
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		days_remove = 70
+		complete_effect = {
+			FROM = { country_event = { id = ssw_faction.4 } }
 		}
 	}
 }
