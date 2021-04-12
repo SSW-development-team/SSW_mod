@@ -951,6 +951,12 @@ add_idea = UTC_idea_11
 		add_ideas = UTC_idea_21
 		army_experience = 50
 		}
+		bypass = {
+			OR = {
+				has_war_with = FSA
+				has_war_with = ALF
+			}
+		}
 	}
 	focus = {
 		#再軍備のための工場建築
@@ -966,6 +972,13 @@ add_idea = UTC_idea_11
 		completion_reward = {
 		add_ideas = UTC_idea_22
 		}
+		
+		bypass = {
+			OR = {
+				has_war_with = FSA
+				has_war_with = ALF
+			}
+		}
 	}
 	focus = {
 		#自動車の製造
@@ -980,6 +993,13 @@ add_idea = UTC_idea_11
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			add_ideas = UTC_idea_20
+		}
+		
+		bypass = {
+			OR = {
+				has_war_with = FSA
+				has_war_with = ALF
+			}
 		}
 	}
 	focus = {
@@ -1001,6 +1021,13 @@ add_idea = UTC_idea_11
 			}
 			air_experience = 50
 		}
+		
+		bypass = {
+			OR = {
+				has_war_with = FSA
+				has_war_with = ALF
+			}
+		}
 	}
 	focus = {
 		#内戦の再開
@@ -1020,11 +1047,18 @@ add_idea = UTC_idea_11
 			add_stability = -0.05
 			add_ideas = UTC_idea_21
 		}
-		available = {
+		bypass = {
 			OR = {
 				has_war_with = FSA
 				has_war_with = ALF
 			}
+		}
+		completion_reward = {
+			add_ideas = partial_economic_mobilisation
+		}
+
+		completion_reward = {
+			add_ideas = limited_conscription
 		}
 	}
 	focus = {
@@ -1068,7 +1102,7 @@ add_idea = UTC_idea_11
 		mutually_exclusive = {
 			focus = UTC_operation_from_the_ohio_river
 		}
-		x = 15
+		x = 17
 		y = 5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1089,7 +1123,7 @@ add_idea = UTC_idea_23
 		mutually_exclusive = {
 			focus = UTC_defense_of_the_ohio_river
 		}
-		x = 17
+		x = 19
 		y = 5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1108,7 +1142,7 @@ add_idea = UTC_idea_24
 			focus = UTC_defense_of_the_ohio_river
 			focus = UTC_operation_from_the_ohio_river
 		}
-		x = 16
+		x = 18
 		y = 6
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1117,30 +1151,6 @@ add_idea = UTC_idea_24
 add_idea = UTC_idea_25
 }
 		}
-	}
-	focus = {
-		#国家存亡の危機
-		id = UTC_crisis_of_national_survival
-		icon = GFX_goal_generic_major_war
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
-		}
-		x = 19
-		y = 5
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#企業国家の底力
-		id = UTC_the_power_of_the_corporate_nation
-		icon = GFX_focus_generic_industry_3
-		cost = 10
-		prerequisite = {
-			focus = UTC_crisis_of_national_survival
-		}
-		x = 19
-		y = 6
-		ai_will_do = { factor = 10 }
 	}
 	focus = {
 		#ルイジアナとともに
@@ -1154,12 +1164,9 @@ add_idea = UTC_idea_25
 		y = 5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-		diplomatic_relation = {
-			country = LUI
-			relation = non_aggression_pact
-			active = no
-			}
-		}
+		add_opinion_modifier = { target = LUI modifier = SSW_generic_technology_licensing }
+			LUI = { add_opinion_modifier = { target = ROOT modifier = SSW_generic_technology_licensing } }
+	}
 	}
 	focus = {
 		#ルイジアナの石油を購入
@@ -1296,6 +1303,12 @@ add_idea = UTC_idea_25
 		x = 27
 		y = 5
 		ai_will_do = { factor = 10 }
+		completion_reward = {
+		add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 10000
+			}
+		}
 	}
 	focus = {
 		#企業のための戦争
@@ -1309,30 +1322,7 @@ add_idea = UTC_idea_25
 		y = 6
 		ai_will_do = { factor = 10 }
 	}
-	focus = {
-		#二正面作戦
-		id = UTC_the_operation_two_frontal
-		icon = GFX_goal_generic_secret_weapon
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_war_with_the_ALF
-		}
-		x = 29
-		y = 5
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#戦力配置の切り替え
-		id = UTC_switch_force_allocation
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_operation_two_frontal
-		}
-		x = 29
-		y = 6
-		ai_will_do = { factor = 10 }
-	}
+
 	focus = {
 		#ロッキー山脈での防衛
 		id = UTC_defense_of_the_rocky_mountains
@@ -1344,7 +1334,7 @@ add_idea = UTC_idea_25
 		mutually_exclusive = {
 			focus = UTC_operation_climbing_the_rocky_mountains
 		}
-		x = 31
+		x = 29
 		y = 5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1365,7 +1355,7 @@ add_idea = UTC_idea_26
 		mutually_exclusive = {
 			focus = UTC_defense_of_the_rocky_mountains
 		}
-		x = 33
+		x = 31
 		y = 5
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1384,7 +1374,7 @@ add_idea = UTC_idea_27
 			focus = UTC_defense_of_the_rocky_mountains
 			focus = UTC_operation_climbing_the_rocky_mountains
 		}
-		x = 32
+		x = 30
 		y = 6
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -1403,9 +1393,6 @@ add_idea = UTC_idea_28
 			focus = UTC_bypassing_the_ohio_river
 		}
 		prerequisite = {
-			focus = UTC_the_power_of_the_corporate_nation
-		}
-		prerequisite = {
 			focus = UTC_bulid_rubber_manufacturing_factories
 		}
 		prerequisite = {
@@ -1413,9 +1400,6 @@ add_idea = UTC_idea_28
 		}
 		prerequisite = {
 			focus = UTC_buy_the_louisiana_oil
-		}
-		prerequisite = {
-			focus = UTC_switch_force_allocation
 		}
 		prerequisite = {
 			focus = UTC_planning_the_opetarion_using_the_mountains
@@ -1713,6 +1697,21 @@ add_idea = UTC_idea_28
                 ruling_party = bennettism_ideology
                 elections_allowed = no
             }
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					NOT = { is_puppet_of = ROOT }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = faction_traitor
+					}
+				reverse_add_opinion_modifier = {
+					target = ROOT
+					modifier = embargo
+				}
+			}
+		}
 	}
 	focus = {
 		#国内の安定化
@@ -1752,6 +1751,7 @@ add_idea = UTC_idea_28
 		x = 39
 		y = 10
 		ai_will_do = { factor = 10 }
+
 	}
 	focus = {
 		#監視委員会の設立

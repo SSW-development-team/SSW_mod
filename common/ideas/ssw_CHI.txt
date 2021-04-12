@@ -371,11 +371,8 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
-				production_factory_max_efficiency_factor = 0.05
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_2_1 = {
@@ -387,11 +384,9 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_2_2 = {
@@ -403,12 +398,9 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.05
-				production_factory_max_efficiency_factor = 0.05
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_3 = {
@@ -420,12 +412,10 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.05
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_4 = {
@@ -437,12 +427,11 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.1
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.25
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				industrial_capacity_factory = 0.2
 			}
 		}
 
@@ -799,6 +788,161 @@ ideas = {
 				consumer_goods_factor = -0.05
 				industrial_capacity_factory = 0.2
 				line_change_production_efficiency_factor = -0.1
+			}
+		}
+
+		CHI_PAK_support_from_CHI = { #中国からの支援
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = chi_chinese_support
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		CHI_chinese_century_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				justify_war_goal_time = -0.2
+				send_volunteer_factor = 5
+			}
+		}
+
+		CHI_anti_JAP = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+		CHI_anti_JAP_2 = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				resistance_growth = 0.2
+				army_core_attack_factor = -0.1
+				army_core_defence_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+		CHI_anti_JAP_3 = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				resistance_growth = 0.2
+				army_core_attack_factor = -0.1
+				army_core_defence_factor = 0.15
+				land_reinforce_rate = 0.1
+				supply_consumption_factor = -0.1
+			}
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+
+		CHI_anti_imper_cooperation = { #反帝国主義連携
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				army_defence_factor = 0.05
+				army_org = 0.05
+			}
+		}
+
+		CHI_weapon_trade = { #中国との武器取引
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.03
+			}
+		}
+
+		CHI_active_anti_JAP_MAN_molecule = { #抗日反満分子の活発化
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = -0.2
+			}
+		}
+
+		CHI_protect_factory = { #工場を守れ！
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				industry_free_repair_factor = 0.2
+				industry_repair_factor = 0.2
+				industry_air_damage_factor = -0.2
+			}
+		}
+
+		CHI_rangers = { #特戦隊
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				army_org = 0.2
+				army_morale = 0.1
+				experience_loss_factor = 0.05
+				attrition = 0.05
 			}
 		}
 	}

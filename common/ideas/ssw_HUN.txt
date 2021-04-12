@@ -15,6 +15,21 @@ ideas = {
 			cost = 0
 			ai_will_do = { factor = 1 }
 		}
+		HUN_anarchism_government = {
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = lock_minister_available_tt
+					always = no
+					NOT = { has_global_flag = NATIONAL_CHARACTERS_BLOCKED }
+				}
+			}
+			removal_cost = -1
+			cancel_if_invalid = no
+			allowed = { original_tag = HUN }
+			traits = { divided_interests }
+			cost = 0
+			ai_will_do = { factor = 1 }
+		}
 	}
 	minister_of_foreign_affairs = {
 		HUN_dome_sztojay_ssw = {
@@ -259,10 +274,12 @@ ideas = {
 		HUN_secret_rearmament = { #不明
 			allowed = { always = yes }
 			allowed_civil_war = { always = yes }
+			name = HUN_secret_rearmament_ssw
 			removal_cost = -1
 			modifier = {
 				conscription = 0.03
 				industrial_capacity_factory = 0.05
+				custom_modifier_tooltip = lock_conscription_tt
 			}
 		}
 		HUN_invite_foreign_investors = { #不明
@@ -316,7 +333,7 @@ ideas = {
 				}
 			}
 		}
-		HUN_defense_council_idea = {
+		HUN_defense_council_idea = { #不明
 			picture = generic_production_bonus
 			name = RUS_defense_council_idea
 			allowed = { original_tag = HUN }
@@ -324,6 +341,17 @@ ideas = {
 			modifier = {
 				army_core_defence_factor = 0.5
 				defence = 0.1
+			}
+		}
+		HUN_inauguration_of_the_new_president = { #新総統の就任(国家社会主義)
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = triumphant_will
+			name = hun_ideas_42
+			modifier = {
+				war_support_weekly = 0.05
+				national_socialism_drift = 0.05
 			}
 		}
 		HUN_prince_henry = { #グロスター公ヘンリー
@@ -657,6 +685,7 @@ ideas = {
 				defence = -0.07
 				offence = -0.07
 				industrial_capacity_factory = -0.1
+				custom_modifier_tooltip = lock_conscription_tt
 			}
 		}
 		hun_ideas_29 = { #空軍兵の錬成
@@ -832,10 +861,442 @@ ideas = {
 				equipment_capture = 7.77
 			}
 		}
+		hun_ideas_41 = { #復讐主義
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = FRA_la_deluge
+			modifier = {
+				defence = 0.15
+				offence = 0.15
+			}
+			targeted_modifier = {
+				tag = ROM
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+			targeted_modifier = {
+				tag = SER
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+			targeted_modifier = {
+				tag = SLO
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+		}
+		hun_ideas_42 = { #新総統の就任(革新的共産主義)
+			allowed = { always = yes }
+			removal_cost = -1
+			allowed_civil_war = { always = yes }
+			picture = triumphant_will
+			modifier = {
+				war_support_weekly = 0.05
+				progressive_communism_drift = 0.05
+			}
+		}
+		hun_ideas_43 = { #陸軍の超強化
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 0.15
+				defence = 0.15
+				offence = 0.15
+				army_speed_factor = 0.15
+				army_morale_factor = 0.15
+				supply_consumption_factor = -0.15
+				out_of_supply_factor = -0.15
+				training_time_army_factor = -0.15
+			}
+		}
+		hun_ideas_44 = { #産業革命
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = SPR_collectivized_society
+			modifier = {
+				production_factory_max_efficiency_factor = 0.15
+				line_change_production_efficiency_factor = 0.15
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.15
+				consumer_goods_factor = -0.15
+				production_factory_efficiency_gain_factor = 0.15
+			}
+		}
+		hun_ideas_45 = { #空軍の超強化
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_air_bonus
+			modifier = {
+				air_air_superiority_attack_factor = 0.25
+				air_air_superiority_defence_factor = 0.25
+				air_close_air_support_attack_factor = 0.25
+				air_close_air_support_defence_factor = 0.25
+				air_strategic_bomber_attack_factor = 0.25
+				air_strategic_bomber_defence_factor = 0.25
+				air_cas_present_factor = 0.25
+			}
+		}
+		hun_ideas_46 = { #新たな研究体制
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_research_bonus
+			modifier = { research_speed_factor = 0.15 }
+		}
+		hun_ideas_47 = { #陸軍の超強化(フェーズ2)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_43
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 0.25
+				defence = 0.5
+				offence = 0.5
+				army_speed_factor = 0.25
+				army_morale_factor = 0.25
+				supply_consumption_factor = -0.25
+				out_of_supply_factor = -0.25
+				training_time_army_factor = -0.25
+				attrition = -0.25
+				supply_consumption_factor = -0.25
+				army_armor_speed_factor = 0.25
+				army_armor_attack_factor = 0.25
+				army_armor_defence_factor = 0.25
+				army_infantry_attack_factor = 0.25
+				army_infantry_defence_factor = 0.25
+			}
+		}
+		hun_ideas_48 = { #産業革命(フェーズ2)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_44
+			removal_cost = -1
+			picture = SPR_collectivized_society
+			modifier = {
+				production_factory_max_efficiency_factor = 0.5
+				line_change_production_efficiency_factor = 0.25
+				production_speed_buildings_factor = 0.25
+				industrial_capacity_factory = 0.5
+				consumer_goods_factor = -0.25
+				production_factory_efficiency_gain_factor = 0.25
+				industry_repair_factor = 0.25
+				production_speed_arms_factory_factor = 0.25
+				production_speed_industrial_complex_factor = 0.25
+			}
+		}
+		hun_ideas_49 = { #空軍の超強化(フェーズ2)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_45
+			removal_cost = -1
+			picture = generic_air_bonus
+			modifier = {
+				air_air_superiority_attack_factor = 0.25
+				air_air_superiority_defence_factor = 0.25
+				air_air_superiority_agility_factor = 0.25
+				air_close_air_support_attack_factor = 0.25
+				air_close_air_support_defence_factor = 0.25
+				air_close_air_support_agility_factor = 0.25
+				air_strategic_bomber_attack_factor = 0.25
+				air_strategic_bomber_defence_factor = 0.25
+				air_strategic_bomber_agility_factor = 0.25
+				air_strategic_bomber_bombing_factor = 0.25
+				air_cas_present_factor = 0.25
+			}
+		}
+		hun_ideas_50 = { #新たな研究体制(フェーズ2)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_46
+			removal_cost = -1
+			picture = generic_research_bonus
+			modifier = { research_speed_factor = 0.25 }
+		}
+		hun_ideas_51 = { #陸軍の超強化(フェーズ3)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_43
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 0.5
+				conscription = 0.5
+				defence = 0.5
+				offence = 0.5
+				army_speed_factor = 0.5
+				army_morale_factor = 0.5
+				supply_consumption_factor = -0.5
+				out_of_supply_factor = -0.5
+				training_time_army_factor = -0.5
+				attrition = -0.5
+				supply_consumption_factor = -0.5
+				army_armor_speed_factor = 0.5
+				army_armor_attack_factor = 0.5
+				army_armor_defence_factor = 0.5
+				army_infantry_attack_factor = 0.5
+				army_infantry_defence_factor = 0.5
+				motorized_attack_factor = 0.5
+				motorized_defence_factor = 0.5
+			}
+		}
+		hun_ideas_52 = { #産業革命(フェーズ3)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_44
+			removal_cost = -1
+			picture = SPR_collectivized_society
+			modifier = {
+				production_factory_max_efficiency_factor = 0.5
+				line_change_production_efficiency_factor = 0.5
+				production_speed_buildings_factor = 0.5
+				industrial_capacity_factory = 0.5
+				consumer_goods_factor = -0.5
+				production_factory_efficiency_gain_factor = 0.5
+				industry_repair_factor = 0.5
+				production_speed_arms_factory_factor = 0.5
+				production_speed_industrial_complex_factor = 0.5
+			}
+		}
+		hun_ideas_53 = { #空軍の超強化(フェーズ3)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_45
+			removal_cost = -1
+			picture = generic_air_bonus
+			modifier = {
+				air_air_superiority_attack_factor = 0.5
+				air_air_superiority_defence_factor = 0.5
+				air_air_superiority_agility_factor = 0.5
+				air_close_air_support_attack_factor = 0.5
+				air_close_air_support_defence_factor = 0.5
+				air_close_air_support_agility_factor = 0.5
+				air_strategic_bomber_attack_factor = 0.5
+				air_strategic_bomber_defence_factor = 0.5
+				air_strategic_bomber_agility_factor = 0.5
+				air_strategic_bomber_bombing_factor = 0.5
+				air_cas_present_factor = 0.5
+			}
+		}
+		hun_ideas_54 = { #新たな研究体制(フェーズ3)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_46
+			removal_cost = -1
+			picture = generic_research_bonus
+			modifier = { research_speed_factor = 0.5 }
+		}
+		hun_ideas_55 = { #陸軍の超強化(フェーズ4)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_43
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 0.75
+				conscription = 0.75
+				defence = 0.75
+				offence = 0.75
+				army_speed_factor = 0.75
+				army_morale_factor = 0.75
+				supply_consumption_factor = -0.75
+				out_of_supply_factor = -0.75
+				training_time_army_factor = -0.75
+				attrition = -0.75
+				supply_consumption_factor = -0.75
+				army_armor_speed_factor = 0.75
+				army_armor_attack_factor = 0.75
+				army_armor_defence_factor = 0.75
+				army_infantry_attack_factor = 0.75
+				army_infantry_defence_factor = 0.75
+				motorized_attack_factor = 0.75
+				motorized_defence_factor = 0.75
+			}
+		}
+		hun_ideas_56 = { #産業革命(フェーズ4)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_44
+			removal_cost = -1
+			picture = SPR_collectivized_society
+			modifier = {
+				production_factory_max_efficiency_factor = 0.75
+				line_change_production_efficiency_factor = 0.75
+				production_speed_buildings_factor = 0.75
+				industrial_capacity_factory = 0.75
+				consumer_goods_factor = -0.75
+				production_factory_efficiency_gain_factor = 0.75
+				industry_repair_factor = 0.75
+				production_speed_arms_factory_factor = 0.75
+				production_speed_industrial_complex_factor = 0.75
+			}
+		}
+		hun_ideas_57 = { #空軍の超強化(フェーズ4)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_45
+			removal_cost = -1
+			picture = generic_air_bonus
+			modifier = {
+				air_air_superiority_attack_factor = 0.75
+				air_air_superiority_defence_factor = 0.75
+				air_air_superiority_agility_factor = 0.75
+				air_close_air_support_attack_factor = 0.75
+				air_close_air_support_defence_factor = 0.75
+				air_close_air_support_agility_factor = 0.75
+				air_strategic_bomber_attack_factor = 0.75
+				air_strategic_bomber_defence_factor = 0.75
+				air_strategic_bomber_agility_factor = 0.75
+				air_strategic_bomber_bombing_factor = 0.75
+				air_cas_present_factor = 0.75
+			}
+		}
+		hun_ideas_58 = { #新たな研究体制(フェーズ4)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_46
+			removal_cost = -1
+			picture = generic_research_bonus
+			modifier = { research_speed_factor = 0.75 }
+		}
+		hun_ideas_59 = { #陸軍の超強化(フェーズ5)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_43
+			removal_cost = -1
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 1
+				conscription = 1
+				defence = 1
+				offence = 1
+				army_speed_factor = 1
+				army_morale_factor = 1
+				supply_consumption_factor = -1
+				out_of_supply_factor = -1
+				training_time_army_factor = -1
+				attrition = -1
+				supply_consumption_factor = -1
+				army_armor_speed_factor = 1
+				army_armor_attack_factor = 1
+				army_armor_defence_factor = 1
+				army_infantry_attack_factor = 1
+				army_infantry_defence_factor = 1
+				motorized_attack_factor = 1
+				motorized_defence_factor = 1
+			}
+		}
+		hun_ideas_60 = { #産業革命(フェーズ5)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_44
+			removal_cost = -1
+			picture = SPR_collectivized_society
+			modifier = {
+				production_factory_max_efficiency_factor = 1
+				line_change_production_efficiency_factor = 1
+				production_speed_buildings_factor = 1
+				industrial_capacity_factory = 1
+				consumer_goods_factor = -1
+				production_factory_efficiency_gain_factor = 1
+				industry_repair_factor = 1
+				production_speed_arms_factory_factor = 1
+				production_speed_industrial_complex_factor = 1
+			}
+		}
+		hun_ideas_61 = { #空軍の超強化(フェーズ5)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_45
+			removal_cost = -1
+			picture = generic_air_bonus
+			modifier = {
+				air_air_superiority_attack_factor = 1
+				air_air_superiority_defence_factor = 1
+				air_air_superiority_agility_factor = 1
+				air_close_air_support_attack_factor = 1
+				air_close_air_support_defence_factor = 1
+				air_close_air_support_agility_factor = 1
+				air_strategic_bomber_attack_factor = 1
+				air_strategic_bomber_defence_factor = 1
+				air_strategic_bomber_agility_factor = 1
+				air_strategic_bomber_bombing_factor = 1
+				air_cas_present_factor = 1
+			}
+		}
+		hun_ideas_62 = { #新たな研究体制(フェーズ5)
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			name = hun_ideas_46
+			removal_cost = -1
+			picture = generic_research_bonus
+			modifier = { research_speed_factor = 1 }
+		}
+		hun_ideas_63 = { #戦うための明日
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = FRA_la_deluge
+			modifier = {
+				training_time_army_factor = -0.05
+				conscription_factor = 0.05
+				conscription = 0.25
+				army_armor_attack_factor = 0.25
+				army_armor_defence_factor = 0.25
+				defence = 0.75
+				offence = 0.75
+			}
+		}
+		hun_ideas_64 = { #労働者への支援
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_production_bonus
+			modifier = {
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.15
+				production_speed_dockyard_factor = 0.15
+				production_speed_naval_base_factor = 0.15
+				production_speed_coastal_bunker_factor = 0.15
+				production_speed_bunker_factor = 0.15
+				production_speed_air_base_factor = 0.15
+				production_speed_anti_air_building_factor = 0.15
+				production_speed_radar_station_factor = 0.15
+				production_speed_rocket_site_factor = 0.15
+				production_speed_nuclear_reactor_factor = 0.15
+				production_speed_synthetic_refinery_factor = 0.15
+				production_speed_infrastructure_factor = 0.15
+			}
+		}
+		hun_ideas_65 = { #国民革命
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = eng_spirit_of_the_industrial_revolution
+			modifier = {
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+		hun_ideas_66 = { #愛しき祖国
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = hun_my_beloved_homeland
+			modifier = {
+				stability_weekly = 0.01
+				army_core_defence_factor = 0.75
+			}
+		}
 	}
 	economy = {
 		law = yes
-		HUN_collectivized_society_for_ssw = {
+		HUN_collectivized_society_for_ssw = { #集産主義
 			picture = SPR_collectivized_society
 			name = SPR_collectivized_society
 			allowed = { original_tag = HUN }

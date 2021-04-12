@@ -21,6 +21,13 @@ scripted_gui = {
         has_country_flag = ssw_debug_menu_opened
         }
         
+        dynamic_lists = {
+            GDP_list_grid = {
+            array = global.GDP_list_array
+			change_scope = yes
+			entry_container = GDP_list_entry
+            }
+        }
         effects = {
 #super_event
             ssw_debug_play_super_event_American_civil_war_button_click = {
@@ -61,10 +68,36 @@ scripted_gui = {
             }
 #event         
             ssw_variable_page1_click = {
-                ROOT = {
-                subtract_from_variable = { var = country_inflation_late_for_consumer_goods_factor value = 1 }
-                subtract_from_variable = { var = country_inflation_late value = 1 }
-                }
+                every_country = {
+				if = {
+					limit = {
+						NOT = { is_in_array = { global.GDP_list_array = THIS } }
+					}
+					add_to_array = { global.GDP_list_array = THIS }
+				}
+				set_variable = { country_GDP = num_of_civilian_factories }
+	            set_temp_variable = { temp = num_of_military_factories }
+	            divide_temp_variable = { temp = 2 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@oil }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@aluminium }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@rubber }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@tungsten }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@steel }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+	            set_temp_variable = { temp = resource_produced@chromium }
+	            divide_temp_variable = { temp = 40 }
+	            add_to_variable = { country_GDP = temp }
+			    }
             }
             ssw_variable_page2_click = {
                 ROOT = {

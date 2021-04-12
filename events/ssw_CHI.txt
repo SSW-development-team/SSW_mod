@@ -558,6 +558,250 @@ country_event = { #三人組の中で
         set_country_flag = CHI_Cheung_Kong_route
     }
 }
+country_event = { #南京会議の開催
+    id = ssw_chi.19
+    title = ssw_chi.19.t
+    desc = ssw_chi.19.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    immediate = {
+        country_event = {id = ssw_chi.20 days = 7}
+    }
+    option = {
+        name = ssw_chi.19.a
+    }
+}
+country_event = {
+    id = ssw_chi.20
+    title = ssw_chi.20.t
+    desc = ssw_chi.20.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.20.a
+        if = {
+            limit = {
+                original_tag = CHI
+            }
+            create_faction = SSW_Nanking_Treaty_Org
+            add_to_faction = PAK
+        }
+    }
+}
+country_event = { #中国の要求(チベット)
+    id = ssw_chi.21
+    title = ssw_chi.21.t
+    desc = ssw_chi.21.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #認めるしかない…
+        name = ssw_chi.21.a
+        ai_chance = {
+            base = 20
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 2
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.22 days = 1}
+        }
+    }
+    option = { #従属を選ぶ
+        name = ssw_chi.21.b
+        ai_chance = {
+            base = 20
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 1.5
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.23 days = 1}
+        }
+    }
+    option = { #来りて取れ
+        name = ssw_chi.21.c
+        ai_chance = {
+            base = 60
+        }
+        CHI = {
+            country_event = {id = ssw_chi.24 days = 1}
+        }
+    }
+}
+country_event = { #チベットが併合を認める
+    id = ssw_chi.22
+    title = ssw_chi.22.t
+    desc = ssw_chi.22.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #素晴らしい
+        name = ssw_chi.22.a
+        annex_country = {
+            target = TIB
+            transfer_troops = yes
+        }
+    }
+}
+country_event = { #チベットが従属を選択
+    id = ssw_chi.23
+    title = ssw_chi.23.t
+    desc = ssw_chi.23.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #素晴らしい
+        name = ssw_chi.23.a
+        puppet = TIB
+    }
+}
+country_event = { #チベットが要求を拒否
+    id = ssw_chi.24
+    title = ssw_chi.24.t
+    desc = ssw_chi.24.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #戦争準備を行え
+        name = ssw_chi.24.a
+        create_wargoal = {
+            target = TIB
+            type = annex_everything
+        }
+    }
+}
+country_event = { #中国の要求(トゥバ、トゥラン)
+    id = ssw_chi.25
+    title = ssw_chi.25.t
+    desc = ssw_chi.25.d
+    is_triggered_only = yes
+    option = { #認めよう
+        name = ssw_chi.25.a
+        ai_chance = {
+            base = 40
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 2
+            }
+        }
+        FROM = {
+            country_event = {id = ssw_chi.26 days = 1}
+        }
+    }
+    option = { #この土地は我々のものだ
+        name = ssw_chi.25.b
+        ai_chance = {
+            base = 60
+        }
+        FROM = {
+            country_event = {id = ssw_chi.27 days = 1}
+        }
+    }
+}
+country_event = { #FROMが要求を認める
+    id = ssw_chi.26
+    title = ssw_chi.26.t
+    desc = ssw_chi.26.d
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.26.a
+        329 = {
+            if = {
+                limit = {
+                    is_fully_controlled_by = FROM
+                }
+                ROOT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+        1012 = {
+            if = {
+                limit = {
+                    is_fully_controlled_by = FROM
+                }
+                ROOT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+    }
+}
+country_event = { #FROMが要求を拒否
+    id = ssw_chi.27
+    title = ssw_chi.27.t
+    desc = ssw_chi.27.d
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.27.a
+        if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 329
+                    has_full_control_of_state = 1012
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {329}
+                generator = {1012}
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 329
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {329}
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 1012
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {1012}
+            }
+        }
+    }
+}
+country_event = { #中国が武器取引を依頼
+    id = ssw_chi.28
+    title = ssw_chi.28.t
+    desc = ssw_chi.28.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #よかろう
+        name = ssw_chi.28.a
+        ai_chance = {
+            base = 60
+        }
+        add_ideas = CHI_weapon_trade
+        CHI = {
+            set_country_flag = CHI_GER_agree_purchase_weapon
+        }
+    }
+    option = { #我々にも余裕はない
+        name = ssw_chi.28.b
+        ai_chance = {
+            base = 40
+            modifier = {
+                OR = {
+                    has_war = yes
+                }
+                factor = 3
+            }
+        }
+    }
+}
 
 country_event = {
     id = ssw_chi_jap_war.1
@@ -593,6 +837,7 @@ country_event = { #盧溝橋事件
     timeout_days = 2
     option = {
         name = ssw_chi_jap_war.2.a
+        set_global_flag = CHI_marco_polo_bridge_incident
     }
 }
 country_event = { #河北事変
@@ -660,6 +905,12 @@ country_event = { #最後通牒(中国)
             type = annex_everything
         }
         hidden_effect = {
+            MAN = {
+                add_to_war = {
+                    targeted_alliance = JAP
+                    enemy = CHI
+                }
+            }
             CHI = {
                 if = {
                     limit = {

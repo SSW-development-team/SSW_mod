@@ -843,11 +843,7 @@ shared_focus = { #工場労働者の救済
         custom_effect_tooltip = CHI_relief_factory_worker_tt
         add_to_variable = {
             var = CHI_r_r_i_d_m_s
-            value = 0.1
-        }
-        add_to_variable = {
-            var = CHI_r_r_i_d_m_co
-            value = 0.1
+            value = 0.05
         }
     }
 }
@@ -898,12 +894,8 @@ shared_focus = { #立地の法的規制
     completion_reward = {
         custom_effect_tooltip = CHI_legal_restrict_location_tt
         add_to_variable = {
-            var = CHI_r_r_i_d_m_s
-            value = 0.05
-        }
-        add_to_variable = {
             var = CHI_r_r_i_d_m_ic
-            value = 0.05
+            value = 0.1
         }
     }
 }
@@ -981,7 +973,7 @@ shared_focus = { #労働者を育成
         custom_effect_tooltip = CHI_training_worker_tt
         add_to_variable = {
             var = CHI_r_r_i_d_m_ic
-            value = 0.1
+            value = 0.05
         }
     }
 }
@@ -1069,8 +1061,8 @@ shared_focus = { #工場労働者の規律
             remove_dynamic_modifier = {
                 modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
             }
+            add_ideas = CHI_innovative_industry
         }
-        add_ideas = CHI_innovative_industry
     }
 }
 shared_focus = { #安全性の改善
@@ -2371,6 +2363,7 @@ shared_focus = { #中国外交
     x = 72
     y = 0
     completion_reward = {
+        add_political_power = 100
     }
 }
 shared_focus = { #南京反帝国主義国共同会議
@@ -2389,6 +2382,10 @@ shared_focus = { #南京反帝国主義国共同会議
         focus = CHI_chinese_diplomacy
     }
     completion_reward = {
+        country_event = {id = ssw_chi.19}
+        PAK = {
+            country_event = {id = ssw_chi.19}
+        }
     }
 }
 shared_focus = { #パキスタンの友
@@ -2407,6 +2404,14 @@ shared_focus = { #パキスタンの友
         focus = CHI_anti_imperialist_nati_co_co
     }
     completion_reward = {
+        add_opinion_modifier = {
+            target = PAK
+            modifier = SSW_CHI_PAK_friendship_2
+        }
+        reverse_add_opinion_modifier = {
+            target = PAK
+            modifier = SSW_CHI_PAK_friendship_2
+        }
     }
 }
 shared_focus = { #資金と武器を
@@ -2425,6 +2430,14 @@ shared_focus = { #資金と武器を
         focus = CHI_friend_Pakistan
     }
     completion_reward = {
+        PAK = {
+            add_ideas = CHI_PAK_support_from_CHI
+        }
+        send_equipment = {
+            type = infantry_equipment
+            amount = 5000
+            target = PAK
+        }
     }
 }
 shared_focus = { #東南アジアの同胞
@@ -2443,6 +2456,16 @@ shared_focus = { #東南アジアの同胞
         focus = CHI_anti_imperialist_nati_co_co
     }
     completion_reward = {
+        send_equipment = {
+            type = infantry_equipment
+            amount = 2000
+            target = SIA
+        }
+        send_equipment = {
+            type = infantry_equipment
+            amount = 2000
+            target = TOK
+        }
     }
 }
 shared_focus = { #反帝国主義闘争の扇動
@@ -2461,6 +2484,14 @@ shared_focus = { #反帝国主義闘争の扇動
         focus = CHI_compatriot_south_east_asis
     }
     completion_reward = {
+        BRM = {
+            add_stability = -0.05
+            add_war_support = -0.1
+        }
+        PHI = {
+            add_stability = -0.05
+            add_war_support = -0.1
+        }
     }
 }
 shared_focus = { #日本との決戦
@@ -2469,6 +2500,13 @@ shared_focus = { #日本との決戦
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        has_global_flag = CHI_marco_polo_bridge_incident
+    }
+    bypass = {
+        NOT = {country_exists = JAP}
+        NOT = {country_exists = MAN}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2479,6 +2517,14 @@ shared_focus = { #日本との決戦
         focus = CHI_anti_imperialist_nati_co_co
     }
     completion_reward = {
+        create_wargoal = {
+            target = MAN
+            type = annex_everything
+        }
+        create_wargoal = {
+            target = JAP
+            type = annex_everything
+        }
     }
 }
 shared_focus = { #中国の世紀
@@ -2497,6 +2543,7 @@ shared_focus = { #中国の世紀
         focus = CHI_decisive_battle_JAP
     }
     completion_reward = {
+        add_ideas = CHI_chinese_century_idea
     }
 }
 shared_focus = { #チベットとの交渉
@@ -2505,6 +2552,9 @@ shared_focus = { #チベットとの交渉
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        NOT = {country_exists = TIB}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2515,6 +2565,9 @@ shared_focus = { #チベットとの交渉
     x = 71
     y = 6
     completion_reward = {
+        TIB = {
+            country_event = {id = ssw_chi.21}
+        }
     }
 }
 shared_focus = { #チベット侵攻！
@@ -2523,6 +2576,9 @@ shared_focus = { #チベット侵攻！
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        NOT = {country_exists = TIB}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2533,6 +2589,10 @@ shared_focus = { #チベット侵攻！
     x = 71
     y = 7
     completion_reward = {
+        declare_war_on = {
+            target = TIB
+            type = annex_everything
+        }
     }
 }
 shared_focus = { #外蒙古の回収
@@ -2541,6 +2601,9 @@ shared_focus = { #外蒙古の回収
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        NOT = {country_exists = MON}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2551,6 +2614,10 @@ shared_focus = { #外蒙古の回収
     x = 73
     y = 6
     completion_reward = {
+        declare_war_on = {
+            target = MON
+            type = annex_everything
+        }
     }
 }
 shared_focus = { #唐努鳥梁海の要求交渉
@@ -2559,6 +2626,10 @@ shared_focus = { #唐努鳥梁海の要求交渉
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        has_full_control_of_state = 329
+        has_full_control_of_state = 1012
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2569,6 +2640,32 @@ shared_focus = { #唐努鳥梁海の要求交渉
     x = 73
     y = 7
     completion_reward = {
+        if = {
+            limit = {
+                any_other_country = {
+                    has_full_control_of_state = 329
+                    has_full_control_of_state = 1012
+                }
+            }
+            every_country = {
+                limit = {
+                    has_full_control_of_state = 329
+                    has_full_control_of_state = 1012
+                }
+                country_event = {id = ssw_chi.25}
+            }
+        }
+        else = {
+            every_country = {
+                limit = {
+                    OR = {
+                        has_full_control_of_state = 329
+                        has_full_control_of_state = 1012
+                    }
+                }
+                country_event = {id = ssw_chi.25}
+            }
+        }
     }
 }
 shared_focus = { #一帯一路
@@ -2609,6 +2706,8 @@ shared_focus = { #二つの太陽
     x = 79
     y = 0
     completion_reward = {
+        add_war_support = 0.1
+        add_political_power = 100
     }
 }
 shared_focus = { #抗日大戦
@@ -2630,6 +2729,7 @@ shared_focus = { #抗日大戦
     x = 79
     y = 1
     completion_reward = {
+        add_ideas = CHI_anti_JAP
     }
 }
 shared_focus = { #国外の友
@@ -2651,6 +2751,20 @@ shared_focus = { #国外の友
     x = 78
     y = 2
     completion_reward = {
+        if = {
+            limit = {
+                is_faction_leader = no
+            }
+            add_ideas = CHI_anti_imper_cooperation
+        }
+        else = {
+            every_country = {
+                limit = {
+                    is_in_faction_with = ROOT
+                }
+                add_ideas = CHI_anti_imper_cooperation
+            }
+        }
     }
 }
 shared_focus = { #ドイツからの兵器購入
@@ -2672,6 +2786,12 @@ shared_focus = { #ドイツからの兵器購入
     x = 80
     y = 2
     completion_reward = {
+        custom_effect_tooltip = CHI_purchase_weapon_GER_tt
+        hidden_effect = {
+            GER = {
+                country_event = { id = ssw_chi.28}
+            }
+        }
     }
 }
 shared_focus = { #戦争経済への移行
@@ -2693,6 +2813,7 @@ shared_focus = { #戦争経済への移行
     x = 77
     y = 3
     completion_reward = {
+        ssw_increase_economic_law = yes
     }
 }
 shared_focus = { #ゲリラ戦の展開
@@ -2717,6 +2838,10 @@ shared_focus = { #ゲリラ戦の展開
     x = 79
     y = 3
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_anti_JAP
+            add_idea = CHI_anti_JAP_2
+        }
     }
 }
 shared_focus = { #偽満州の同胞
@@ -2738,6 +2863,9 @@ shared_focus = { #偽満州の同胞
     x = 81
     y = 3
     completion_reward = {
+        MAN = {
+            add_ideas = CHI_active_anti_JAP_MAN_molecule
+        }
     }
 }
 shared_focus = { #一面交渉、一面抵抗
@@ -2768,6 +2896,7 @@ shared_focus = { #一面交渉、一面抵抗
     x = 78
     y = 4
     completion_reward = {
+        add_stability = 0.2
     }
 }
 shared_focus = { #断固たる抗戦
@@ -2798,6 +2927,7 @@ shared_focus = { #断固たる抗戦
     x = 80
     y = 4
     completion_reward = {
+        add_war_support = 0.2
     }
 }
 shared_focus = { #産業の保護
@@ -2819,6 +2949,7 @@ shared_focus = { #産業の保護
     x = 78
     y = 5
     completion_reward = {
+        add_ideas = CHI_protect_factory
     }
 }
 shared_focus = { #督戦隊の編成
@@ -2840,6 +2971,7 @@ shared_focus = { #督戦隊の編成
     x = 80
     y = 5
     completion_reward = {
+        add_ideas = CHI_rangers
     }
 }
 shared_focus = { #継戦
@@ -2862,5 +2994,9 @@ shared_focus = { #継戦
     x = 79
     y = 6
     completion_reward = {
+        swap_ideas = {
+            remove_idea = CHI_anti_JAP_2
+            add_idea = CHI_anti_JAP_3
+        }
     }
 }

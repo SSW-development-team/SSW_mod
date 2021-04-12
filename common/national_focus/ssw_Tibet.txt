@@ -692,11 +692,11 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_chinese_deportation
 		}
+		ai_will_do = { factor = 2 }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
-			has_ideas = TIB_taktra_rinpoche_idea
 		}
 		bypass = {}
 		completion_reward = {
@@ -765,6 +765,13 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_tibetan_army
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
 		completion_reward = {
 			add_timed_idea = {
 				idea = TIB_invest_weappon
@@ -781,6 +788,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_invest_for_weapons
+		
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = 
+				add_idea = TIB_improving_army
+			}
 		}
 		x = 39
 		y = 2
@@ -795,7 +816,15 @@ focus_tree = {
 		}
 		x = 38
 		y = 3
-
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+		}
 	}
 	focus = {
 		id = TIB_militia_from_north
@@ -1041,6 +1070,16 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_invest_for_weapons
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		completion_reward = {
+			country_event = tibet.7
+			army_experience = 25
 		}
 		x = 43
 		y = 2
@@ -1541,6 +1580,18 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_maoism
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			NOT = {
+				has_global_flag = KYR_ccp_in_government
+			}
+		}
+		completion_reward = {
+			country_event = tibet.8
 		}
 		x = 7
 		y = 7

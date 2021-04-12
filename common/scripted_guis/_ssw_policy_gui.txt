@@ -44,7 +44,10 @@ scripted_gui = {
 				set_variable = { selected_policy_button = 0 }
 			}
 			economy_focus_icon_button_click = {
-				set_variable = { selected_policy_button = 1 }
+				set_variable = { selected_policy_button_economy = 1 }
+			}
+			social_focus_icon_button_click = {
+				set_variable = { selected_policy_button_social = 1 }
 			}
 		}
 	}
@@ -53,7 +56,7 @@ scripted_gui = {
 		context_type = player_context
 
 		visible = {
-			check_variable = { selected_policy_button = 1 }
+			check_variable = { selected_policy_button_economy = 1 }
 		}
 
 		ai_enabled = {
@@ -81,7 +84,7 @@ scripted_gui = {
 			set_variable = { corporate_law_Antitrust = 0 }
 			}
 			back_button_click = {
-				set_variable = { selected_policy_button = 0 }
+				set_variable = { selected_policy_button_economy = 0 }
 			}
 			repayment_value_increase_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 1 }
@@ -89,7 +92,7 @@ scripted_gui = {
 			repayment_value_increase_shift_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 10 }
 			}
-			repayment_value_increase_control_shift_click = {
+			repayment_value_increase_control_click = {
 				add_to_variable = { var = country_debt_repayment_amout value = 100 }
 			}
 			repayment_value_decrease_click = {
@@ -98,12 +101,218 @@ scripted_gui = {
 			repayment_value_decrease_shift_click = {
 				subtract_from_variable = { var = country_debt_repayment_amout value = 10 }
 			}
-			repayment_value_decrease_control_shift_click = {
+			repayment_value_decrease_control_click = {
 				subtract_from_variable = { var = country_debt_repayment_amout value = 100 }
 			}
 			repayment_button_click  = {
 				subtract_from_variable = { country_debt_value = country_debt_repayment_amout }
 			}
+			YES_button_Light_1_click = {
+				add_to_variable = { var = scrollbar_point1XPos value = 1 }
+			}
+		}
+		properties = {
+			scrollbar_point = {
+				x = scrollbar_point1XPos
+				y = scrollbar_point1YPos
+			}
+		}
+	}
+	SSW_Policy_tab_social_view = {
+		window_name = "SSW_Policy_tab_social_tab"
+		context_type = player_context
+
+		visible = {
+			check_variable = { selected_policy_button_social = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		triggers = {
+			industrialization_level_1_visible = {
+				check_variable = { country_Industrialization_rate > -1 }
+			}
+			industrialization_level_1_arrow_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 21 }
+			}
+			industrialization_level_1_arrow_active_visible = {
+				check_variable = { country_Industrialization_rate > 20 }
+			}
+			industrialization_level_2_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 21 }
+			}
+			industrialization_level_2_active_visible = {
+				check_variable = { country_Industrialization_rate > 20 }
+			}
+			industrialization_level_2_arrow_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 41 }
+			}
+			industrialization_level_2_arrow_active_visible = {
+				check_variable = { country_Industrialization_rate > 40 }
+			}
+			industrialization_level_3_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 41 }
+			}
+			industrialization_level_3_active_visible = {
+				check_variable = { country_Industrialization_rate > 40 }
+			}
+			industrialization_level_3_arrow_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 61 }
+			}
+			industrialization_level_3_arrow_active_visible = {
+				check_variable = { country_Industrialization_rate > 60 }
+			}
+			industrialization_level_4_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 61 }
+			}
+			industrialization_level_4_active_visible = {
+				check_variable = { country_Industrialization_rate > 60 }
+			}
+			industrialization_level_4_arrow_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 81 }
+			}
+			industrialization_level_4_arrow_active_visible = {
+				check_variable = { country_Industrialization_rate > 80 }
+			}
+			industrialization_level_5_deactive_visible = {
+				check_variable = { country_Industrialization_rate < 81 }
+			}
+			industrialization_level_5_active_visible = {
+				check_variable = { country_Industrialization_rate > 80 }
+			}
+			#貧困率
+			poverty_rate_level_1_visible = {
+				check_variable = { country_poverty_rate > -1 }
+			}
+			poverty_rate_level_1_arrow_deactive_visible = {
+				check_variable = { country_poverty_rate < 21 }
+			}
+			poverty_rate_level_1_arrow_active_visible = {
+				check_variable = { country_poverty_rate > 20 }
+			}
+			poverty_rate_level_2_deactive_visible = {
+				check_variable = { country_poverty_rate < 21 }
+			}
+			poverty_rate_level_2_active_visible = {
+				check_variable = { country_poverty_rate > 20 }
+			}
+			poverty_rate_level_2_arrow_deactive_visible = {
+				check_variable = { country_poverty_rate < 41 }
+			}
+			poverty_rate_level_2_arrow_active_visible = {
+				check_variable = { country_poverty_rate > 40 }
+			}
+			poverty_rate_level_3_deactive_visible = {
+				check_variable = { country_poverty_rate < 41 }
+			}
+			poverty_rate_level_3_active_visible = {
+				check_variable = { country_poverty_rate > 40 }
+			}
+			poverty_rate_level_3_arrow_deactive_visible = {
+				check_variable = { country_poverty_rate < 61 }
+			}
+			poverty_rate_level_3_arrow_active_visible = {
+				check_variable = { country_poverty_rate > 60 }
+			}
+			poverty_rate_level_4_deactive_visible = {
+				check_variable = { country_poverty_rate < 61 }
+			}
+			poverty_rate_level_4_active_visible = {
+				check_variable = { country_poverty_rate > 60 }
+			}
+			poverty_rate_level_4_arrow_deactive_visible = {
+				check_variable = { country_poverty_rate < 81 }
+			}
+			poverty_rate_level_4_arrow_active_visible = {
+				check_variable = {country_poverty_rate > 80 }
+			}
+			poverty_rate_level_5_deactive_visible = {
+				check_variable = { country_poverty_rate < 81 }
+			}
+			poverty_rate_level_5_active_visible = {
+				check_variable = { country_poverty_rate > 80 }
+			}
+			#識字率
+			literacy_rate_level_1_visible = {
+				check_variable = { country_literacy_rate > -1 }
+			}
+			literacy_rate_level_1_arrow_deactive_visible = {
+				check_variable = { country_literacy_rate < 21 }
+			}
+			literacy_rate_level_1_arrow_active_visible = {
+				check_variable = { country_literacy_rate > 20 }
+			}
+			literacy_rate_level_2_deactive_visible = {
+				check_variable = { country_literacy_rate < 21 }
+			}
+			literacy_rate_level_2_active_visible = {
+				check_variable = { country_literacy_rate > 20 }
+			}
+			literacy_rate_level_2_arrow_deactive_visible = {
+				check_variable = { country_literacy_rate < 41 }
+			}
+			literacy_rate_level_2_arrow_active_visible = {
+				check_variable = { country_literacy_rate > 40 }
+			}
+			literacy_rate_level_3_deactive_visible = {
+				check_variable = { country_literacy_rate < 41 }
+			}
+			literacy_rate_level_3_active_visible = {
+				check_variable = { country_literacy_rate > 40 }
+			}
+			literacy_rate_level_3_arrow_deactive_visible = {
+				check_variable = { country_literacy_rate < 61 }
+			}
+			literacy_rate_level_3_arrow_active_visible = {
+				check_variable = { country_literacy_rate > 60 }
+			}
+			literacy_rate_level_4_deactive_visible = {
+				check_variable = { country_literacy_rate < 61 }
+			}
+			literacy_rate_level_4_active_visible = {
+				check_variable = { country_literacy_rate > 60 }
+			}
+			literacy_rate_level_4_arrow_deactive_visible = {
+				check_variable = { country_literacy_rate < 81 }
+			}
+			literacy_rate_level_4_arrow_active_visible = {
+				check_variable = {country_literacy_rate > 80 }
+			}
+			literacy_rate_level_5_deactive_visible = {
+				check_variable = { country_literacy_rate < 81 }
+			}
+			literacy_rate_level_5_active_visible = {
+				check_variable = { country_literacy_rate > 80 }
+			}
+		}
+		effects = {
+			close_button_click = {
+			set_variable = { selected_policy_button_social = 0 }
+			}
+			close_button2_click = {
+				add_to_variable =  { country_Industrialization_rate = 1 }
+			}
+			close_button3_click = {
+				set_variable =  { country_Industrialization_rate = 0 }
+				set_variable =  { country_Industrialization_growth_rate = 0 }
+			}
+			close_button4_click = {
+				add_to_variable = { country_poverty_rate = 1 }
+			}
+			close_button5_click = {
+				set_variable =  { country_poverty_rate = 0 }
+				set_variable =  { country_poverty_rate_growth_rate = 0 }
+			}
+			close_button6_click = {
+				add_to_variable = { country_literacy_rate = 1 }
+			}
+			close_button7_click = {
+				set_variable =  { country_literacy_rate = 0 }
+				set_variable =  { country_literacy_rate_growth_rate = 0 }
+			}
+		}
+		properties = {
 		}
 	}
 }
