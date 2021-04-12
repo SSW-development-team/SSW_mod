@@ -1912,6 +1912,14 @@
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		prerequisite = { focus = HUN_56 }
 		prerequisite = { focus = HUN_57 }
+		available = { ALB = { exists = yes } }
+		bypass = {
+			OR = {
+				has_war_with = ALB
+				NOT = { country_exists = ALB }
+			}
+		}
+		will_lead_to_war_with = ALB
 		x = -1
 		y = 1
 		relative_position_id = HUN_57
@@ -3878,6 +3886,15 @@
 					anarchist_zeal
 				}
 			}
+			set_global_flag = big_event_custom_hungary_black_revolution
+			add_ideas = {
+				ssw_mixed_regime
+				HUN_anarchism_government
+				vacancy_mfa
+				vacancy_mf
+				vacancy_mi
+				vacancy_ma
+			}
 		}
 	}
 	focus = {
@@ -4309,7 +4326,7 @@
 		id = HUN_new_army
 		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = HUN_army_super_strengthening }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_army_super_strengthening
 		cost = 7
@@ -4331,7 +4348,7 @@
 		id = HUN_industrial_diversification
 		icon = GFX_goal_generic_production2
 		prerequisite = { focus = HUN_review_of_production }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_review_of_production
 		cost = 7
@@ -4353,7 +4370,7 @@
 		id = HUN_improvemen_of_air_force_tactics
 		icon = GFX_goal_generic_air_bomber
 		prerequisite = { focus = HUN_super_strengthening_of_the_air_force }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_super_strengthening_of_the_air_force
 		cost = 7
@@ -4372,10 +4389,31 @@
 		}
 	}
 	focus = {
+		id = HUN_rocket_development
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = HUN_super_strengthening_of_the_air_force }
+		x = 1
+		y = 1
+		relative_position_id = HUN_super_strengthening_of_the_air_force
+		cost = 7
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 6
+				category = rocketry
+				category = jet_technology
+			}
+		}
+	}
+	focus = {
 		id = HUN_nationalization_of_research_institute
 		icon = GFX_focus_research
 		prerequisite = { focus = HUN_new_research_system }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_new_research_system
 		cost = 7
@@ -4397,7 +4435,7 @@
 		id = HUN_strengthening_the_munitions_industry
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = HUN_investing_in_the_private_industry }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_investing_in_the_private_industry
 		cost = 7
@@ -4421,7 +4459,7 @@
 		id = HUN_tomorrow_to_fight
 		icon = GFX_focus_up_joan_of_arc
 		prerequisite = { focus = HUN_new_army }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_new_army
 		cost = 7
@@ -4436,7 +4474,7 @@
 		id = HUN_support_for_workers
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = HUN_industrial_diversification }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_industrial_diversification
 		cost = 7
@@ -4451,7 +4489,8 @@
 		id = HUN_national_revolution
 		icon = GFX_focus_generic_strike_at_democracy1
 		prerequisite = { focus = HUN_improvemen_of_air_force_tactics }
-		x = 0
+		prerequisite = { focus = HUN_rocket_development }
+		x = 1
 		y = 1
 		relative_position_id = HUN_improvemen_of_air_force_tactics
 		cost = 7
@@ -4467,7 +4506,7 @@
 		id = HUN_improvement_of_spirit
 		icon = GFX_goal_generic_neutrality_focus
 		prerequisite = { focus = HUN_nationalization_of_research_institute }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_nationalization_of_research_institute
 		cost = 7
@@ -4483,7 +4522,7 @@
 		id = HUN_beyond_the_wall_of_thought
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = HUN_strengthening_the_munitions_industry }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = HUN_strengthening_the_munitions_industry
 		cost = 7
