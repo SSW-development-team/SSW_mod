@@ -61,6 +61,7 @@ country_event = {
 				set_research_slots = 3
 				# transfer_state should be first line
 				transfer_state = 227
+				add_state_claim = 228
 				add_ideas = extensive_conscription
 				add_ideas = UKR_low_education_level
 				add_ideas = UKR_agricalture
@@ -70,7 +71,6 @@ country_event = {
 					can_puppet = no
 				}
 				UKR_set_leaders = yes
-				
 				227 = {
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
@@ -137,9 +137,7 @@ country_event = {
 				add_ideas = UKR_civil_war
 				add_war_support = 0.6
 				transfer_state = 220
-				add_state_claim = 220							
-				add_state_claim = 258
-				
+				add_state_claim = 240
 				declare_war_on = {
 					target = UKR
 					type = annex_everything
@@ -148,7 +146,6 @@ country_event = {
 					can_puppet = no
 				}
 				UKR_set_leaders = yes
-				
 				220 = {
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
@@ -203,9 +200,7 @@ country_event = {
 				add_ideas = UKR_civil_war
 				add_war_support = 0.6
 				transfer_state = 200
-				# set_state_controller = 196
-				# set_state_controller = 197
-				# set_state_controller = 203
+				add_state_claim = 196
 				declare_war_on = {
 					target = UKR
 					type = annex_everything
@@ -214,7 +209,6 @@ country_event = {
 					can_puppet = no
 				}
 				UKR_set_leaders = yes
-				
 				200 = {
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
@@ -269,6 +263,7 @@ country_event = {
 				add_ideas = UKR_civil_war
 				add_war_support = 0.6
 				transfer_state = 225
+				add_state_claim = 193
 				declare_war_on = {
 					target = UKR
 					type = annex_everything
@@ -277,7 +272,6 @@ country_event = {
 					can_puppet = no
 				}
 				UKR_set_leaders = yes
-				
 				225 = {
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
@@ -317,9 +311,9 @@ country_event = {
 					can_puppet = no
 				}
 				add_ideas = UKR_civil_war
-				
 				add_war_support = 0.6
 				transfer_state = 93
+				add_state_claim = 199
 				declare_war_on = {
 					target = UKR
 					type = annex_everything
@@ -342,12 +336,11 @@ country_event = {
 						owner = PREV
 					}
 					create_unit = {
-						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
+						division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.8"
 						owner = PREV
 					}
 				}
 			}
-			
 		}
 	}
 	option = {
@@ -494,6 +487,7 @@ country_event = {
 	option = {
 		name = ssw_UKR.11.a
 		ai_chance = {
+			# Deny Demand
 			base = 1
 			modifier = {
 				factor = 1.5
@@ -511,15 +505,16 @@ country_event = {
 			}
 		}
 		FROM = {
-			create_wargoal = {
-				type = take_core_state
-				target = ROOT
+			country_event = {
+				id = ssw_UKR.13
+				days = 1
 			}
 		}
 	}
 	option = {
 		name = ssw_UKR.11.b
 		ai_chance = {
+			# Accept Demand
 			base = 1
 			# Ukrainians want to unite!
 			modifier = {
@@ -552,21 +547,77 @@ country_event = {
 				transfer_state = PREV
 			}
 		}
+		FROM = {
+			country_event = {
+				id = ssw_UKR.12
+				days = 1
+			}
+		}
 	}
 }
 
-# ヴォルガドイツ共和国のコズメティックを強制的に付与する（現在使われていない）
-# country_event = {
-# 	id = ssw_UKR.13
-# 	hidden = yes
-# 	# fire_only_once = yes
-# 	trigger = {
-# 		tag = UKV
-# 		NOT = {
-# 			has_cosmetic_tag = UKR_GEM
-# 		}
-# 	}
-# 	immediate = {
-# 		set_cosmetic_tag = UKR_GEM
-# 	}
-# }
+# General Demand - Success!
+country_event = {
+	id = ssw_UKR.12
+	title = ssw_UKR.12.title
+	desc = ssw_UKR.12.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.12.a
+	}
+}
+
+# General Demand - Failed
+country_event = {
+	id = ssw_UKR.13
+	title = ssw_UKR.13.title
+	desc = ssw_UKR.13.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.13.a
+		ai_chance = {
+			# Declare War!
+			base = 1
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.2
+				}
+			}
+			modifier = {
+				factor = 5
+				strength_ratio = {
+					tag = FROM
+					ratio > 2
+				}
+			}
+		}
+		create_wargoal = {
+			type = take_core_state
+			target = FROM
+		}
+	}
+	option = {
+		name = ssw_UKR.13.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+		}
+	}
+}
