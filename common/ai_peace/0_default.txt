@@ -1,5 +1,7 @@
 default_peace = {
-	enable = { always = yes }
+	enable = {
+		always = yes
+	}
 	annex_randomness = 0
 	liberate_randomness = 0
 	puppet_randomness = 0
@@ -12,21 +14,134 @@ default_peace = {
 			is_subject = yes
 		}
 	}
-	liberate = { factor = 0 }
-	puppet = { factor = 0 }
-	puppet_all = { factor = 0 }
-	puppet_state = { factor = 0 }
+	liberate = {
+		factor = 0
+	}
+	puppet = {
+		factor = 0
+	}
+	puppet_all = {
+		factor = 0
+	}
+	puppet_state = {
+		factor = 0
+	}
 	take_states = {
-		base = 50
+		factor = 1
+		# 請求権は優先される
 		modifier = {
-			add = 999950
+			add = 16
+			FROM = {
+				is_claimed_by = ROOT
+			}
+		}
+		# 中核州は最優先される
+		modifier = {
+			add = 32
+			FROM = {
+				is_core_of = ROOT
+			}
+		}
+		# 沿岸州はそうでない州より優先される
+		modifier = {
+			add = 1
+			FROM = {
+				is_coastal = yes
+			}
+		}
+		# 以下、隣接州が多いと優先される
+		modifier = {
+			add = 2
 			FROM = {
 				OR = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 0
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 0
+						owner = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 1
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 1
+						owner = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 2
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 2
+						owner = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 3
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 3
+						owner = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 4
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 4
+						owner = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 2
+			FROM = {
+				OR = {
+					num_owned_neighbour_states = {
+						owner = ROOT
+						count > 5
+					}
+					num_claimed_peace_conference_neighbour_states = {
+						count > 5
+						owner = ROOT
+					}
 				}
 			}
 		}
 	}
-	force_government = { factor = 0 }
+	force_government = {
+		factor = 0
+	}
 }
