@@ -336,10 +336,56 @@ country_event = {
 				}
 			}
 		}
+		remove_ideas = UKR_natives_nationalism
 	}
 	option = {
 		name = ssw_UKR.3.a
-		remove_ideas = UKR_natives_nationalism
+	}
+	option = {
+		name = ssw_UKR.3.b
+		UKA = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.3.c
+		UKB = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.3.d
+		country_event = {
+			id = ssw_UKR.4
+			hours = 1
+		}
+	}
+}
+
+# Select country to fight for!
+country_event = {
+	id = ssw_UKR.4
+	title = ssw_UKR.4.title
+	desc = ssw_UKR.4.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.4.a
+		UKC = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.4.b
+		UKD = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.4.c
+		UKE = {
+			change_tag_from = ROOT
+		}
 	}
 }
 
@@ -484,17 +530,24 @@ country_event = {
 			# Deny Demand
 			base = 1
 			modifier = {
-				factor = 1.5
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio > 1
+				}
+			}
+			modifier = {
+				factor = 2
 				strength_ratio = {
 					tag = FROM
 					ratio > 1.2
 				}
 			}
 			modifier = {
-				factor = 5
+				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio > 2
+					ratio > 1.4
 				}
 			}
 		}
@@ -502,6 +555,7 @@ country_event = {
 			country_event = {
 				id = ssw_UKR.13
 				days = 1
+				random = 24
 			}
 		}
 	}
@@ -516,17 +570,24 @@ country_event = {
 				factor = 100
 			}
 			modifier = {
-				factor = 1.5
+				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio < 0.75
+					ratio < 1
 				}
 			}
 			modifier = {
 				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio < 0.5
+					ratio < 0.8
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.6
 				}
 			}
 		}
@@ -545,6 +606,7 @@ country_event = {
 			country_event = {
 				id = ssw_UKR.12
 				days = 1
+				random = 24
 			}
 		}
 	}
@@ -575,17 +637,24 @@ country_event = {
 			# Declare War!
 			base = 1
 			modifier = {
-				factor = 1.5
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio > 1
+				}
+			}
+			modifier = {
+				factor = 2
 				strength_ratio = {
 					tag = FROM
 					ratio > 1.2
 				}
 			}
 			modifier = {
-				factor = 5
+				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio > 2
+					ratio > 1.4
 				}
 			}
 		}
@@ -599,17 +668,24 @@ country_event = {
 		ai_chance = {
 			base = 1
 			modifier = {
-				factor = 1.5
+				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio < 0.75
+					ratio < 1
 				}
 			}
 			modifier = {
 				factor = 2
 				strength_ratio = {
 					tag = FROM
-					ratio < 0.5
+					ratio < 0.8
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.6
 				}
 			}
 		}
