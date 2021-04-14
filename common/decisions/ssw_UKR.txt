@@ -303,10 +303,7 @@ UKR_unification_wars = {
 	UKR_unification_wars_2 = {
 		target_trigger = {
 			FROM = {
-				OR = {
-					original_tag = UKR
-					tag = DON
-				}
+				original_tag = UKR
 				NOT = {
 					tag = ROOT
 				}
@@ -316,11 +313,12 @@ UKR_unification_wars = {
 						is_claimed_by = ROOT
 					}
 				}
+				has_non_aggression_pact_with = ROOT
 			}
 		}
 		cost = 50
 		days_remove = 7
-		fire_only_once = yes
+		fire_only_once = no
 		ai_will_do = {
 			base = 8
 			modifier = {
@@ -370,6 +368,8 @@ UKR_debug = {
 			has_global_flag = UKR_independence_war_started
 			has_global_flag = UKR_independence_war_ended
 			has_global_flag = GER_civil_war
+			tag = UKR
+			original_tag = UKR
 		}
 	}
 }

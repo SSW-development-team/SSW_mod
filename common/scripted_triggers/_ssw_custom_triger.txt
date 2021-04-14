@@ -61,7 +61,7 @@ this_is_bulkan_states = {
 any_owned_state_in_bulkan = {
 		any_owned_state = { this_is_bulkan_states = yes }
 	}
-}
+
 this_is_scandinavian_states = {
 	OR = {
 		region = 11#ノルウェー南部
@@ -76,7 +76,7 @@ this_is_scandinavian_states = {
 any_owned_state_in_scandinavian = {
 		any_owned_state = { this_is_scandinavian_states = yes }
 	}
-}
+
 this_is_mid_america_states = {
 	OR = {
 		region = 34
@@ -88,6 +88,23 @@ this_is_mid_america_states = {
 any_owned_state_in_mid_america = {
 		any_owned_state = { this_is_mid_america_states = yes }
 	}
-}
 
-			
+
+is_capital_in_china = {
+	any_owned_state = {
+		AND = {
+			is_capital = yes
+			OR = {
+				region = 155 #満州
+				region = 152 #中央ステップ
+				region = 143 #華北
+				region = 164 #華東
+				region = 165 #華南
+				region = 144 #華西
+				region = 200 #青海
+				region = 146 #ヒマラヤ
+				region = 145 #中央アジア
+			}
+		}
+	}
+}
