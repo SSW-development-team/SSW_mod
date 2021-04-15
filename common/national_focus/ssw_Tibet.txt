@@ -20,6 +20,7 @@ focus_tree = {
 			tag = TIB
 		}
 	}
+	continuous_focus_position = { x = 100 y = 1400 }
 	default = no
 	focus = {
 		id = TIB_start_politic_reform
@@ -50,7 +51,13 @@ focus_tree = {
 		available = {
 		}
 		bypass = {}
-		ai_will_do = { factor = 20 }
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 15
+				has_completed_focus = TIB_find_way
+			}	
+		}
 		search_filters = {  }
 		completion_reward = {
 			army_experience = 25
@@ -74,7 +81,13 @@ focus_tree = {
 		available = {
 		}
 		bypass = {}
-		ai_will_do = { factor = 20 }
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 15
+				has_completed_focus = TIB_find_way
+			}	
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				name = land_doc_bonus
@@ -422,10 +435,25 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
+			TIB = {
+				is_subject = no
+				NOT = {
+					is_in_faction_with = CHI
+				}
+				has_opinion = {
+					target = CHI
+					value > 50
+				}
+			}
 		}
-		bypass = {}
+		bypass = {
+			TIB = {
+				is_in_faction_with = CHI
+			}
+		}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			CHI = { country_event = { id = generic.2 hours = 6 } }
 		}
 		x = 16
 		y = 8
@@ -1752,6 +1780,21 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_legal_leftist_government
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_ideas = TIB_14th_dalai_lama
+		}
+		bypass = {
+			NOT = {
+				has_ideas = TIB_14th_dalai_lama
+			}
+		}
+		completion_reward = {
+			country_event = tibet.9
+		}
 		x = 3
 		y = 7
 
@@ -2482,6 +2525,28 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_shipyard
 		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
 		x = 53
 		y = 3
 
@@ -2497,7 +2562,18 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_super_hight_flight
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
