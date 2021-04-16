@@ -1,6 +1,6 @@
 shared_focus = {
-	id = ALF_The_First_War
-	icon = GFX_focus_attack_wsl
+	id = ALF_Transition_to_Wartime_System
+	icon = GFX_focus_ALF_Fate_of_America
 	cost = 10.00
 	x = 10
 	y = 0
@@ -16,18 +16,18 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_INDUSTRY }
 	completion_reward = {
-		add_ideas = ssw_ideas_ALF_Aim_for_the_Short_Term
+		add_ideas = ssw_ideas_ALF_Special_Exception_in_Time_of_War_1
 	}
 }
 shared_focus = {
-	id = ALF_support_with_JAP
-	icon = GFX_focus_attack_wsl
-	cost = 10.00
+	id = ALF_Militia_Organization
+	icon = GFX_focus_BUL_condemn_macedonian_organizations
+	cost = 5.00
 	x = 0
-	y = 2
-	relative_position_id = ALF_The_First_War
+	y = 1
+	relative_position_id = ALF_Transition_to_Wartime_System
 	prerequisite = {
-		focus = ALF_The_First_War
+		focus = ALF_Transition_to_Wartime_System
 	}
 
 	ai_will_do = {
@@ -42,26 +42,99 @@ shared_focus = {
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_INDUSTRY }
 	completion_reward = {
-		897 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
+		country_event = {
+			id = SSW_ALF.7 days = 2
 		}
-		898 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
-		378 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
+	}
 }
+shared_focus = {
+	id = ALF_Improving_Supply
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 20.00
+	x = 0
+	y = 1
+	relative_position_id = ALF_Militia_Organization
+	prerequisite = {
+		focus = ALF_Militia_Organization
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ALF
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+
+		}
+	}
+}
+shared_focus = {
+	id = ALF_Request_for_Foreign_Aid
+	icon = GFX_focus_secret_rearmament
+	cost = 10.00
+	x = -2
+	y = 2
+	relative_position_id = ALF_Transition_to_Wartime_System
+	prerequisite = {
+		focus = ALF_Transition_to_Wartime_System
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Reinforcement_of_Wartime_Production_Increase_System
+	icon = GFX_goal_continuous_reduce_training_time
+	cost = 5.00
+	x = 2
+	y = 2
+	relative_position_id = ALF_Transition_to_Wartime_System
+	prerequisite = {
+		focus = ALF_Transition_to_Wartime_System
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ssw_ideas_ALF_Special_Exception_in_Time_of_War_1
+			add_idea = ssw_ideas_ALF_Special_Exception_in_Time_of_War_2
+		}
+
+	}
 }

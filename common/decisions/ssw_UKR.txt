@@ -20,6 +20,9 @@ UKR_combat_uia = {
 		cost = 50
 		fire_only_once = yes
 		days_remove = 60
+		ai_will_do = {
+			base = 1
+		}
 		visible = {
 			tag = UKR
 		}
@@ -49,6 +52,9 @@ UKR_improve_literacy = {
 			has_idea = UKR_low_education_level
 		}
 		days_remove = 180
+		ai_will_do = {
+			base = 1
+		}
 		modifier = {
 			consumer_goods_factor = 0.05
 		}
@@ -68,6 +74,9 @@ UKR_improve_literacy = {
 			has_idea = UKR_middle_education_level
 		}
 		days_remove = 180
+		ai_will_do = {
+			base = 1
+		}
 		modifier = {
 			consumer_goods_factor = 0.05
 		}
@@ -87,6 +96,9 @@ UKR_improve_literacy = {
 			has_idea = UKR_high_education_level
 		}
 		days_remove = 180
+		ai_will_do = {
+			base = 1
+		}
 		modifier = {
 			consumer_goods_factor = 0.05
 		}
@@ -233,6 +245,9 @@ UKR_ukrainaization = {
 		cost = 50
 		fire_only_once = yes
 		days_remove = 60
+		ai_will_do = {
+			base = 1
+		}
 		visible = {
 			tag = UKR
 		}
@@ -288,10 +303,7 @@ UKR_unification_wars = {
 	UKR_unification_wars_2 = {
 		target_trigger = {
 			FROM = {
-				OR = {
-					original_tag = UKR
-					tag = DON
-				}
+				original_tag = UKR
 				NOT = {
 					tag = ROOT
 				}
@@ -301,11 +313,12 @@ UKR_unification_wars = {
 						is_claimed_by = ROOT
 					}
 				}
+				has_non_aggression_pact_with = ROOT
 			}
 		}
 		cost = 50
 		days_remove = 7
-		fire_only_once = yes
+		fire_only_once = no
 		ai_will_do = {
 			base = 8
 			modifier = {
@@ -355,6 +368,8 @@ UKR_debug = {
 			has_global_flag = UKR_independence_war_started
 			has_global_flag = UKR_independence_war_ended
 			has_global_flag = GER_civil_war
+			tag = UKR
+			original_tag = UKR
 		}
 	}
 }
