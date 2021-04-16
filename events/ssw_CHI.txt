@@ -1,5 +1,6 @@
 add_namespace = ssw_chi_d
 add_namespace = ssw_chi
+add_namespace = ssw_chi_jap_war
 country_event = {
     id = ssw_chi_d.2
     title = ssw_chi_d.2.t
@@ -469,9 +470,20 @@ country_event = { #国民大会経過(仮)
     fire_only_once = yes
     option = { #無事に
         name = ssw_chi.16.a
-        load_focus_tree = {
-            tree = CHI_Rep_of_China_Gu_Zhutong_route
-            keep_completed = yes
+        if = {
+            limit = {
+                has_focus_tree = CHI_politic_tree_one_wwJ
+            }
+            load_focus_tree = {
+                tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                keep_completed = yes
+            }
+        }
+        else = {
+            load_focus_tree = {
+                tree = CHI_Rep_of_China_Gu_Zhutong_route
+                keep_completed = yes
+            }
         }
     }
 }
@@ -483,9 +495,20 @@ country_event = { #汪兆銘の暗殺
     fire_only_once = yes
     immediate = {
         hidden_effect = {
-            load_focus_tree = {
-                tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
-                keep_completed = yes
+            if = {
+                limit = {
+                    has_focus_tree = CHI_politic_tree_one_wwJ
+                }
+                load_focus_tree = {
+                    tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                    keep_completed = yes
+                }
+            }
+            else = {
+                load_focus_tree = {
+                    tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    keep_completed = yes
+                }
             }
             set_variable = {
                 var = CHI_d_w_dm_s
@@ -533,5 +556,1588 @@ country_event = { #三人組の中で
     option = { #張群
         name = ssw_chi.18.c
         set_country_flag = CHI_Cheung_Kong_route
+    }
+}
+country_event = { #南京会議の開催
+    id = ssw_chi.19
+    title = ssw_chi.19.t
+    desc = ssw_chi.19.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    immediate = {
+        country_event = {id = ssw_chi.20 days = 7}
+    }
+    option = {
+        name = ssw_chi.19.a
+    }
+}
+country_event = {
+    id = ssw_chi.20
+    title = ssw_chi.20.t
+    desc = ssw_chi.20.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.20.a
+        if = {
+            limit = {
+                original_tag = CHI
+            }
+            create_faction = SSW_Nanking_Treaty_Org
+            add_to_faction = PAK
+        }
+    }
+}
+country_event = { #中国の要求(チベット)
+    id = ssw_chi.21
+    title = ssw_chi.21.t
+    desc = ssw_chi.21.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #認めるしかない…
+        name = ssw_chi.21.a
+        ai_chance = {
+            base = 20
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 2
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.22 days = 1}
+        }
+    }
+    option = { #従属を選ぶ
+        name = ssw_chi.21.b
+        ai_chance = {
+            base = 20
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 1.5
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.23 days = 1}
+        }
+    }
+    option = { #来りて取れ
+        name = ssw_chi.21.c
+        ai_chance = {
+            base = 60
+        }
+        CHI = {
+            country_event = {id = ssw_chi.24 days = 1}
+        }
+    }
+}
+country_event = { #チベットが併合を認める
+    id = ssw_chi.22
+    title = ssw_chi.22.t
+    desc = ssw_chi.22.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #素晴らしい
+        name = ssw_chi.22.a
+        annex_country = {
+            target = TIB
+            transfer_troops = yes
+        }
+    }
+}
+country_event = { #チベットが従属を選択
+    id = ssw_chi.23
+    title = ssw_chi.23.t
+    desc = ssw_chi.23.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #素晴らしい
+        name = ssw_chi.23.a
+        puppet = TIB
+    }
+}
+country_event = { #チベットが要求を拒否
+    id = ssw_chi.24
+    title = ssw_chi.24.t
+    desc = ssw_chi.24.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #戦争準備を行え
+        name = ssw_chi.24.a
+        create_wargoal = {
+            target = TIB
+            type = annex_everything
+        }
+    }
+}
+country_event = { #中国の要求(トゥバ、トゥラン)
+    id = ssw_chi.25
+    title = ssw_chi.25.t
+    desc = ssw_chi.25.d
+    is_triggered_only = yes
+    option = { #認めよう
+        name = ssw_chi.25.a
+        ai_chance = {
+            base = 40
+            modifier = {
+                enemies_strength_ratio > 2
+                factor = 2
+            }
+        }
+        FROM = {
+            country_event = {id = ssw_chi.26 days = 1}
+        }
+    }
+    option = { #この土地は我々のものだ
+        name = ssw_chi.25.b
+        ai_chance = {
+            base = 60
+        }
+        FROM = {
+            country_event = {id = ssw_chi.27 days = 1}
+        }
+    }
+}
+country_event = { #FROMが要求を認める
+    id = ssw_chi.26
+    title = ssw_chi.26.t
+    desc = ssw_chi.26.d
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.26.a
+        329 = {
+            if = {
+                limit = {
+                    is_fully_controlled_by = FROM
+                }
+                ROOT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+        1012 = {
+            if = {
+                limit = {
+                    is_fully_controlled_by = FROM
+                }
+                ROOT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+    }
+}
+country_event = { #FROMが要求を拒否
+    id = ssw_chi.27
+    title = ssw_chi.27.t
+    desc = ssw_chi.27.d
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.27.a
+        if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 329
+                    has_full_control_of_state = 1012
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {329}
+                generator = {1012}
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 329
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {329}
+            }
+        }
+        else_if = {
+            limit = {
+                FROM = {
+                    has_full_control_of_state = 1012
+                }
+            }
+            create_wargoal = {
+                target = FROM
+                type = take_state_focus
+                generator = {1012}
+            }
+        }
+    }
+}
+country_event = { #中国が武器取引を依頼
+    id = ssw_chi.28
+    title = ssw_chi.28.t
+    desc = ssw_chi.28.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #よかろう
+        name = ssw_chi.28.a
+        ai_chance = {
+            base = 60
+        }
+        add_ideas = CHI_weapon_trade
+        CHI = {
+            set_country_flag = CHI_GER_agree_purchase_weapon
+        }
+    }
+    option = { #我々にも余裕はない
+        name = ssw_chi.28.b
+        ai_chance = {
+            base = 40
+            modifier = {
+                OR = {
+                    has_war = yes
+                }
+                factor = 3
+            }
+        }
+    }
+}
+
+country_event = { #第二回連邦代表大会
+    id = ssw_chi.29
+    title = ssw_chi.29.t
+    desc = ssw_chi.29.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            if = {
+                limit = {
+                    has_completed_focus = CHI_compromise_KMT
+                }
+                load_focus_tree = {
+                    tree = CHI_Union_of_China_Gu_Zhutong_route
+                    keep_completed = yes
+                }
+            }
+            else = {
+                load_focus_tree = {
+                    tree = CHI_Union_of_China_route
+                    keep_completed = yes
+                }
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.29.a
+        trigger = {
+            has_completed_focus = CHI_compromise_KMT
+        }
+    }
+    option = {
+        name = ssw_chi.29.b
+        set_politics = {
+            ruling_party = authority_democracy
+            elections_allowed = no
+        }
+        set_country_flag = CHI_Gu_Zhutong_route_flag
+    }
+    option = {
+        name = ssw_chi.29.c
+        set_politics = {
+            ruling_party = social_conservatism
+            elections_allowed = no
+        }
+    }
+    option = {
+        name = ssw_chi.29.e
+        set_politics = {
+            ruling_party = social_liberalism
+            elections_allowed = no
+        }
+    }
+    option = {
+        name = ssw_chi.29.f
+        set_politics = {
+            ruling_party = progressive_communism
+            elections_allowed = no
+        }
+    }
+}
+
+country_event = { #新疆ウイグル共和国の成立
+    id = ssw_chi.30
+    title = ssw_chi.30.t
+    desc = ssw_chi.30.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.30.a
+        if = {
+            limit = {
+                NOT = {country_exists = SIK}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_30_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = SIK
+                    }
+                    remove_core_of = SIK
+                }
+                SIK = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 759
+                                state = 760
+                                state = 618
+                                state = 617
+                                state = 287
+                                state = 619
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Isa Alptekin"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = SIK_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = SIK
+                SIK = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_30_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = SIK
+                    autonomy_state = autonomy_puppet
+                }
+                SIK = {
+                    add_state_core = 759
+                    add_state_core = 760
+                    add_state_core = 618
+                    add_state_core = 617
+                    add_state_core = 287
+                    add_state_core = 619
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 759
+                                state = 760
+                                state = 618
+                                state = 617
+                                state = 287
+                                state = 619
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = SIK_Fede
+                    create_country_leader = {
+                        name = "Isa Alptekin"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #西蔵チベット自治国の成立
+    id = ssw_chi.31
+    title = ssw_chi.31.t
+    desc = ssw_chi.31.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.31.a
+        if = {
+            limit = {
+                NOT = {country_exists = TIB}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_31_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = TIB
+                    }
+                    remove_core_of = TIB
+                }
+                TIB = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 920
+                                state = 601
+                                state = 917
+                                state = 757
+                                state = 919
+                                state = 322
+                                state = 758
+                                state = 918
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "10th Panchen Lama"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = TIB_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = TIB
+                TIB = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_31_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = TIB
+                    autonomy_state = autonomy_puppet
+                }
+                TIB = {
+                    add_state_core = 920
+                    add_state_core = 601
+                    add_state_core = 917
+                    add_state_core = 757
+                    add_state_core = 919
+                    add_state_core = 322
+                    add_state_core = 758
+                    add_state_core = 918
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 920
+                                state = 601
+                                state = 917
+                                state = 757
+                                state = 919
+                                state = 322
+                                state = 758
+                                state = 918
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = TIB_Fede
+                    create_country_leader = {
+                        name = "10th Panchen Lama"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #蒙古自治国の成立
+    id = ssw_chi.32
+    title = ssw_chi.32.t
+    desc = ssw_chi.32.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.32.a
+        if = {
+            limit = {
+                NOT = {country_exists = MON}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_32_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = MON
+                    }
+                    remove_core_of = MON
+                }
+                MON = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 330
+                                state = 329
+                                state = 1012
+                                state = 756
+                                state = 621
+                                state = 1014
+                                state = 611
+                                state = 612
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Li Shouxin"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = MON_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = MON
+                MON = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_32_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = MON
+                    autonomy_state = autonomy_puppet
+                }
+                MON = {
+                    add_state_core = 330
+                    add_state_core = 329
+                    add_state_core = 1012
+                    add_state_core = 756
+                    add_state_core = 621
+                    add_state_core = 1014
+                    add_state_core = 611
+                    add_state_core = 612
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 330
+                                state = 329
+                                state = 1012
+                                state = 756
+                                state = 621
+                                state = 1014
+                                state = 611
+                                state = 612
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = MON_Fede
+                    create_country_leader = {
+                        name = "Li Shouxin"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #雲南民族共和国の成立
+    id = ssw_chi.33
+    title = ssw_chi.33.t
+    desc = ssw_chi.33.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.33.a
+        if = {
+            limit = {
+                NOT = {country_exists = YUN}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_33_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = YUN
+                    }
+                    remove_core_of = YUN
+                }
+                YUN = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 747
+                                state = 325
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Lu han"
+                        desc = ""
+                        picture = "gfx/leaders/CHI/Portrait_Lu_Han.dds"
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = YUN_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = YUN
+                YUN = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_33_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = YUN
+                    autonomy_state = autonomy_puppet
+                }
+                YUN = {
+                    add_state_core = 747
+                    add_state_core = 325
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 747
+                                state = 325
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = YUN_Fede
+                    create_country_leader = {
+                        name = "Lu han"
+                        desc = ""
+                        picture = "gfx/leaders/CHI/Portrait_Lu_Han.dds"
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #満族自治区の成立
+    id = ssw_chi.34
+    title = ssw_chi.34.t
+    desc = ssw_chi.34.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.34.a
+        if = {
+            limit = {
+                NOT = {country_exists = MAN}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_34_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = MAN
+                    }
+                    remove_core_of = MAN
+                }
+                MAN = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 761
+                                state = 714
+                                state = 717
+                                state = 1051
+                                state = 1050
+                                state = 1046
+                                state = 1047
+                                state = 328
+                                state = 1055
+                                state = 1056
+                                state = 1054
+                                state = 1061
+                                state = 1062
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "aisin-gioro pu-giye"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = MAN_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = MAN
+                MAN = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_34_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = MAN
+                    autonomy_state = autonomy_puppet
+                }
+                MAN = {
+                    add_state_core = 761
+                    add_state_core = 714
+                    add_state_core = 717
+                    add_state_core = 1051
+                    add_state_core = 1050
+                    add_state_core = 1046
+                    add_state_core = 1047
+                    add_state_core = 328
+                    add_state_core = 1055
+                    add_state_core = 1056
+                    add_state_core = 1054
+                    add_state_core = 1061
+                    add_state_core = 1062
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 761
+                                state = 714
+                                state = 717
+                                state = 1051
+                                state = 1050
+                                state = 1046
+                                state = 1047
+                                state = 328
+                                state = 1055
+                                state = 1056
+                                state = 1054
+                                state = 1061
+                                state = 1062
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = MAN_Fede
+                    create_country_leader = {
+                        name = "aisin-gioro pu-giye"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #回国の成立
+    id = ssw_chi.35
+    title = ssw_chi.35.t
+    desc = ssw_chi.35.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.35.a
+        if = {
+            limit = {
+                NOT = {country_exists = XSM}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_35_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = XSM
+                    }
+                    remove_core_of = XSM
+                }
+                XSM = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 616
+                                state = 283
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Ma Buqing"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = XSM_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = XSM
+                XSM = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_35_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = XSM
+                    autonomy_state = autonomy_puppet
+                }
+                XSM = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 616
+                                state = 283
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = XSM_Fede
+                    create_country_leader = {
+                        name = "Ma Buqing"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #広西国民国の成立
+    id = ssw_chi.36
+    title = ssw_chi.36.t
+    desc = ssw_chi.36.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.36.a
+        if = {
+            limit = {
+                NOT = {country_exists = GXC}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_36_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = GXC
+                    }
+                    remove_core_of = GXC
+                }
+                GXC = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 599
+                                state = 594
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Li Zongren"
+                        desc = ""
+                        picture = "gfx/leaders/CHI/Portrait_Li_Zongren.dds"
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = GXC_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = GXC
+                GXC = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_36_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = GXC
+                    autonomy_state = autonomy_puppet
+                }
+                GXC = {
+                    add_state_core = 599
+                    add_state_core = 594
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 599
+                                state = 594
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = GXC_Fede
+                    create_country_leader = {
+                        name = "Li Zongren"
+                        desc = ""
+                        picture = "gfx/leaders/CHI/Portrait_Li_Zongren.dds"
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #広東自治国の成立
+    id = ssw_chi.37
+    title = ssw_chi.37.t
+    desc = ssw_chi.37.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.37.a
+        if = {
+            limit = {
+                NOT = {country_exists = GUD}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_37_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = GUD
+                    }
+                    remove_core_of = GUD
+                }
+                GUD = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 591
+                                state = 832
+                                state = 728
+                                state = 592
+                                state = 593
+                                state = 326
+                                state = 831
+                                state = 729
+                            }
+                        }
+                        add_core_of = PREV
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Li Hanhun"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = GUD_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = GUD
+                GUD = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_37_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = GUD
+                    autonomy_state = autonomy_puppet
+                }
+                GUD = {
+                    add_state_core = 591
+                    add_state_core = 832
+                    add_state_core = 728
+                    add_state_core = 592
+                    add_state_core = 593
+                    add_state_core = 326
+                    add_state_core = 831
+                    add_state_core = 729
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 591
+                                state = 832
+                                state = 728
+                                state = 592
+                                state = 593
+                                state = 326
+                                state = 831
+                                state = 729
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = GUD_Fede
+                    create_country_leader = {
+                        name = "Li Hanhun"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+country_event = { #閩共和国の成立
+    id = ssw_chi.38
+    title = ssw_chi.38.t
+    desc = ssw_chi.38.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.38.a
+        if = {
+            limit = {
+                NOT = {country_exists = MIN}
+            }
+            custom_effect_tooltip = CHI_ssw_chi_38_tt_1
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = MIN
+                    }
+                    remove_core_of = MIN
+                }
+                MIN = {
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 595
+                                state = 830
+                                state = 524
+                                state = 842
+                            }
+                        }
+                        add_core_of = MIN
+                        if = {
+                            limit = {
+                                is_fully_controlled_by = CHI
+                            }
+                            PREV = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Cai Peihuo"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    ROOT = {
+                        puppet = PREV
+                        set_autonomy = {
+                            target = PREV
+                            autonomy_state = autonomy_puppet
+                        }
+                    }
+                    set_cosmetic_tag = MIN_Fede
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                country_exists = MIN
+                MIN = {
+                    OR = {
+                        is_puppet_of = CHI
+                        is_subject_of = CHI
+                    }
+                }
+            }
+            custom_effect_tooltip = CHI_ssw_chi_38_tt_2
+            hidden_effect = {
+                set_autonomy = {
+                    target = MIN
+                    autonomy_state = autonomy_puppet
+                }
+                MIN = {
+                    add_state_core = 595
+                    add_state_core = 830
+                    add_state_core = 524
+                    add_state_core = 842
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 595
+                                state = 830
+                                state = 524
+                                state = 842
+                            }
+                            is_fully_controlled_by = CHI
+                        }
+                        PREV = {
+                            transfer_state = PREV
+                        }
+                    }
+                    set_cosmetic_tag = MIN_Fede
+                    create_country_leader = {
+                        name = "Cai Peihuo"
+                        desc = ""
+                        #picture = 
+                        expire = "1990.1.1"
+                        ideology = social_conservatism_ideology
+                    }
+                    set_country_flag = menber_of_CHI_fede
+                }
+            }
+        }
+    }
+}
+
+country_event = {
+    id = ssw_chi_jap_war.1
+    title = ssw_chi_jap_war.1.t
+    desc = ssw_chi_jap_war.1.d
+    fire_only_once = yes
+    hidden = yes
+    trigger = {
+        country_exists = JAP
+        country_exists = CHI
+        date > 1955.5.6
+    }
+    immediate = {
+        CHI = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+        JAP = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.1.a
+    }
+}
+country_event = { #盧溝橋事件
+    id = ssw_chi_jap_war.2
+    title = ssw_chi_jap_war.2.t
+    desc = ssw_chi_jap_war.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.2.a
+        set_global_flag = CHI_marco_polo_bridge_incident
+    }
+}
+country_event = { #河北事変
+    id = ssw_chi_jap_war.3
+    title = ssw_chi_jap_war.3.t
+    desc = ssw_chi_jap_war.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.3.a
+        if = {
+            limit = {
+                original_tag = CHI
+            }
+            start_border_war = {
+                change_state_after_war = no
+                attacker = {
+                    state = 608
+                    #state = 1014
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.4
+                    on_lose = ssw_chi_jap_war.4
+                    on_cancel = ssw_chi_jap_war.4
+                }
+                defender = {
+                    state = 609
+                    #state = 610
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.6
+                    on_lose = ssw_chi_jap_war.6
+                    on_cancel = ssw_chi_jap_war.6
+                }
+            }
+            set_border_war_data = {
+                attacker = 609
+                defender = 609
+                combat_width = 120
+                minimum_duration_in_days = 10
+            }
+        }
+        else_if = {
+            limit = {
+                original_tag = JAP
+            }
+            custom_effect_tooltip = ssw_chi_jap_war_3_tt
+        }
+    }
+}
+country_event = { #最後通牒(中国)
+    id = ssw_chi_jap_war.4
+    title = ssw_chi_jap_war.4.t
+    desc = ssw_chi_jap_war.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 4
+    option = {
+        name = ssw_chi_jap_war.4.a
+        ai_chance = {
+            base = 40
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = JAP
+            type = annex_everything
+        }
+        hidden_effect = {
+            MAN = {
+                add_to_war = {
+                    targeted_alliance = JAP
+                    enemy = CHI
+                }
+            }
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.4.b
+        ai_chance = {
+            base = 60
+        }
+        custom_effect_tooltip = ssw_chi_jap_war_4_tt
+        hidden_effect = {
+            JAP = {
+                country_event = {id = ssw_chi_jap_war.5 days = 1}
+            }
+        }
+    }
+}
+country_event = { #最後通牒(日本)
+    id = ssw_chi_jap_war.5
+    title = ssw_chi_jap_war.5.t
+    desc = ssw_chi_jap_war.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi_jap_war.5.a
+        ai_chance = {
+            base = 80
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = CHI
+            type = annex_everything
+        }
+        hidden_effect = {
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.5.b
+        ai_chance = {
+            base = 20
+        }
+    }
+}
+country_event = {
+    id = ssw_chi_jap_war.6
+    title = ssw_chi_jap_war.6.t
+    desc = ssw_chi_jap_war.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    hidden = yes
+    option = {
+        name = ssw_chi_jap_war.6.a
     }
 }

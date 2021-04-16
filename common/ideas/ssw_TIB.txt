@@ -140,6 +140,26 @@ ideas = {
 				military_leader_cost_factor = 50
 			}
 		}
+		TIB_improving_army = {
+
+			picture = hol_expand_the_colonial_army
+		
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+		
+			modifier = {
+				max_planning = -0.1
+				planning_speed = -0.05
+				military_leader_cost_factor = 20
+				conscription = 0.002
+			}
+		}
 		TIB_14th_dalai_lama = {
 			picture = 14th_dalai_lama
 			removal_cost = -1
@@ -222,6 +242,20 @@ ideas = {
 				authority_despotism_acceptance = 0.5
 			}
 		}
+		TIB_prepare_buddhism_state = {
+			picture = none
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				authority_despotism_drift = 0.25
+				political_power_gain = -0.5
+			}
+		}
 		TIB_geological = {
 			picture = generic_exploit_mines
 			removal_cost = -1
@@ -246,6 +280,25 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				consumer_goods_factor = -0.05
+			}
+		}
+		TIB_invest_weappon = {
+			picture = a
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
 			}
 		}
 	}
@@ -299,6 +352,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_zhou_enlai = {
+			picture = zhou_enlai
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_foreign_affairs = {
 		TIB_tsepon_shakabpa_fa = {
@@ -333,10 +402,42 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_chen_yi_fa = {
+			picture = chen_yi_civil
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			cancel_if_invalid = no
+			allowed = {
+			        tag = TIB
+			}
+			traits = {
+			}
+		}
 	}
 	minister_of_finance = {
 		TIB_tsepon_shakabpa_fi = {
 			picture = tsepon_shakabpa
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_bo_yibo = {
+			picture = bo_yibo
 			removal_cost = -1
 			available = {
 				custom_trigger_tooltip = {
@@ -385,10 +486,42 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_ngapo_ngawang_jigme_in = {
+			picture = ngapo_ngawang_jigme_civil
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_army = {
 		TIB_wangchen_gelek = {
 			picture = wangchen_gelek
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+			        tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_zhu_de = {
+			picture = zhu_de_civil
 			removal_cost = -1
 			available = {
 				custom_trigger_tooltip = {
@@ -419,6 +552,50 @@ ideas = {
 			}
 			
 			traits = { electronics_concern }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	high_command = {
+		TIB_yuthok_tashi_dhondup_sa = {
+			picture = yuthok_tashi_dhondup
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		TIB_surkhang_lhawang_topgyal_sa = {
+			picture = surkhang_lhawang_topgyal
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		TIB_ngapo_ngawang_jigme_sa = {
+			picture = ngapo_ngawang_jigme_army
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
 
 			ai_will_do = {
 				factor = 1

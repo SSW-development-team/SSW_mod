@@ -371,11 +371,8 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
-				production_factory_max_efficiency_factor = 0.05
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_2_1 = {
@@ -387,11 +384,9 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_2_2 = {
@@ -403,12 +398,9 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.05
-				production_factory_max_efficiency_factor = 0.05
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_3 = {
@@ -420,12 +412,10 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.05
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 			}
 		}
 		CHI_innovative_industry_4 = {
@@ -437,12 +427,11 @@ ideas = {
 			}
 			picture = man_five_year_plan_air
 			modifier = {
-				stability_factor = 0.1
 				consumer_goods_factor = -0.1
-				production_factory_max_efficiency_factor = 0.15
-				production_speed_industrial_complex_factor = -0.15
-				production_speed_arms_factory_factor = -0.15
-				industrial_capacity_factory = 0.25
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				industrial_capacity_factory = 0.2
 			}
 		}
 
@@ -799,6 +788,960 @@ ideas = {
 				consumer_goods_factor = -0.05
 				industrial_capacity_factory = 0.2
 				line_change_production_efficiency_factor = -0.1
+			}
+		}
+
+		CHI_PAK_support_from_CHI = { #中国からの支援
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = chi_chinese_support
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		CHI_chinese_century_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				justify_war_goal_time = -0.2
+				send_volunteer_factor = 5
+			}
+		}
+
+		CHI_anti_JAP = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+		CHI_anti_JAP_2 = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				resistance_growth = 0.2
+				army_core_attack_factor = -0.1
+				army_core_defence_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+		CHI_anti_JAP_3 = { #抗日
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				resistance_growth = 0.2
+				army_core_attack_factor = -0.1
+				army_core_defence_factor = 0.15
+				land_reinforce_rate = 0.1
+				supply_consumption_factor = -0.1
+			}
+			targeted_modifier = {
+				tag = JAP
+				offence = 0.05
+				defence = 0.05
+			}
+		}
+
+		CHI_anti_imper_cooperation = { #反帝国主義連携
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				army_defence_factor = 0.05
+				army_org = 0.05
+			}
+		}
+
+		CHI_weapon_trade = { #中国との武器取引
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.03
+			}
+		}
+
+		CHI_active_anti_JAP_MAN_molecule = { #抗日反満分子の活発化
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = -0.2
+			}
+		}
+
+		CHI_protect_factory = { #工場を守れ！
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				industry_free_repair_factor = 0.2
+				industry_repair_factor = 0.2
+				industry_air_damage_factor = -0.2
+			}
+		}
+
+		CHI_rangers = { #特戦隊
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				army_org = 0.2
+				army_morale = 0.1
+				experience_loss_factor = 0.05
+				attrition = 0.05
+			}
+		}
+
+		CHI_idea_civilianism = { #民生主義
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+			}
+		}
+		CHI_idea_civilianism_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+				monthly_population = 0.2
+			}
+		}
+		CHI_idea_civilianism_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+				monthly_population = 0.2
+				industrial_capacity_factory = 0.1
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		CHI_idea_civilianism_4 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+				political_power_factor = 0.1
+				conscription_factor = 0.03
+				army_org_factor = 0.1
+				monthly_population = 0.2
+				industrial_capacity_factory = 0.1
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+
+		CHI_propagate_language_edu = { #国語教育の伝播
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_factor = 0.03
+			}
+		}
+
+		CHI_industry_breakthrough_plan = { #産業躍進計画
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.05
+			}
+		}
+		CHI_industry_breakthrough_plan_2_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.05
+				industrial_capacity_factory = 0.05
+				local_building_slots_factor = 0.1
+			}
+		}
+		CHI_industry_breakthrough_plan_2_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.15
+			}
+		}
+		CHI_industry_breakthrough_plan_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.15
+				industrial_capacity_factory = 0.05
+				local_building_slots_factor = 0.1
+			}
+		}
+
+		CHI_legitimate_three_principle = { #正当なる三民主義
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				drift_defence_factor = 0.3
+				authority_democracy_drift = 0.03
+			}
+		}
+
+		CHI_local_democracy = { #地方民主主義
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				political_power_factor = 0.05
+			}
+		}
+
+		CHI_idea_life_reform = { #生活改革
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+		CHI_idea_life_reform_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.3
+			}
+		}
+		CHI_idea_life_reform_1_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.3
+				research_speed_factor = 0.08
+			}
+		}
+		CHI_idea_life_reform_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = 0.08
+			}
+		}
+		CHI_idea_life_reform_2_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = 0.08
+				production_speed_infrastructure_factor = 0.15
+				local_resources_factor = 0.05
+			}
+		}
+		CHI_idea_life_reform_f = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = 0.08
+				production_speed_infrastructure_factor = 0.15
+				local_resources_factor = 0.05
+				monthly_population = 0.3
+			}
+		}
+		CHI_federal_militarism = { #連邦の軍国主義
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				max_planning = 0.05
+				planning_speed = 0.05
+			}
+		}
+		CHI_federal_militarism_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				max_planning = 0.05
+				planning_speed = 0.05
+				research_speed_factor = -0.05
+				training_time_army_factor = -0.1
+			}
+		}
+		CHI_federal_militarism_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				max_planning = 0.05
+				planning_speed = 0.05
+				consumer_goods_factor = 0.05
+				production_speed_arms_factory_factor = -0.1
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+		CHI_federal_militarism_f = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				max_planning = 0.05
+				planning_speed = 0.05
+				research_speed_factor = -0.05
+				training_time_army_factor = -0.1
+				consumer_goods_factor = 0.05
+				production_speed_arms_factory_factor = -0.1
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+		CHI_federal_army_woman = { #連邦軍の女性
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				conscription_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+		CHI_majesty_Son_Yat_sen = { #孫文の威光
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.2
+				army_org_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		CHI_new_democracy = { #新民主主義
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_factor = 0.05
+			}
+		}
+
+		CHI_CHI_trade = { #中国貿易
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture =
+			modifier = {
+				min_export = 0.3
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.15
+			}
+		}
+
+		CHI_return_central_sovereignty = { #中央主権への回帰
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_gain = -0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		CHI_return_central_sovereignty_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_gain = -0.1
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.1
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+
+		CHI_strong_decentralization = { #強力な地方政権
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_gain = 0.5
+				consumer_goods_factor = 0.03
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
+
+		CHI_memo_natio_revo_army = { #国民革命軍の記憶
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				land_reinforce_rate = 0.1
+				attrition = 0.1
+				minimum_training_level = 0.1
+			}
+		}
+		CHI_memo_natio_revo_army_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				land_reinforce_rate = 0.1
+				attrition = 0.1
+				minimum_training_level = 0.1
+				army_org_factor = 0.1
+				max_planning = 0.05
+			}
+		}
+
+		CHI_administrate_reform = { #行政改革
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				mobilization_laws_cost_factor = -0.3
+				economy_cost_factor = -0.3
+				tank_manufacturer_cost_factor = -0.3
+				naval_manufacturer_cost_factor = -0.3
+				aircraft_manufacturer_cost_factor = -0.3
+				materiel_manufacturer_cost_factor = -0.3
+				industrial_concern_cost_factor = -0.3
+			}
+		}
+
+		CHI_inheritance_three_principle = { #三民主義の継承
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = -0.05
+				political_power_factor = 0.1
+			}
+		}
+
+		CHI_Fu_Zuoyi_major_reform_domestic = { #傳作義の内政大改革
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.2
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				resistance_activity = -0.1
+				stability_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				research_speed_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_1_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.2
+				resistance_activity = -0.1
+				stability_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_1_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.2
+				research_speed_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_2_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				resistance_activity = -0.1
+				stability_factor = 0.1
+				research_speed_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_i = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.2
+				resistance_activity = -0.1
+				stability_factor = 0.1
+				research_speed_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_4 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.35
+				resistance_activity = -0.1
+				stability_factor = 0.1
+				research_speed_factor = 0.1
+			}
+		}
+		CHI_Fu_Zuoyi_major_reform_domestic_f = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.35
+				resistance_activity = -0.1
+				stability_factor = 0.2
+				research_speed_factor = 0.1
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.1
+				local_building_slots_factor = 0.1
+			}
+		}
+
+		CHI_idea_people_rep_china = { #人民公社
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				consumer_goods_factor = -0.1
+				army_core_defence_factor = 0.05
+				production_factory_max_efficiency_factor = -0.2
+			}
+		}
+
+		CHI_farmers_relief = { #農民の救済
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				monthly_population = 0.4
+				stability_factor = 0.1
+			}
+		}
+
+		CHI_socialism_china = { #社会主義中国
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				min_export = 0.1
+				consumer_goods_factor = -0.03
+				production_factory_efficiency_gain_factor = 0.1
+				stability_factor = -0.1
+			}
+		}
+		CHI_socialism_china_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				min_export = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.1
+				stability_factor = -0.1
+				political_power_factor = 0.1
+				industrial_capacity_factory = 0.1
+				army_org_factor = 0.05
+			}
+		}
+
+		CHI_ff_ethnic_minority = { #55の少数民族
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				conscription_factor = 0.08
+				army_core_attack_factor = 0.05
+			}
+		}
+
+		CHI_local_awaken = { #地方の覚醒
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				local_building_slots_factor = 0.2
+			}
+		}
+		CHI_local_awaken_1_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				local_building_slots_factor = 0.2
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				monthly_population = 0.6
+				consumer_goods_factor = -0.1
+			}
+		}
+		CHI_local_awaken_1_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				local_building_slots_factor = 0.2
+				political_power_factor = 0.1
+			}
+		}
+		CHI_local_awaken_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_factor = 0.1
+				local_building_slots_factor = 0.2
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				monthly_population = 0.6
+				consumer_goods_factor = -0.1
+			}
+		}
+		CHI_local_awaken_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_factor = 0.2
+				local_building_slots_factor = 0.2
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				monthly_population = 0.6
+				consumer_goods_factor = -0.1
+				research_speed_factor = -0.03
+			}
+		}
+		CHI_local_awaken_4 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				political_power_factor = 0.2
+				war_support_factor = 0.2
+				local_building_slots_factor = 0.2
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				monthly_population = 0.6
+				consumer_goods_factor = -0.1
+				research_speed_factor = -0.03
+				forced_surrender_limit = 0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.1
+			}
+		}
+
+		CHI_great_unity_various_peoples = { #諸民族の大団結
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			#picture = 
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_org_factor = 0.05
+				training_time_army_factor = -0.05
+				consumer_goods_factor = -0.05
 			}
 		}
 	}

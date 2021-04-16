@@ -1,58 +1,4 @@
 test_debug_decisions = {
-	HUN_little_axis = {
-		icon = ger_reichskommissariats
-		available = { is_debug = yes }
-		visible = {
-			is_debug = yes
-			original_tag = HUN
-		}
-		cost = 0
-		fire_only_once = no
-		ai_will_do = { factor = 0 }
-		complete_effect = {
-			if = {
-            	limit = { has_global_flag = little_axis_victory }
-            	clr_global_flag = little_axis_victory
-            	else = { set_global_flag = little_axis_victory }
-        	}
-		}
-	}
-	HUN_balkan_order = {
-		icon = ger_reichskommissariats
-		available = { is_debug = yes }
-		visible = {
-			is_debug = yes
-			original_tag = HUN
-		}
-		cost = 0
-		fire_only_once = no
-		ai_will_do = { factor = 0 }
-		complete_effect = {
-			if = {
-            	limit = { has_global_flag = balkan_order_victory }
-            	clr_global_flag = balkan_order_victory
-            	else = { set_global_flag = balkan_order_victory }
-        	}
-		}
-	}
-	HUN_danubian_war = {
-		icon = ger_reichskommissariats
-		available = { is_debug = yes }
-		visible = {
-			is_debug = yes
-			original_tag = HUN
-		}
-		cost = 0
-		fire_only_once = no
-		ai_will_do = { factor = 0 }
-		complete_effect = {
-			if = {
-            	limit = { has_global_flag = danubian_war_end }
-            	clr_global_flag = danubian_war_end
-            	else = { set_global_flag = danubian_war_end }
-        	}
-		}
-	}
 	HUN_lose_danubian_war = {
 		icon = ger_reichskommissariats
 		available = { is_debug = yes }
@@ -89,8 +35,7 @@ test_debug_decisions = {
 		fire_only_once = no
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			add_political_power = 100
-			add_stability = 0.05
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	SPR_democrat = {
@@ -214,6 +159,7 @@ HUN_policy = {
 		icon = generic_operation
 		available = { has_equipment = { infantry_equipment > 2999 } }
 		visible = {
+			has_completed_focus = HUN_86
 			has_global_flag = GER_civil_war_end
 			FROM = {
 				exists = yes
@@ -250,6 +196,7 @@ HUN_policy = {
 			}
 		}
 		target_trigger = {
+			has_completed_focus = HUN_86
 			has_global_flag = GER_civil_war_end
 			FROM = {
 				exists = yes
@@ -517,6 +464,191 @@ HUN_policy = {
 					count = 1
 				}
 			}
+		}
+	}
+	equipment_robbery = {
+		icon = generic_operation
+		available = {
+			has_government = anarchism
+			has_completed_focus = HUN_destruction_of_culture
+		}
+		fire_only_once = no
+		visible = {
+			has_government = anarchism
+			has_completed_focus = HUN_destruction_of_culture
+		}
+		ai_will_do = { factor = 10 }
+		days_remove = 35
+		cost = 50
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 1000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 1000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 1000
+				producer = HUN
+			}
+		}
+	}
+	add_core_states_of_integrate_commune = {
+		icon = generic_nationalism
+		available = {
+			NOT = { has_country_flag = adding_state_core }
+			FROM = { NOT = { is_core_of = ROOT } }
+		}
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_array = controlled_states
+		target_trigger = {
+			has_government = anarchism
+			has_completed_focus = HUN_destruction_of_culture
+			FROM = { NOT = { is_core_of = ROOT } }
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 1 }
+		days_remove = 14
+		modifier = { political_power_gain = -1 }
+		visible = {
+			has_government = anarchism
+			has_completed_focus = HUN_destruction_of_culture
+			FROM = { NOT = { is_core_of = ROOT } }
+		}
+		complete_effect = { set_country_flag = adding_state_core }
+		remove_effect = {
+			clr_country_flag = adding_state_core
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 3000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 3000
+				producer = HUN
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 3000
+				producer = HUN
+			}
+			FROM = {
+				add_core_of = ROOT
+				set_building_level = {
+					type = infrastructure
+					level = 0
+					instant_build = yes
+				}
+			}
+		}
+	}
+	revenge_on_the_world = {
+		icon = generic_operation
+		available = {
+			has_army_manpower = { size > 999999 }
+			has_completed_focus = HUN_revenge_on_the_world
+		}
+		visible = {
+			has_completed_focus = HUN_revenge_on_the_world
+			OR = {
+				naval_strength_ratio = {
+					tag = FROM
+					ratio > 0.77
+				}
+				AND = {
+					strength_ratio = {
+						tag = FROM
+						ratio > 0.77
+					}
+					FROM = { is_neighbor_of = ROOT }
+				}
+			}
+			FROM = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		target_trigger = {
+			has_completed_focus = HUN_revenge_on_the_world
+			OR = {
+				naval_strength_ratio = {
+					tag = FROM
+					ratio > 0.77
+				}
+				AND = {
+					strength_ratio = {
+						tag = FROM
+						ratio > 0.77
+					}
+					FROM = { is_neighbor_of = ROOT }
+				}
+			}
+			FROM = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		days_remove = 30
+		remove_effect = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+	alliance_with_the_socialist = {
+		icon = generic_operation
+		available = {
+			is_in_faction = no
+			OR = {
+				has_completed_focus = HUN_take_power
+				has_completed_focus = HUN_syndicalism_revolution
+			}
+			NOT = { has_war_with = FROM }
+		}
+		visible = {
+			is_in_faction = no
+			OR = {
+				has_completed_focus = HUN_take_power
+				has_completed_focus = HUN_syndicalism_revolution
+			}
+			NOT = { has_war_with = FROM }
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				OR = {
+					has_government = progressive_communism
+					has_government = classical_communism
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				OR = {
+					has_government = progressive_communism
+					has_government = classical_communism
+				}
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		days_remove = 70
+		complete_effect = {
+			FROM = { country_event = { id = ssw_faction.4 } }
 		}
 	}
 }

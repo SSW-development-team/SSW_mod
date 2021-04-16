@@ -36,7 +36,7 @@ country_event = {
 	option = {
 		name = tibet.1.b
 		ai_chance = {
-			factor = 20
+			factor = 21
 		}
 		complete_national_focus = TIB_traditional_government
 	}
@@ -203,6 +203,143 @@ country_event = {
 		}
 		add_stability = -0.2
 		add_political_power = 75
+	}
+}
+country_event = {
+	id = tibet.7
+	title = tibet.7.t
+	desc = tibet.7.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.7.a
+		ai_chance = {
+			factor = 20
+		}
+		add_ideas = TIB_yuthok_tashi_dhondup_sa
+	}
+	option = {
+		name = tibet.7.b
+		ai_chance = {
+			factor = 20
+		}
+		add_ideas = TIB_surkhang_lhawang_topgyal_sa
+	}
+	option = {
+		name = tibet.7.c
+		ai_chance = {
+			factor = 20
+		}
+		trigger = {
+			has_country_flag = TIB_controlled_ngawang_jigme
+		}
+		add_ideas = TIB_ngapo_ngawang_jigme_sa
+	}
+}
+country_event = {
+	id = tibet.8
+	title = tibet.8.t
+	desc = tibet.8.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.8.a
+		ai_chance = {
+			factor = 20
+		}
+		add_stability = -0.1
+		add_ideas = TIB_zhou_enlai
+		add_ideas = TIB_chen_yi_fa
+		add_ideas = TIB_zhu_de
+		add_ideas = TIB_bo_yibo
+		add_ideas = TIB_ngapo_ngawang_jigme_in
+		create_country_leader = {
+			name = "Mao Zedong"
+			desc = "POLITICS_MAO_ZEDONG_TIB_DESC"
+			picture = "gfx/leaders/TIB/ssw_Portrait_China_Mao_Zedong.dds"
+			ideology = anti_revisionism_ideology 
+			traits = {
+			}
+			expire = "1988.1.1"
+		}
+		set_party_name = { 
+			ideology = classical_communism 
+			long_name = TIB_ccp_party_long 
+			name = TIB_ccp_party
+		}
+		set_party_name = { 
+			ideology = progressive_communism 
+			long_name = TIB_ccp_party_long 
+			name = TIB_ccp_party
+		}
+		set_cosmetic_tag = TIB_CCP
+	}
+}
+#Event select excute or exile
+country_event = {
+	id = tibet.9
+	title = tibet.9.t
+	desc = tibet.9.desc
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	#Exile them
+	option = {
+		name = tibet.9.a
+		trigger = {
+			MON = {
+				OR = {
+					has_government = authority_despotism
+					has_government = authority_democracy
+				}
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+		MON = {
+			country_event = { id = tibet.10 }
+			effect_tooltip = {
+				add_ideas = TIB_14th_dalai_lama
+			}
+		}
+	}
+
+	#Execute them
+	option = {
+		name = tibet.9.b
+		ai_chance = {
+			base = 5
+		}
+		add_stability = -0.15
+	}
+	option = {
+		name = tibet.9.c
+		ai_chance = {
+			base = 5
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.1
+	}
+}
+
+#event to exile Dalai Lama to mongol
+country_event = {
+	id = tibet.10
+	title = tibet.10.t
+	desc = tibet.10.desc
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tibet.10.a
+		ai_chance = {
+			base = 10
+		}
+		add_ideas = TIB_14th_dalai_lama
 	}
 }
 country_event = {

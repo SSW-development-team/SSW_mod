@@ -1,3 +1,16 @@
+#MUST BE WRITTEN!
+#cancel_if_invalid = yes
+#continue_if_invalid = no
+#available_if_capitulated = no
+#available = {
+#}
+#bypass = {}
+#ai_will_do = { factor = 2 }
+#completion_reward = {
+#}
+
+#FOCUS FILTERS
+
 focus_tree = {
 	id = ssw_Tibet
 	country = {
@@ -7,6 +20,7 @@ focus_tree = {
 			tag = TIB
 		}
 	}
+	continuous_focus_position = { x = 100 y = 1400 }
 	default = no
 	focus = {
 		id = TIB_start_politic_reform
@@ -37,7 +51,13 @@ focus_tree = {
 		available = {
 		}
 		bypass = {}
-		ai_will_do = { factor = 20 }
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 15
+				has_completed_focus = TIB_find_way
+			}	
+		}
 		search_filters = {  }
 		completion_reward = {
 			army_experience = 25
@@ -61,7 +81,13 @@ focus_tree = {
 		available = {
 		}
 		bypass = {}
-		ai_will_do = { factor = 20 }
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 15
+				has_completed_focus = TIB_find_way
+			}	
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				name = land_doc_bonus
@@ -183,6 +209,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_support_bapa_wangyal
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		mutually_exclusive = {
 			focus = TIB_red_monastries
 		}
@@ -196,6 +231,15 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_reform_politic
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
 		}
 		mutually_exclusive = {
 			focus = TIB_support_bapa_wangyal
@@ -211,6 +255,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_chinese_model
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 14
 		y = 4
 
@@ -221,6 +274,15 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_chinese_model
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
 		}
 		x = 16
 		y = 4
@@ -236,6 +298,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_invite_chinese_advisors
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 15
 		y = 5
 
@@ -250,6 +321,15 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_democratic_election
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 14
 		y = 6
 
@@ -260,6 +340,15 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_lhasa_revolution
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
 		}
 		x = 13
 		y = 7
@@ -275,6 +364,15 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_lhasa_revolution
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 16
 		y = 6
 
@@ -287,6 +385,15 @@ focus_tree = {
 			focus = TIB_lhasa_revolution
 			focus = TIB_democratic_election
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 15
 		y = 7
 
@@ -297,6 +404,15 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_democratic_election
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
 		}
 		x = 17
 		y = 7
@@ -315,6 +431,30 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_negotiated_chinese_suzerainty
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			TIB = {
+				is_subject = no
+				NOT = {
+					is_in_faction_with = CHI
+				}
+				has_opinion = {
+					target = CHI
+					value > 50
+				}
+			}
+		}
+		bypass = {
+			TIB = {
+				is_in_faction_with = CHI
+			}
+		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			CHI = { country_event = { id = generic.2 hours = 6 } }
+		}
 		x = 16
 		y = 8
 
@@ -332,6 +472,15 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_join_to_front
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+		}
 		x = 14
 		y = 8
 
@@ -343,6 +492,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_negotiated_chinese_suzerainty
 			focus = TIB_join_to_front
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
 		}
 		x = 16
 		y = 9
@@ -422,6 +580,9 @@ focus_tree = {
 		}
 		bypass = {
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 		completion_reward = {
 			add_war_support = 0.05
 			add_political_power = 50
@@ -692,6 +853,35 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_chinese_deportation
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = national_fascism
+				}
+				add_popularity = {
+					ideology = national_fascism
+					popularity = 0.20
+				}
+				add_political_power = 100
+			}
+			if = {
+				limit = {
+					has_government = national_socialism
+				}
+				add_popularity = {
+					ideology = national_socialism
+					popularity = 0.20
+				}
+				add_war_support = 0.15
+			}
+		}
 		x = 35
 		y = 7
 
@@ -736,6 +926,19 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_tibetan_army
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_invest_weappon
+				days = 720
+			}
+		}
 		x = 42
 		y = 1
 
@@ -746,6 +949,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_invest_for_weapons
+		
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = 
+				add_idea = TIB_improving_army
+			}
 		}
 		x = 39
 		y = 2
@@ -760,7 +977,15 @@ focus_tree = {
 		}
 		x = 38
 		y = 3
-
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+		}
 	}
 	focus = {
 		id = TIB_militia_from_north
@@ -1006,6 +1231,16 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_invest_for_weapons
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		completion_reward = {
+			country_event = tibet.7
+			army_experience = 25
 		}
 		x = 43
 		y = 2
@@ -1434,6 +1669,26 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_tibetan_army
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			random_owned_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
+		}
 		x = 52
 		y = 1
 
@@ -1445,6 +1700,45 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_unthinkable_force
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			random_owned_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_built_shipppppp
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_built_shipppppp
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			navy_experience = 10
+		}
 		x = 52
 		y = 2
 
@@ -1455,6 +1749,31 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_build_shipyard
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			random_owned_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			add_tech_bonus = {
+				name = GER_u_boat_effort
+				bonus = 2.0
+				uses = 2
+				category = ss_tech
+			}
+			add_tech_bonus = {
+				name = ti_bonus
+				name = GER_trade_interdiction
+				bonus = 1.0
+				uses = 1
+				category = trade_interdiction_tree
+			}
 		}
 		x = 51
 		y = 3
@@ -1507,6 +1826,18 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_maoism
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			NOT = {
+				has_global_flag = KYR_ccp_in_government
+			}
+		}
+		completion_reward = {
+			country_event = tibet.8
+		}
 		x = 7
 		y = 7
 
@@ -1532,6 +1863,21 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_legal_leftist_government
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_ideas = TIB_14th_dalai_lama
+		}
+		bypass = {
+			NOT = {
+				has_ideas = TIB_14th_dalai_lama
+			}
+		}
+		completion_reward = {
+			country_event = tibet.9
 		}
 		x = 3
 		y = 7
@@ -1944,6 +2290,7 @@ focus_tree = {
 					modifier = TIB_send_lama
 				}
 			}
+			unlock_decision_category_tooltip = TIB_influence_mongol
 		}
 		x = 26
 		y = 8
@@ -2136,6 +2483,34 @@ focus_tree = {
 			focus = TIB_majesty_of_buddha
 			focus = TIB_more_temples
 		}
+		available = {
+			324 = {
+				CONTROLLER = {
+					NOT = {
+						OR = {
+							tag = TIB
+							is_subject_of = TIB
+						}
+					}
+				}
+			}
+		}
+		bypass = {
+			324 = {
+				CONTROLLER = {
+					OR = {
+						tag = TIB
+						is_subject_of = TIB
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+		}
 		x = 33
 		y = 11
 
@@ -2235,6 +2610,28 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_shipyard
 		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+		}
 		x = 53
 		y = 3
 
@@ -2250,7 +2647,18 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_super_hight_flight
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no

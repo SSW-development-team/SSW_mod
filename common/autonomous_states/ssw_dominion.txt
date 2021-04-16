@@ -1,23 +1,26 @@
 autonomy_state = {
 	id = dominion
 	is_puppet = yes
-	
 	min_freedom_level = 0.75
 	manpower_influence = 0.2
-	
-	rule = {}
-	modifier = {}
-	
-	ai_subject_wants_higher = {
-		factor = 1.0
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+		can_be_spymaster = yes
 	}
-
-	ai_overlord_wants_lower = {
-		factor = 0.0
+	modifier = {
+		autonomy_manpower_share = 0.0
+		extra_trade_to_overlord_factor = 0.25
+		overlord_trade_cost_factor = -0.25
 	}
-
+	ai_subject_wants_higher = { factor = 1.0 }
+	ai_overlord_wants_lower = { factor = 0.0 }
 	allowed = {
-		NOT = { OVERLORD = { original_tag = GER } }
-		NOT = { OVERLORD = { original_tag = JAP } }
+		OVERLORD = {
+			NOT = {
+				original_tag = GER
+				original_tag = JAP
+			}
+		}
 	}
 }
