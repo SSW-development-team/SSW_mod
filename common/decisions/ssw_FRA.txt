@@ -1,6 +1,6 @@
 FRA_Kenryoku_toso = {#権力闘争
 
-	FRA_dec_Opposition_demonstrations = { #タイムイベ
+	FRA_dec_Opposition_demonstrations = { #タイムイベ　#反対派のデモ
 		icon = eng_trade_unions_support
 		available = {
 			has_country_flag = FRA_Opposition_demonstrations
@@ -90,21 +90,28 @@ FRA_Kenryoku_toso = {#権力闘争
 			hidden_effect = {
 			add_to_variable = {
 				var = political_strife_regi
-				value = 1
+				value = 2
 			}
 		}
 		custom_effect_tooltip = pawer_up_mil
 			hidden_effect = {
 				add_to_variable = {
 					var = political_strife_mil
-					value = 1
+					value = 2
 				}
 			}
-			clr_country_flag = FRA_dec_General_strike_coping
 		}
+		custom_effect_tooltip = pawer_up_people
+		hidden_effect = {
+			add_to_variable = {
+				var = political_strife_people
+				value = 2
+			}
+		}
+		clr_country_flag = FRA_dec_General_strike_coping
 	}
 
-	FRA_dec_Worker_support = {#労働者への支援
+	FRA_dec_Worker_support = { #政府主導の労働者支援
 		icon = eng_trade_unions_support
 		available = {
 			has_country_flag = FRA_dec_General_strike_coping
@@ -116,7 +123,7 @@ FRA_Kenryoku_toso = {#権力闘争
 		ai_will_do = {
 			factor = 20
 		}
-		cost = 20
+		cost = 50
 		days_remove = 10
 
 		remove_effect = {
@@ -124,13 +131,13 @@ FRA_Kenryoku_toso = {#権力闘争
 			hidden_effect ={
 				add_to_variable = {
 					var = political_strife_gov
-					value = 2
+					value = 3
 				}
 			}			
 		}
 	}
 
-	FRA_dec_Guarantee_of_labor_welfare = {#労働福祉の保障
+	FRA_dec_Guarantee_of_labor_welfare = { #労働福祉の保障
 	icon = eng_trade_unions_support
 	available = {
 		has_country_flag = FRA_dec_General_strike_coping
@@ -142,7 +149,7 @@ FRA_Kenryoku_toso = {#権力闘争
 	ai_will_do = {
 		factor = 20
 	}
-	cost = 15
+	cost = 50
 	days_remove = 10
 
 	remove_effect = {
@@ -150,10 +157,36 @@ FRA_Kenryoku_toso = {#権力闘争
 		hidden_effect ={
 			add_to_variable = {
 				var = political_strife_gov
-				value = 1
+				value = 3
 			}
 		}			
 	}
+
+	
+	FRA_dec_Tax_cuts_for_citizens = {#市民への減税
+	icon = eng_trade_unions_support
+	available = {
+		has_country_flag = FRA_dec_General_strike_coping
+	}
+
+	visible = {
+		has_country_flag = FRA_dec_General_strike_coping
+	}
+	ai_will_do = {
+		factor = 20
+	}
+	cost = 50
+	days_remove = 10
+
+	remove_effect = {
+		custom_effect_tooltip = pawer_up_gov
+		hidden_effect ={
+			add_to_variable = {
+				var = political_strife_gov
+				value = 3
+			}
+		}			
+	}	
 }
 
 	FRA_dec_Opposition_crackdown = {#反対派の弾圧
