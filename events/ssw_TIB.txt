@@ -36,7 +36,7 @@ country_event = {
 	option = {
 		name = tibet.1.b
 		ai_chance = {
-			factor = 20
+			factor = 21
 		}
 		complete_national_focus = TIB_traditional_government
 	}
@@ -262,6 +262,84 @@ country_event = {
 			}
 			expire = "1988.1.1"
 		}
+		set_party_name = { 
+			ideology = classical_communism 
+			long_name = TIB_ccp_party_long 
+			name = TIB_ccp_party
+		}
+		set_party_name = { 
+			ideology = progressive_communism 
+			long_name = TIB_ccp_party_long 
+			name = TIB_ccp_party
+		}
+		set_cosmetic_tag = TIB_CCP
+	}
+}
+#Event select excute or exile
+country_event = {
+	id = tibet.9
+	title = tibet.9.t
+	desc = tibet.9.desc
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	#Exile them
+	option = {
+		name = tibet.9.a
+		trigger = {
+			MON = {
+				OR = {
+					has_government = authority_despotism
+					has_government = authority_democratic
+				}
+			}
+		}
+		ai_chance = {
+			base = 5
+		}
+		MON = {
+			country_event = { id = tibet.10 }
+			effect_tooltip = {
+				add_ideas = TIB_14th_dalai_lama
+			}
+		}
+	}
+
+	#Execute them
+	option = {
+		name = tibet.9.b
+		ai_chance = {
+			base = 5
+		}
+		add_stability = -0.15
+	}
+	option = {
+		name = tibet.9.c
+		ai_chance = {
+			base = 5
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.1
+	}
+}
+
+#event to exile Dalai Lama to mongol
+country_event = {
+	id = tibet.10
+	title = tibet.10.t
+	desc = tibet.10.desc
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tibet.10.a
+		ai_chance = {
+			base = 10
+		}
+		add_ideas = TIB_14th_dalai_lama
 	}
 }
 country_event = {
