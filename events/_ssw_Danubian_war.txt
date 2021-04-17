@@ -6,15 +6,19 @@ country_event = { #先祖伝来の地
 	desc = Danubian_war.1.d
 	picture = GFX_Ancestral_land
 	trigger = {
-		date > 1950.11.1
-		NOT = { has_global_flag = Danubian_war }
 		original_tag = ROM
+		has_global_flag = GER_civil_war
+		NOT = {
+			has_global_flag = Danubian_war
+			has_global_flag = ancestors_land
+		}
 	}
 	mean_time_to_happen = { days = 2 }
 	fire_only_once = yes
 	option = { #利害は一致する、セルビアと協力しよう
 		name = Danubian_war.1.a
 		ai_chance = { base = 99 }
+		set_global_flag = ancestors_land
 		SER = {
 			country_event = {
 				id = Danubian_war.2
@@ -25,6 +29,7 @@ country_event = { #先祖伝来の地
 	option = { #彼らとは相容れない
 		name = Danubian_war.1.b
 		ai_chance = { base = 1 }
+		set_global_flag = ancestors_land
 	}
 }
 country_event = { #ニシュ会談
