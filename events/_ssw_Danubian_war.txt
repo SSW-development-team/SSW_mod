@@ -1064,6 +1064,17 @@ country_event = { #
 				limit = { has_idea = HUN_restoration_flame_1 }
 				remove_ideas = HUN_restoration_flame_1
 			}
+			if = {
+				limit = { NOT = { has_focus_tree = ssw_hungary } }
+				load_focus_tree = ssw_hungary
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 43
+					43 = { is_capital = no }
+				}
+				set_capital = 43
+			}
 			country_lock_all_division_template = no
 		}
 		hidden_effect = {
@@ -1183,7 +1194,15 @@ country_event = { #ハンガリーが降伏直前に…
 				autonomous_state = occupied_territories
 			}
 		}
-		hidden_effect = { news_event = { id = Danubian_war.34 } }
+		hidden_effect = {
+			news_event = { id = Danubian_war.34 }
+			delete_unit_template_and_units = {
+				division_template = "Infantry Division"
+				division_template = "Artillery Division"
+				division_template = "Cavalry Division"
+				division_template = "Motorized-Division"
+			}
+		}
 	}
 	option = { #認めん！
 		name = Danubian_war.29.b
