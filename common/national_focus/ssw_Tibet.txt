@@ -20,7 +20,7 @@ focus_tree = {
 			tag = TIB
 		}
 	}
-	continuous_focus_position = { x = 100 y = 1400 }
+	continuous_focus_position = { x = 100 y = 1800 }
 	default = no
 	focus = {
 		id = TIB_start_politic_reform
@@ -584,8 +584,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_war_support = 0.05
-			add_political_power = 50
+			add_ideas = TIB_dob_dobs
+			TIB_up_monastery = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICS }
 		x = 29
@@ -1456,6 +1456,12 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_buy_the_machine
 		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_unmodernization_industries
+				add_idea = TIB_improving_industries
+			}
+		}
 		x = 45
 		y = 7
 
@@ -1466,6 +1472,19 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_rationalization_of_industry
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = radar_tech
+				bonus = 1.5
+				ahead_reduction = 2
+				uses = 2
+			}
+			add_tech_bonus = {
+				category = radar_tech
+				bonus = 1.0
+				uses = 1
+			}
 		}
 		x = 45
 		y = 9
@@ -1597,6 +1616,32 @@ focus_tree = {
 			focus = TIB_power_station
 			focus = TIB_urban_develop
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_local_arms_production_AF
+			}
+		}
 		x = 47
 		y = 9
 
@@ -1607,6 +1652,31 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_local_productions
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			controls_state = 917
+		}
+		bypass = {}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 10
+				state = 917
+			}
+			add_resource = {
+				type = chromium
+				amount = 3
+				state = 917
+			}
+			add_resource = {
+				type = tungsten
+				amount = 2
+				state = 917
+			}
 		}
 		x = 47
 		y = 10
@@ -1621,6 +1691,21 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TIB_open_mines
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_completed_focus = TIB_rationalization_of_industry
+		}
+		bypass = {
+			NOT = {
+				has_ideas = TIB_improving_industries
+			}
+		}
+		completion_reward = {
+			remove_ideas = TIB_improving_industries
 		}
 		x = 45
 		y = 11
@@ -1681,6 +1766,9 @@ focus_tree = {
 		bypass = {}
 		completion_reward = {
 			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
 				add_building_construction = {
 					type = dockyard
 					level = 2
@@ -1801,6 +1889,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_shut_spiritual_opiates_out
 		}
+		
 		x = 5
 		y = 6
 
@@ -2095,7 +2184,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_claim_qinghai
-		icon = GFX_goal_unknown
+		icon = GFX_focus_TIB_attack_amdo
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_state_atheism
@@ -2328,6 +2417,14 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_set_sikyongs_terms_of_office
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {}
+		bypass = {}
+		completion_reward = {
+		}
 		x = 23
 		y = 9
 
@@ -2374,6 +2471,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_connection_road_for_mongol
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			MON = {
+				is_subject_of = TIB
+			}
+		}
+		completion_reward = {
+			MON = {
+				country_event = tibet.11
+			}
 		}
 		x = 26
 		y = 10
@@ -2528,7 +2639,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_demand_amdo
-		icon = GFX_goal_unknown
+		icon = GFX_focus_TIB_attack_amdo
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_pressure_bhutan
@@ -2669,6 +2780,7 @@ focus_tree = {
 			add_tech_bonus = {
 				category = naval_bomber
 				uses = 2
+				ahead_reduction = 1
 				bonus = 1.5
 				name = TIB_attack_aircraft
 			}
