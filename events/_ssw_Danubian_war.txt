@@ -6,15 +6,19 @@ country_event = { #先祖伝来の地
 	desc = Danubian_war.1.d
 	picture = GFX_Ancestral_land
 	trigger = {
-		date > 1950.11.1
-		NOT = { has_global_flag = Danubian_war }
 		original_tag = ROM
+		has_global_flag = GER_civil_war
+		NOT = {
+			has_global_flag = Danubian_war
+			has_global_flag = ancestors_land
+		}
 	}
 	mean_time_to_happen = { days = 2 }
 	fire_only_once = yes
 	option = { #利害は一致する、セルビアと協力しよう
 		name = Danubian_war.1.a
 		ai_chance = { base = 99 }
+		set_global_flag = ancestors_land
 		SER = {
 			country_event = {
 				id = Danubian_war.2
@@ -25,6 +29,7 @@ country_event = { #先祖伝来の地
 	option = { #彼らとは相容れない
 		name = Danubian_war.1.b
 		ai_chance = { base = 1 }
+		set_global_flag = ancestors_land
 	}
 }
 country_event = { #ニシュ会談
@@ -1064,6 +1069,17 @@ country_event = { #
 				limit = { has_idea = HUN_restoration_flame_1 }
 				remove_ideas = HUN_restoration_flame_1
 			}
+			if = {
+				limit = { NOT = { has_focus_tree = ssw_hungary } }
+				load_focus_tree = ssw_hungary
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 43
+					43 = { is_capital = no }
+				}
+				set_capital = 43
+			}
 			country_lock_all_division_template = no
 		}
 		hidden_effect = {
@@ -1183,7 +1199,15 @@ country_event = { #ハンガリーが降伏直前に…
 				autonomous_state = occupied_territories
 			}
 		}
-		hidden_effect = { news_event = { id = Danubian_war.34 } }
+		hidden_effect = {
+			news_event = { id = Danubian_war.34 }
+			delete_unit_template_and_units = {
+				division_template = "Infantry Division"
+				division_template = "Artillery Division"
+				division_template = "Cavalry Division"
+				division_template = "Motorized-Division"
+			}
+		}
 	}
 	option = { #認めん！
 		name = Danubian_war.29.b

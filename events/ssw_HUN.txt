@@ -638,6 +638,13 @@ country_event = { #内閣の解散
 			ideology = authority_democracy_ideology
 			traits = { cabinet_crisis }
 		}
+		add_ideas = {
+			vacancy_pl
+			vacancy_mfa
+			vacancy_mf
+			vacancy_mi
+			vacancy_ma
+		}
 		add_stability = -0.15
 		hidden_effect = { country_event = { id = ssw_hun.32 days = 30 } }
 	}
@@ -672,6 +679,13 @@ country_event = { #ハンガリーが無政府状態に…
 		hidden_effect = {
 			country_event = { id = ssw_hun.33 days = 77 }
 			news_event = { id = ssw_hun.34 hours = 6 }
+			add_ideas = {
+				vacancy_pl
+				vacancy_mfa
+				vacancy_mf
+				vacancy_mi
+				vacancy_ma
+			}
 		}
 	}
 }
@@ -696,6 +710,13 @@ country_event = { #一筋の光
 			ideology = titoism_ideology
 			traits = {
 			}
+		}
+		add_ideas = {
+			HUN_rajk_laszlo_ssw
+			vacancy_mfa
+			vacancy_mf
+			vacancy_mi
+			vacancy_ma
 		}
 		add_stability = 0.5
 		hidden_effect = { news_event = { id = ssw_hun.35 hours = 6 } }
@@ -777,7 +798,15 @@ country_event = { #新総統
 			ideology = progressive_communism
 			popularity = 0.25
 		}
-		add_ideas = hun_ideas_42
+		add_ideas = {
+			hun_ideas_42
+			ssw_mixed_regime
+			HUN_rajk_laszlo_ssw
+			HUN_dome_sztojay_ssw
+			HUN_lajos_bebrits
+			HUN_sandor_barcs
+			HUN_istvan_bata
+		}
 		set_global_flag = big_event_custom_hungary_homeland_and_revenge
 	}
 	option = { #フェレンツこそが英雄だ。
@@ -791,52 +820,92 @@ country_event = { #新総統
 			ruling_party = national_socialism
 			elections_allowed = no
 		}
-		add_ideas = HUN_inauguration_of_the_new_president
+		add_ideas = {
+			HUN_inauguration_of_the_new_president
+			HUN_szalasi_ferenc
+			HUN_dome_sztojay_ssw
+			HUN_imredy_bela_ssw
+			HUN_miklos_bonczos_ssw
+			HUN_bela_miklos_ssw
+		}
 		set_global_flag = big_event_custom_hungary_homeland_and_revenge
 	}
 }
-country_event = { #
+country_event = { #とある一通の手紙
 	id = ssw_hun.39
 	title = ssw_hun.39.title
 	desc = ssw_hun.39.desc
-	is_triggered_only = yes
-	option = { #
-		name = ssw_hun.39.a
-		ai_chance = { base = 50 }
+	trigger = {
+		original_tag = HUN
+		has_completed_focus = HUN_conscript_applicants
+		OR = {
+			is_neighbor_of = RSE
+			is_neighbor_of = RUS
+		}
 	}
-	option = { #
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = { #彼はもう死んでいてな…
+		name = ssw_hun.39.a
+		ai_chance = { base = 70 }
+	}
+	option = { #まさか生きていたのか…
 		name = ssw_hun.39.b
-		ai_chance = { base = 50 }
+		ai_chance = { base = 30 }
+		hidden_effect = { country_event = { id = ssw_hun.40 days = 14 } }
 	}
 }
-country_event = { #
+country_event = { #来客
 	id = ssw_hun.40
 	title = ssw_hun.40.title
 	desc = ssw_hun.40.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #うーん、誰？
 		name = ssw_hun.40.a
 		ai_chance = { base = 50 }
 	}
-	option = { #
+	option = { #間違いない、彼は本物だ…
 		name = ssw_hun.40.b
 		ai_chance = { base = 50 }
+		hidden_effect = { country_event = { id = ssw_hun.41 days = 77 } }
 	}
 }
-country_event = { #
+country_event = { #政権の座を要求
 	id = ssw_hun.41
 	title = ssw_hun.41.title
 	desc = ssw_hun.41.desc
 	is_triggered_only = yes
-	option = { #
+	option = { #いや、なんで？
 		name = ssw_hun.41.a
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 50 }
 	}
-	option = { #
+	option = { #彼の言うことに間違いはないはずだ…
 		name = ssw_hun.41.b
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 50 }
+		retire_ideology_leader = national_fascism
+		create_country_leader = {
+			name = "Lajos Tóth “Alexander Kolchak”"
+			desc = ""
+			picture = "gfx/leaders/HUN/Portrait_Hungary_Lajos_Toth.dds"
+			expire = "1965.1.1"
+			ideology = avant_garde_ideology
+			traits = {
+				barracks_emperor
+				ocean_champion
+			}
+		}
+		hidden_effect = {
+			set_cosmetic_tag = HUN_russia_hungary
+			every_state = {
+				limit = {
+					has_state_flag = maybe_old_territory_RUSSIA
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+			set_country_flag = return_capital_of_petersburg
+			set_global_flag = big_event_custom_hungary_Different_Kind_of_Empire
+		}
 	}
 }
 country_event = { #
@@ -846,12 +915,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.42.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.42.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -862,12 +931,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.43.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.43.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -878,12 +947,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.44.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.44.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -894,12 +963,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.45.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.45.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -910,12 +979,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.46.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.46.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -926,12 +995,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.47.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.47.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -942,12 +1011,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.48.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.48.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -958,12 +1027,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.49.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.49.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
@@ -974,12 +1043,12 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_hun.50.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_hun.50.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
