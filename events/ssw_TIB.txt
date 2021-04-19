@@ -281,9 +281,8 @@ country_event = {
 	title = tibet.9.t
 	desc = tibet.9.desc
 	picture = GFX_report_event_jap_imperial_family
-
+	fire_only_once = yes
 	is_triggered_only = yes
-	
 	#Exile them
 	option = {
 		name = tibet.9.a
@@ -305,7 +304,6 @@ country_event = {
 			}
 		}
 	}
-
 	#Execute them
 	option = {
 		name = tibet.9.b
@@ -325,15 +323,14 @@ country_event = {
 			popularity = 0.1
 	}
 }
-#event to exile Dalai Lama to mongol
+
 country_event = {
 	id = tibet.10
 	title = tibet.10.t
 	desc = tibet.10.desc
 	picture = GFX_report_event_jap_imperial_family
-
+	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = tibet.10.a
 		ai_chance = {
@@ -367,6 +364,57 @@ country_event = {
 		MON = {
 			add_war_support = 0.1
 			add_stability = -0.2
+		}
+	}
+}
+country_event = {
+	id = tibet.12
+	title = tibet.12.t
+	desc = tibet.12.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.12.a
+		ai_chance = {
+			factor = 20
+		}
+		add_stability = -0.15
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -300 }
+		set_country_flag = TIB_revolut_prepare
+	}
+	option = {
+		name = tibet.12.b
+		ai_chance = {
+			factor = 20
+		}
+		trigger = {
+			OR = {
+				social_conservatism > 0.15
+				social_democracy > 0.15
+				social_liberalism > 0.15
+			}
+		}
+		set_country_flag = TIB_democrat_elect_prepare
+	}
+}
+country_event = {
+	id = tibet.13
+	title = tibet.13.t
+	desc = tibet.13.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.13.a
+		ai_chance = {
+			factor = 20
+		}
+		add_manpower = -328
+		add_stability = -0.1
+		set_politics = {
+			ruling_party = social_democracy
+			elections_allowed = no
+			last_election = "1949.6.1"
+			election_frequency = 48
 		}
 	}
 }
