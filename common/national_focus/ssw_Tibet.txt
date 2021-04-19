@@ -960,7 +960,7 @@ focus_tree = {
 		bypass = {}
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = 
+				remove_idea = TIB_poorly_organized_army
 				add_idea = TIB_improving_army
 			}
 		}
@@ -997,9 +997,9 @@ focus_tree = {
 		available = {
 			OR = {
 				any_neighbor_state = {
-					state = 278
+					state = 287
 				}
-				controls_state = 278
+				controls_state = 287
 			}
 		}
 		completion_reward = {
@@ -1720,7 +1720,10 @@ focus_tree = {
 		}
 		x = 49
 		y = 2
-
+		completion_reward = {
+			add_ideas = TIB_production_under_license
+			custom_effect_tooltip = TIB_production_under_license_tt
+		}
 	}
 	focus = {
 		id = TIB_super_hight_flight
@@ -1731,6 +1734,14 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TIB_pilot_training
+		}
+		completion_reward = {
+			air_experience = 20
+			add_tech_bonus = {
+				category = air_doctrine
+				uses = 3
+				bonus = 1.5
+			}
 		}
 		x = 48
 		y = 3
@@ -1759,7 +1770,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
-			random_owned_controlled_state = {
+			any_state = {
+				is_controlled_by = TIB
 				is_coastal = yes
 			}
 		}
@@ -1793,7 +1805,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
-			random_owned_controlled_state = {
+			any_state = {
+				is_controlled_by = TIB
 				is_coastal = yes
 			}
 		}
