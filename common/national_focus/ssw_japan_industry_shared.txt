@@ -1,0 +1,878 @@
+shared_focus = {
+	id = JAP_japanese_archipelago_remodeling_plan
+	icon = GFX_focus_jap_pacific_guardian
+	cost = 10.00
+	x = 110
+	y = 0
+	ai_will_do = {
+	base = 10
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	add_ideas = JAP_japanese_archipelago_remodeling_plan_idea
+	}
+}
+
+shared_focus = {
+		id = JAP_tokyo_osaka_highway
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 7
+		prerequisite = {
+			focus = JAP_priority_to_the_west
+			focus = JAP_priority_to_the_east
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		unlock_decision_tooltip = JAP_dec_tokyo_osaka_highway
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		x = 0
+		y = 2
+}
+shared_focus = {
+		id = JAP_north_and_south_on_the_highway
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 7
+		prerequisite = {
+			focus = JAP_tokyo_osaka_highway
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+		has_country_flag = JAP_tokyo_osaka_highway_costructed
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+		unlock_decision_tooltip = JAP_dec_tohoku_highway
+		unlock_decision_tooltip = JAP_dec_japan_sea_highway
+		unlock_decision_tooltip = JAP_dec_sanyo_highway
+		unlock_decision_tooltip = JAP_dec_kyusyu_highway
+		}
+		x = 0
+		y = 4
+
+}
+
+shared_focus = {
+	id = JAP_priority_to_the_east
+	icon = GFX_focus_generic_concessions
+	cost = 7
+	prerequisite = {
+	focus = JAP_japanese_archipelago_remodeling_plan
+	}
+	ai_will_do = {
+	base = 25
+	}
+	available = {
+		NOT = {
+		has_idea = JAP_priority_to_the_west_idea
+		}
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	relative_position_id = JAP_japanese_archipelago_remodeling_plan
+	completion_reward = {
+	add_ideas = JAP_priority_to_the_east_idea
+	}
+	x = 4
+	y = 1
+}
+shared_focus = {
+		id = JAP_east_japan_industrial_zone_project
+		icon = GFX_focus_generic_industry_3
+		cost = 7
+		prerequisite = {
+			focus = JAP_priority_to_the_east
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+		#custom_effect_tooltip = JAP_state_development_east_japan_tooltip
+		}
+		x = 4
+		y = 2
+
+}
+shared_focus = {
+		id = JAP_supporting_businesses_in_tohoku_region
+		icon = GFX_goal_generic_construction
+		cost = 7
+		prerequisite = {
+			focus = JAP_east_japan_industrial_zone_project
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			#if = {
+			#	limit = {
+			#		NOT = {
+			#			533 = { 
+			#			has_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier } 
+			#			}
+			#			has_full_control_of_state = 533
+			#		}
+			#	}
+			#	533 = {
+			#	add_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier }
+			#	}
+			#}
+			if = {
+				limit = {
+				has_full_control_of_state = 533
+				}
+				533 = {
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				}
+			}
+			#if = {
+			#	limit = {
+			#		NOT = {
+			#			844 = { 
+			#			has_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier } 
+			#			}
+			#		}
+			#		has_full_control_of_state = 844
+			#	}
+			#	844 = {
+			#	add_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier }
+			#	}
+			#}
+			if = {
+				limit = {
+				has_full_control_of_state = 844
+				}
+				844 = {
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+		x = 2
+		y = 3
+
+}
+shared_focus = {
+		id = JAP_strengthening_hokkaido_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 7
+		prerequisite = {
+			focus = JAP_supporting_businesses_in_tohoku_region
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 2
+		y = 4
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 843
+				}
+				843 = {
+				add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+				}
+				}
+			}
+			if = {
+				limit = {
+				has_full_control_of_state = 536
+				}
+				536 = {
+				add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+				}
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_niigata_shipyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 7
+		prerequisite = {
+			focus = JAP_east_japan_industrial_zone_project
+		}
+		x = 4
+		y = 3
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 534
+				}
+				534 = {
+				add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+				}
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_Automotive_economy
+		icon = GFX_goal_generic_production2
+		cost = 7
+		prerequisite = {
+			focus = JAP_niigata_shipyard
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+		base = 25
+		}
+		x = 4
+		y = 4
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+    		category = motorized_equipment
+			}
+			add_tech_bonus = {
+			bonus = 1.00
+			uses = 2
+			category = cat_mechanized_equipment
+			}
+		}
+}
+shared_focus = {
+		id = JAP_liquefied_coal_and_refining_technology
+		icon = GFX_goal_generic_oil_refinery
+		cost = 7
+		prerequisite = {
+			focus = JAP_east_japan_industrial_zone_project
+		}
+		ai_will_do = {
+		base = 25
+		}
+		x = 6
+		y = 3
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 844
+				}
+				844 = {
+				add_resource = {
+				type = oil
+    			amount = 1
+				}
+			}
+			if = {
+				limit = {
+				has_full_control_of_state = 534
+				}
+			}
+			534 = {
+				add_building_construction = {
+				type = fuel_silo
+    			level = 2
+    			instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_oil_in_karahuto
+		icon = GFX_goal_generic_position_armies
+		cost = 7
+		prerequisite = {
+			focus = JAP_liquefied_coal_and_refining_technology
+		}
+		x = 6
+		y = 4
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 655
+				}
+				655 = {
+				add_resource = {
+				type = oil
+    			amount = 4
+				}
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_keihin_keiyo_industrial_zone
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 7
+		prerequisite = {
+			focus = JAP_strengthening_hokkaido_infrastructure
+		}
+		prerequisite = {
+			focus = JAP_Automotive_economy
+		}
+		prerequisite = {
+			focus = JAP_oil_in_karahuto
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						845 = { 
+						has_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier } 
+						}
+						has_full_control_of_state = 845
+					}
+				}
+				845 = {
+				add_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier }
+				}
+			}
+			if = {
+				limit = {
+				has_full_control_of_state = 845
+				}
+				add_ideas = JAP_keihin_keiyo_industrial_zone_idea
+			}
+		}
+		x = 4
+		y = 5
+
+}
+shared_focus = {
+		id = JAP_reform_plan_completion
+		icon = GFX_focus_jap_pacific_guardian
+		cost = 7
+		prerequisite = {
+			focus = JAP_expansion_of_taiwan_companies
+			focus = JAP_keihin_keiyo_industrial_zone
+		}
+		prerequisite = {
+			focus = JAP_north_and_south_on_the_highway
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_japanese_archipelago_remodeling_plan_idea
+				add_idea = JAP_complete_remodeling_plan_idea
+			}
+		}
+		x = 0
+		y = 6
+}
+shared_focus = {
+		id = JAP_overseas_expansion_of_japanese_companies
+		icon = GFX_focus_jap_strike_south
+		cost = 7
+		prerequisite = {
+			focus = JAP_reform_plan_completion
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		x = 0
+		y = 7
+		completion_reward = {
+			every_country = {
+				limit = {
+				is_puppet_of = JAP
+					OR = {
+						tag = ARC 
+						tag = CLC 
+						tag = INO
+						tag = PAO
+						tag = HAW
+						tag = SIN
+					}
+				}
+				add_ideas = JAP_the_expansion_of_japanese_companies_idea_daitoa_side
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {
+		id = JAP_high_quality_automotive_industry
+		icon = GFX_goal_generic_army_motorized
+		cost = 7
+		prerequisite = {
+			focus = JAP_reform_plan_completion
+		}
+		prerequisite = {
+			focus = JAP_keihin_keiyo_industrial_zone
+		}
+		ai_will_do = {
+		base = 25
+		}
+		completion_reward = {
+		add_ideas = JAP_high_quality_automotive_industry_idea
+		}
+		x = 3
+		y = 7
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+}
+shared_focus = {
+		id = JAP_advanced_electronics_industry
+		icon = GFX_goal_generic_consumer_goods
+		cost = 7
+		prerequisite = {
+			focus = JAP_expansion_of_taiwan_companies
+		}
+		prerequisite = {
+			focus = JAP_reform_plan_completion
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		add_ideas = JAP_advanced_electronics_industry_idea
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		x = -3
+		y = 7
+
+	}
+shared_focus = {
+		id = JAP_investment_in_leased_land
+		icon = GFX_focus_mex_privatisation
+		cost = 7
+		prerequisite = {
+			focus = JAP_overseas_expansion_of_japanese_companies
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 8
+		completion_reward = {
+			if = {
+				limit = {
+					OR ={
+						JAP = {
+						has_full_control_of_state = 814
+						}
+						CLC = {
+						has_full_control_of_state = 814
+						}
+					}
+				}
+				814 = {
+					add_building_construction = {
+					type = industrial_complex
+   					level = 2
+    				instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+			if = {
+				limit = {
+					OR ={
+						JAP = {
+						has_full_control_of_state = 326
+						}
+						CLC = {
+						has_full_control_of_state = 326
+						}
+					}
+				}
+				326 = {
+					add_building_construction = {
+					type = industrial_complex
+   					level = 2
+    				instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_increase_in_research_budget
+		icon = GFX_focus_research2
+		cost = 7
+		ai_will_do = {
+		base = 25
+		}
+		prerequisite = {
+			focus = JAP_overseas_expansion_of_japanese_companies
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_research_organization_idea
+				add_idea = JAP_increase_in_research_budget_idea
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = -2
+		y = 8
+
+}
+shared_focus = {
+		id = JAP_new_drilling_technology
+		icon = GFX_goal_generic_construct_civilian
+		cost = 7
+		prerequisite = {
+			focus = JAP_overseas_expansion_of_japanese_companies
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 2
+		y = 8
+		completion_reward = {
+		add_ideas = JAP_new_drilling_technology_idea
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+}
+shared_focus = {
+		id = JAP_daitoa_factory
+		icon = GFX_focus_usa_focus_on_asia
+		cost = 7
+		prerequisite = {
+			focus = JAP_investment_in_leased_land
+		}
+		prerequisite = {
+			focus = JAP_increase_in_research_budget
+		}
+		prerequisite = {
+			focus = JAP_new_drilling_technology
+		}
+		ai_will_do = {
+		base = 25
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_complete_remodeling_plan_idea
+				add_idea = JAP_daitoa_factory_idea
+			}
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = 0
+		y = 9
+
+}
+shared_focus = {
+	id = JAP_priority_to_the_west
+	icon = GFX_focus_generic_concessions
+	cost = 6
+	prerequisite = {
+	focus = JAP_japanese_archipelago_remodeling_plan
+	}
+	relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		ai_will_do = {
+		base = 25
+		}
+		available = {
+			NOT = { has_idea = JAP_priority_to_the_east_idea }
+		}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	add_ideas = JAP_priority_to_the_west_idea
+	#custom_effect_tooltip = JAP_state_development_west_japan_tooltip
+	}
+	x = -4
+	y = 1
+}
+
+shared_focus = {
+		id = JAP_land_purchase_in_west_japan
+		icon = GFX_focus_generic_self_management
+		cost = 7
+		prerequisite = {
+			focus = JAP_priority_to_the_west
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		530 = {
+		add_extra_state_shared_building_slots = 2
+		}
+		849 = {
+		add_extra_state_shared_building_slots = 2
+		}
+		848 = {
+		add_extra_state_shared_building_slots = 2
+		}
+		849 = {
+		add_extra_state_shared_building_slots = 1
+		}
+		528 = {
+		add_extra_state_shared_building_slots = 1
+		}
+	}
+	x = -6
+	y = 2
+}
+shared_focus = {
+		id = JAP_industry_promotion_in_kyushu
+		icon = GFX_goal_generic_construct_civilian
+		cost = 7
+		prerequisite = {
+			focus = JAP_land_purchase_in_west_japan
+		}
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			if = {
+				limit = {
+				controls_state = 528
+				}
+				528 = {
+					add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+			if = {
+				limit = {
+				controls_state = 851
+				}
+				851 = {
+				add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	x = -6
+	y = 3
+
+}
+
+shared_focus = {
+	id = JAP_national_research_and_development_corporation
+	icon = GFX_focus_research
+	cost = 7
+	prerequisite = {
+	focus = JAP_priority_to_the_west
+	}
+	ai_will_do = {
+	base = 25
+	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	relative_position_id = JAP_japanese_archipelago_remodeling_plan
+	completion_reward = {
+	add_ideas = JAP_research_organization_idea 
+	}
+	x = -4
+	y = 2
+}
+
+shared_focus = {
+		id = JAP_okinawa_industrial_promotion_policy
+		icon = GFX_goal_continuous_repairments
+		cost = 7
+		prerequisite = {
+			focus = JAP_national_research_and_development_corporation
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		x = -4
+		y = 3
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				controls_state = 526
+				}
+				526 = {
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_setouchi_industrial_area
+		icon = GFX_goal_continuous_naval_production
+		cost = 7
+		prerequisite = {
+			focus = JAP_priority_to_the_west
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		x = -2
+		y = 2
+		completion_reward = {
+		add_ideas = JAP_setouchi_industrial_area_idea
+		}
+}
+
+shared_focus = {
+		id = JAP_invest_in_kure_shipyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 7
+		prerequisite = {
+		focus = JAP_setouchi_industrial_area
+		}
+		ai_will_do = {
+		base = 25
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 529
+				}
+				529 = {
+					add_building_construction = {
+					type = dockyard
+					level = 4
+					instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 4
+				}
+			}
+		}
+		x = -2
+		y = 3
+}
+
+shared_focus = {
+		id = JAP_expansion_of_taiwan_companies
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 7
+		prerequisite = {
+			focus = JAP_taiwan_military_industry
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		x = -4
+		y = 5
+		completion_reward = {
+			#custom_effect_tooltip = JAP_state_growth_modifier_tooltip
+			#hidden_effect = {
+			#	524 = {
+			#	add_dynamic_modifier = { modifier = ssw_JAP_state_growth_modifier }
+			#	}
+			#}
+			if = {
+				limit = {
+				has_full_control_of_state = 524
+				}
+				524 = {
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_taiwan_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 7
+		prerequisite = {
+			focus = JAP_industry_promotion_in_kyushu
+		}
+		prerequisite = {
+			focus = JAP_okinawa_industrial_promotion_policy
+		}
+		prerequisite = {
+			focus = JAP_invest_in_kure_shipyard
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+		base = 25
+		}
+		x = -4
+		y = 4
+		relative_position_id = JAP_japanese_archipelago_remodeling_plan
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 524
+				}
+				524 = {
+					add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+}

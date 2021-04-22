@@ -1,0 +1,139 @@
+JAP_political_party = {
+
+	priority = 45
+
+	icon = generic_foreign_policy
+
+	picture = concessions_to_the_trade_unions
+
+	allowed = {
+		original_tag = JAP
+	}
+}
+
+JAP_Hanshin_Fulfillment = {
+	allowed = {
+		original_tag = JAP
+	}
+}
+JAP_Keihin_Fulfillment = {
+	allowed = {
+		original_tag = JAP
+	}
+}
+JAP_cat_the_west_japan_heavy_industry_region_plan = {
+	allowed = {
+		original_tag = JAP
+	}
+}
+JAP_cat_the_kanto_industry_region_plan = {
+	allowed = {
+		original_tag = JAP
+	}
+}
+
+JAP_lend_leace_law = {
+	allowed = {
+		original_tag = JAP
+	}
+}
+
+JAP_dec_cat_Agricultural_Land_Reform = {#農地改革
+	priority = 44
+	icon = eng_concessions_to_the_trade_unions
+	picture = GFX_land_reform_decision
+	allowed = {
+		original_tag = JAP
+	}
+}
+
+JAP_dec_cat_Riot_suppression = {#暴動の鎮圧
+	priority = 43
+	icon = generic_political_actions
+	picture = GFX_JAP_Riot_decision
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+        has_country_flag = ssw_jap_flag_23
+    }
+}
+
+JAP_dec_cat_gea_gold_block = {#大東亜金ブロック
+	priority = 42
+	icon = generic_economy
+	picture = GFX_JAP_party
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_Daito_Gold_Block
+	}
+}
+
+Other_dec_cat_gea_gold_block = {#大東亜金ブロックへの介入
+	priority = 35
+	icon = generic_economy
+	picture = decision_cat_picture_fatherland_front
+	visible = { 
+		has_completed_focus = JAP_Daito_Gold_Block
+		FROM = { 
+			 OR = {
+				  tag = GER
+				  tag = ENG
+				  tag = ITA
+				  tag = RUS
+			 } 
+		} 
+   }
+}
+
+JAP_industrial_project_decision_category = {
+	allowed = {
+		tag = JAP
+	}
+}
+JAP_state_development_in_land_decision_category  = {
+	priority = 4
+	icon = tur_unifying_the_country
+
+	on_map_area = {
+		targets = { 535 847 848 531 529 849 530 850 528 851 526 524 }
+		name = JAP_state_development_map_category_name
+		zoom = 150
+	}
+	on_map_area = {
+		targets = { 655 537 555 536 843 533 844 534 282 845 846 532 }
+		name = JAP_state_development_map_category_name
+		zoom = 150
+	}
+	allowed = {
+	tag = JAP
+	}
+}
+
+JAP_faction_management_category = {
+	priority = 9
+	icon = gre_faction_management
+	picture = GFX_common_wealth_decision
+	allowed = {
+		tag = JAP
+	}
+	custom_icon = {
+		visible = {
+		}
+		value = JAP_takenochist_loyalty_icon_value
+		desc = JAP_takenochist_loyalty_breakdown
+	}
+}
+
+JAP_ssw_dec_cat_debug = {#JAP_debug
+	priority = 1
+	icon = gre_paying_ifc_debt
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+        is_debug = yes
+    }
+}

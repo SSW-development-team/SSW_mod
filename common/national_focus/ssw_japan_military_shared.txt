@@ -1,0 +1,1276 @@
+shared_focus = {
+		id =  JAP_the_road_to_war
+		icon = GFX_focus_generic_little_entente
+		cost = 1.00
+		prerequisite = {
+			focus = JAP_marginal_expansion
+		}
+		available = {
+		has_war_support > 0.40
+		}
+		ai_will_do = {
+		base = 150
+		}
+		x = 133
+		y = 0
+			completion_reward = {
+				army_experience = 25
+				navy_experience = 25
+				air_experience = 25
+			}
+}
+shared_focus = {
+		id =  JAP_imperial_navy_council
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_the_road_to_war
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = -10
+		y = 1
+		relative_position_id =  JAP_the_road_to_war
+			available = {
+			
+			}
+			completion_reward = {
+			navy_experience = 50
+			}
+}
+
+shared_focus = {
+		id = JAP_the_mighty_imperial_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 5.75
+		relative_position_id =  JAP_the_road_to_war
+		prerequisite = {
+			focus = JAP_continuation_of_taikan_kyoho_theory
+			focus = JAP_conversion_to_aircraft_carrier
+		}
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+		navy_experience = 50
+		}
+		x = -10
+		y = 3
+
+}
+shared_focus = {
+		id = JAP_cannonball_development
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_the_mighty_imperial_navy
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.50
+				uses = 2
+				category = naval_equipment
+			}
+		}
+		x = -10
+		y = 4
+
+}
+shared_focus = {
+		id =  JAP_continuation_of_taikan_kyoho_theory
+		icon = GFX_goal_generic_navy_battleship
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_imperial_navy_council
+		}
+		ai_will_do = {
+		base = 50
+		}
+		mutually_exclusive = {
+			focus = JAP_conversion_to_aircraft_carrier
+		}
+		x = -12
+		y = 2
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		add_ideas = JAP_taikan_kyoho_theory_idea
+		}
+}
+shared_focus = {
+		id = JAP_like_a_water_dragon
+		icon = GFX_focus_generic_destroyer
+		cost = 8.00
+		prerequisite = {
+			focus = JAP_large_hull_research
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = -13
+		y = 5
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = JAP_new_style_anti_air_tactics_idea
+					add_idea = JAP_like_a_water_dragon_idea
+				}
+			}
+
+}
+shared_focus = {
+		id =  JAP_conversion_to_aircraft_carrier
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_imperial_navy_council
+		}
+		ai_will_do = {
+		base = 50
+		}
+		mutually_exclusive = {
+			focus = JAP_continuation_of_taikan_kyoho_theory
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -8
+		y = 2
+		completion_reward = {
+		add_ideas = JAP_conversion_to_aircraft_carrier_idea
+		}
+
+}
+
+shared_focus = {
+		id =  JAP_larger_destroyers
+		icon = GFX_goal_continuous_naval_production
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_conversion_to_aircraft_carrier
+			focus = JAP_continuation_of_taikan_kyoho_theory
+		}
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = dd_tech
+			}
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -8
+		y = 3
+}
+shared_focus = {
+		id =  JAP_submarine_research
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_larger_destroyers
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = ss_tech
+			}
+		}
+		x = -8
+		y = 4
+
+}
+shared_focus = {
+		id = JAP_commerce_raiding
+		icon = GFX_goal_generic_CAS
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_submarine_research
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -9
+		y = 5
+		completion_reward = {
+		add_ideas = JAP_commerce_raiding_idea
+		}
+}
+shared_focus = {
+		id =  JAP_sturdy_aircraft_carrier
+		icon = GFX_goal_generic_wolf_pack
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_conversion_to_aircraft_carrier
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -6
+		y = 3
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_conversion_to_aircraft_carrier_idea
+				add_idea = JAP_sturdy_aircraft_carrier_idea
+			}
+		}
+}
+
+shared_focus = {
+		id =  JAP_precise_detection
+		icon = GFX_focus_generic_cryptologic_bomb
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_sturdy_aircraft_carrier
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = -6
+		y = 4
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = radar_tech
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_like_a_tiger_running_the_sea
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_precise_detection
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -7
+		y = 5
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_sturdy_aircraft_carrier_idea
+				add_idea = JAP_like_a_tiger_running_the_sea_idea
+			}
+		}
+}
+shared_focus = {
+		id = JAP_symbol_of_imperial_authority
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 7
+		prerequisite = {
+			focus = JAP_naval_officer_education
+		}
+		prerequisite = {
+			focus = JAP_commerce_raiding
+		}
+		prerequisite = {
+			focus = JAP_cannonball_development
+		}
+		prerequisite = {
+			focus = JAP_like_a_water_dragon
+		}
+		prerequisite = {
+			focus = JAP_like_a_tiger_running_the_sea
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = -10
+		y = 6
+		completion_reward = {
+			#究極の戦艦のような効果の予定
+			if = {
+				limit = {
+				has_completed_focus = JAP_continuation_of_taikan_kyoho_theory
+				}
+				#超大和型レベルの戦艦を作りたいけど海軍技術出来るまでなし
+			}
+			if = {
+				limit = {
+				has_completed_focus = JAP_conversion_to_aircraft_carrier
+				}
+				#高性能な空母を作りたいけど海軍技術出来るまでなし
+			}
+			#仮止め
+			add_tech_bonus = {
+				bonus = 3.0
+				uses = 1
+				category = shbb_tech	
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_strengthening_of_the_land_squadron
+		icon = GFX_focus_generic_manpower
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_conversion_to_aircraft_carrier
+			focus = JAP_conversion_to_aircraft_carrier
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = marine_tech
+			}
+		}
+		x = -12
+		y = 3
+
+}
+shared_focus = {
+		id = JAP_landing_warfare_training
+		icon = GFX_goal_generic_CAS
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_strengthening_of_the_land_squadron
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		add_ideas = JAP_landing_warfare_idea
+		}
+		x = -12
+		y = 4
+
+}
+shared_focus = {
+		id = JAP_naval_officer_education
+		icon = GFX_focus_generic_military_mission
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_landing_warfare_training
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		add_ideas = JAP_naval_officer_education_idea
+		}
+		x = -11
+		y = 5
+
+}
+shared_focus = {
+		id = JAP_new_style_anti_air_tactics
+		icon = GFX_focus_usa_escort_fighters
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_continuation_of_taikan_kyoho_theory
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -14
+		y = 3
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = JAP_taikan_kyoho_theory_idea
+					add_idea = JAP_new_style_anti_air_tactics_idea
+				}
+			}
+
+}
+shared_focus = {
+		id = JAP_large_hull_research
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_new_style_anti_air_tactics
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = -14
+		y = 4
+		relative_position_id =  JAP_the_road_to_war
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1.25
+							uses = 1
+							category = bb_tech
+						}
+					add_tech_bonus = {
+							bonus = 1.25
+							uses = 1
+							category = bc_tech
+						}
+				}
+
+}
+shared_focus = {
+		id = JAP_army_budget_conference
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_the_road_to_war
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 0
+		y = 1
+			available = {
+				
+			}
+			completion_reward = {
+				army_experience = 50
+			}
+}
+shared_focus = {
+		id = JAP_new_mechanized_force
+		icon = GFX_focus_NZL_bob_semple_tank
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_army_budget_conference
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = -3
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+						bonus = 1.0
+						uses = 2
+						category = cat_mechanized_equipment
+					}
+			}
+}
+shared_focus = {
+		id = JAP_efficient_production_of_armored_car
+		icon = GFX_goal_generic_construct_civilian
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_new_mechanized_force
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = -3
+		y = 3
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		add_ideas = JAP_efficient_production_of_armored_car_idea
+		}
+}
+shared_focus = {
+		id = JAP_machine_oriented_or_not
+		icon = GFX_goal_generic_army_motorized
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_efficient_production_of_armored_car
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = -3
+		y = 4
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			country_event = {
+			id = JAP_gunji.5
+			}
+		}
+}
+shared_focus = {
+		id = JAP_larger_caliber_of_machine_guns
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_machine_oriented_or_not
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = -3
+		y = 5
+			completion_reward = {
+				swap_ideas = {
+				remove_idea = JAP_efficient_production_of_armored_car_idea
+				add_idea = JAP_larger_caliber_of_machine_guns_idea
+				}
+			}
+}
+shared_focus = {
+		id = JAP_tactical_improvement
+		icon = GFX_goal_demand_sudetenland
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_army_budget_conference
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 0
+		y = 2
+			completion_reward = {
+				add_tech_bonus = {
+				bonus = 1.25
+				uses = 2
+				category = land_doctrine
+				}
+			}
+}
+shared_focus = {
+		id = JAP_evolved_artillery
+		icon = GFX_goal_generic_army_artillery2
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_tactical_improvement
+		}
+		x = -1
+		y = 3
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+			completion_reward = {
+				add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = artillery
+				}
+			}
+
+}
+shared_focus = {
+		id = JAP_usefulness_of_support_soldiers
+		icon = GFX_goal_generic_build_tank
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_evolved_artillery
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = -1
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = support_tech
+			}
+		}
+}
+shared_focus = {
+		id = JAP_new_rifles
+		icon = GFX_goal_generic_small_arms
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_tactical_improvement
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 1
+		y = 3
+		ai_will_do = {
+		base = 50
+		}
+			completion_reward = {
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = infantry_weapons
+				}
+			}
+
+}
+
+shared_focus = {
+		id = JAP_anti_tank_infantry
+		icon = GFX_goal_generic_occupy_start_war
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_new_rifles
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 1
+		y = 4
+			completion_reward = {
+				add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+				}
+			}
+
+}
+shared_focus = {
+		id = JAP_further_training_of_special_forces
+		icon = GFX_goal_continuous_suppression
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_usefulness_of_support_soldiers
+		}
+		prerequisite = {
+			focus = JAP_anti_tank_infantry
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 0
+		y = 5
+			completion_reward = {
+			add_ideas = JAP_further_training_of_special_forces_idea
+			}
+}
+
+shared_focus = {
+		id = JAP_imperial_tank
+		icon = GFX_goal_generic_army_tanks
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_army_budget_conference
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 3
+		y = 2
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+			category = armor
+			}
+		}
+
+}
+
+shared_focus = {
+		id = JAP_new_type_chiha
+		icon = GFX_focus_generic_license_production
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_imperial_tank
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 3
+		y = 3
+			completion_reward = {
+				add_tech_bonus = {
+				bonus = 1.25
+				uses = 1
+				category = cat_medium_armor
+				}
+			}
+
+}
+
+shared_focus = {
+		id = JAP_remodeling_funds
+		icon = GFX_goal_generic_production2
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_new_type_chiha
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 3
+		y = 4
+			completion_reward = {
+					army_experience = 50
+				}
+
+}
+
+shared_focus = {
+		id = JAP_japanese_style_mobile
+		icon = GFX_focus_generic_army_tanks2
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_remodeling_funds
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 3
+		y = 5
+			completion_reward = {
+					add_ideas = JAP_japanese_style_mobile_idea
+				}
+
+}
+shared_focus = {
+		id = JAP_three_land_warfare_techniques
+		icon = GFX_goal_generic_air_doctrine
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_larger_caliber_of_machine_guns
+		}
+		prerequisite = {
+			focus = JAP_further_training_of_special_forces
+		}
+		prerequisite = {
+			focus = JAP_japanese_style_mobile
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 0
+		y = 6
+			completion_reward = {
+			custom_effect_tooltip = JAP_three_tactics_unlock_tooltip
+			}
+
+}
+shared_focus = {
+		id = JAP_independent_air_force_case
+		icon = GFX_goal_continuous_air_production
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_the_road_to_war
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 11
+		y = 1
+			available = {
+				
+			}
+		completion_reward = {
+			country_event = { id = JAP_gunji.4 }
+		}
+}
+shared_focus = {
+		id = JAP_establishment_of_imperial_airforce
+		icon = GFX_goal_generic_air_fighter
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_independent_air_force_case
+		}
+		mutually_exclusive = {
+			focus = JAP_strengthening_the_air_force
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 9
+		y = 2
+		completion_reward = {
+		air_experience = 50
+		}
+}
+
+shared_focus = {
+		id = JAP_powerful_fighter_aircraft
+		icon = GFX_goal_generic_demand_territory
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_establishment_of_imperial_airforce
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 7
+		y = 3
+		completion_reward = {
+		add_ideas = JAP_powerful_fighter_idea
+		}
+}
+
+shared_focus = {
+		id = JAP_aircraft_standard_unification
+		icon = GFX_goal_generic_air_production
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_powerful_fighter_aircraft
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_powerful_fighter_idea
+				add_idea = JAP_aircraft_standard_unification_idea
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_hosting_of_fighter_competition
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_powerful_fighter_aircraft
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.25
+				uses = 1
+				category = jet_technology
+			}
+		}
+		x = 8
+		y = 4
+
+}
+
+shared_focus = {
+		id = JAP_firmness_air_superiority
+		icon = GFX_goal_generic_position_armies
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_aircraft_standard_unification
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 6
+		y = 5
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_aircraft_standard_unification_idea
+				add_idea = JAP_strengthening_the_air_force_idea
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_in_reference_to_the_heroes_of_pacific_war
+		icon = GFX_focus_YUG_rogozarski
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_hosting_of_fighter_competition
+		}
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				category = jet_technology
+			}
+		}
+}
+shared_focus = {
+		id = JAP_imperial_air_defense_zone
+		icon = GFX_goal_generic_territory_or_war
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_end_to_end_air_defense
+		}
+		relative_position_id =  JAP_the_road_to_war
+		prerequisite = {
+			focus = JAP_in_reference_to_the_heroes_of_pacific_war
+		}
+		prerequisite = {
+			focus = JAP_firmness_air_superiority
+		}
+		prerequisite = {
+			focus = JAP_strategic_destruction
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = 11
+		y = 6
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 282
+				}
+				282 = {
+					add_building_construction = {
+					type = air_base
+   					level = 5
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						KOR ={
+						has_full_control_of_state = 858
+						}
+						JAP = {
+						has_full_control_of_state = 858
+						}
+					}
+				}
+				858 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						CLC ={
+						has_full_control_of_state = 591
+						}
+						JAP = {
+						has_full_control_of_state = 591
+						}
+					}
+				}
+				591 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						ARC ={
+						has_full_control_of_state = 637
+						}
+						JAP = {
+						has_full_control_of_state = 637
+						}
+					}
+				}
+				637 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						HAW ={
+						has_full_control_of_state = 629
+						}
+						JAP = {
+						has_full_control_of_state = 629
+						}
+					}
+				}
+				629 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+		}
+}
+shared_focus = {
+		id = JAP_strengthening_the_air_force
+		icon = GFX_focus_jap_zero
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_independent_air_force_case
+		}
+		mutually_exclusive = {
+			focus = JAP_establishment_of_imperial_airforce
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		air_experience = 50
+		}
+		x = 13
+		y = 2
+}
+
+shared_focus = {
+		id = JAP_jet_fighter_development
+		icon = GFX_goal_generic_air_fighter2
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_establishment_of_imperial_airforce
+			focus = JAP_strengthening_the_air_force
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.85
+				uses = 2
+				category = jet_technology
+			}
+		}
+		x = 10
+		y = 3
+
+}
+shared_focus = {
+		id = JAP_sophisticated_pilot_education
+		icon = GFX_focus_chi_flying_tigers
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_jet_fighter_development
+		}
+		prerequisite = {
+			focus = JAP_jet_bomber_development
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 10
+		y = 4
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+		add_ideas = JAP_sophisticated_pilot_education_idea
+		}
+}
+shared_focus = {
+		id = JAP_jet_bomber_development
+		icon = GFX_goal_generic_air_bomber
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_strengthening_the_air_force
+			focus = JAP_establishment_of_imperial_airforce
+		}
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.85
+				uses = 2
+				category = cat_strategic_bomber
+			}
+			add_tech_bonus = {
+				bonus = 0.85
+				uses = 2
+				category = cas_bomber
+			}
+		}
+		x = 12
+		y = 3
+
+}
+
+shared_focus = {
+		id = JAP_expansion_of_mainland_airfield
+		icon = GFX_goal_generic_construct_military
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_jet_fighter_development
+		}
+		prerequisite = {
+			focus = JAP_jet_bomber_development
+		}
+		ai_will_do = {
+		base = 50
+		}
+		x = 12
+		y = 4
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 529
+				}
+				529 = {
+					add_building_construction = {
+					type = air_base
+   					level = 4
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+				has_full_control_of_state = 536
+				}
+				536 = {
+					add_building_construction = {
+					type = air_base
+   					level = 4
+    				instant_build = yes
+					}
+				}
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_end_to_end_air_defense
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_sophisticated_pilot_education
+		}
+		prerequisite = {
+			focus = JAP_expansion_of_mainland_airfield
+		}
+		x = 11
+		y = 5
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			if = {
+				limit = {
+				has_full_control_of_state = 524
+				}
+				524 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+				has_full_control_of_state = 655
+				}
+				655 = {
+					add_building_construction = {
+					type = air_base
+   					level = 3
+    				instant_build = yes
+					}
+				}
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_aviation_support
+		icon = GFX_goal_generic_air_doctrine
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_strengthening_the_air_force
+		}
+		x = 15
+		y = 3
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+		add_ideas = JAP_aviation_support_idea
+		}
+}
+
+shared_focus = {
+		id = JAP_land_and_air_linkage_operations
+		icon = GFX_goal_generic_national_unity
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_aviation_support
+		}
+		relative_position_id =  JAP_the_road_to_war
+		x = 14
+		y = 4
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_aviation_support_idea
+				add_idea = JAP_land_and_air_linkage_operations_idea
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_Strengthening_1000st_airfoece
+		icon = GFX_focus_generic_self_management
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_aviation_support
+		}
+		x = 16
+		y = 4
+		ai_will_do = {
+		base = 50
+		}
+		relative_position_id =  JAP_the_road_to_war
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    		type = transport_plane_equipment
+    		amount = 100
+    		producer = JAP
+			}
+		}
+}
+
+shared_focus = {
+		id = JAP_strategic_destruction
+		icon = GFX_goal_anti_comintern_pact
+		cost = 5.75
+		prerequisite = {
+			focus = JAP_land_and_air_linkage_operations
+		}
+		prerequisite = {
+			focus = JAP_Strengthening_1000st_airfoece
+		}
+		x = 15
+		y = 5
+		relative_position_id =  JAP_the_road_to_war
+		ai_will_do = {
+		base = 50
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_land_and_air_linkage_operations_idea
+				add_idea = JAP_strategic_destruction_idea
+			}
+		}
+}

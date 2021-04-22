@@ -1,0 +1,108 @@
+JAP_arms_decision_category = {
+	JAP_dec_heavy_attack = {
+		icon = generic_military
+		allowed = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		visible = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		available = {
+		command_power > 46
+		has_war = yes
+			NOT = {
+			has_country_flag = JAP_three_tactics_activated_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 60
+		cost = 15
+		modifier = {
+		army_attack_factor = 0.15
+		army_speed_factor = 0.05
+		army_defence_factor = -0.15
+		attrition = 0.10
+		command_power_gain_mult = -0.30
+		}
+		complete_effect = {
+		set_country_flag = JAP_three_tactics_activated_flag
+		add_command_power = -45
+		}
+		remove_effect = {
+		clr_country_flag = JAP_three_tactics_activated_flag
+		}
+	}
+	JAP_dec_defense_line = {
+		icon = generic_military
+		allowed = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		visible = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		available = {
+		command_power > 46
+		has_war = yes
+			NOT = {
+			has_country_flag = JAP_three_tactics_activated_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 60
+		cost = 15
+		modifier = {
+		army_attack_factor = -0.25
+		army_defence_factor = 0.15
+		command_power_gain_mult = -0.30
+		dig_in_speed_factor = 0.25
+		attrition = 0.10
+		}
+		complete_effect = {
+		set_country_flag = JAP_three_tactics_activated_flag
+		add_command_power = -45
+		}
+		remove_effect = {
+		clr_country_flag = JAP_three_tactics_activated_flag
+		}
+	}
+	JAP_dec_overcoming_difficulties = {
+		icon = generic_military
+		allowed = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		visible = {
+		has_completed_focus = JAP_three_land_warfare_techniques
+		}
+		available = {
+		command_power > 46
+		has_war = yes
+			NOT = {
+			has_country_flag = JAP_three_tactics_activated_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 60
+		cost = 15
+		modifier = {
+		terrain_penalty_reduction = 0.40
+		supply_consumption_factor = -0.15
+		no_supply_grace = 48
+		planning_speed = 0.15
+		attrition = 0.20
+		command_power_gain_mult = -0.40
+		}
+		complete_effect = {
+		set_country_flag = JAP_three_tactics_activated_flag
+		add_command_power = -45
+		}
+		remove_effect = {
+		clr_country_flag = JAP_three_tactics_activated_flag
+		}
+	}
+}

@@ -1410,7 +1410,7 @@ JAP_dec_cat_gea_gold_block = {
 		}
 		visible = {
 			or = {
-				IND = {
+				NIN = {
 					is_in_faction_with = JAP
 				}
 				AST = {
@@ -1570,7 +1570,7 @@ JAP_dec_cat_gea_gold_block = {
 		}
 		visible = {
 			or = {
-				IND = {
+				NIN = {
 					is_in_faction_with = JAP
 				}
 				AST = {
@@ -1830,7 +1830,7 @@ JAP_dec_cat_gea_gold_block = {
 		}
 		visible = {
 			or = {
-				IND = {
+				NIN = {
 					is_in_faction_with = JAP
 				}
 				AST = {
@@ -1876,115 +1876,14 @@ JAP_dec_cat_gea_gold_block = {
 			custom_effect_tooltip = JAP_gold_system_fifty_five_tt
 		}
 	}
-	JAP_dec_gold_block_Completing_the_policy = {#
-		icon = decision_generic_speech
-		available = {
-		has_idea = SSW_jAP_gold_standard_idea
-		has_global_flag =  ssw_jap_gold_system_NinAstNzl_flag
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		visible = {
-			custom_trigger_tooltip = {
-			tooltip = 11_JAP_tt
-			hidden_trigger = {
-				OR = {
-					check_variable = { JAP_seiyukai_popularity > 49 }
-				}
-				AND = {
-					check_variable = { JAP_Kenkyukai_popularity < 49 }
-					check_variable = { JAP_minseito_popularity < 49 }
-					check_variable = { JAP_ziyuuto_popularity < 49 }
-					check_variable = { JAP_dainipponsumeragi_popularity < 49 }
-					check_variable = { JAP_Nihonkyosanto_Nosaka_popularity < 49 }
-					check_variable = { JAP_Nihonkyosanto_Tokuda_popularity < 49 }
-					check_variable = { JAP_nihonsyakai_popularity < 49 }
-					check_variable = { JAP_syakaikurabu_popularity < 49 }
-					check_variable = { JAP_toakensetsu_popularity < 49 }
-				}	
-			}
-		}
-		}
-		cost = 30
-		fire_only_once = no
-		days_remove = 45
-		modifier = {
-			civilian_factory_use = 1
-		}
-		remove_effect = {
-			custom_effect_tooltip = ssw_JAP_Support_for_economic_activities_tt
-			if = {
-				limit = {
-					Nin = {
-						is_in_faction_with = JAP
-					}
-				} 
-				JAP_Nin_low_gold_system_increase_effect = yes 
-			}
-			if = {
-				limit = {
-					AST = {
-						is_in_faction_with = JAP
-					}
-				} 
-				JAP_AST_low_gold_system_increase_effect = yes
-			}
-			if = {
-				limit = {
-					NZL = {
-						is_in_faction_with = JAP
-					}
-				} 
-				JAP_NZL_low_gold_system_increase_effect = yes
-			}
-			custom_effect_tooltip = JAP_gold_system_fifty_five_tt
-		}
-	}
 }
 ###################################debug###################################
 JAP_ssw_dec_cat_debug = {
-	JAP_load_fake_focus = {
-		icon = ger_mefo_bills
-		complete_effect = {
-			set_variable = { JAP_focus_num_var = 1 }
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	JAP_load_kuhara_focus = {
-		icon = ger_mefo_bills
-		complete_effect = {
-			set_variable = { JAP_focus_num_var = 2 }
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	JAP_load_yoshida_matsumura_focus = {
-		icon = ger_mefo_bills
-		complete_effect = {
-			set_variable = { JAP_focus_num_var = 3 }
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	JAP_load_katsu_focus = {
-		icon = ger_mefo_bills
-		complete_effect = {
-			set_variable = { JAP_focus_num_var = 4 }
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	JAP_load_seiyukai_focus = {
-		icon = ger_mefo_bills
-		complete_effect = {
-			set_variable = { JAP_focus_num_var = 5 }
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
 	JAP_dec_debug_gold_system = {
 		icon = ger_mefo_bills
 		days_remove = 1
 		remove_effect = {
 			add_ideas = SSW_jAP_gold_standard_idea
-			complete_national_focus = JAP_Daito_Gold_Block
 		}
 	}
 	JAP_dec_debug_50_year_revollution = {
@@ -2414,7 +2313,7 @@ Other_dec_cat_gea_gold_block = {
 		}
 		visible = {
 			or = {
-				IND = {
+				NIN = {
 					is_in_faction_with = JAP
 				}
 				AST = {
@@ -2436,7 +2335,7 @@ Other_dec_cat_gea_gold_block = {
 			JAP = {
 				if = {
 					limit = {
-						IND = {
+						NIN = {
 							is_in_faction_with = JAP
 						}
 					} 
@@ -2468,7 +2367,6 @@ Other_dec_cat_gea_gold_block = {
 	}
 }
 
-#このディシジョンは過去のものとなりました
 JAP_industrial_project_decision_category = {
 	JAP_dec_tokyo_osaka_highway = {
 		icon = generic_industry
@@ -2730,16 +2628,16 @@ JAP_industrial_project_decision_category = {
 		}
 	}
 }
-#このディシジョンは過去のものとなりました
+#日本の州作り直しまでしばらく放置
 JAP_state_development_in_land_decision_category = {
 	#東日本の開発
 	JAP_dec_state_investment_north_karahuto = {
 		icon = generic_industry
 		allowed = {
-			always = yes
+			always = no
 		}
 		visible = {
-			always = yes
+			always = no
 			JAP = {
 			has_full_control_of_state = 655
 			}
@@ -3812,114 +3710,6 @@ JAP_state_development_in_land_decision_category = {
 			524 = { 
 			add_dynamic_modifier = { modifier = ssw_JAP_state_development_modifier } 
 			}
-		}
-	}
-}
-JAP_arms_decision_category = {
-	JAP_dec_heavy_attack = {
-		icon = generic_military
-		allowed = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		visible = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		available = {
-		command_power > 46
-		has_war = yes
-			NOT = {
-			has_country_flag = JAP_three_tactics_activated_flag
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-		days_remove = 60
-		cost = 15
-		modifier = {
-		army_attack_factor = 0.15
-		army_speed_factor = 0.05
-		army_defence_factor = -0.15
-		attrition = 0.10
-		command_power_gain_mult = -0.30
-		}
-		complete_effect = {
-		set_country_flag = JAP_three_tactics_activated_flag
-		add_command_power = -45
-		}
-		remove_effect = {
-		clr_country_flag = JAP_three_tactics_activated_flag
-		}
-	}
-	JAP_dec_defense_line = {
-		icon = generic_military
-		allowed = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		visible = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		available = {
-		command_power > 46
-		has_war = yes
-			NOT = {
-			has_country_flag = JAP_three_tactics_activated_flag
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-		days_remove = 60
-		cost = 15
-		modifier = {
-		army_attack_factor = -0.25
-		army_defence_factor = 0.15
-		command_power_gain_mult = -0.30
-		dig_in_speed_factor = 0.25
-		attrition = 0.10
-		}
-		complete_effect = {
-		set_country_flag = JAP_three_tactics_activated_flag
-		add_command_power = -45
-		}
-		remove_effect = {
-		clr_country_flag = JAP_three_tactics_activated_flag
-		}
-	}
-	JAP_dec_overcoming_difficulties = {
-		icon = generic_military
-		allowed = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		visible = {
-		has_completed_focus = JAP_three_land_warfare_techniques
-		}
-		available = {
-		command_power > 46
-		has_war = yes
-			NOT = {
-			has_country_flag = JAP_three_tactics_activated_flag
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-		days_remove = 60
-		cost = 15
-		modifier = {
-		terrain_penalty_reduction = 0.40
-		supply_consumption_factor = -0.15
-		no_supply_grace = 48
-		planning_speed = 0.15
-		attrition = 0.20
-		command_power_gain_mult = -0.40
-		}
-		complete_effect = {
-		set_country_flag = JAP_three_tactics_activated_flag
-		add_command_power = -45
-		}
-		remove_effect = {
-		clr_country_flag = JAP_three_tactics_activated_flag
 		}
 	}
 }
