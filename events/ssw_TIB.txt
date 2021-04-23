@@ -262,6 +262,12 @@ country_event = {
 			}
 			expire = "1988.1.1"
 		}
+		set_politics = {
+			ruling_party = classical_communism
+			elections_allowed = no
+			last_election = "1949.6.1"
+			election_frequency = 48
+		}
 		set_party_name = { 
 			ideology = classical_communism 
 			long_name = TIB_ccp_party_long 
@@ -303,6 +309,17 @@ country_event = {
 				add_ideas = TIB_14th_dalai_lama
 			}
 		}
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
 	#Execute them
 	option = {
@@ -312,6 +329,17 @@ country_event = {
 		}
 		add_stability = -0.15
 		remove_ideas = TIB_14th_dalai_lama
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
 	option = {
 		name = tibet.9.c
@@ -321,6 +349,18 @@ country_event = {
 		add_popularity = {
 			ideology = authority_despotism
 			popularity = 0.1
+		}
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
 }
 
