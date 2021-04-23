@@ -1,13 +1,18 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			SWL = {
+				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier}
+			}
 		}
 	}
+	#いづれ月ごとに動かす
 	on_weekly = {
 		effect = {
 			every_country = {
 				limit = {
-					tag = POL
+					tag = SWL
 					NOT = {
 					has_country_flag = ssw_policy_tab_industrialization_event_triggered
 					}
