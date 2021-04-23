@@ -285,6 +285,57 @@ scripted_gui = {
 			literacy_rate_level_5_active_visible = {
 				check_variable = { country_literacy_rate > 80 }
 			}
+			research_institute_level_1_visible = {
+				check_variable = { country_research_institute > -1 }
+			}
+			research_institute_level_1_arrow_deactive_visible = {
+				check_variable = { country_research_institute < 241 }
+			}
+			research_institute_level_1_arrow_active_visible = {
+				check_variable = { country_research_institute > 240 }
+			}
+			research_institute_level_2_deactive_visible = {
+				check_variable = { country_research_institute < 241 }
+			}
+			research_institute_level_2_active_visible = {
+				check_variable = { country_research_institute > 240 }
+			}
+			research_institute_level_2_arrow_deactive_visible = {
+				check_variable = { country_research_institute < 531 }
+			}
+			research_institute_level_2_arrow_active_visible = {
+				check_variable = { country_research_institute > 530 }
+			}
+			research_institute_level_3_deactive_visible = {
+				check_variable = { country_research_institute < 531 }
+			}
+			research_institute_level_3_active_visible = {
+				check_variable = { country_research_institute > 530 }
+			}
+			research_institute_level_3_arrow_deactive_visible = {
+				check_variable = { country_research_institute < 951 }
+			}
+			research_institute_level_3_arrow_active_visible = {
+				check_variable = { country_research_institute > 950 }
+			}
+			research_institute_level_4_deactive_visible = {
+				check_variable = { country_research_institute < 951 }
+			}
+			research_institute_level_4_active_visible = {
+				check_variable = { country_research_institute > 950 }
+			}
+			research_institute_level_4_arrow_deactive_visible = {
+				check_variable = { country_research_institute < 2001 }
+			}
+			research_institute_level_4_arrow_active_visible = {
+				check_variable = {country_research_institute > 2000 }
+			}
+			research_institute_level_5_deactive_visible = {
+				check_variable = { country_research_institute < 2001 }
+			}
+			research_institute_level_5_active_visible = {
+				check_variable = { country_research_institute > 2000 }
+			}
 		}
 		effects = {
 			close_button_click = {
@@ -313,13 +364,16 @@ scripted_gui = {
 			}
 			industrial_complex_invest_increase_click = {
 				add_to_variable =  { country_industrial_complex_invest = 1 }
-				clamp_variable = { var = country_industrial_complex_invest min = 0 max = num_of_available_civilian_factories }
+				clamp_variable = { var = country_industrial_complex_invest min = 0 max = num_of_civilian_factories }
 				force_update_dynamic_modifier = yes 
 			}
 			industrial_complex_invest_decrease_click = {
 				subtract_from_variable =  { country_industrial_complex_invest = 1 }
-				clamp_variable = { var = country_industrial_complex_invest min = 0 max = num_of_available_civilian_factories }
+				clamp_variable = { var = country_industrial_complex_invest min = 0 max = num_of_civilian_factories }
 				force_update_dynamic_modifier = yes 
+			}
+			close_button8_click = {
+				set_variable =  { country_research_institute = 0 }
 			}
 		}
 		properties = {
