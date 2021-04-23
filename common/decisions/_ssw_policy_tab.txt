@@ -64,5 +64,55 @@ SSW_policy_tab_decision = {
 			subtract_from_variable =  { country_literacy_rate_growth_rate = 0.05 }
 		}
 	}
+	debug_policy_decision_for_Swaziland_1 = {
+		icon = generic_army_support
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			tag = SWL
+			is_ai = no
+			is_debug = yes
+		}
+		complete_effect = {
+			add_offsite_building = { type = arms_factory level = 15 }
+			add_offsite_building = { type = industrial_complex level = 25 }
+		}
+	}
+	debug_policy_decision_for_Swaziland_2 = {
+		icon = generic_army_support
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			tag = SWL
+			is_ai = no
+			is_debug = yes
+		}
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+					is_core_of = SAF
+					is_core_of = LES
+					}
+				}
+				add_core_of = SWL
+			}
+			annex_country = {
+    			target = SAF
+    			transfer_troops = yes
+			}
+			annex_country = {
+    			target = LES
+    			transfer_troops = yes
+			}
+			ENG = {
+				end_puppet = SWL
+			}
+			drop_cosmetic_tag = yes
+		}
+	}
 }
 
