@@ -58,6 +58,7 @@ focus_tree = {
 		available = {	
 		}
 		bypass = {
+			has_global_flag = Danubian_war
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -87,6 +88,7 @@ focus_tree = {
 		available = {	
 		}
 		bypass = {
+			has_global_flag = Danubian_war
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -134,7 +136,7 @@ focus_tree = {
 			hidden_effect = {
 				create_corps_commander = {
 					name = "Constantin Vasiliu-Rascanu"
-					picture = "gfx/leaders/ROM/Portrait_Constantin_Vasiliu_Rascanu.dds"
+					picture = "Portrait_Constantin_Vasiliu_Rascanu.dds"
 					id = 120
 					traits = { infantry_officer brilliant_strategist }
 					skill = 3
@@ -145,7 +147,7 @@ focus_tree = {
 				}
 				create_corps_commander = {
 					name = "Dumitru Damaceanu"
-					picture = "gfx/leaders/ROM/Portrait_Dumitru_Damaceanu.dds"
+					picture = "Portrait_Dumitru_Damaceanu.dds"
 					id = 113
 					traits = { cavalry_officer }
 					skill = 2
@@ -156,7 +158,7 @@ focus_tree = {
 				}
 				create_corps_commander = {
 				name = "Aurel Aldea"
-				picture = "gfx/leaders/ROM/Portrait_Aurel_Aldea.dds"
+				picture = "Portrait_Aurel_Aldea.dds"
 				id = 110
 				traits = { bearer_of_artillery }
 				skill = 2
@@ -167,7 +169,7 @@ focus_tree = {
 				}
 				create_corps_commander = {#工兵
 					name = "Constantin Constantinescu-Claps"
-					picture = "gfx/leaders/ROM/Portrait_Constantin_Constantinescu_Claps.dds"
+					picture = "Portrait_Constantin_Constantinescu_Claps.dds"
 					id = 109
 					traits = { trait_engineer  }
 					skill = 3
@@ -693,13 +695,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ROM_tooltip_9
-				has_global_flag = balkan_order_victory  
-			}
-	
-		}
 		bypass = {
 		}
 		cancel_if_invalid = yes
@@ -753,13 +748,6 @@ focus_tree = {
 		y = 3
 		ai_will_do = {
 			factor = 10
-		}
-		available = {	
-			custom_trigger_tooltip = {
-				tooltip = ROM_tooltip_9
-				has_global_flag = balkan_order_victory  
-			}
-
 		}
 		bypass = {
 		}
@@ -959,7 +947,7 @@ focus_tree = {
 	focus = {
 		id = Training_aristocratic_officer
 		icon = GFX_focus_generic_military_academy
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = Total_war
 		}
@@ -1016,7 +1004,7 @@ focus_tree = {
 	focus = {
 		id = Secure_war_expenditures
 		icon = GFX_goal_generic_consumer_goods
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = Traditionalism
 			focus = Total_war
@@ -3631,7 +3619,12 @@ focus_tree = {
 			focus = Yang_liberal
 		}
 		available = {
-			has_completed_focus = Return_Carol2
+			if = {
+				limit = {
+					has_completed_focus = Form_a_cabnet_by_carlist
+				}
+				has_completed_focus = Return_Carol2
+			}
 		}
 
 		x = 25
