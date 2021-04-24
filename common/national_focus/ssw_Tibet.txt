@@ -633,6 +633,28 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_temples_support
 		}
+		available = {}
+		bypass = {
+			has_country_leader = {
+				name = "14th Dalai Lama"
+				ruling_only = yes
+			}
+		}
+		available_if_capitulated = no
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		completion_reward = {
+			create_country_leader = {
+				name = "14th Dalai Lama"
+				desc = "POLITICS_14_DALAI_LAMA_DESC"
+				picture = "gfx/leaders/TIB/ssw_Portrait_Tibet_14th_Dalai_Lama.dds"
+				ideology = authority_despotism_ideology     
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
 		x = 29
 		y = 6
 
@@ -2743,13 +2765,11 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 10 }
 		available = {
+			custom_trigger_tooltip = {
+			tooltip = TIB_great_tibetan_empire_ava
 			all_state = {
-				limit = {
-					is_core_of = TIB
-				}
-				CONTROLLER = {
-					original_tag = TIB
-				}
+				is_core_of = TIB
+				original_tag = TIB
 			}
 			441 = {
 				controller = {
@@ -2991,6 +3011,7 @@ focus_tree = {
 					}
 				}
 			}
+			}
 		}
 		completion_reward = {
 			add_war_support = 0.2
@@ -3046,7 +3067,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			TIB_temple_gov_idea = yes
-			
+		}
 			
 	}
 	focus = {
