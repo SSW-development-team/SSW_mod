@@ -6,6 +6,13 @@ scripted_gui = {
 
 		visible = {
 			is_ai = no
+				NOT = {
+					OR = {
+						has_country_flag = policy_country_is_anarchy
+						has_country_flag = policy_country_is_subject
+						has_country_flag = policy_country_is_in_civil_war
+					}
+				}
 		}
 		
 		ai_enabled = {
@@ -48,6 +55,9 @@ scripted_gui = {
 			}
 			social_focus_icon_button_click = {
 				set_variable = { selected_policy_button_social = 1 }
+			}
+			military_focus_icon_button_click = {
+				set_variable = { selected_policy_button_military = 1 }
 			}
 		}
 	}
@@ -377,6 +387,27 @@ scripted_gui = {
 			}
 		}
 		properties = {
+		}
+	}
+	SSW_Policy_tab_military_view = {
+		window_name = "SSW_Policy_tab_military_tab"
+		context_type = player_context 
+
+		visible = {
+			check_variable = { selected_policy_button_military = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+
+		triggers = {
+
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military = 0 }
+			}
 		}
 	}
 }
