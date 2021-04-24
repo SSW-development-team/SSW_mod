@@ -57,7 +57,7 @@ TIB_ccp_reforms = {
 				name = "Mao Zedong"
 				ruling_only = yes
 			}
-			has_completed_focus = TIB_tibetan_army
+			has_completed_focus = TIB_the_tibetan_army
 			has_ideas = TIB_improving_army
 		}
 		cost = 25
@@ -85,7 +85,7 @@ TIB_ccp_reforms = {
 			}
 		}
 		visible = {
-			has_country_leader = TIB_lib_army_formed
+			has_country_flag = TIB_lib_army_formed
 		}
 		cost = 75
 		ai_will_do = {
@@ -93,6 +93,162 @@ TIB_ccp_reforms = {
 		}
 		fire_only_once = yes
 		days_remove = 60
+		complete_effect = {
+			custom_effect_tooltip = TIB_form_the_liberation_army_tt
+			hidden_effect = {
+			create_corps_commander = {
+				name = "Zhu De"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Zhu_De.dds"
+				traits = { infantry_officer trickster }
+				skill = 3
+				desc = "TIB_ZHU_DE_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 2
+				id = 5720
+			}
+			create_corps_commander = {
+				name = "Peng Dehuai"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Peng_Dehuai.dds"
+				traits = { infantry_officer infantry_leader trait_mountaineer }
+				skill = 4
+				desc = "TIB_PENG_DEHUAI_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 2
+				id = 5721
+			}
+			create_corps_commander = {
+				name = "Lin Biao"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Lin_Biao.dds"
+				traits = { infantry_officer politically_connected trait_mountaineer career_officer }
+				skill = 5
+				desc = "TIB_LIN_BIAO_DESC"
+				rank = 1
+				attack_skill = 5
+				defense_skill = 4
+				planning_skill = 2
+				logistics_skill = 3
+				id = 5722
+			}
+			create_corps_commander = {
+				name = "Liu Bocheng"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Liu_Bocheng.dds"
+				traits = { commando inflexible_strategist }
+				skill = 2
+				desc = "TIB_LIU_BOCHENG_DESC"
+				rank = 1
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 2
+				id = 5723
+			}
+			create_corps_commander = {
+				name = "He Long"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_He_Long.dds"
+				traits = { trait_engineer organizer trait_reckless }
+				skill = 3
+				desc = "TIB_HE_LONG_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 1
+				logistics_skill = 2
+				id = 5724
+			}
+			create_corps_commander = {
+				name = "Chen Yi"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Chen_Yi.dds"
+				traits = { infantry_officer brilliant_strategist trait_cautious }
+				skill = 3
+				desc = "TIB_CHEN_YI_DESC"
+				rank = 1
+				attack_skill = 4
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 1
+				id = 5725
+			}
+			create_corps_commander = {
+				name = "Luo Ronghuan"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Luo_Ronghuan.dds"
+				traits = { cavalry_officer }
+				skill = 2
+				desc = "TIB_LUO_RONGHUAN_DESC"
+				rank = 1
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+				id = 5726
+			}
+			create_corps_commander = {
+				name = "Xu Xiangqian"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Xu_Xiangqian.dds"
+				traits = { trait_engineer trait_mountaineer }
+				skill = 2
+				desc = "TIB_XU_XIANGQIAN_DESC"
+				rank = 1
+				attack_skill = 1
+				defense_skill = 3
+				planning_skill = 1
+				logistics_skill = 2
+				id = 5727
+			}
+			create_corps_commander = {
+				name = "Nie Rongzhen"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Nie_Rongzhen.dds"
+				traits = { armor_officer trickster }
+				skill = 2
+				desc = "TIB_NIE_RONGZHEN_DESC"
+				rank = 1
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 3
+				id = 5728
+			}
+			create_corps_commander = {
+				name = "Ye Jianying"
+				picture = "gfx/leaders/TIB/ssw_Portrait_ComChina_Ye_Jianying.dds"
+				traits = { infantry_leader infantry_officer old_guard }
+				skill = 3
+				desc = "TIB_YE_JIANYING_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+				id = 5729
+			}
+		}
+		}
+	}
+	TIB_form_the_liberation_army_debug = {
+		icon = eng_trade_unions_support
+		allowed = {
+			tag = TIB
+		}
+		available = {
+			has_country_leader = {
+				name = "Mao Zedong"
+				ruling_only = yes
+			}
+		}
+		visible = {
+			has_country_flag = debug_TIB
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 10
+		}
+		fire_only_once = yes
+		days_remove = 0
 		remove_effect = {
 			custom_effect_tooltip = TIB_form_the_liberation_army_tt
 			hidden_effect = {
