@@ -1144,6 +1144,12 @@
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			JAP = { country_event = { id = ssw_faction.4 } }
+			hidden_effect = {
+				set_cosmetic_tag = HUN_JAP
+				JAP = {
+					set_autonomy = {	target = ROOT	autonomous_state = imperial_member	}
+				}
+			}
 		}
 	}
 	focus = {
@@ -2470,7 +2476,12 @@
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			JAP = { puppet = ROOT }
+			hidden_effect = {
+				set_cosmetic_tag = COUNTRY_JAP
+				JAP = {
+					set_autonomy = {	target = ROOT	autonomous_state = imperial_overseas_territory	}
+				}
+			}
 			if = {
 				limit = { has_idea = HUN_nobuhito }
 				swap_ideas = {

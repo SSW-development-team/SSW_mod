@@ -1,0 +1,105 @@
+autonomy_state = {
+	id = reichsatellite
+	is_puppet = yes
+	
+	min_freedom_level = 0.75
+	manpower_influence = 0.2
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
+	allowed = {
+		OVERLORD = {	original_tag = GER	}
+		has_government = national_socialism
+	}
+}
+autonomy_state = {
+	id = reichsprotectorate
+	is_puppet = yes
+	
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.5
+	manpower_influence = 0.7
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
+	allowed = {
+		OVERLORD = {	original_tag = GER	}
+		has_government = national_socialism
+	}
+}
+autonomy_state = {
+	id = reichskolonie
+	is_puppet = yes
+	
+	default = yes
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.35
+	manpower_influence = 0.7
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
+	allowed = {
+		OVERLORD = {	original_tag = GER	}
+		OVERLORD = {	has_government = national_socialism	}
+		has_variable = ssw_colony_variable
+	}
+}
+autonomy_state = {
+	id = reichskommissariat
+	is_puppet = yes
+	
+	default = yes
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.25
+	manpower_influence = 0.9
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
+	allowed = {
+		OVERLORD = {	original_tag = GER	}
+		has_government = national_socialism
+	}
+}
+autonomy_state = {
+	id = reichsland
+	is_puppet = yes
+	
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.1
+	manpower_influence = 1.0
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
+	allowed = {
+		OVERLORD = {	original_tag = GER	}
+		OVERLORD = {	has_government = national_socialism	}
+		OR = {
+			tag = CRI
+			tag = PET
+		}
+	}
+}
