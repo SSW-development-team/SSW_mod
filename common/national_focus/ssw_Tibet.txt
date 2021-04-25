@@ -357,6 +357,8 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			add_stability = -0.05
+			TIB_down_monastery = yes
 		}
 		x = 13
 		y = 7
@@ -510,6 +512,7 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+
 		}
 		x = 16
 		y = 9
@@ -567,6 +570,12 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_ally_with_dobdob
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.2
+			}
 		}
 		x = 23
 		y = 4
@@ -677,9 +686,75 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_transfer_power_to_norbulingka
 		}
+		completion_reward = {
+			create_corps_commander = {
+				name = "Gompo Tashi Andruktsang"
+				picture = "ssw_Portrait_Tibet_Yuthok_Tashi_Dhondub.dds"
+				traits = { infantry_leader trickster trait_mountaineer }
+				skill = 2
+				desc = "TIB_TASHI_DHONDUB_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 1
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Chushi Gandruk"
+					priority = 0
+					division_names_group = TIB_INF_01				regiments = {
+					infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 2
+							y = 0
+						}
+						infantry = {
+							x = 2
+							y = 1
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						ROOT = {
+							has_full_control_of_state = PREV
+						}
+					}
+					prioritize = { 920 }
+					create_unit = {
+						division = "name = \"1. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+					create_unit = {
+						division = "name = \"2. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+					create_unit = {
+						division = "name = \"3. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+				}
+			}
+			custom_effect_tooltip = TIB_chushi_gandruk_tt
+		}
 		x = 30
 		y = 7
-
 	}
 	focus = {
 		id = TIB_reorganization_ganden_phodrang
@@ -873,6 +948,9 @@ focus_tree = {
 			focus = TIB_falling_reting_rinpoche
 			focus = TIB_ban_the_reformists
 		}
+		completion_reward = {
+			add_opinion_modifier = { modifier = TIB_get_chinese_out target = CHI }
+		}
 		x = 35
 		y = 6
 
@@ -912,6 +990,7 @@ focus_tree = {
 				}
 				add_war_support = 0.15
 			}
+			add_ideas = TIB_tsonkapa
 		}
 		x = 35
 		y = 7
@@ -1346,6 +1425,64 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_to_ngari
 			focus = TIB_to_kham
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+						has_state_flag = TIB_build_bridges_2
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_3
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+						has_state_flag = TIB_build_bridges_2
+						has_state_flag = TIB_build_bridges_3
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		x = 43
 		y = 9
@@ -1804,6 +1941,8 @@ focus_tree = {
 				category = light_air
 				category = medium_air
 				category = heavy_air
+				uses = 5
+				bonus = 1.0
 			}
 		}
 		x = 48
@@ -2299,6 +2438,25 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_crush_reactionaries
 		}
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {
+		}
+		bypass = {
+			TIB = {
+				controls_state = 604
+				controls_state = 754
+				controls_state = 755
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = CHI
+				generator = { 604 754 755 }
+			}
+		}
 		x = 3
 		y = 11
 
@@ -2324,6 +2482,54 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_negotiated_chinese_suzerainty
 			focus = TIB_join_to_front
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_opinion = {
+				target = CHI
+				value > 50
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			920 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			601 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			751 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			752 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			605 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 		x = 14
 		y = 9
@@ -2531,6 +2737,8 @@ focus_tree = {
 		available = {}
 		bypass = {}
 		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
 		}
 		x = 23
 		y = 9
@@ -2689,9 +2897,43 @@ focus_tree = {
 			focus = TIB_more_temples
 			focus = TIB_majesty_of_buddha
 		}
+
 		x = 31
 		y = 11
-
+		available = {
+			931 = {
+				CONTROLLER = {
+					NOT = {
+						OR = {
+							tag = TIB
+							is_subject_of = TIB
+						}
+					}
+				}
+			}
+		}
+		bypass = {
+			931 = {
+				CONTROLLER = {
+					OR = {
+						tag = TIB
+						is_subject_of = TIB
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			random_country = {
+				limit = {
+					controls_state = 931
+				}
+				country_event = tibet.14
+			}
+		}
 	}
 	focus = {
 		id = TIB_pressure_bhutan
@@ -2728,6 +2970,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
+			324 = {
+				controller = {
+					country_event = tibet.15
+				}
+			}
 		}
 		x = 33
 		y = 11
@@ -2753,7 +3000,25 @@ focus_tree = {
 		}
 		x = 33
 		y = 12
-
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {
+		}
+		bypass = {
+			TIB = {
+				controls_state = 604
+				controls_state = 754
+				controls_state = 755
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = CHI
+				generator = { 604 754 755 }
+			}
+		}
 	}
 	focus = {
 		id = TIB_all_power_for_regent
