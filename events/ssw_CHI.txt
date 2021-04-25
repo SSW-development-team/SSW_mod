@@ -244,7 +244,10 @@ country_event = { #憲法決定
     option = {
         name = ssw_chi.6.b
         trigger = {
-            check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+            OR = {
+                check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+                check_variable = {var_CHI_infr_federalism = var_CHI_infr_KMT}
+            }
         }
         load_focus_tree = {
             tree = CHI_politic_tree_one
@@ -448,17 +451,19 @@ country_event = { #第二回国民大会
     fire_only_once = yes
     option = { #何事もなく終わればよいが
         name = ssw_chi.15.a
-        if = {
-            limit = {
-                has_country_leader = {
-                    name = "Wang Jingwei"
-                    ruling_only = yes
+        hidden_effect = {
+            if = {
+                limit = {
+                    has_country_leader = {
+                        name = "Wang Jingwei"
+                        ruling_only = yes
+                    }
                 }
+                country_event = {id = ssw_chi.17 days = 7}
             }
-            country_event = {id = ssw_chi.17}
-        }
-        else = {
-            country_event = {id = ssw_chi.16}
+            else = {
+                country_event = {id = ssw_chi.16 days = 7}
+            }
         }
     }
 }
@@ -565,7 +570,9 @@ country_event = { #南京会議の開催
     fire_only_once = yes
     is_triggered_only = yes
     immediate = {
-        country_event = {id = ssw_chi.20 days = 7}
+        hidden_effect = {
+            country_event = {id = ssw_chi.20 days = 7}
+        }
     }
     option = {
         name = ssw_chi.19.a
@@ -826,13 +833,15 @@ country_event = { #第二回連邦代表大会
                     keep_completed = yes
                 }
             }
+            set_country_flag = CHI_second_fede_congress
         }
     }
     option = {
         name = ssw_chi.29.a
         trigger = {
-            has_completed_focus = CHI_compromise_KMT
+            has_country_flag = CHI_fede_lower_power
         }
+        set_country_flag = CHI_Gu_Zhutong_route_flag
     }
     option = {
         name = ssw_chi.29.b
@@ -840,7 +849,13 @@ country_event = { #第二回連邦代表大会
             ruling_party = authority_democracy
             elections_allowed = no
         }
-        set_country_flag = CHI_Gu_Zhutong_route_flag
+        create_country_leader = {
+            name = "Li Zongren"
+            desc = ""
+            picture = "gfx/leaders/CHI/Portrait_Li_Zongren.dds"
+            expire = "1990.1.1"
+            ideology = authority_democracy_ideology
+        }
     }
     option = {
         name = ssw_chi.29.c
@@ -1896,6 +1911,489 @@ country_event = { #閩共和国の成立
     }
 }
 
+country_event = { #救国政変(hidden)
+    id = ssw_chi.39
+    title = ssw_chi.39.t
+    desc = ssw_chi.39.d
+    fire_only_once = yes
+    hidden = yes
+    trigger = {
+        original_tag = CHI
+        has_war_with = JAP
+        has_country_flag = CHI_Asian_war
+        NOT = {
+            OR = {
+                has_full_control_of_state = 608
+                has_full_control_of_state = 613
+            }
+        }
+    }
+    option = {
+        name = ssw_chi.39.a
+        country_event = {id = ssw_chi.40}
+    }
+}
+country_event = { #救国政変
+    id = ssw_chi.40
+    title = ssw_chi.40.t
+    desc = ssw_chi.40.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これが中国の運命だ
+        name = ssw_chi.40.a
+        ai_chance = {
+            base = 50
+        }
+        add_war_support = 0.1
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.1
+        }
+        set_party_name = {
+            ideology = national_socialism
+            long_name = CHI_nati_soci_party_name
+            name = CHI_nati_soci_party_name
+        }
+        set_politics = {
+            ruling_party = national_socialism
+            elections_allowed = no
+        }
+        create_country_leader = {
+            name = "Zhang Xueliang"
+            desc = ""
+            picture = "gfx/leaders/CHI/Portrait_Zhang_Xueliang.dds"
+            expire = 1990.1.1
+            ideology = national_socialism_ideology
+        }
+        remove_unit_leader = 152
+        remove_unit_leader = 155
+        remove_unit_leader = 133
+        remove_unit_leader = 135
+        remove_unit_leader = 134
+        create_field_marshal = {
+            name = "Yang Hucheng"
+            portrait_path = "gfx/leaders/CHI/Portrait_Yang_Hucheng.dds"
+            skill = 2
+            attack_skill = 3
+            defense_skill = 1
+            planning_skill = 3
+            logistics_skill = 1
+            traits = { politically_connected }
+        }
+        hidden_effect = {
+            load_focus_tree = {
+                tree = CHI_war_china_coup_route
+                keep_completed = yes
+            }
+            complete_national_focus = CHI_natio_resucue_coup
+        }
+    }
+    option = { #反逆者に屈するな！
+        name = ssw_chi.40.b
+        ai_chance = {
+            base = 50
+        }
+        add_stability = 0.1
+        add_war_support = -0.1
+        remove_unit_leader = 132
+        remove_unit_leader = 149
+    }
+}
+country_event = { #戦時緊急即決裁判
+    id = ssw_chi.41
+    title = ssw_chi.41.t
+    desc = ssw_chi.41.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #粛清
+        name = ssw_chi.41.a
+        set_country_flag = CHI_politic_purge
+    }
+    option = { #恩赦
+        name = ssw_chi.41.b
+        set_country_flag = CHI_politic_pardon
+    }
+}
+country_event = { #中国が連携を提案
+    id = ssw_chi.42
+    title = ssw_chi.42.t
+    desc = ssw_chi.42.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #いいだろう
+        name = ssw_chi.42.a
+        ai_chance = {
+            base = 30
+            modifier = {
+                has_opinion = {
+                    target = CHI
+                    value > 50
+                }
+                factor = 1.5
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.43 days = 1}
+        }
+    }
+    option = { #将軍を送ろう
+        name = ssw_chi.42.c
+        ai_chance = {
+            base = 50
+            modifier = {
+                has_war_with = JAP
+                factor = 0
+            }
+            modifier = {
+                has_opinion = {
+                    target = CHI
+                    value > 50
+                }
+                factor = 1.5
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.44 days = 1}
+        }
+    }
+    option = { #巻き込まれる訳にはいかない
+        name = ssw_chi.42.b
+        ai_chance = {
+            base = 20
+            modifier = {
+                has_war_with = JAP
+                factor = 0
+            }
+        }
+        CHI = {
+            country_event = {id = ssw_chi.45}
+        }
+    }
+}
+country_event = { #中国共産党が連携を受諾
+    id = ssw_chi.43
+    title = ssw_chi.43.t
+    desc = ssw_chi.43.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #大変結構
+        name = ssw_chi.43.a
+        if = {
+            limit = {
+                is_faction_leader = no
+            }
+            create_faction = SSW_Anti_Japan_pact
+            add_to_faction = TIB
+        }
+        else_if = {
+            limit = {
+                is_faction_leader = yes
+            }
+            add_to_faction = TIB
+        }
+        TIB = {
+            every_unit_leader = {
+                limit = {
+                    OR = {
+                        has_id = 5721
+                        has_id = 5722
+                    }
+                }
+                set_nationality = CHI
+                if = {
+                    limit = {
+                        is_field_marshal = yes
+                    }
+                    demote_leader = yes
+                }
+            }
+        }
+        create_corps_commander = {
+            name = "Ye Ting"
+            picture = ""
+            skill = 3
+            attack_skill = 2
+            defense_skill = 3
+            planning_skill = 3
+            logistics_skill = 2
+            traits = {}
+        }
+    }
+}
+country_event = { #中国共産党が将軍を派遣
+    id = ssw_chi.44
+    title = ssw_chi.44.t
+    desc = ssw_chi.44.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これで十分だ
+        name = ssw_chi.44.a
+        TIB = {
+            every_unit_leader = {
+                limit = {
+                    OR = {
+                        has_id = 5721
+                        has_id = 5722
+                    }
+                }
+                set_nationality = CHI
+                if = {
+                    limit = {
+                        is_field_marshal = yes
+                    }
+                    demote_leader = yes
+                }
+            }
+        }
+        create_corps_commander = {
+            name = "Ye Ting"
+            picture = ""
+            skill = 3
+            attack_skill = 2
+            defense_skill = 3
+            planning_skill = 3
+            logistics_skill = 2
+            traits = {}
+        }
+    }
+}
+country_event = { #中国共産党が連携を拒否
+    id = ssw_chi.45
+    title = ssw_chi.45.t
+    desc = ssw_chi.45.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #仕方あるまい
+        name = ssw_chi.45.a
+    }
+}
+
+country_event = { #戦争の終結
+    id = ssw_chi.46
+    title = ssw_chi.46.t
+    desc = ssw_chi.46.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #復興を始めよう
+        name = ssw_chi.46.a
+        remove_ideas = {
+            CHI_soldier_sea
+            CHI_mighty_anti_JAP_guerrilla
+            CHI_peasant_big_move
+            CHI_to_fight_everything_1
+        }
+    }
+}
+country_event = { #漢奸大裁判
+    id = ssw_chi.47
+    title = ssw_chi.47.t
+    desc = ssw_chi.47.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #漢奸の容疑者を全員処刑せよ
+        name = ssw_chi.47.a
+        add_manpower = -30000
+        add_stability = -0.05
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.1
+        }
+    }
+    option = { #漢奸狩り部隊で漢奸から中国を浄化せよ
+        name = ssw_chi.47.b
+        add_manpower = -50000
+        add_timed_idea = {
+            idea = CHI_hanjian_hunting
+            days = 365
+        }
+    }
+}
+country_event = { #不穏な噂
+    id = ssw_chi.48
+    title = ssw_chi.48.t
+    desc = ssw_chi.48.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #何が起こるのだ？
+        name = ssw_chi.48.a
+        add_political_power = -100
+        add_stability = -0.1
+        add_war_support = -0.1
+    }
+}
+country_event = { #楊虎城の裏切り
+    id = ssw_chi.49
+    title = ssw_chi.49.t
+    desc = ssw_chi.49.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #総統府を死守せよ
+        name = ssw_chi.49.a
+        hidden_effect = {
+            country_event = {id = ssw_chi.50 days = 4}
+        }
+    }
+    option = { #妥協案を提案
+        name = ssw_chi.49.b
+        hidden_effect = {
+            country_event = {id = ssw_chi.52 days = 7}
+        }
+    }
+}
+country_event = { #援軍の到着
+    id = ssw_chi.50
+    title = ssw_chi.50.t
+    desc = ssw_chi.50.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #駒を進めろ
+        name = ssw_chi.50.a
+        hidden_effect = {
+            country_event = { id = ssw_chi.51 days = 10}
+        }
+    }
+}
+country_event = { #南京の慟哭
+    id = ssw_chi.51
+    title = ssw_chi.51.t
+    desc = ssw_chi.51.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #我々の勝利だ
+        name = ssw_chi.51.a
+        complete_national_focus = CHI_age_Zhang_Xueliang
+    }
+}
+country_event = { #総統府の占領
+    id = ssw_chi.52
+    title = ssw_chi.52.t
+    desc = ssw_chi.52.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            country_event = {id = ssw_chi.53 days = 4}
+        }
+    }
+    option = { #牢に入れろ
+        name = ssw_chi.52.a
+    }
+    option = { #撃て
+        name = ssw_chi.52.b
+    }
+}
+country_event = { #張学良の逮捕
+    id = ssw_chi.53
+    title = ssw_chi.53.t
+    desc = ssw_chi.53.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.53.a
+        remove_unit_leader = 132
+        complete_national_focus = CHI_Zhang_Gaoliang_downfall
+    }
+}
+country_event = { #日本人の贖罪
+    id = ssw_chi.54
+    title = ssw_chi.54.t
+    desc = ssw_chi.54.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi.54.a
+        add_stability = 0.1
+        add_political_power = 100
+    }
+}
+country_event = { #張学良の処刑
+    id = ssw_chi.55
+    title = ssw_chi.55.t
+    desc = ssw_chi.55.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #恐怖の幕引きだ
+        name = ssw_chi.55.a
+        kill_ideology_leader = national_socialism
+        add_political_power = 50
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.05
+        }
+    }
+}
+country_event = { #北平会談
+    id = ssw_chi.56
+    title = ssw_chi.56.t
+    desc = ssw_chi.56.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #権限を宋慶鈴らの民主派に
+        name = ssw_chi.56.a
+        country_event = {id = ssw_chi.57 days = 2}
+    }
+    option = { #鉄の支配こそが中国を救う
+        name = ssw_chi.56.b
+        country_event = {id = ssw_chi.58 days = 2}
+    }
+}
+country_event = { #民主派の勝利
+    id = ssw_chi.57
+    title = ssw_chi.57.t
+    desc = ssw_chi.57.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #孫文先生の未来像
+        name = ssw_chi.57.a
+        add_political_power = 150
+        add_popularity = {
+            ideology = social_democracy
+            popularity = 0.1
+        }
+        complete_national_focus = CHI_rebirth_democracy
+    }
+}
+country_event = { #楊虎城派の勝利
+    id = ssw_chi.58
+    title = ssw_chi.58.t
+    desc = ssw_chi.58.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #民族主義と三民主義
+        name = ssw_chi.58.a
+        add_political_power = 150
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.1
+        }
+        complete_national_focus = CHI_continue_military_regime
+    }
+}
+country_event = { #南京裁判
+    id = ssw_chi.59
+    title = ssw_chi.59.t
+    desc = ssw_chi.59.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #張学良の犯罪に加担したものを処刑せよ
+        name = ssw_chi.59.a
+        add_popularity = {
+            ideology = national_socialism
+            popularity = -0.15
+        }
+        add_stability = 0.2
+    }
+    option = { #我らもその一人ではなかったか？
+        name = ssw_chi.59.b
+        add_popularity = {
+            ideology = national_socialism
+            popularity = 0.05
+        }
+        add_political_power = 100
+        army_experience = 15
+    }
+}
+
 country_event = {
     id = ssw_chi_jap_war.1
     title = ssw_chi_jap_war.1.t
@@ -1998,6 +2496,7 @@ country_event = { #最後通牒(中国)
             type = annex_everything
         }
         hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
             MAN = {
                 add_to_war = {
                     targeted_alliance = JAP
@@ -2050,6 +2549,7 @@ country_event = { #最後通牒(中国)
                         keep_completed = yes
                     }
                 }
+                set_country_flag = CHI_Asian_war
             }
         }
     }
@@ -2083,6 +2583,7 @@ country_event = { #最後通牒(日本)
             type = annex_everything
         }
         hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
             CHI = {
                 if = {
                     limit = {
@@ -2129,6 +2630,7 @@ country_event = { #最後通牒(日本)
                         keep_completed = yes
                     }
                 }
+                set_country_flag = CHI_Asian_war
             }
         }
     }

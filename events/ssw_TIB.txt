@@ -262,6 +262,12 @@ country_event = {
 			}
 			expire = "1988.1.1"
 		}
+		set_politics = {
+			ruling_party = classical_communism
+			elections_allowed = no
+			last_election = "1949.6.1"
+			election_frequency = 48
+		}
 		set_party_name = { 
 			ideology = classical_communism 
 			long_name = TIB_ccp_party_long 
@@ -281,9 +287,8 @@ country_event = {
 	title = tibet.9.t
 	desc = tibet.9.desc
 	picture = GFX_report_event_jap_imperial_family
-
+	fire_only_once = yes
 	is_triggered_only = yes
-	
 	#Exile them
 	option = {
 		name = tibet.9.a
@@ -304,8 +309,18 @@ country_event = {
 				add_ideas = TIB_14th_dalai_lama
 			}
 		}
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
-
 	#Execute them
 	option = {
 		name = tibet.9.b
@@ -313,6 +328,18 @@ country_event = {
 			base = 5
 		}
 		add_stability = -0.15
+		remove_ideas = TIB_14th_dalai_lama
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
 	option = {
 		name = tibet.9.c
@@ -322,18 +349,28 @@ country_event = {
 		add_popularity = {
 			ideology = authority_despotism
 			popularity = 0.1
+		}
+		if = {
+			limit = {
+				has_completed_focus = TIB_maoism
+			}
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 	}
 }
 
-#event to exile Dalai Lama to mongol
 country_event = {
 	id = tibet.10
 	title = tibet.10.t
 	desc = tibet.10.desc
 	picture = GFX_report_event_jap_imperial_family
-
+	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = tibet.10.a
 		ai_chance = {
@@ -355,8 +392,10 @@ country_event = {
 			base = 10
 		}
 		TIB = {
-			annex_country = MON
-			transfer_troops = yes
+			annex_country = {
+				target = MON
+				transfer_troops = yes
+			}
 		}
 	}
 	option = {
@@ -370,6 +409,156 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = tibet.12
+	title = tibet.12.t
+	desc = tibet.12.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.12.a
+		ai_chance = {
+			factor = 20
+		}
+		add_stability = -0.15
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -300 }
+		set_country_flag = TIB_revolut_prepare
+	}
+	option = {
+		name = tibet.12.b
+		ai_chance = {
+			factor = 20
+		}
+		trigger = {
+			OR = {
+				social_conservatism > 0.15
+				social_democracy > 0.15
+				social_liberalism > 0.15
+			}
+		}
+		set_country_flag = TIB_democrat_elect_prepare
+	}
+}
+country_event = {
+	id = tibet.13
+	title = tibet.13.t
+	desc = tibet.13.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.13.a
+		ai_chance = {
+			factor = 20
+		}
+		add_manpower = -328
+		add_stability = -0.1
+		set_politics = {
+			ruling_party = social_democracy
+			elections_allowed = no
+			last_election = "1949.6.1"
+			election_frequency = 48
+		}
+	}
+}
+country_event = {
+	id = tibet.14
+	title = tibet.14.t
+	desc = tibet.14.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.14.a
+		ai_chance = {
+			factor = 20
+		}
+		random_country = {
+			limit = {
+				original_tag = SKM
+				has_government = authority_despotism
+			}
+			transfer_state = 931
+			TIB = {
+				puppet = PREV
+				set_autonomy = { target = PREV autonomy_state = ssw_overseas_territory_renewal }
+			}
+		}
+	}
+	option = {
+		name = tibet.14.b
+		ai_chance = {
+			factor = 5
+		}
+		TIB = {
+			transfer_state = 931
+			add_war_support = 0.05
+		}
+	}
+	option = {
+		name = tibet.14.c
+		ai_chance = {
+			factor = 10
+		}
+		TIB = {
+			add_state_claim = 931
+		}
+	}
+}
+country_event = {
+	id = tibet.15
+	title = tibet.15.t
+	desc = tibet.15.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = tibet.15.a
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = {
+				country_exists = BHU
+				NOT = { BHU = { has_government = authority_despotism } }
+			}
+			BHU = {
+				set_politics = {
+					ruling_party = authority_despotism
+					elections_allowed = no
+					last_election = "1949.6.1"
+					election_frequency = 48
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				original_tag = BHU
+				has_government = authority_despotism
+			}
+			transfer_state = 324
+			TIB = {
+				puppet = PREV
+				set_autonomy = { target = PREV autonomy_state = ssw_overseas_territory_renewal }
+			}
+		}
+	}
+	option = {
+		name = tibet.15.b
+		ai_chance = {
+			factor = 5
+		}
+		TIB = {
+			transfer_state = 324
+			add_war_support = 0.05
+		}
+	}
+	option = {
+		name = tibet.15.c
+		ai_chance = {
+			factor = 10
+		}
+		TIB = {
+			add_state_claim = 324
+		}
+	}
 country_event = {
 	id = tibet.1000 #Himmler(Lhunpolto) appear
 	title = tibet.1000.t

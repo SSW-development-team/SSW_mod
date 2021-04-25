@@ -191,6 +191,41 @@ ideas = {
 				conscription = 0.002
 			}
 		}
+		TIB_central_military_commission = {
+
+			picture = generic_communist_army
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				max_command_power = 25
+				command_power_gain_mult = 0.1
+				army_org_regain = 0.1
+				training_time_factor = -0.05
+			}
+		}
+		TIB_production_under_license = {
+		
+			picture = generic_production_bonus
+
+			allowed = {
+				original_tag = TIB
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				license_purchase_cost_factor = -0.5
+				license_tech_difference_speed_factor = -0.5
+			}
+		}
 		TIB_14th_dalai_lama = {
 			picture = 14th_dalai_lama
 			removal_cost = -1
@@ -330,6 +365,35 @@ ideas = {
 					build_cost_ic = -0.1
 					instant = yes
 				}
+			}
+		}
+		TIB_pirot_trained = {
+			picture = a
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				air_range_factor = 0.05
+				air_ace_generation_chance_factor = 0.05
+			}
+		}
+		TIB_tsonkapa = {
+			picture = a
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				conscription_factor = 0.2
+				political_power_gain = 0.2
 			}
 		}
 	}
