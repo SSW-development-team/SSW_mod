@@ -244,7 +244,10 @@ country_event = { #憲法決定
     option = {
         name = ssw_chi.6.b
         trigger = {
-            check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+            OR = {
+                check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+                check_variable = {var_CHI_infr_federalism = var_CHI_infr_KMT}
+            }
         }
         load_focus_tree = {
             tree = CHI_politic_tree_one
@@ -448,17 +451,19 @@ country_event = { #第二回国民大会
     fire_only_once = yes
     option = { #何事もなく終わればよいが
         name = ssw_chi.15.a
-        if = {
-            limit = {
-                has_country_leader = {
-                    name = "Wang Jingwei"
-                    ruling_only = yes
+        hidden_effect = {
+            if = {
+                limit = {
+                    has_country_leader = {
+                        name = "Wang Jingwei"
+                        ruling_only = yes
+                    }
                 }
+                country_event = {id = ssw_chi.17 days = 7}
             }
-            country_event = {id = ssw_chi.17}
-        }
-        else = {
-            country_event = {id = ssw_chi.16}
+            else = {
+                country_event = {id = ssw_chi.16 days = 7}
+            }
         }
     }
 }
@@ -565,7 +570,9 @@ country_event = { #南京会議の開催
     fire_only_once = yes
     is_triggered_only = yes
     immediate = {
-        country_event = {id = ssw_chi.20 days = 7}
+        hidden_effect = {
+            country_event = {id = ssw_chi.20 days = 7}
+        }
     }
     option = {
         name = ssw_chi.19.a
@@ -826,13 +833,15 @@ country_event = { #第二回連邦代表大会
                     keep_completed = yes
                 }
             }
+            set_country_flag = CHI_second_fede_congress
         }
     }
     option = {
         name = ssw_chi.29.a
         trigger = {
-            has_completed_focus = CHI_compromise_KMT
+            has_country_flag = CHI_fede_lower_power
         }
+        set_country_flag = CHI_Gu_Zhutong_route_flag
     }
     option = {
         name = ssw_chi.29.b
@@ -840,7 +849,13 @@ country_event = { #第二回連邦代表大会
             ruling_party = authority_democracy
             elections_allowed = no
         }
-        set_country_flag = CHI_Gu_Zhutong_route_flag
+        create_country_leader = {
+            name = "Li Zongren"
+            desc = ""
+            picture = "gfx/leaders/CHI/Portrait_Li_Zongren.dds"
+            expire = "1990.1.1"
+            ideology = authority_democracy_ideology
+        }
     }
     option = {
         name = ssw_chi.29.c
