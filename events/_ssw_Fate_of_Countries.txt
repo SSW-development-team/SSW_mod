@@ -166,8 +166,30 @@ country_event = { #ドイツの運命
 						has_state_flag = maybe_core_RHINE
 					}
 				}
-				LTV = { transfer_state = PREV }
-				add_core_of = LTV
+				LTV = {
+					transfer_state = PREV
+					add_state_core = PREV
+					drop_cosmetic_tag = yes
+					set_cosmetic_tag = GER_empire
+					retire_ideology_leader = authority_democracy
+					retire_ideology_leader = authority_despotism
+					create_country_leader = {
+						name = "Wilhelm III"
+						desc = "POLITICS_WILHELM_III_DESC"
+						picture = "gfx/leaders/PRE/Portrait_Prussia_Wilhelm_III.dds"
+						expire = "1965.1.1"
+						ideology = authority_democracy_ideology
+						traits = { popular_figurehead2 }
+					}
+					create_country_leader = {
+						name = "Wilhelm III"
+						desc = "POLITICS_WILHELM_III_DESC"
+						picture = "gfx/leaders/PRE/Portrait_Prussia_Wilhelm_III.dds"
+						expire = "1965.1.1"
+						ideology = absolute_monarchism_ideology
+						traits = { popular_figurehead2 }
+					}
+				}
 			}
 			puppet = LTV
 		}
@@ -359,6 +381,7 @@ country_event = { #ライン裁定
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = { owns_state = 51 }
 		}
 		ai_chance = { base = 90 }
 		every_state = {
@@ -386,6 +409,7 @@ country_event = { #ライン裁定
 				}
 			}
 			NOT = { country_exists = NFR }
+			FRA = { owns_state = 28 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -410,6 +434,7 @@ country_event = { #ライン裁定
 				original_tag = NFR
 			}
 			NOT = { country_exists = FR1 }
+			NFR = { owns_state = 28 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -456,6 +481,7 @@ country_event = { #ライン裁定
 				is_in_faction_with = HAN
 				original_tag = HAN
 			}
+			LTV = { owns_state = 51 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -496,6 +522,7 @@ country_event = { #ライン裁定
 				is_in_faction_with = LTV
 				original_tag = LTV
 			}
+			LTV = { owns_state = 51 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -553,6 +580,7 @@ country_event = { #北ポーランドの運命
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = { owns_state = 5 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -577,38 +605,11 @@ country_event = { #北ポーランドの運命
 		name = ssw_foc_events.3.b
 		trigger = {
 			OR = {
-				LTV = { is_subject_of = ROOT }
-				is_in_faction_with = LTV
-				original_tag = LTV
-			}
-		}
-		ai_chance = { base = 10 }
-		every_state = {
-			limit = {
-				has_state_flag = maybe_core_POL
-				OR = {
-					state = 87
-					state = 97
-					state = 98
-				}
-				is_fully_controlled_by = ROOT
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			LTV = { transfer_state = PREV }
-			add_core_of = LTV
-		}
-	}
-	option = {
-		name = ssw_foc_events.3.c
-		trigger = {
-			OR = {
 				POL = { is_subject_of = ROOT }
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 10 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -630,7 +631,7 @@ country_event = { #北ポーランドの運命
 		}
 	}
 	option = {
-		name = ssw_foc_events.3.d
+		name = ssw_foc_events.3.c
 		trigger = {
 			OR = {
 				has_cosmetic_tag = AMR_russia
@@ -639,6 +640,7 @@ country_event = { #北ポーランドの運命
 				has_cosmetic_tag = SIB_russia
 				has_cosmetic_tag = TUV_russia
 			}
+			owns_state = 10
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -659,13 +661,14 @@ country_event = { #北ポーランドの運命
 		}
 	}
 	option = {
-		name = ssw_foc_events.3.e
+		name = ssw_foc_events.3.d
 		trigger = {
 			OR = {
 				PRE = { is_subject_of = ROOT }
 				is_in_faction_with = PRE
 				original_tag = PRE
 			}
+			PRE = { owns_state = 5 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -687,7 +690,7 @@ country_event = { #北ポーランドの運命
 		}
 	}
 	option = {
-		name = ssw_foc_events.3.f
+		name = ssw_foc_events.3.e
 		trigger = {
 			NOT = {
 				has_cosmetic_tag = AMR_russia
@@ -708,6 +711,7 @@ country_event = { #北ポーランドの運命
 					has_cosmetic_tag = SIB_russia
 					has_cosmetic_tag = TUV_russia
 				}
+				owns_state = 5
 			}
 		}
 		ai_chance = { base = 10 }
@@ -759,6 +763,7 @@ country_event = { #カトヴィツェの運命
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = { owns_state = 67 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -783,6 +788,7 @@ country_event = { #カトヴィツェの運命
 				is_in_faction_with = LTV
 				original_tag = LTV
 			}
+			LTV = { owns_state = 67 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -807,6 +813,7 @@ country_event = { #カトヴィツェの運命
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 90 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -831,6 +838,7 @@ country_event = { #カトヴィツェの運命
 				is_in_faction_with = PRE
 				original_tag = PRE
 			}
+			PRE = { owns_state = 67 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -862,6 +870,10 @@ country_event = { #ダンツィヒ裁定
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = {
+				owns_state = 5
+				owns_state = 63
+			}
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -889,6 +901,10 @@ country_event = { #ダンツィヒ裁定
 				LTV = { is_subject_of = ROOT }
 				is_in_faction_with = LTV
 				original_tag = LTV
+			}
+			LTV = {
+				owns_state = 5
+				owns_state = 63
 			}
 		}
 		ai_chance = { base = 10 }
@@ -918,6 +934,7 @@ country_event = { #ダンツィヒ裁定
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 98 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -945,6 +962,10 @@ country_event = { #ダンツィヒ裁定
 				PRE = { is_subject_of = ROOT }
 				is_in_faction_with = PRE
 				original_tag = PRE
+			}
+			PRE = {
+				owns_state = 5
+				owns_state = 63
 			}
 		}
 		ai_chance = { base = 10 }
@@ -981,6 +1002,7 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = { owns_state = 64 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1010,6 +1032,7 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = LTV
 				original_tag = LTV
 			}
+			LTV = { owns_state = 64 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1039,6 +1062,7 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 85 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1068,6 +1092,7 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = PRE
 				original_tag = PRE
 			}
+			PRE = { owns_state = 64 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1090,7 +1115,7 @@ country_event = { #ヒンターポンメルンの運命
 		}
 	}
 }
-country_event = { #ヒンターポンメルンの運命
+country_event = { #プロイセン地方の運命
 	id = ssw_foc_events.7
 	title = ssw_foc_events.7.title
 	desc = ssw_foc_events.7.desc
@@ -1158,6 +1183,7 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 98 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1218,6 +1244,11 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = RUS
 				is_in_faction_with = SOV
 			}
+			OR = {
+				RUS = { owns_state = 188 }
+				SOV = { owns_state = 188 }
+			}
+			POL = { owns_state = 87 }
 		}
 		ai_chance = { base = 10 }
 		POL = {
@@ -1262,6 +1293,8 @@ country_event = { #ヒンターポンメルンの運命
 				is_in_faction_with = LIT
 				original_tag = LIT
 			}
+			POL = { owns_state = 87 }
+			LIT = { owns_state = 188 }
 		}
 		ai_chance = { base = 10 }
 		POL = {
@@ -1324,6 +1357,7 @@ country_event = { #シュレースヴィヒの運命
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = { owns_state = 58 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1347,6 +1381,7 @@ country_event = { #シュレースヴィヒの運命
 				is_in_faction_with = LTV
 				original_tag = LTV
 			}
+			LTV = { owns_state = 58 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1370,6 +1405,7 @@ country_event = { #シュレースヴィヒの運命
 				is_in_faction_with = SHL
 				original_tag = SHL
 			}
+			SHL = { owns_state = 58 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1393,6 +1429,7 @@ country_event = { #シュレースヴィヒの運命
 				is_in_faction_with = DEN
 				original_tag = DEN
 			}
+			DEN = { owns_state = 99 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1423,6 +1460,12 @@ country_event = { #ズデーテンラントの運命
 				is_in_faction_with = WGR
 				original_tag = WGR
 			}
+			WGR = {
+				owns_state = 4
+				owns_state = 60
+				owns_state = 152
+				owns_state = 153
+			}
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -1442,33 +1485,11 @@ country_event = { #ズデーテンラントの運命
 		name = ssw_foc_events.10.b
 		trigger = {
 			OR = {
-				LTV = { is_subject_of = ROOT }
-				is_in_faction_with = LTV
-				original_tag = LTV
-			}
-		}
-		ai_chance = { base = 10 }
-		every_state = {
-			limit = {
-				is_fully_controlled_by = ROOT
-				has_state_flag = maybe_core_CZE
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			LTV = { transfer_state = PREV }
-			add_core_of = LTV
-		}
-	}
-	option = {
-		name = ssw_foc_events.10.c
-		trigger = {
-			OR = {
 				CZE = { is_subject_of = ROOT }
 				is_in_faction_with = CZE
 				original_tag = CZE
 			}
+			CZE = { owns_state = 9 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {

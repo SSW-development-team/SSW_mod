@@ -1,5 +1,5 @@
 fate_of_countries_category_asia = {
-	annexation_korea = { #�؍��̉^��
+	annexation_korea = { #韓国の運命
 		icon = generic_form_nation
 		selectable_mission = yes
 		days_mission_timeout = 60
@@ -52,7 +52,7 @@ fate_of_countries_category_asia = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-	fate_of_japan = { #���{�̉^��
+	fate_of_japan = { #日本の運命
 		icon = generic_operation
 		selectable_mission = yes
 		days_mission_timeout = 60
@@ -112,6 +112,493 @@ fate_of_countries_category_asia = {
 		timeout_effect = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_japan
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_china = { #中国の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = {
+				country_exists = CHI
+				country_exists = CHP
+				country_exists = PCH
+			}
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_CHI_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHI = { capital_scope = { is_fully_controlled_by = ROOT } }
+			CHP = { capital_scope = { is_fully_controlled_by = ROOT } }
+			PCH = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_china }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = CHI
+				country_exists = CHP
+				country_exists = PCH
+				CHI = { capital_scope = { is_valid_annexation_state = no } }
+				CHP = { capital_scope = { is_valid_annexation_state = no } }
+				PCH = { capital_scope = { is_valid_annexation_state = no } }
+				has_country_flag = continue_to_occupy_china
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.2 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_china
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_min = { #閩の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = MIN }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_MIN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			MIN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			OR = {
+				CHP = {
+					owns_state = 596
+					owns_state = 600
+				}
+				PCH = {
+					owns_state = 596
+					owns_state = 600
+				}
+			}
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_min }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = MIN
+				MIN = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_min }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.3 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_min
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_hui = { #回の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = XSM }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_XSM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			XSM = { capital_scope = { is_fully_controlled_by = ROOT } }
+			OR = {
+				CHP = {
+					owns_state = 622
+					owns_state = 746
+				}
+				PCH = {
+					owns_state = 622
+					owns_state = 746
+				}
+			}
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_hui }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = XSM
+				XSM = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_hui }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.4 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_hui
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_guangdong = { #広東の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = GUD }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GUD_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GUD = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_guangdong }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = GUD
+				GUD = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_guangdong }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.5 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_guangdong
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_guangxi = { #広西の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = GXC }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_GXC_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			GXC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_guangxi }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = GXC
+				GXC = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_guangxi }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.6 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_guangxi
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_yunnan = { #雲南の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = YUN }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_YUN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			YUN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_yunnan }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = YUN
+				YUN = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_yunnan }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.7 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_yunnan
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_jiuquan = { #酒泉の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 756
+					state = 837
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CHP = { is_subject_of = ROOT }
+						is_in_faction_with = CHP
+						original_tag = CHP
+					}
+					CHP = { owns_state = 616 }
+				}
+				AND = {
+					OR = {
+						PCH = { is_subject_of = ROOT }
+						is_in_faction_with = PCH
+						original_tag = PCH
+					}
+					PCH = { owns_state = 616 }
+				}
+				AND = {
+					OR = {
+						MEN = { is_subject_of = ROOT }
+						is_in_faction_with = MEN
+						original_tag = MEN
+					}
+					MEN = { owns_state = 621 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.8 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_mount_wutai = { #小五台山の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 621
+					state = 1014
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CHP = { is_subject_of = ROOT }
+						is_in_faction_with = CHP
+						original_tag = CHP
+					}
+					CHP = { owns_state = 746 }
+				}
+				AND = {
+					OR = {
+						PCH = { is_subject_of = ROOT }
+						is_in_faction_with = PCH
+						original_tag = PCH
+					}
+					PCH = { owns_state = 746 }
+				}
+				AND = {
+					OR = {
+						MEN = { is_subject_of = ROOT }
+						is_in_faction_with = MEN
+						original_tag = MEN
+					}
+					MEN = { owns_state = 611 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.9 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_qinghai = { #青海の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 604
+					state = 754
+					state = 755
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CHP = { is_subject_of = ROOT }
+						is_in_faction_with = CHP
+						original_tag = CHP
+					}
+					CHP = { owns_state = 283 }
+				}
+				AND = {
+					OR = {
+						PCH = { is_subject_of = ROOT }
+						is_in_faction_with = PCH
+						original_tag = PCH
+					}
+					PCH = { owns_state = 283 }
+				}
+				AND = {
+					OR = {
+						TIB = { is_subject_of = ROOT }
+						is_in_faction_with = TIB
+						original_tag = TIB
+					}
+					TIB = {
+						owns_state = 601
+						owns_state = 920
+					}
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.10 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_dkar_mdzes = { #甘孜の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 752
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CHP = { is_subject_of = ROOT }
+						is_in_faction_with = CHP
+						original_tag = CHP
+					}
+					CHP = { owns_state = 751 }
+				}
+				AND = {
+					OR = {
+						PCH = { is_subject_of = ROOT }
+						is_in_faction_with = PCH
+						original_tag = PCH
+					}
+					PCH = { owns_state = 751 }
+				}
+				AND = {
+					OR = {
+						TIB = { is_subject_of = ROOT }
+						is_in_faction_with = TIB
+						original_tag = TIB
+					}
+					TIB = {
+						owns_state = 601
+						owns_state = 920
+					}
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.11 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_tibet = { #チベットの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = TIB }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TIB_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TIB = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_tibet }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = TIB
+				TIB = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_tibet }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.12 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_tibet
 		}
 		ai_will_do = { factor = 100 }
 	}
