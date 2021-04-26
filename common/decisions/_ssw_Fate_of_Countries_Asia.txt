@@ -513,6 +513,17 @@ fate_of_countries_category_asia = {
 						owns_state = 920
 					}
 				}
+				AND = {
+					OR = {
+						KHM = { is_subject_of = ROOT }
+						is_in_faction_with = KHM
+						original_tag = KHM
+					}
+					KHM = {
+						owns_state = 601
+						owns_state = 920
+					}
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_asia.10 } }
@@ -558,6 +569,17 @@ fate_of_countries_category_asia = {
 						owns_state = 920
 					}
 				}
+				AND = {
+					OR = {
+						KHM = { is_subject_of = ROOT }
+						is_in_faction_with = KHM
+						original_tag = KHM
+					}
+					KHM = {
+						owns_state = 601
+						owns_state = 920
+					}
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_asia.11 } }
@@ -599,6 +621,259 @@ fate_of_countries_category_asia = {
 		timeout_effect = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_tibet
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_khams = { #カムの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = KHM }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KHM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KHM = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_khams }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = KHM
+				KHM = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_khams }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.13 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_khams
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_xinjiang = { #新疆の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = SIK }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SIK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SIK = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_xinjiang }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = SIK
+				SIK = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_xinjiang }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.14 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_xinjiang
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_kumul = { #クムルの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = KUM }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KUM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KUM = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_kumul }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = KUM
+				KUM = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_kumul }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.15 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_kumul
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_hong_kong = { #香港の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = HKG }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			HKG = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_hong_kong }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = HKG
+				HKG = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_hong_kong }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.16 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_hong_kong
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_penghu_qundao = { #澎湖諸島の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CHP = { is_subject_of = ROOT }
+						is_in_faction_with = CHP
+						original_tag = CHP
+					}
+					CHP = { owns_state = 830 }
+				}
+				AND = {
+					OR = {
+						PCH = { is_subject_of = ROOT }
+						is_in_faction_with = PCH
+						original_tag = PCH
+					}
+					PCH = { owns_state = 830 }
+				}
+				AND = {
+					OR = {
+						MIN = { is_subject_of = ROOT }
+						is_in_faction_with = MIN
+						original_tag = MIN
+					}
+					MIN = { owns_state = 830 }
+				}
+				AND = {
+					OR = {
+						TWN = { is_subject_of = ROOT }
+						is_in_faction_with = TWN
+						original_tag = TWN
+					}
+					TWN = { owns_state = 524 }
+				}
+				AND = {
+					OR = {
+						JAP = { is_subject_of = ROOT }
+						is_in_faction_with = JAP
+						original_tag = JAP
+					}
+					JAP = { owns_state = 524 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.17 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_taiwan = { #台湾の運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = TWN }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TWN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_taiwan }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = TWN
+				TWN = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_taiwan }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.18 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_taiwan
 		}
 		ai_will_do = { factor = 100 }
 	}
