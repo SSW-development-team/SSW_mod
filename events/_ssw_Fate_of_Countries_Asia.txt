@@ -1252,6 +1252,37 @@ country_event = { #青海の運命
 			add_core_of = TIB
 		}
 	}
+	option = {
+		name = ssw_foc_asia.10.d
+		trigger = {
+			OR = {
+				KHM = { is_subject_of = ROOT }
+				is_in_faction_with = KHM
+				original_tag = KHM
+			}
+			KHM = {
+				owns_state = 601
+				owns_state = 920
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 604
+					state = 754
+					state = 755
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KHM = { transfer_state = PREV }
+			add_core_of = KHM
+		}
+	}
 }
 country_event = { #甘孜の運命
 	id = ssw_foc_asia.11
@@ -1334,6 +1365,33 @@ country_event = { #甘孜の運命
 			add_core_of = TIB
 		}
 	}
+	option = {
+		name = ssw_foc_asia.11.d
+		trigger = {
+			OR = {
+				KHM = { is_subject_of = ROOT }
+				is_in_faction_with = KHM
+				original_tag = KHM
+			}
+			KHM = {
+				owns_state = 601
+				owns_state = 920
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 752
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KHM = { transfer_state = PREV }
+			add_core_of = KHM
+		}
+	}
 }
 country_event = { #チベットの運命
 	id = ssw_foc_asia.12
@@ -1367,8 +1425,8 @@ country_event = { #チベットの運命
 				original_tag = CHP
 			}
 			CHP = {
+				owns_state = 601
 				owns_state = 604
-				owns_state = 752
 			}
 		}
 		ai_chance = { base = 10 }
@@ -1394,8 +1452,8 @@ country_event = { #チベットの運命
 				original_tag = PCH
 			}
 			PCH = {
+				owns_state = 601
 				owns_state = 604
-				owns_state = 752
 			}
 		}
 		ai_chance = { base = 10 }
@@ -1417,5 +1475,685 @@ country_event = { #チベットの運命
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
 		set_country_flag = continue_to_occupy_tibet
+	}
+}
+country_event = { #カムの運命
+	id = ssw_foc_asia.13
+	title = ssw_foc_asia.13.title
+	desc = ssw_foc_asia.13.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.13.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KHM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KHM = { transfer_state = PREV }
+			add_core_of = KHM
+		}
+		puppet = KHM
+	}
+	option = {
+		name = ssw_foc_asia.13.b
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = {
+				owns_state = 604
+				owns_state = 752
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KHM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.13.c
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = {
+				owns_state = 604
+				owns_state = 752
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KHM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.13.d
+		trigger = {
+			OR = {
+				TIB = { is_subject_of = ROOT }
+				is_in_faction_with = TIB
+				original_tag = TIB
+			}
+			TIB = {
+				owns_state = 757
+				owns_state = 917
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KHM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TIB = { transfer_state = PREV }
+			add_core_of = TIB
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_khams
+	}
+}
+country_event = { #新疆の運命
+	id = ssw_foc_asia.14
+	title = ssw_foc_asia.14.title
+	desc = ssw_foc_asia.14.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.14.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SIK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SIK = { transfer_state = PREV }
+			add_core_of = SIK
+		}
+		puppet = SIK
+	}
+	option = {
+		name = ssw_foc_asia.14.b
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = {
+				owns_state = 755
+				owns_state = 837
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SIK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.14.c
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = {
+				owns_state = 755
+				owns_state = 837
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SIK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.14.d
+		trigger = {
+			OR = {
+				KUM = { is_subject_of = ROOT }
+				is_in_faction_with = KUM
+				original_tag = KUM
+			}
+			KUM = { owns_state = 760 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SIK_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KUM = { transfer_state = PREV }
+			add_core_of = KUM
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_xinjiang
+	}
+}
+country_event = { #クムルの運命
+	id = ssw_foc_asia.15
+	title = ssw_foc_asia.15.title
+	desc = ssw_foc_asia.15.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.15.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KUM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			KUM = { transfer_state = PREV }
+			add_core_of = KUM
+		}
+		puppet = KUM
+	}
+	option = {
+		name = ssw_foc_asia.15.b
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = {
+				owns_state = 617
+				owns_state = 759
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KUM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.15.c
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = {
+				owns_state = 617
+				owns_state = 759
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KUM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.15.d
+		trigger = {
+			OR = {
+				SIK = { is_subject_of = ROOT }
+				is_in_faction_with = SIK
+				original_tag = SIK
+			}
+			SIK = {
+				owns_state = 617
+				owns_state = 759
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_KUM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SIK = { transfer_state = PREV }
+			add_core_of = SIK
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_kumul
+	}
+}
+country_event = { #香港の運命
+	id = ssw_foc_asia.16
+	title = ssw_foc_asia.16.title
+	desc = ssw_foc_asia.16.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.16.a
+		trigger = { NOT = { tag = JAP } }
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			HKG = { transfer_state = PREV }
+			add_core_of = HKG
+		}
+		puppet = HKG
+	}
+	option = {
+		name = ssw_foc_asia.16.b
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = { owns_state = 593 }
+			NOT = { tag = JAP }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.16.c
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = { owns_state = 593 }
+			NOT = { tag = JAP }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.16.d
+		trigger = {
+			tag = JAP
+			NOT = { CLC = { is_subject_of = ROOT } }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			JAP = {
+				transfer_state = PREV
+				add_state_claim = PREV
+			}
+		}
+	}
+	option = {
+		name = ssw_foc_asia.16.e
+		trigger = {
+			tag = JAP
+			CLC = { is_subject_of = ROOT }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_HKG_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CLC = {
+				transfer_state = PREV
+				add_state_core = PREV
+			}
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_hong_kong
+	}
+}
+country_event = { #澎湖諸島の運命
+	id = ssw_foc_asia.17
+	title = ssw_foc_asia.17.title
+	desc = ssw_foc_asia.17.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.17.a
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = { owns_state = 830 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.17.b
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = { owns_state = 830 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.17.c
+		trigger = {
+			OR = {
+				MIN = { is_subject_of = ROOT }
+				is_in_faction_with = MIN
+				original_tag = MIN
+			}
+			MIN = { owns_state = 830 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			MIN = { transfer_state = PREV }
+			add_core_of = MIN
+		}
+	}
+	option = {
+		name = ssw_foc_asia.17.d
+		trigger = {
+			OR = {
+				TWN = { is_subject_of = ROOT }
+				is_in_faction_with = TWN
+				original_tag = TWN
+			}
+			TWN = { owns_state = 524 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TWN = { transfer_state = PREV }
+			add_core_of = TWN
+		}
+	}
+	option = {
+		name = ssw_foc_asia.17.e
+		trigger = {
+			OR = {
+				JAP = { is_subject_of = ROOT }
+				is_in_faction_with = JAP
+				original_tag = JAP
+			}
+			JAP = { owns_state = 524 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				state = 842
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			JAP = { transfer_state = PREV }
+			add_core_of = JAP
+		}
+	}
+}
+country_event = { #台湾の運命
+	id = ssw_foc_asia.18
+	title = ssw_foc_asia.18.title
+	desc = ssw_foc_asia.18.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.18.a
+		trigger = { NOT = { tag = JAP } }
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TWN = { transfer_state = PREV }
+			add_core_of = TWN
+		}
+		puppet = TWN
+	}
+	option = {
+		name = ssw_foc_asia.18.b
+		trigger = {
+			OR = {
+				CHP = { is_subject_of = ROOT }
+				is_in_faction_with = CHP
+				original_tag = CHP
+			}
+			CHP = { owns_state = 830 }
+			NOT = { tag = JAP }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CHP = { transfer_state = PREV }
+			add_core_of = CHP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.18.c
+		trigger = {
+			OR = {
+				PCH = { is_subject_of = ROOT }
+				is_in_faction_with = PCH
+				original_tag = PCH
+			}
+			PCH = { owns_state = 830 }
+			NOT = { tag = JAP }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			PCH = { transfer_state = PREV }
+			add_core_of = PCH
+		}
+	}
+	option = {
+		name = ssw_foc_asia.18.d
+		trigger = { tag = JAP }
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			JAP = { transfer_state = PREV }
+			add_core_of = JAP
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_taiwan
 	}
 }
