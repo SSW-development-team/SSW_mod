@@ -697,11 +697,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			create_corps_commander = {
-				name = "Gompo Tashi Andruktsang"
-				picture = "ssw_Portrait_Tibet_Yuthok_Tashi_Dhondub.dds"
+				name = "Gompo Tashi Andrugtsang"
+				portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Gompo_Tashi.dds"
 				traits = { infantry_leader trickster trait_mountaineer }
 				skill = 2
-				desc = "TIB_TASHI_DHONDUB_DESC"
+				desc = "TIB_GOMBO_TASHI_DESC"
 				rank = 1
 				attack_skill = 3
 				defense_skill = 2
@@ -785,6 +785,28 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_reorganization_ganden_phodrang
+		}
+		completion_reward = {
+		        random_owned_controlled_state = {
+			        add_extra_state_shared_building_slots = 2
+				set_state_flag = TIB_more_temples_flag
+			}
+			random_owned_controlled_state = {
+			        limit = { NOT = { has_state_flag = TIB_more_temples_flag } }
+			        add_extra_state_shared_building_slots = 1
+			}
+			create_corps_commander = {
+				name = "Kalon Lama Trekhang"
+				portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Kalon_Lama_Trekhang.dds"
+				traits = { politically_connected ranger }
+				skill = 1
+				desc = "TIB_KALON_LAMA_DESC"
+				rank = 1
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 2
+			}
 		}
 		x = 29
 		y = 10
