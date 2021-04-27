@@ -1,165 +1,69 @@
 focus_tree = {
 	id = ssw_UKR
 	country = {
-		base = 0
+		factor = 0
 		modifier = {
-			add = 4
+			add = 10
+			tag = UKR
 			OR = {
 				tag = UKR
 				original_tag = UKR
 			}
 		}
-		modifier = {
-			factor = 0
-			has_cosmetic_tag = UKR_GEM
-		}
 	}
-	#Focus for 航空隊の新設 - focus ID randomly generated due to title being in non-latin characters
+	default = no
+	continuous_focus_position = {
+		x = 1900
+		y = 500
+	}
 	focus = {
-		id = UKR_UpjwGfvT
-		icon = GFX_goal_generic_air_fighter2
-		x = 1
-		y = 1
+		id = UKR_mtYrwcNb
+		icon = GFX_goal_generic_political_pressure
 		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_ZvNULdGg
+		mutually_exclusive = {
+			focus = UKR_independence_war
 		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for 軍事訓練 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_ZvNULdGg
-		icon = GFX_goal_generic_military_sphere
-		x = 1
-		y = 0
-		cost = 10
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			army_experience = 30
-		}
-	}
-	#Focus for キエフの開発 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_obQMzwBl
-		icon = GFX_goal_generic_construct_civ_factory
-		x = 7
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_QmoJcYZh
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
-		}
-	}
-	#Focus for 都市開発計画 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_QmoJcYZh
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 9
-		y = 3
-		cost = 10
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 5
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for 人民共和国海軍の復興 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_uBMmefCl
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = 16
-		y = 6
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_sJwdXzrW
-		}
-		prerequisite = {
-			focus = UKR_TzhDlfxv
-		}
-		available = {
-			any_owned_state = {
-				is_controlled_by = ROOT
-				is_coastal = yes
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_navy
-			navy_experience = 100
-		}
-	}
-	#Focus for 民族主義の高揚 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_SkxtUfDo
-		icon = GFX_focus_hol_united_netherlands
-		x = 20
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_fIOmdGTa
-		}
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_independence_war
-		}
-	}
-	#Focus for 独立戦争 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_fIOmdGTa
-		icon = GFX_goal_generic_demand_territory
 		x = 23
 		y = 0
+		available_if_capitulated = yes
+		available = {
+			OR = {
+				has_country_leader = {
+					name = "Erich Koch"
+					ruling_only = yes
+				}
+			}
+		}
+		# tag = UVG
+		# custom_trigger_tooltip = {
+		#  tooltip = ssw_UKR_tooltip_won_emergency
+		#  NOT = {
+		#   has_cosmetic_tag = UKR_GEM
+		#  }
+		# }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_timed_idea = {
+				idea = UKR_stabilize
+				days = 70
+			}
+		}
+	}
+	focus = {
+		id = UKR_independence_war
+		icon = GFX_goal_generic_demand_territory
 		cost = 1
+		mutually_exclusive = {
+			focus = UKR_mtYrwcNb
+		}
+		x = 43
+		y = 0
 		available = {
 			NOT = {
 				has_country_leader = {
@@ -167,17 +71,17 @@ focus_tree = {
 					ruling_only = yes
 				}
 			}
-			# custom_trigger_tooltip = {
-			# 	tooltip = ssw_UKR_tooltip_won_emergency
-			# 	NOT = {
-			# 		has_cosmetic_tag = UKR_GEM
-			# 	}
-			# }
 		}
+		# custom_trigger_tooltip = {
+		#  tooltip = ssw_UKR_tooltip_won_emergency
+		#  NOT = {
+		#   has_cosmetic_tag = UKR_GEM
+		#  }
+		# }
 		available_if_capitulated = yes
-		mutually_exclusive = {
-			focus = UKR_mtYrwcNb
-		}
+		# mutually_exclusive = {
+		#  focus = UKR_mtYrwcNb
+		# }
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -191,88 +95,60 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for 工業立国への転換 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
-		id = UKR_TGPOigIF
-		icon = GFX_focus_generic_industry_3
-		x = 15
-		y = 4
+		id = UKR_invite_belarus
+		icon = GFX_focus_generic_polish_deal
 		cost = 10
-		available_if_capitulated = yes
+		x = -1
+		y = 1
+		relative_position_id = UKR_intermarium
 		prerequisite = {
-			focus = UKR_pNMyjlPJ
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			NOT = {
-				has_idea = UKR_low_education_level
-				has_idea = UKR_middle_education_level
-				has_idea = UKR_high_education_level
-			}
-		}
-		completion_reward = {
-			swap_ideas = {
-				add_idea = UKR_improved_agricalture
-				remove_idea = UKR_agricalture
-			}
+			focus = UKR_intermarium
 		}
 	}
-	#Focus for ウクライナ人への教育 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
-		id = UKR_pNMyjlPJ
-		icon = GFX_focus_research2
-		x = 15
-		y = 3
+		id = UKR_administration
+		icon = GFX_goal_unknown
 		cost = 10
-		available_if_capitulated = yes
+		x = 35
+		y = 12
+	}
+	focus = {
+		id = UKR_kherson
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = UKR_mykolaiv
 		prerequisite = {
-			focus = UKR_yLOuwlqF
-			focus = UKR_sJwdXzrW
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_improve_literacy
+			focus = UKR_mykolaiv
 		}
 	}
-	#Focus for 中央ラーダの再設置 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
-		id = UKR_ZGKRudiv
-		icon = GFX_focus_eng_the_kings_party
-		x = 13
-		y = 2
+		id = UKR_navy
+		icon = GFX_goal_unknown
 		cost = 10
-		available_if_capitulated = yes
+		x = -2
+		y = 1
+		relative_position_id = UKR_army
 		prerequisite = {
-			focus = UKR_yLOuwlqF
-		}
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_rada_under_german
+			focus = UKR_navy
 		}
 	}
-	#Focus for ウクライナ人との協力 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_yLOuwlqF
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		x = 14
-		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_mtYrwcNb
 		}
 		mutually_exclusive = {
 			focus = UKR_hkaWqXMm
 		}
+		x = 5
+		y = 1
+		relative_position_id = UKR_mtYrwcNb
+		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -287,20 +163,41 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for ロシア人との協力 - focus ID randomly generated due to title being in non-latin characters
+	focus = {
+		id = UKR_ZGKRudiv
+		icon = GFX_focus_eng_the_kings_party
+		cost = 10
+		prerequisite = {
+			focus = UKR_yLOuwlqF
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_yLOuwlqF
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = UKR_rada_under_german
+		}
+	}
 	focus = {
 		id = UKR_hkaWqXMm
 		icon = GFX_focus_chi_mission_to_the_soviet_union
-		x = 10
-		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_mtYrwcNb
 		}
 		mutually_exclusive = {
 			focus = UKR_yLOuwlqF
 		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_mtYrwcNb
+		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -315,41 +212,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for ロシア義勇兵の徴募 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_YvxIePRL
-		icon = GFX_focus_chi_mission_to_the_soviet_union
-		x = 9
-		y = 2
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_hkaWqXMm
-		}
-		prerequisite = {
-			focus = UKR_RTYNGyza
-		}
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_russian_volunteers
-		}
-	}
-	#Focus for 露独協力政権 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_ELIofZds
 		icon = GFX_focus_chi_mission_to_the_soviet_union
-		x = 11
-		y = 2
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_hkaWqXMm
 		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_hkaWqXMm
+		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -357,10 +230,6 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			# for_each_scope_loop = {
-			# 	array = russian_states_in_ukraine
-			# 	add_core_of = ROOT
-			# }
 			220 = {
 				add_core_of = ROOT
 			}
@@ -393,300 +262,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for ドイツ精鋭部隊 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_erQvPAzU
-		icon = GFX_focus_ger_oppose_hitler
-		x = 5
-		y = 2
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_RTYNGyza
-		}
-		mutually_exclusive = {
-			focus = UKR_SEcBIuLP
-		}
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_german_elite
-		}
-	}
-	#Focus for 現地人の大規模徴兵 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_SEcBIuLP
-		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
-		x = 7
-		y = 2
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_RTYNGyza
-		}
-		mutually_exclusive = {
-			focus = UKR_erQvPAzU
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_natives_army
-		}
-	}
-	#Focus for 統治安定化 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_mtYrwcNb
-		icon = GFX_goal_generic_political_pressure
-		x = 9
-		y = 0
-		cost = 10
-		available_if_capitulated = yes
-		available = {
-			OR = {
-				has_country_leader = {
-					name = "Erich Koch"
-					ruling_only = yes
-				}
-				# tag = UVG
-				# custom_trigger_tooltip = {
-				# 	tooltip = ssw_UKR_tooltip_won_emergency
-				# 	NOT = {
-				# 		has_cosmetic_tag = UKR_GEM
-				# 	}
-				# }
-			}
-		}
-		mutually_exclusive = {
-			focus = UKR_fIOmdGTa
-		}
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_political_power = 150
-			add_timed_idea = {
-				idea = UKR_stabilize
-				days = 70
-			}
-		}
-	}
-	#Focus for 徴兵問題 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_RTYNGyza
-		icon = GFX_goal_rhineland
-		x = 6
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_mtYrwcNb
-		}
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_manpower = 10000
-		}
-	}
-	#Focus for 航空基地の増設 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_ECkpyeKt
-		icon = GFX_goal_generic_air_fighter2
-		x = 1
-		y = 2
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_UpjwGfvT
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for 蜂起軍との交渉 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_BKEYanlg
-		icon = GFX_goal_generic_position_armies
-		x = 13
-		y = 3
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_ZGKRudiv
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.5
-				days = 3
-			}
-		}
-	}
-	#Focus for 内戦への支援 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_kSthGWsB
-		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
-		x = 2
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_HMXVKOWh
-		}
-		mutually_exclusive = {
-			focus = UKR_hzfxCtiU
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			set_rule = {
-				can_send_volunteers = yes
-			}
-		}
-	}
-	#Focus for 独立路線 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_hzfxCtiU
-		icon = GFX_goal_continuous_boost_freedom
-		x = 4
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_HMXVKOWh
-		}
-		mutually_exclusive = {
-			focus = UKR_kSthGWsB
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_political_power = 150
-			unlock_decision_category_tooltip = UKR_unification_wars
-		}
-	}
-	#Focus for 新政権の非承認 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_FJBwUpsZ
-		icon = GFX_focus_attack_germany
-		x = 4
-		y = 6
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_hzfxCtiU
-		}
-		mutually_exclusive = {
-			focus = UKR_EhZavNwQ
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_political_power = 150
-		}
-	}
-	#Focus for 造船所の拡大 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_TzhDlfxv
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = 14
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_WtMrsfHA
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			any_owned_state = {
-				is_controlled_by = ROOT
-				is_coastal = yes
-			}
-		}
-		completion_reward = {
-			navy_experience = 10
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
-		}
-	}
-	#Focus for ムィコーラウ～キエフ鉄道 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_YVrZIyki
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 12
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_WtMrsfHA
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 5
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for 拡大 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_CAdsbgyc
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 17
-		y = 7
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
-			focus = UKR_cjLfVRpH
-			focus = UKR_FJBwUpsZ
-			focus = UKR_EhZavNwQ
+			focus = UKR_administration
 		}
+		x = 5
+		y = 1
+		relative_position_id = UKR_administration
+		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -697,181 +283,200 @@ focus_tree = {
 			add_ideas = UKR_expansion
 		}
 	}
-	#Focus for 我々の立場 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
-		id = UKR_HMXVKOWh
-		icon = GFX_goal_generic_propaganda
-		x = 3
-		y = 4
+		id = UKR_aTctHXAx
+		icon = GFX_goal_generic_territory_or_war
 		cost = 10
-		available = {
-			has_global_flag = GER_civil_war
-			has_country_leader = {
-				name = "Erich Koch"
-				ruling_only = yes
+		prerequisite = {
+			focus = UKR_CAdsbgyc
+		}
+		x = 3
+		y = 1
+		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					NOT = {
+						tag = ROOT
+					}
+					OR = {
+						controls_state = 809
+						controls_state = 137
+					}
+				}
+				country_event = {
+					id = ssw_UKR.11
+					days = 3
+				}
 			}
 		}
+	}
+	focus = {
+		id = UKR_establish_central_rada
+		icon = GFX_focus_generic_self_management
+		cost = 10
+		prerequisite = {
+			focus = UKR_independence_war
+		}
+		x = 32
+		y = 1
+	}
+	focus = {
+		id = UKR_christianity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_independence_war
+		}
+		x = 47
+		y = 1
+	}
+	focus = {
+		id = UKR_hetmanate
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_independence_war
+		}
+		x = 53
+		y = 1
+	}
+	focus = {
+		id = UKR_spreme_rada
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_independence_war
+		}
+		x = 57
+		y = 1
+	}
+	focus = {
+		id = UKR_YvxIePRL
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10
+		prerequisite = {
+			focus = UKR_hkaWqXMm
+		}
+		prerequisite = {
+			focus = UKR_RTYNGyza
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_hkaWqXMm
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = UKR_russian_volunteers
+		}
+	}
+	focus = {
+		id = UKR_erQvPAzU
+		icon = GFX_focus_ger_oppose_hitler
+		cost = 10
+		prerequisite = {
+			focus = UKR_RTYNGyza
+		}
+		mutually_exclusive = {
+			focus = UKR_SEcBIuLP
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_RTYNGyza
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = UKR_german_elite
+		}
+	}
+	focus = {
+		id = UKR_SEcBIuLP
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 10
+		prerequisite = {
+			focus = UKR_RTYNGyza
+		}
+		mutually_exclusive = {
+			focus = UKR_erQvPAzU
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_RTYNGyza
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = UKR_natives_army
+		}
+	}
+	focus = {
+		id = UKR_RTYNGyza
+		icon = GFX_goal_rhineland
+		cost = 10
+		prerequisite = {
+			focus = UKR_mtYrwcNb
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_mtYrwcNb
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower = 10000
+		}
+	}
+	focus = {
+		id = UKR_BKEYanlg
+		icon = GFX_goal_generic_position_armies
+		cost = 10
+		prerequisite = {
+			focus = UKR_ZGKRudiv
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_ZGKRudiv
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
 			country_event = {
-				id = ssw_UKR.10
+				id = ssw_UKR.5
 				days = 3
 			}
 		}
 	}
-	#Focus for ムィコーラウ港の拡大 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_WtMrsfHA
-		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 13
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_QmoJcYZh
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			any_owned_state = {
-				is_controlled_by = ROOT
-				is_coastal = yes
-			}
-		}
-		completion_reward = {
-			navy_experience = 10
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
-		}
-	}
-	#Focus for ワルシャワ～キエフ鉄道 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_hmapHlNz
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 6
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_obQMzwBl
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 5
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for キエフ大学への補助金 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_tCZqjPoz
-		icon = GFX_focus_research2
-		x = 8
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_obQMzwBl
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_kiev_university
-		}
-	}
-	#Focus for ヒンデンブルク～キエフ鉄道 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_NPDwYgzZ
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 10
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_jeKISQNl
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 5
-					instant_build = yes
-				}
-			}
-		}
-	}
-	#Focus for ヒンデンブルクの開発 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_jeKISQNl
-		icon = GFX_goal_generic_construct_mil_factory
-		x = 10
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_QmoJcYZh
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			}
-		}
-	}
-	#Focus for クバーニの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_FHBUxQTl
 		icon = GFX_goal_generic_territory_or_war
-		x = 20
-		y = 9
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_aTctHXAx
 		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_aTctHXAx
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1.5
 		}
@@ -899,272 +504,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for 国民ラーダの統合 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_SXOMCiLD
-		icon = GFX_focus_generic_military_academy
-		x = 26
-		y = 3
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_sJwdXzrW
-		}
-		prerequisite = {
-			focus = UKR_iALTbwsS
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_national_rada
-		}
-	}
-	#Focus for 大ウクライナの宣言 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_LPmkUtCV
-		icon = GFX_focus_RAJ_lions_of_the_great_war
-		x = 22
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_cjLfVRpH
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_political_power = 300
-		}
-	}
-	#Focus for ドイツ人の国外追放 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_qrKaLmuM
-		icon = GFX_focus_attack_germany
-		x = 23
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_WOrIAjoJ
-		}
-		mutually_exclusive = {
-			focus = UKR_szUPGZCi
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			217 = {
-				add_manpower = -500000
-				add_core_of = ROOT
-				remove_core_of = GER
-			}
-		}
-	}
-	#Focus for 居住許可 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_szUPGZCi
-		icon = GFX_focus_chi_mission_to_germany
-		x = 25
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_WOrIAjoJ
-		}
-		mutually_exclusive = {
-			focus = UKR_qrKaLmuM
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			217 = {
-				add_compliance = 100
-			}
-		}
-	}
-	#Focus for ウクライナ国民ラーダの帰還 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_iALTbwsS
-		icon = GFX_focus_spr_crush_the_revolution
-		x = 26
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_fIOmdGTa
-		}
-		ai_will_do = {
-			factor = 5
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = UKR_returned_heroes
-				days = 365
-			}
-		}
-	}
-	#Focus for 多様性の擁護 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_nCyIqpHx
-		icon = GFX_focus_usa_union_representation_act
-		x = 18
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_dtuIWOqP
-		}
-		mutually_exclusive = {
-			focus = UKR_jQZItTSU
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			every_controlled_state = {
-				limit = {
-					OR = {
-						is_core_of = RUS
-						is_core_of = SOV
-					}
-				}
-				add_compliance = 100
-			}
-		}
-	}
-	#Focus for ウクライナ国民主義 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_jQZItTSU
-		icon = GFX_focus_focus_fra_national_resistance_council
-		x = 20
-		y = 5
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_dtuIWOqP
-		}
-		mutually_exclusive = {
-			focus = UKR_nCyIqpHx
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_russian_opposition
-		}
-	}
-	#Focus for ウクライナ化政策 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_WUbiKNjG
-		icon = GFX_focus_BUL_the_peoples_republic_of_bulgaria
-		x = 0
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_jQZItTSU
-		}
-		relative_position_id = UKR_jQZItTSU
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_ukrainaization
-		}
-	}
-	#Focus for ドイツ人問題 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_WOrIAjoJ
-		icon = GFX_goal_generic_dangerous_deal
-		x = 24
-		y = 3
-		cost = 10
-		available = {
-			has_full_control_of_state = 217
-		}
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_sJwdXzrW
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.9
-				days = 3
-			}
-		}
-	}
-	#Focus for ロシア人問題 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_dtuIWOqP
-		icon = GFX_goal_generic_forceful_treaty
-		x = 19
-		y = 4
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_cjLfVRpH
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.5
-				days = 3
-			}
-		}
-	}
-	#Focus for クリミアの回収 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_aTctHXAx
-		icon = GFX_goal_generic_territory_or_war
-		x = 20
-		y = 8
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_CAdsbgyc
-		}
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 809
-						controls_state = 137
-					}
-				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
-				}
-			}
-		}
-	}
-	#Focus for ドンの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_claim_east
 		icon = GFX_goal_generic_territory_or_war
-		x = 5
-		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_CAdsbgyc
 		}
+		x = 5
+		y = 1
 		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 2
 		}
@@ -1200,17 +550,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for オデッサの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_lzYNyLcB
 		icon = GFX_focus_rom_preserve_romania
-		x = 15
-		y = 8
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_CAdsbgyc
 		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 2
 		}
@@ -1233,17 +583,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for カルパチアの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_MhYVftFu
 		icon = GFX_focus_hun_assassinate_horthy
-		x = 16
-		y = 9
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_xzOPZmWC
 		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_xzOPZmWC
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 2
 		}
@@ -1264,17 +614,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for レムコの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_lvnXWLHR
 		icon = GFX_focus_invite_yugoslavia
-		x = 18
-		y = 9
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_xzOPZmWC
 		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_xzOPZmWC
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 2
 		}
@@ -1297,17 +647,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for 西ウクライナの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_xzOPZmWC
 		icon = GFX_goal_generic_territory_or_war
-		x = 17
-		y = 8
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_CAdsbgyc
 		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 2
 		}
@@ -1330,17 +680,17 @@ focus_tree = {
 			}
 		}
 	}
-	#Focus for ドイツ義勇兵の徴募 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_YFSpmTch
 		icon = GFX_focus_chi_mission_to_germany
-		x = 3
-		y = 2
 		cost = 10
-		available_if_capitulated = yes
 		prerequisite = {
 			focus = UKR_RTYNGyza
 		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_RTYNGyza
+		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_MANPOWER
 		}
@@ -1351,206 +701,17 @@ focus_tree = {
 			add_ideas = UKR_german_volunteers
 		}
 	}
-	#Focus for 第五次ウニヴェルサール宣言 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_sJwdXzrW
-		icon = GFX_focus_eng_decolonization
-		x = 20
-		y = 2
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_SkxtUfDo
-		}
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = UKR_5th_universal
-				days = 365
-			}
-			add_timed_idea = {
-				idea = UKR_germans_influence
-				days = 365
-			}
-			unlock_decision_category_tooltip = UKR_unification_wars
-		}
-	}
-	#Focus for 復帰 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_EhZavNwQ
-		icon = GFX_goal_continuous_restrict_freedom
-		x = 2
-		y = 6
-		cost = 10
-		available_if_capitulated = yes
-		available = {
-			OR = {
-				AND = {
-					country_exists = LTV
-					NOT = {
-						country_exists = GER
-						country_exists = HLH
-						country_exists = HGR
-					}
-				}
-				AND = {
-					country_exists = GER
-					NOT = {
-						country_exists = LTV
-						country_exists = HLH
-						country_exists = HGR
-					}
-				}
-				AND = {
-					country_exists = HLH
-					NOT = {
-						country_exists = GER
-						country_exists = LTV
-						country_exists = HGR
-					}
-				}
-				AND = {
-					country_exists = HGR
-					NOT = {
-						country_exists = GER
-						country_exists = HLH
-						country_exists = LTV
-					}
-				}
-			}
-		}
-		prerequisite = {
-			focus = UKR_kSthGWsB
-		}
-		mutually_exclusive = {
-			focus = UKR_FJBwUpsZ
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			if = {
-				limit = {
-					country_exists = LTV
-					NOT = {
-						country_exists = GER
-						country_exists = HLH
-						country_exists = HGR
-					}
-				}
-				LTV = {
-					set_autonomy = {
-						target = ROOT
-						autonomy_state = autonomy_dominion
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = GER
-					NOT = {
-						country_exists = LTV
-						country_exists = HLH
-						country_exists = HGR
-					}
-				}
-				GER = {
-					set_autonomy = {
-						target = ROOT
-						autonomy_state = autonomy_dominion
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = HLH
-					NOT = {
-						country_exists = LTV
-						country_exists = GER
-						country_exists = HGR
-					}
-				}
-				HLH = {
-					set_autonomy = {
-						target = ROOT
-						autonomy_state = autonomy_dominion
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = HGR
-					NOT = {
-						country_exists = LTV
-						country_exists = GER
-						country_exists = HLH
-					}
-				}
-				HGR = {
-					set_autonomy = {
-						target = ROOT
-						autonomy_state = autonomy_dominion
-					}
-				}
-			}
-		}
-	}
-	#Focus for 中核地域の統一 - focus ID randomly generated due to title being in non-latin characters
-	focus = {
-		id = UKR_cjLfVRpH
-		icon = GFX_goal_generic_national_unity
-		x = 20
-		y = 3
-		cost = 10
-		available = {
-			NOT = {
-				any_country = {
-					OR = {
-						original_tag = UKR
-						tag = DON
-					}
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_core_of = ROOT
-					}
-				}
-			}
-		}
-		available_if_capitulated = yes
-		prerequisite = {
-			focus = UKR_sJwdXzrW
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_unity
-			remove_ideas = UKR_civil_war
-			set_capital = 202
-			DON = {
-				remove_ideas = UKR_civil_war
-			}
-		}
-	}
-	#Focus for オデッサの回収 - focus ID randomly generated due to title being in non-latin characters
 	focus = {
 		id = UKR_southern_beralus
 		icon = GFX_focus_rom_preserve_romania
-		x = -4
-		y = 1
 		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = UKR_CAdsbgyc
 		prerequisite = {
 			focus = UKR_CAdsbgyc
 		}
+		x = -4
+		y = 1
+		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
@@ -1576,5 +737,1297 @@ focus_tree = {
 			}
 		}
 	}
-	#End of focuses 
+	focus = {
+		id = UKR_union_transnistria
+		icon = GFX_focus_invite_yugoslavia
+		cost = 10
+		prerequisite = {
+			focus = UKR_establish_central_rada
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_establish_central_rada
+	}
+	focus = {
+		id = UKR_reconcile_bessarabia
+		icon = GFX_focus_invite_romania
+		cost = 10
+		prerequisite = {
+			focus = UKR_union_transnistria
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_union_transnistria
+	}
+	focus = {
+		id = UKR_5th_universal
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10
+		prerequisite = {
+			focus = UKR_establish_central_rada
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_establish_central_rada
+	}
+	focus = {
+		id = UKR_unity
+		icon = GFX_focus_focus_fra_national_resistance_council
+		cost = 10
+		prerequisite = {
+			focus = UKR_5th_universal
+		}
+		x = 0
+		y = 2
+		relative_position_id = UKR_5th_universal
+	}
+	focus = {
+		id = UKR_integrate_oun
+		icon = GFX_focus_focus_fra_revolution_upmost
+		cost = 10
+		prerequisite = {
+			focus = UKR_establish_central_rada
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_establish_central_rada
+	}
+	focus = {
+		id = UKR_melnyk
+		icon = GFX_focus_GRE_metaxism
+		cost = 10
+		prerequisite = {
+			focus = UKR_reconcile_oun
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_reconcile_oun
+	}
+	focus = {
+		id = UKR_oun_unity
+		icon = GFX_focus_eng_the_kings_party
+		cost = 10
+		prerequisite = {
+			focus = UKR_reconcile_oun
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_reconcile_oun
+	}
+	focus = {
+		id = UKR_bandera
+		icon = GFX_focus_BUL_plot_against_boris
+		cost = 10
+		prerequisite = {
+			focus = UKR_reconcile_oun
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_reconcile_oun
+	}
+	focus = {
+		id = UKR_reconcile_oun
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 10
+		prerequisite = {
+			focus = UKR_integrate_oun
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_integrate_oun
+	}
+	focus = {
+		id = UKR_election
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = {
+			focus = UKR_melnyk
+			focus = UKR_oun_unity
+			focus = UKR_bandera
+		}
+		prerequisite = {
+			focus = UKR_unity
+		}
+		x = 3
+		y = 1
+		relative_position_id = UKR_unity
+	}
+	focus = {
+		id = UKR_undo
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = {
+			focus = UKR_election
+		}
+		x = -5
+		y = 1
+		relative_position_id = UKR_election
+	}
+	focus = {
+		id = UKR_oun
+		icon = GFX_goal_support_fascism
+		cost = 10
+		prerequisite = {
+			focus = UKR_election
+		}
+		x = 7
+		y = 1
+		relative_position_id = UKR_election
+	}
+	focus = {
+		id = UKR_intermarium
+		icon = GFX_goal_generic_alliance
+		cost = 10
+		prerequisite = {
+			focus = UKR_undo
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_undo
+	}
+	focus = {
+		id = UKR_invite_mos
+		icon = GFX_focus_YUG_devolved_croatia
+		cost = 10
+		prerequisite = {
+			focus = UKR_invite_belarus
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_invite_belarus
+	}
+	focus = {
+		id = UKR_invite_swe
+		icon = GFX_goal_generic_improve_relations
+		cost = 10
+		prerequisite = {
+			focus = UKR_invite_mos
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_invite_mos
+	}
+	focus = {
+		id = UKR_invite_denmark
+		icon = GFX_goal_generic_improve_relations
+		cost = 10
+		prerequisite = {
+			focus = UKR_invite_swe
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_invite_swe
+	}
+	focus = {
+		id = UKR_invite_fin
+		icon = GFX_focus_invite_finland
+		cost = 10
+		prerequisite = {
+			focus = UKR_invite_mos
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_invite_mos
+	}
+	focus = {
+		id = UKR_invite_bul
+		icon = GFX_focus_generic_befriend_bulgaria
+		cost = 10
+		prerequisite = {
+			focus = UKR_intermarium
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_intermarium
+	}
+	focus = {
+		id = UKR_invite_tur
+		icon = GFX_focus_generic_befriend_turkey
+		cost = 10
+		prerequisite = {
+			focus = UKR_invite_bul
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_invite_bul
+	}
+	focus = {
+		id = UKR_democracy_defender
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = {
+			focus = UKR_undo
+		}
+		x = 4
+		y = 1
+		relative_position_id = UKR_undo
+	}
+	focus = {
+		id = UKR_protect_ROM
+		icon = GFX_focus_invite_romania
+		cost = 10
+		prerequisite = {
+			focus = UKR_democracy_defender
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_democracy_defender
+	}
+	focus = {
+		id = UKR_protect_hun
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_protect_ROM
+			focus = UKR_liberate_ost
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_protect_ROM
+	}
+	focus = {
+		id = UKR_protect_pol
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 10
+		prerequisite = {
+			focus = UKR_liberate_ost
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_liberate_ost
+	}
+	focus = {
+		id = UKR_protect_slo
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_protect_hun
+		}
+		prerequisite = {
+			focus = UKR_protect_pol
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_protect_hun
+	}
+	focus = {
+		id = UKR_liberate_ost
+		icon = GFX_focus_attack_germany
+		cost = 10
+		prerequisite = {
+			focus = UKR_democracy_defender
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_democracy_defender
+	}
+	focus = {
+		id = UKR_liberate_kafkas
+		icon = GFX_focus_attack_germany
+		cost = 10
+		prerequisite = {
+			focus = UKR_democracy_defender
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_democracy_defender
+	}
+	focus = {
+		id = UKR_befriend_can
+		icon = GFX_focus_attack_canada
+		cost = 10
+		prerequisite = {
+			focus = UKR_democracy_defender
+		}
+		x = 3
+		y = 1
+		relative_position_id = UKR_democracy_defender
+	}
+	focus = {
+		id = UKR_befriend_tex
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_can
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_befriend_can
+	}
+	focus = {
+		id = UKR_befriend_ros
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_can
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_befriend_can
+	}
+	focus = {
+		id = UKR_befriend_usa
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_tex
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_tex
+	}
+	focus = {
+		id = UKR_befriend_jap
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_oun
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_oun
+	}
+	focus = {
+		id = UKR_nationalism
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_oun
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_oun
+	}
+	focus = {
+		id = UKR_anti_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_oun
+		}
+		x = 3
+		y = 1
+		relative_position_id = UKR_oun
+	}
+	focus = {
+		id = UKR_clean_pol
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_nationalism
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_nationalism
+	}
+	focus = {
+		id = UKR_clean_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_nationalism
+		}
+		prerequisite = {
+			focus = UKR_anti_rus
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_anti_rus
+	}
+	focus = {
+		id = UKR_clean_jew
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_nationalism
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_nationalism
+	}
+	focus = {
+		id = UKR_clean_ger
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_nationalism
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_nationalism
+	}
+	focus = {
+		id = UKR_catholic
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_christianity
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_christianity
+	}
+	focus = {
+		id = UKR_orthodox
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_christianity
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_christianity
+	}
+	focus = {
+		id = UKR_independent_church
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_orthodox
+		}
+		mutually_exclusive = {
+			focus = UKR_mos_church
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_orthodox
+	}
+	focus = {
+		id = UKR_mos_church
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_orthodox
+		}
+		mutually_exclusive = {
+			focus = UKR_independent_church
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_orthodox
+	}
+	focus = {
+		id = UKR_church_union
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_independent_church
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_independent_church
+	}
+	focus = {
+		id = UKR_unity_christianity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_church_union
+		}
+		prerequisite = {
+			focus = UKR_mos_church
+			focus = UKR_befrined_roma
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_church_union
+	}
+	focus = {
+		id = UKR_befriend_mos_church
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_unity_christianity
+		}
+		mutually_exclusive = {
+			focus = UKR_loyal_mos
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_unity_christianity
+	}
+	focus = {
+		id = UKR_loyal_mos
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_unity_christianity
+		}
+		prerequisite = {
+			focus = UKR_mos_church
+		}
+		mutually_exclusive = {
+			focus = UKR_befriend_mos_church
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_unity_christianity
+	}
+	focus = {
+		id = UKR_church_conquest
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_mos_church
+			focus = UKR_loyal_mos
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_mos_church
+	}
+	focus = {
+		id = UKR_befriend_can_church
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_orthodox
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_orthodox
+	}
+	focus = {
+		id = UKR_befriend_usa_church
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_can_church
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_can_church
+	}
+	focus = {
+		id = UKR_befrined_roma
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_catholic
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_catholic
+	}
+	focus = {
+		id = UKR_c_serbia
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_church_conquest
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_church_conquest
+	}
+	focus = {
+		id = UKR_c_croatia
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_serbia
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_serbia
+	}
+	focus = {
+		id = UKR_c_ita
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_croatia
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_croatia
+	}
+	focus = {
+		id = UKR_c_roma
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_ita
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_ita
+	}
+	focus = {
+		id = UKR_c_bul
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_church_conquest
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_church_conquest
+	}
+	focus = {
+		id = UKR_c_volga
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_church_conquest
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_church_conquest
+	}
+	focus = {
+		id = UKR_c_kafkas
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_volga
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_volga
+	}
+	focus = {
+		id = UKR_c_tur
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_kafkas
+			focus = UKR_c_bul
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_c_kafkas
+	}
+	focus = {
+		id = UKR_c_syr
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_tur
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_tur
+	}
+	focus = {
+		id = UKR_c_pal
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_syr
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_c_syr
+	}
+	focus = {
+		id = UKR_god_state
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_c_pal
+		}
+		prerequisite = {
+			focus = UKR_c_roma
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_c_pal
+	}
+	focus = {
+		id = UKR_conscription_emergency
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_hetmanate
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_hetmanate
+	}
+	focus = {
+		id = UKR_food
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_hetmanate
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_hetmanate
+	}
+	focus = {
+		id = UKR_het_unity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_conscription_emergency
+		}
+		prerequisite = {
+			focus = UKR_food
+		}
+		x = 0
+		y = 2
+		relative_position_id = UKR_hetmanate
+	}
+	focus = {
+		id = UKR_restore_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_het_unity
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_het_unity
+	}
+	focus = {
+		id = UKR_recover_mos
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_restore_rus
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_restore_rus
+	}
+	focus = {
+		id = UKR_recover_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_recover_mos
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_recover_mos
+	}
+	focus = {
+		id = UKR_recover_pol
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_recover_rus
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_recover_rus
+	}
+	focus = {
+		id = UKR_recover_nov
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_recover_rus
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_recover_rus
+	}
+	focus = {
+		id = UKR_recover_central_asia
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_recover_rus
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_recover_rus
+	}
+	focus = {
+		id = UKR_recover_east
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_recover_nov
+		}
+		prerequisite = {
+			focus = UKR_recover_central_asia
+		}
+		prerequisite = {
+			focus = UKR_recover_pol
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_recover_nov
+	}
+	focus = {
+		id = UKR_cooperate_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_spreme_rada
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_spreme_rada
+	}
+	focus = {
+		id = UKR_east_infra
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_spreme_rada
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_spreme_rada
+	}
+	focus = {
+		id = UKR_import_rus
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_cooperate_rus
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_cooperate_rus
+	}
+	focus = {
+		id = UKR_socialist_unity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_import_rus
+		}
+		prerequisite = {
+			focus = UKR_east_infra
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_import_rus
+	}
+	focus = {
+		id = UKR_power_struggle
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_socialist_unity
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_socialist_unity
+	}
+	focus = {
+		id = UKR_stalinist
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_power_struggle
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_power_struggle
+	}
+	focus = {
+		id = UKR_reformist
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_power_struggle
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_power_struggle
+	}
+	focus = {
+		id = UKR_seize_power
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_stalinist
+			focus = UKR_reformist
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_stalinist
+	}
+	focus = {
+		id = UKR_soviet
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_stalinist
+		}
+		prerequisite = {
+			focus = UKR_seize_power
+		}
+		x = 0
+		y = 2
+		relative_position_id = UKR_stalinist
+	}
+	focus = {
+		id = UKR_original_socialism
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_reformist
+		}
+		prerequisite = {
+			focus = UKR_seize_power
+		}
+		x = 0
+		y = 2
+		relative_position_id = UKR_reformist
+	}
+	focus = {
+		id = UKR_international
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_soviet
+			focus = UKR_original_socialism
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_soviet
+	}
+	focus = {
+		id = UKR_befriend_socialist
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_international
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_international
+	}
+	focus = {
+		id = UKR_world_revolution
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_socialist
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_socialist
+	}
+	focus = {
+		id = UKR_recover_sov
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_soviet
+		}
+		prerequisite = {
+			focus = UKR_world_revolution
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_world_revolution
+	}
+	focus = {
+		id = UKR_makhno_cavarly
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_independence_war
+		}
+		x = 61
+		y = 1
+	}
+	focus = {
+		id = UKR_order_khorodono
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_makhno_cavarly
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_makhno_cavarly
+	}
+	focus = {
+		id = UKR_black_air_fleet
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_makhno_cavarly
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_makhno_cavarly
+	}
+	focus = {
+		id = UKR_black_unity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_order_khorodono
+		}
+		prerequisite = {
+			focus = UKR_black_air_fleet
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_order_khorodono
+	}
+	focus = {
+		id = UKR_befriend_anarchist
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_black_unity
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_black_unity
+	}
+	focus = {
+		id = UKR_spread_revolution
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_anarchist
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_anarchist
+	}
+	focus = {
+		id = UKR_world_autonomy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_spread_revolution
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_spread_revolution
+	}
+	focus = {
+		id = UKR_rebuild_town
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_administration
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_administration
+	}
+	focus = {
+		id = UKR_rebuild_kiev
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_town
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_rebuild_town
+	}
+	focus = {
+		id = UKR_rebuild_kiev_univ
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_kiev
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_rebuild_kiev
+	}
+	focus = {
+		id = UKR_military_factories
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_kiev
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_rebuild_kiev
+	}
+	focus = {
+		id = UKR_improve_literacy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_kiev_univ
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_rebuild_kiev_univ
+	}
+	focus = {
+		id = UKR_mykolaiv
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_town
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_rebuild_town
+	}
+	focus = {
+		id = UKR_kharkiv
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_town
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_rebuild_town
+	}
+	focus = {
+		id = UKR_bergorod
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_kharkiv
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_kharkiv
+	}
+	focus = {
+		id = UKR_kursk
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_bergorod
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_bergorod
+	}
+	focus = {
+		id = UKR_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_administration
+		}
+		x = -12
+		y = 1
+		relative_position_id = UKR_administration
+	}
+	focus = {
+		id = UKR_sich
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_army
+		}
+		x = 2
+		y = 1
+		relative_position_id = UKR_army
+	}
+	focus = {
+		id = UKR_integrate_oun_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_sich
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_sich
+	}
+	focus = {
+		id = UKR_karpatia_sich
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_integrate_oun_army
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_integrate_oun_army
+	}
+	focus = {
+		id = UKR_national_company
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_sich
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_sich
+	}
+	focus = {
+		id = UKR_submarine
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_navy
+		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_navy
+	}
+	focus = {
+		id = UKR_old_navy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_navy
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_navy
+	}
+	focus = {
+		id = UKR_end_nightmare
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_administration
+		}
+		x = -19
+		y = 1
+		relative_position_id = UKR_administration
+	}
+	focus = {
+		id = UKR_intervine
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_end_nightmare
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_end_nightmare
+	}
+	focus = {
+		id = UKR_anti_ger
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_intervine
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_intervine
+	}
+	focus = {
+		id = UKR_air_fleet
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_army
+		}
+		x = -5
+		y = 1
+		relative_position_id = UKR_army
+	}
+	focus = {
+		id = UKR_add_base
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_air_fleet
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_air_fleet
+	}
 }
