@@ -559,6 +559,163 @@ country_event = {
 			add_state_claim = 324
 		}
 	}
+}
+
+country_event = {
+	id = tibet.100
+	title = tibet.100.t
+	desc = tibet.100.d
+	picture = none
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = TIB
+		has_elections = yes
+		date > 1950.1.1
+		date < 1951.1.1
+	}
+	option = {
+		name = tibet.100.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				num_divisions < 6
+			}
+		}
+		add_political_power = -25
+		add_ideas = TIB_lukhangwa_pm
+	}
+	option = {
+		name = tibet.100.b
+		ai_chance = {
+			factor = 50
+		}
+		add_ideas = TIB_tsarong_pm
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = social_conservatism
+			}
+			create_country_leader = {
+				name = "Langdun Kunga Wangchuk"
+				desc = "POLITICS_KUNGA_WANGCHUK_DESC"
+				picture = "ssw_Portrait_Tibet_Langdun.dds"
+				ideology = social_conservatism_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = authority_democracy
+			}
+			create_country_leader = {
+				name = "Langdun Kunga Wangchuk"
+				desc = "POLITICS_KUNGA_WANGCHUK_DESC"
+				picture = "ssw_Portrait_Tibet_Langdun.dds"
+				ideology = reactionary_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = authority_despotism
+			}
+			create_country_leader = {
+				name = "Langdun Kunga Wangchuk"
+				desc = "POLITICS_KUNGA_WANGCHUK_DESC"
+				picture = "ssw_Portrait_Tibet_Langdun.dds"
+				ideology = authority_despotism_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+	}
+	option = {
+		name = tibet.100.c
+		ai_chance = {
+			factor = 50
+		}
+		add_ideas = TIB_tsarong_pm
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = social_conservatism
+			}
+			create_country_leader = {
+				name = "Lukhangwa Tsewang Labden"
+				desc = "POLITICS_LUKHANGWA_DESC"
+				picture = "ssw_Portrait_Tibet_Lukhangwa.dds"
+				ideology = social_conservatism_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = authority_democracy
+			}
+			create_country_leader = {
+				name = "Lukhangwa Tsewang Labden"
+				desc = "POLITICS_LUKHANGWA_DESC"
+				picture = "ssw_Portrait_Tibet_Lukhangwa.dds"
+				ideology = reactionary_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
+				}
+				has_government = authority_despotism
+			}
+			create_country_leader = {
+				name = "Lukhangwa Tsewang Labden"
+				desc = "POLITICS_LUKHANGWA_DESC"
+				picture = "ssw_Portrait_Tibet_Lukhangwa.dds"
+				ideology = authority_despotism_ideology
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+		}
+	}
+}
 country_event = {
 	id = tibet.1000 #Himmler(Lhunpolto) appear
 	title = tibet.1000.t
