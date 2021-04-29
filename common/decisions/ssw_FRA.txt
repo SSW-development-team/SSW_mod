@@ -88,27 +88,28 @@ FRA_Kenryoku_toso = {#権力闘争
 		timeout_effect = {
 			custom_effect_tooltip = pawer_up_regi
 			hidden_effect = {
-			add_to_variable = {
-				var = political_strife_regi
-				value = 2
+				add_to_variable = {
+					var = political_strife_regi
+					value = 2
+				}
 			}
-		}
-		custom_effect_tooltip = pawer_up_mil
+			custom_effect_tooltip = pawer_up_mil
+				hidden_effect = {
+					add_to_variable = {
+						var = political_strife_mil
+						value = 2
+					}
+				}
+			custom_effect_tooltip = pawer_up_people
 			hidden_effect = {
 				add_to_variable = {
-					var = political_strife_mil
+					var = political_strife_people
 					value = 2
 				}
 			}
 		}
-		custom_effect_tooltip = pawer_up_people
-		hidden_effect = {
-			add_to_variable = {
-				var = political_strife_people
-				value = 2
-			}
-		}
 		clr_country_flag = FRA_dec_General_strike_coping
+		set_country_flag = FRA_dec_Military_purges
 	}
 
 	FRA_dec_Worker_support = { #政府主導の労働者支援
@@ -135,34 +136,38 @@ FRA_Kenryoku_toso = {#権力闘争
 				}
 			}			
 		}
+		clr_country_flag = FRA_dec_General_strike_coping
+		set_country_flag = FRA_dec_Military_purges
 	}
 
 	FRA_dec_Guarantee_of_labor_welfare = { #労働福祉の保障
-	icon = eng_trade_unions_support
-	available = {
-		has_country_flag = FRA_dec_General_strike_coping
+		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_dec_General_strike_coping
+		}
+
+		visible = {
+			has_country_flag = FRA_dec_General_strike_coping
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 50
+		days_remove = 10
+
+		remove_effect = {
+			custom_effect_tooltip = pawer_up_gov
+			hidden_effect ={
+				add_to_variable = {
+					var = political_strife_gov
+					value = 3
+				}
+			}			
+		}
+		clr_country_flag = FRA_dec_General_strike_coping
+		set_country_flag = FRA_dec_Military_purges
 	}
 
-	visible = {
-		has_country_flag = FRA_dec_General_strike_coping
-	}
-	ai_will_do = {
-		factor = 20
-	}
-	cost = 50
-	days_remove = 10
-
-	remove_effect = {
-		custom_effect_tooltip = pawer_up_gov
-		hidden_effect ={
-			add_to_variable = {
-				var = political_strife_gov
-				value = 3
-			}
-		}			
-	}
-
-	
 	FRA_dec_Tax_cuts_for_citizens = {#市民への減税
 	icon = eng_trade_unions_support
 	available = {
@@ -178,108 +183,85 @@ FRA_Kenryoku_toso = {#権力闘争
 	cost = 50
 	days_remove = 10
 
-	remove_effect = {
-		custom_effect_tooltip = pawer_up_gov
-		hidden_effect ={
-			add_to_variable = {
-				var = political_strife_gov
-				value = 3
-			}
-		}			
-	}	
-}
-
-	FRA_dec_Opposition_crackdown = {#反対派の弾圧
-		icon = eng_trade_unions_support
-		visible = {
-			always = no	
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		cost = 1
-		days_remove = 20
-		modifier = {
-			
-		}
-		remove_effect = {
-			custom_effect_tooltip = pawer_up_regi
-			hidden_effect ={
-				add_to_variable = {
-					var = political_strife_regi
-					value = 1
-				}
-			}
-		}
-	}
-
-	
-
-	FRA_dec_Democratic_arrest = {#民主主義者の逮捕
-		icon = eng_trade_unions_support
-		visible = {
-			always = no	
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		cost = 10
-		days_re_enable = 30
-		days_remove = 50
-		modifier = {
-			
-		}
-		remove_effect = {
-			custom_effect_tooltip = pawer_up_mil
-			hidden_effect ={
-				add_to_variable = {
-					var = political_strife_mil
-					value = 25
-				}
-			}
-		}
-	}
-
-	FRA_dec_Media_acquisition = {#メディアの買収
-		icon = eng_trade_unions_support
-		visible = {
-			always = no	
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		cost = 10
-		days_re_enable = 30
-		days_remove = 50
-		modifier = {
-			
-		}
 		remove_effect = {
 			custom_effect_tooltip = pawer_up_gov
 			hidden_effect ={
 				add_to_variable = {
 					var = political_strife_gov
-					value = 25
+					value = 3
+				}
+			}			
+		}
+		clr_country_flag = FRA_dec_General_strike_coping
+		set_country_flag = FRA_dec_Military_purges
+	}
+
+	FRA_dec_Military_purges	= { #タイムイベ
+		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_dec_Military_purges
+		}
+
+		visible = {
+			has_country_flag = FRA_dec_Military_purges
+		}
+
+		is_good = no
+
+		days_mission_timeout = 30
+
+		fire_only_once = yes
+
+		timeout_effect = {
+			custom_effect_tooltip = pawer_up_regi
+				hidden_effect = {
+				add_to_variable = {
+					var = political_strife_regi
+					value = 3
 				}
 			}
 			custom_effect_tooltip = pawer_up_mil
-			hidden_effect ={
+			hidden_effect = {
 				add_to_variable = {
 					var = political_strife_mil
-					value = 15
+					value = 3
 				}
 			}
-			custom_effect_tooltip = pawer_up_regi
-			hidden_effect ={
+			custom_effect_tooltip = pawer_up_people
+				hidden_effect = {
 				add_to_variable = {
-					var = political_strife_regi
-					value = 15
+					var = political_strife_people
+					value = 3
 				}
+			}
+		}	
+		clr_country_flag = FRA_dec_Military_purges
+		set_country_flag = FRA_Opposition_demonstrations
+	}
+	FRA_dec_Dealing_with_opposition_demonstrations = {
+		icon = eng_trade_unions_support
+		available = {
+			has_country_flag = FRA_Opposition_demonstrations
+		}
+
+		visible = {
+			has_decision = FRA_dec_Opposition_demonstrations
+		}
+
+		fire_only_once = yes
+
+		cost = 30
+
+		complete_effect = {
+			FRA = {
+				country_event = {
+					id = SSW_FRA.6
+					days = 1
+				}
+				clr_country_flag = FRA_dec_Military_purges
+				set_country_flag = FRA_Opposition_demonstrations
 			}
 		}
 	}
-
-
-
 }
 

@@ -196,32 +196,40 @@ country_event = { #ストライキ
     desc = SSW_FRA.6.d
     
         fire_only_once = yes
-            trigger = { #イベントが起きるきっかけ
-            tag = FRA
-            date > 1950.4.13 #1951.7.10　#日にち
+        is_triggered_only = yes
+        option = {
+            set_political_power = -50
+            name = SSW_FRA.3.a #警備隊の派遣でいいだろう
+            custom_effect_tooltip = pawer_up_gov
+            hidden_effect ={
+                add_to_variable = {
+                    var = political_strife_gov
+                    value = 1
+                }
+            }
         }
-    
-    option = {
-        name = SSW_FRA.6.a
-        stability_factor = -0.3
-    }
-    option = {
-        name = SSW_FRA.6.b
-        stability_factor = -0.2
-        add_timed_idea = {
-			idea = Compromise_negotiations_with_general_strike
-			days = 180
-		}
-    }
-    option = {
-        name = SSW_FRA.6.c
-        stability_factor = -0.1
-        add_timed_idea = {
-			idea = Acceptable_negotiations_with_general_strikes
-			days = 365
-		}
-    }
-
+        option = {
+            set_political_power = -80
+            name = SSW_FRA.3.b #軍を派遣しよう
+            custom_effect_tooltip = pawer_up_mil
+            hidden_effect ={
+                add_to_variable = {
+                    var = political_strife_mil
+                    value = 2
+                }
+            } 
+        }
+        option = {
+            set_political_power = -100
+            name = SSW_FRA.3.b #軍を派遣しよう
+            custom_effect_tooltip = pawer_up_mil
+            hidden_effect ={
+                add_to_variable = {
+                    var = political_strife_mil
+                    value = 3
+                }
+            } 
+        }
 }
 
 country_event = { #自由を求める演説
