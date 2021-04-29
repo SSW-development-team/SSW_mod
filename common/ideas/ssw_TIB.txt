@@ -438,6 +438,26 @@ ideas = {
 				classical_communism_drift = 0.05
 			}
 		}
+		TIB_support_from_farmer = {
+			picture = gre_agricultural_communes
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+			modifier = {
+				progressive_communism_drift = 0.05
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+				conscription_factor = 0.1
+			}
+		}
 	}
 	political_leader = {
 		TIB_langdun = {
@@ -521,7 +541,21 @@ ideas = {
 			traits = {}
 		}
 		TIB_lukhangwa_pm = {
-			picture = lobsang_tashi
+			picture = lukhangwa
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
+		}
+		TIB_tsarong_pm = {
+			picture = tsarong_dzasa
 			removal_cost = -1
 			available = {
 				custom_trigger_tooltip = {
