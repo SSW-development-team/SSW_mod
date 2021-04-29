@@ -26,22 +26,15 @@ add_ideas = {
 	Unstable_influence_with_Germany
 }
 
-set_autonomy = {
-	target = NWA
-	autonomous_state = colony
-}
-set_autonomy = {
-	target = EQA
-	autonomous_state = colony
-}
-set_autonomy = {
-	target = TUN
-	autonomous_state = colony
-}
-set_autonomy = {
-	target = MOR
-	autonomous_state = colony
-}
+EQA = {	set_variable = {	ssw_colony_variable = 1	}	}
+NWA = {	set_variable = {	ssw_colony_variable = 1	}	}
+TUN = {	set_variable = {	ssw_protectirate_variable = 1	}	}
+MOR = {	set_variable = {	ssw_protectirate_variable = 1	}	}
+
+set_autonomy = {	target = NWA	autonomous_state = colony	}
+set_autonomy = {	target = EQA	autonomous_state = colony	}
+set_autonomy = {	target = TUN	autonomous_state = protected_territory	}
+set_autonomy = {	target = MOR	autonomous_state = protected_territory	}
 
 set_politics = {
 	ruling_party = national_fascism

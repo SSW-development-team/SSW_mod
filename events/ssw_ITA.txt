@@ -247,6 +247,9 @@ country_event = {
 	desc = SSW_ITA.10.d
 	option = {
 		name = SSW_ITA.10.a
+		country_event = {
+			id = SSW_ITA.18
+		}
 	}
 }
 #植民地開発
@@ -343,5 +346,103 @@ country_event = {
 	option = {#いろいろなやつ
 		name = SSW_ITA.17.b
 		unlock_national_focus = ITA_focus_balbo_Implement_variety_of_tactics
+	}
+}
+#選挙内容に関して
+country_event = {
+    id = SSW_ITA.18
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.18"
+	}
+	title = SSW_ITA.18.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.18.d
+	option = {#投票所を設置しよう
+		name = SSW_ITA.18.a
+		custom_effect_tooltip = SSW_ITA_18_a_event_tooltip
+		country_event = {
+			id = SSW_ITA.19
+			days = 5
+		}
+	}
+}
+#中央部での投票が開始
+country_event = {
+    id = SSW_ITA.19
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.19"
+	}
+	title = SSW_ITA.19.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.19.d
+	option = {#北部・南部でも投票を開始
+		name = SSW_ITA.19.a
+		custom_effect_tooltip = SSW_ITA_19_a_event
+		country_event = {
+			id = SSW_ITA.21
+			days = 7
+		}
+		country_event = {
+			id = SSW_ITA.22
+			days = 7
+		}
+		hidden_effect = {
+			country_event = {
+				id = SSW_ITA.20
+				days = 5
+			}
+		}
+	}
+}
+#中央部での中間結果
+country_event = {
+    id = SSW_ITA.20
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.20"
+	}
+	title = SSW_ITA.20.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.20.d
+	option = {#特別な支援者を手配しろ（裏工作）、軍事経済ルート
+		name = SSW_ITA.20.a
+	}
+	option = {#民衆は現状からの解放を望んでいる（裏工作）、経済修正ルート
+		name = SSW_ITA.20.b
+	}
+}
+#南部での投票が開始
+country_event = {
+    id = SSW_ITA.21
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.21"
+	}
+	title = SSW_ITA.21.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.21.d
+	option = {
+		name = SSW_ITA.21.a
+	}
+}
+#北部での投票が開始
+country_event = {
+    id = SSW_ITA.22
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.22"
+	}
+	title = SSW_ITA.22.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.22.d
+	option = {
+		name = SSW_ITA.22.a
 	}
 }

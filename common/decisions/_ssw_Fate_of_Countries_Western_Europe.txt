@@ -1,7 +1,6 @@
 fate_of_countries_category_western_europe = {
 	fate_of_portugal = { #ポルトガルの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			NOT = { country_exists = POR }
@@ -23,7 +22,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_germany = { #ドイツの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			NOT = {
@@ -70,6 +68,12 @@ fate_of_countries_category_western_europe = {
 					NOT = { is_subject_of = ROOT }
 				}
 			}
+			BAY = { capital_scope = { is_fully_controlled_by = ROOT } }
+			HAN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			MEK = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SAX = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SHL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			WUR = { capital_scope = { is_fully_controlled_by = ROOT } }
 		}
 		complete_effect = {
 			country_event = { id = ssw_foc_events.1 }
@@ -78,7 +82,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_rhine = { #ライン裁定
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -97,6 +100,7 @@ fate_of_countries_category_western_europe = {
 				WUR = { is_subject_of = ROOT }
 				HAN = { is_subject_of = ROOT }
 				WLL = { is_subject_of = ROOT }
+				FRP = { is_subject_of = ROOT }
 				is_in_faction_with = WGR
 				is_in_faction_with = LTV
 				is_in_faction_with = FR1
@@ -104,13 +108,18 @@ fate_of_countries_category_western_europe = {
 				is_in_faction_with = WUR
 				is_in_faction_with = HAN
 				is_in_faction_with = WLL
+				is_in_faction_with = FRP
 				original_tag = WGR
 				original_tag = LTV
-				original_tag = FR1
 				original_tag = NFR
 				original_tag = WUR
 				original_tag = HAN
 				original_tag = WLL
+				original_tag = FRP
+				AND = {
+					original_tag = FRA
+					has_country_flag = FRA_true_countryflag
+				}
 			}
 		}
 		complete_effect = {
@@ -120,7 +129,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_northern_poland = { #北ポーランドの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -137,31 +145,53 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				POL = { is_subject_of = ROOT }
-				PRE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = POL
-				is_in_faction_with = PRE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = POL
-				original_tag = PRE
-				has_cosmetic_tag = RUS_empire
-				has_cosmetic_tag = SIB_russia
-				has_cosmetic_tag = MOS_russia
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 5 }
+				}
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 10 }
+				}
+				AND = {
+					OR = {
+						PRE = { is_subject_of = ROOT }
+						is_in_faction_with = PRE
+						original_tag = PRE
+					}
+					PRE = { owns_state = 5 }
+				}
+				AND = {
+					OR = {
+						has_cosmetic_tag = AMR_russia
+						has_cosmetic_tag = MOS_russia
+						has_cosmetic_tag = RUS_empire
+						has_cosmetic_tag = SIB_russia
+						has_cosmetic_tag = TUV_russia
+					}
+					owns_state = 10
+				}
 				any_other_country = {
 					OR = {
 						is_in_faction_with = ROOT
 						is_subject_of = ROOT
 					}
 					OR = {
+						has_cosmetic_tag = AMR_russia
+						has_cosmetic_tag = MOS_russia
 						has_cosmetic_tag = RUS_empire
 						has_cosmetic_tag = SIB_russia
-						has_cosmetic_tag = MOS_russia
+						has_cosmetic_tag = TUV_russia
 					}
+					owns_state = 10
 				}
 			}
 		}
@@ -172,7 +202,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_katowice = { #カトヴィツェの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -185,18 +214,38 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				POL = { is_subject_of = ROOT }
-				PRE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = POL
-				is_in_faction_with = PRE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = POL
-				original_tag = PRE
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 67 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 67 }
+				}
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 90 }
+				}
+				AND = {
+					OR = {
+						PRE = { is_subject_of = ROOT }
+						is_in_faction_with = PRE
+						original_tag = PRE
+					}
+					PRE = { owns_state = 67 }
+				}
 			}
 		}
 		complete_effect = {
@@ -206,7 +255,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_danzig = { #ダンツィヒ裁定
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -223,18 +271,47 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				POL = { is_subject_of = ROOT }
-				PRE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = POL
-				is_in_faction_with = PRE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = POL
-				original_tag = PRE
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = {
+						owns_state = 5
+						owns_state = 63
+					}
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = {
+						owns_state = 5
+						owns_state = 63
+					}
+				}
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 98 }
+				}
+				AND = {
+					OR = {
+						PRE = { is_subject_of = ROOT }
+						is_in_faction_with = PRE
+						original_tag = PRE
+					}
+					PRE = {
+						owns_state = 5
+						owns_state = 63
+					}
+				}
 			}
 		}
 		complete_effect = {
@@ -244,7 +321,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_hinterpommern = { #ヒンターポンメルンの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -262,18 +338,38 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				POL = { is_subject_of = ROOT }
-				PRE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = POL
-				is_in_faction_with = PRE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = POL
-				original_tag = PRE
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 64 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 64 }
+				}
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 85 }
+				}
+				AND = {
+					OR = {
+						PRE = { is_subject_of = ROOT }
+						is_in_faction_with = PRE
+						original_tag = PRE
+					}
+					PRE = { owns_state = 64 }
+				}
 			}
 		}
 		complete_effect = {
@@ -283,7 +379,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_prussia = { #プロイセン地方の運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -320,7 +415,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_schleswig = { #シュレースヴィヒの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			812 = {
@@ -331,18 +425,38 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				SHL = { is_subject_of = ROOT }
-				DEN = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = SHL
-				is_in_faction_with = DEN
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = SHL
-				original_tag = DEN
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 58 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 58 }
+				}
+				AND = {
+					OR = {
+						SHL = { is_subject_of = ROOT }
+						is_in_faction_with = SHL
+						original_tag = SHL
+					}
+					SHL = { owns_state = 58 }
+				}
+				AND = {
+					OR = {
+						DEN = { is_subject_of = ROOT }
+						is_in_faction_with = DEN
+						original_tag = DEN
+					}
+					DEN = { owns_state = 99 }
+				}
 			}
 		}
 		complete_effect = {
@@ -352,7 +466,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_sudatenland = { #ズデーテンラントの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			any_state = {
@@ -364,15 +477,27 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				CZE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = CZE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = CZE
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = {
+						owns_state = 4
+						owns_state = 60
+						owns_state = 152
+						owns_state = 153
+					}
+				}
+				AND = {
+					OR = {
+						CZE = { is_subject_of = ROOT }
+						is_in_faction_with = CZE
+						original_tag = CZE
+					}
+					CZE = { owns_state = 9 }
+				}
 			}
 		}
 		complete_effect = {
@@ -423,7 +548,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_alsace_lorraine = { #アルザス＝ロレーヌの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			28 = {
@@ -434,26 +558,59 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				GR1 = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				FR1 = { is_subject_of = ROOT }
-				NFR = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = GR1
-				is_in_faction_with = LTV
-				is_in_faction_with = FR1
-				is_in_faction_with = NFR
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = NFR
 				AND = {
-					original_tag = FRA
-					has_country_flag = FRA_true_countryflag
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 42 }
 				}
 				AND = {
-					original_tag = GER
-					has_country_flag = GER_rhine_countryflag
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 42 }
+				}
+				AND = {
+					OR = {
+						FR1 = { is_subject_of = ROOT }
+						is_in_faction_with = FR1
+						AND = {
+							original_tag = FRA
+							has_country_flag = FRA_true_countryflag
+						}
+					}
+					FR1 = { owns_state = 1041 }
+				}
+				AND = {
+					OR = {
+						NFR = { is_subject_of = ROOT }
+						is_in_faction_with = NFR
+						original_tag = NFR
+					}
+					NFR = { owns_state = 1041 }
+				}
+				AND = {
+					OR = {
+						FRP = { is_subject_of = ROOT }
+						is_in_faction_with = FRP
+						original_tag = FRP
+					}
+					FRP = { owns_state = 1041 }
+				}
+				AND = {
+					OR = {
+						GR1 = { is_subject_of = ROOT }
+						is_in_faction_with = GR1
+						original_tag = WGR
+					}
+					AND = {
+						original_tag = GER
+						has_country_flag = GER_rhine_countryflag
+					}
 				}
 			}
 		}
@@ -468,7 +625,11 @@ fate_of_countries_category_western_europe = {
 		cost = 0
 		fire_only_once = no
 		activation = {
-			NOT = { country_exists = BEL }
+			NOT = {
+				country_exists = BEL
+				country_exists = FLA
+				country_exists = WLL
+			}
 			any_state = {
 				is_fully_controlled_by = ROOT
 				is_core_of = BEL
@@ -481,6 +642,8 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			BEL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			FLA = { capital_scope = { is_fully_controlled_by = ROOT } }
+			WLL = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_belgium }
@@ -491,7 +654,11 @@ fate_of_countries_category_western_europe = {
 				has_government = anarchism
 				is_subject = yes
 				country_exists = BEL
+				country_exists = FLA
+				country_exists = WLL
 				BEL = { capital_scope = { is_valid_annexation_state = no } }
+				FLA = { capital_scope = { is_valid_annexation_state = no } }
+				WLL = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_belgium }
 			}
 		}
@@ -504,7 +671,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_memel = { #メーメルの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			188 = {
@@ -515,26 +681,53 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				LIT = { is_subject_of = ROOT }
-				PRE = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = LIT
-				is_in_faction_with = PRE
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = LIT
-				original_tag = PRE
-				has_cosmetic_tag = RUS_empire
-				any_other_country = {
-					is_in_faction_with = ROOT
-					has_cosmetic_tag = RUS_empire
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 763 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 763 }
+				}
+				AND = {
+					OR = {
+						LIT = { is_subject_of = ROOT }
+						is_in_faction_with = LIT
+						original_tag = LIT
+					}
+					LIT = { owns_state = 189 }
+				}
+				AND = {
+					OR = {
+						has_cosmetic_tag = AMR_russia
+						has_cosmetic_tag = MOS_russia
+						has_cosmetic_tag = RUS_empire
+						has_cosmetic_tag = SIB_russia
+						has_cosmetic_tag = TUV_russia
+					}
+					owns_state = 189
 				}
 				any_other_country = {
-					is_subject_of = ROOT
-					has_cosmetic_tag = RUS_empire
+					OR = {
+						is_in_faction_with = ROOT
+						is_subject_of = ROOT
+					}
+					OR = {
+						has_cosmetic_tag = AMR_russia
+						has_cosmetic_tag = MOS_russia
+						has_cosmetic_tag = RUS_empire
+						has_cosmetic_tag = SIB_russia
+						has_cosmetic_tag = TUV_russia
+					}
+					owns_state = 189
 				}
 			}
 		}
@@ -668,7 +861,12 @@ fate_of_countries_category_western_europe = {
 		cost = 0
 		fire_only_once = no
 		activation = {
-			NOT = { country_exists = ENG }
+			NOT = {
+				country_exists = ENG
+				country_exists = NIR
+				country_exists = SCO
+				country_exists = WLS
+			}
 			any_state = {
 				is_fully_controlled_by = ROOT
 				is_core_of = ENG
@@ -679,6 +877,9 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			ENG = { capital_scope = { is_fully_controlled_by = ROOT } }
+			NIR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SCO = { capital_scope = { is_fully_controlled_by = ROOT } }
+			WLS = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_britain }
@@ -689,7 +890,13 @@ fate_of_countries_category_western_europe = {
 				has_government = anarchism
 				is_subject = yes
 				country_exists = ENG
+				country_exists = NIR
+				country_exists = SCO
+				country_exists = WLS
 				ENG = { capital_scope = { is_valid_annexation_state = no } }
+				NIR = { capital_scope = { is_valid_annexation_state = no } }
+				SCO = { capital_scope = { is_valid_annexation_state = no } }
+				WLS = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_britain }
 			}
 		}
@@ -702,7 +909,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_eupen = { #オイペンの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			938 = {
@@ -713,18 +919,49 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				WLL = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				BEL = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = WLL
-				is_in_faction_with = LTV
-				is_in_faction_with = BEL
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = WLL
-				original_tag = BEL
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 1022 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 1022 }
+				}
+				AND = {
+					OR = {
+						WLL = { is_subject_of = ROOT }
+						is_in_faction_with = WLL
+						original_tag = WLL
+					}
+					WLL = { owns_state = 1032 }
+				}
+				AND = {
+					OR = {
+						BEL = { is_subject_of = ROOT }
+						is_in_faction_with = BEL
+						original_tag = BEL
+					}
+					BEL = { owns_state = 1032 }
+				}
+				AND = {
+					OR = {
+						GR1 = { is_subject_of = ROOT }
+						is_in_faction_with = GR1
+						AND = {
+							original_tag = GER
+							has_country_flag = GER_rhine_countryflag
+						}
+					}
+					GR1 = { owns_state = 1022 }
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_western_europe.9 } }
@@ -732,7 +969,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_wallonia_luxembourg = { #ワロニア＝リュクサンブールの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			1033 = {
@@ -743,21 +979,46 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				WLL = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				BEL = { is_subject_of = ROOT }
-				LUX = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = WLL
-				is_in_faction_with = LTV
-				is_in_faction_with = BEL
-				is_in_faction_with = LUX
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = WLL
-				original_tag = BEL
-				original_tag = LUX
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 8 }
+				}
+				AND = {
+					OR = {
+						LTV = { is_subject_of = ROOT }
+						is_in_faction_with = LTV
+						original_tag = LTV
+					}
+					LTV = { owns_state = 8 }
+				}
+				AND = {
+					OR = {
+						WLL = { is_subject_of = ROOT }
+						is_in_faction_with = WLL
+						original_tag = WLL
+					}
+					WLL = { owns_state = 1032 }
+				}
+				AND = {
+					OR = {
+						BEL = { is_subject_of = ROOT }
+						is_in_faction_with = BEL
+						original_tag = BEL
+					}
+					BEL = { owns_state = 1032 }
+				}
+				AND = {
+					OR = {
+						LUX = { is_subject_of = ROOT }
+						is_in_faction_with = LUX
+						original_tag = LUX
+					}
+					LUX = { owns_state = 8 }
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_western_europe.10 } }
@@ -765,7 +1026,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_burgenland = { #ブルゲンラントの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			981 = {
@@ -776,18 +1036,30 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				HUN = { is_subject_of = ROOT }
-				AUS = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				WGR = { is_subject_of = ROOT }
-				is_in_faction_with = HUN
-				is_in_faction_with = AUS
-				is_in_faction_with = LTV
-				is_in_faction_with = WGR
-				original_tag = HUN
-				original_tag = AUS
-				original_tag = LTV
-				original_tag = WGR
+				AND = {
+					OR = {
+						HUN = { is_subject_of = ROOT }
+						is_in_faction_with = HUN
+						original_tag = HUN
+					}
+					HUN = { owns_state = 155 }
+				}
+				AND = {
+					OR = {
+						AUS = { is_subject_of = ROOT }
+						is_in_faction_with = AUS
+						original_tag = AUS
+					}
+					AUS = { owns_state = 4 }
+				}
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = { owns_state = 4 }
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_western_europe.11 } }
@@ -845,6 +1117,10 @@ fate_of_countries_category_western_europe = {
 			NOT = {
 				country_exists = IPF
 				country_exists = ITA
+				country_exists = SIC
+				country_exists = SRD
+				country_exists = TUS
+				country_exists = VEC
 			}
 			any_state = {
 				is_fully_controlled_by = ROOT
@@ -863,6 +1139,10 @@ fate_of_countries_category_western_europe = {
 			}
 			IPF = { capital_scope = { is_fully_controlled_by = ROOT } }
 			ITA = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SIC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SRD = { capital_scope = { is_fully_controlled_by = ROOT } }
+			TUS = { capital_scope = { is_fully_controlled_by = ROOT } }
+			VEC = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_italy }
@@ -874,8 +1154,16 @@ fate_of_countries_category_western_europe = {
 				is_subject = yes
 				country_exists = IPF
 				country_exists = ITA
+				country_exists = SIC
+				country_exists = SRD
+				country_exists = TUS
+				country_exists = VEC
 				IPF = { capital_scope = { is_valid_annexation_state = no } }
 				ITA = { capital_scope = { is_valid_annexation_state = no } }
+				SIC = { capital_scope = { is_valid_annexation_state = no } }
+				SRD = { capital_scope = { is_valid_annexation_state = no } }
+				TUS = { capital_scope = { is_valid_annexation_state = no } }
+				VEC = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_italy }
 			}
 		}
@@ -888,7 +1176,6 @@ fate_of_countries_category_western_europe = {
 	}
 	fate_of_northern_slovenia = { #北スロベニアの運命
 		icon = generic_operation
-		allowed = { always = yes }
 		available = { always = yes }
 		visible = {
 			102 = {
@@ -899,15 +1186,25 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
-				WGR = { is_subject_of = ROOT }
-				LTV = { is_subject_of = ROOT }
-				SLV = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				is_in_faction_with = LTV
-				is_in_faction_with = SLV
-				original_tag = WGR
-				original_tag = LTV
-				original_tag = SLV
+				AND = {
+					OR = {
+						WGR = { is_subject_of = ROOT }
+						is_in_faction_with = WGR
+						original_tag = WGR
+					}
+					WGR = {
+						owns_state = 4
+						owns_state = 152
+					}
+				}
+				AND = {
+					OR = {
+						SLV = { is_subject_of = ROOT }
+						is_in_faction_with = SLV
+						original_tag = SLV
+					}
+					SLV = { owns_state = 941 }
+				}
 			}
 		}
 		complete_effect = { country_event = { id = ssw_foc_western_europe.14 } }
@@ -922,10 +1219,28 @@ fate_of_countries_category_western_europe = {
 		fire_only_once = no
 		activation = {
 			NOT = {
+				country_exists = ADU
+				country_exists = ARA
+				country_exists = ATR
+				country_exists = BAS
+				country_exists = CAT
+				country_exists = CSL
+				country_exists = CTB
+				country_exists = EXT
+				country_exists = GLC
+				country_exists = ISB
+				country_exists = ISC
+				country_exists = LMA
+				country_exists = MDR
+				country_exists = MUR
+				country_exists = NAV
+				country_exists = RIJ
 				country_exists = SPA
 				country_exists = SPC
 				country_exists = SPF
 				country_exists = SPR
+				country_exists = SPX
+				country_exists = VAL
 			}
 			any_state = {
 				is_fully_controlled_by = ROOT
@@ -935,10 +1250,28 @@ fate_of_countries_category_western_europe = {
 					is_claimed_by = ROOT
 				}
 			}
+			ADU = { capital_scope = { is_fully_controlled_by = ROOT } }
+			ARA = { capital_scope = { is_fully_controlled_by = ROOT } }
+			ATR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			BAS = { capital_scope = { is_fully_controlled_by = ROOT } }
+			CAT = { capital_scope = { is_fully_controlled_by = ROOT } }
+			CSL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			CTB = { capital_scope = { is_fully_controlled_by = ROOT } }
+			EXT = { capital_scope = { is_fully_controlled_by = ROOT } }
+			GLC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			ISB = { capital_scope = { is_fully_controlled_by = ROOT } }
+			ISC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			LMA = { capital_scope = { is_fully_controlled_by = ROOT } }
+			MDR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			MUR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			NAV = { capital_scope = { is_fully_controlled_by = ROOT } }
+			RIJ = { capital_scope = { is_fully_controlled_by = ROOT } }
 			SPA = { capital_scope = { is_fully_controlled_by = ROOT } }
 			SPC = { capital_scope = { is_fully_controlled_by = ROOT } }
 			SPF = { capital_scope = { is_fully_controlled_by = ROOT } }
 			SPR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SPX = { capital_scope = { is_fully_controlled_by = ROOT } }
+			VAL = { capital_scope = { is_fully_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_spain }
@@ -948,14 +1281,50 @@ fate_of_countries_category_western_europe = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
+				country_exists = ADU
+				country_exists = ARA
+				country_exists = ATR
+				country_exists = BAS
+				country_exists = CAT
+				country_exists = CSL
+				country_exists = CTB
+				country_exists = EXT
+				country_exists = GLC
+				country_exists = ISB
+				country_exists = ISC
+				country_exists = LMA
+				country_exists = MDR
+				country_exists = MUR
+				country_exists = NAV
+				country_exists = RIJ
 				country_exists = SPA
 				country_exists = SPC
 				country_exists = SPF
 				country_exists = SPR
+				country_exists = SPX
+				country_exists = VAL
+				ADU = { capital_scope = { is_valid_annexation_state = no } }
+				ARA = { capital_scope = { is_valid_annexation_state = no } }
+				ATR = { capital_scope = { is_valid_annexation_state = no } }
+				BAS = { capital_scope = { is_valid_annexation_state = no } }
+				CAT = { capital_scope = { is_valid_annexation_state = no } }
+				CSL = { capital_scope = { is_valid_annexation_state = no } }
+				CTB = { capital_scope = { is_valid_annexation_state = no } }
+				EXT = { capital_scope = { is_valid_annexation_state = no } }
+				GLC = { capital_scope = { is_valid_annexation_state = no } }
+				ISB = { capital_scope = { is_valid_annexation_state = no } }
+				ISC = { capital_scope = { is_valid_annexation_state = no } }
+				LMA = { capital_scope = { is_valid_annexation_state = no } }
+				MDR = { capital_scope = { is_valid_annexation_state = no } }
+				MUR = { capital_scope = { is_valid_annexation_state = no } }
+				NAV = { capital_scope = { is_valid_annexation_state = no } }
+				RIJ = { capital_scope = { is_valid_annexation_state = no } }
 				SPA = { capital_scope = { is_valid_annexation_state = no } }
 				SPC = { capital_scope = { is_valid_annexation_state = no } }
 				SPF = { capital_scope = { is_valid_annexation_state = no } }
 				SPR = { capital_scope = { is_valid_annexation_state = no } }
+				SPX = { capital_scope = { is_valid_annexation_state = no } }
+				VAL = { capital_scope = { is_valid_annexation_state = no } }
 				has_country_flag = continue_to_occupy_spain
 			}
 		}

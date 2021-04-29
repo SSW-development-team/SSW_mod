@@ -1,121 +1,27 @@
-#	Example:
-# 
-#	example_trigger = {
-#		tag = GER
-#		is_ai = no
-#	}
-#
-#
-#	In a script file:
-#
-#	trigger = {
-#		exampel_trigger = yes
-#	}
-# 
-#	THIS FILE IS FOR TRIGGERS SPECIFICALLY FOR THE GER TAG
-
-is_friend_or_potential_friend_of_GER = {
+is_german_tag = {
 	OR = {
-		is_puppet_of = GER
-		is_puppet = no
-	}
-	OR = {
-		is_in_faction_with = GER
-		is_in_faction = no
-	}
-	NOT = { has_war_with = GER }
-	has_capitulated = no
-	exists = yes
-}
-
-is_alone_or_in_faction_at_peace_with_GER = {
-	OR = {
-		is_in_faction = no
-		is_in_faction_with = GER
-		AND = {
-			is_in_faction = yes
-			NOT = {
-				is_in_faction_with = GER
-			}
-		}
-	}
-	NOT = {
-		any_allied_country = {
-			has_war_with = GER
-		}
-	}
-}
-
-GER_should_split_SOV_front_with_ITA = {
-	set_temp_variable = { num_ger_units = GER.num_armies }
-	set_temp_variable = { num_ita_units = ITA.num_armies }
-	
-	check_variable = { num_ger_units > 100 }
-	check_variable = { num_ita_units > 90 }
-	
-	ITA = {
-		is_ai = yes
-	}
-	
-	ITA = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.1
-		}
-	}
-	
-	ROM = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.05
-		}
-	}
-	
-	HUN = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.25
-		}
-	}
-}
-
-# a more relaxed version of previous one
-GER_should_continue_split_SOV_front_with_ITA = {
-
-	set_temp_variable = { num_ger_units = GER.num_armies }
-	set_temp_variable = { num_ita_units = ITA.num_armies }
-	
-	check_variable = { num_ger_units > 85 }
-	check_variable = { num_ita_units > 75 }
-	
-	ITA = {
-		is_ai = yes
-	}
-	
-	ITA = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.15
-		}
-	}
-	
-	ROM = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.1
-		}
-	}
-	
-	HUN = {
-		OR = {
-			exists = no
-			NOT = { is_in_faction_with = GER }
-			surrender_progress < 0.30
-		}
+		original_tag = ARO
+		original_tag = BAY
+		original_tag = CGR
+		original_tag = EDL
+		original_tag = EGR
+		original_tag = GER
+		original_tag = GRC
+		original_tag = HAN
+		original_tag = HGR
+		original_tag = HLH
+		original_tag = LTV
+		original_tag = MBR
+		original_tag = MEK
+		original_tag = PBH
+		original_tag = PRE
+		original_tag = RDA
+		original_tag = SAX
+		original_tag = SCH
+		original_tag = SHL
+		original_tag = TEU
+		original_tag = WGR
+		original_tag = WLK
+		original_tag = WUR
 	}
 }

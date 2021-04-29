@@ -20,7 +20,7 @@ focus_tree = {
 			tag = TIB
 		}
 	}
-	continuous_focus_position = { x = 100 y = 1400 }
+	continuous_focus_position = { x = 100 y = 1800 }
 	default = no
 	focus = {
 		id = TIB_start_politic_reform
@@ -170,6 +170,7 @@ focus_tree = {
 				popularity = 0.15
 			}
 			add_ideas = TIB_phuntsok_wangyal
+			TIB_down_monastery = yes
 		}
 		x = 3
 		y = 3
@@ -217,6 +218,10 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			TIB_down_monastery = yes
+			add_popularity = {
+				ideology = classical_communism popularity = 0.1
+			}
 		}
 		mutually_exclusive = {
 			focus = TIB_red_monastries
@@ -306,6 +311,7 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			country_event = tibet.12
 		}
 		x = 15
 		y = 5
@@ -325,10 +331,12 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
+			has_country_flag = TIB_revolut_prepare
 		}
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			country_event = tibet.13
 		}
 		x = 14
 		y = 6
@@ -349,6 +357,8 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			add_stability = -0.05
+			TIB_down_monastery = yes
 		}
 		x = 13
 		y = 7
@@ -368,6 +378,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
+			has_country_flag = TIB_democrat_elect_prepare
 		}
 		bypass = {}
 		ai_will_do = { factor = 2 }
@@ -389,10 +400,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
+			has_ideas = TIB_14th_dalai_lama
 		}
-		bypass = {}
+		bypass = { NOT = { has_ideas = TIB_14th_dalai_lama } }
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			TIB_down_monastery = yes
+			remove_ideas = TIB_14th_dalai_lama
+			add_stability = -0.05
 		}
 		x = 15
 		y = 7
@@ -501,6 +516,7 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+
 		}
 		x = 16
 		y = 9
@@ -559,6 +575,12 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_ally_with_dobdob
 		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.2
+			}
+		}
 		x = 23
 		y = 4
 
@@ -584,8 +606,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			add_war_support = 0.05
-			add_political_power = 50
+			add_ideas = TIB_dob_dobs
+			TIB_up_monastery = yes
 		}
 		search_filters = { FOCUS_FILTER_POLITICS }
 		x = 29
@@ -599,6 +621,11 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_ally_with_dobdob
 		}
+		completion_reward = {
+			add_ideas = TIB_lobsang_tashi_pm
+			add_ideas = TIB_geshe_sherab_gyatso
+			swap_ideas = { remove_idea = TIB_14th_dalai_lama add_idea = TIB_authority_of_dalai_lama }
+	        }
 		x = 28
 		y = 5
 
@@ -609,6 +636,10 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_ally_with_dobdob
+		}
+		completion_reward = {
+		    add_war_support = 0.03
+			add_manpower = 500
 		}
 		x = 30
 		y = 5
@@ -623,6 +654,28 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TIB_temples_support
+		}
+		available = {}
+		bypass = {
+			has_country_leader = {
+				name = "14th Dalai Lama"
+				ruling_only = yes
+			}
+		}
+		available_if_capitulated = no
+		continue_if_invalid = no
+		cancel_if_invalid = yes
+		completion_reward = {
+			create_country_leader = {
+				name = "14th Dalai Lama"
+				desc = "POLITICS_14_DALAI_LAMA_DESC"
+				picture = "gfx/leaders/TIB/ssw_Portrait_Tibet_14th_Dalai_Lama.dds"
+				ideology = authority_despotism_ideology     
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
 		}
 		x = 29
 		y = 6
@@ -646,9 +699,75 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_transfer_power_to_norbulingka
 		}
+		completion_reward = {
+			create_corps_commander = {
+				name = "Gompo Tashi Andrugtsang"
+				portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Gompo_Tashi.dds"
+				traits = { infantry_leader trickster trait_mountaineer }
+				skill = 2
+				desc = "TIB_GOMBO_TASHI_DESC"
+				rank = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 1
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Chushi Gandruk"
+					priority = 0
+					division_names_group = TIB_INF_01				regiments = {
+					infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 2
+							y = 0
+						}
+						infantry = {
+							x = 2
+							y = 1
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						ROOT = {
+							has_full_control_of_state = PREV
+						}
+					}
+					prioritize = { 920 }
+					create_unit = {
+						division = "name = \"1. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+					create_unit = {
+						division = "name = \"2. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+					create_unit = {
+						division = "name = \"3. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
+						owner = TIB
+					}
+				}
+			}
+			custom_effect_tooltip = TIB_chushi_gandruk_tt
+		}
 		x = 30
 		y = 7
-
 	}
 	focus = {
 		id = TIB_reorganization_ganden_phodrang
@@ -670,6 +789,32 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_reorganization_ganden_phodrang
+		}
+		available = { NOT = { has_completed_focus = TIB_legacy_of_tshongkhapa }}
+		completion_reward = {
+		        random_owned_controlled_state = {
+			        add_extra_state_shared_building_slots = 2
+				set_state_flag = TIB_more_temples_flag
+			}
+			random_owned_controlled_state = {
+			        limit = { NOT = { has_state_flag = TIB_more_temples_flag } }
+			        add_extra_state_shared_building_slots = 1
+			}
+			hidden_effect = { 
+				create_corps_commander = {
+					name = "Kalon Lama Trekhang"
+					portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Kalon_Lama_Trekhang.dds"
+					traits = { politically_connected ranger }
+					skill = 1
+					desc = "TIB_KALON_LAMA_DESC"
+					rank = 1
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+			}
+			custom_effect_tooltip = TIB_kalon_lama_tt
 		}
 		x = 29
 		y = 10
@@ -842,6 +987,9 @@ focus_tree = {
 			focus = TIB_falling_reting_rinpoche
 			focus = TIB_ban_the_reformists
 		}
+		completion_reward = {
+			add_opinion_modifier = { modifier = TIB_get_chinese_out target = CHI }
+		}
 		x = 35
 		y = 6
 
@@ -857,8 +1005,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		available = {
-		}
+		available = { NOT = { has_completed_focus = TIB_more_temples }}
 		bypass = {}
 		completion_reward = {
 			if = {
@@ -881,6 +1028,22 @@ focus_tree = {
 				}
 				add_war_support = 0.15
 			}
+			add_ideas = TIB_tsonkapa
+			hidden_effect = { 
+				create_corps_commander = {
+					name = "Kalon Lama Trekhang"
+					portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Kalon_Lama_Trekhang.dds"
+					traits = { politically_connected ranger }
+					skill = 1
+					desc = "TIB_KALON_LAMA_DESC"
+					rank = 1
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 2
+				}
+			}
+			custom_effect_tooltip = TIB_kalon_lama_tt
 		}
 		x = 35
 		y = 7
@@ -960,7 +1123,7 @@ focus_tree = {
 		bypass = {}
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = 
+				remove_idea = TIB_poorly_organized_army
 				add_idea = TIB_improving_army
 			}
 		}
@@ -985,6 +1148,19 @@ focus_tree = {
 		}
 		bypass = {}
 		completion_reward = {
+		        create_corps_commander = {
+ 				name = "Jigme Taring"
+ 				portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Jigme_Taring_Military.dds"
+ 				traits = { infantry_leader }
+ 				skill = 3
+ 				desc = "TIB_JIGME_TARING_MILITARY_DESC"
+ 				rank = 1
+ 				attack_skill = 3
+ 				defense_skill = 2
+ 				planning_skill = 1
+ 				logistics_skill = 3
+ 			}
+			add_ideas = TIB_protect_nation_focus_idea
 		}
 	}
 	focus = {
@@ -997,9 +1173,9 @@ focus_tree = {
 		available = {
 			OR = {
 				any_neighbor_state = {
-					state = 278
+					state = 287
 				}
-				controls_state = 278
+				controls_state = 287
 			}
 		}
 		completion_reward = {
@@ -1316,6 +1492,64 @@ focus_tree = {
 			focus = TIB_to_ngari
 			focus = TIB_to_kham
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+						has_state_flag = TIB_build_bridges_2
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TIB_build_bridges_3
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_flag = TIB_build_bridges_1
+						has_state_flag = TIB_build_bridges_2
+						has_state_flag = TIB_build_bridges_3
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 		x = 43
 		y = 9
 
@@ -1456,6 +1690,12 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_buy_the_machine
 		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_unmodernization_industries
+				add_idea = TIB_improving_industries
+			}
+		}
 		x = 45
 		y = 7
 
@@ -1466,6 +1706,19 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_rationalization_of_industry
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = radar_tech
+				bonus = 1.5
+				ahead_reduction = 2
+				uses = 2
+			}
+			add_tech_bonus = {
+				category = radar_tech
+				bonus = 1.0
+				uses = 1
+			}
 		}
 		x = 45
 		y = 9
@@ -1558,6 +1811,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_airport
 		}
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {}
+		bypass = {}
+		completion_reward = {
+			air_experience = 20
+			add_ideas = TIB_pirot_trained
+		}
 		x = 47
 		y = 2
 
@@ -1597,6 +1859,32 @@ focus_tree = {
 			focus = TIB_power_station
 			focus = TIB_urban_develop
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TIB_local_arms_production_AF
+			}
+		}
 		x = 47
 		y = 9
 
@@ -1607,6 +1895,31 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_local_productions
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			controls_state = 917
+		}
+		bypass = {}
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 10
+				state = 917
+			}
+			add_resource = {
+				type = chromium
+				amount = 3
+				state = 917
+			}
+			add_resource = {
+				type = tungsten
+				amount = 2
+				state = 917
+			}
 		}
 		x = 47
 		y = 10
@@ -1622,6 +1935,21 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_open_mines
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_completed_focus = TIB_rationalization_of_industry
+		}
+		bypass = {
+			NOT = {
+				has_ideas = TIB_improving_industries
+			}
+		}
+		completion_reward = {
+			remove_ideas = TIB_improving_industries
+		}
 		x = 45
 		y = 11
 
@@ -1635,7 +1963,10 @@ focus_tree = {
 		}
 		x = 49
 		y = 2
-
+		completion_reward = {
+			add_ideas = TIB_production_under_license
+			custom_effect_tooltip = TIB_production_under_license_tt
+		}
 	}
 	focus = {
 		id = TIB_super_hight_flight
@@ -1647,6 +1978,14 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_pilot_training
 		}
+		completion_reward = {
+			air_experience = 20
+			add_tech_bonus = {
+				category = air_doctrine
+				uses = 3
+				bonus = 1.5
+			}
+		}
 		x = 48
 		y = 3
 
@@ -1657,6 +1996,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_super_hight_flight
+		}
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {}
+		bypass = {}
+		completion_reward = {
+			add_tech_bonus = {
+				category = light_air
+				category = medium_air
+				category = heavy_air
+				uses = 5
+				bonus = 1.0
+			}
 		}
 		x = 48
 		y = 4
@@ -1674,13 +2027,17 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
-			random_owned_controlled_state = {
+			any_state = {
+				is_controlled_by = TIB
 				is_coastal = yes
 			}
 		}
 		bypass = {}
 		completion_reward = {
 			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
 				add_building_construction = {
 					type = dockyard
 					level = 2
@@ -1705,7 +2062,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		available = {
-			random_owned_controlled_state = {
+			any_state = {
+				is_controlled_by = TIB
 				is_coastal = yes
 			}
 		}
@@ -1787,6 +2145,18 @@ focus_tree = {
 			focus = TIB_shut_spiritual_opiates_out
 			focus = TIB_red_monastries
 		}
+		available = {
+			has_ideas = TIB_the_nobles
+		}
+		bypass = {
+			NOT = {
+				has_ideas = TIB_the_nobles
+			}
+		}
+		completion_reward = {
+			remove_ideas = TIB_the_nobles
+			add_stability = -0.1
+		}
 		x = 3
 		y = 5
 
@@ -1800,6 +2170,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TIB_shut_spiritual_opiates_out
+		}
+		completion_reward = {
+			add_ideas = TIB_maoism
 		}
 		x = 5
 		y = 6
@@ -1849,6 +2222,26 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_legacy_of_lungshar
 		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+		}
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			TIB_down_monastery = yes
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = -0.3
+			}
+			set_politics = {
+				ruling_party = progressive_communism
+				elections_allowed = no
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+		}
 		x = 1
 		y = 7
 
@@ -1893,6 +2286,28 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_fate_of_dalai_lama
 		}
+		available = {
+			has_political_power > 49
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		bypass = {}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = yes
+				last_election = "1949.6.1"
+				election_frequency = 48
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = 0.1
+			}
+			add_political_power = -50
+		}
+		
 		x = 5
 		y = 7
 
@@ -1910,6 +2325,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 8
+		completion_reward = {
+			add_ideas = TIB_support_from_farmer
+		}
 
 	}
 	focus = {
@@ -2095,13 +2513,32 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_claim_qinghai
-		icon = GFX_goal_unknown
+		icon = GFX_focus_TIB_attack_amdo
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_state_atheism
 		}
 		prerequisite = {
 			focus = TIB_crush_reactionaries
+		}
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {
+		}
+		bypass = {
+			TIB = {
+				controls_state = 604
+				controls_state = 754
+				controls_state = 755
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = CHI
+				generator = { 604 754 755 }
+			}
 		}
 		x = 3
 		y = 11
@@ -2117,6 +2554,112 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_modern_university
 		}
+		complete_tooltip = {
+			every_state = {
+				limit	= {	has_state_flag = TIB_new_cities_2civ }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			every_state = {
+				limit	= {	has_state_flag = TIB_new_cities_2mil }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+					}
+					is_core_of = ROOT
+				}
+				set_state_flag = TIB_new_cities_2civ
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+					}
+					is_core_of = ROOT
+					NOT = { has_state_flag = TIB_new_cities_2civ }
+				}
+				set_state_flag = TIB_new_cities_2civ
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+					}
+					is_core_of = ROOT
+					NOT = { has_state_flag = TIB_new_cities_2civ }
+				}
+				set_state_flag = TIB_new_cities_2civ
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+					}
+					is_core_of = ROOT
+				}
+				set_state_flag = TIB_new_cities_2mil
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+					}
+					is_core_of = ROOT
+					NOT = { has_state_flag = TIB_new_cities_2mil }
+				}
+				set_state_flag = TIB_new_cities_2mil
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 		x = 2
 		y = 12
 
@@ -2129,6 +2672,54 @@ focus_tree = {
 			focus = TIB_negotiated_chinese_suzerainty
 			focus = TIB_join_to_front
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			has_opinion = {
+				target = CHI
+				value > 50
+			}
+		}
+		bypass = {}
+		completion_reward = {
+			920 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			601 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			751 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			752 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			605 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 		x = 14
 		y = 9
 
@@ -2139,6 +2730,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_claim_qinghai
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
 		}
 		x = 4
 		y = 12
@@ -2166,6 +2760,29 @@ focus_tree = {
 			focus = TIB_kick_kuomintang_out
 			focus = TIB_full_control_monastries
 		}
+		completion_reward = {
+			323 = {
+				add_core_of = TIB
+				add_claim_by = TIB
+			}
+			324 = {
+				add_core_of = TIB
+				add_claim_by = TIB
+			}
+			931 = {
+				add_core_of = TIB
+				add_claim_by = TIB
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NEP
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BHU
+			}
+		}
+		
 		x = 11
 		y = 11
 
@@ -2328,6 +2945,16 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_set_sikyongs_terms_of_office
 		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {}
+		bypass = {}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
 		x = 23
 		y = 9
 
@@ -2374,6 +3001,20 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_connection_road_for_mongol
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		available = {
+			MON = {
+				is_subject_of = TIB
+			}
+		}
+		completion_reward = {
+			MON = {
+				country_event = tibet.11
+			}
 		}
 		x = 26
 		y = 10
@@ -2459,6 +3100,37 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_organization_for_tibetan_buddhist
 		}
+		available = {
+			237 = {
+				controller = {
+					OR = {
+						has_government = anarchism
+						has_government = progressive_communism
+						has_government = classical_communism
+						has_government = national_fascism
+						has_government = national_socialism
+						has_government = corporatocracism
+					}
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_manpower = 2389
+			}
+			random_owned_controlled_state = {
+				add_manpower = 3547
+			}
+			random_owned_controlled_state = {
+				add_manpower = 1063
+			}
+			random_owned_controlled_state = {
+				add_manpower = 514
+			}
+			237 = {
+				add_manpower = -7513
+			}
+		}
 		x = 22
 		y = 11
 
@@ -2471,9 +3143,43 @@ focus_tree = {
 			focus = TIB_more_temples
 			focus = TIB_majesty_of_buddha
 		}
+
 		x = 31
 		y = 11
-
+		available = {
+			931 = {
+				CONTROLLER = {
+					NOT = {
+						OR = {
+							tag = TIB
+							is_subject_of = TIB
+						}
+					}
+				}
+			}
+		}
+		bypass = {
+			931 = {
+				CONTROLLER = {
+					OR = {
+						tag = TIB
+						is_subject_of = TIB
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 2 }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			random_country = {
+				limit = {
+					controls_state = 931
+				}
+				country_event = tibet.14
+			}
+		}
 	}
 	focus = {
 		id = TIB_pressure_bhutan
@@ -2510,6 +3216,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
+			324 = {
+				controller = {
+					country_event = tibet.15
+				}
+			}
 		}
 		x = 33
 		y = 11
@@ -2528,14 +3239,32 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_demand_amdo
-		icon = GFX_goal_unknown
+		icon = GFX_focus_TIB_attack_amdo
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_pressure_bhutan
 		}
 		x = 33
 		y = 12
-
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available = {
+		}
+		bypass = {
+			TIB = {
+				controls_state = 604
+				controls_state = 754
+				controls_state = 755
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = CHI
+				generator = { 604 754 755 }
+			}
+		}
 	}
 	focus = {
 		id = TIB_all_power_for_regent
@@ -2566,6 +3295,284 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_majesty_of_buddha
 		}
+		ai_will_do = { factor = 10 }
+		available = {
+			custom_trigger_tooltip = {
+			tooltip = TIB_great_tibetan_empire_ava
+			all_state = {
+				is_core_of = TIB
+				original_tag = TIB
+			}
+			441 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			1080 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			742 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			732 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			323 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			324 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			325 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			617 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			618 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			619 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			747 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			751 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			759 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			760 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			287 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			837 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			931 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			757 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			758 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			917 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			918 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			919 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			322 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			920 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			601 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			604 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			754 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			755 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			752 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			434 = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.2
+			set_cosmetic_tag = TIB_tufan
+			every_state = {
+				limit = {
+					OR = {
+						state = 441
+						state = 1080
+						state = 742
+						state = 732
+						state = 837
+						state = 619
+						state = 287
+						state = 759
+						state = 617
+						state = 618
+						state = 760
+						state = 323
+						state = 324
+						state = 931
+						state = 751
+						state = 747
+						state = 325
+					}
+				}
+				add_core_of = TIB
+			}
+		}
 		x = 35
 		y = 11
 
@@ -2590,7 +3597,10 @@ focus_tree = {
 		}
 		x = 35
 		y = 9
-
+		completion_reward = {
+			TIB_temple_gov_idea = yes
+		}
+			
 	}
 	focus = {
 		id = TIB_liberate_kalmykia
@@ -2669,6 +3679,7 @@ focus_tree = {
 			add_tech_bonus = {
 				category = naval_bomber
 				uses = 2
+				ahead_reduction = 1
 				bonus = 1.5
 				name = TIB_attack_aircraft
 			}

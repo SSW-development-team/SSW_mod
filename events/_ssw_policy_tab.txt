@@ -14,8 +14,11 @@ country_event = {
 		factor = 100
 		}
 		add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate }
-		add_to_variable = { country_poverty_rate = country_poverty_rate_growth_rate }
+		add_to_variable_variable = { country_poverty_rate = country_poverty_rate_growth_rate }
 		add_to_variable = { country_literacy_rate = country_literacy_rate_growth_rate }
+		set_temp_variable = { temp1 = country_industrial_complex_invest }
+		divide_temp_variable = { temp1 = 6 }
+		add_to_variable = { country_research_institute = temp1  }
 		clr_country_flag = ssw_policy_tab_industrialization_event_triggered
 	}
 }
