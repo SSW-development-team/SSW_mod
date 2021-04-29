@@ -265,6 +265,30 @@ country_event = { #アルザス＝ロレーヌの運命
 			add_core_of = GR1
 		}
 	}
+	option = {
+		name = ssw_foc_western_europe.1.f
+		trigger = {
+			OR = {
+				FRP = { is_subject_of = ROOT }
+				is_in_faction_with = FRP
+				original_tag = FRP
+			}
+			FRP = { owns_state = 1041 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				state = 28
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			FRP = { transfer_state = PREV }
+			add_core_of = FRP
+		}
+	}
 }
 country_event = { #ベルギーの運命
 	id = ssw_foc_western_europe.2
@@ -734,6 +758,30 @@ country_event = { #ルクセンブルクの運命
 			}
 			NFR = { transfer_state = PREV }
 			add_core_of = NFR
+		}
+	}
+	option = {
+		name = ssw_foc_western_europe.5.g
+		trigger = {
+			OR = {
+				FRP = { is_subject_of = ROOT }
+				is_in_faction_with = FRP
+				original_tag = FRP
+			}
+			FRP = { owns_state = 28 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_core_of = FRP
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			FRP = { transfer_state = PREV }
+			add_core_of = FRP
 		}
 	}
 	option = {

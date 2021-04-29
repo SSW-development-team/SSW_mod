@@ -390,6 +390,42 @@ on_actions = {
 			#カム
 			601 = { set_state_flag = maybe_less_KHM_GAMESTART }
 			920 = { set_state_flag = maybe_less_KHM_GAMESTART }
+			#フランス
+			every_state = {
+				limit = {
+					is_owned_by = FRA
+					NOT = {
+						state = 459
+						state = 460
+						state = 513
+						state = 806
+						state = 838
+					}
+				}
+				set_state_flag = maybe_less_FRA_GAMESTART
+			}
+			#フランス
+			every_state = {
+				limit = {
+					is_owned_by = FRA
+					NOT = {
+						state = 459
+						state = 460
+						state = 513
+						state = 806
+						state = 838
+					}
+				}
+				set_state_flag = maybe_less_FRA_GAMESTART
+			}
+			#北フランス
+			every_state = {
+				limit = {
+					is_owned_by = NFR
+					NOT = { state = 838 }
+				}
+				set_state_flag = maybe_less_NFR_GAMESTART
+			}
 ##############################   その他   ##############################
 			#ロシア構成国
 			every_state = {

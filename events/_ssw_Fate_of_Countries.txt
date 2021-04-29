@@ -408,7 +408,6 @@ country_event = { #ƒ‰ƒCƒ“Ù’è
 					has_country_flag = FRA_true_countryflag
 				}
 			}
-			NOT = { country_exists = NFR }
 			FRA = { owns_state = 28 }
 		}
 		ai_chance = { base = 10 }
@@ -433,7 +432,6 @@ country_event = { #ƒ‰ƒCƒ“Ù’è
 				NFR = { is_in_faction_with = ROOT }
 				original_tag = NFR
 			}
-			NOT = { country_exists = FR1 }
 			NFR = { owns_state = 28 }
 		}
 		ai_chance = { base = 10 }
@@ -563,6 +561,30 @@ country_event = { #ƒ‰ƒCƒ“Ù’è
 			}
 			WLL = { transfer_state = PREV }
 			add_core_of = WLL
+		}
+	}
+	option = {
+		name = ssw_foc_events.2.i
+		trigger = {
+			OR = {
+				FRP = { is_subject_of = ROOT }
+				FRP = { is_in_faction_with = ROOT }
+				original_tag = FRP
+			}
+			FRP = { owns_state = 28 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_RHINE
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			FRP = { transfer_state = PREV }
+			add_core_of = FRP
 		}
 	}
 }
