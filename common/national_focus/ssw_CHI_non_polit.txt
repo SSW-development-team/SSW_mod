@@ -2440,7 +2440,7 @@ shared_focus = { #南京反帝国主義国共同会議
         factor = 10
     }
     available = {
-        has_war_with = PAK
+        NOT = {has_war_with = PAK}
     }
     bypass = {
         is_faction_leader = no
@@ -2472,7 +2472,7 @@ shared_focus = { #パキスタンの友
         factor = 10
     }
     available = {
-        has_war_with = PAK
+        NOT = {has_war_with = PAK}
     }
     bypass = {
         NOT = {country_exists = PAK}
@@ -2533,12 +2533,14 @@ shared_focus = { #東南アジアの同胞
         factor = 10
     }
     available = {
-        has_war_with = SIA
-        has_war_with = TOK
+        OR = {
+            NOT = {has_war_with = SIA}
+            NOT = {has_war_with = TOK}
+        }
     }
     bypass = {
-        country_exists = SIA
-        country_exists = TOK
+        NOT = {country_exists = SIA}
+        NOT = {country_exists = TOK}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
