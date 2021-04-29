@@ -2439,9 +2439,15 @@ shared_focus = { #南京反帝国主義国共同会議
     ai_will_do = {
         factor = 10
     }
+    available = {
+        has_war_with = PAK
+    }
     bypass = {
         is_faction_leader = no
         is_in_faction = yes
+        PAK = {
+            is_in_faction_with = ROOT
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2464,6 +2470,12 @@ shared_focus = { #パキスタンの友
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        has_war_with = PAK
+    }
+    bypass = {
+        NOT = {country_exists = PAK}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2491,6 +2503,9 @@ shared_focus = { #資金と武器を
     ai_will_do = {
         factor = 10
     }
+    bypass = {
+        NOT = {country_exists = PAK}
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2516,6 +2531,14 @@ shared_focus = { #東南アジアの同胞
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        has_war_with = SIA
+        has_war_with = TOK
+    }
+    bypass = {
+        country_exists = SIA
+        country_exists = TOK
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2575,8 +2598,16 @@ shared_focus = { #日本との決戦
         has_global_flag = CHI_marco_polo_bridge_incident
     }
     bypass = {
-        NOT = {country_exists = JAP}
-        NOT = {country_exists = MAN}
+        OR = {
+            AND = {
+                NOT = {country_exists = JAP}
+                NOT = {country_exists = MAN}
+            }
+            AND = {
+                has_war_with = JAP
+                has_war_with = MAN
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2627,7 +2658,13 @@ shared_focus = { #チベットとの交渉
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = TIB}
+        TIB = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2651,7 +2688,13 @@ shared_focus = { #チベット侵攻！
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = TIB}
+        TIB = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2676,7 +2719,13 @@ shared_focus = { #外蒙古の回収
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = MON}
+        MON = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2878,6 +2927,9 @@ shared_focus = { #戦争経済への移行
     ai_will_do = {
         factor = 10
     }
+    bypass = {
+        has_idea = tot_economic_mobilisation
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2927,6 +2979,15 @@ shared_focus = { #偽満州の同胞
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        MAN = {
+            OR = {
+                exists = no
+                is_puppet_of = CHI
+                is_subject_of = CHI
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
