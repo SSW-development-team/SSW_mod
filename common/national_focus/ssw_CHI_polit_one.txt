@@ -8,6 +8,18 @@ shared_focus = { #中華民国への回帰
     }
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -28,6 +40,18 @@ shared_focus = { #第一回国民大会
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -50,6 +74,18 @@ shared_focus = { #国民党の完全復活
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }                
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     available = {
         custom_trigger_tooltip = {
@@ -76,6 +112,7 @@ shared_focus = { #国民党の完全復活
     completion_reward = {
         set_politics = {
             ruling_party = social_democracy
+            elections_allowed = no
         }
     }
 }
@@ -85,12 +122,25 @@ shared_focus = { #汪兆銘の指導
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_full_revival_KMT
@@ -112,6 +162,18 @@ shared_focus = { #国民党の地方組織を拡大
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -134,6 +196,18 @@ shared_focus = { #連邦主義運動の縮小
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -196,6 +270,18 @@ shared_focus = { #国民党のプロパガンダ
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -221,6 +307,18 @@ shared_focus = { #軍閥内部の協力者を確保
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -257,6 +355,7 @@ shared_focus = { #民権主義の重視
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_KMT_propaganda
@@ -277,6 +376,18 @@ shared_focus = { #指揮系統の統一
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -310,6 +421,7 @@ shared_focus = { #軍閥の服従
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_KMT_propaganda
@@ -359,6 +471,18 @@ shared_focus = { #連邦主義の教訓
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     available = {
         custom_trigger_tooltip = {
@@ -396,6 +520,18 @@ shared_focus = { #軍閥と国民党の融和
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -425,12 +561,25 @@ shared_focus = { #多党制の維持
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_reconcil_warlord_KMT
@@ -447,6 +596,18 @@ shared_focus = { #軍閥のポストを用意
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -473,6 +634,18 @@ shared_focus = { #省の権限
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -499,12 +672,25 @@ shared_focus = { #国民党を改革！
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_prepare_post_warlord
@@ -523,6 +709,18 @@ shared_focus = { #新しい中華民国へ！
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -606,6 +804,18 @@ shared_focus = { #第一回全国連邦代表大会
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -628,6 +838,18 @@ shared_focus = { #国民党との妥協
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     available = {
         custom_trigger_tooltip = {
@@ -680,12 +902,25 @@ shared_focus = { #穏健な進化
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_compromise_KMT
@@ -706,6 +941,18 @@ shared_focus = { #国民党勢力を保護
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -740,12 +987,25 @@ shared_focus = { #適度な地方分権
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_moderate_evo
@@ -778,6 +1038,18 @@ shared_focus = { #協力体制
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -804,6 +1076,18 @@ shared_focus = { #李宋仁との協力
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -868,6 +1152,18 @@ shared_focus = { #輝ける各省
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     available = {
         custom_trigger_tooltip = {
@@ -903,6 +1199,18 @@ shared_focus = { #軍閥達の協調
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -933,6 +1241,18 @@ shared_focus = { #大胆な地方分権
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -980,6 +1300,18 @@ shared_focus = { #汚職を断罪
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1075,6 +1407,18 @@ shared_focus = { #アヘンの根絶
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1115,6 +1459,7 @@ shared_focus = { #信頼できる省政府主席へ
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_POLITICAL
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_declare_corruption
@@ -1190,6 +1535,18 @@ shared_focus = { #歴戦の大総統
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            OR = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_influence_local_warlord_dynamic_modifier
+                }
+                check_variable = {CHI_inf_l_w_d_m_w < 0}
+                check_variable = {CHI_inf_l_w_d_m_o < 0}
+                check_variable = {CHI_inf_l_w_d_m_d < 0}
+                check_variable = {CHI_inf_l_w_d_m_a < 0}
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
