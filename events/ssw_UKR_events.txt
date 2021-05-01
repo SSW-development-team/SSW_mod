@@ -15,6 +15,9 @@ country_event = {
 	option = {
 		name = ssw_UKR.2.a
 		every_owned_state = {
+			limit = {
+				has_resistance = no
+			}
 			start_resistance = yes
 		}
 		add_timed_idea = {
@@ -36,8 +39,13 @@ country_event = {
 	}
 	trigger = {
 		tag = UKR
-		has_stability < 0.16
-		has_global_flag = GER_civil_war
+		OR = {
+			has_stability < 0
+			AND = {
+				has_stability < 0.1
+				has_global_flag = GER_civil_war
+			}
+		}
 	}
 	immediate = {
 		set_global_flag = UKR_independence_war_started
@@ -1110,9 +1118,6 @@ news_event = {
 	desc = 01_news.28.desc
 	picture = GFX_news_event_07
 	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 2
-	}
 	option = {
 		name = ssw_UKR.28.a
 	}
@@ -1125,9 +1130,6 @@ news_event = {
 	desc = 01_news.29.desc
 	picture = GFX_news_event_07
 	is_triggered_only = yes
-	mean_time_to_happen = {
-		days = 2
-	}
 	option = {
 		name = ssw_UKR.29.a
 	}
