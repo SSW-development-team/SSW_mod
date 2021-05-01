@@ -1004,3 +1004,131 @@ country_event = {
 		name = ssw_UKR.24.a
 	}
 }
+
+# General Protection
+country_event = {
+	id = ssw_UKR.25
+	title = ssw_UKR.25.title
+	desc = ssw_UKR.25.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.25.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 1
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.8
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.6
+				}
+			}
+		}
+		FROM = {
+			puppet = ROOT
+			country_event = {
+				id = ssw_UKR.26
+			}
+		}
+	}
+	option = {
+		name = ssw_UKR.25.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio > 1
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.2
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.4
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = ssw_UKR.27
+			}
+		}
+	}
+}
+
+# Offer Accepted
+country_event = {
+	id = ssw_UKR.26
+	title = ssw_UKR.26.title
+	desc = ssw_UKR.26.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.26.a
+	}
+}
+
+# Offer Denied
+country_event = {
+	id = ssw_UKR.27
+	title = ssw_UKR.27.title
+	desc = ssw_UKR.27.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_UKR.27.a
+	}
+}
+
+# Ukrainian Independent Orthodox Returned!
+news_event = {
+	id = ssw_UKR.28
+	title = 01_news.28.title
+	desc = 01_news.28.desc
+	picture = GFX_news_event_07
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = ssw_UKR.28.a
+	}
+}
+
+# Ukrainian Independent Orthodox and Kiev church unified
+news_event = {
+	id = ssw_UKR.29
+	title = 01_news.29.title
+	desc = 01_news.29.desc
+	picture = GFX_news_event_07
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = ssw_UKR.29.a
+	}
+}
