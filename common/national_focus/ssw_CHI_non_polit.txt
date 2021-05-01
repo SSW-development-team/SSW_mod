@@ -5,6 +5,12 @@ shared_focus = { #中国の産業
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -29,10 +35,16 @@ shared_focus = { #中国の産業
 }
 shared_focus = { #地方主体の産業発展
     id = CHI_local_industry_dev
-    #icon = 
+    icon = GFX_focus_generic_industry_1
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -126,7 +138,7 @@ shared_focus = { #地方主体の産業発展
 }
 shared_focus = { #地方経済の重視
     id = CHI_emphasis_local_economy
-    #icon = 
+    icon = GFX_goal_generic_consumer_goods
     cost = 5
     ai_will_do = {
         factor = 10
@@ -148,7 +160,7 @@ shared_focus = { #地方経済の重視
 }
 shared_focus = { #地方の産業を拡大
     id = CHI_expand_local_industry
-    #icon = 
+    icon = GFX_goal_generic_construct_civ_factory
     cost = 5
     ai_will_do = {
         factor = 10
@@ -229,7 +241,7 @@ shared_focus = { #地方の産業を拡大
 }
 shared_focus = { #地域間の連携
     id = CHI_inter_region_cooperate
-    #icon = 
+    icon = GFX_goal_tripartite_pact
     cost = 5
     ai_will_do = {
         factor = 10
@@ -268,7 +280,7 @@ shared_focus = { #地域間の連携
 }
 shared_focus = { #地域間ネットワークの充実
     id = CHI_enhance_interregion_network
-    #icon = 
+    icon = GFX_goal_generic_construct_infrastructure
     cost = 5
     ai_will_do = {
         factor = 10
@@ -357,7 +369,7 @@ shared_focus = { #農村の発展
 }
 shared_focus = { #モータリゼーションの試み
     id = CHI_attempt_motorization
-    #icon = 
+    icon = GFX_focus_generic_rubber
     cost = 5
     ai_will_do = {
         factor = 10
@@ -379,7 +391,7 @@ shared_focus = { #モータリゼーションの試み
 }
 shared_focus = { #識字率の向上
     id = CHI_improve_literacy
-    #icon = 
+    icon = GFX_focus_hol_the_foundations_of_defense
     cost = 5
     ai_will_do = {
         factor = 10
@@ -429,10 +441,16 @@ shared_focus = { #美しき田舎
 }
 shared_focus = { #中央政府の指導
     id = CHI_central_gov_guidance
-    #icon = 
+    icon = GFX_focus_generic_self_management
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -457,7 +475,7 @@ shared_focus = { #中央政府の指導
 }
 shared_focus = { #都市経済の重視
     id = CHI_emphasis_urban_economic_good
-    #icon = 
+    icon = GFX_focus_generic_the_giant_wakes
     cost = 5
     ai_will_do = {
         factor = 10
@@ -560,7 +578,7 @@ shared_focus = { #三峡ダムの建設開始
 }
 shared_focus = { #都市間の交通網
     id = CHI_inter_city_transport_network
-    #icon = 
+    icon = GFX_goal_generic_construct_infrastructure
     cost = 5
     ai_will_do = {
         factor = 10
@@ -665,7 +683,7 @@ shared_focus = { #都市間の交通網
 }
 shared_focus = { #国有企業
     id = CHI_state_own_enterprise
-    #icon = 
+    icon = GFX_goal_generic_production2
     cost = 5
     ai_will_do = {
         factor = 10
@@ -812,7 +830,7 @@ shared_focus = { #栄華を誇る東洋のパリ
 }
 shared_focus = { #国立中央大学の成長
     id = CHI_growth_natio_centrak_univ
-    #icon = 
+    icon = GFX_focus_research2
     cost = 5
     ai_will_do = {
         factor = 10
@@ -866,12 +884,19 @@ shared_focus = { #工場労働者の救済
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_INDUSTRY
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_local_industry_dev
@@ -893,12 +918,19 @@ shared_focus = { #児童労働を制限
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_INDUSTRY
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_relief_factory_worker
@@ -919,6 +951,12 @@ shared_focus = { #立地の法的規制
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -941,10 +979,16 @@ shared_focus = { #立地の法的規制
 }
 shared_focus = { #工具の輸入
     id = CHI_import_tools
-    #icon = 
+    icon = GFX_goal_generic_production
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -967,10 +1011,16 @@ shared_focus = { #工具の輸入
 }
 shared_focus = { #製造機械の輸入
     id = CHI_import_manufacture_machinery
-    #icon = 
+    icon = GFX_goal_generic_positive_trade_relations
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -997,6 +1047,12 @@ shared_focus = { #労働者を育成
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1019,10 +1075,16 @@ shared_focus = { #労働者を育成
 }
 shared_focus = { #鉱業の拡大
     id = CHI_expansion_mine_industry
-    #icon = 
+    icon = GFX_goal_generic_construction2
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1083,6 +1145,12 @@ shared_focus = { #工場労働者の規律
     cost = 5
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+            }
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1191,7 +1259,7 @@ shared_focus = { #豊富な労働力
 }
 shared_focus = { #中國製造
     id = CHI_made_in_china
-    #icon = 
+    icon = GFX_focus_generic_industry_3
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1221,7 +1289,7 @@ shared_focus = { #中國製造
 #軍事ツリー
 shared_focus = { #中国軍の改革
     id = CHI_reform_chinese_military
-    #icon = 
+    icon = GFX_focus_chi_army_reform
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1324,7 +1392,7 @@ shared_focus = { #中国連邦軍
 }
 shared_focus = { #中華航空部隊
     id = CHI_chinese_air_force
-    #icon = 
+    icon = GFX_goal_generic_air_fighter2
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1380,7 +1448,7 @@ shared_focus = { #新生連邦陸軍
 }
 shared_focus = { #航空基地の拡大
     id = CHI_expansion_base
-    #icon = 
+    icon = GFX_goal_generic_construction
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1443,7 +1511,7 @@ shared_focus = { #航空基地の拡大
 }
 shared_focus = { #保定陸軍軍官学校
     id = CHI_baod_military_academy
-    #icon = 
+    icon = GFX_focus_chi_whampoa_military_academy
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1469,7 +1537,7 @@ shared_focus = { #保定陸軍軍官学校
 }
 shared_focus = { #空軍将校の育成
     id = CHI_air_force_officer_training
-    #icon = 
+    icon = GFX_focus_generic_military_mission
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1517,7 +1585,7 @@ shared_focus = { #連邦民兵隊
 }
 shared_focus = { #海上空襲構想
     id = CHI_air_raid_sea_concept
-    #icon = 
+    icon = GFX_goal_generic_air_naval_bomber
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1549,7 +1617,7 @@ shared_focus = { #海上空襲構想
 }
 shared_focus = { #郷土を守る意思
     id = CHI_will_defend_homeland
-    #icon = 
+    icon = GFX_goal_generic_defence
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1612,7 +1680,7 @@ shared_focus = { #民兵組織の拡大
 }
 shared_focus = { #独立型司令部
     id = CHI_independent_command
-    #icon = 
+    icon = GFX_goal_generic_position_armies
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1730,7 +1798,7 @@ shared_focus = { #国民革命軍
 }
 shared_focus = { #南洋艦隊
     id = CHI_nanyang_fleet
-    #icon = 
+    icon = GFX_goal_generic_navy_battleship
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1788,7 +1856,7 @@ shared_focus = { #革命教育
 }
 shared_focus = { #上海海軍工廠
     id = CHI_Shanghai_navy_arsenal
-    #icon = 
+    icon = GFX_goal_generic_construct_naval_dockyard
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1830,7 +1898,7 @@ shared_focus = { #上海海軍工廠
 }
 shared_focus = { #戦車への興味
     id = CHI_interest_tank
-    #icon = 
+    icon = GFX_focus_generic_army_tanks2
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1856,7 +1924,7 @@ shared_focus = { #戦車への興味
 }
 shared_focus = { #提督の育成
     id = CHI_training_admiral
-    #icon = 
+    icon = GFX_goal_generic_navy_doctrines_tactics
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1886,7 +1954,7 @@ shared_focus = { #提督の育成
 }
 shared_focus = { #集団訓練
     id = CHI_group_training
-    #icon = 
+    icon = GFX_focus_generic_little_entente
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1920,7 +1988,7 @@ shared_focus = { #集団訓練
 }
 shared_focus = { #海軍陸戦隊を組織
     id = CHI_org_naval_land_force
-    #icon = 
+    icon = GFX_goal_generic_amphibious_assault
     cost = 5
     ai_will_do = {
         factor = 10
@@ -1980,7 +2048,7 @@ shared_focus = { #夜襲
 }
 shared_focus = { #航空産業の拡大
     id = CHI_expansion_aviation_industry
-    #icon = 
+    icon = GFX_goal_generic_air_production
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2029,7 +2097,7 @@ shared_focus = { #航空産業の拡大
 }
 shared_focus = { #統一の軍隊
     id = CHI_army_unity
-    #icon = 
+    icon = GFX_goal_generic_allies_build_infantry
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2069,7 +2137,7 @@ shared_focus = { #統一の軍隊
 }
 shared_focus = { #ドイツ人顧問を再招待
     id = CHI_GER_adviser_invite_back
-    #icon = 
+    icon = GFX_focus_chi_mission_to_germany
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2173,7 +2241,7 @@ shared_focus = { #ドイツ人顧問を再招待
 }
 shared_focus = { #上海の要塞化
     id = CHI_make_Shanghai_fortress
-    #icon = 
+    icon = GFX_goal_generic_fortify_city
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2215,7 +2283,7 @@ shared_focus = { #上海の要塞化
 }
 shared_focus = { #中華ジークフリート線
     id = CHI_Siegfried_line_china
-    #icon = 
+    icon = GFX_goal_generic_construct_military
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2299,7 +2367,7 @@ shared_focus = { #中華ジークフリート線
 }
 shared_focus = { #陸軍委員会
     id = CHI_army_commission
-    #icon = 
+    icon = GFX_focus_generic_military_academy
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2321,7 +2389,7 @@ shared_focus = { #陸軍委員会
 }
 shared_focus = { #50師団計画
     id = CHI_fifty_division_plan
-    #icon = 
+    icon = GFX_goal_rhineland
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2343,7 +2411,7 @@ shared_focus = { #50師団計画
 }
 shared_focus = { #調査統計局
     id = CHI_survey_statistic_bureau
-    #icon = 
+    icon = GFX_goal_generic_position_armies
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2365,7 +2433,7 @@ shared_focus = { #調査統計局
 }
 shared_focus = { #黄埔軍官学校
     id = CHI_huangpu_military_officer_school
-    #icon = 
+    icon = GFX_focus_chi_whampoa_military_academy
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2391,7 +2459,7 @@ shared_focus = { #黄埔軍官学校
 }
 shared_focus = { #我有一把槍
     id = CHI_I_have_gun
-    #icon = 
+    icon = GFX_focus_secret_rearmament
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2418,7 +2486,7 @@ shared_focus = { #我有一把槍
 #外交ツリー
 shared_focus = { #中国外交
     id = CHI_chinese_diplomacy
-    #icon = 
+    icon = GFX_focus_chi_cooperation_with_the_nationalists
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2434,10 +2502,20 @@ shared_focus = { #中国外交
 }
 shared_focus = { #南京反帝国主義国共同会議
     id = CHI_anti_imperialist_nati_co_co
-    #icon = 
+    icon = GFX_focus_generic_support_the_left_right
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    available = {
+        NOT = {has_war_with = PAK}
+    }
+    bypass = {
+        is_faction_leader = no
+        is_in_faction = yes
+        PAK = {
+            is_in_faction_with = ROOT
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2461,6 +2539,12 @@ shared_focus = { #パキスタンの友
     ai_will_do = {
         factor = 10
     }
+    available = {
+        NOT = {has_war_with = PAK}
+    }
+    bypass = {
+        NOT = {country_exists = PAK}
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2482,10 +2566,13 @@ shared_focus = { #パキスタンの友
 }
 shared_focus = { #資金と武器を
     id = CHI_fund_and_weapons
-    #icon = 
+    icon = GFX_focus_mex_privatisation
     cost = 5
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        NOT = {country_exists = PAK}
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2513,6 +2600,16 @@ shared_focus = { #東南アジアの同胞
     ai_will_do = {
         factor = 10
     }
+    available = {
+        OR = {
+            NOT = {has_war_with = SIA}
+            NOT = {has_war_with = TOK}
+        }
+    }
+    bypass = {
+        NOT = {country_exists = SIA}
+        NOT = {country_exists = TOK}
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2536,7 +2633,7 @@ shared_focus = { #東南アジアの同胞
 }
 shared_focus = { #反帝国主義闘争の扇動
     id = CHI_agitate_anti_imperialist_struggle
-    #icon = 
+    icon = GFX_goal_tfv_saf_anti_colonialist_crusade
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2562,7 +2659,7 @@ shared_focus = { #反帝国主義闘争の扇動
 }
 shared_focus = { #日本との決戦
     id = CHI_decisive_battle_JAP
-    #icon = 
+    icon = GFX_focus_attack_japan
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2571,8 +2668,16 @@ shared_focus = { #日本との決戦
         has_global_flag = CHI_marco_polo_bridge_incident
     }
     bypass = {
-        NOT = {country_exists = JAP}
-        NOT = {country_exists = MAN}
+        OR = {
+            AND = {
+                NOT = {country_exists = JAP}
+                NOT = {country_exists = MAN}
+            }
+            AND = {
+                has_war_with = JAP
+                has_war_with = MAN
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2595,7 +2700,7 @@ shared_focus = { #日本との決戦
 }
 shared_focus = { #中国の世紀
     id = CHI_chinese_century
-    #icon = 
+    icon = GFX_focus_generic_china1
     cost = 5
     ai_will_do = {
         factor = 10
@@ -2617,13 +2722,19 @@ shared_focus = { #中国の世紀
 }
 shared_focus = { #チベットとの交渉
     id = CHI_negotiate_Tibet
-    #icon = 
+    icon = GFX_focus_SSW_goal_CRE_TIBET
     cost = 5
     ai_will_do = {
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = TIB}
+        TIB = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2647,7 +2758,13 @@ shared_focus = { #チベット侵攻！
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = TIB}
+        TIB = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2672,7 +2789,13 @@ shared_focus = { #外蒙古の回収
         factor = 10
     }
     bypass = {
-        NOT = {country_exists = MON}
+        MON = {
+            OR = {
+                exists = no
+                is_puppet_of = ROOT
+                is_subject_of = ROOT
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2763,7 +2886,7 @@ shared_focus = { #一帯一路
 shared_focus = { #二つの太陽
     id = CHI_two_sun
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2786,7 +2909,7 @@ shared_focus = { #二つの太陽
 shared_focus = { #抗日大戦
     id = CHI_anti_JAP_war
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2808,7 +2931,7 @@ shared_focus = { #抗日大戦
 shared_focus = { #国外の友
     id = CHI_friend_from_abroad
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2843,7 +2966,7 @@ shared_focus = { #国外の友
 shared_focus = { #ドイツからの兵器購入
     id = CHI_purchase_weapon_GER
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2870,9 +2993,12 @@ shared_focus = { #ドイツからの兵器購入
 shared_focus = { #戦争経済への移行
     id = CHI_transition_war_economy
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        has_idea = tot_economic_mobilisation
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2892,7 +3018,7 @@ shared_focus = { #戦争経済への移行
 shared_focus = { #ゲリラ戦の展開
     id = CHI_dev_guerrilla_warfare
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2920,9 +3046,18 @@ shared_focus = { #ゲリラ戦の展開
 shared_focus = { #偽満州の同胞
     id = CHI_fake_manchurian_compatriot
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
+    }
+    bypass = {
+        MAN = {
+            OR = {
+                exists = no
+                is_puppet_of = CHI
+                is_subject_of = CHI
+            }
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2944,7 +3079,7 @@ shared_focus = { #偽満州の同胞
 shared_focus = { #一面交渉、一面抵抗
     id = CHI_fight_side_resist_other
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -2953,6 +3088,7 @@ shared_focus = { #一面交渉、一面抵抗
 	available_if_capitulated = no
     search_filters = {
         FOCUS_FILTER_WAR_SUPPORT
+        FOCUS_FILTER_STABILITY
     }
     prerequisite = {
         focus = CHI_transition_war_economy
@@ -2975,7 +3111,7 @@ shared_focus = { #一面交渉、一面抵抗
 shared_focus = { #断固たる抗戦
     id = CHI_resolute_defence
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -3006,7 +3142,7 @@ shared_focus = { #断固たる抗戦
 shared_focus = { #産業の保護
     id = CHI_industry_protect
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -3028,7 +3164,7 @@ shared_focus = { #産業の保護
 shared_focus = { #督戦隊の編成
     id = CHI_formation_viceroy_army
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }
@@ -3050,7 +3186,7 @@ shared_focus = { #督戦隊の編成
 shared_focus = { #継戦
     id = CHI_continu_war
     #icon = 
-    cost = 5
+    cost = 3
     ai_will_do = {
         factor = 10
     }

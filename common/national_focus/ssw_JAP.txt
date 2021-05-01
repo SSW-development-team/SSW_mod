@@ -1,5 +1,5 @@
 focus_tree = {
-	id = SSW_JAP_focus
+	id = ssw_japan
 	country = {
 		factor = 0
 		modifier = {
@@ -9,8 +9,523 @@ focus_tree = {
 	}
 	continuous_focus_position = { x = 50 y = 2000 }
 	default = no
-	shared_focus = JAP_second_disarmament
-	shared_focus = JAP_assassination_of_prime_minister
-	shared_focus = JAP_general_election
-	shared_focus = JAP_fate_of_seiyukai
+	focus = {
+		id = JAP_yoshizawa_speech_to_parliament
+		icon = GFX_goal_unknown
+		x = 7
+		y = 0
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = { id = ssw_jap.0 }
+		}
+	}
+	focus = {
+		id = JAP_budget_plan_for_the_empire_showa_25
+		icon = GFX_goal_JAP_budget_plan_for_the_empire_showa_25
+		prerequisite = { focus = JAP_yoshizawa_speech_to_parliament }
+		x = 0
+		y = 1
+		relative_position_id = JAP_yoshizawa_speech_to_parliament
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = budget_draft_is_created_tt
+		}
+	}
+	focus = {
+		id = JAP_social_security_experts_invited
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = JAP_budget_plan_for_the_empire_showa_25 }
+		x = -1
+		y = 1
+		relative_position_id = JAP_budget_plan_for_the_empire_showa_25
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -10
+		}
+	}
+	focus = {
+		id = JAP_watch_on_trade_unions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = JAP_budget_plan_for_the_empire_showa_25 }
+		x = 1
+		y = 1
+		relative_position_id = JAP_budget_plan_for_the_empire_showa_25
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = JAP_a_second_attempt_to_revise_the_house_of_lords_order
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_social_security_experts_invited }
+		prerequisite = { focus = JAP_watch_on_trade_unions }
+		x = -1
+		y = 1
+		relative_position_id = JAP_watch_on_trade_unions
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = { id = ssw_jap.1 }
+		}
+	}
+	focus = {
+		id = JAP_cooperative_attitude
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = JAP_a_second_attempt_to_revise_the_house_of_lords_order }
+		mutually_exclusive = { focus = JAP_a_strong_stance }
+		x = -5
+		y = 1
+		relative_position_id = JAP_a_second_attempt_to_revise_the_house_of_lords_order
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+	focus = {
+		id = JAP_a_strong_stance
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = JAP_a_second_attempt_to_revise_the_house_of_lords_order }
+		mutually_exclusive = { focus = JAP_cooperative_attitude }
+		x = 5
+		y = 1
+		relative_position_id = JAP_a_second_attempt_to_revise_the_house_of_lords_order
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+	focus = {
+		id = JAP_consultation_on_security_legislation
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = JAP_cooperative_attitude }
+		x = 2
+		y = 1
+		relative_position_id = JAP_cooperative_attitude
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -50
+		}
+	}
+	focus = {
+		id = JAP_meeting_with_members_of_the_house_of_lords
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = JAP_cooperative_attitude }
+		x = -2
+		y = 1
+		relative_position_id = JAP_cooperative_attitude
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_admission_of_members_of_the_house_of_lords
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = JAP_cooperative_attitude }
+		x = 0
+		y = 2
+		relative_position_id = JAP_cooperative_attitude
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 10
+			}
+		}
+	}
+	focus = {
+		id = JAP_discretionary_appointment_to_higashikuninomiya
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_consultation_on_security_legislation }
+		x = 0
+		y = 2
+		relative_position_id = JAP_consultation_on_security_legislation
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_contact_with_the_companions_club
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = JAP_meeting_with_members_of_the_house_of_lords }
+		x = 0
+		y = 2
+		relative_position_id = JAP_meeting_with_members_of_the_house_of_lords
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.07
+			}
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_drawing_up_a_compromise_plan
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = JAP_admission_of_members_of_the_house_of_lords }
+		prerequisite = { focus = JAP_discretionary_appointment_to_higashikuninomiya }
+		prerequisite = { focus = JAP_contact_with_the_companions_club }
+		x = 0
+		y = 2
+		relative_position_id = JAP_admission_of_members_of_the_house_of_lords
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = JAP_yoshizawa_reforms
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_a_second_attempt_to_revise_the_house_of_lords_order }
+		x = 0
+		y = 2
+		relative_position_id = JAP_a_second_attempt_to_revise_the_house_of_lords_order
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = JAP_expansion_of_the_scope_of_application_of_the_relief_act
+		icon = GFX_goal_JAP_expansion_of_the_scope_of_application_of_the_relief_act
+		prerequisite = { focus = JAP_yoshizawa_reforms }
+		x = -1
+		y = 1
+		relative_position_id = JAP_yoshizawa_reforms
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = JAP_survey_of_socialist_trade_unions
+		icon = GFX_goal_JAP_survey_of_socialist_trade_unions
+		prerequisite = { focus = JAP_yoshizawa_reforms }
+		x = 1
+		y = 1
+		relative_position_id = JAP_yoshizawa_reforms
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -50
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = classical_communism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = JAP_social_security_reform_in_the_political_fraternity
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_expansion_of_the_scope_of_application_of_the_relief_act }
+		prerequisite = { focus = JAP_survey_of_socialist_trade_unions }
+		x = -1
+		y = 1
+		relative_position_id = JAP_survey_of_socialist_trade_unions
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_social_security_attempt_rework
+		}
+	}
+	focus = {
+		id = JAP_no_concessions
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_a_strong_stance }
+		x = 2
+		y = 1
+		relative_position_id = JAP_a_strong_stance
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = JAP_plotting_a_split_in_the_house_of_lords
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = JAP_a_strong_stance }
+		x = -2
+		y = 1
+		relative_position_id = JAP_a_strong_stance
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 10
+			}
+		}
+	}
+	focus = {
+		id = JAP_use_of_democratic_political_parties
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_no_concessions }
+		x = 0
+		y = 1
+		relative_position_id = JAP_no_concessions
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.05
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 10
+			}
+		}
+	}
+	focus = {
+		id = JAP_condemnation_of_the_house_of_lords
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = JAP_plotting_a_split_in_the_house_of_lords }
+		x = 0
+		y = 1
+		relative_position_id = JAP_plotting_a_split_in_the_house_of_lords
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -50
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_eliminating_opposition_within_the_party
+		icon = GFX_goal_JAP_eliminating_opposition_within_the_party
+		prerequisite = { focus = JAP_use_of_democratic_political_parties }
+		prerequisite = { focus = JAP_condemnation_of_the_house_of_lords }
+		x = -2
+		y = 1
+		relative_position_id = JAP_use_of_democratic_political_parties
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.05
+			}
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_devising_democratic_security_legislation
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = JAP_eliminating_opposition_within_the_party }
+		x = 0
+		y = 1
+		relative_position_id = JAP_eliminating_opposition_within_the_party
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 30
+		}
+	}
+	focus = {
+		id = JAP_policy_in_the_house_of_representatives
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_social_security_reform_in_the_political_fraternity }
+		prerequisite = {
+			focus = JAP_drawing_up_a_compromise_plan
+			focus = JAP_devising_democratic_security_legislation
+		}
+		x = 0
+		y = 2
+		relative_position_id = JAP_social_security_reform_in_the_political_fraternity
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 30
+		}
+	}
+	focus = {
+		id = JAP_no_compromise_in_the_house_of_representatives
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = JAP_policy_in_the_house_of_representatives }
+		mutually_exclusive = { focus = JAP_unity_in_the_house_of_representatives  }
+		x = 2
+		y = 1
+		relative_position_id = JAP_policy_in_the_house_of_representatives
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			custom_effect_tooltip = increased_influence_of_opponent_tt
+			add_to_variable = {
+				var = JAP_opponent_popularity
+				value = 10
+			}
+		}
+	}
+	focus = {
+		id = JAP_unity_in_the_house_of_representatives
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = JAP_policy_in_the_house_of_representatives }
+		mutually_exclusive = { focus = JAP_no_compromise_in_the_house_of_representatives }
+		x = -2
+		y = 1
+		relative_position_id = JAP_policy_in_the_house_of_representatives
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = JAP_maintaining_the_party_status_of_the_political_fraternity
+		icon = GFX_goal_JAP_maintaining_the_party_status_of_the_political_fraternity
+		prerequisite = { focus = JAP_no_compromise_in_the_house_of_representatives }
+		x = 0
+		y = 1
+		relative_position_id = JAP_no_compromise_in_the_house_of_representatives
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.1
+			}
+			custom_effect_tooltip = increased_influence_of_opponent_tt
+			add_to_variable = {
+				var = JAP_opponent_popularity
+				value = 5
+			}
+		}
+	}
+	focus = {
+		id = JAP_take_in_the_members_of_the_east_asia_construction_national_federation
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_unity_in_the_house_of_representatives }
+		x = 0
+		y = 1
+		relative_position_id = JAP_unity_in_the_house_of_representatives
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = increased_influence_of_revisionist_tt
+			add_to_variable = {
+				var = JAP_revisionist_popularity
+				value = 10
+			}
+		}
+	}
+	focus = {
+		id = JAP_to_debate_the_bill
+		icon = GFX_goal_unknown
+		prerequisite = {
+			focus = JAP_maintaining_the_party_status_of_the_political_fraternity
+			focus = JAP_take_in_the_members_of_the_east_asia_construction_national_federation
+		}
+		x = 2
+		y = 1
+		relative_position_id = JAP_take_in_the_members_of_the_east_asia_construction_national_federation
+		cost = 3.6
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = { id = ssw_jap.2 }
+			set_country_flag = finish_struggle_the_house_of_lords
+		}
+	}
 }

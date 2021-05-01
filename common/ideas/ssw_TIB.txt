@@ -191,6 +191,21 @@ ideas = {
 				conscription = 0.002
 			}
 		}
+		TIB_central_military_commission = {
+
+			picture = generic_communist_army
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				max_command_power = 25
+				command_power_gain_mult = 0.1
+				army_org_regain = 0.1
+				training_time_factor = -0.05
+			}
+		}
 		TIB_production_under_license = {
 		
 			picture = generic_production_bonus
@@ -352,6 +367,124 @@ ideas = {
 				}
 			}
 		}
+		TIB_pirot_trained = {
+			picture = a
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				air_range_factor = 0.05
+				air_ace_generation_chance_factor = 0.05
+			}
+		}
+		TIB_tsonkapa = {
+			picture = a
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				conscription_factor = 0.2
+				political_power_gain = 0.2
+			}
+		}
+		TIB_authority_of_dalai_lama = {
+			picture = a
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.2
+				stability_factor = 0.2
+				opinion_gain_monthly_factor = 0.25
+				ai_focus_peaceful_factor = 10
+			}
+		}
+		TIB_protect_nation_focus_idea = {
+			picture = a
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_bunker_factor = 0.1
+				max_command_power = 50
+				army_defence_factor = 0.15
+				army_org_factor = 0.1
+			}
+		}
+		TIB_maoism = {
+
+			picture = generic_infantry_bonus
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+			modifier = {
+				classical_communism_drift = 0.05
+			}
+		}
+		TIB_support_from_farmer = {
+			picture = gre_agricultural_communes
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				progressive_communism_drift = 0.05
+				consumer_goods_factor = 0.05
+				stability_factor = 0.1
+				conscription_factor = 0.1
+			}
+		}
+		TIB_dual_education = {
+			picture = none
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = 0.08
+			}
+		}
+		TIB_purchase_amdo_tib = {
+			picture = spr_relocate_the_gold_reserves
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.1
+			}
+		}
+		TIB_purchase_amdo_chi = {
+			picture = spr_seize_the_gold_reserves
+
+			allowed = { original_tag = CHI }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+		}
 	}
 	political_leader = {
 		TIB_langdun = {
@@ -364,7 +497,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -381,7 +514,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -397,7 +530,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -413,11 +546,54 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
 			}
+		}
+		TIB_lobsang_tashi_pm = {
+			picture = lobsang_tashi
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {}
+		}
+		TIB_lukhangwa_pm = {
+			picture = lukhangwa
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
+		}
+		TIB_tsarong_pm = {
+			picture = tsarong_dzasa
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
 		}
 	}
 	minister_of_foreign_affairs = {
@@ -431,7 +607,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -448,7 +624,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			allowed = {
-			        tag = TIB
+				tag = TIB
 			}
 			traits = {
 			}
@@ -464,7 +640,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			traits = {
 			}
@@ -481,7 +657,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -497,7 +673,23 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_kyibu_ii = {
+			picture = kyibu_ii
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -515,7 +707,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -531,7 +723,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -547,7 +739,39 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_geshe_sherab_gyatso = {
+				picture = sherab_gyatso
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_lhalu_tsewang_dorje = {
+				picture = lhalu_tsewang_dorje
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -565,7 +789,7 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
@@ -581,7 +805,23 @@ ideas = {
 				}
 			}
 			allowed = {
-			        tag = TIB
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
+		TIB_jigme_taring = {
+			picture = jigme_taring_civil
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {

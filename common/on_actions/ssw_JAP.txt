@@ -1,8 +1,16 @@
 on_actions = {
-	on_startup = {
+	on_monthly = {
 		effect = {
-			JAP = {
-				JAP_create_political_party_values = yes
+			if = {
+				limit = {
+					original_tag = JAP
+					has_country_flag = power_struggle_the_house_of_lords
+					NOT = { has_country_flag = finish_struggle_the_house_of_lords }
+				}
+				add_to_variable = {
+					var = JAP_opponent_popularity
+					value = 5
+				}
 			}
 		}
 	}

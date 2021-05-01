@@ -68,47 +68,36 @@ scripted_gui = {
             }
 #event         
             ssw_variable_page1_click = {
-                every_country = {
-				if = {
-					limit = {
-						NOT = { is_in_array = { global.GDP_list_array = THIS } }
+                add_to_array = { ROOT.economic_sphere_list_array = GER }
+                add_to_array = { ROOT.economic_sphere_list_array = ITA }
+                add_to_array = { ROOT.economic_sphere_list_array = JAP }
+                for_each_loop = {
+					array = GER.GER_mitteleuropa_members
+					if = {
+						limit = {
+							NOT = {
+								is_in_array = { ROOT.economic_sphere_list_array = v }
+							}
+						}
+						add_to_array = { ROOT.economic_sphere_list_array = v }
 					}
-					add_to_array = { global.GDP_list_array = THIS }
 				}
-				set_variable = { country_GDP = num_of_civilian_factories }
-	            set_temp_variable = { temp = num_of_military_factories }
-	            divide_temp_variable = { temp = 2 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@oil }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@aluminium }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@rubber }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@tungsten }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@steel }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-	            set_temp_variable = { temp = resource_produced@chromium }
-	            divide_temp_variable = { temp = 40 }
-	            add_to_variable = { country_GDP = temp }
-			    }
             }
             ssw_variable_page2_click = {
-                ROOT = {
-                add_to_variable = { var = country_inflation_late_for_consumer_goods_factor value = 1 }
-                add_to_variable = { var = country_inflation_late value = 1 }
+                if = {
+                    limit = {
+                        NOT = {
+                        has_country_flag = ssw_dynamic_list_page_opend
+                        }
+                    }
+                    set_country_flag = ssw_dynamic_list_page_opend
+                    else = {
+                        clr_country_flag = ssw_dynamic_list_page_opend
+                    }
                 }
             }
             ssw_variable_page3_click = {
-                ROOT = {
-                set_variable = { var = country_debt_value value = 100000 }
-                }
+                clear_array = ROOT.economic_sphere_list_array
             }
             ssw_debug_world_event_Hitler_kill_button_click = {
                 ROOT = {
@@ -136,6 +125,12 @@ scripted_gui = {
 			set_variable = {SSW_Opening_Screen = 3}
             }
 
+        }
+
+        properties = {
+            debug_pac_Man = {
+                frame = debug_pac_variable
+            }
         }
         triggers = {
 		}
@@ -182,5 +177,28 @@ scripted_gui = {
                 }
             }
         }
+    }
+    ssw_dynamic_lists = {
+        window_name = "economic_sphere_list_container"
+        context_type = player_context
+        visible = {
+        has_country_flag = ssw_dynamic_list_page_opend
+        }
+        effects = {
+            
+        }
+        dynamic_lists = {
+			economic_sphere_tags_grid = {
+				array = economic_sphere_list_array
+				change_scope = yes
+
+				entry_container = economic_sphere_member_entry
+			}
+		}
+        properties = {
+			country_flag = {
+				image = "[This.GetFlag]"
+			}
+		}
     }
 }

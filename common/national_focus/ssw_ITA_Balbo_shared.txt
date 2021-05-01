@@ -664,9 +664,9 @@ completion_reward = {
 	custom_effect_tooltip = ITA_Expanding_the_Outstrada_tooltip
 }
 }
-#
+#各地での鉄鋼業の拡大
 shared_focus = {
-	id = ITA_focus_industry_
+	id = ITA_focus_industry_Expansion_steel_industory
 	icon = GFX_ITA_Autostrada
 	cost = 5.00
 	prerequisite = {
@@ -688,9 +688,8 @@ shared_focus = {
 	x = 3
 	y = 5
 	completion_reward = {
-		custom_effect_tooltip = ITA_Expanding_the_Outstrada_tooltip
 	}
-	}
+}
 #移民問題の解消
 shared_focus = {
 id = ITA_focus_industry_Solving_the_immigration_problem
@@ -742,13 +741,10 @@ shared_focus = {
 	mutually_exclusive = {
 		}
 	available = {
-		IT2 = { is_subject_of = ITA }
-		IT3 = { is_subject_of = ITA }
-		IT4 = { is_subject_of = ITA }
-		IT6 = { is_subject_of = ITA }
-		IT7 = { is_subject_of = ITA }
-		SUD = { is_in_faction_with = ITA }
-		EGY = { is_in_faction_with = ITA }
+		all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies = yes
+		custom_trigger_tooltip = {
+			tooltip = all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies_tooltip
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -1386,6 +1382,89 @@ shared_focus = {
 	completion_reward = {
 		custom_effect_tooltip = ssw_ITA_focus_balbo_Conversion_of_shipboard_aircraft_to_air_force_tooltip
 		add_ideas = ITA_idea_81
+	}
+}
+#エースの育成
+shared_focus = {
+	id = ITA_focus_balbo_Ace_Development
+	icon = GFX_ITA_Italian_Airforce
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Conversion_of_shipboard_aircraft_to_air_force
+		 }
+	mutually_exclusive = {
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 26
+	y = 4
+	completion_reward = {
+		add_ideas = ITA_idea_82
+	}
+}
+#爆撃への注力
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_bombing
+	icon = GFX_ITA_Italian_Airforce
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_development_of_domestically_produced_machines
+		 }
+	mutually_exclusive = {
+		focus =ITA_focus_balbo_Focus_on_air_superiority
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 29
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_84
+	}
+}
+#制空への注力
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_air_superiority
+	icon = GFX_ITA_Italian_Airforce
+	cost = 5.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Focus_on_development_of_domestically_produced_machines
+		 }
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Focus_on_bombing
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 27
+	y = 5
+	completion_reward = {
+		add_ideas = ITA_idea_83
 	}
 }
 #レーダー網の整備
@@ -2079,6 +2158,33 @@ shared_focus = {
 		}
 	}
 }
+#機動力重視
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_Mobility
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_Mobile_Warfare
+		}
+	mutually_exclusive = {
+		}
+	available = {
+		always = no
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 36
+	y = 8
+	completion_reward = {
+	}
+}
 #多様な戦術の導入
 shared_focus = {
 	id = ITA_focus_balbo_Implement_variety_of_tactics
@@ -2437,13 +2543,10 @@ shared_focus = {
 	mutually_exclusive = {
 	}
 	available = {
-		IT2 = { is_subject_of = ITA }
-		IT3 = { is_subject_of = ITA }
-		IT4 = { is_subject_of = ITA }
-		IT6 = { is_subject_of = ITA }
-		IT7 = { is_subject_of = ITA }
-		SUD = { is_in_faction_with = ITA }
-		EGY = { is_in_faction_with = ITA }
+		all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies = yes
+		custom_trigger_tooltip = {
+			tooltip = all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies_tooltip
+		}
 	}
 	ai_will_do = {
 		factor = 5
@@ -2457,6 +2560,37 @@ shared_focus = {
 	x = 9
 	y = 10
 	completion_reward = {
+	}
+}
+#植民地軍の編成
+shared_focus = {
+	id = ITA_focus_colony_dev_colonial_army
+	icon = GFX_ITA_Italian_Colony
+	cost = 1.00
+	prerequisite = {
+		focus = ITA_focus_colony_dev
+	}
+	mutually_exclusive = {
+	}
+	available = {
+		all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies = yes
+		custom_trigger_tooltip = {
+			tooltip = all_Early_colonies_and_Egypt_and_Sudan_are_vassals_and_allies_tooltip
+		}
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 9
+	y = 12
+	completion_reward = {
+
 	}
 }
 ###北アフリカルート###
@@ -3459,7 +3593,7 @@ shared_focus = {
 #先頭
 shared_focus = {
     id = ITA_Balbo_event_focus_tree_top
-    icon = GFX_focus_generic_tank_production
+    icon = GFX_ITA_Balbo_event_focus_tree_top
     cost = 5.00
     prerequisite = {
     }

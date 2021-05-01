@@ -1,23 +1,22 @@
 autonomy_state = {
-	id = military_occupation_territory
+	id = occupied_territories
 	is_puppet = yes
 	
-	min_freedom_level = 0.95
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.0
 	manpower_influence = 1.0
 	
-	rule = {}
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+	}
 	modifier = {}
 	
-	ai_subject_wants_higher = {
-		factor = 1.0
-	}
-
-	ai_overlord_wants_lower = {
-		factor = 0.0
-	}
-
+	ai_subject_wants_higher = {	factor = 1.0	}
+	ai_overlord_wants_lower = {	factor = 0.0	}
+	
 	allowed = {
-		tag = NFR
-		NFR = { has_cosmetic_tag = NFR_GER }
+		has_country_flag = occupied_territories_formed_by
 	}
 }

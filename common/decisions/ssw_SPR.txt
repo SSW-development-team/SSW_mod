@@ -11,8 +11,8 @@ SPR_policy = {
 		}
 		visible = { is_debug = yes }
 		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 10 }
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			add_political_power = 150
 		}
@@ -29,8 +29,8 @@ SPR_policy = {
 		}
 		visible = { is_debug = yes }
 		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 10 }
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			add_political_power = 150
 		}
@@ -40,71 +40,547 @@ SPR_policy = {
 		available = { always = yes }
 		visible = { is_debug = yes }
 		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 10 }
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
 		complete_effect = {
 			add_to_variable = {
 				var = SPR_franco_popularity
-				value = 30
+				value = 10
 			}
 		}
 	}
-	agreement_with_rome_entente = {
-		icon = generic_form_nation
-		available = {
-			is_subject = no
-			has_army_manpower = { size > 949999 }
-			has_completed_focus = SPR_franco_kyoukaidoumei
-			has_completed_focus = SPR_franco_itariadoumei
-			NOT = {
-				is_in_faction_with = ITA
-				has_war_with = ITA
-			}
-			ITA = {
-				is_faction_leader = yes
-				OR = {
-					has_war_with = GER
-					has_war_with = LTV
-					has_war_with = HLH
-					has_war_with = HGR
-					has_war_with = MBR
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = franco_greater_than_150_tt
-				check_variable = {
-					var = SPR_franco_popularity
-					value = 150
-					compare = greater_than_or_equals
-				}
+	support_faction_of_franco = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
 			}
 		}
+		days_remove = 21
 		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 10 }
-		visible = {
-			has_global_flag = scw_over
-			has_completed_focus = SPR_franco_kyoukaidoumei
-			has_completed_focus = SPR_franco_itariadoumei
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_franco_popularity
+				value = 10
+			}
 		}
-		complete_effect = {
-			if = {
-				limit = { is_faction_leader = yes }
-				dismantle_faction = yes
+	}
+	support_faction_of_monarchist = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
 			}
-			if = {
-				limit = {
-					is_faction_leader = no
-					is_in_faction = yes
-				}
-				leave_faction = yes
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_monarchist_popularity
+				value = 10
 			}
-			ITA = { add_to_faction = SPR }
+		}
+	}
+	support_faction_of_falangist = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_falangist_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_democrat = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_democrat_popularity
+				value = 10
+			}
+		}
+	}
+	dislike_faction_of_franco = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPR_franco_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_franco_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_monarchist = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPR_monarchist_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_monarchist_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_falangist = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPR_falangist_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_falangist_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_democrat = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPR_democrat_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPR_democrat_popularity
+				value = -10
+			}
 		}
 	}
 }
 SPA_policy = {
-	
+	support_faction_of_anarchist = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_anarchist_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_trabajo = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_trabajo_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_radicales = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_radicales_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_consejo = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_consejo_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_armado = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_armado_popularity
+				value = 10
+			}
+		}
+	}
+	support_faction_of_social_democrat = {
+		icon = generic_operation
+		available = { NOT = { has_country_flag = start_of_power_struggle_for_spain } }
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_social_democrat_popularity
+				value = 10
+			}
+		}
+	}
+	dislike_faction_of_anarchist = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_anarchist_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_anarchist_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_trabajo = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_trabajo_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_trabajo_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_radicales = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_radicales_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_radicales_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_consejo = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_consejo_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_consejo_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_armado = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_armado_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_armado_popularity
+				value = -10
+			}
+		}
+	}
+	dislike_faction_of_social_democrat = {
+		icon = generic_operation
+		available = {
+			check_variable = {
+				var = SPA_social_democrat_popularity
+				value = 10
+				compare = greater_than_or_equals
+			}
+			NOT = { has_country_flag = start_of_power_struggle_for_spain }
+		}
+		fire_only_once = no
+		visible = { always = yes }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 0
+				has_country_flag = government_confirmed
+			}
+		}
+		days_remove = 21
+		cost = 0
+		complete_effect = { set_country_flag = start_of_power_struggle_for_spain }
+		remove_effect = {
+			clr_country_flag = start_of_power_struggle_for_spain
+			add_to_variable = {
+				var = SPA_social_democrat_popularity
+				value = -10
+			}
+		}
+	}
 }
 SPR_power_struggle = {
 	power_struggle_with_spain = {
@@ -163,6 +639,97 @@ SPR_power_struggle = {
 					}
 				}
 			}
+		}
+	}
+}
+SPR_political_decisions = {
+	recapture_gibraltar = {
+		icon = generic_operation
+		available = {
+			has_army_manpower = { size > 499999 }
+			has_full_control_of_state = 169
+			NOT = { owns_state = 118 }
+		}
+		fire_only_once = no
+		visible = { is_spanish_tag = yes }
+		ai_will_do = { factor = 10 }
+		cost = 0
+		complete_effect = {
+			transfer_state = 118
+			if = {
+				limit = { NOT = { 118 = { is_core_of = ROOT } } }
+				118 = { add_core_of = ROOT }
+			}
+			if = {
+				limit = { country_exists = GIB }
+				annex_country = { target = GIB transfer_troops = yes }
+				every_state = {
+					limit = {
+						is_core_of = GIB
+						NOT = {
+							is_core_of = ROOT
+							is_claimed_by = ROOT
+						}
+					}
+					add_claim_by = ROOT
+				}
+			}
+		}
+	}
+	add_core_states_of_gibraltar = {
+		icon = generic_operation
+		available = {
+			has_full_control_of_state = 118
+			NOT = { 118 = { is_core_of = ROOT } }
+		}
+		fire_only_once = no
+		visible = { is_spanish_tag = yes }
+		ai_will_do = { factor = 10 }
+		cost = 0
+		complete_effect = {
+			add_political_power = 100
+			118 = { add_core_of = ROOT }
+		}
+	}
+	agreement_with_rome_entente = {
+		icon = generic_form_nation
+		available = {
+			is_subject = no
+			has_army_manpower = { size > 949999 }
+			has_completed_focus = SPR_franco_kyoukaidoumei
+			has_completed_focus = SPR_franco_itariadoumei
+			NOT = {
+				is_in_faction_with = ITA
+				has_war_with = ITA
+			}
+			ITA = {
+				is_faction_leader = yes
+				OR = {
+					has_war_with = GER
+					has_war_with = LTV
+					has_war_with = HLH
+					has_war_with = HGR
+					has_war_with = MBR
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 10 }
+		visible = { is_spanish_tag = yes }
+		complete_effect = {
+			if = {
+				limit = { is_faction_leader = yes }
+				dismantle_faction = yes
+			}
+			if = {
+				limit = {
+					is_faction_leader = no
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+			ITA = { add_to_faction = SPR }
 		}
 	}
 }
