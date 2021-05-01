@@ -42,17 +42,13 @@ country_event = {
 		OR = {
 			has_stability < 0
 			AND = {
-				has_stability < 0.1
+				has_stability < 0.2
 				has_global_flag = GER_civil_war
 			}
 		}
 	}
 	immediate = {
 		set_global_flag = UKR_independence_war_started
-		add_ai_strategy = {
-			type = force_build_armies
-			value = 1
-		}
 		hidden_effect = {
 			# create Makhnovia
 			create_dynamic_country = {
@@ -369,9 +365,16 @@ country_event = {
 			}
 		}
 		remove_ideas = UKR_natives_nationalism
+		add_timed_idea = {
+			days = 365
+			idea = UKR_disroyal_army
+		}
 	}
 	option = {
 		name = ssw_UKR.3.a
+		ai_chance = {
+			base = 999
+		}
 	}
 	option = {
 		name = ssw_UKR.3.b

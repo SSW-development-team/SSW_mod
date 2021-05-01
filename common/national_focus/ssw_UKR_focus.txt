@@ -1,10 +1,10 @@
 focus_tree = {
 	id = ssw_UKR
 	country = {
+		base = 0
 		factor = 0
 		modifier = {
 			add = 10
-			tag = UKR
 			OR = {
 				tag = UKR
 				original_tag = UKR
@@ -137,6 +137,9 @@ focus_tree = {
 					name = "Erich Koch"
 				}
 			}
+		}
+		available = {
+			always = no
 		}
 	}
 	focus = {
@@ -386,6 +389,15 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
+		mutually_exclusive = {
+			focus = UKR_christianity
+			focus = UKR_hetmanate
+			focus = UKR_spreme_rada
+			focus = UKR_makhno_cavarly
+		}
+		available = {
+			has_government = social_conservatism
+		}
 		completion_reward = {
 			add_ideas = UKR_national_rada
 		}
@@ -396,6 +408,15 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
+		}
+		available = {
+			has_government = authority_despotism
+		}
+		mutually_exclusive = {
+			focus = UKR_establish_central_rada
+			focus = UKR_hetmanate
+			focus = UKR_spreme_rada
+			focus = UKR_makhno_cavarly
 		}
 		x = 47
 		y = 1
@@ -410,6 +431,15 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
+		}
+		available = {
+			has_government = authority_democracy
+		}
+		mutually_exclusive = {
+			focus = UKR_establish_central_rada
+			focus = UKR_christianity
+			focus = UKR_spreme_rada
+			focus = UKR_makhno_cavarly
 		}
 		x = 53
 		y = 1
@@ -437,6 +467,15 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
+		}
+		available = {
+			has_government = progressive_communism
+		}
+		mutually_exclusive = {
+			focus = UKR_establish_central_rada
+			focus = UKR_christianity
+			focus = UKR_hetmanate
+			focus = UKR_makhno_cavarly
 		}
 		x = 57
 		y = 1
@@ -1701,7 +1740,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			set_party_name = {
-				ideology = authority_despotism_ideology
+				ideology = authority_despotism
 				long_name = UKR_GCC_long
 				name = UKR_GCC
 			}
@@ -2802,6 +2841,15 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
+		}
+		available = {
+			has_government = anarchism
+		}
+		mutually_exclusive = {
+			focus = UKR_establish_central_rada
+			focus = UKR_christianity
+			focus = UKR_hetmanate
+			focus = UKR_spreme_rada
 		}
 		x = 61
 		y = 1
