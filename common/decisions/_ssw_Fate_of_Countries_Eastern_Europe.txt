@@ -47,45 +47,6 @@ fate_of_countries_category_eastern_europe = {
 		}
 		ai_will_do = { factor = 100 }
 	}
-	fate_of_tuva = { #トゥヴァの運命
-		icon = generic_operation
-		selectable_mission = yes
-		days_mission_timeout = 60
-		is_good = no
-		cost = 0
-		fire_only_once = no
-		activation = {
-			NOT = { country_exists = TUV }
-			any_state = {
-				is_fully_controlled_by = ROOT
-				has_state_flag = maybe_core_TUV_GAMESTART
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			TUV = { capital_scope = { is_fully_controlled_by = ROOT } }
-			hidden_trigger = {
-				always = yes
-				NOT = { has_country_flag = continue_to_occupy_tuva }
-			}
-		}
-		cancel_trigger = {
-			OR = {
-				has_government = anarchism
-				is_subject = yes
-				country_exists = TUV
-				TUV = { capital_scope = { is_valid_annexation_state = no } }
-				hidden_trigger = { has_country_flag = continue_to_occupy_tuva }
-			}
-		}
-		complete_effect = { country_event = { id = ssw_foc_eastern_europe.1 } }
-		timeout_effect = {
-			occupy_medium_country = yes
-			set_country_flag = continue_to_occupy_tuva
-		}
-		ai_will_do = { factor = 100 }
-	}
 	fate_of_poland = { #ポーランドの運命
 		icon = generic_operation
 		selectable_mission = yes
@@ -276,6 +237,132 @@ fate_of_countries_category_eastern_europe = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_hungary
 		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_serbia = { #セルビアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = {
+				country_exists = SER
+				country_exists = YUG
+			}
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_SER_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SER = { capital_scope = { is_fully_controlled_by = ROOT } }
+			YUG = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_serbia }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = SER
+				country_exists = YUG
+				SER = { capital_scope = { is_valid_annexation_state = no } }
+				YUG = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_serbia }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.6 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_serbia
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_croatia = { #クロアチアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = CRO }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 109
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CRO = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_croatia }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = CRO
+				CRO = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_croatia }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.7 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_croatia
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_srem = { #スレムの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 971
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CRO = { is_subject_of = ROOT }
+						is_in_faction_with = CRO
+						original_tag = CRO
+					}
+					CRO = { owns_state = 109 }
+				}
+				AND = {
+					OR = {
+						SER = { is_subject_of = ROOT }
+						is_in_faction_with = SER
+						original_tag = SER
+					}
+					SER = { owns_state = 107 }
+				}
+				AND = {
+					OR = {
+						YUG = { is_subject_of = ROOT }
+						is_in_faction_with = YUG
+						original_tag = YUG
+					}
+					YUG = { owns_state = 107 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.8 } }
 		ai_will_do = { factor = 100 }
 	}
 }
