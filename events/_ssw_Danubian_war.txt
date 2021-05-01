@@ -1151,7 +1151,7 @@ country_event = { #ハンガリーが降伏直前に…
 		}
 		43 = { NOT = { is_fully_controlled_by = ROOT } }
 	}
-	mean_time_to_happen = { days = 2 }
+	mean_time_to_happen = { days = 1 }
 	fire_only_once = yes
 	option = { #降伏する
 		name = Danubian_war.29.a
@@ -1335,90 +1335,6 @@ news_event = { #ハンガリーが降伏(トリガー)
 		}
 	}
 }
-country_event = { #クロアチアが降伏直前に…
-	id = Danubian_war.35
-	title = Danubian_war.29.title
-	desc = Danubian_war.29.desc
-	#picture = 
-	trigger = {
-		has_global_flag = Danubian_war
-		NOT = { has_global_flag = danubian_war_end }
-		original_tag = CRO
-		OR = {
-			surrender_progress > 0.6
-			AND = {
-				surrender_progress > 0.3
-				NOT = {
-					is_in_faction_with = BUL
-					is_in_faction_with = HUN
-				}
-			}
-		}
-		OR = {
-			has_war_with = ROM
-			has_war_with = SER
-		}
-		109 = { NOT = { is_fully_controlled_by = ROOT } }
-	}
-	mean_time_to_happen = { days = 2 }
-	fire_only_once = yes
-	option = { #降伏する
-		name = Danubian_war.29.a
-		ai_chance = { base = 80 }
-		set_country_flag = occupied_territories_formed_by
-		set_global_flag = CRO_Surrenders_Donauwar
-		if = {
-			limit = {
-				is_faction_leader = yes
-				is_in_faction_with = BUL
-				is_in_faction_with = HUN
-			}
-			HUN = { set_faction_leader = yes }
-		}
-		if = {
-			limit = {
-				is_faction_leader = yes
-				is_in_faction_with = BUL
-				NOT = { is_in_faction_with = HUN }
-			}
-			BUL = { set_faction_leader = yes }
-		}
-		if = {
-			limit = {
-				is_faction_leader = yes
-				is_in_faction_with = HUN
-				NOT = { is_in_faction_with = BUL }
-			}
-			HUN = { set_faction_leader = yes }
-		}
-		every_country = {
-			limit = { has_war_with = CRO }
-			white_peace = CRO
-		}
-		random_other_country = {
-			limit = {
-				OR = {
-					original_tag = ROM
-					original_tag = SER
-				}
-				is_faction_leader = yes
-			}
-			set_autonomy = {
-				target = CRO
-				autonomous_state = occupied_territories
-			}
-		}
-		hidden_effect = { news_event = { id = Danubian_war.33 } }
-	}
-	option = { #認めん！
-		name = Danubian_war.29.b
-		ai_chance = { base = 20 }
-		start_civil_war = {
-			ideology = authority_despotism
-			size = 0.2
-		}
-	}
-}
 country_event = { #ブルガリアが降伏直前に…
 	id = Danubian_war.35
 	title = Danubian_war.29.title
@@ -1444,7 +1360,7 @@ country_event = { #ブルガリアが降伏直前に…
 		}
 		48 = { NOT = { is_fully_controlled_by = ROOT } }
 	}
-	mean_time_to_happen = { days = 2 }
+	mean_time_to_happen = { days = 1 }
 	fire_only_once = yes
 	option = { #降伏する
 		name = Danubian_war.29.a
@@ -1526,7 +1442,7 @@ country_event = { #ルーマニアが降伏直前に…
 		}
 		46 = { NOT = { is_fully_controlled_by = ROOT } }
 	}
-	mean_time_to_happen = { days = 2 }
+	mean_time_to_happen = { days = 1 }
 	fire_only_once = yes
 	option = { #降伏する
 		name = Danubian_war.29.a
@@ -1591,7 +1507,7 @@ country_event = { #セルビアが降伏直前に…
 			has_war_with = HUN
 		}
 	}
-	mean_time_to_happen = { days = 2 }
+	mean_time_to_happen = { days = 1 }
 	fire_only_once = yes
 	option = { #降伏する
 		name = Danubian_war.29.a
@@ -1624,6 +1540,90 @@ country_event = { #セルビアが降伏直前に…
 			}
 		}
 		hidden_effect = { news_event = { id = Danubian_war.30 } }
+	}
+	option = { #認めん！
+		name = Danubian_war.29.b
+		ai_chance = { base = 20 }
+		start_civil_war = {
+			ideology = authority_despotism
+			size = 0.2
+		}
+	}
+}
+country_event = { #クロアチアが降伏直前に…
+	id = Danubian_war.38
+	title = Danubian_war.29.title
+	desc = Danubian_war.29.desc
+	#picture = 
+	trigger = {
+		has_global_flag = Danubian_war
+		NOT = { has_global_flag = danubian_war_end }
+		original_tag = CRO
+		OR = {
+			surrender_progress > 0.6
+			AND = {
+				surrender_progress > 0.3
+				NOT = {
+					is_in_faction_with = BUL
+					is_in_faction_with = HUN
+				}
+			}
+		}
+		OR = {
+			has_war_with = ROM
+			has_war_with = SER
+		}
+		109 = { NOT = { is_fully_controlled_by = ROOT } }
+	}
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+	option = { #降伏する
+		name = Danubian_war.29.a
+		ai_chance = { base = 80 }
+		set_country_flag = occupied_territories_formed_by
+		set_global_flag = CRO_Surrenders_Donauwar
+		if = {
+			limit = {
+				is_faction_leader = yes
+				is_in_faction_with = BUL
+				is_in_faction_with = HUN
+			}
+			HUN = { set_faction_leader = yes }
+		}
+		if = {
+			limit = {
+				is_faction_leader = yes
+				is_in_faction_with = BUL
+				NOT = { is_in_faction_with = HUN }
+			}
+			BUL = { set_faction_leader = yes }
+		}
+		if = {
+			limit = {
+				is_faction_leader = yes
+				is_in_faction_with = HUN
+				NOT = { is_in_faction_with = BUL }
+			}
+			HUN = { set_faction_leader = yes }
+		}
+		every_country = {
+			limit = { has_war_with = CRO }
+			white_peace = CRO
+		}
+		random_other_country = {
+			limit = {
+				OR = {
+					original_tag = ROM
+					original_tag = SER
+				}
+				is_faction_leader = yes
+			}
+			set_autonomy = {
+				target = CRO
+				autonomous_state = occupied_territories
+			}
+		}
+		hidden_effect = { news_event = { id = Danubian_war.33 } }
 	}
 	option = { #認めん！
 		name = Danubian_war.29.b
