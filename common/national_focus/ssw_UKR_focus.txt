@@ -144,6 +144,7 @@ focus_tree = {
 				has_completed_focus = UKR_unity_christianity
 				has_completed_focus = UKR_het_unity
 				has_completed_focus = UKR_socialist_unity
+				has_completed_focus = UKR_black_unity
 			}
 		}
 	}
@@ -157,6 +158,28 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_mykolaiv
 		}
+		available = {
+			809 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			809 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = {
+						id = 721
+					}
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_navy
@@ -166,7 +189,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = UKR_army
 		prerequisite = {
-			focus = UKR_navy
+			focus = UKR_army
+		}
+		completion_reward = {
+			add_ideas = UKR_navy
 		}
 	}
 	focus = {
@@ -1360,8 +1386,8 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_liberate_volga
 		}
-		x = -1
-		y = 2
+		x = 0
+		y = 1
 		relative_position_id = UKR_liberate_volga
 		available = {
 			country_exists = CCS
@@ -1416,11 +1442,11 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10
 		prerequisite = {
-			focus = UKR_befriend_can
+			focus = UKR_befriend_ros
 		}
-		x = -1
+		x = 0
 		y = 1
-		relative_position_id = UKR_befriend_can
+		relative_position_id = UKR_befriend_ros
 		bypass = {
 			NOT = {
 				country_exists = TEX
@@ -1456,7 +1482,7 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_befriend_can
 		}
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_can
 		available = {
@@ -2057,7 +2083,7 @@ focus_tree = {
 			focus = UKR_church_conquest
 		}
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = UKR_church_conquest
 		completion_reward = {
 			create_wargoal = {
@@ -2578,6 +2604,9 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_power_struggle
 		}
+		mutually_exclusive = {
+			focus = UKR_reformist
+		}
 		x = -1
 		y = 1
 		relative_position_id = UKR_power_struggle
@@ -2594,6 +2623,9 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_power_struggle
+		}
+		mutually_exclusive = {
+			focus = UKR_stalinist
 		}
 		x = 1
 		y = 1
@@ -2630,6 +2662,9 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_seize_power
 		}
+		mutually_exclusive = {
+			focus = UKR_original_socialism
+		}
 		x = 0
 		y = 2
 		relative_position_id = UKR_stalinist
@@ -2646,6 +2681,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UKR_seize_power
+		}
+		mutually_exclusive = {
+			focus = UKR_soviet
 		}
 		x = 0
 		y = 2
@@ -2749,6 +2787,12 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_world_revolution
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+			}
+		}
 	}
 	focus = {
 		id = UKR_makhno_cavarly
@@ -2759,6 +2803,23 @@ focus_tree = {
 		}
 		x = 61
 		y = 1
+		completion_reward = {
+			unlock_decision_category_tooltip = UKR_unification_wars
+			225 = {
+				create_unit = {
+					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_order_khorodono
@@ -2770,6 +2831,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_makhno_cavarly
+		completion_reward = {
+			set_state_controller = 203
+			203 = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
+					owner = PREV
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_black_air_fleet
@@ -2781,6 +2851,25 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_makhno_cavarly
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 100
+				producer = UKR
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment
+				amount = 50
+				producer = UKR
+			}
+		}
 	}
 	focus = {
 		id = UKR_black_unity
@@ -2795,6 +2884,20 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_order_khorodono
+		available = {
+			NOT = {
+				any_country = {
+					original_tag = UKR
+					NOT = {
+						tag = ROOT
+					}
+					exists = yes
+				}
+			}
+		}
+		completion_reward = {
+			add_ideas = UKR_unity
+		}
 	}
 	focus = {
 		id = UKR_befriend_anarchist
@@ -2806,6 +2909,33 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_black_unity
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_government = anarchism
+				}
+				add_opinion_modifier = {
+					target = THIS
+					modifier = SSW_friendly
+				}
+				reverse_add_opinion_modifier = {
+					target = THIS
+					modifier = SSW_friendly
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = THIS
+					value = 100
+				}
+				THIS = {
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = ROOT
+						value = 100
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_spread_revolution
@@ -2817,6 +2947,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_anarchist
+		completion_reward = {
+			unlock_decision_category_tooltip = UKR_revolution
+		}
 	}
 	focus = {
 		id = UKR_world_autonomy
@@ -2828,6 +2961,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_spread_revolution
+		completion_reward = {
+			unlock_decision_category_tooltip = UKR_integration
+		}
 	}
 	focus = {
 		id = UKR_rebuild_town
@@ -2838,7 +2974,16 @@ focus_tree = {
 		}
 		x = -3
 		y = 1
+		ai_will_do = {
+			base = 2
+		}
 		relative_position_id = UKR_administration
+		completion_reward = {
+			add_timed_idea = {
+				idea = UKR_rebuild_town
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = UKR_rebuild_kiev
@@ -2850,6 +2995,30 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_rebuild_town
+		available = {
+			202 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			202 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_rebuild_kiev_univ
@@ -2861,6 +3030,9 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_rebuild_kiev
+		completion_reward = {
+			add_ideas = UKR_kiev_university
+		}
 	}
 	focus = {
 		id = UKR_military_factories
@@ -2872,6 +3044,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_rebuild_kiev
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_improve_literacy
@@ -2883,6 +3064,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_rebuild_kiev_univ
+		completion_reward = {
+			unlock_decision_category_tooltip = UKR_improve_literacy
+		}
 	}
 	focus = {
 		id = UKR_mykolaiv
@@ -2894,6 +3078,28 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_rebuild_town
+		available = {
+			197 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			197 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = {
+						id = 11683
+					}
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_kharkiv
@@ -2905,6 +3111,25 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_rebuild_town
+		available = {
+			221 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			221 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_bergorod
@@ -2916,6 +3141,25 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_kharkiv
+		available = {
+			240 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			240 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_kursk
@@ -2927,6 +3171,25 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_bergorod
+		available = {
+			220 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			220 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_army
@@ -2938,6 +3201,11 @@ focus_tree = {
 		x = -12
 		y = 1
 		relative_position_id = UKR_administration
+		completion_reward = {
+			army_experience = 30
+			navy_experience = 30
+			air_experience = 30
+		}
 	}
 	focus = {
 		id = UKR_sich
@@ -2949,6 +3217,74 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_army
+		completion_reward = {
+			division_template = {
+				name = "Sich Riflemen Division"
+				priority = 2
+				regiments = {
+					infantry = {
+						x = 0
+						y = 0
+					}
+					infantry = {
+						x = 0
+						y = 1
+					}
+					infantry = {
+						x = 0
+						y = 2
+					}
+					infantry = {
+						x = 0
+						y = 3
+					}
+					infantry = {
+						x = 0
+						y = 4
+					}
+					infantry = {
+						x = 1
+						y = 0
+					}
+					artillery_brigade = {
+						x = 1
+						y = 1
+					}
+					anti_tank_brigade = {
+						x = 1
+						y = 2
+					}
+				}
+				support = {
+					engineer = {
+						x = 0
+						y = 0
+					}
+					anti_air = {
+						x = 0
+						y = 1
+					}
+					field_hospital = {
+						x = 0
+						y = 2
+					}
+					signal_company = {
+						x = 0
+						y = 3
+					}
+					logistics_company = {
+						x = 0
+						y = 4
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
+					owner = ROOT
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_integrate_oun_army
@@ -2960,6 +3296,38 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_sich
+		completion_reward = {
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+					owner = PREV
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_karpatia_sich
@@ -2971,6 +3339,21 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_integrate_oun_army
+		available = {
+			OR = {
+				controls_state = 73
+				controls_state = 89
+				controls_state = 91
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
+					owner = ROOT
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_national_company
@@ -2982,6 +3365,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_sich
+		completion_reward = {
+			custom_effect_tooltip = UKR_company_available
+			show_ideas_tooltip = UKR_infantry_equipment_manufacturer_Ukro
+			show_ideas_tooltip = UKR_artillery_manufacturer_Ukro
+		}
 	}
 	focus = {
 		id = UKR_submarine
@@ -2993,6 +3381,16 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_navy
+		mutually_exclusive = {
+			focus = UKR_old_navy
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 5
+				category = cat_trade_interdiction
+			}
+		}
 	}
 	focus = {
 		id = UKR_old_navy
@@ -3004,6 +3402,16 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_navy
+		mutually_exclusive = {
+			focus = UKR_submarine
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = fleet_in_being_tree
+			}
+		}
 	}
 	focus = {
 		id = UKR_end_nightmare
@@ -3015,6 +3423,17 @@ focus_tree = {
 		x = -19
 		y = 1
 		relative_position_id = UKR_administration
+		completion_reward = {
+			set_rule = {
+				can_send_volunteers = yes
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = LTV
+				value = 100
+			}
+			add_ideas = UKR_anti_germany
+		}
 	}
 	focus = {
 		id = UKR_intervine
@@ -3026,17 +3445,22 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_end_nightmare
-	}
-	focus = {
-		id = UKR_anti_ger
-		icon = GFX_goal_unknown
-		cost = 10
-		prerequisite = {
-			focus = UKR_intervine
+		available = {
+			country_exists = LTV
 		}
-		x = 0
-		y = 1
-		relative_position_id = UKR_intervine
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_war_with = LTV
+				}
+				ROOT = {
+					create_wargoal = {
+						type = annex_everything
+						target = PREV
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_air_fleet
@@ -3048,6 +3472,30 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = UKR_army
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 200
+				producer = UKR
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment
+				amount = 100
+				producer = UKR
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = cat_operational_integrity
+			}
+		}
 	}
 	focus = {
 		id = UKR_add_base
@@ -3059,5 +3507,28 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_air_fleet
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 }
