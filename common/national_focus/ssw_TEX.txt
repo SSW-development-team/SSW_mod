@@ -1,667 +1,671 @@
-	focus_tree = {
-	id = TEX
-
+focus_tree = {
+	id = ssw_TEX
 	country = {
 		factor = 0
-		
 		modifier = {
 			add = 10
-			original_tag = TEX
+			tag = TEX
 		}
 	}
-	
 	default = no
-    continuous_focus_position = { x = 0 y = 1200 }
-
-#    focus = {
-#		id = TEX_
-#		icon = GFX_
-#		prerequisite = { focus = TEX_ }
-#		x = 0
-#		y = 0
-#		relative_position_id = TEX_
-#		cost = 10
-#
-#		ai_will_do = {
-#			factor = 10
-#		}
-#
-#		available_if_capitulated = yes
-#
-#		completion_reward = {
-#			
-#		}
-#	}
-
 	focus = {
-		id = TEX_experience
-		icon = "GFX_goal_generic_army_artillery"
-		x = 0
+		id = ssw_tex_1
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 13
 		y = 0
-		cost = 10
 
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			army_experience = 25
-			navy_experience = 25
-			air_experience = 25
-		}
 	}
-
-    focus = {
-		id = TEX_dig
-		icon = "GFX_goal_generic_position_armies"
-		prerequisite = { focus = TEX_experience }
-		x = 0
+	focus = {
+		id = ssw_tex_write_1
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = ssw_tex_1
+		}
+		x = 8
 		y = 2
-		relative_position_id = TEX_experience
-		cost = 10
 
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = TEX_dig_id
-		}
 	}
-
-    focus = {
-		id = TEX_defence_america
-		icon = "GFX_focus_spa_the_war_of_vengeance"
-		prerequisite = { focus = TEX_dig }
-		x = -1
-		y = 1
-		relative_position_id = TEX_dig
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available ={ NOT = {has_ideas = TEX_defence_1year_id } }
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			ALF = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			FSA = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			LUI = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			NEL = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			OKL = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			UTC = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			LFF = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			ANS = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			BLS = {
-				 
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_america_op }
-			}
-			
-			if = {
-				limit = {
-					has_ideas = TEX_defence_mexico_id
-				}
-				swap_ideas = {
- 			    remove_idea = TEX_defence_mexico_id
-    			add_idea = TEX_defence_id
-				}
-			}
-			else = {
-				remove_idea = TEX_dig_id
-				add_ideas = TEX_defence_america_id
-				add_timed_idea = { 
-				    idea = TEX_defence_1year_id 
-				    days = 365 
-				}
-			}
-			
-		}
-	}
-
-    focus = {
-		id = TEX_defence_mexico
-		icon = "GFX_focus_mex_jefe_maximo"
-		prerequisite = { focus = TEX_dig }
-		x = 1
-		y = 1
-		relative_position_id = TEX_dig
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available ={ NOT = {has_ideas = TEX_defence_1year_id } }
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			MEX = {
-				add_opinion_modifier = { target = TEX modifier = TEX_defence_mexico_op }
-			}
-
-			if = {
-				limit = {
-					has_ideas = TEX_defence_america
-				}
-				swap_ideas = {
- 			    remove_idea = TEX_defence_america_id
-    			add_idea = TEX_defence_id
-				}
-			}
-			else = {
-				remove_idea = TEX_dig_id
-				add_ideas = TEX_defence_mexico_id
-				add_timed_idea = { 
-				    idea = TEX_defence_1year_id
-				    days = 365
-				}
-			}
-		}
-	}
-
-    focus = {
-		id = TEX_bunker_america
-		icon = "GFX_goal_fortify_the_westwall"
-		prerequisite = { focus = TEX_defence_america }
-		x = 0
-		y = 1
-		relative_position_id = TEX_defence_america
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		
-		available = {
-			375 = { is_controlled_by = ROOT }
-		}
-
-		completion_reward = {
-			ROOT = { country_event = { id = TEX.bunker.america } }
-			ALF = { country_event = { id = TEX.bunker.america } }
-			FSA = { country_event = { id = TEX.bunker.america } }
-			LUI = { country_event = { id = TEX.bunker.america } }
-			NEL = { country_event = { id = TEX.bunker.america } }
-			OKL = { country_event = { id = TEX.bunker.america } }
-			UTC = { country_event = { id = TEX.bunker.america } }
-			LFF = { country_event = { id = TEX.bunker.america } }
-			ANS = { country_event = { id = TEX.bunker.america } }
-			BLS = { country_event = { id = TEX.bunker.america } }
-			any_neighbor_country  = {
-				limit = {
-					OR = {
-						original_tag = ALF
-						original_tag = FSA
-						original_tag = LUI
-						original_tag = NEL
-						original_tag = OKL
-						original_tag = UCT
-						original_tag = LFF
-						original_tag = ANS
-						original_tag = BLS
-					}
-				}
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = TEX_bunker_america_op
-				}
-			}
-		}
-	}
-
-    focus = {
-		id = TEX_bunker_mexico
-		icon = "GFX_goal_generic_fortify_city"
-		prerequisite = { focus = TEX_defence_mexico }
-		x = 0
-		y = 1
-		relative_position_id = TEX_defence_mexico
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		
-		available = {
-			375 = { is_controlled_by = ROOT }
-		}
-
-		completion_reward = {
-			ROOT = { country_event = { id = TEX.bunker.mexico } }
-			MEX = { country_event = { id = TEX.bunker.mexico } }
-			MEX = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = TEX_bunker_mexico_op
-				}
-			}
-		}
-	}
-
-    focus = {
-		id = TEX_commander
-		icon = "GFX_focus_generic_military_mission"
-		prerequisite = { focus = TEX_bunker_america }
-        prerequisite = { focus = TEX_bunker_mexico }
-		x = 1
-		y = 1
-		relative_position_id = TEX_bunker_america
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			ROOT = { country_event = { id = TEX.commander } }
-		}
-	}
-
 	focus = {
-		id = TEX_Guerrilla
-		icon = "GFX_goal_generic_allies_build_infantry"
-		prerequisite = { focus = TEX_experience }
-		x = 3
-		y = 1
-		relative_position_id = TEX_experience
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_2
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_1
 		}
+		x = 8
+		y = 3
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			army_experience = 10
-			add_tech_bonus = {
-    			bonus = 0.5
-    			uses = 2
-    			category = "ゲリラドクトリン"
-			}
-		}
 	}
-
-    focus = {
-		id = TEX_supply
-		icon = "GFX_goal_generic_secret_weapon"
-		prerequisite = { focus = TEX_Guerrilla }
-		x = 0
-		y = 1
-		relative_position_id = TEX_Guerrilla
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-				add_ideas = TEX_supply_id
-		}
-	}
-	
-    focus = {
-		id = TEX_infantry
-		icon = "GFX_goal_generic_small_arms"
-
-		prerequisite = { focus = TEX_supply }
-		x = 0
-		y = 1
-		relative_position_id = TEX_supply
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_equipment_to_stockpile = {
-    			type = infantry_equipment
-    			amount = 1000
-			}	
-		}
-	}
-
-    focus = {
-		id = TEX_manpower
-		icon = "GFX_focus_generic_military_academy"
-		prerequisite = { focus = TEX_infantry }
-		x = 0
-		y = 1
-		relative_position_id = TEX_infantry
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_manpower = 100000
-		}
-	}	
-
 	focus = {
-		id = TEX_49th
-		icon = "GFX_goal_generic_army_tanks"
-		prerequisite = { focus = TEX_manpower }
-		x = 0
-		y = 1
-		relative_position_id = TEX_manpower
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_4
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_2
 		}
+		x = 6
+		y = 4
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			division_template = {
-    			name = "49th Armored Division"
-    			regiments = {
-					medium_armor = { x = 0 y = 0 }
-					medium_armor = { x = 0 y = 1 }
-					medium_armor = { x = 0 y = 2 }
-					mechanized = { x = 1 y = 0 }
-					mechanized = { x = 1 y = 1 }
-					mechanized = { x = 1 y = 2 }
-					artillery_brigade = { x = 2 y = 0 }
-					artillery_brigade = { x = 2 y = 1 }
-					artillery_brigade = { x = 2 y = 2 }
-
-    			}
-    			support = { 
-        			recon = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1}
-    			} 
-				start_experience_factor = 1.0
-			}
-			set_division_template_lock = { 
-    			Division_template = "49th Armored Division" 
-    			is_locked = yes 
-			}
-			load_oob = "49th Armored Division"
-		}
 	}
-   
-
 	focus = {
-		id = TEX_battlefield_support
-		icon = "GFX_goal_generic_build_airforce"
-		prerequisite = { focus = TEX_experience }
-		x = -3
-		y = 1
-		relative_position_id = TEX_experience
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_3
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_2
 		}
+		x = 10
+		y = 4
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			army_experience = 10
-			add_tech_bonus = {
-    			bonus = 0.5
-    			uses = 2
-    			category = cat_battlefield_support
-			}
-		}
 	}
-
 	focus = {
-		id = TEX_air_build
-		icon = "GFX_goal_generic_construct_civilian"
-		prerequisite = { focus = TEX_battlefield_support }
-		x = 0
-		y = 1
-		relative_position_id = TEX_battlefield_support
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_8
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_3
 		}
+		x = 10
+		y = 5
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			375 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			
-				add_building_construction = {
-					type = air_base
-					level = 4
-					instant_build = yes
-				}
-			}	
-		}
 	}
-
 	focus = {
-		id = TEX_scout_plane
-		icon = "GFX_goal_generic_air_fighter2"
-		prerequisite = { focus = TEX_air_build }
-		x = 0
-		y = 1
-		relative_position_id = TEX_air_build
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_９
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_8
 		}
+		x = 10
+		y = 6
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-    			bonus = 3
-    			uses = 2
-				ahead_reduction = 2
-    			category = cat_scout_plane
-			}		
-		}
-		
 	}
-
 	focus = {
-		id = TEX_fighter
-		icon = "GFX_goal_generic_air_fighter"
-		prerequisite = { focus = TEX_scout_plane }
-		x = 0
-		y = 1
-		relative_position_id = TEX_scout_plane
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_write_10
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_９
 		}
+		x = 10
+		y = 7
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_equipment_to_stockpile = {
-    			type = fighter_equipment
-    			amount = 500
-    		}
-		}
 	}
-
 	focus = {
-		id = TEX_para_tech
-		icon = "GFX_focus_generic_paratrooper"
-		prerequisite = { focus = TEX_fighter }
-		x = 0
-		y = 1
-		relative_position_id = TEX_fighter
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_KKK_1
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = ssw_tex_1
 		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_equipment_to_stockpile = {
-    			type = transport_plane_equipment
-    			amount = 50
-			}
-			add_equipment_to_stockpile = {
-    			type = fighter_equipment
-    			amount = -50
-			}
-		
-		}
-		
-	}
-
-	focus = {
-		id = TEX_dockyard
-		icon = "GFX_goal_generic_construct_naval_dockyard"
-		prerequisite = { focus = TEX_commander }
-		prerequisite = { focus = TEX_para_tech }
-		prerequisite = { focus = TEX_49th }
-		x = 0
+		x = 13
 		y = 2
-		relative_position_id = TEX_commander
-		cost = 10
 
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			ROOT = { country_event = { id = TEX.dockyard } }
-		}
 	}
-
 	focus = {
-		id = TEX_dd_tech
-		icon = "GFX_focus_generic_cruiser2"
-		prerequisite = { focus = TEX_dockyard }
-		x = -2
-		y = 1
-		relative_position_id = TEX_dockyard
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_hunt_1
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = ssw_tex_1
 		}
+		x = 18
+		y = 2
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-    			bonus = 0.5
-    			uses = 2
-    			category = dd_tech
-			}
-		}
 	}
-
 	focus = {
-		id = TEX_fleet_in_being
-		icon = "GFX_goal_generic_build_navy"
-		prerequisite = { focus = TEX_dockyard }
-		x = 0
-		y = 1
-		relative_position_id = TEX_dockyard
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_hunt_2
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_1
 		}
+		x = 18
+		y = 3
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			navy_experience = 10
-			add_tech_bonus = {
-    			bonus = 0.5
-    			uses = 2
-    			category = cat_fleet_in_being
-			}
-		}
 	}
-
 	focus = {
-		id = TEX_cl_tech
-		icon = "GFX_focus_generic_destroyer"
-		prerequisite = { focus = TEX_dockyard }
-		x = 2
-		y = 1
-		relative_position_id = TEX_dockyard
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
+		id = ssw_tex_hunt_3
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_2
 		}
+		x = 16
+		y = 4
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-    			bonus = 0.5
-    			uses = 2
-    			category = cl_tech
-			}
-		}
 	}
+	focus = {
+		id = ssw_tex_hunt_7
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_2
+		}
+		x = 20
+		y = 4
 
-	
+	}
+	focus = {
+		id = ssw_tex_hunt_8
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_7
+		}
+		x = 20
+		y = 5
 
+	}
+	focus = {
+		id = ssw_tex_hunt_9
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_8
+		}
+		x = 20
+		y = 6
 
+	}
+	focus = {
+		id = ssw_tex_hunt_10
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_9
+		}
+		x = 20
+		y = 7
+
+	}
+	focus = {
+		id = ssw_tex_write_5
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_4
+		}
+		x = 6
+		y = 5
+
+	}
+	focus = {
+		id = ssw_tex_write_6
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_5
+		}
+		x = 6
+		y = 6
+
+	}
+	focus = {
+		id = ssw_tex_write_7
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_write_6
+		}
+		x = 6
+		y = 7
+
+	}
+	focus = {
+		id = ssw_tex_write_11
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ssw_tex_write_10
+		}
+		prerequisite = {
+			focus = ssw_tex_write_7
+		}
+		x = 8
+		y = 8
+
+	}
+	focus = {
+		id = ssw_tex_hunt_4
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_3
+		}
+		x = 16
+		y = 5
+
+	}
+	focus = {
+		id = ssw_tex_hunt_5
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_4
+		}
+		x = 16
+		y = 6
+
+	}
+	focus = {
+		id = ssw_tex_hunt_6
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_5
+		}
+		x = 16
+		y = 7
+
+	}
+	focus = {
+		id = ssw_tex_hunt_11
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ssw_tex_hunt_10
+		}
+		prerequisite = {
+			focus = ssw_tex_hunt_6
+		}
+		x = 18
+		y = 8
+
+	}
+	focus = {
+		id = ssw_tex_2
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_hunt_11
+			focus = ssw_tex_write_11
+		}
+		x = 13
+		y = 10
+
+	}
+	focus = {
+		id = ssw_tex_3
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_2
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_4
+			focus = ssw_tex_5
+			focus = ssw_tex_4
+			focus = ssw_tex_5
+		}
+		x = 8
+		y = 11
+
+	}
+	focus = {
+		id = ssw_tex_4
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_2
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_3
+			focus = ssw_tex_5
+			focus = ssw_tex_3
+		}
+		x = 13
+		y = 11
+
+	}
+	focus = {
+		id = ssw_tex_5
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_2
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_4
+			focus = ssw_tex_3
+			focus = ssw_tex_3
+		}
+		x = 18
+		y = 11
+
+	}
+	focus = {
+		id = ssw_tex_6
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_4
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_7
+		}
+		x = 11
+		y = 12
+
+	}
+	focus = {
+		id = ssw_tex_7
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_4
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_6
+		}
+		x = 15
+		y = 12
+
+	}
+	focus = {
+		id = ssw_tex_8
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ssw_tex_3
+		}
+		x = 8
+		y = 12
+
+	}
+	focus = {
+		id = ssw_tex_9
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_8
+		}
+		x = 8
+		y = 13
+
+	}
+	focus = {
+		id = ssw_tex_write_12
+		icon = GFX_goal_unknown
+		cost = 2.00
+		prerequisite = {
+			focus = ssw_tex_write_7
+		}
+		x = 4
+		y = 8
+
+	}
+	focus = {
+		id = ssw_tex_10
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_9
+		}
+		x = 5
+		y = 14
+
+	}
+	focus = {
+		id = ssw_tex_11
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_9
+		}
+		x = 8
+		y = 14
+
+	}
+	focus = {
+		id = ssw_tex_12
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_9
+		}
+		x = 11
+		y = 14
+
+	}
+	focus = {
+		id = ssw_tex_13
+		icon = GFX_goal_unknown
+		cost = 2.00
+		prerequisite = {
+			focus = ssw_tex_12
+		}
+		prerequisite = {
+			focus = ssw_tex_11
+		}
+		prerequisite = {
+			focus = ssw_tex_10
+		}
+		x = 8
+		y = 15
+
+	}
+	focus = {
+		id = ssw_tex_14
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_5
+		}
+		x = 18
+		y = 12
+
+	}
+	focus = {
+		id = ssw_tex_15
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_14
+		}
+		x = 18
+		y = 13
+
+	}
+	focus = {
+		id = ssw_tex_16
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_15
+		}
+		mutually_exclusive = {
+			focus = ssw_KGC_1
+			focus = ssw_tex_seaempire_1
+		}
+		x = 18
+		y = 15
+
+	}
+	focus = {
+		id = ssw_KGC_1
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_15
+		}
+		mutually_exclusive = {
+			focus = ssw_tex_16
+			focus = ssw_tex_seaempire_1
+			focus = ssw_tex_seaempire_1
+		}
+		x = 14
+		y = 15
+
+	}
+	focus = {
+		id = ssw_KGC_2
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_1
+		}
+		x = 12
+		y = 16
+
+	}
+	focus = {
+		id = ssw_KGC_3
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_1
+		}
+		x = 16
+		y = 16
+
+	}
+	focus = {
+		id = ssw_KGC_4
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_3
+		}
+		prerequisite = {
+			focus = ssw_KGC_2
+		}
+		x = 14
+		y = 17
+
+	}
+	focus = {
+		id = ssw_KGC_5
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_4
+		}
+		x = 14
+		y = 18
+
+	}
+	focus = {
+		id = ssw_KGC_6
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_5
+		}
+		x = 14
+		y = 19
+
+	}
+	focus = {
+		id = ssw_KGC_7
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_KGC_6
+		}
+		x = 14
+		y = 20
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_1
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_15
+		}
+		mutually_exclusive = {
+			focus = ssw_KGC_1
+			focus = ssw_tex_16
+			focus = ssw_KGC_1
+		}
+		x = 22
+		y = 15
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_2
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_1
+		}
+		x = 22
+		y = 16
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_3
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_2
+		}
+		x = 22
+		y = 17
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_4
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_3
+		}
+		x = 19
+		y = 18
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_5
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_3
+		}
+		x = 22
+		y = 18
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_6
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_3
+		}
+		x = 25
+		y = 18
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_7
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_4
+		}
+		prerequisite = {
+			focus = ssw_tex_seaempire_5
+		}
+		prerequisite = {
+			focus = ssw_tex_seaempire_6
+		}
+		x = 22
+		y = 19
+
+	}
+	focus = {
+		id = ssw_tex_seaempire_8
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ssw_tex_seaempire_7
+		}
+		x = 22
+		y = 20
+
+	}
 }
