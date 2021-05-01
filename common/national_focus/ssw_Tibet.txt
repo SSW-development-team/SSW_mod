@@ -408,6 +408,7 @@ focus_tree = {
 			TIB_down_monastery = yes
 			remove_ideas = TIB_14th_dalai_lama
 			add_stability = -0.05
+			unlock_decision_category_tooltip = TIB_kham_problem
 		}
 		x = 15
 		y = 7
@@ -688,6 +689,9 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_transfer_power_to_norbulingka
 		}
+		completion_reward = {
+			TIB_temple_gov_idea = yes
+		}
 		x = 28
 		y = 7
 
@@ -700,71 +704,8 @@ focus_tree = {
 			focus = TIB_transfer_power_to_norbulingka
 		}
 		completion_reward = {
-			create_corps_commander = {
-				name = "Gompo Tashi Andrugtsang"
-				portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Gompo_Tashi.dds"
-				traits = { infantry_leader trickster trait_mountaineer }
-				skill = 2
-				desc = "TIB_GOMBO_TASHI_DESC"
-				rank = 1
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 1
-			}
-			hidden_effect = {
-				division_template = {
-					name = "Chushi Gandruk"
-					priority = 0
-					division_names_group = TIB_INF_01				regiments = {
-					infantry = {
-							x = 0
-							y = 0
-						}
-						infantry = {
-							x = 0
-							y = 1
-						}
-						infantry = {
-							x = 1
-							y = 0
-						}
-						infantry = {
-							x = 1
-							y = 1
-						}
-						infantry = {
-							x = 2
-							y = 0
-						}
-						infantry = {
-							x = 2
-							y = 1
-						}
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						ROOT = {
-							has_full_control_of_state = PREV
-						}
-					}
-					prioritize = { 920 }
-					create_unit = {
-						division = "name = \"1. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
-						owner = TIB
-					}
-					create_unit = {
-						division = "name = \"2. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
-						owner = TIB
-					}
-					create_unit = {
-						division = "name = \"3. Kham Militia\" division_template = \"Chushi Gandruk\" start_experience_factor = 0.5"
-						owner = TIB
-					}
-				}
-			}
-			custom_effect_tooltip = TIB_chushi_gandruk_tt
+			unlock_decision_category_tooltip = TIB_kham_problem
+			add_political_power = 50
 		}
 		x = 30
 		y = 7
@@ -779,6 +720,26 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_religious_state
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_war_support < 0.5
+				}
+				add_war_support = 0.1
+			}
+			else_if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+					has_idea = partial_economic_mobilisation
+					has_idea = war_economy
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = low_economic_mobilisation
+			}
+			add_political_power = 200
+		}
 		x = 29
 		y = 8
 
@@ -790,7 +751,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_reorganization_ganden_phodrang
 		}
-		available = { NOT = { has_completed_focus = TIB_legacy_of_tshongkhapa }}
+		available = { NOT = { has_completed_focus = TIB_legacy_of_tsongkhapa }}
 		completion_reward = {
 		        random_owned_controlled_state = {
 			        add_extra_state_shared_building_slots = 2
@@ -826,6 +787,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_more_temples
+		}
+		completion_reward = {
+			country_event = tibet.16
 		}
 		x = 29
 		y = 11
@@ -1044,6 +1008,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = TIB_kalon_lama_tt
+			unlock_decision_category_tooltip = TIB_kham_problem
 		}
 		x = 35
 		y = 7
@@ -1056,6 +1021,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_legacy_of_tsongkhapa
 		}
+		available = {
+			country_exists = MON
+			MON = {
+				is_subject = no
+			}
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = TIB_influence_mongol
+		}
 		x = 37
 		y = 8
 
@@ -1066,6 +1040,23 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_legacy_of_tsongkhapa
+		}
+		available = {
+			GER = {
+				has_civil_war = no
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = GER
+				modifier = TIB_trade_mission
+			}
+			GER = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = TIB_trade_mission
+				}
+			}
 		}
 		x = 33
 		y = 8
@@ -2155,7 +2146,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			remove_ideas = TIB_the_nobles
-			add_stability = -0.1
+			add_stability = -0.15
+			unlock_decision_category_tooltip = TIB_kham_problem
 		}
 		x = 3
 		y = 5
@@ -2920,6 +2912,9 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_religion_and_politic
 		}
+		completion_reward = {
+			add_ideas = TIB_dual_education
+		}
 		x = 24
 		y = 8
 
@@ -2954,6 +2949,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_political_power = 100
+			unlock_decision_category_tooltip = TIB_kham_problem
 		}
 		x = 23
 		y = 9

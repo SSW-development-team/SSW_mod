@@ -301,6 +301,16 @@ on_actions = {
 			#セルビア
 			107 = { set_state_flag = maybe_less_SER_GAMESTART }
 			108 = { set_state_flag = maybe_less_SER_GAMESTART }
+			#ユーゴスラビア
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = CRO
+						is_owned_by = SER
+					}
+				}
+				set_state_flag = maybe_less_YUG_GAMESTART
+			}
 			#中国
 			every_state = {
 				limit = {
@@ -390,25 +400,24 @@ on_actions = {
 			#カム
 			601 = { set_state_flag = maybe_less_KHM_GAMESTART }
 			920 = { set_state_flag = maybe_less_KHM_GAMESTART }
+			#トランシルヴァニア
+			82 = { set_state_flag = maybe_less_TRA_GAMESTART }
+			83 = { set_state_flag = maybe_less_TRA_GAMESTART }
+			84 = { set_state_flag = maybe_less_TRA_GAMESTART }
+			#ブルガリア
+			48 = { set_state_flag = maybe_less_BUL_GAMESTART }
+			212 = { set_state_flag = maybe_less_BUL_GAMESTART }
+			801 = { set_state_flag = maybe_less_BUL_GAMESTART }
+			#ルーマニア
+			46 = { set_state_flag = maybe_less_ROM_GAMESTART }
+			79 = { set_state_flag = maybe_less_ROM_GAMESTART }
+			81 = { set_state_flag = maybe_less_ROM_GAMESTART }
 			#フランス
 			every_state = {
 				limit = {
 					is_owned_by = FRA
 					NOT = {
-						state = 459
-						state = 460
-						state = 513
-						state = 806
-						state = 838
-					}
-				}
-				set_state_flag = maybe_less_FRA_GAMESTART
-			}
-			#フランス
-			every_state = {
-				limit = {
-					is_owned_by = FRA
-					NOT = {
+						state = 1
 						state = 459
 						state = 460
 						state = 513
@@ -422,7 +431,10 @@ on_actions = {
 			every_state = {
 				limit = {
 					is_owned_by = NFR
-					NOT = { state = 838 }
+					NOT = {
+						state = 14
+						state = 838
+					}
 				}
 				set_state_flag = maybe_less_NFR_GAMESTART
 			}

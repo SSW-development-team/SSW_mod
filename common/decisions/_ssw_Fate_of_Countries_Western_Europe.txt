@@ -25,21 +25,57 @@ fate_of_countries_category_western_europe = {
 		available = { always = yes }
 		visible = {
 			NOT = {
+				country_exists = ARO
+				country_exists = BAY
+				country_exists = CGR
+				country_exists = EDL
+				country_exists = EGR
 				country_exists = GER
-				country_exists = HLH
+				country_exists = GRC
+				country_exists = HAN
 				country_exists = HGR
+				country_exists = HLH
 				country_exists = LTV
+				country_exists = MBR
+				country_exists = MEK
+				country_exists = PBH
+				country_exists = PRE
+				country_exists = RDA
+				country_exists = SAX
+				country_exists = SCH
+				country_exists = SHL
+				country_exists = TEU
 				country_exists = WGR
+				country_exists = WLK
+				country_exists = WUR
 				has_global_flag = had_yalta_conference
 			}
 			any_state = {
 				is_fully_controlled_by = ROOT
 				OR = {
+					is_core_of = ARO
+					is_core_of = BAY
+					is_core_of = CGR
+					is_core_of = EDL
+					is_core_of = EGR
 					is_core_of = GER
-					is_core_of = HLH
+					is_core_of = GRC
+					is_core_of = HAN
 					is_core_of = HGR
+					is_core_of = HLH
 					is_core_of = LTV
+					is_core_of = MBR
+					is_core_of = MEK
+					is_core_of = PBH
+					is_core_of = PRE
+					is_core_of = RDA
+					is_core_of = SAX
+					is_core_of = SCH
+					is_core_of = SHL
+					is_core_of = TEU
 					is_core_of = WGR
+					is_core_of = WLK
+					is_core_of = WUR
 				}
 				NOT = {
 					is_core_of = ROOT
@@ -47,11 +83,27 @@ fate_of_countries_category_western_europe = {
 				}
 			}
 			OR = {
+				ARO = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				CGR = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				EDL = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				EGR = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
 				GER = {
 					capital_scope = { is_fully_controlled_by = ROOT }
 					NOT = { is_subject_of = ROOT }
 				}
-				HLH = {
+				GRC = {
 					capital_scope = { is_fully_controlled_by = ROOT }
 					NOT = { is_subject_of = ROOT }
 				}
@@ -59,11 +111,39 @@ fate_of_countries_category_western_europe = {
 					capital_scope = { is_fully_controlled_by = ROOT }
 					NOT = { is_subject_of = ROOT }
 				}
+				HLH = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
 				LTV = {
 					capital_scope = { is_fully_controlled_by = ROOT }
 					NOT = { is_subject_of = ROOT }
 				}
+				MBR = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				PBH = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				RDA = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				SCH = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				TEU = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
 				WGR = {
+					capital_scope = { is_fully_controlled_by = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+				WLK = {
 					capital_scope = { is_fully_controlled_by = ROOT }
 					NOT = { is_subject_of = ROOT }
 				}
@@ -1333,6 +1413,328 @@ fate_of_countries_category_western_europe = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_spain
 		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_france = { #フランスの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = {
+				country_exists = FRA
+				country_exists = FRP
+				country_exists = OCC
+				country_exists = POI
+				country_exists = PRV
+				country_exists = VIC
+			}
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_FRA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			26 = { is_fully_controlled_by = ROOT }
+			OCC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			POI = { capital_scope = { is_fully_controlled_by = ROOT } }
+			PRV = { capital_scope = { is_fully_controlled_by = ROOT } }
+			VIC = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_france }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = FRA
+				country_exists = FRP
+				country_exists = OCC
+				country_exists = POI
+				country_exists = PRV
+				country_exists = VIC
+				26 = { is_valid_annexation_state = no }
+				OCC = { capital_scope = { is_valid_annexation_state = no } }
+				POI = { capital_scope = { is_valid_annexation_state = no } }
+				PRV = { capital_scope = { is_valid_annexation_state = no } }
+				VIC = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_france }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.16 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_france
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_corsica = { #コルシカの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = COR }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 1
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			COR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_corsica }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = COR
+				COR = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_corsica }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.17 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_corsica
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_french_basque_country = { #フランス領バスクの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 806
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						FRP = { is_subject_of = ROOT }
+						is_in_faction_with = FRP
+						original_tag = FRP
+					}
+					FRP = { owns_state = 19 }
+				}
+				AND = {
+					OR = {
+						FRA = { is_subject_of = ROOT }
+						is_in_faction_with = FRA
+						original_tag = FRA
+					}
+					FRA = { owns_state = 19 }
+				}
+				AND = {
+					OR = {
+						NFR = { is_subject_of = ROOT }
+						is_in_faction_with = NFR
+						original_tag = NFR
+					}
+					NFR = { owns_state = 19 }
+				}
+				AND = {
+					OR = {
+						NAV = { is_subject_of = ROOT }
+						is_in_faction_with = NAV
+						original_tag = NAV
+					}
+					NAV = { owns_state = 172 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.18 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_brittany = { #ブルターニュの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = BRI }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 14
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			BRI = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_brittany }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = BRI
+				BRI = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_brittany }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.19 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_brittany
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_northern_france = { #北フランスの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = NFR }
+			any_state = {
+				is_fully_controlled_by = ROOT
+				has_state_flag = maybe_less_NFR_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			NFR = { capital_scope = { is_fully_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_northern_france }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = NFR
+				NFR = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_northern_france }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.20 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_northern_france
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_western_switzerland = { #スイス西部の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				state = 838
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						FRP = { is_subject_of = ROOT }
+						is_in_faction_with = FRP
+						original_tag = FRP
+					}
+					FRP = { owns_state = 735 }
+				}
+				AND = {
+					OR = {
+						FRA = { is_subject_of = ROOT }
+						is_in_faction_with = FRA
+						original_tag = FRA
+					}
+					FRA = { owns_state = 735 }
+				}
+				AND = {
+					OR = {
+						NFR = { is_subject_of = ROOT }
+						is_in_faction_with = NFR
+						original_tag = NFR
+					}
+					NFR = { owns_state = 735 }
+				}
+				AND = {
+					OR = {
+						SWI = { is_subject_of = ROOT }
+						is_in_faction_with = SWI
+						original_tag = SWI
+					}
+					SWI = { owns_state = 3 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.21 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_calais = { #カレーの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 29
+					state = 1037
+					state = 1038
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						FRP = { is_subject_of = ROOT }
+						is_in_faction_with = FRP
+						original_tag = FRP
+					}
+					FRP = { owns_state = 785 }
+				}
+				AND = {
+					OR = {
+						FRA = { is_subject_of = ROOT }
+						is_in_faction_with = FRA
+						original_tag = FRA
+					}
+					FRA = { owns_state = 785 }
+				}
+				AND = {
+					OR = {
+						NFR = { is_subject_of = ROOT }
+						is_in_faction_with = NFR
+						original_tag = NFR
+					}
+					NFR = { owns_state = 785 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_western_europe.22 } }
 		ai_will_do = { factor = 100 }
 	}
 }
