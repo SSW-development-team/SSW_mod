@@ -27,20 +27,11 @@ focus_tree = {
 		y = 0
 		available_if_capitulated = yes
 		available = {
-			OR = {
-				has_country_leader = {
-					name = "Erich Koch"
-					ruling_only = yes
-				}
+			has_country_leader = {
+				name = "Erich Koch"
+				ruling_only = yes
 			}
 		}
-		# tag = UVG
-		# custom_trigger_tooltip = {
-		#  tooltip = ssw_UKR_tooltip_won_emergency
-		#  NOT = {
-		#   has_cosmetic_tag = UKR_GEM
-		#  }
-		# }
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
@@ -132,12 +123,9 @@ focus_tree = {
 	focus = {
 		id = UKR_administration
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 0
 		x = 35
 		y = 12
-		available = {
-			always = no
-		}
 		bypass = {
 			OR = {
 				has_completed_focus = UKR_unity
@@ -145,6 +133,9 @@ focus_tree = {
 				has_completed_focus = UKR_het_unity
 				has_completed_focus = UKR_socialist_unity
 				has_completed_focus = UKR_black_unity
+				has_country_leader = {
+					name = "Erich Koch"
+				}
 			}
 		}
 	}
@@ -333,6 +324,17 @@ focus_tree = {
 		y = 1
 		relative_position_id = UKR_administration
 		available_if_capitulated = yes
+		available = {
+			OR = {
+				NOT = {
+					has_country_leader = {
+						name = "Erich Koch"
+						ruling_only = yes
+					}
+				}
+				is_puppet = no
+			}
+		}
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
 		}
@@ -3198,7 +3200,7 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_administration
 		}
-		x = -12
+		x = -11
 		y = 1
 		relative_position_id = UKR_administration
 		completion_reward = {
@@ -3217,6 +3219,11 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_army
+		available = {
+			NOT = {
+				has_idea = UKR_natives_nationalism
+			}
+		}
 		completion_reward = {
 			division_template = {
 				name = "Sich Riflemen Division"
@@ -3420,7 +3427,15 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_administration
 		}
-		x = -19
+		available = {
+			NOT = {
+				has_country_leader = {
+					name = "Erich Koch"
+					ruling_only = yes
+				}
+			}
+		}
+		x = -18
 		y = 1
 		relative_position_id = UKR_administration
 		completion_reward = {
