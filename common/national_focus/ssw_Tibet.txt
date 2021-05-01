@@ -720,6 +720,26 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_religious_state
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_war_support < 0.5
+				}
+				add_war_support = 0.1
+			}
+			else_if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+					has_idea = partial_economic_mobilisation
+					has_idea = war_economy
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = low_economic_mobilisation
+			}
+			add_political_power = 200
+		}
 		x = 29
 		y = 8
 
@@ -767,6 +787,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_more_temples
+		}
+		completion_reward = {
+			country_event = tibet.16
 		}
 		x = 29
 		y = 11
