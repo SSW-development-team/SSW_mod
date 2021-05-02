@@ -1,0 +1,238 @@
+focus_tree = {
+	id = mal_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MAL
+		}
+	}
+	default = no
+	focus = {
+		id = mal_ethnic_ploblem
+		icon = GFX_focus_YUG_dissolve_serbia
+		cost = 10
+		x = 4
+		y = 0
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = mal_b_policy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_ethnic_ploblem
+		}
+		x = 2
+		y = 1
+		relative_position_id = mal_ethnic_ploblem
+		completion_reward = {
+			add_stability = -0.1
+			add_manpower = 2000
+		}
+	}
+	focus = {
+		id = mal_z_policy
+		icon = GFX_focus_generic_home_defense
+		cost = 10
+		prerequisite = {
+			focus = mal_ethnic_ploblem
+		}
+		x = -2
+		y = 1
+		relative_position_id = mal_ethnic_ploblem
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.1
+		}
+	}
+	focus = {
+		id = mal_japanization
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_z_policy
+		}
+		x = -1
+		y = 1
+		relative_position_id = mal_z_policy
+		completion_reward = {
+			add_stability = -0.15
+			add_manpower = 5000
+		}
+	}
+	focus = {
+		id = mal_native_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_japanization
+		}
+		x = -1
+		y = 1
+		relative_position_id = mal_japanization
+	}
+	focus = {
+		id = mal_japanese_immigrants
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_japanization
+		}
+		x = 1
+		y = 1
+		relative_position_id = mal_japanization
+		completion_reward = {
+			division_template = {
+				name = "Malayan National Division"
+				regiments = {
+					infantry = {
+						x = 0
+						y = 0
+					}
+					infantry = {
+						x = 0
+						y = 1
+					}
+					infantry = {
+						x = 0
+						y = 2
+					}
+					infantry = {
+						x = 0
+						y = 3
+					}
+					infantry = {
+						x = 0
+						y = 4
+					}
+					infantry = {
+						x = 1
+						y = 0
+					}
+					infantry = {
+						x = 1
+						y = 1
+					}
+					infantry = {
+						x = 1
+						y = 2
+					}
+					infantry = {
+						x = 1
+						y = 3
+					}
+					infantry = {
+						x = 1
+						y = 4
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Malayan National Division\" division_template = \"Malayan National Division\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+			}
+		}
+	}
+	focus = {
+		id = mal_econominal_colony
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_z_policy
+		}
+		x = 1
+		y = 1
+		relative_position_id = mal_z_policy
+		completion_reward = {
+			add_war_support = -0.05
+			add_tech_bonus = {
+				category = industry
+				bonus = 0.3
+			}
+			add_tech_bonus = {
+				category = land_doctrine
+				bonus = 0.3
+			}
+		}
+	}
+	focus = {
+		id = mal_currency_exchange
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_econominal_colony
+		}
+		x = 1
+		y = 1
+		relative_position_id = mal_econominal_colony
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = mal_forfeit_chinese_rights
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_b_policy
+		}
+		x = -1
+		y = 1
+		relative_position_id = mal_b_policy
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.15
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				set_temp_variable = {
+					pop2dec = var:state_population
+				}
+				multiply_temp_variable = {
+					pop2dec = -0.1
+				}
+				add_manpower = var:pop2dec
+			}
+		}
+	}
+	focus = {
+		id = mal_malayan_standard
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_b_policy
+		}
+		x = 1
+		y = 1
+		relative_position_id = mal_b_policy
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = mal_succeed_malayanization
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = mal_forfeit_chinese_rights
+		}
+		prerequisite = {
+			focus = mal_malayan_standard
+		}
+		x = 0
+		y = 2
+		relative_position_id = mal_b_policy
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.2
+		}
+	}
+}
