@@ -1035,7 +1035,19 @@ Balkan_fede_concept = {
         complete_effect = {
             custom_effect_tooltip = Balkan_fede_tt
             hidden_effect = {
-                set_cosmetic_tag = Balkan_federation
+                if = {
+                    limit = {
+                        NOT = {
+                            has_completed_focus = HUN_41
+                            has_cosmetic_tag = HUN_vanguard_commune
+                        }
+                    }
+                    set_cosmetic_tag = Balkan_federation
+                }
+                if = {
+                    limit = { has_completed_focus = HUN_41 }
+                    set_cosmetic_tag = HUN_balkan_uk
+                }
                 if = {
                     limit = {
                         OR = {
