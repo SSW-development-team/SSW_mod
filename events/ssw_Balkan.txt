@@ -404,9 +404,44 @@ country_event = { #FROMが提案に同意
     is_triggered_only = yes
     option = { #素晴らしい！
         name = ssw_Balkan.5.a
-        clr_country_flag = Balkan_fede_nego
-        FROM = {
-            set_country_flag = Balkan_fede_agree
+        if = {
+            limit = {
+                NOT = {has_cosmetic_tag = Balkan_federation}
+            }
+            clr_country_flag = Balkan_fede_nego
+            FROM = {
+                set_country_flag = Balkan_fede_agree
+            }
+        }
+        else_if = {
+            limit = {
+                has_cosmetic_tag = Balkan_federation
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        original_tag = ITA
+                    }
+                }
+                transfer_state = 941
+                transfer_state = 736
+                transfer_state = 163
+                transfer_state = 1137
+                transfer_state = 1079
+                transfer_state = 182
+                transfer_state = 164
+                transfer_state = 187
+                transfer_state = 103
+            }
+            else_if = {
+                limit = {
+                    FROM = {
+                        original_tag = TUR
+                    }
+                }
+                transfer_state = 797
+                transfer_state = 341
+            }
         }
     }
 }
