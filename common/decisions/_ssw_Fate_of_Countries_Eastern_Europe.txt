@@ -17,7 +17,7 @@ fate_of_countries_category_eastern_europe = {
 				has_cosmetic_tag = TUV_russia
 			}
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				OR = {
 					is_core_of = RUS
 					is_core_of = SOV
@@ -27,7 +27,7 @@ fate_of_countries_category_eastern_europe = {
 					is_claimed_by = ROOT
 				}
 			}
-			249 = { is_fully_controlled_by = ROOT }
+			249 = { is_owned_and_controlled_by = ROOT }
 			hidden_trigger = { NOT = { has_country_flag = continue_to_occupy_russia } }
 		}
 		cancel_trigger = {
@@ -57,35 +57,23 @@ fate_of_countries_category_eastern_europe = {
 		activation = {
 			NOT = { country_exists = POL }
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				has_state_flag = maybe_less_POL_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			POL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			POL = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
-				NOT = {
-					has_country_flag = continue_to_occupy_poland
-					original_tag = GER
-					original_tag = HGR
-					original_tag = HLH
-					original_tag = LTV
-					original_tag = MBR
-				}
+				NOT = { has_country_flag = continue_to_occupy_poland }
 			}
 		}
 		cancel_trigger = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
-				original_tag = GER
-				original_tag = HGR
-				original_tag = HLH
-				original_tag = LTV
-				original_tag = MBR
 				country_exists = POL
 				POL = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_poland }
@@ -108,35 +96,23 @@ fate_of_countries_category_eastern_europe = {
 		activation = {
 			NOT = { country_exists = GAL }
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				has_state_flag = maybe_less_GAL_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			GAL = { capital_scope = { is_fully_controlled_by = ROOT } }
+			GAL = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
-				NOT = {
-					has_country_flag = continue_to_occupy_galicia_lodomeria
-					original_tag = GER
-					original_tag = HGR
-					original_tag = HLH
-					original_tag = LTV
-					original_tag = MBR
-				}
+				NOT = { has_country_flag = continue_to_occupy_galicia_lodomeria }
 			}
 		}
 		cancel_trigger = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
-				original_tag = GER
-				original_tag = HGR
-				original_tag = HLH
-				original_tag = LTV
-				original_tag = MBR
 				country_exists = GAL
 				GAL = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_galicia_lodomeria }
@@ -147,7 +123,20 @@ fate_of_countries_category_eastern_europe = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_galicia_lodomeria
 		}
-		ai_will_do = { factor = 100 }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { POL = { is_subject_of = ROOT } }
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 	}
 	fate_of_lemko = { #ÉåÉÄÉRÇÃâ^ñΩ
 		icon = generic_operation
@@ -159,35 +148,23 @@ fate_of_countries_category_eastern_europe = {
 		activation = {
 			NOT = { country_exists = LMK }
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				has_state_flag = maybe_less_LMK_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			LMK = { capital_scope = { is_fully_controlled_by = ROOT } }
+			LMK = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
-				NOT = {
-					has_country_flag = continue_to_occupy_lemko
-					original_tag = GER
-					original_tag = HGR
-					original_tag = HLH
-					original_tag = LTV
-					original_tag = MBR
-				}
+				NOT = { has_country_flag = continue_to_occupy_lemko }
 			}
 		}
 		cancel_trigger = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
-				original_tag = GER
-				original_tag = HGR
-				original_tag = HLH
-				original_tag = LTV
-				original_tag = MBR
 				country_exists = LMK
 				LMK = { capital_scope = { is_valid_annexation_state = no } }
 				hidden_trigger = { has_country_flag = continue_to_occupy_lemko }
@@ -198,7 +175,23 @@ fate_of_countries_category_eastern_europe = {
 			occupy_medium_country = yes
 			set_country_flag = continue_to_occupy_lemko
 		}
-		ai_will_do = { factor = 100 }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					POL = { is_subject_of = ROOT }
+					GAL = { capital_scope = { is_fully_controlled_by = POL } }
+				}
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 	}
 	fate_of_hungary = { #ÉnÉìÉKÉäÅ[ÇÃâ^ñΩ
 		icon = generic_operation
@@ -210,14 +203,14 @@ fate_of_countries_category_eastern_europe = {
 		activation = {
 			NOT = { country_exists = HUN }
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				has_state_flag = maybe_less_HUN_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			HUN = { capital_scope = { is_fully_controlled_by = ROOT } }
+			HUN = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_hungary }
@@ -252,15 +245,15 @@ fate_of_countries_category_eastern_europe = {
 				country_exists = YUG
 			}
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				has_state_flag = maybe_less_SER_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			SER = { capital_scope = { is_fully_controlled_by = ROOT } }
-			YUG = { capital_scope = { is_fully_controlled_by = ROOT } }
+			SER = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			YUG = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_serbia }
@@ -294,14 +287,14 @@ fate_of_countries_category_eastern_europe = {
 		activation = {
 			NOT = { country_exists = CRO }
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				state = 109
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 				}
 			}
-			CRO = { capital_scope = { is_fully_controlled_by = ROOT } }
+			CRO = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_croatia }
@@ -328,7 +321,7 @@ fate_of_countries_category_eastern_europe = {
 		available = { always = yes }
 		visible = {
 			any_state = {
-				is_fully_controlled_by = ROOT
+				is_owned_and_controlled_by = ROOT
 				state = 971
 				NOT = {
 					is_core_of = ROOT

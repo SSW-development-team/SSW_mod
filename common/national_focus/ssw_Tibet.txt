@@ -52,11 +52,7 @@ focus_tree = {
 		}
 		bypass = {}
 		ai_will_do = { 
-			factor = 0
-			modifier = {
-				factor = 15
-				has_completed_focus = TIB_find_way
-			}	
+			factor = 20
 		}
 		search_filters = {  }
 		completion_reward = {
@@ -517,7 +513,7 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
-
+			add_ideas = TIB_effort_edu
 		}
 		x = 16
 		y = 9
@@ -576,6 +572,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_ally_with_dobdob
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			add_popularity = {
 				ideology = social_conservatism
@@ -622,6 +619,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_ally_with_dobdob
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			add_ideas = TIB_lobsang_tashi_pm
 			add_ideas = TIB_geshe_sherab_gyatso
@@ -638,6 +636,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_ally_with_dobdob
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 		    add_war_support = 0.03
 			add_manpower = 500
@@ -656,6 +655,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_temples_support
 		}
+		ai_will_do = { factor = 2 }
 		available = {}
 		bypass = {
 			has_country_leader = {
@@ -692,6 +692,7 @@ focus_tree = {
 		completion_reward = {
 			TIB_temple_gov_idea = yes
 		}
+		ai_will_do = { factor = 2 }
 		x = 28
 		y = 7
 
@@ -703,6 +704,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_transfer_power_to_norbulingka
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			unlock_decision_category_tooltip = TIB_kham_problem
 			add_political_power = 50
@@ -720,6 +722,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_religious_state
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			if = {
 				limit = {
@@ -751,6 +754,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_reorganization_ganden_phodrang
 		}
+		ai_will_do = { factor = 2 }
 		available = { NOT = { has_completed_focus = TIB_legacy_of_tsongkhapa }}
 		completion_reward = {
 		        random_owned_controlled_state = {
@@ -788,6 +792,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_more_temples
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			country_event = tibet.16
 		}
@@ -869,6 +874,7 @@ focus_tree = {
 		available = {
 			has_ideas = TIB_reting_rinpoche_idea
 		}
+		ai_will_do = { factor = 2 }
 		bypass = {}
 		completion_reward = {
 			set_politics = {
@@ -932,6 +938,7 @@ focus_tree = {
 		available = {
 			has_ideas = TIB_taktra_rinpoche_idea
 		}
+		ai_will_do = { factor = 2 }
 		bypass = {}
 		completion_reward = {
 			set_politics = {
@@ -954,6 +961,7 @@ focus_tree = {
 		completion_reward = {
 			add_opinion_modifier = { modifier = TIB_get_chinese_out target = CHI }
 		}
+		ai_will_do = { factor = 2 }
 		x = 35
 		y = 6
 
@@ -1021,6 +1029,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_legacy_of_tsongkhapa
 		}
+		ai_will_do = { factor = 2 }
 		available = {
 			country_exists = MON
 			MON = {
@@ -1041,6 +1050,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_legacy_of_tsongkhapa
 		}
+		ai_will_do = { factor = 2 }
 		available = {
 			GER = {
 				has_civil_war = no
@@ -1069,6 +1079,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_mongol_penetration
 		}
+		ai_will_do = { factor = 2 }
 		x = 37
 		y = 9
 
@@ -1659,6 +1670,10 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_himalayan_training
 		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			army_experience = 40
+		}
 		x = 45
 		y = 3
 
@@ -1669,6 +1684,13 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_guerilla_warfare
+		}
+		ai_will_do = { factor = 2 }
+		add_tech_bonus = {
+			name = special_bonus
+			bonus = 2.0
+			uses = 5
+			category = land_doctrine
 		}
 		x = 45
 		y = 4
@@ -1681,6 +1703,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_buy_the_machine
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = TIB_unmodernization_industries
@@ -1698,6 +1721,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_rationalization_of_industry
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			add_tech_bonus = {
 				category = radar_tech
@@ -1751,6 +1775,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_trapchi_factory
 		}
+		ai_will_do = { factor = 2 }
 		x = 46
 		y = 8
 
@@ -1802,6 +1827,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_airport
 		}
+		ai_will_do = { factor = 2 }
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1952,6 +1978,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_airport
 		}
+		ai_will_do = { factor = 2 }
 		x = 49
 		y = 2
 		completion_reward = {
@@ -1969,6 +1996,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_pilot_training
 		}
+		ai_will_do = { factor = 2 }
 		completion_reward = {
 			air_experience = 20
 			add_tech_bonus = {
@@ -1988,6 +2016,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_super_hight_flight
 		}
+		ai_will_do = { factor = 2 }
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2139,6 +2168,7 @@ focus_tree = {
 		available = {
 			has_ideas = TIB_the_nobles
 		}
+		ai_will_do = { factor = 2 }
 		bypass = {
 			NOT = {
 				has_ideas = TIB_the_nobles
@@ -2166,6 +2196,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = TIB_maoism
 		}
+		ai_will_do = { factor = 2 }
 		x = 5
 		y = 6
 
@@ -2180,6 +2211,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_red_monastries
 		}
+		ai_will_do = { factor = 2 }
 		x = 1
 		y = 6
 
@@ -2315,6 +2347,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_red_potala
 		}
+		ai_will_do = { factor = 2 }
 		x = 1
 		y = 8
 		completion_reward = {
@@ -2331,6 +2364,7 @@ focus_tree = {
 			focus = TIB_fate_of_dalai_lama
 			focus = TIB_legal_leftist_government
 		}
+		ai_will_do = { factor = 2 }
 		x = 5
 		y = 8
 
@@ -2342,6 +2376,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_call_ccp
 		}
+		ai_will_do = { factor = 2 }
 		x = 7
 		y = 8
 
@@ -2353,6 +2388,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_liberated_zone
 		}
+		ai_will_do = { factor = 2 }
 		prerequisite = {
 			focus = TIB_accept_unity_of_china
 		}
@@ -2367,6 +2403,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_build_liberated_zone
 		}
+		ai_will_do = { factor = 2 }
 		prerequisite = {
 			focus = TIB_accept_unity_of_china
 		}
@@ -2382,6 +2419,10 @@ focus_tree = {
 			focus = TIB_party_convention
 			focus = TIB_land_reform
 		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			country_event = tibet.17
+		}
 		x = 3
 		y = 9
 
@@ -2396,6 +2437,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_step_with_japan
 		}
+		ai_will_do = { factor = 2 }
 		x = 8
 		y = 10
 
@@ -2407,6 +2449,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_land_reform
 		}
+		ai_will_do = { factor = 2 }
 		x = 1
 		y = 9
 
@@ -2421,6 +2464,15 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_arrest_ngawang_jigme
 		}
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			set_politics = {
+				elections_allowed = yes
+			}
+			add_political_power = 50
+		}
 		x = 0
 		y = 10
 
@@ -2432,6 +2484,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_call_ccp
 		}
+		ai_will_do = { factor = 2 }
 		x = 9
 		y = 8
 
@@ -2446,6 +2499,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_arrest_ngawang_jigme
 		}
+		ai_will_do = { factor = 2 }
 		x = 2
 		y = 10
 
@@ -2456,6 +2510,18 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_arrest_ngawang_jigme
+		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			add_stability = -0.1
+			add_popularity = {
+				ideology = authority_despotism
+				popularity = -1
+			}
+			add_timed_idea = {
+				idea = TIB_nobles_wealth
+				days = 730
+			}
 		}
 		x = 4
 		y = 10
@@ -2797,6 +2863,7 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_full_control_monastries
 		}
+
 		x = 15
 		y = 11
 
@@ -2829,6 +2896,13 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_implement_reforms
+		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.25
+			}
 		}
 		x = 22
 		y = 7
