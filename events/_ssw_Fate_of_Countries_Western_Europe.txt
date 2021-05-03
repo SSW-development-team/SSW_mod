@@ -1534,6 +1534,7 @@ country_event = { #イタリアの運命
 		name = ssw_foc_western_europe.13.a
 		ai_chance = { base = 10 }
 		trigger = {
+			is_german_tag = no
 			NOT = {
 				VAC = { is_subject_of = ROOT }
 				is_in_faction_with = VAC
@@ -1547,6 +1548,7 @@ country_event = { #イタリアの運命
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
+					state = 183
 					has_state_flag = maybe_core_AUS
 					has_state_flag = maybe_core_CRO
 					has_state_flag = maybe_core_FRA
@@ -1555,9 +1557,10 @@ country_event = { #イタリアの運命
 					has_state_flag = maybe_core_SWI
 				}
 			}
-			ITA = { transfer_state = PREV }
+			add_core_of = ITP
+			ITP = { transfer_state = PREV }
 		}
-		puppet = ITA
+		puppet = ITP
 	}
 	option = {
 		name = ssw_foc_western_europe.13.b
@@ -1576,6 +1579,7 @@ country_event = { #イタリアの運命
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
+					state = 183
 					has_state_flag = maybe_core_AUS
 					has_state_flag = maybe_core_CRO
 					has_state_flag = maybe_core_FRA
@@ -1588,6 +1592,31 @@ country_event = { #イタリアの運命
 			VAC = { transfer_state = PREV }
 			add_core_of = VAC
 		}
+	}
+	option = {
+		name = ssw_foc_western_europe.13.c
+		ai_chance = { base = 10 }
+		trigger = { is_german_tag = yes }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_core_ITA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+					state = 183
+					has_state_flag = maybe_core_AUS
+					has_state_flag = maybe_core_CRO
+					has_state_flag = maybe_core_FRA
+					has_state_flag = maybe_core_GRE
+					has_state_flag = maybe_core_SLV
+					has_state_flag = maybe_core_SWI
+				}
+			}
+			add_core_of = RSI
+			RSI = { transfer_state = PREV }
+		}
+		puppet = RSI
 	}
 	option = {
 		name = OCCUPY_TT
