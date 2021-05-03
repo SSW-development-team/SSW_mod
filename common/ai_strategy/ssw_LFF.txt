@@ -1,0 +1,26 @@
+LFF_eastern_expansion = {
+	enable = {
+		tag = LFF
+		NOT = { country_exists = ALF }
+		OR = {
+			country_exists = FSA
+			country_exists = UTC
+		}
+	}
+	abort = {
+		NOT = {
+			country_exists = FSA
+			country_exists = UTC
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "FSA"
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "UTC"
+		value = 200
+	}
+}
