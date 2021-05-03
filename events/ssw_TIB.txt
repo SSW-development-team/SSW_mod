@@ -573,6 +573,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = tibet.16.a
+		ai_chance = {
+			factor = 30
+		}
 		add_opinion_modifier = {
 			target = TIB
 			modifier = TIB_get_chinese_out
@@ -580,6 +583,9 @@ country_event = {
 	}
 	option = {
 		name = tibet.16.b
+		ai_chance = {
+			factor = 10
+		}
 		transfer_state = 604
 		transfer_state = 754
 		transfer_state = 755
@@ -589,14 +595,50 @@ country_event = {
 		}
 	}
 }
-
+country_event = {
+	id = tibet.17
+	title = tibet.17.t
+	desc = tibet.17.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { #change mind
+		name = tibet.17.a
+		ai_chance = {
+			factor = 50
+		}
+		create_corps_commander = {
+			name = "Ngapoi Ngawang Jigme"
+			skill = 2
+			portrait_path = "gfx/leaders/TIB/ssw_Portrait_Tibet_Ngapoi_Ngawang_Jigme_Military.dds"
+			traits = { trait_mountaineer trickster improvisation_expert}
+			attack_skill = 2
+			defense_skill = 3
+			logistics_skill = 1
+			planning_skill = 1
+			desc = "NGAPOI_NGAWANG_JIGME_GENERAL_DESC"
+		}
+	}
+	option = { #execution
+		name = tibet.17.b
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = {
+				has_ideas = TIB_ngapo_ngawang_jigme_in
+			}
+			remove_ideas = TIB_ngapo_ngawang_jigme_in
+		}
+		add_ideas = TIB_sampho_rigzin_in
+	}
+}
 country_event = {
 	id = tibet.100
 	title = tibet.100.t
 	desc = tibet.100.d
 	picture = none
 
-	is_triggered_only = yes
+	fire_only_once = yes
 
 	trigger = {
 		tag = TIB
