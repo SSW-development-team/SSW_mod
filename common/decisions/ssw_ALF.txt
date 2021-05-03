@@ -1,326 +1,1124 @@
 ALF_cat_dec_Militia = { #カテゴリーID
-	alf_dec_militia_Washington = { #ディシジョンID
-		icon = generic_army_support #アイコン
-		ai_will_do = {
-			factor = 100 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-
-		cost = 10 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			hidden_effect = {
-				386 = { #湧かせる州
-					limit = {
-						ROOT = {
-							has_full_control_of_state = PREV
-						}
-					}
-					prioritize = { #不明・・・
-						64
-					}
-					create_unit = { #師団作成
-						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
-					}
-					create_unit = {
-						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
-					}
-					create_unit = { #師団作成
-						division = "name = \"1. Militia\" division_template = \"Militia\" start_experience_factor = 0.3" owner = ALF
-					}
-				}
-			}
-			custom_effect_tooltip = SSW_militia_was_tt
-		}
-	}
 }
+ALF_Reorganization_of_the_federation_government_decision = {
+	#首都機能の強化
+	ALF_Strengthen_capital_city_functions = {
+		cost = 50
+		fire_only_once = yes
 
-ALF_cat_dec_infullence_mafia = { #カテゴリーID
-	alf_dec_Arresting_the_Mafia = { #ディシジョンID
-		icon = generic_political_discourse #アイコン
-		ai_will_do = {
-			factor = 12 #AIが踏む確率
+		available = {
 		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
+		days_remove = 1
+		modifier = {
+			civilian_factory_use = 4
 		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_1
-		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_1
-				add_idea = SSW_ideas_influence_2
+		complete_effect = {
+			country_event = {
+				id = SSW_ALF.16
 			}
 		}
-	}
+		remove_effect = {
+			custom_effect_tooltip = ALF_tooltip_2
+			if = {
+				limit = {
+					has_country_flag = Strengthen_capital_city_functions_1
+				}
+				896 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
+				clr_country_flag = Strengthen_capital_city_functions_1
 
-	alf_dec_Clean_up_mafia_ties_from_politics = { #ディシジョンID
-		icon = generic_political_discourse #アイコン
-		ai_will_do = {
-			factor = 70 #AIが踏む確率
+			}
+			if = {
+				limit = {
+					has_country_flag = Strengthen_capital_city_functions_2
+				}
+				add_ideas = ssw_ideas_ALF_Streamlined_Government_Agencies
+				clr_country_flag = Strengthen_capital_city_functions_2
+
+			}
+			if = {
+				limit = {
+					has_country_flag = Strengthen_capital_city_functions_3
+				}
+				896 = { 
+					add_dynamic_modifier = { modifier = ssw_ALF_Attracting_Factories_in_San_Francisco } 
+				}
+				clr_country_flag = Strengthen_capital_city_functions_3
+
+			}
 		}
-		available = {
-			original_tag = ALF #踏めるようになる条件
-			NOT = {
-				AND = {
-					has_decision = alf_dec_Wipe_out_the_mafia
-					has_decision = alf_dec_Contact_with_the_mafia_in_political_circles
-					has_decision = alf_dec_Backing_the_Mafia
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				OR = {
+					num_of_civilian_factories > 15
 				}
 			}
 		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_2
-		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_2
-				add_idea = SSW_ideas_influence_3
-			}
-		}
-	}
-	alf_dec_Wipe_out_the_mafia = { #ディシジョンID
-		icon = generic_police_action #アイコン
-		ai_will_do = {
-			factor = 1 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-			NOT = {
-					has_decision = alf_dec_Arresting_the_Mafia
-			}
-			NOT = {
-					has_decision = alf_dec_Clean_up_mafia_ties_from_politics
-			}
-			NOT = {
-					has_decision = alf_dec_Backing_the_Mafia
-			}
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_2
-		}
-		cost = 30 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 15 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.3
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_2
-				add_idea = SSW_ideas_influence_3
-			}
-			add_stability = -0.06
-		}
-	}
-	alf_dec_Contact_with_the_mafia_in_political_circles = { #ディシジョンID
-		icon = gre_investment_decisions #アイコン
-		ai_will_do = {
-			factor = 1 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_2
-		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 20 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.5
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_2
-				add_idea = SSW_ideas_influence_1
-			}
-		}
-	}
-	alf_dec_Backing_the_Mafia = { #ディシジョンID
-		icon = hol_attract_foreign_investors #アイコン
-		ai_will_do = {
-			factor = 1 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_2
-		}
-		cost = 30 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.5
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_2
-				add_idea = SSW_ideas_influence_1
-			}
-			add_stability = -0.1
-		}
 	}
 
-	alf_dec_Acceptance_of_Narcotics = { #ディシジョンID
-		icon = hol_attract_foreign_investors #アイコン
-		ai_will_do = {
-			factor = 1 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_3
-		}
-		cost = 30 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 10 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.5
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_3
-				add_idea = SSW_ideas_influence_2
-			}
-			add_stability = -0.1
-		}
-	}
-	alf_dec_Drug_busts = { #ディシジョンID
-		icon = generic_political_discourse #アイコン
-		ai_will_do = {
-			factor = 70 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_3
-		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_3
-				add_idea = SSW_ideas_influence_4
-			}
-		}
-	}
+	ALF_Working_with_the_state_legislature = {
+		icon = GFX_decision_ALF_integrated
 
-	alf_dec_Receive_assistance = { #ディシジョンID
-		icon = hol_attract_foreign_investors #アイコン
-		ai_will_do = {
-			factor = 1 #AIが踏む確率
+		cost = 30
+		fire_only_once = yes
+
+		available = {
 		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_4
-		}
-		cost = 30 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 25 #決定したときにディシジョンを取得しきれる日数
+		days_remove = 10
 		modifier = {
-			consumer_goods_factor = -0.05
 		}
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_4
-				add_idea = SSW_ideas_influence_3
+		complete_effect = {
+		}
+		remove_effect = {
+			hidden_effect = {
+				set_country_flag = ALF_Working_with_the_state_legislature
 			}
-			add_stability = -0.1
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+			}
 		}
 	}
-	alf_dec_Expulsion_of_the_Mafia = { #ディシジョンID
-		icon = generic_assassination #アイコン
+	ALF_Cooperation_with_California_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 50
+		fire_only_once = yes
+
+		available = {
+			controls_state = 897
+			controls_state = 1135
+			controls_state = 898
+			controls_state = 895
+			controls_state = 378
+
+		}
+		visible = {
+			OR = {
+				controls_state = 897
+				controls_state = 1135
+				controls_state = 898
+				controls_state = 895
+				controls_state = 378	
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = {state = 1135 state = 897 state = 898 state = 895 state = 378 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 65
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.17 days = 5 random = 5
+			}		
+		}
 		ai_will_do = {
-			factor = 12 #AIが踏む確率
+			base = 2
+			modifier = {
+			}
 		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
+	}
+	ALF_Cooperation_with_Oregon_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+			controls_state = 385
+			controls_state = 900
 		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_4
+		visible = {
+			OR = {
+				controls_state = 385
+				controls_state = 900
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
 		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_4
-				add_idea = SSW_ideas_influence_5
+		highlight_states = { OR = {state = 385 state = 900 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.18 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
 			}
 		}
 	}
 
-	alf_dec_Eradicating_the_Mafia = { #ディシジョンID
-		icon = generic_assassination #アイコン
+	ALF_Cooperation_with_Washington_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 25
+		fire_only_once = yes
+
+		available = {
+			controls_state = 386
+			controls_state = 901
+		}
+		visible = {
+			OR = {
+				controls_state = 386
+				controls_state = 901
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = {state = 386 state = 901 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 50
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.19 days = 5 random = 5
+			}		
+		}
 		ai_will_do = {
-			factor = 12 #AIが踏む確率
-		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
-		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_5
-		}
-		cost = 100 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			remove_ideas = SSW_ideas_influence_5
+			base = 2
+			modifier = {
+			}
 		}
 	}
-	alf_dec_Ignore_the_expansion_of_the_mafia = { #ディシジョンID
-		icon = generic_speech #アイコン
+	ALF_Cooperation_with_Nevada_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 25
+		fire_only_once = yes
+
+		available = {
+			controls_state = 379
+			controls_state = 899
+		}
+		visible = {
+			OR = {
+				controls_state = 379
+				controls_state = 899
+				}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = {state = 379 state = 899 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.20 days = 5 random = 5
+			}		
+		}
 		ai_will_do = {
-			factor = 12 #AIが踏む確率
+			base = 2
+			modifier = {
+			}
 		}
-		allowed = {
-			original_tag = ALF #踏めるようになる条件
+	}
+	ALF_Cooperation_with_Utah_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+			OR = {
+				controls_state = 380
+				controls_state = 1106
+			}
 		}
-		visible = { #見えるようになる条件
-			has_idea = SSW_ideas_influence_5
+		visible = {
+			OR = {
+				controls_state = 380
+				controls_state = 1106
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
 		}
-		cost = 50 #消費する政治力
-		fire_only_once = no #何回も使えるか
-		days_remove = 30 #決定したときにディシジョンを取得しきれる日数
-		modifier = {　#ディシジョン選択中の効果
-            political_power_gain = -0.25
-        }
-		remove_effect = { #削除時の効果　days_remove　の場合必ず使用
-			swap_ideas = {
-				remove_idea = SSW_ideas_influence_5
-				add_idea = SSW_ideas_influence_4
+		highlight_states = { OR = {state = 380 state = 1106 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.21 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	ALF_Cooperation_with_Idaho_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 25
+		fire_only_once = yes
+
+		available = {
+				controls_state = 387
+				controls_state = 1128
+		}
+		visible = {
+			OR = {
+				controls_state = 387
+				controls_state = 1128
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = {state = 387 state = 1128 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.22 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	
+	ALF_Integrate_Utah = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+				controls_state = 380
+				controls_state = 1106
+		}
+		visible = {
+			OR = {
+				controls_state = 380
+				controls_state = 1106
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+			has_country_flag = ALF_state_1106_was_not_ALF
+
+		}
+		highlight_states = { OR = {state = 380 state = 1106 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 5
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.23 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	ALF_Integrate_Utah_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 40
+		fire_only_once = yes
+
+		available = {
+				controls_state = 380
+				controls_state = 1106
+		}
+		visible = {
+			OR = {
+				controls_state = 380
+				controls_state = 1106
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+			has_country_flag = ALF_preparation_to_unification_1106
+
+		}
+		highlight_states = { OR = {state = 380 state = 1106 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 5
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.24 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	ALF_Wyoming_Provisional_State_Government_established = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+				controls_state = 1115
+		}
+		visible = {
+			NOT = {
+				controls_state = 1129
+			}
+			controls_state = 1115
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { state = 1115 }
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 20
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.25 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	ALF_Integrate_Wyoming = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1129
+			controls_state = 1115
+			controls_state = 381
+			controls_state = 1108
+		}
+		visible = {
+			controls_state = 1129
+			controls_state = 1115
+			controls_state = 381
+			controls_state = 1108
+			has_country_flag = ALF_Working_with_the_state_legislature
+			has_country_flag = ALF_not_have_1129
+
+		}
+		highlight_states = { OR = {state = 1129 state = 1115 state = 381 state = 1108 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 20
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.27 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+	ALF_Integrate_Wyoming_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 40
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1129
+			controls_state = 1115
+			controls_state = 381
+			controls_state = 1108
+		}
+		visible = {
+			controls_state = 1129
+			controls_state = 1115
+			controls_state = 381
+			controls_state = 1108
+			has_country_flag = ALF_Working_with_the_state_legislature
+			has_country_flag = ALF_preparation_to_unification_1129
+
+		}
+		highlight_states = { OR = {state = 1129 state = 1115 state = 381 state = 1108 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 20
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.28 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+
+	ALF_Cooperation_with_Wyoming_legislature = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 20
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1129
+			controls_state = 1115
+			controls_state = 381
+			controls_state = 1108
+		}
+		visible = {
+			OR = {
+				controls_state = 1129
+				controls_state = 1115
+				controls_state = 381
+				controls_state = 1108
+				}
+
+			has_country_flag = ALF_Working_with_the_state_legislature
+			NOT = {
+				has_country_flag = ALF_not_have_1129
+				exists = UTC
+			}
+		}
+		highlight_states = { OR = {state = 1129 state = 1115 state = 381 state = 1108 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 80
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.26 days = 5 random = 5
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#アリゾナ州の再設立
+	ALF_Establishment_of_Arizona_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 377
+		}
+		visible = {
+			controls_state = 377
+		}
+		highlight_states = { state = 377 }
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 90
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.29 days = 2 random = 5
+			}
+			set_country_flag = ALF_Arizona_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#アリゾナ州の完全統合
+	ALF_Establishment_of_Arizona_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 377
+		}
+		visible = {
+			controls_state = 377
+			has_country_flag = ALF_Arizona_integration 		
+
+		}
+		highlight_states = { state = 377 }
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 45
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.30 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Arizona_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#コロラド州の再設立
+	ALF_Establishment_of_Colorado_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1120
+			controls_state = 382
+			controls_state = 1121
+
+		}
+		visible = {
+			OR = {
+				controls_state = 1120
+				controls_state = 382
+				controls_state = 1121
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+
+		}
+		highlight_states = { OR = {state = 1120 state = 382 state = 1121 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 90
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.31 days = 2 random = 5
+			}
+			set_country_flag = ALF_Colorado_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#コロラド州の完全統合
+	ALF_Establishment_of_Colorado_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1120
+			controls_state = 382
+			controls_state = 1121
+		}
+		visible = {
+			controls_state = 1120
+			controls_state = 382
+			controls_state = 1121
+			has_country_flag = ALF_Colorado_integration 		
+		}
+		highlight_states = { OR = {state = 1120 state = 382 state = 1121 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 45
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.32 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Colorado_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#ニューメキシコ州の再設立
+	ALF_Establishment_of_New_Mexico_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1107
+			controls_state = 376
+			controls_state = 1116
+
+		}
+		visible = {
+			OR = {
+				controls_state = 1107
+				controls_state = 376
+				controls_state = 1116
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+
+		}
+		highlight_states = { OR = { state = 1107 state = 376 state = 1116}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 90
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.33 days = 2 random = 5
+			}
+			set_country_flag = ALF_New_Mexico_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#ニューメキシコ州の完全統合
+	ALF_Establishment_of_New_Mexico_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 1107
+			controls_state = 376
+			controls_state = 1116
+		}
+		visible = {
+			controls_state = 1107
+			controls_state = 376
+			controls_state = 1116
+			has_country_flag = ALF_New_Mexico_integration 		
+		}
+		highlight_states = { OR = { state = 1107 state = 376 state = 1116}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 45
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.34 days = 5 random = 5
+			}
+			clr_country_flag = ALF_New_Mexico_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#テキサス州の再設立
+	ALF_Establishment_of_Texas_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 902
+			controls_state = 375
+			controls_state = 903
+			controls_state = 904
+
+		}
+		visible = {
+			OR = {
+				controls_state = 902
+				controls_state = 375
+				controls_state = 903
+				controls_state = 904
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = { state = 902 state = 375 state = 903 state = 904}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 120
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.35 days = 2 random = 5
+			}
+			set_country_flag = ALF_Texas_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#テキサス州の完全統合
+	ALF_Establishment_of_Texas_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 60
+		fire_only_once = yes
+
+		available = {
+			controls_state = 902
+			controls_state = 375
+			controls_state = 903
+			controls_state = 904
+		}
+		visible = {
+			controls_state = 902
+			controls_state = 375
+			controls_state = 903
+			controls_state = 904
+			has_country_flag = ALF_Texas_integration 		
+		}
+		highlight_states = { OR = { state = 902 state = 375 state = 903 state = 904}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 60
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.36 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Texas_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#オクラホマ州の再設立
+	ALF_Establishment_of_Oklahoma_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 50
+		fire_only_once = yes
+
+		available = {
+			controls_state = 374
+			controls_state = 1118
+			controls_state = 813
+			controls_state = 905
+
+		}
+		visible = {
+			OR = {
+				controls_state = 374
+				controls_state = 1118
+				controls_state = 813
+				controls_state = 905
+
+			}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = { state = 374 state = 1118 state = 813 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 50
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.37 days = 2 random = 5
+			}
+			set_country_flag = ALF_Oklahoma_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#オクラホマ州の完全統合
+	ALF_Establishment_of_Oklahoma_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 40
+		fire_only_once = yes
+
+		available = {
+			controls_state = 374
+			controls_state = 1118
+			controls_state = 813
+			controls_state = 905
+
+		}
+		visible = {
+			controls_state = 374
+			controls_state = 1118
+			controls_state = 813
+			controls_state = 905
+
+			has_country_flag = ALF_Oklahoma_integration 		
+		}
+		highlight_states = { OR = { state = 374 state = 1118 state = 813 }}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.38 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Oklahoma_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#カンザス州の再設立
+	ALF_Establishment_of_Kansas_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 50
+		fire_only_once = yes
+
+		available = {
+			controls_state = 383
+			controls_state = 1119
+		}
+		visible = {
+			OR = {
+				controls_state = 383
+				controls_state = 1119
+				}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = { state = 383 state = 1119}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.39 days = 2 random = 5
+			}
+			set_country_flag = ALF_Kansas_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#カンザス州の完全統合
+	ALF_Establishment_of_Kansas_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 40
+		fire_only_once = yes
+
+		available = {
+			controls_state = 383
+			controls_state = 1119
+		}
+		visible = {
+			controls_state = 383
+			controls_state = 1119
+		has_country_flag = ALF_Kansas_integration 		
+		}
+		highlight_states = { OR = { state = 383 state = 1119}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.40 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Kansas_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#ルイジアナ州の再設立
+	ALF_Establishment_of_Louisiana_State_Government = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 50
+		fire_only_once = yes
+
+		available = {
+			controls_state = 911
+			controls_state = 371
+		}
+		visible = {
+			OR = {
+				controls_state = 911
+				controls_state = 371
+					}
+			has_country_flag = ALF_Working_with_the_state_legislature
+		}
+		highlight_states = { OR = { state = 911 state = 371}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 40
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.41 days = 2 random = 5
+			}
+			set_country_flag = ALF_Louisiana_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+			}
+		}
+	}
+#ルイジアナ州の完全統合
+	ALF_Establishment_of_Louisiana_State_Government_2 = {
+		icon = GFX_decision_ALF_integrated
+
+		cost = 40
+		fire_only_once = yes
+
+		available = {
+			controls_state = 911
+			controls_state = 371
+		}
+		visible = {
+			controls_state = 911
+			controls_state = 371
+			has_country_flag = ALF_Louisiana_integration 		
+		}
+		highlight_states = { OR = { state = 911 state = 371}}
+
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 50
+		modifier = {
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			country_event = {
+				id = SSW_ALF.42 days = 5 random = 5
+			}
+			clr_country_flag = ALF_Louisiana_integration 		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
 			}
 		}
 	}

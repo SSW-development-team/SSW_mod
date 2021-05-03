@@ -12,12 +12,31 @@ ALF_cat_dec_Militia  = { #カテゴリーID
     }
 }
 
-ALF_cat_dec_infullence_mafia  = { #カテゴリーID
+ALF_Reorganization_of_the_federation_government_decision  = { #カテゴリーID
+	priority = 100 #優先順位
+	icon = GFX_decision_ALF_integrated #アイコン
+    picture = GFX_decision_ALF_integrated_decision #説明の画像
+	available = {
+    	tag = ALF #この場合、ディシジョンを踏める
+		has_war = no
+
+	}
+	visible = {
+		tag = ALF #この場合、ディシジョンを踏める
+
+     #   has_completed_focus = ALF_Reorganization_of_the_federation_government #見えるようになる条件
+    }
+}
+ALF_Reorganization_of_the_allied_land_forces_decision  = { #カテゴリーID
 	priority = 100 #優先順位
 	icon = gre_investment_decisions #アイコン
     picture = government_in_exile #説明の画像
-
 	available = {
     	tag = ALF #この場合、ディシジョンを踏める
+		has_war = no
 	}
+	visible = {
+		tag = ALF #この場合、ディシジョンを踏める
+	   	has_completed_focus = ALF_Reorganization_of_the_Army #見えるようになる条件
+    }
 }
