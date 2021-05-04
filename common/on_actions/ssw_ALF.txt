@@ -1,0 +1,38 @@
+on_actions = {
+	on_state_control_changed = {#デンバー陥落後のイベント
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = LFF
+					}
+					ROOT = {
+						OR = {
+							tag = OKL
+							tag = TEX
+							tag = ALF
+						}
+					}
+					FROM.FROM = { 
+							state = 1121
+					}
+				}
+				every_country = {
+					limit = {
+						has_war_with = LFF
+					}
+					country_event = {
+						id = SSW_ALF.12
+					}
+				}
+				FROM = {
+					country_event = {
+						id = SSW_ALF.13
+					}
+				}
+
+			}
+		}
+	}
+
+}

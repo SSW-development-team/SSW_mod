@@ -18,6 +18,11 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = ssw_ideas_ALF_Reorganization_of_the_Federation_Government
+			country_event = {
+				id = SSW_ALF_description.1
+			}
+			custom_effect_tooltip = ALF_tooltip_1
+
 		}
 
 	}
@@ -107,7 +112,7 @@
 		relative_position_id = ALF_Reorganization_of_the_federation_government
 		prerequisite = {
 			focus = ALF_Reorganization_of_the_federation_government
-    		}
+   		}
 
 		ai_will_do = {
 				factor = 100
@@ -122,6 +127,8 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			army_experience = 100
+			custom_effect_tooltip = ALF_tooltip_3
+
 		}
 
 	}
@@ -304,6 +311,7 @@
 				keep_completed = yes #達成度が引き継がれるかどうか
 			}
 			mark_focus_tree_layout_dirty = yes
+			set_global_flag = 2nd_American_Civil_War
 			if = {
 				limit = {
 					check_variable = { ALF_war_with_LFF = 1 }

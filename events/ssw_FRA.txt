@@ -221,7 +221,7 @@ country_event = { #ストライキ
         }
         option = {
             set_political_power = -100
-            name = SSW_FRA.3.b #軍を派遣しよう
+            name = SSW_FRA.3.c #何もしない
             custom_effect_tooltip = pawer_up_mil
             hidden_effect ={
                 add_to_variable = {
@@ -238,18 +238,16 @@ country_event = { #自由を求める演説
     desc = SSW_FRA.7.d
 
         fire_only_once = yes
-            trigger = { #イベントが起きるきっかけ
+        is_triggered_only = yes
+        trigger = { #イベントが起きるきっかけ
             tag = FRA
-            date > 1950.6.26 #1951.7.10　#日にち
+            var = political_strife_gov
+            value = 20
         }
     
     option = {
         name = SSW_FRA.7.a #鎮圧
-        stability_factor = -0.15
-    }
-    option = {
-        name = SSW_FRA.7.b #放っておけ
-        stability_factor = -0.3
+        remove_idea = Unstable_country
     }
 
 }
@@ -259,21 +257,27 @@ country_event = {
     title = SSW_FRA.8.t
     desc = SSW_FRA.8.d
     
+    is_triggered_only = yes
     fire_only_once = yes
         trigger = { #イベントが起きるきっかけ
             tag = FRA
-            date > 1950.5.10
-            date > 1950.7.12 
+            var = political_strife_mil
+            value = 20
         }
     
     option = {
-        name =SSW_FRA.7.a
-        stability_factor = -0.05
+        name =SSW_FRA.8.a
+        complete_national_focus = FRA_return_democracy
+        create_country_leader = {
+	        name = "Alphonse Juin"
+	        picture = "gfx/leaders/FRA/FRA_Alphonse_Juin.png"
+	        expire = "1965.1.1"
+	        ideology = authority_democracy_ideology
+	        traits = {
+	        }
+        } 
     }
-    option = {
-        name =SSW_FRA.7.b
-        stability_factor = -0.1
-    }
+
 }
 
 country_event = {
@@ -281,25 +285,25 @@ country_event = {
     title = SSW_FRA.9.t
     desc = SSW_FRA.9.d
     
+    is_triggered_only = yes
     fire_only_once = yes
         trigger = { #イベントが起きるきっかけ
             tag = FRA
-            date > 1950.8.5
+            var = political_strife_regi
+            value = 20
         }
     
     option = {
-        name = SSW_FRA.9.a #軍隊を派遣しろ
-        country_event = {
-            id = SSW_FRA.10
-            days = 10
-        }
-    }
-    option = {
-        name = SSW_FRA.9.b #ボディガードのみで十分だ
-        country_event = {
-            id = SSW_FRA.3
-            days = 10
-        }
+        name =SSW_FRA.9.a
+        complete_national_focus = FRA_Commune_founded
+        create_country_leader = {
+	        name = "Maurice Thorez"
+	        picture = "gfx/leaders/FRA/Maurice_Thorez.png"
+	        expire = "1965.1.1"
+	        ideology = classical_communism_ideology
+	        traits = {
+	        }
+        } 
     }
 }
 
@@ -330,6 +334,73 @@ country_event = {
        name = SSW_FRA.12
        set_capital = 16
     }
+}
+
+country_event = {
+    id = SSW_FRA.11
+    title = SSW_FRA.11.t
+    desc = SSW_FRA.11.d
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+        trigger = { #イベントが起きるきっかけ
+            tag = FRA
+            var = political_strife_regi
+            value = 20
+        }
+    
+        option = {
+            name =SSW_FRA.11.a
+            country_event = { id = SSW_FRA.13 days = 1 }
+        } 
+}
+
+country_event = {
+    id = SSW_FRA.13
+    title = SSW_FRA.13.t
+    desc = SSW_FRA.13.d
+    
+    is_triggered_only = yes
+    fire_only_once = yes
+    
+        option = {
+            name =SSW_FRA.13.a
+            complete_national_focus = FRA_return_democracy
+            create_country_leader = {
+                name = "Maurice Thorez"
+                picture = "gfx/leaders/FRA/FRA_Alphonse_Juin.png"
+                expire = "1965.1.1"
+                ideology = classical_communism_ideology
+                traits = {
+                }
+            }
+        }
+
+        option = {
+            name =SSW_FRA.13.b
+            complete_national_focus = FRA_Commune_founded
+            create_country_leader = {
+                name = "Maurice Thorez"
+                picture = "gfx/leaders/FRA/Maurice_Thorez.png"
+                expire = "1965.1.1"
+                ideology = classical_communism_ideology
+                traits = {
+                }
+            } 
+        }
+
+        option = {
+            name =SSW_FRA.13.c
+            create_country_leader = {
+                name = "Anarchista Francaise"
+                picture = "gfx/leaders/FRA/"
+                expire = "1965.1.1"
+                ideology = anarchism_ideology
+                traits = {
+                }
+            } 
+        }
+
 }
 
 country_event = {

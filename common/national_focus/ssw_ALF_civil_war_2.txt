@@ -1,0 +1,348 @@
+shared_focus = {
+	id = ALF_Creditable_Nation
+	icon = GFX_focus_ALF_Fate_of_America
+	cost = 10.00
+	x = 8
+	y = 0
+	mutually_exclusive = {
+		focus = ALF_Hardline_Unification_Thought
+	}
+
+	ai_will_do = {
+			factor = 100
+	}
+	available = {
+	}
+	bypass = {
+		check_variable = { ALF_war_with_LFF = 5 }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		add_ideas = ssw_ideas_ALF_Special_Exception_in_Time_of_War_1
+	}
+}
+shared_focus = {
+	id = ALF_Diplomatic_Efforts
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 20.00
+	x = -3
+	y = 1
+	relative_position_id = ALF_Creditable_Nation
+	prerequisite = {
+		focus = ALF_Creditable_Nation
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+		check_variable = { ALF_war_with_LFF = 5 }
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Hardline_Unification_Thought
+	icon = GFX_focus_ALF_Fate_of_America
+	cost = 10.00
+	x = 10
+	y = 0
+	mutually_exclusive = {
+		focus = ALF_Creditable_Nation
+	}
+
+
+	ai_will_do = {
+			factor = 30
+	}
+	available = {
+	}
+	bypass = {
+		check_variable = { ALF_war_with_LFF = 5 }
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		add_ideas = ssw_ideas_ALF_Special_Exception_in_Time_of_War_1
+	}
+}
+shared_focus = {
+	id = ALF_Coercion
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 20.00
+	x = 3
+	y = 1
+	relative_position_id = ALF_Hardline_Unification_Thought
+	prerequisite = {
+		focus = ALF_Hardline_Unification_Thought
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+		check_variable = { ALF_war_with_LFF = 5 }
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Preparing_for_the_Next
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 20.00
+	x = 1
+	y = 2
+	relative_position_id = ALF_Creditable_Nation
+	prerequisite = {
+		focus = ALF_Coercion
+		focus = ALF_Diplomatic_Efforts
+
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Support_for_the_Private_Sector
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = -2
+	y = 1
+	mutually_exclusive = {
+		focus = ALF_Continue_Weapons_Production
+	}
+
+	relative_position_id = ALF_Preparing_for_the_Next
+	prerequisite = {
+		focus = ALF_Preparing_for_the_Next
+
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Return_to_the_People
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = -2
+	y = 1
+	relative_position_id = ALF_Support_for_the_Private_Sector
+	prerequisite = {
+		focus = ALF_Support_for_the_Private_Sector
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Strengthening_of_Oil_Refineries
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = -1
+	y = 2
+	relative_position_id = ALF_Support_for_the_Private_Sector
+	prerequisite = {
+		focus = ALF_Support_for_the_Private_Sector
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = ALF_Continue_Weapons_Production
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = 2
+	y = 1
+	mutually_exclusive = {
+		focus = ALF_Support_for_the_Private_Sector
+	}
+
+	relative_position_id = ALF_Preparing_for_the_Next
+	prerequisite = {
+		focus = ALF_Preparing_for_the_Next
+
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Stockpiling_Oil
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = 1
+	y = 2
+	relative_position_id = ALF_Continue_Weapons_Production
+	prerequisite = {
+		focus = ALF_Continue_Weapons_Production
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = ALF_Consolidation_of_Supplies
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = 2
+	y = 1
+	relative_position_id = ALF_Continue_Weapons_Production
+	prerequisite = {
+		focus = ALF_Continue_Weapons_Production
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = ALF_Road_Maintenance
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 20.00
+	x = 0
+	y = 2
+	relative_position_id = ALF_Preparing_for_the_Next
+	prerequisite = {
+		focus = ALF_Support_for_the_Private_Sector
+		focus = ALF_Continue_Weapons_Production
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Installation_of_Radar_Network
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 10.00
+	x = 0
+	y = 2
+	relative_position_id = ALF_Road_Maintenance
+	prerequisite = {
+		focus = ALF_Road_Maintenance
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
