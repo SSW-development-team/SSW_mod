@@ -569,60 +569,6 @@ country_event = { #ポーランドの運命
 		puppet = POL
 	}
 	option = {
-		name = ssw_foc_eastern_europe.2.b
-		ai_chance = { base = 10 }
-		trigger = {
-			OR = {
-				GAL = { is_subject_of = ROOT }
-				is_in_faction_with = GAL
-				original_tag = GAL
-			}
-			LMK = { capital_scope = { is_fully_controlled_by = GAL } }
-		}
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				has_state_flag = maybe_less_POL_GAMESTART
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			GAL = {
-				transfer_state = PREV
-				set_cosmetic_tag = POL
-			}
-			add_core_of = GAL
-		}
-	}
-	option = {
-		name = ssw_foc_eastern_europe.2.c
-		ai_chance = { base = 10 }
-		trigger = {
-			OR = {
-				LMK = { is_subject_of = ROOT }
-				is_in_faction_with = LMK
-				original_tag = LMK
-			}
-			GAL = { capital_scope = { is_fully_controlled_by = LMK } }
-		}
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				has_state_flag = maybe_less_POL_GAMESTART
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			LMK = {
-				transfer_state = PREV
-				set_cosmetic_tag = POL
-			}
-			add_core_of = LMK
-		}
-	}
-	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
@@ -675,6 +621,7 @@ country_event = { #ガリツィア＝ロドメリアの運命
 				is_in_faction_with = POL
 				original_tag = POL
 			}
+			POL = { owns_state = 90 }
 		}
 		every_state = {
 			limit = {
@@ -687,32 +634,6 @@ country_event = { #ガリツィア＝ロドメリアの運命
 			}
 			POL = { transfer_state = PREV }
 			add_core_of = POL
-		}
-	}
-	option = {
-		name = ssw_foc_eastern_europe.3.c
-		ai_chance = { base = 10 }
-		trigger = {
-			OR = {
-				LMK = { is_subject_of = ROOT }
-				is_in_faction_with = LMK
-				original_tag = LMK
-			}
-		}
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				has_state_flag = maybe_less_GAL_GAMESTART
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			LMK = {
-				transfer_state = PREV
-				set_cosmetic_tag = GAL
-			}
-			add_core_of = LMK
 		}
 	}
 	option = {
@@ -768,7 +689,7 @@ country_event = { #レムコの運命
 				is_in_faction_with = POL
 				original_tag = POL
 			}
-			GAL = { capital_scope = { is_fully_controlled_by = POL } }
+			POL = { owns_state = 88 }
 		}
 		every_state = {
 			limit = {
@@ -792,6 +713,7 @@ country_event = { #レムコの運命
 				is_in_faction_with = GAL
 				original_tag = GAL
 			}
+			GAL = { owns_state = 88 }
 		}
 		every_state = {
 			limit = {
@@ -2500,5 +2422,804 @@ country_event = { #西バナトの運命
 			add_core_of = YUG
 			YUG = { transfer_state = PREV }
 		}
+	}
+}
+country_event = { #ザイェチャルの運命
+	id = ssw_foc_eastern_europe.24
+	title = ssw_foc_eastern_europe.24.title
+	desc = ssw_foc_eastern_europe.24.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.24.a
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = {
+				owns_state = 48
+				owns_state = 803
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 975
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.24.b
+		trigger = {
+			OR = {
+				SER = { is_subject_of = ROOT }
+				is_in_faction_with = SER
+				original_tag = SER
+			}
+			SER = { owns_state = 108 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 975
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = SER
+			SER = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.24.c
+		trigger = {
+			OR = {
+				YUG = { is_subject_of = ROOT }
+				is_in_faction_with = YUG
+				original_tag = YUG
+			}
+			YUG = { owns_state = 108 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 975
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = YUG
+			YUG = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #マケドニアの運命
+	id = ssw_foc_eastern_europe.25
+	title = ssw_foc_eastern_europe.25.title
+	desc = ssw_foc_eastern_europe.25.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.25.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 106
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = MAC
+			MAC = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = MAC
+	}
+	option = {
+		name = ssw_foc_eastern_europe.25.b
+		trigger = {
+			OR = {
+				YUG = { is_subject_of = ROOT }
+				is_in_faction_with = YUG
+				original_tag = YUG
+			}
+			YUG = { owns_state = 803 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 106
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = YUG
+			YUG = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.25.c
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = {
+				owns_state = 48
+				owns_state = 212
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 106
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_macedonia
+	}
+}
+country_event = { #ピロトの運命
+	id = ssw_foc_eastern_europe.26
+	title = ssw_foc_eastern_europe.26.title
+	desc = ssw_foc_eastern_europe.26.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.26.a
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = {
+				owns_state = 48
+				owns_state = 106
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 803
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.26.b
+		trigger = {
+			OR = {
+				SER = { is_subject_of = ROOT }
+				is_in_faction_with = SER
+				original_tag = SER
+			}
+			SER = { owns_state = 108 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 803
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = SER
+			SER = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.26.c
+		trigger = {
+			OR = {
+				YUG = { is_subject_of = ROOT }
+				is_in_faction_with = YUG
+				original_tag = YUG
+			}
+			YUG = { owns_state = 108 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 803
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = YUG
+			YUG = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #マケドニア西部の運命
+	id = ssw_foc_eastern_europe.27
+	title = ssw_foc_eastern_europe.27.title
+	desc = ssw_foc_eastern_europe.27.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.27.a
+		trigger = {
+			OR = {
+				ALB = { is_subject_of = ROOT }
+				is_in_faction_with = ALB
+				original_tag = ALB
+			}
+			ALB = { owns_state = 44 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 807
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ALB
+			ALB = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.27.b
+		trigger = {
+			OR = {
+				MAC = { is_subject_of = ROOT }
+				is_in_faction_with = MAC
+				original_tag = MAC
+			}
+			MAC = { owns_state = 106 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 807
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = MAC
+			MAC = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.27.c
+		trigger = {
+			OR = {
+				YUG = { is_subject_of = ROOT }
+				is_in_faction_with = YUG
+				original_tag = YUG
+			}
+			YUG = { owns_state = 106 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 807
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = YUG
+			YUG = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #ブルガリアの運命
+	id = ssw_foc_eastern_europe.28
+	title = ssw_foc_eastern_europe.28.title
+	desc = ssw_foc_eastern_europe.28.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.28.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_BUL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = BUL
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_bulgaria
+	}
+}
+country_event = { #ブルガスの運命
+	id = ssw_foc_eastern_europe.29
+	title = ssw_foc_eastern_europe.29.title
+	desc = ssw_foc_eastern_europe.29.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.29.a
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = { owns_state = 801 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 211
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.29.b
+		trigger = {
+			OR = {
+				ROM = { is_subject_of = ROOT }
+				is_in_faction_with = ROM
+				original_tag = ROM
+			}
+			ROM = { owns_state = 77 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 211
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #ドブロジャの運命
+	id = ssw_foc_eastern_europe.30
+	title = ssw_foc_eastern_europe.30.title
+	desc = ssw_foc_eastern_europe.30.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.30.a
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = { owns_state = 211 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 77
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.30.b
+		trigger = {
+			OR = {
+				ROM = { is_subject_of = ROOT }
+				is_in_faction_with = ROM
+				original_tag = ROM
+			}
+			ROM = { owns_state = 973 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 77
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #北ドブロジャの運命
+	id = ssw_foc_eastern_europe.31
+	title = ssw_foc_eastern_europe.31.title
+	desc = ssw_foc_eastern_europe.31.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.31.a
+		trigger = {
+			OR = {
+				BUL = { is_subject_of = ROOT }
+				is_in_faction_with = BUL
+				original_tag = BUL
+			}
+			BUL = { owns_state = 77 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 973
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = BUL
+			BUL = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.31.b
+		trigger = {
+			OR = {
+				ROM = { is_subject_of = ROOT }
+				is_in_faction_with = ROM
+				original_tag = ROM
+			}
+			ROM = { owns_state = 46 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 973
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #トランシルヴァニアの運命
+	id = ssw_foc_eastern_europe.32
+	title = ssw_foc_eastern_europe.32.title
+	desc = ssw_foc_eastern_europe.32.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.32.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_TRA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = TRA
+			TRA = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = TRA
+	}
+	option = {
+		name = ssw_foc_eastern_europe.32.b
+		trigger = {
+			OR = {
+				ROM = { is_subject_of = ROOT }
+				is_in_faction_with = ROM
+				original_tag = ROM
+			}
+			ROM = { owns_state = 46 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_TRA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.32.c
+		trigger = {
+			OR = {
+				HUN = { is_subject_of = ROOT }
+				is_in_faction_with = HUN
+				original_tag = HUN
+			}
+			HUN = { owns_state = 76 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_TRA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = HUN
+			HUN = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_transylvania
+	}
+}
+country_event = { #北トランシルヴァニアの運命
+	id = ssw_foc_eastern_europe.33
+	title = ssw_foc_eastern_europe.33.title
+	desc = ssw_foc_eastern_europe.33.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.33.a
+		trigger = {
+			OR = {
+				HUN = { is_subject_of = ROOT }
+				is_in_faction_with = HUN
+				original_tag = HUN
+			}
+			HUN = { owns_state = 154 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 76
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = HUN
+			HUN = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.33.b
+		trigger = {
+			OR = {
+				ROM = { is_subject_of = ROOT }
+				is_in_faction_with = ROM
+				original_tag = ROM
+			}
+			ROM = { owns_state = 84 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 76
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.33.c
+		trigger = {
+			OR = {
+				TRA = { is_subject_of = ROOT }
+				is_in_faction_with = TRA
+				original_tag = TRA
+			}
+			TRA = { owns_state = 84 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 76
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = TRA
+			TRA = { transfer_state = PREV }
+		}
+	}
+}
+country_event = { #ルーマニアの運命
+	id = ssw_foc_eastern_europe.34
+	title = ssw_foc_eastern_europe.34.title
+	desc = ssw_foc_eastern_europe.34.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.34.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_ROM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = ROM
+			ROM = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = ROM
+	}
+	option = {
+		name = ssw_foc_eastern_europe.34.b
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 79
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = MRD
+			MRD = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					state = 46
+					state = 81
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = WLC
+			WLC = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = MRD
+		puppet = WLC
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_romania
+	}
+}
+country_event = { #スロヴァキアの運命
+	id = ssw_foc_eastern_europe.35
+	title = ssw_foc_eastern_europe.35.title
+	desc = ssw_foc_eastern_europe.35.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_eastern_europe.35.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					state = 70
+					state = 71
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = SLO
+			SLO = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+		puppet = SLO
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_slovakia
 	}
 }

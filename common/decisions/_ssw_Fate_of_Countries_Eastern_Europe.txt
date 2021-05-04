@@ -1027,4 +1027,478 @@ fate_of_countries_category_eastern_europe = {
 		complete_effect = { country_event = { id = ssw_foc_eastern_europe.23 } }
 		ai_will_do = { factor = 100 }
 	}
+	fate_of_zajecar = { #ザイェチャルの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 975
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						BUL = { is_subject_of = ROOT }
+						is_in_faction_with = BUL
+						original_tag = BUL
+					}
+					BUL = {
+						owns_state = 48
+						owns_state = 803
+					}
+				}
+				AND = {
+					OR = {
+						SER = { is_subject_of = ROOT }
+						is_in_faction_with = SER
+						original_tag = SER
+					}
+					SER = { owns_state = 108 }
+				}
+				AND = {
+					OR = {
+						YUG = { is_subject_of = ROOT }
+						is_in_faction_with = YUG
+						original_tag = YUG
+					}
+					YUG = { owns_state = 108 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.24 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_macedonia = { #マケドニアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = MAC }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 106
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			MAC = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_macedonia }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = MAC
+				MAC = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_macedonia }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.25 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_macedonia
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_pirot = { #ピロトの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 803
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						BUL = { is_subject_of = ROOT }
+						is_in_faction_with = BUL
+						original_tag = BUL
+					}
+					BUL = {
+						owns_state = 48
+						owns_state = 106
+					}
+				}
+				AND = {
+					OR = {
+						SER = { is_subject_of = ROOT }
+						is_in_faction_with = SER
+						original_tag = SER
+					}
+					SER = { owns_state = 108 }
+				}
+				AND = {
+					OR = {
+						YUG = { is_subject_of = ROOT }
+						is_in_faction_with = YUG
+						original_tag = YUG
+					}
+					YUG = { owns_state = 108 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.26 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_western_macedonia = { #マケドニア西部の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 807
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						ALB = { is_subject_of = ROOT }
+						is_in_faction_with = ALB
+						original_tag = ALB
+					}
+					ALB = { owns_state = 44 }
+				}
+				AND = {
+					OR = {
+						MAC = { is_subject_of = ROOT }
+						is_in_faction_with = MAC
+						original_tag = MAC
+					}
+					MAC = { owns_state = 106 }
+				}
+				AND = {
+					OR = {
+						YUG = { is_subject_of = ROOT }
+						is_in_faction_with = YUG
+						original_tag = YUG
+					}
+					YUG = { owns_state = 106 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.27 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_bulgaria = { #ブルガリアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = BUL }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_BUL_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			BUL = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_bulgaria }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = BUL
+				BUL = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_bulgaria }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.28 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_bulgaria
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_burgas = { #ブルガスの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 211
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						BUL = { is_subject_of = ROOT }
+						is_in_faction_with = BUL
+						original_tag = BUL
+					}
+					BUL = { owns_state = 801 }
+				}
+				AND = {
+					OR = {
+						ROM = { is_subject_of = ROOT }
+						is_in_faction_with = ROM
+						original_tag = ROM
+					}
+					ROM = { owns_state = 77 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.29 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_dobrogea = { #ドブロジャの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 77
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						BUL = { is_subject_of = ROOT }
+						is_in_faction_with = BUL
+						original_tag = BUL
+					}
+					BUL = { owns_state = 211 }
+				}
+				AND = {
+					OR = {
+						ROM = { is_subject_of = ROOT }
+						is_in_faction_with = ROM
+						original_tag = ROM
+					}
+					ROM = { owns_state = 973 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.30 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_northern_dobrogea = { #北ドブロジャの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 973
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						BUL = { is_subject_of = ROOT }
+						is_in_faction_with = BUL
+						original_tag = BUL
+					}
+					BUL = { owns_state = 77 }
+				}
+				AND = {
+					OR = {
+						ROM = { is_subject_of = ROOT }
+						is_in_faction_with = ROM
+						original_tag = ROM
+					}
+					ROM = { owns_state = 46 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.31 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_transylvania = { #トランシルヴァニアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = TRA }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_TRA_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TRA = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_transylvania }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = TRA
+				TRA = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_transylvania }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.32 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_transylvania
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_northern_transylvania = { #北トランシルヴァニアの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 76
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						HUN = { is_subject_of = ROOT }
+						is_in_faction_with = HUN
+						original_tag = HUN
+					}
+					HUN = { owns_state = 154 }
+				}
+				AND = {
+					OR = {
+						ROM = { is_subject_of = ROOT }
+						is_in_faction_with = ROM
+						original_tag = ROM
+					}
+					ROM = { owns_state = 84 }
+				}
+				AND = {
+					OR = {
+						TRA = { is_subject_of = ROOT }
+						is_in_faction_with = TRA
+						original_tag = TRA
+					}
+					TRA = { owns_state = 84 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.33 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_romania = { #ルーマニアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = ROM }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_ROM_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			ROM = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_romania }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = ROM
+				ROM = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_romania }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.34 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_romania
+		}
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_slovakia = { #スロヴァキアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = { country_exists = SLO }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					state = 70
+					state = 71
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SLO = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_slovakia }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = SLO
+				SLO = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_slovakia }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.35 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_slovakia
+		}
+		ai_will_do = { factor = 100 }
+	}
 }
