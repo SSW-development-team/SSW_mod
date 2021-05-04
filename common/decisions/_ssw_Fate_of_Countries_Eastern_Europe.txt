@@ -1501,4 +1501,200 @@ fate_of_countries_category_eastern_europe = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	fate_of_southern_slovakia = { #スロヴァキア南部の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 664
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						HUN = { is_subject_of = ROOT }
+						is_in_faction_with = HUN
+						original_tag = HUN
+					}
+					HUN = { owns_state = 43 }
+				}
+				AND = {
+					OR = {
+						CZE = { is_subject_of = ROOT }
+						is_in_faction_with = CZE
+						original_tag = CZE
+					}
+					CZE = {
+						owns_state = 70
+						owns_state = 71
+					}
+				}
+				AND = {
+					OR = {
+						SLO = { is_subject_of = ROOT }
+						is_in_faction_with = SLO
+						original_tag = SLO
+					}
+					SLO = {
+						owns_state = 70
+						owns_state = 71
+					}
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.36 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_eastern_galicia = { #ガリツィア東部の運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					state = 89
+					state = 91
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 88 }
+				}
+				AND = {
+					OR = {
+						GAL = { is_subject_of = ROOT }
+						is_in_faction_with = GAL
+						original_tag = GAL
+					}
+					GAL = { owns_state = 88 }
+				}
+				AND = {
+					OR = {
+						UKR = { is_subject_of = ROOT }
+						is_in_faction_with = UKR
+						original_tag = UKR
+					}
+					UKR = { owns_state = 199 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.37 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_carpathian = { #カルパティアの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 73
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						CZE = { is_subject_of = ROOT }
+						is_in_faction_with = CZE
+						original_tag = CZE
+					}
+					CZE = { owns_state = 71 }
+				}
+				AND = {
+					OR = {
+						SLO = { is_subject_of = ROOT }
+						is_in_faction_with = SLO
+						original_tag = SLO
+					}
+					SLO = { owns_state = 71 }
+				}
+				AND = {
+					OR = {
+						UKR = { is_subject_of = ROOT }
+						is_in_faction_with = UKR
+						original_tag = UKR
+					}
+					UKR = { owns_state = 89 }
+				}
+				AND = {
+					OR = {
+						HUN = { is_subject_of = ROOT }
+						is_in_faction_with = HUN
+						original_tag = HUN
+					}
+					HUN = {
+						owns_state = 154
+						owns_state = 664
+					}
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.38 } }
+		ai_will_do = { factor = 100 }
+	}
+	fate_of_bucovina = { #ブコヴィナの運命
+		icon = generic_operation
+		available = { always = yes }
+		visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				state = 80
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			OR = {
+				AND = {
+					OR = {
+						GAL = { is_subject_of = ROOT }
+						is_in_faction_with = GAL
+						original_tag = GAL
+					}
+					GAL = { owns_state = 89 }
+				}
+				AND = {
+					OR = {
+						POL = { is_subject_of = ROOT }
+						is_in_faction_with = POL
+						original_tag = POL
+					}
+					POL = { owns_state = 89 }
+				}
+				AND = {
+					OR = {
+						UKR = { is_subject_of = ROOT }
+						is_in_faction_with = UKR
+						original_tag = UKR
+					}
+					UKR = { owns_state = 89 }
+				}
+				AND = {
+					OR = {
+						ROM = { is_subject_of = ROOT }
+						is_in_faction_with = ROM
+						original_tag = ROM
+					}
+					ROM = { owns_state = 79 }
+				}
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.39 } }
+		ai_will_do = { factor = 100 }
+	}
 }
