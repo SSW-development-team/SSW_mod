@@ -85,6 +85,13 @@ focus_tree = {
 				days = 180
 			}
 			unlock_decision_category_tooltip = UKR_independence_war
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 1
+					type = arms_factory
+				}
+			}
 		}
 	}
 	focus = {
@@ -126,7 +133,7 @@ focus_tree = {
 		cost = 0
 		x = 35
 		y = 12
-		bypass = {
+		available = {
 			OR = {
 				has_completed_focus = UKR_unity
 				has_completed_focus = UKR_unity_christianity
@@ -138,8 +145,8 @@ focus_tree = {
 				}
 			}
 		}
-		available = {
-			always = no
+		ai_will_do = {
+			base = 128
 		}
 	}
 	focus = {
@@ -3553,44 +3560,43 @@ focus_tree = {
 				amount = 100
 				producer = UKR
 			}
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 3
-				category = cat_operational_integrity
-			}
+			bonus = 0.5
+			uses = 3
+			category = cat_operational_integrity
 		}
 	}
-	focus = {
-		id = UKR_add_base
-		icon = GFX_goal_unknown
-		cost = 10
-		prerequisite = {
-			focus = UKR_air_fleet
+}
+
+focus = {
+	id = UKR_add_base
+	icon = GFX_goal_unknown
+	cost = 10
+	prerequisite = {
+		focus = UKR_air_fleet
+	}
+	x = 0
+	y = 1
+	relative_position_id = UKR_air_fleet
+	completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = air_base
+				level = 1
+				instant_build = yes
+			}
 		}
-		x = 0
-		y = 1
-		relative_position_id = UKR_air_fleet
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = air_base
+				level = 1
+				instant_build = yes
 			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = air_base
+				level = 1
+				instant_build = yes
 			}
 		}
 	}
