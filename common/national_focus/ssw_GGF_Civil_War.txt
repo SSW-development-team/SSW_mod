@@ -1,4 +1,3 @@
-#!gfx:interface\goals.gfx
 shared_focus = {
 	id = GER_death_of_hitler
 	icon = GFX_goal_unknown
@@ -6,6 +5,7 @@ shared_focus = {
 	x = 5
 	y = 0
 	completion_reward = {
+		custom_effect_tooltip = GER_death_of_hitler_tt
 	}
 }
 shared_focus = {
@@ -19,6 +19,10 @@ shared_focus = {
 		focus = GER_death_of_hitler
 	}
 	completion_reward = {
+		add_timed_idea = {
+			idea = GER_idea_legitimate_successor
+			days = 30
+		}
 	}
 }
 shared_focus = {
@@ -32,6 +36,9 @@ shared_focus = {
 		focus = GER_legitimate_successor
 	}
 	completion_reward = {
+		add_idea = {
+			idea = GER_idea_chaotic_army
+		}
 	}
 }
 shared_focus = {
@@ -45,6 +52,38 @@ shared_focus = {
 		focus = GER_divided_army
 	}
 	completion_reward = {
+		if = {
+			limit = { has_idea = civilian_economy }
+			swap_ideas = {
+				remove_idea = civilian_economy
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = low_economic_mobilisation }
+			swap_ideas = {
+				remove_idea = low_economic_mobilisation
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = partial_economic_mobilisation }
+			swap_ideas = {
+				remove_idea = partial_economic_mobilisation
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = war_economy }
+			swap_ideas = {
+				remove_idea = war_economy
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = tot_economic_mobilisation }
+			add_war_support = 0.1
+		}
 	}
 }
 shared_focus = {
@@ -58,6 +97,8 @@ shared_focus = {
 		focus = GER_divided_army
 	}
 	completion_reward = {
+		custom_effect_tooltip = GER_start_of_propaganda_tt
+		add_war_support = 0.1
 	}
 }
 shared_focus = {
