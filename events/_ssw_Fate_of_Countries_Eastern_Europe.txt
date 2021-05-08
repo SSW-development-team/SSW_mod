@@ -1910,30 +1910,6 @@ country_event = { #スロベニアの運命
 		}
 	}
 	option = {
-		name = ssw_foc_eastern_europe.18.d
-		trigger = {
-			OR = {
-				WGR = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				original_tag = WGR
-			}
-			WGR = { owns_state = 102 }
-		}
-		ai_chance = { base = 10 }
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				state = 941
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			add_core_of = WGR
-			WGR = { transfer_state = PREV }
-		}
-	}
-	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
@@ -2016,33 +1992,6 @@ country_event = { #イストリアの運命
 			}
 			add_core_of = ITP
 			ITP = { transfer_state = PREV }
-		}
-	}
-	option = {
-		name = ssw_foc_eastern_europe.19.d
-		trigger = {
-			OR = {
-				WGR = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				original_tag = WGR
-			}
-			OR = {
-				WGR = { owns_state = 102 }
-				WGR = { owns_state = 941 }
-			}
-		}
-		ai_chance = { base = 10 }
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				state = 736
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			add_core_of = WGR
-			WGR = { transfer_state = PREV }
 		}
 	}
 }
@@ -2207,33 +2156,6 @@ country_event = { #ムルスカ・ソボタの運命
 			}
 			add_core_of = YUG
 			YUG = { transfer_state = PREV }
-		}
-	}
-	option = {
-		name = ssw_foc_eastern_europe.21.d
-		trigger = {
-			OR = {
-				WGR = { is_subject_of = ROOT }
-				is_in_faction_with = WGR
-				original_tag = WGR
-			}
-			OR = {
-				WGR = { owns_state = 102 }
-				WGR = { owns_state = 981 }
-			}
-		}
-		ai_chance = { base = 10 }
-		every_state = {
-			limit = {
-				is_owned_and_controlled_by = ROOT
-				state = 940
-				NOT = {
-					is_core_of = ROOT
-					is_claimed_by = ROOT
-				}
-			}
-			add_core_of = WGR
-			WGR = { transfer_state = PREV }
 		}
 	}
 }
