@@ -24,24 +24,34 @@ country_event = { #貴族院令改正に向けて
 }
 country_event = { #法案の提出
 	id = ssw_jap.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.2" }
+	immediate = {
+		set_country_flag = end_power_struggle_the_house_of_lords
+		log = "[GetDateText]: [Root.GetName]: event ssw_jap.2"
+	}
 	title = ssw_jap.2.title
 	desc = ssw_jap.2.desc
 	is_triggered_only = yes
-	option = { #改正派の勝利だ。
+	option = { #結果は…？
 		name = ssw_jap.2.a
 		ai_chance = { base = 1 }
-		trigger = { check_variable = { JAP_revisionist_popularity > JAP_opponent_popularity } }
-	}
-	option = { #反対派の勝利だ。
-		name = ssw_jap.2.b
-		ai_chance = { base = 1 }
-		trigger = { check_variable = { JAP_opponent_popularity > JAP_revisionist_popularity } }
-	}
-	option = { #まさか引き分けるとは…
-		name = ssw_jap.2.c
-		ai_chance = { base = 1 }
-		trigger = { check_variable = { JAP_opponent_popularity = JAP_revisionist_popularity } }
+		if = {
+			limit = { check_variable = { JAP_revisionist_popularity > JAP_opponent_popularity } }
+			set_country_flag = revisionist_victory
+			mark_focus_tree_layout_dirty = yes
+		}
+		if = {
+			limit = { check_variable = { JAP_opponent_popularity > JAP_revisionist_popularity } }
+			set_country_flag = opponent_victory
+			mark_focus_tree_layout_dirty = yes
+		}
+		if = {
+			limit = { check_variable = { JAP_opponent_popularity = JAP_revisionist_popularity } }
+			random_list = {
+				50 = { set_country_flag = revisionist_victory }
+				50 = { set_country_flag = opponent_victory }
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
 	}
 }
 country_event = { #
