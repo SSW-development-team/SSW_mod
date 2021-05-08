@@ -228,6 +228,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 1
+		bypass = {
+			controls_state = 809
+			controls_state = 137			
+		}
 		relative_position_id = UKR_CAdsbgyc
 			available_if_capitulated = yes
 			ai_will_do = {
@@ -700,6 +704,18 @@ focus_tree = {
 			ai_will_do = {
 					factor = 2
 				}
+				available ={
+					any_country = {
+						NOT = {
+							tag = ROOT
+						}
+					OR = {
+							controls_state = 192
+							controls_state = 198
+							controls_state = 766
+						}
+					}
+				}
 			completion_reward = {
 					every_country = {
 							limit = {
@@ -733,6 +749,14 @@ focus_tree = {
 			available_if_capitulated = yes
 			ai_will_do = {
 					factor = 2
+				}
+				available = {
+					any_country = {									NOT = {
+						tag = ROOT
+					}
+				OR = {
+						controls_state = 73
+					}}
 				}
 			completion_reward = {
 					every_country = {
@@ -795,6 +819,11 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
+		bypass = {
+			controls_state = 91
+			controls_state = 89
+			controls_state = 80				
+		}
 		relative_position_id = UKR_CAdsbgyc
 			available_if_capitulated = yes
 			ai_will_do = {
@@ -859,21 +888,21 @@ focus_tree = {
 					add_state_claim = 194
 					add_state_core = 224
 					every_country = {
-							limit = {
-									NOT = {
-											tag = ROOT
-										}
-									OR = {
-											controls_state = 94
-											controls_state = 194
-											controls_state = 224
-										}
-								}
-							country_event = {
-									id = ssw_UKR.11
-									days = 3
-								}
+						limit = {
+							NOT = {
+								tag = ROOT
+							}
+							OR = {
+								controls_state = 94
+								controls_state = 194
+								controls_state = 224
+							}
 						}
+						country_event = {
+							id = ssw_UKR.11
+							days = 3
+						}
+					}
 				}
 
 	}
