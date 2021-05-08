@@ -1,11 +1,28 @@
 add_namespace = SSW_ALF
+add_namespace = SSW_ALF_election
+add_namespace = SSW_ALF_description
+country_event = { #
+	id = SSW_ALF_description.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.1"}
+	title = SSW_ALF_description.1.title
+	desc = SSW_ALF_description.1.desc
+    picture = GFX_Steel_factry_1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF_description.1.a
+		ai_chance = { base = 98 }
+	}
+}
 
 country_event = { #
 	id = SSW_ALF.1
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.1"}
 	title = SSW_ALF.1.title
 	desc = SSW_ALF.1.desc
-	#picture = 
+    picture = GFX_Steel_factry_1
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -39,7 +56,7 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.2"}
 	title = SSW_ALF.2.title
 	desc = SSW_ALF.2.desc
-	#picture = 
+    picture = GFX_Steel_factry_1
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -104,7 +121,7 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.3" }
 	title = SSW_ALF.3.title
 	desc = SSW_ALF.3.desc
-	#picture = 
+    picture = GFX_Steel_factry_1
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -137,7 +154,8 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.4" }
 	title = SSW_ALF.4.title
 	desc = SSW_ALF.4.desc
-	
+	picture = GFX_Steel_factry_1
+
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -151,7 +169,8 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.5" }
 	title = SSW_ALF.5.title
 	desc = SSW_ALF.5.desc
-	
+	picture = GFX_Steel_factry_1
+
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -166,7 +185,8 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.5" }
 	title = SSW_ALF.6.title
 	desc = SSW_ALF.6.desc
-	
+	picture = GFX_Steel_factry_1
+
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -189,13 +209,814 @@ country_event = { #
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.7" }
 	title = SSW_ALF.7.title
 	desc = SSW_ALF.7.desc
-	
+	picture = GFX_Steel_factry_1
+
 	is_triggered_only = yes
 	fire_only_once = yes
 	
 	option = { #
 		name = SSW_ALF.7.a
 		ai_chance = { base = 100 }
-		
+		hidden_effect = {
+			country_event = {
+				id = SSW_ALF.8 days = 7
+			}
+			country_event = {
+				id = SSW_ALF.9 days = 15
+			}
+			country_event = {
+				id = SSW_ALF.10 days = 20
+			}
+			country_event = {
+				id = SSW_ALF.11 days = 25
+			}
+
+		}
+	}
+}
+country_event = { #カリフォルニア州での徴兵
+	id = SSW_ALF.8
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.8" }
+	title = SSW_ALF.8.title
+	desc = SSW_ALF.8.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.8.a
+		ai_chance = { base = 100 }
+		load_oob = "ALF_1950_Militia_California"
+	}
+}
+country_event = { #オレゴン州での徴兵
+	id = SSW_ALF.9
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.9" }
+	title = SSW_ALF.9.title
+	desc = SSW_ALF.9.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.9.a
+		ai_chance = { base = 100 }
+		load_oob = "ALF_1950_Militia_Oregon"
+	}
+}
+country_event = { #ワシントン州での徴兵
+	id = SSW_ALF.10
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.10" }
+	title = SSW_ALF.10.title
+	desc = SSW_ALF.10.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.10.a
+		ai_chance = { base = 100 }
+		load_oob = "ALF_1950_Militia_Washington"
+	}
+}
+country_event = { #ネバタ州での徴兵
+	id = SSW_ALF.11
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.11.title
+	desc = SSW_ALF.11.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.11.a
+		ai_chance = { base = 100 }
+		load_oob = "ALF_1950_Militia_Nevada"
+	}
+}
+country_event = { #デンバー陥落(自由連盟)
+	id = SSW_ALF.12
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.12.title
+	desc = SSW_ALF.12.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.12.a
+		ai_chance = { base = 100 }
+	}
+}
+country_event = { #デンバー陥落(左翼戦線)
+	id = SSW_ALF.13
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.13.title
+	desc = SSW_ALF.13.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.13.a
+		ai_chance = { base = 100 }
+		LFF = {
+			country_event = {
+				id = SSW_ALF.14 days = 1
+			}
+		}
+	}
+}
+country_event = { #左翼戦線の崩壊
+	id = SSW_ALF.14
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.14.title
+	desc = SSW_ALF.14.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.14.a
+		ai_chance = { base = 100 }
+		ALF = {
+			country_event = {
+				id = SSW_ALF.15 days = 1
+			}
+		}
+	}
+}
+country_event = { #左翼戦線が降伏
+	id = SSW_ALF.15
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.15.title
+	desc = SSW_ALF.15.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF.15.a
+		ai_chance = { base = 100 }
+		ALF = {
+			annex = LFF
+		}
+		load_focus_tree = {
+			tree = ALF_after_civil_war_with_LFF #ロードするフォーカス
+			keep_completed = yes #達成度が引き継がれるかどうか
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+country_event = { #首都整備
+	id = SSW_ALF.16
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.11" }
+	title = SSW_ALF.16.title
+	desc = SSW_ALF.16.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	
+	option = { #インフラ
+		name = SSW_ALF.16.a
+		ai_chance = { base = 100 }
+		set_country_flag = Strengthen_capital_city_functions_1
+	}
+	option = { #政治力
+		name = SSW_ALF.16.b
+		ai_chance = { base = 100 }
+		set_country_flag = Strengthen_capital_city_functions_2
+
+	}
+	option = { #工場建設速度
+		name = SSW_ALF.16.c
+		ai_chance = { base = 100 }
+		set_country_flag = Strengthen_capital_city_functions_3
+	}
+}
+country_event = { #カリフォルニア州政府との連携
+	id = SSW_ALF.17
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.17.title
+	desc = SSW_ALF.17.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.17.a
+		ai_chance = { base = 100 }
+		897 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		898 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		397 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		895 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1135 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+
+	}
+}
+country_event = { #オレゴン州政府との連携
+	id = SSW_ALF.18
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.18.title
+	desc = SSW_ALF.18.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.18.a
+		ai_chance = { base = 100 }
+		900 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		385 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #ワシントン州政府との連携
+	id = SSW_ALF.19
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.19.title
+	desc = SSW_ALF.19.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.19.a
+		ai_chance = { base = 100 }
+		901 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		386 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #ネバタ州政府との連携
+	id = SSW_ALF.20
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.20.title
+	desc = SSW_ALF.20.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.20.a
+		ai_chance = { base = 100 }
+		899 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		379 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
 }
 
+country_event = { #ユタ州政府との連携
+	id = SSW_ALF.21
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.21.title
+	desc = SSW_ALF.21.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.21.a
+		ai_chance = { base = 100 }
+		380 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		if = {
+			limit = {
+				controls_state = 1106
+			}
+			1106 = {
+				add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+			}	
+		}
+		else = {
+			 set_country_flag = ALF_state_1106_was_not_ALF
+		}
+	}
+}
+country_event = { #アイダホ州政府との連携
+	id = SSW_ALF.22
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.22.title
+	desc = SSW_ALF.22.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.22.a
+		ai_chance = { base = 100 }
+		1128 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		387 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #ユタ州の完全統一
+	id = SSW_ALF.23
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.23.title
+	desc = SSW_ALF.23.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.23.a
+		ai_chance = { base = 100 }
+		1106 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		clr_country_flag = ALF_state_1106_was_not_ALF
+		set_country_flag = ALF_preparation_to_unification_1106
+
+	}
+}
+country_event = { #ユタ州の完全統一_2
+	id = SSW_ALF.24
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.24.title
+	desc = SSW_ALF.24.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.24.a
+		ai_chance = { base = 100 }
+		clr_country_flag = ALF_preparation_to_unification_1106
+		1106 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		add_state_core = 1106
+	}
+}
+country_event = { #Wyoming臨時州政府
+	id = SSW_ALF.25
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.25.title
+	desc = SSW_ALF.25.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.25.a
+		ai_chance = { base = 100 }
+		1115 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		set_country_flag = ALF_not_have_1129
+	}
+}
+country_event = { #ワイオミング州政府との連携
+	id = SSW_ALF.26
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.26.title
+	desc = SSW_ALF.26.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.26.a
+		ai_chance = { base = 100 }
+		1115 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1129 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		381 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1108 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		add_state_core = 1108
+		add_state_core = 281
+		add_state_core = 1129
+
+	}
+}
+country_event = { #ワイオミング州の統合準備
+	id = SSW_ALF.27
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.27.title
+	desc = SSW_ALF.27.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.27.a
+		ai_chance = { base = 100 }
+		clr_country_flag = ALF_not_have_1129
+		set_country_flag = ALF_preparation_to_unification_1129
+		1129 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		381 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1108 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+	}
+}
+country_event = { #ワイオミング州の統合
+	id = SSW_ALF.28
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.17" }
+	title = SSW_ALF.28.title
+	desc = SSW_ALF.28.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.28.a
+		ai_chance = { base = 100 }
+		clr_country_flag = ALF_preparation_to_unification_1129
+		1129 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		381 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1108 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		add_state_core = 1108
+		add_state_core = 281
+		add_state_core = 1129
+	}
+}
+country_event = { #アリゾナ州政府の設立
+	id = SSW_ALF.29
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.29_Arizona" }
+	title = SSW_ALF.29.title
+	desc = SSW_ALF.29.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.29.a
+		ai_chance = { base = 100 }
+	}
+}
+country_event = { #アリゾナ州の完全統合
+	id = SSW_ALF.30
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.30_Arizona" }
+	title = SSW_ALF.30.title
+	desc = SSW_ALF.30.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.30.a
+		ai_chance = { base = 100 }
+		add_state_core = 377
+
+	}
+}
+country_event = { #コロラド州政府の設立
+	id = SSW_ALF.31
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Colorado" }
+	title = SSW_ALF.31.title
+	desc = SSW_ALF.31.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.31.a
+		ai_chance = { base = 100 }
+		1120 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1121 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		382 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+
+	}
+}
+country_event = { #コロラド州の完全統合
+	id = SSW_ALF.32
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.32_Colorado" }
+	title = SSW_ALF.32.title
+	desc = SSW_ALF.32.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.32.a
+		ai_chance = { base = 100 }
+		add_state_core = 1120
+		add_state_core = 1121
+		add_state_core = 382
+		1120 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1121 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		382 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #ニューメキシコ州政府の設立
+	id = SSW_ALF.33
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Colorado" }
+	title = SSW_ALF.33.title
+	desc = SSW_ALF.33.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.33.a
+		ai_chance = { base = 100 }
+		376 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1116 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1107 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+
+	}
+}
+country_event = { #ニューメキシコ州の完全統合
+	id = SSW_ALF.34
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.32_Colorado" }
+	title = SSW_ALF.34.title
+	desc = SSW_ALF.34.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.34.a
+		ai_chance = { base = 100 }
+		add_state_core = 376
+		add_state_core = 1116
+		add_state_core = 1107
+		376 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1116 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1107 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #テキサス州政府の設立
+	id = SSW_ALF.35
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Colorado" }
+	title = SSW_ALF.35.title
+	desc = SSW_ALF.35.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.35.a
+		ai_chance = { base = 100 }
+		902 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		375 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		903 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		904 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+
+	}
+}
+country_event = { #テキサス州の完全統合
+	id = SSW_ALF.36
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.32_Colorado" }
+	title = SSW_ALF.36.title
+	desc = SSW_ALF.36.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.36.a
+		ai_chance = { base = 100 }
+		add_state_core = 902
+		add_state_core = 903
+		add_state_core = 904
+		add_state_core = 375
+
+		902 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		375 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		903 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		904 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+
+	}
+}
+country_event = { #オクラホマ州政府の設立
+	id = SSW_ALF.37
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Colorado" }
+	title = SSW_ALF.37.title
+	desc = SSW_ALF.37.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.37.a
+		ai_chance = { base = 100 }
+		374 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1118 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		813 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		905 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+
+	}
+}
+country_event = { #オクラホマ州の完全統合
+	id = SSW_ALF.38
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.38_Oklahoma" }
+	title = SSW_ALF.38.title
+	desc = SSW_ALF.38.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.38.a
+		ai_chance = { base = 100 }
+		add_state_core = 374
+		add_state_core = 1118
+		add_state_core = 813
+		add_state_core = 905
+
+		374 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1118 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		813 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		905 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+
+	}
+}
+country_event = { #カンザス州政府の設立
+	id = SSW_ALF.39
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Kansas" }
+	title = SSW_ALF.39.title
+	desc = SSW_ALF.39.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.39.a
+		ai_chance = { base = 100 }
+		383 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		1119 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+	}
+}
+country_event = { #カンザス州の完全統合
+	id = SSW_ALF.40
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.38_Kansas" }
+	title = SSW_ALF.40.title
+	desc = SSW_ALF.40.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.40.a
+		ai_chance = { base = 100 }
+		add_state_core = 383
+		add_state_core = 1119
+		383 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		1119 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+country_event = { #ルイジアナ州政府の設立
+	id = SSW_ALF.41
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.31_Kansas" }
+	title = SSW_ALF.41.title
+	desc = SSW_ALF.41.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.41.a
+		ai_chance = { base = 100 }
+		911 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+		371 = {
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+		}
+	}
+}
+country_event = { #ルイジアナ州の完全統合
+	id = SSW_ALF.42
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.38_Kansas" }
+	title = SSW_ALF.42.title
+	desc = SSW_ALF.42.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #
+		name = SSW_ALF.42.a
+		ai_chance = { base = 100 }
+		add_state_core = 911
+		add_state_core = 371
+		911 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+		371 = {
+			remove_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature_non_core } 			
+			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
+		}
+	}
+}
+
+
+country_event = { #選挙の告知
+	id = SSW_ALF_election.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF_election.1" }
+	title = SSW_ALF_election.1.title
+	desc = SSW_ALF_election.1.desc
+	picture = GFX_Steel_factry_1
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = SSW_ALF_election.1.a
+		ai_chance = { base = 100 }
+		
+	}
+}
