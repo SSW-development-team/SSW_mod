@@ -1,0 +1,1933 @@
+focus_tree = {
+	id = ssw_Gebbels_Germany_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GER
+		}
+	}
+	default = no
+	focus = {
+		id = GER_Rebuild
+		icon = GFX_focus_ger_revive_kaiserreich
+		cost = 5.00
+		x = 22
+		y = 0
+			ai_will_do = {
+					factor = 100
+				}
+			bypass = {
+			}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					add_political_power = 120
+			}
+
+	}
+	focus = {
+		id = GER_001
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Rebuild
+		}
+		x = 22
+		y = 1
+		available = {
+			NOT = {
+				OR = {
+					has_idea = Scars_of_the_civil_war
+					has_idea = Scars_of_the_civil_war_2
+					has_idea = Scars_of_the_civil_war_3
+					has_idea = Scars_of_the_civil_war_4
+					has_idea = Scars_of_the_civil_war_5
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 82
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_war_support = 0.3
+		}
+	}
+	focus = {
+		id = JGB_Remnants
+		icon = GFX_focus_ger_oppose_hitler
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Rebuild
+		}
+		x = 6
+		y = 1
+			ai_will_do = {
+					factor = 99
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Scars_of_the_civil_war
+							add_idea = Scars_of_the_civil_war_2
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Gering
+		icon = GFX_focus_Gering_ico
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Remnants
+		}
+		x = 2
+		y = 2
+			ai_will_do = {
+					factor = 80
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_STABILITY }
+			completion_reward = {
+					add_stability = -0.1
+				}
+
+	}
+	focus = {
+		id = JGB_Giving_In_Gering
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 6.00
+		prerequisite = {
+			focus = JGB_Gering
+		}
+		x = 2
+		y = 3
+			available = {
+					has_idea = Resistance_Gering
+				}
+			ai_will_do = {
+					factor = 70
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					hidden_effect = {
+							set_country_flag = Give_in_Gering
+						}
+					swap_ideas = {
+							remove_idea = Resistance_Gering
+							add_idea = Resistance_Gering_2
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Moderate
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = JGB_Giving_In_Gering
+		}
+		x = 2
+		y = 4
+			ai_will_do = {
+					factor = 60
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					HGR = {
+							remove_state_core = 4
+						}
+					HGR = {
+							remove_state_core = 52
+						}
+					HGR = {
+							remove_state_core = 53
+						}
+					HGR = {
+							remove_state_core = 102
+						}
+					HGR = {
+							remove_state_core = 152
+						}
+					HGR = {
+							remove_state_core = 153
+						}
+					GER = {
+							add_state_core = 4
+						}
+					GER = {
+							add_state_core = 52
+						}
+					GER = {
+							add_state_core = 53
+						}
+					GER = {
+							add_state_core = 102
+						}
+					GER = {
+							add_state_core = 152
+						}
+					GER = {
+							add_state_core = 153
+						}
+					remove_ideas = Resistance_Gering_2
+				}
+
+	}
+	focus = {
+		id = JGB_Anything
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Moderate
+		}
+		x = 2
+		y = 5
+			available = {
+					has_idea = Scars_of_the_civil_war_2
+				}
+			ai_will_do = {
+					factor = 60
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Scars_of_the_civil_war_2
+							add_idea = Scars_of_the_civil_war_3
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Himmler
+		icon = GFX_focus_Himmler_ico
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Remnants
+		}
+		x = 6
+		y = 2
+			ai_will_do = {
+					factor = 80
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_STABILITY }
+			completion_reward = {
+					add_stability = -0.1
+				}
+
+	}
+	focus = {
+		id = JGB_Giving_In_Himmler
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 6.00
+		prerequisite = {
+			focus = JGB_Himmler
+		}
+		x = 6
+		y = 3
+			available = {
+					has_idea = Resistance_himmler
+				}
+			ai_will_do = {
+					factor = 70
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Resistance_himmler
+							add_idea = Resistance_himmler_2
+						}
+				}
+
+	}
+	focus = {
+		id = GER_rehire
+		icon = GFX_focus_spa_the_spanish_miracle
+		cost = 10.00
+		prerequisite = {
+			focus = JGB_Giving_In_Himmler
+		}
+		x = 6
+		y = 4
+			ai_will_do = {
+					factor = 65
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					HLH = {
+							remove_state_core = 3
+						}
+					HLH = {
+							remove_state_core = 8
+						}
+					HLH = {
+							remove_state_core = 28
+						}
+					HLH = {
+							remove_state_core = 42
+						}
+					HLH = {
+							remove_state_core = 50
+						}
+					HLH = {
+							remove_state_core = 51
+						}
+					HLH = {
+							remove_state_core = 54
+						}
+					HLH = {
+							remove_state_core = 55
+						}
+					HLH = {
+							remove_state_core = 151
+						}
+					HLH = {
+							remove_state_core = 803
+						}
+					GER = {
+							add_state_core = 3
+						}
+					GER = {
+							add_state_core = 8
+						}
+					GER = {
+							add_state_core = 28
+						}
+					GER = {
+							add_state_core = 42
+						}
+					GER = {
+							add_state_core = 50
+						}
+					GER = {
+							add_state_core = 51
+						}
+					GER = {
+							add_state_core = 54
+						}
+					GER = {
+							add_state_core = 55
+						}
+					GER = {
+							add_state_core = 151
+						}
+					GER = {
+							add_state_core = 803
+						}
+					remove_ideas = Resistance_himmler_2
+				}
+
+	}
+	focus = {
+		id = JGB_completely
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_rehire
+		}
+		x = 6
+		y = 5
+			available = {
+					has_idea = Scars_of_the_civil_war_3
+				}
+			ai_will_do = {
+					factor = 0
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Scars_of_the_civil_war_3
+							add_idea = Scars_of_the_civil_war_4
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Popular_Front
+		icon = GFX_focus_Popular_Front_ico
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Remnants
+		}
+		x = 10
+		y = 2
+			ai_will_do = {
+					factor = 80
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_STABILITY }
+			completion_reward = {
+					add_stability = -0.1
+				}
+
+	}
+	focus = {
+		id = JGB_Giving_To_Vorbeck
+		icon = GFX_focus_generic_concessions
+		cost = 6.00
+		prerequisite = {
+			focus = JGB_Popular_Front
+		}
+		x = 10
+		y = 3
+			available = {
+					has_idea = Resistance_Popular_Front
+				}
+			ai_will_do = {
+					factor = 70
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Resistance_Popular_Front
+							add_idea = Resistance_Popular_Front_2
+						}
+				}
+
+	}
+	focus = {
+		id = GER_Allow_continuation
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 10.00
+		prerequisite = {
+			focus = JGB_Giving_To_Vorbeck
+		}
+		x = 10
+		y = 4
+			ai_will_do = {
+					factor = 65
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					LTV = {
+							remove_state_core = 56
+						}
+					LTV = {
+							remove_state_core = 57
+						}
+					LTV = {
+							remove_state_core = 58
+						}
+					LTV = {
+							remove_state_core = 59
+						}
+					LTV = {
+							remove_state_core = 61
+						}
+					GER = {
+							add_state_core = 56
+						}
+					GER = {
+							add_state_core = 57
+						}
+					GER = {
+							add_state_core = 58
+						}
+					GER = {
+							add_state_core = 59
+						}
+					GER = {
+							add_state_core = 61
+						}
+					remove_ideas = Resistance_Popular_Front_2
+				}
+
+	}
+	focus = {
+		id = JGB_Settled
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Allow_continuation
+		}
+		x = 10
+		y = 5
+			ai_will_do = {
+					factor = 60
+				}
+			available = {
+					has_idea = Scars_of_the_civil_war_4
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Scars_of_the_civil_war_4
+							add_idea = Scars_of_the_civil_war_5
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_complete_Remnants
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Anything
+		}
+		prerequisite = {
+			focus = JGB_completely
+		}
+		prerequisite = {
+			focus = JGB_Settled
+		}
+		x = 6
+		y = 6
+			available = {
+					has_idea = Scars_of_the_civil_war_5
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			completion_reward = {
+					remove_ideas = Scars_of_the_civil_war_5
+				}
+
+	}
+	focus = {
+		id = GER_003
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_001
+		}
+		x = 19
+		y = 2
+		ai_will_do = {
+			factor = 82
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = GER_010
+		icon = GFX_goal_unknown
+		cost = 7.00
+		prerequisite = {
+			focus = GER_003
+		}
+		x = 15
+		y = 3
+		available = {
+			TUR = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		ai_will_do = {
+			factor = 83
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = GER_turky
+		}
+	}
+	focus = {
+		id = GER_011
+		icon = GFX_goal_unknown
+		cost = 7.00
+		prerequisite = {
+			focus = GER_003
+		}
+		x = 17
+		y = 3
+		available = {
+			GER = {
+				owns_state = 137
+			}
+		}
+		ai_will_do = {
+			factor = 84
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			137 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 9680
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 9680
+				}
+				set_building_level = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = GER_009
+		icon = GFX_goal_unknown
+		cost = 7.00
+		prerequisite = {
+			focus = GER_003
+		}
+		x = 19
+		y = 3
+		ai_will_do = {
+			factor = 85
+		}
+		available = {
+			AND = {
+				CCS = {
+					owns_state = 238
+				}
+				GER = {
+					owns_state = 137
+				}
+			}
+			
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			137 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			238 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = GER_008
+		icon = GFX_goal_unknown
+		cost = 7.00
+		prerequisite = {
+			focus = GER_003
+		}
+		x = 23
+		y = 3
+		ai_will_do = {
+			factor = 85
+		}
+		available = {
+				UKR = {
+					owns_state = 200
+					owns_state = 226
+					owns_state = 259
+					owns_state = 193
+				}	
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			200 = {
+				set_building_level = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			226 = {
+				set_building_level = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			259 = {
+				set_building_level = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			193 = {
+				set_building_level = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_007
+		icon = GFX_goal_unknown
+		cost = 7.00
+		prerequisite = {
+			focus = GER_003
+		}
+		x = 21
+		y = 3
+		
+
+	}
+	focus = {
+		id = GER_006
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_008
+		}
+		prerequisite = {
+			focus = GER_007
+		}
+		prerequisite = {
+			focus = GER_009
+		}
+		prerequisite = {
+			focus = GER_010
+		}
+		prerequisite = {
+			focus = GER_011
+		}
+		x = 19
+		y = 4
+
+	}
+	focus = {
+		id = GER_012
+		icon = GFX_goal_unknown
+		cost = 6.00
+		prerequisite = {
+			focus = GER_006
+		}
+		x = 19
+		y = 5
+		available = {
+			ITA = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		ai_will_do = {
+			factor = 83
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ITA
+				}
+		}
+
+	}
+	focus = {
+		id = GER_002
+		icon = GFX_goal_unknown
+		cost = 6.00
+		prerequisite = {
+			focus = GER_001
+		}
+		x = 25
+		y = 2
+
+	}
+	focus = {
+		id = GER_004
+		icon = GFX_goal_unknown
+		cost = 4.00
+		prerequisite = {
+			focus = GER_002
+		}
+		x = 25
+		y = 3
+
+	}
+	focus = {
+		id = GER_005
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_004
+		}
+		x = 25
+		y = 4
+
+	}
+	focus = {
+		id = GER_015
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_005
+		}
+		x = 25
+		y = 5
+		available = {
+			RUS = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		ai_will_do = {
+			factor = 83
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+				}
+		}
+	}
+	focus = {
+		id = GER_013
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GER_015
+			focus = GER_012
+		}
+		x = 22
+		y = 6
+		available = {
+			JAP = {
+				exists = yes
+				is_puppet = no
+			}
+		}
+		ai_will_do = {
+			factor = 83
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			diplomatic_relation = {
+				country = JAP
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+	focus = {
+		id = JGB_Review_of_our_Armament
+		icon = GFX_focus_generic_license_production
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Rebuild
+		}
+		x = 38
+		y = 1
+			ai_will_do = {
+					factor = 50
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					army_experience = 10
+					air_experience = 10
+					navy_experience = 10
+				}
+
+	}
+	focus = {
+		id = JGB_Military_Exercise
+		icon = GFX_focus_generic_little_entente
+		cost = 1.00
+		prerequisite = {
+			focus = JGB_Review_of_our_Armament
+		}
+		x = 30
+		y = 2
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					GER = {
+							country_event = {
+									id = jgb.2
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Low_Rank_Army
+		icon = GFX_focus_cze_german_puppet
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Military_Exercise
+		}
+		mutually_exclusive = {
+			focus = JGB_Equality
+		}
+		x = 28
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_MANPOWER }
+			available = {
+					has_country_flag = JGB_Low_Rank_Army_Flag
+				}
+			completion_reward = {
+					add_ideas = Dominance_Army
+					every_country = {
+							limit = {
+									is_puppet_of = GER
+								}
+							add_ideas = recessive_Army
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Equality
+		icon = GFX_goal_generic_army_doctrines
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Military_Exercise
+		}
+		mutually_exclusive = {
+			focus = JGB_Low_Rank_Army
+		}
+		x = 32
+		y = 3
+			available = {
+					has_country_flag = JGB_Equality_Flag
+				}
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_ideas = Allied_forces
+					every_country = {
+							limit = {
+									is_puppet_of = GER
+								}
+							add_ideas = Allied_forces
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Weapon_Research
+		icon = GFX_focus_research2
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Low_Rank_Army
+			focus = JGB_Equality
+		}
+		x = 30
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_RESEARCH }
+			completion_reward = {
+					add_ideas = GER_research_1
+				}
+
+	}
+	focus = {
+		id = JGB_Equality_2
+		icon = GFX_focus_hol_liberation
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Equality
+		}
+		x = 32
+		y = 4
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Allied_forces
+							add_idea = Allied_forces_2
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Low_Rank_Army_2
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Low_Rank_Army
+		}
+		x = 28
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = Dominance_Army
+							add_idea = Dominance_Army_2
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_German_Tank
+		icon = GFX_focus_generic_army_tanks2
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Equality_2
+			focus = JGB_Low_Rank_Army_2
+		}
+		x = 30
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							technology = mobile_warfare
+							technology = main_battle_tank
+							technology = mechanised_infantry
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Panzer_Leopard
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_German_Tank
+		}
+		mutually_exclusive = {
+			focus = JGB_Panzerkampfwagen_IX
+		}
+		x = 29
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							technology = main_battle_tank
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Panzerkampfwagen_IX
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_German_Tank
+		}
+		mutually_exclusive = {
+			focus = JGB_Panzer_Leopard
+		}
+		x = 32
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							technology = super_heavy_tank
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Landing_Warfare
+		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Military_Exercise
+		}
+		x = 34
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							technology = landing_craft
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_New_Navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Review_of_our_Armament
+		}
+		x = 38
+		y = 2
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							technology = convoy_interdiction_ti
+							technology = unrestricted_submarine_warfare
+							technology = wolfpacks
+							technology = advanced_submarine_warfare
+							technology = combined_operations_raiding
+							technology = fleet_in_being
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Cooperation_Army
+		icon = GFX_focus_generic_cryptologic_bomb
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_New_Navy
+		}
+		x = 36
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							technology = landing_craft
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Marine
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Landing_Warfare
+		}
+		prerequisite = {
+			focus = JGB_Cooperation_Army
+		}
+		x = 35
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							technology = marines
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Ship_Reserch
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_New_Navy
+		}
+		x = 39
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					navy_experience = 20
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							technology = convoy_interdiction_ti
+							technology = unrestricted_submarine_warfare
+							technology = wolfpacks
+							technology = advanced_submarine_warfare
+							technology = combined_operations_raiding
+							technology = fleet_in_being
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Graf_Zeppelin
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Ship_Reserch
+		}
+		x = 38
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							category = cv_tech
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Destroyer
+		icon = GFX_focus_generic_destroyer
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Graf_Zeppelin
+		}
+		x = 38
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = dd_tech
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_U_Boat
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Ship_Reserch
+		}
+		x = 40
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							name = GER_u_boat_effort
+							bonus = 1
+							uses = 1
+							category = ss_tech
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_U_Boat_2
+		icon = GFX_goal_generic_navy_anti_submarine
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_U_Boat
+		}
+		x = 40
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							name = GER_u_boat_effort
+							bonus = 1
+							uses = 1
+							category = ss_tech
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Reform_Airforce
+		icon = GFX_goal_generic_air_fighter2
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Review_of_our_Armament
+		}
+		x = 46
+		y = 2
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					air_experience = 30
+				}
+
+	}
+	focus = {
+		id = JGB_Greim_Plan
+		icon = GFX_focus_Greim_ico
+		cost = 1.00
+		prerequisite = {
+			focus = JGB_Reform_Airforce
+		}
+		mutually_exclusive = {
+			focus = JGB_Udet_Pran
+			focus = JGB_Gering_Pran
+		}
+		x = 43
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			available = {
+					NOT = {
+							has_country_flag = Give_in_Gering
+						}
+				}
+			completion_reward = {
+					air_experience = 30
+				}
+
+	}
+	focus = {
+		id = JGB_Fighter
+		icon = GFX_goal_continuous_air_production
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Greim_Plan
+		}
+		x = 43
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = light_fighter
+							category = cat_heavy_fighter
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Jet_Stuka
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Fighter
+		}
+		x = 42
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = battlefield_support_tree
+						}
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							category = cas_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Fighter_2
+		icon = GFX_focus_research
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Fighter
+		}
+		x = 44
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = light_fighter
+							category = cat_heavy_fighter
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Improvement_Me264
+		icon = GFX_focus_research
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Jet_Stuka
+		}
+		prerequisite = {
+			focus = JGB_Fighter_2
+		}
+		x = 43
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							category = cat_strategic_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Greim_doctrine
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Fighter_2
+		}
+		x = 45
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = battlefield_support_tree
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Udet_Pran
+		icon = GFX_focus_Udet_ico
+		cost = 1.00
+		prerequisite = {
+			focus = JGB_Reform_Airforce
+		}
+		mutually_exclusive = {
+			focus = JGB_Greim_Plan
+			focus = JGB_Gering_Pran
+		}
+		x = 46
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			available = {
+					NOT = {
+							has_country_flag = Give_in_Gering
+						}
+				}
+			completion_reward = {
+					air_experience = 30
+				}
+
+	}
+	focus = {
+		id = JGB_Emphasis_Bombers
+		icon = GFX_focus_usa_escort_fighters
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Udet_Pran
+		}
+		x = 46
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = cat_strategic_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Dive_Bombing
+		icon = GFX_goal_poland_goal
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Emphasis_Bombers
+		}
+		x = 46
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 3
+							category = battlefield_support_tree
+						}
+					add_tech_bonus = {
+							bonus = 1
+							uses = 2
+							category = cas_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Gering_Pran
+		icon = GFX_focus_Gering_ico
+		cost = 1.00
+		prerequisite = {
+			focus = JGB_Reform_Airforce
+		}
+		mutually_exclusive = {
+			focus = JGB_Greim_Plan
+			focus = JGB_Udet_Pran
+		}
+		x = 49
+		y = 3
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			available = {
+					has_country_flag = Give_in_Gering
+				}
+			completion_reward = {
+					air_experience = 30
+				}
+
+	}
+	focus = {
+		id = JGB_Battlefield_Support
+		icon = GFX_goal_generic_occupy_start_war
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Gering_Pran
+		}
+		x = 49
+		y = 4
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = battlefield_support_tree
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Emphasis_Tactics
+		icon = GFX_goal_generic_cavalry
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Battlefield_Support
+		}
+		x = 48
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = battlefield_support_tree
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Gering_Doctrine
+		icon = GFX_focus_eng_special_air_service
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Emphasis_Tactics
+		}
+		x = 47
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = battlefield_support_tree
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Air_support_Salamander
+		icon = GFX_focus_cze_military_aeronautical_institute
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Battlefield_Support
+		}
+		x = 50
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = cas_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Emphasis_Tactics_2
+		icon = GFX_goal_generic_territory_or_war
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Emphasis_Tactics
+		}
+		prerequisite = {
+			focus = JGB_Air_support_Salamander
+		}
+		x = 49
+		y = 6
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 2
+							uses = 2
+							category = battlefield_support_tree
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Special_Forces
+		icon = GFX_focus_generic_paratrooper
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Marine
+		}
+		x = 35
+		y = 5
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 1
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = marines
+							technology = marines2
+							technology = tech_mountaineers
+							technology = tech_mountaineers2
+						}
+				}
+
+	}
+	focus = {
+		id = JGB_Complete_Reform
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Greim_doctrine
+			focus = JGB_Gering_Doctrine
+			focus = JGB_Dive_Bombing
+		}
+		x = 46
+		y = 7
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+			completion_reward = {
+					add_war_support = 0.15
+				}
+
+	}
+	focus = {
+		id = JGB_Modern_Warframe
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		cost = 5.00
+		prerequisite = {
+			focus = JGB_Panzerkampfwagen_IX
+			focus = JGB_Panzer_Leopard
+		}
+		prerequisite = {
+			focus = JGB_Special_Forces
+		}
+		x = 32
+		y = 7
+			bypass = {
+
+}
+			cancel_if_invalid = yes
+			continue_if_invalid = no
+			available_if_capitulated = no
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 1
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+}
