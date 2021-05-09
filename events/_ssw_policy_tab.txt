@@ -20,3 +20,23 @@ country_event = {
 		clr_country_flag = ssw_policy_tab_industrialization_event_triggered
 	}
 }
+
+country_event = {
+	id = ssw_policy_tab_event.2
+	title = ssw_policy_tab_event.2.t
+	desc = ssw_policy_tab_event.2.d
+	picture = GFX_event_test
+	is_triggered_only = yes
+
+	option = {
+		name = ssw_policy_tab_event.2.a
+		ai_chance = { 
+		factor = 100
+		}
+		ROOT = {
+			add_to_variable = { country_research_institute_level = 1 }
+			set_variable = { country_research_institute = 0 }
+			clr_country_flag = ssw_research_institute_level_up_triggered
+		}
+	}
+}
