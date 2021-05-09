@@ -1,21 +1,18 @@
 focus_tree = {
 	id = ssw_UKR
 	country = {
-		base = 0
 		factor = 0
 		modifier = {
 			add = 10
+			tag = UKR
 			OR = {
-				tag = UKR
-				original_tag = UKR
-			}
+					tag = UKR
+					original_tag = UKR
+				}
+			
 		}
 	}
 	default = no
-	continuous_focus_position = {
-		x = 1900
-		y = 500
-	}
 	focus = {
 		id = UKR_mtYrwcNb
 		icon = GFX_goal_generic_political_pressure
@@ -25,26 +22,25 @@ focus_tree = {
 		}
 		x = 23
 		y = 0
-		available_if_capitulated = yes
-		available = {
-			has_country_leader = {
-				name = "Erich Koch"
-				ruling_only = yes
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_political_power = 150
-			add_timed_idea = {
-				idea = UKR_stabilize
-				days = 70
-			}
-		}
+			available_if_capitulated = yes
+			available = {
+					has_country_leader = {
+							name = "Erich Koch"
+							ruling_only = yes
+						}
+				}
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_political_power = 150
+					add_timed_idea = {
+							idea = UKR_stabilize
+							days = 70
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_independence_war
@@ -55,70 +51,43 @@ focus_tree = {
 		}
 		x = 43
 		y = 0
-		available = {
-			NOT = {
-				has_country_leader = {
-					name = "Erich Koch"
-					ruling_only = yes
+			available = {
+					NOT = {
+							has_country_leader = {
+									name = "Erich Koch"
+									ruling_only = yes
+								}
+						}
 				}
-			}
-		}
-		# custom_trigger_tooltip = {
-		#  tooltip = ssw_UKR_tooltip_won_emergency
-		#  NOT = {
-		#   has_cosmetic_tag = UKR_GEM
-		#  }
-		# }
-		available_if_capitulated = yes
-		# mutually_exclusive = {
-		#  focus = UKR_mtYrwcNb
-		# }
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 32
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = UKR_independence_war
-				days = 180
-			}
-			unlock_decision_category_tooltip = UKR_independence_war
-		}
-	}
-	focus = {
-		id = UKR_invite_belarus
-		icon = GFX_focus_generic_polish_deal
-		cost = 10
-		x = -1
-		y = 1
-		relative_position_id = UKR_intermarium
-		prerequisite = {
-			focus = UKR_intermarium
-		}
-		available = {
-			OR = {
-				country_exists = NBL
-				country_exists = BLR
-			}
-		}
-		completion_reward = {
-			NBL = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
-					random = 24
+			# custom_trigger_tooltip = {
+			#  tooltip = ssw_UKR_tooltip_won_emergency
+			#  NOT = {
+			#   has_cosmetic_tag = UKR_GEM
+			#  }
+			# }
+			available_if_capitulated = yes
+			# mutually_exclusive = {
+			#  focus = UKR_mtYrwcNb
+			# }
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			ai_will_do = {
+					factor = 32
 				}
-			}
-			BLR = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
-					random = 24
+			completion_reward = {
+					add_timed_idea = {
+							idea = UKR_independence_war
+							days = 180
+						}
+					unlock_decision_category_tooltip = UKR_independence_war
+					random_owned_controlled_state = {
+							add_building_construction = {
+									instant_build = yes
+									level = 1
+									type = arms_factory
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_administration
@@ -126,117 +95,22 @@ focus_tree = {
 		cost = 0
 		x = 35
 		y = 12
-		bypass = {
-			OR = {
-				has_completed_focus = UKR_unity
-				has_completed_focus = UKR_unity_christianity
-				has_completed_focus = UKR_het_unity
-				has_completed_focus = UKR_socialist_unity
-				has_completed_focus = UKR_black_unity
-				has_country_leader = {
-					name = "Erich Koch"
+			available = {
+					OR = {
+							has_completed_focus = UKR_unity
+							has_completed_focus = UKR_unity_christianity
+							has_completed_focus = UKR_het_unity
+							has_completed_focus = UKR_socialist_unity
+							has_completed_focus = UKR_black_unity
+							has_country_leader = {
+									name = "Erich Koch"
+								}
+						}
 				}
-			}
-		}
-		available = {
-			always = no
-		}
-	}
-	focus = {
-		id = UKR_kherson
-		icon = GFX_goal_unknown
-		cost = 10
-		x = 0
-		y = 1
-		relative_position_id = UKR_mykolaiv
-		prerequisite = {
-			focus = UKR_mykolaiv
-		}
-		available = {
-			809 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			809 = {
-				add_building_construction = {
-					type = naval_base
-					level = 2
-					instant_build = yes
-					province = {
-						id = 721
-					}
+			ai_will_do = {
+					base = 128
 				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = UKR_navy
-		icon = GFX_goal_unknown
-		cost = 10
-		x = -2
-		y = 1
-		relative_position_id = UKR_army
-		prerequisite = {
-			focus = UKR_army
-		}
-		completion_reward = {
-			add_ideas = UKR_navy
-		}
-	}
-	focus = {
-		id = UKR_yLOuwlqF
-		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		cost = 10
-		prerequisite = {
-			focus = UKR_mtYrwcNb
-		}
-		mutually_exclusive = {
-			focus = UKR_hkaWqXMm
-		}
-		x = 5
-		y = 1
-		relative_position_id = UKR_mtYrwcNb
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			remove_ideas = UKR_opposed_occupation_ukr
-			add_timed_idea = {
-				idea = UKR_stabilize
-				days = 70
-			}
-		}
-	}
-	focus = {
-		id = UKR_ZGKRudiv
-		icon = GFX_focus_eng_the_kings_party
-		cost = 10
-		prerequisite = {
-			focus = UKR_yLOuwlqF
-		}
-		x = 0
-		y = 1
-		relative_position_id = UKR_yLOuwlqF
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_rada_under_german
-		}
+
 	}
 	focus = {
 		id = UKR_hkaWqXMm
@@ -251,20 +125,19 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_mtYrwcNb
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			remove_ideas = UKR_opposed_occupation_rus
-			add_timed_idea = {
-				idea = UKR_stabilize
-				days = 70
-			}
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					remove_ideas = UKR_opposed_occupation_rus
+					add_timed_idea = {
+							idea = UKR_stabilize
+							days = 70
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_ELIofZds
@@ -276,45 +149,44 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_hkaWqXMm
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			220 = {
-				add_core_of = ROOT
-			}
-			240 = {
-				add_core_of = ROOT
-			}
-			222 = {
-				add_core_of = ROOT
-			}
-			258 = {
-				add_core_of = ROOT
-			}
-			257 = {
-				add_core_of = ROOT
-			}
-			255 = {
-				add_core_of = ROOT
-			}
-			239 = {
-				add_core_of = ROOT
-			}
-			265 = {
-				add_core_of = ROOT
-			}
-			245 = {
-				add_core_of = ROOT
-			}
-			218 = {
-				add_core_of = ROOT
-			}
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_ANNEXATION }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					220 = {
+							add_core_of = ROOT
+						}
+					240 = {
+							add_core_of = ROOT
+						}
+					222 = {
+							add_core_of = ROOT
+						}
+					258 = {
+							add_core_of = ROOT
+						}
+					257 = {
+							add_core_of = ROOT
+						}
+					255 = {
+							add_core_of = ROOT
+						}
+					239 = {
+							add_core_of = ROOT
+						}
+					265 = {
+							add_core_of = ROOT
+						}
+					245 = {
+							add_core_of = ROOT
+						}
+					218 = {
+							add_core_of = ROOT
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_CAdsbgyc
@@ -326,27 +198,26 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = UKR_administration
-		available_if_capitulated = yes
-		available = {
-			OR = {
-				NOT = {
-					has_country_leader = {
-						name = "Erich Koch"
-						ruling_only = yes
-					}
+			available_if_capitulated = yes
+			available = {
+					OR = {
+							NOT = {
+									has_country_leader = {
+											name = "Erich Koch"
+											ruling_only = yes
+										}
+								}
+							is_puppet = no
+						}
 				}
-				is_puppet = no
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_ANNEXATION
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_expansion
-		}
+			search_filters = { FOCUS_FILTER_ANNEXATION }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_expansion
+				}
+
 	}
 	focus = {
 		id = UKR_aTctHXAx
@@ -357,28 +228,60 @@ focus_tree = {
 		}
 		x = 3
 		y = 1
+		bypass = {
+			controls_state = 809
+			controls_state = 137			
+		}
 		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 809
-						controls_state = 137
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 809
+											controls_state = 137
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
+
+	}
+	focus = {
+		id = UKR_yLOuwlqF
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10
+		prerequisite = {
+			focus = UKR_mtYrwcNb
 		}
+		mutually_exclusive = {
+			focus = UKR_hkaWqXMm
+		}
+		x = 5
+		y = 1
+		relative_position_id = UKR_mtYrwcNb
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					remove_ideas = UKR_opposed_occupation_ukr
+					add_timed_idea = {
+							idea = UKR_stabilize
+							days = 70
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_establish_central_rada
@@ -387,20 +290,21 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_independence_war
 		}
-		x = 32
-		y = 1
 		mutually_exclusive = {
 			focus = UKR_christianity
 			focus = UKR_hetmanate
 			focus = UKR_spreme_rada
 			focus = UKR_makhno_cavarly
 		}
-		available = {
-			has_government = social_conservatism
-		}
-		completion_reward = {
-			add_ideas = UKR_national_rada
-		}
+		x = 32
+		y = 1
+			available = {
+					has_government = social_conservatism
+				}
+			completion_reward = {
+					add_ideas = UKR_national_rada
+				}
+
 	}
 	focus = {
 		id = UKR_christianity
@@ -408,9 +312,6 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
-		}
-		available = {
-			has_government = authority_despotism
 		}
 		mutually_exclusive = {
 			focus = UKR_establish_central_rada
@@ -420,10 +321,14 @@ focus_tree = {
 		}
 		x = 47
 		y = 1
-		completion_reward = {
-			add_ideas = UKR_christianity
-			unlock_decision_category_tooltip = UKR_unification_wars
-		}
+			available = {
+					has_government = authority_despotism
+				}
+			completion_reward = {
+					add_ideas = UKR_christianity
+					unlock_decision_category_tooltip = UKR_unification_wars
+				}
+
 	}
 	focus = {
 		id = UKR_hetmanate
@@ -431,9 +336,6 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
-		}
-		available = {
-			has_government = authority_democracy
 		}
 		mutually_exclusive = {
 			focus = UKR_establish_central_rada
@@ -443,23 +345,27 @@ focus_tree = {
 		}
 		x = 53
 		y = 1
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_unification_wars
-			225 = {
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
+			available = {
+					has_government = authority_democracy
 				}
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_unification_wars
+					225 = {
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+						}
 				}
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_spreme_rada
@@ -467,9 +373,6 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
-		}
-		available = {
-			has_government = progressive_communism
 		}
 		mutually_exclusive = {
 			focus = UKR_establish_central_rada
@@ -479,10 +382,117 @@ focus_tree = {
 		}
 		x = 57
 		y = 1
-		completion_reward = {
-			add_ideas = UKR_supreme_rada
-			unlock_decision_category_tooltip = UKR_unification_wars
+			available = {
+					has_government = progressive_communism
+				}
+			completion_reward = {
+					add_ideas = UKR_supreme_rada
+					unlock_decision_category_tooltip = UKR_unification_wars
+				}
+
+	}
+	focus = {
+		id = UKR_invite_belarus
+		icon = GFX_focus_generic_polish_deal
+		cost = 10
+		prerequisite = {
+			focus = UKR_intermarium
 		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_intermarium
+			available = {
+					OR = {
+							country_exists = NBL
+							country_exists = BLR
+						}
+				}
+			completion_reward = {
+					NBL = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+									random = 24
+								}
+						}
+					BLR = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+									random = 24
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = UKR_kherson
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_mykolaiv
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_mykolaiv
+			available = {
+					809 = {
+							is_controlled_by = ROOT
+						}
+				}
+			completion_reward = {
+					809 = {
+							add_building_construction = {
+									type = naval_base
+									level = 2
+									instant_build = yes
+									province = {
+											id = 721
+										}
+								}
+							add_building_construction = {
+									type = dockyard
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = UKR_navy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_army
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_army
+			completion_reward = {
+					add_ideas = UKR_navy
+				}
+
+	}
+	focus = {
+		id = UKR_ZGKRudiv
+		icon = GFX_focus_eng_the_kings_party
+		cost = 10
+		prerequisite = {
+			focus = UKR_yLOuwlqF
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_yLOuwlqF
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_rada_under_german
+				}
+
 	}
 	focus = {
 		id = UKR_YvxIePRL
@@ -497,16 +507,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_hkaWqXMm
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_russian_volunteers
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_MANPOWER }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_russian_volunteers
+				}
+
 	}
 	focus = {
 		id = UKR_erQvPAzU
@@ -521,16 +530,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_RTYNGyza
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_german_elite
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_MANPOWER }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_german_elite
+				}
+
 	}
 	focus = {
 		id = UKR_SEcBIuLP
@@ -545,13 +553,14 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_RTYNGyza
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_natives_army
-		}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_natives_army
+				}
+
 	}
 	focus = {
 		id = UKR_RTYNGyza
@@ -563,16 +572,15 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_mtYrwcNb
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_manpower = 10000
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_MANPOWER }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_manpower = 10000
+				}
+
 	}
 	focus = {
 		id = UKR_BKEYanlg
@@ -584,16 +592,17 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_ZGKRudiv
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.5
-				days = 3
-			}
-		}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					country_event = {
+							id = ssw_UKR.5
+							days = 3
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_FHBUxQTl
@@ -605,33 +614,34 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_aTctHXAx
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1.5
-		}
-		completion_reward = {
-			add_state_core = 234
-			add_state_core = 238
-			add_state_claim = 235
-			add_state_claim = 1005
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 234
-						controls_state = 238
-						controls_state = 235
-						controls_state = 1005
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 1.5
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					add_state_core = 234
+					add_state_core = 238
+					add_state_claim = 235
+					add_state_claim = 1005
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 234
+											controls_state = 238
+											controls_state = 235
+											controls_state = 1005
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_claim_east
@@ -643,41 +653,42 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			add_state_core = 218
-			add_state_claim = 245
-			add_state_claim = 265
-			add_state_claim = 260
-			add_state_claim = 217
-			add_state_claim = 239
-			add_state_claim = 810
-			add_state_claim = 401
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 218
-						controls_state = 245
-						controls_state = 265
-						controls_state = 260
-						controls_state = 217
-						controls_state = 239
-						controls_state = 810
-						controls_state = 401
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 1
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					add_state_core = 218
+					add_state_claim = 245
+					add_state_claim = 265
+					add_state_claim = 260
+					add_state_claim = 217
+					add_state_claim = 239
+					add_state_claim = 810
+					add_state_claim = 401
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 218
+											controls_state = 245
+											controls_state = 265
+											controls_state = 260
+											controls_state = 217
+											controls_state = 239
+											controls_state = 810
+											controls_state = 401
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_lzYNyLcB
@@ -689,28 +700,41 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+				available ={
+					any_country = {
+						NOT = {
+							tag = ROOT
+						}
 					OR = {
-						controls_state = 192
-						controls_state = 198
-						controls_state = 766
+							controls_state = 192
+							controls_state = 198
+							controls_state = 766
+						}
 					}
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 192
+											controls_state = 198
+											controls_state = 766
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_MhYVftFu
@@ -722,26 +746,35 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_xzOPZmWC
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
+				}
+				available = {
+					any_country = {									NOT = {
 						tag = ROOT
 					}
-					OR = {
+				OR = {
 						controls_state = 73
-					}
+					}}
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 73
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_lvnXWLHR
@@ -753,28 +786,29 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_xzOPZmWC
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			add_state_core = 1208
-			add_state_core = 1209
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 88
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					add_state_core = 1208
+					add_state_core = 1209
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 88
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_xzOPZmWC
@@ -785,29 +819,35 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
+		bypass = {
+			controls_state = 91
+			controls_state = 89
+			controls_state = 80				
+		}
 		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 91
-						controls_state = 89
-						controls_state = 80
-					}
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 2
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
+			completion_reward = {
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									OR = {
+											controls_state = 91
+											controls_state = 89
+											controls_state = 80
+										}
+								}
+							country_event = {
+									id = ssw_UKR.11
+									days = 3
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_YFSpmTch
@@ -819,16 +859,15 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_RTYNGyza
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_ideas = UKR_german_volunteers
-		}
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_MANPOWER }
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = UKR_german_volunteers
+				}
+
 	}
 	focus = {
 		id = UKR_southern_beralus
@@ -840,31 +879,32 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_state_claim = 94
-			add_state_claim = 194
-			add_state_core = 224
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 94
-						controls_state = 194
-						controls_state = 224
+			available_if_capitulated = yes
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_state_claim = 94
+					add_state_claim = 194
+					add_state_core = 224
+					every_country = {
+						limit = {
+							NOT = {
+								tag = ROOT
+							}
+							OR = {
+								controls_state = 94
+								controls_state = 194
+								controls_state = 224
+							}
+						}
+						country_event = {
+							id = ssw_UKR.11
+							days = 3
+						}
 					}
 				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_union_transnistria
@@ -876,16 +916,17 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_establish_central_rada
-		available = {
-			country_exists = DET
-		}
-		completion_reward = {
-			DET = {
-				country_event = {
-					id = ssw_UKR.14
+			available = {
+					country_exists = DET
 				}
-			}
-		}
+			completion_reward = {
+					DET = {
+							country_event = {
+									id = ssw_UKR.14
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_reconcile_bessarabia
@@ -897,16 +938,17 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_union_transnistria
-		available = {
-			78 = {
-				is_owned_and_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			78 = {
-				add_compliance = 50
-			}
-		}
+			available = {
+					78 = {
+							is_owned_and_controlled_by = ROOT
+						}
+				}
+			completion_reward = {
+					78 = {
+							add_compliance = 50
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_fifth_universal
@@ -918,17 +960,18 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_establish_central_rada
-		completion_reward = {
-			add_timed_idea = {
-				days = 365
-				idea = UKR_5th_universal
-			}
-			add_timed_idea = {
-				days = 365
-				idea = UKR_germans_influence
-			}
-			unlock_decision_category_tooltip = UKR_unification_wars
-		}
+			completion_reward = {
+					add_timed_idea = {
+							days = 365
+							idea = UKR_5th_universal
+						}
+					add_timed_idea = {
+							days = 365
+							idea = UKR_germans_influence
+						}
+					unlock_decision_category_tooltip = UKR_unification_wars
+				}
+
 	}
 	focus = {
 		id = UKR_unity
@@ -937,23 +980,24 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_fifth_universal
 		}
-		available = {
-			NOT = {
-				any_country = {
-					original_tag = UKR
-					NOT = {
-						tag = ROOT
-					}
-					exists = yes
-				}
-			}
-		}
 		x = 0
 		y = 2
 		relative_position_id = UKR_fifth_universal
-		completion_reward = {
-			add_ideas = UKR_unity
-		}
+			available = {
+					NOT = {
+							any_country = {
+									original_tag = UKR
+									NOT = {
+											tag = ROOT
+										}
+									exists = yes
+								}
+						}
+				}
+			completion_reward = {
+					add_ideas = UKR_unity
+				}
+
 	}
 	focus = {
 		id = UKR_integrate_oun
@@ -965,16 +1009,14 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_establish_central_rada
-		bypass = {
-			has_completed_focus = UKR_unity
-		}
-		completion_reward = {
-			unlock_decision_tooltip = UKR_independence_war_1
-			add_ideas = UKR_unstable_oun
-			# いずれここに、将軍追加を表示する
-			# custom_effect_tooltip = UKR_idea_available
-			# show_idea_tooltip=
-		}
+			bypass = {
+					has_completed_focus = UKR_unity
+				}
+			completion_reward = {
+					unlock_decision_tooltip = UKR_independence_war_1
+					add_ideas = UKR_unstable_oun
+				}
+
 	}
 	focus = {
 		id = UKR_melnyk
@@ -983,12 +1025,6 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_reconcile_oun
 		}
-		available = {
-			NOT = {
-				has_country_flag = UKR_melnyk_left
-				has_country_flag = UKR_bandera_join
-			}
-		}
 		mutually_exclusive = {
 			focus = UKR_oun_unity
 			focus = UKR_bandera
@@ -996,10 +1032,17 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_reconcile_oun
-		completion_reward = {
-			add_political_power = 300
-			remove_ideas = UKR_unstable_oun
-		}
+			available = {
+					NOT = {
+							has_country_flag = UKR_melnyk_left
+							has_country_flag = UKR_bandera_join
+						}
+				}
+			completion_reward = {
+					add_political_power = 300
+					remove_ideas = UKR_unstable_oun
+				}
+
 	}
 	focus = {
 		id = UKR_oun_unity
@@ -1012,21 +1055,22 @@ focus_tree = {
 			focus = UKR_melnyk
 			focus = UKR_bandera
 		}
-		available = {
-			has_country_flag = UKR_bandera_join
-			NOT = {
-				has_country_flag = UKR_melnyk_left
-			}
-		}
 		x = 0
 		y = 1
 		relative_position_id = UKR_reconcile_oun
-		completion_reward = {
-			custom_effect_tooltip = UKR_idea_available
-			show_ideas_tooltip = UKR_military_theorist
-			add_political_power = 150
-			remove_ideas = UKR_unstable_oun
-		}
+			available = {
+					has_country_flag = UKR_bandera_join
+					NOT = {
+							has_country_flag = UKR_melnyk_left
+						}
+				}
+			completion_reward = {
+					custom_effect_tooltip = UKR_idea_available
+					show_ideas_tooltip = UKR_military_theorist
+					add_political_power = 150
+					remove_ideas = UKR_unstable_oun
+				}
+
 	}
 	focus = {
 		id = UKR_bandera
@@ -1036,21 +1080,22 @@ focus_tree = {
 			focus = UKR_reconcile_oun
 		}
 		mutually_exclusive = {
-			focus = UKR_oun_unity
 			focus = UKR_melnyk
-		}
-		available = {
-			has_country_flag = UKR_bandera_join
-			has_country_flag = UKR_melnyk_left
+			focus = UKR_oun_unity
 		}
 		x = 2
 		y = 1
 		relative_position_id = UKR_reconcile_oun
-		completion_reward = {
-			custom_effect_tooltip = UKR_idea_available
-			show_ideas_tooltip = UKR_military_theorist
-			remove_ideas = UKR_unstable_oun
-		}
+			available = {
+					has_country_flag = UKR_bandera_join
+					has_country_flag = UKR_melnyk_left
+				}
+			completion_reward = {
+					custom_effect_tooltip = UKR_idea_available
+					show_ideas_tooltip = UKR_military_theorist
+					remove_ideas = UKR_unstable_oun
+				}
+
 	}
 	focus = {
 		id = UKR_reconcile_oun
@@ -1062,11 +1107,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_integrate_oun
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.16
-			}
-		}
+			completion_reward = {
+					country_event = {
+							id = ssw_UKR.17
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_election
@@ -1083,11 +1129,12 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = UKR_unity
-		completion_reward = {
-			country_event = {
-				id = ssw_UKR.21
-			}
-		}
+			completion_reward = {
+					country_event = {
+							id = ssw_UKR.21
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_undo
@@ -1096,26 +1143,27 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_election
 		}
-		x = -5
-		y = 1
-		relative_position_id = UKR_election
 		mutually_exclusive = {
 			focus = UKR_oun
 		}
-		available = {
-			OR = {
-				has_government = social_conservatism
-				has_government = social_liberalism
-				has_government = social_democracy
-			}
-		}
-		completion_reward = {
-			add_political_power = 150
-			add_popularity = {
-				ideology = social_conservatism
-				popularity = 0.1
-			}
-		}
+		x = -5
+		y = 1
+		relative_position_id = UKR_election
+			available = {
+					OR = {
+							has_government = social_conservatism
+							has_government = social_liberalism
+							has_government = social_democracy
+						}
+				}
+			completion_reward = {
+					add_political_power = 150
+					add_popularity = {
+							ideology = social_conservatism
+							popularity = 0.1
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_oun
@@ -1130,13 +1178,14 @@ focus_tree = {
 		x = 7
 		y = 1
 		relative_position_id = UKR_election
-		completion_reward = {
-			add_political_power = 150
-			add_popularity = {
-				ideology = national_fascism
-				popularity = 0.2
-			}
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_popularity = {
+							ideology = national_fascism
+							popularity = 0.2
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_intermarium
@@ -1148,9 +1197,10 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_undo
-		completion_reward = {
-			create_faction = UKR_intermarium_faction
-		}
+			completion_reward = {
+					create_faction = UKR_intermarium_faction
+				}
+
 	}
 	focus = {
 		id = UKR_invite_mos
@@ -1162,14 +1212,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_belarus
-		completion_reward = {
-			RLB = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					RLB = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_invite_swe
@@ -1181,14 +1232,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_invite_mos
-		completion_reward = {
-			SWE = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					SWE = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_invite_denmark
@@ -1200,14 +1252,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_swe
-		completion_reward = {
-			DEN = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					DEN = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_invite_fin
@@ -1219,14 +1272,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_invite_mos
-		completion_reward = {
-			FIN = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					FIN = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_invite_bul
@@ -1238,14 +1292,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_intermarium
-		completion_reward = {
-			BUL = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					BUL = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_invite_tur
@@ -1257,14 +1312,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_bul
-		completion_reward = {
-			TUR = {
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
+			completion_reward = {
+					TUR = {
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_democracy_defender
@@ -1276,9 +1332,10 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = UKR_undo
-		completion_reward = {
-			add_ideas = UKR_democracy_defender
-		}
+			completion_reward = {
+					add_ideas = UKR_democracy_defender
+				}
+
 	}
 	focus = {
 		id = UKR_protect_ROM
@@ -1290,21 +1347,22 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_democracy_defender
-		available = {
-			country_exists = ROM
-		}
-		completion_reward = {
-			ROM = {
-				country_event = {
-					id = ssw_UKR.25
-					days = 1
+			available = {
+					country_exists = ROM
 				}
-			}
-		}
+			completion_reward = {
+					ROM = {
+							country_event = {
+									id = ssw_UKR.25
+									days = 1
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_protect_hun
-		icon = GFX_goal_unknown
+		icon = GFX_LTV_Hungry
 		cost = 10
 		prerequisite = {
 			focus = UKR_protect_ROM
@@ -1313,23 +1371,24 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_protect_ROM
-		bypass = {
-			NOT = {
-				country_exists = HUN
-			}
-		}
-		completion_reward = {
-			HUN = {
-				country_event = {
-					id = ssw_UKR.25
-					days = 1
+			bypass = {
+					NOT = {
+							country_exists = HUN
+						}
 				}
-			}
-		}
+			completion_reward = {
+					HUN = {
+							country_event = {
+									id = ssw_UKR.25
+									days = 1
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_protect_pol
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_generic_polish_deal
 		cost = 10
 		prerequisite = {
 			focus = UKR_liberate_ost
@@ -1337,23 +1396,24 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_liberate_ost
-		bypass = {
-			NOT = {
-				country_exists = POL
-			}
-		}
-		completion_reward = {
-			POL = {
-				country_event = {
-					id = ssw_UKR.25
-					days = 1
+			bypass = {
+					NOT = {
+							country_exists = POL
+						}
 				}
-			}
-		}
+			completion_reward = {
+					POL = {
+							country_event = {
+									id = ssw_UKR.25
+									days = 1
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_protect_slo
-		icon = GFX_goal_unknown
+		icon = GFX_focus_invite_yugoslavia
 		cost = 10
 		prerequisite = {
 			focus = UKR_protect_hun
@@ -1364,17 +1424,18 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_protect_hun
-		available = {
-			country_exists = SLO
-		}
-		completion_reward = {
-			SLO = {
-				country_event = {
-					id = ssw_UKR.25
-					days = 1
+			available = {
+					country_exists = SLO
 				}
-			}
-		}
+			completion_reward = {
+					SLO = {
+							country_event = {
+									id = ssw_UKR.25
+									days = 1
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_liberate_ost
@@ -1386,17 +1447,18 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_democracy_defender
-		bypass = {
-			NOT = {
-				country_exists = BAL
-			}
-		}
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = BAL
-			}
-		}
+			bypass = {
+					NOT = {
+							country_exists = BAL
+						}
+				}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = BAL
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_liberate_volga
@@ -1408,17 +1470,18 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_democracy_defender
-		bypass = {
-			NOT = {
-				country_exists = DON
-			}
-		}
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = DON
-			}
-		}
+			bypass = {
+					NOT = {
+							country_exists = DON
+						}
+				}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = DON
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_liberate_kafkas
@@ -1430,19 +1493,20 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_liberate_volga
-		available = {
-			country_exists = CCS
-		}
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = CCS
-			}
-		}
+			available = {
+					country_exists = CCS
+				}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = CCS
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_can
-		icon = GFX_focus_attack_canada
+		icon = GFX_focus_can_cooperation
 		cost = 10
 		prerequisite = {
 			focus = UKR_democracy_defender
@@ -1450,37 +1514,38 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = UKR_democracy_defender
-		bypass = {
-			NOT = {
-				country_exists = CAN
-			}
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = CAN
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = CAN
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = CAN
-				value = 100
-			}
-			CAN = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			bypass = {
+					NOT = {
+							country_exists = CAN
+						}
 				}
-			}
-		}
+			completion_reward = {
+					add_opinion_modifier = {
+							target = CAN
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = CAN
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = CAN
+							value = 100
+						}
+					CAN = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_tex
-		icon = GFX_goal_unknown
+		icon = GFX_focus_JAP_dominate_the_chilean_industry
 		cost = 10
 		prerequisite = {
 			focus = UKR_befriend_ros
@@ -1488,37 +1553,38 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_ros
-		bypass = {
-			NOT = {
-				country_exists = TEX
-			}
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = TEX
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = TEX
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = TEX
-				value = 100
-			}
-			TEX = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			bypass = {
+					NOT = {
+							country_exists = TEX
+						}
 				}
-			}
-		}
+			completion_reward = {
+					add_opinion_modifier = {
+							target = TEX
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = TEX
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = TEX
+							value = 100
+						}
+					TEX = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_ros
-		icon = GFX_goal_unknown
+		icon = GFX_focus_JAP_dominate_the_chilean_industry
 		cost = 10
 		prerequisite = {
 			focus = UKR_befriend_can
@@ -1526,31 +1592,32 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_can
-		available = {
-			country_exists = LUI
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = LUI
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = LUI
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = LUI
-				value = 100
-			}
-			LUI = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			available = {
+					country_exists = LUI
 				}
-			}
-		}
+			completion_reward = {
+					add_opinion_modifier = {
+							target = LUI
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = LUI
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = LUI
+							value = 100
+						}
+					LUI = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_usa
@@ -1562,31 +1629,32 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_tex
-		available = {
-			country_exists = ALF
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = ALF
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = ALF
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = ALF
-				value = 100
-			}
-			ALF = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			available = {
+					country_exists = ALF
 				}
-			}
-		}
+			completion_reward = {
+					add_opinion_modifier = {
+							target = ALF
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = ALF
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = ALF
+							value = 100
+						}
+					ALF = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_jap
@@ -1598,28 +1666,29 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_oun
-		completion_reward = {
-			add_opinion_modifier = {
-				target = JAP
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = JAP
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = JAP
-				value = 100
-			}
-			JAP = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			completion_reward = {
+					add_opinion_modifier = {
+							target = JAP
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = JAP
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = JAP
+							value = 100
+						}
+					JAP = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_nationalism
@@ -1631,9 +1700,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_oun
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_ukrainaization
-		}
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_ukrainaization
+				}
+
 	}
 	focus = {
 		id = UKR_anti_rus
@@ -1645,9 +1715,10 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = UKR_oun
-		completion_reward = {
-			add_ideas = UKR_anti_russia
-		}
+			completion_reward = {
+					add_ideas = UKR_anti_russia
+				}
+
 	}
 	focus = {
 		id = UKR_clean_pol
@@ -1659,13 +1730,14 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_nationalism
-		completion_reward = {
-			unlock_decision_tooltip = UKR_clean_polish
-			reverse_add_opinion_modifier = {
-				target = POL
-				modifier = SSW_angry
-			}
-		}
+			completion_reward = {
+					unlock_decision_tooltip = UKR_clean_polish
+					reverse_add_opinion_modifier = {
+							target = POL
+							modifier = SSW_angry
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_clean_rus
@@ -1680,13 +1752,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_anti_rus
-		completion_reward = {
-			unlock_decision_tooltip = UKR_clean_russians
-			reverse_add_opinion_modifier = {
-				target = RUS
-				modifier = SSW_angry
-			}
-		}
+			completion_reward = {
+					unlock_decision_tooltip = UKR_clean_russians
+					reverse_add_opinion_modifier = {
+							target = RUS
+							modifier = SSW_angry
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_clean_jew
@@ -1698,13 +1771,14 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_nationalism
-		completion_reward = {
-			unlock_decision_tooltip = UKR_clean_jews
-			reverse_add_opinion_modifier = {
-				target = ISR
-				modifier = SSW_angry
-			}
-		}
+			completion_reward = {
+					unlock_decision_tooltip = UKR_clean_jews
+					reverse_add_opinion_modifier = {
+							target = ISR
+							modifier = SSW_angry
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_clean_ger
@@ -1716,13 +1790,14 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_nationalism
-		completion_reward = {
-			unlock_decision_tooltip = UKR_clean_germans
-			reverse_add_opinion_modifier = {
-				target = GER
-				modifier = SSW_angry
-			}
-		}
+			completion_reward = {
+					unlock_decision_tooltip = UKR_clean_germans
+					reverse_add_opinion_modifier = {
+							target = GER
+							modifier = SSW_angry
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_catholic
@@ -1737,14 +1812,15 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_christianity
-		completion_reward = {
-			add_political_power = 150
-			set_party_name = {
-				ideology = authority_despotism
-				long_name = UKR_GCC_long
-				name = UKR_GCC
-			}
-		}
+			completion_reward = {
+					add_political_power = 150
+					set_party_name = {
+							ideology = authority_despotism
+							long_name = UKR_GCC_long
+							name = UKR_GCC
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_orthodox
@@ -1759,9 +1835,10 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_christianity
-		completion_reward = {
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = UKR_independent_church
@@ -1776,14 +1853,15 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_orthodox
-		completion_reward = {
-			add_stability = 0.1
-			add_political_power = 150
-			news_event = {
-				id = ssw_UKR.28
-				days = 3
-			}
-		}
+			completion_reward = {
+					add_stability = 0.1
+					add_political_power = 150
+					news_event = {
+							id = ssw_UKR.28
+							days = 3
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_mos_church
@@ -1798,14 +1876,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_orthodox
-		completion_reward = {
-			add_stability = -0.05
-			set_party_name = {
-				ideology = authority_despotism_ideology
-				long_name = UKR_mos_church_long
-				name = UKR_mos_church
-			}
-		}
+			completion_reward = {
+					add_stability = -0.05
+					set_party_name = {
+							ideology = authority_despotism_ideology
+							long_name = UKR_mos_church_long
+							name = UKR_mos_church
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_church_union
@@ -1817,14 +1896,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_independent_church
-		completion_reward = {
-			add_stability = 0.1
-			add_political_power = 150
-			news_event = {
-				id = ssw_UKR.29
-				days = 3
-			}
-		}
+			completion_reward = {
+					add_stability = 0.1
+					add_political_power = 150
+					news_event = {
+							id = ssw_UKR.29
+							days = 3
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_unity_christianity
@@ -1838,20 +1918,21 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_church_union
-		available = {
-			NOT = {
-				any_country = {
-					original_tag = UKR
+			available = {
 					NOT = {
-						tag = ROOT
-					}
-					exists = yes
+							any_country = {
+									original_tag = UKR
+									NOT = {
+											tag = ROOT
+										}
+									exists = yes
+								}
+						}
 				}
-			}
-		}
-		completion_reward = {
-			add_ideas = UKR_unity
-		}
+			completion_reward = {
+					add_ideas = UKR_unity
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_mos_church
@@ -1866,28 +1947,29 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_unity_christianity
-		completion_reward = {
-			add_opinion_modifier = {
-				target = PAT
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = PAT
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = PAT
-				value = 100
-			}
-			PAT = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			completion_reward = {
+					add_opinion_modifier = {
+							target = PAT
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = PAT
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PAT
+							value = 100
+						}
+					PAT = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_loyal_mos
@@ -1905,14 +1987,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_unity_christianity
-		completion_reward = {
-			PAT = {
-				set_autonomy = {
-					target = ROOT
-					autonomy_state = autonomous_puppet
+			completion_reward = {
+					PAT = {
+							set_autonomy = {
+									target = ROOT
+									autonomy_state = autonomous_puppet
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_church_conquest
@@ -1925,9 +2008,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_mos_church
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_chuch_state
-		}
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_chuch_state
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_can_church
@@ -1939,28 +2023,29 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_orthodox
-		completion_reward = {
-			add_opinion_modifier = {
-				target = CAN
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = CAN
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = CAN
-				value = 100
-			}
-			CAN = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			completion_reward = {
+					add_opinion_modifier = {
+							target = CAN
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = CAN
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = CAN
+							value = 100
+						}
+					CAN = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_befriend_usa_church
@@ -1972,48 +2057,49 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_can_church
-		completion_reward = {
-			add_opinion_modifier = {
-				target = ALF
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = ALF
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = ALF
-				value = 100
-			}
-			ALF = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			completion_reward = {
+					add_opinion_modifier = {
+							target = ALF
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = ALF
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = ALF
+							value = 100
+						}
+					ALF = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
+					add_opinion_modifier = {
+							target = UTC
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = UTC
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = UTC
+							value = 100
+						}
+					UTC = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
 				}
-			}
-			add_opinion_modifier = {
-				target = UTC
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = UTC
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = UTC
-				value = 100
-			}
-			UTC = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_befrined_roma
@@ -2025,28 +2111,29 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = UKR_catholic
-		completion_reward = {
-			add_opinion_modifier = {
-				target = VAC
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = VAC
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = VAC
-				value = 100
-			}
-			VAC = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
+			completion_reward = {
+					add_opinion_modifier = {
+							target = VAC
+							modifier = SSW_friendly
+						}
+					reverse_add_opinion_modifier = {
+							target = VAC
+							modifier = SSW_friendly
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = VAC
+							value = 100
+						}
+					VAC = {
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = ROOT
+									value = 100
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_c_serbia
@@ -2058,12 +2145,13 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_church_conquest
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = SER
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = SER
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_croatia
@@ -2075,12 +2163,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_serbia
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = CRO
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = CRO
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_ita
@@ -2092,12 +2181,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_croatia
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = ITA
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = ITA
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_roma
@@ -2109,12 +2199,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_ita
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = VAC
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = VAC
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_bul
@@ -2126,12 +2217,13 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = UKR_church_conquest
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = BUL
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = BUL
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_volga
@@ -2143,12 +2235,13 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_church_conquest
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = DON
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = DON
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_kafkas
@@ -2160,12 +2253,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_volga
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = CCS
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = CCS
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_tur
@@ -2178,12 +2272,13 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_c_kafkas
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = TUR
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = TUR
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_syr
@@ -2195,12 +2290,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_tur
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = SYR
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = SYR
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_c_pal
@@ -2212,12 +2308,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_c_syr
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = PAL
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = PAL
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_god_state
@@ -2232,9 +2329,10 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_c_pal
-		completion_reward = {
-			add_ideas = UKR_god_state
-		}
+			completion_reward = {
+					add_ideas = UKR_god_state
+				}
+
 	}
 	focus = {
 		id = UKR_conscription_emergency
@@ -2246,13 +2344,14 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_hetmanate
-		completion_reward = {
-			add_ideas = extensive_conscription
-			add_timed_idea = {
-				idea = UKR_emergency_conscription
-				days = 365
-			}
-		}
+			completion_reward = {
+					add_ideas = extensive_conscription
+					add_timed_idea = {
+							idea = UKR_emergency_conscription
+							days = 365
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_food
@@ -2264,12 +2363,13 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_hetmanate
-		completion_reward = {
-			add_timed_idea = {
-				idea = UKR_force_food
-				days = 365
-			}
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = UKR_force_food
+							days = 365
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_het_unity
@@ -2284,20 +2384,21 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = UKR_hetmanate
-		available = {
-			NOT = {
-				any_country = {
-					original_tag = UKR
+			available = {
 					NOT = {
-						tag = ROOT
-					}
-					exists = yes
+							any_country = {
+									original_tag = UKR
+									NOT = {
+											tag = ROOT
+										}
+									exists = yes
+								}
+						}
 				}
-			}
-		}
-		completion_reward = {
-			add_ideas = UKR_unity
-		}
+			completion_reward = {
+					add_ideas = UKR_unity
+				}
+
 	}
 	focus = {
 		id = UKR_restore_rus
@@ -2309,18 +2410,19 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_het_unity
-		available = {
-			has_completed_focus = UKR_claim_east
-		}
-		completion_reward = {
-			set_cosmetic_tag = UKR_rus
-			every_state = {
-				limit = {
-					is_core_of = MOS
+			available = {
+					has_completed_focus = UKR_claim_east
 				}
-				add_claim_by = ROOT
-			}
-		}
+			completion_reward = {
+					set_cosmetic_tag = UKR_rus
+					every_state = {
+							limit = {
+									is_core_of = MOS
+								}
+							add_claim_by = ROOT
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_recover_mos
@@ -2332,24 +2434,25 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_restore_rus
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
+			completion_reward = {
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_rus
@@ -2361,33 +2464,34 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_recover_mos
-		completion_reward = {
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = RUS
-						is_core_of = SOV
-					}
+			completion_reward = {
+					every_state = {
+							limit = {
+									OR = {
+											is_core_of = RUS
+											is_core_of = SOV
+										}
+								}
+							add_claim_by = ROOT
+						}
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_pol
@@ -2399,30 +2503,31 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = UKR_recover_rus
-		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = POL
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = POL
+								}
+							add_claim_by = ROOT
+						}
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_nov
@@ -2434,30 +2539,31 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_recover_rus
-		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = FIN
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = FIN
+								}
+							add_claim_by = ROOT
+						}
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_central_asia
@@ -2469,30 +2575,31 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_recover_rus
-		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = WTR
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = WTR
+								}
+							add_claim_by = ROOT
+						}
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_east
@@ -2510,30 +2617,31 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_recover_nov
-		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = SOV
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = SOV
+								}
+							add_claim_by = ROOT
+						}
+					every_country = {
+							limit = {
+									NOT = {
+											tag = ROOT
+										}
+									any_owned_state = {
+											is_claimed_by = ROOT
+										}
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-				add_claim_by = ROOT
-			}
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					any_owned_state = {
-						is_claimed_by = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_cooperate_rus
@@ -2545,14 +2653,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_spreme_rada
-		completion_reward = {
-			every_owned_state = {
-				limit = {
-					is_core_of = RUS
+			completion_reward = {
+					every_owned_state = {
+							limit = {
+									is_core_of = RUS
+								}
+							add_compliance = 50
+						}
 				}
-				add_compliance = 50
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_east_infra
@@ -2564,10 +2673,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_spreme_rada
-		completion_reward = {
-			add_ideas = export_focus
-			add_ideas = UKR_trade
-		}
+			completion_reward = {
+					add_ideas = export_focus
+					add_ideas = UKR_trade
+				}
+
 	}
 	focus = {
 		id = UKR_import_rus
@@ -2579,22 +2689,23 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_cooperate_rus
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
 				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_socialist_unity
@@ -2609,20 +2720,21 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_import_rus
-		available = {
-			NOT = {
-				any_country = {
-					original_tag = UKR
+			available = {
 					NOT = {
-						tag = ROOT
-					}
-					exists = yes
+							any_country = {
+									original_tag = UKR
+									NOT = {
+											tag = ROOT
+										}
+									exists = yes
+								}
+						}
 				}
-			}
-		}
-		completion_reward = {
-			add_ideas = UKR_unity
-		}
+			completion_reward = {
+					add_ideas = UKR_unity
+				}
+
 	}
 	focus = {
 		id = UKR_power_struggle
@@ -2634,9 +2746,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_socialist_unity
-		completion_reward = {
-			add_ideas = UKR_power_struggle
-		}
+			completion_reward = {
+					add_ideas = UKR_power_struggle
+				}
+
 	}
 	focus = {
 		id = UKR_stalinist
@@ -2651,12 +2764,13 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_power_struggle
-		completion_reward = {
-			set_politics = {
-				ruling_party = classical_communism
-				elections_allowed = no
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = classical_communism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_reformist
@@ -2671,12 +2785,13 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_power_struggle
-		completion_reward = {
-			set_politics = {
-				ruling_party = progressive_communism
-				elections_allowed = no
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = progressive_communism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_seize_power
@@ -2689,9 +2804,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_stalinist
-		completion_reward = {
-			remove_ideas = UKR_power_struggle
-		}
+			completion_reward = {
+					remove_ideas = UKR_power_struggle
+				}
+
 	}
 	focus = {
 		id = UKR_soviet
@@ -2709,9 +2825,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = UKR_stalinist
-		completion_reward = {
-			set_cosmetic_tag = UKR_soviet
-		}
+			completion_reward = {
+					set_cosmetic_tag = UKR_soviet
+				}
+
 	}
 	focus = {
 		id = UKR_original_socialism
@@ -2729,9 +2846,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = UKR_reformist
-		completion_reward = {
-			add_ideas = UKR_agricaltural_socialism
-		}
+			completion_reward = {
+					add_ideas = UKR_agricaltural_socialism
+				}
+
 	}
 	focus = {
 		id = UKR_international
@@ -2744,9 +2862,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_soviet
-		completion_reward = {
-			create_faction = UKR_international_faction
-		}
+			completion_reward = {
+					create_faction = UKR_international_faction
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_socialist
@@ -2758,36 +2877,37 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_international
-		completion_reward = {
-			every_country = {
-				limit = {
-					OR = {
-						has_government = classical_communism
-						has_government = progressive_communism
-					}
+			completion_reward = {
+					every_country = {
+							limit = {
+									OR = {
+											has_government = classical_communism
+											has_government = progressive_communism
+										}
+								}
+							add_opinion_modifier = {
+									target = THIS
+									modifier = SSW_friendly
+								}
+							reverse_add_opinion_modifier = {
+									target = THIS
+									modifier = SSW_friendly
+								}
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = THIS
+									value = 100
+								}
+							THIS = {
+									add_ai_strategy = {
+											type = send_volunteers_desire
+											id = ROOT
+											value = 100
+										}
+								}
+						}
 				}
-				add_opinion_modifier = {
-					target = THIS
-					modifier = SSW_friendly
-				}
-				reverse_add_opinion_modifier = {
-					target = THIS
-					modifier = SSW_friendly
-				}
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = THIS
-					value = 100
-				}
-				THIS = {
-					add_ai_strategy = {
-						type = send_volunteers_desire
-						id = ROOT
-						value = 100
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_world_revolution
@@ -2799,21 +2919,22 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_socialist
-		completion_reward = {
-			every_country = {
-				limit = {
-					OR = {
-						has_government = classical_communism
-						has_government = progressive_communism
-					}
+			completion_reward = {
+					every_country = {
+							limit = {
+									OR = {
+											has_government = classical_communism
+											has_government = progressive_communism
+										}
+								}
+							country_event = {
+									id = ssw_UKR.22
+									days = 1
+									random = 48
+								}
+						}
 				}
-				country_event = {
-					id = ssw_UKR.22
-					days = 1
-					random = 48
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_recover_sov
@@ -2828,12 +2949,13 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_world_revolution
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = RUS
-			}
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = RUS
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_makhno_cavarly
@@ -2841,9 +2963,6 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = UKR_independence_war
-		}
-		available = {
-			has_government = anarchism
 		}
 		mutually_exclusive = {
 			focus = UKR_establish_central_rada
@@ -2853,23 +2972,27 @@ focus_tree = {
 		}
 		x = 61
 		y = 1
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_unification_wars
-			225 = {
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
+			available = {
+					has_government = anarchism
 				}
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_unification_wars
+					225 = {
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+							create_unit = {
+									division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
+									owner = ROOT
+								}
+						}
 				}
-				create_unit = {
-					division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.5"
-					owner = ROOT
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_order_khorodono
@@ -2881,15 +3004,16 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_makhno_cavarly
-		completion_reward = {
-			set_state_controller = 203
-			203 = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
-					owner = PREV
+			completion_reward = {
+					set_state_controller = 203
+					203 = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
+									owner = PREV
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_black_air_fleet
@@ -2901,25 +3025,26 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_makhno_cavarly
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = air_base
+									level = 1
+									instant_build = yes
+								}
+						}
+					add_equipment_to_stockpile = {
+							type = fighter_equipment
+							amount = 100
+							producer = UKR
+						}
+					add_equipment_to_stockpile = {
+							type = CAS_equipment
+							amount = 50
+							producer = UKR
+						}
 				}
-			}
-			add_equipment_to_stockpile = {
-				type = fighter_equipment
-				amount = 100
-				producer = UKR
-			}
-			add_equipment_to_stockpile = {
-				type = CAS_equipment
-				amount = 50
-				producer = UKR
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_black_unity
@@ -2934,20 +3059,21 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_order_khorodono
-		available = {
-			NOT = {
-				any_country = {
-					original_tag = UKR
+			available = {
 					NOT = {
-						tag = ROOT
-					}
-					exists = yes
+							any_country = {
+									original_tag = UKR
+									NOT = {
+											tag = ROOT
+										}
+									exists = yes
+								}
+						}
 				}
-			}
-		}
-		completion_reward = {
-			add_ideas = UKR_unity
-		}
+			completion_reward = {
+					add_ideas = UKR_unity
+				}
+
 	}
 	focus = {
 		id = UKR_befriend_anarchist
@@ -2959,33 +3085,34 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_black_unity
-		completion_reward = {
-			every_country = {
-				limit = {
-					has_government = anarchism
+			completion_reward = {
+					every_country = {
+							limit = {
+									has_government = anarchism
+								}
+							add_opinion_modifier = {
+									target = THIS
+									modifier = SSW_friendly
+								}
+							reverse_add_opinion_modifier = {
+									target = THIS
+									modifier = SSW_friendly
+								}
+							add_ai_strategy = {
+									type = send_volunteers_desire
+									id = THIS
+									value = 100
+								}
+							THIS = {
+									add_ai_strategy = {
+											type = send_volunteers_desire
+											id = ROOT
+											value = 100
+										}
+								}
+						}
 				}
-				add_opinion_modifier = {
-					target = THIS
-					modifier = SSW_friendly
-				}
-				reverse_add_opinion_modifier = {
-					target = THIS
-					modifier = SSW_friendly
-				}
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = THIS
-					value = 100
-				}
-				THIS = {
-					add_ai_strategy = {
-						type = send_volunteers_desire
-						id = ROOT
-						value = 100
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_spread_revolution
@@ -2997,9 +3124,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_befriend_anarchist
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_revolution
-		}
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_revolution
+				}
+
 	}
 	focus = {
 		id = UKR_world_autonomy
@@ -3011,9 +3139,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_spread_revolution
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_integration
-		}
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_integration
+				}
+
 	}
 	focus = {
 		id = UKR_rebuild_town
@@ -3024,16 +3153,17 @@ focus_tree = {
 		}
 		x = -3
 		y = 1
-		ai_will_do = {
-			base = 2
-		}
 		relative_position_id = UKR_administration
-		completion_reward = {
-			add_timed_idea = {
-				idea = UKR_rebuild_town
-				days = 365
-			}
-		}
+			ai_will_do = {
+					base = 2
+				}
+			completion_reward = {
+					add_timed_idea = {
+							idea = UKR_rebuild_town
+							days = 365
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_rebuild_kiev
@@ -3045,30 +3175,31 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_rebuild_town
-		available = {
-			202 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			202 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
+			available = {
+					202 = {
+							is_controlled_by = ROOT
+						}
 				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
+			completion_reward = {
+					202 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
 				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_rebuild_kiev_univ
@@ -3080,9 +3211,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_rebuild_kiev
-		completion_reward = {
-			add_ideas = UKR_kiev_university
-		}
+			completion_reward = {
+					add_ideas = UKR_kiev_university
+				}
+
 	}
 	focus = {
 		id = UKR_military_factories
@@ -3094,15 +3226,16 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_rebuild_kiev
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = arms_factory
+									level = 3
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_improve_literacy
@@ -3114,9 +3247,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_rebuild_kiev_univ
-		completion_reward = {
-			unlock_decision_category_tooltip = UKR_improve_literacy
-		}
+			completion_reward = {
+					unlock_decision_category_tooltip = UKR_improve_literacy
+				}
+
 	}
 	focus = {
 		id = UKR_mykolaiv
@@ -3128,28 +3262,29 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_rebuild_town
-		available = {
-			197 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			197 = {
-				add_building_construction = {
-					type = naval_base
-					level = 2
-					instant_build = yes
-					province = {
-						id = 11683
-					}
+			available = {
+					197 = {
+							is_controlled_by = ROOT
+						}
 				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					197 = {
+							add_building_construction = {
+									type = naval_base
+									level = 2
+									instant_build = yes
+									province = {
+											id = 11683
+										}
+								}
+							add_building_construction = {
+									type = dockyard
+									level = 1
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_kharkiv
@@ -3161,25 +3296,26 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = UKR_rebuild_town
-		available = {
-			221 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			221 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			available = {
+					221 = {
+							is_controlled_by = ROOT
+						}
 				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					221 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_bergorod
@@ -3191,25 +3327,26 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_kharkiv
-		available = {
-			240 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			240 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			available = {
+					240 = {
+							is_controlled_by = ROOT
+						}
 				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					240 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_kursk
@@ -3221,25 +3358,26 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_bergorod
-		available = {
-			220 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			220 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			available = {
+					220 = {
+							is_controlled_by = ROOT
+						}
 				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+			completion_reward = {
+					220 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_army
@@ -3251,11 +3389,12 @@ focus_tree = {
 		x = -11
 		y = 1
 		relative_position_id = UKR_administration
-		completion_reward = {
-			army_experience = 30
-			navy_experience = 30
-			air_experience = 30
-		}
+			completion_reward = {
+					army_experience = 30
+					navy_experience = 30
+					air_experience = 30
+				}
+
 	}
 	focus = {
 		id = UKR_sich
@@ -3267,79 +3406,80 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = UKR_army
-		available = {
-			NOT = {
-				has_idea = UKR_natives_nationalism
-			}
-		}
-		completion_reward = {
-			division_template = {
-				name = "Sich Riflemen Division"
-				priority = 2
-				regiments = {
-					infantry = {
-						x = 0
-						y = 0
-					}
-					infantry = {
-						x = 0
-						y = 1
-					}
-					infantry = {
-						x = 0
-						y = 2
-					}
-					infantry = {
-						x = 0
-						y = 3
-					}
-					infantry = {
-						x = 0
-						y = 4
-					}
-					infantry = {
-						x = 1
-						y = 0
-					}
-					artillery_brigade = {
-						x = 1
-						y = 1
-					}
-					anti_tank_brigade = {
-						x = 1
-						y = 2
-					}
+			available = {
+					NOT = {
+							has_idea = UKR_natives_nationalism
+						}
 				}
-				support = {
-					engineer = {
-						x = 0
-						y = 0
-					}
-					anti_air = {
-						x = 0
-						y = 1
-					}
-					field_hospital = {
-						x = 0
-						y = 2
-					}
-					signal_company = {
-						x = 0
-						y = 3
-					}
-					logistics_company = {
-						x = 0
-						y = 4
-					}
+			completion_reward = {
+					division_template = {
+							name = "Sich Riflemen Division"
+							priority = 2
+							regiments = {
+									infantry = {
+											x = 0
+											y = 0
+										}
+									infantry = {
+											x = 0
+											y = 1
+										}
+									infantry = {
+											x = 0
+											y = 2
+										}
+									infantry = {
+											x = 0
+											y = 3
+										}
+									infantry = {
+											x = 0
+											y = 4
+										}
+									infantry = {
+											x = 1
+											y = 0
+										}
+									artillery_brigade = {
+											x = 1
+											y = 1
+										}
+									anti_tank_brigade = {
+											x = 1
+											y = 2
+										}
+								}
+							support = {
+									engineer = {
+											x = 0
+											y = 0
+										}
+									anti_air = {
+											x = 0
+											y = 1
+										}
+									field_hospital = {
+											x = 0
+											y = 2
+										}
+									signal_company = {
+											x = 0
+											y = 3
+										}
+									logistics_company = {
+											x = 0
+											y = 4
+										}
+								}
+						}
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
+									owner = ROOT
+								}
+						}
 				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
-					owner = ROOT
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_integrate_oun_army
@@ -3351,38 +3491,39 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_sich
-		completion_reward = {
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
-					owner = PREV
+			completion_reward = {
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+									owner = PREV
+								}
+						}
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+									owner = PREV
+								}
+						}
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+									owner = PREV
+								}
+						}
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+									owner = PREV
+								}
+						}
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
+									owner = PREV
+								}
+						}
 				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
-					owner = PREV
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
-					owner = PREV
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
-					owner = PREV
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 1"
-					owner = PREV
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_karpatia_sich
@@ -3394,21 +3535,22 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_integrate_oun_army
-		available = {
-			OR = {
-				controls_state = 73
-				controls_state = 89
-				controls_state = 91
-			}
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
-					owner = ROOT
+			available = {
+					OR = {
+							controls_state = 73
+							controls_state = 89
+							controls_state = 91
+						}
 				}
-			}
-		}
+			completion_reward = {
+					random_owned_controlled_state = {
+							create_unit = {
+									division = "name = \"Sich Riflemen Division\" division_template = \"Sich Riflemen Division\" start_experience_factor = 1"
+									owner = ROOT
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_national_company
@@ -3420,11 +3562,12 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_sich
-		completion_reward = {
-			custom_effect_tooltip = UKR_company_available
-			show_ideas_tooltip = UKR_infantry_equipment_manufacturer_Ukro
-			show_ideas_tooltip = UKR_artillery_manufacturer_Ukro
-		}
+			completion_reward = {
+					custom_effect_tooltip = UKR_company_available
+					show_ideas_tooltip = UKR_infantry_equipment_manufacturer_Ukro
+					show_ideas_tooltip = UKR_artillery_manufacturer_Ukro
+				}
+
 	}
 	focus = {
 		id = UKR_submarine
@@ -3433,19 +3576,20 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_navy
 		}
-		x = 1
-		y = 1
-		relative_position_id = UKR_navy
 		mutually_exclusive = {
 			focus = UKR_old_navy
 		}
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 5
-				category = cat_trade_interdiction
-			}
-		}
+		x = 1
+		y = 1
+		relative_position_id = UKR_navy
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.5
+							uses = 5
+							category = cat_trade_interdiction
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_old_navy
@@ -3454,19 +3598,20 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_navy
 		}
-		x = -1
-		y = 1
-		relative_position_id = UKR_navy
 		mutually_exclusive = {
 			focus = UKR_submarine
 		}
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 3
-				category = fleet_in_being_tree
-			}
-		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_navy
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.5
+							uses = 3
+							category = fleet_in_being_tree
+						}
+				}
+
 	}
 	focus = {
 		id = UKR_end_nightmare
@@ -3475,28 +3620,29 @@ focus_tree = {
 		prerequisite = {
 			focus = UKR_administration
 		}
-		available = {
-			NOT = {
-				has_country_leader = {
-					name = "Erich Koch"
-					ruling_only = yes
-				}
-			}
-		}
 		x = -18
 		y = 1
 		relative_position_id = UKR_administration
-		completion_reward = {
-			set_rule = {
-				can_send_volunteers = yes
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = LTV
-				value = 100
-			}
-			add_ideas = UKR_anti_germany
-		}
+			available = {
+					NOT = {
+							has_country_leader = {
+									name = "Erich Koch"
+									ruling_only = yes
+								}
+						}
+				}
+			completion_reward = {
+					set_rule = {
+							can_send_volunteers = yes
+						}
+					add_ai_strategy = {
+							type = send_volunteers_desire
+							id = LTV
+							value = 100
+						}
+					add_ideas = UKR_anti_germany
+				}
+
 	}
 	focus = {
 		id = UKR_intervine
@@ -3508,22 +3654,23 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_end_nightmare
-		available = {
-			country_exists = LTV
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					has_war_with = LTV
+			available = {
+					country_exists = LTV
 				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
-					}
+			completion_reward = {
+					every_country = {
+							limit = {
+									has_war_with = LTV
+								}
+							ROOT = {
+									create_wargoal = {
+											type = annex_everything
+											target = PREV
+										}
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = UKR_air_fleet
@@ -3593,5 +3740,32 @@ focus_tree = {
 				}
 			}
 		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_air_fleet
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = air_base
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = air_base
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = air_base
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 }
