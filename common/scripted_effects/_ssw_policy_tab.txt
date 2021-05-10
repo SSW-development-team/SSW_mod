@@ -9,9 +9,10 @@ calculate_country_literacy_rate_growth_rate_to_add = {
 	add_to_variable = { country_literacy_rate = country_literacy_rate_growth_rate }
 }
 calculate_country_reserch_invest_to_add = {
-		set_temp_variable = { temp1 = country_industrial_complex_invest }
-		divide_temp_variable = { temp1 = 6 }
-		add_to_variable = { country_research_institute = temp1  }
+	set_temp_variable = { temp1 = country_industrial_complex_invest }
+	divide_temp_variable = { temp1 = 6 }
+	add_to_variable = { country_research_institute = temp1  }
+	clamp_variable = { var = country_research_institute min = -100 max = 600 }
 }
 reload_policy_tab_dynamic_modifiers = {
 }
