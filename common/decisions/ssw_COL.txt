@@ -1,0 +1,61 @@
+COL_debt = {
+	COL_debt_repayment = {
+		target_trigger = {
+			FROM = {
+				check_variable = {
+					var = COL_bonds
+					value = 0
+					compare = greater_than
+				}
+			}
+		}
+		visible = {
+			FROM = {
+				check_variable = {
+					var = COL_bonds
+					value = 0
+					compare = greater_than
+				}
+			}
+		}
+		days_remove = 2
+		cost = 1
+		complete_effect = {
+			FROM = {
+				add_to_variable = {
+					var = COL_bonds
+					value = -1
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = -1
+				}
+			}
+			COL_decrease_debt = yes
+		}
+	}
+	COL_debt_debug = {
+		remove_effect = {
+			add_ideas = COL_debt_8
+		}
+	}
+	COL_debt_debug_1 = {
+		remove_effect = {
+			set_variable = {
+				var = COL_bonds
+				value = 2
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_ideas = COL_bonds
+		}
+	}
+	COL_debt_debug_2 = {
+	}
+}
