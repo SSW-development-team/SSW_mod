@@ -1330,15 +1330,16 @@ guiTypes = {
 		}
 		containerWindowType = {
 			name = "SSW_Policy_tab_military_army_law"
-			position = { x=20 y=50 }
-			size = { width = 400 height = 400 }
-		
+			position = { x= 20 y= 30 }
+			size = { width = 420 height = 400 }
+			clipping = yes
+
 			background = {
 				name = "Background"		
 				spriteType ="GFX_tiled_decisions_bg_small"
 			}
 			instantTextboxType = {
-				name = "country_inflation_rate_text"
+				name = "country_army_law_title"
 				position = { x = 30 y = 15 }
 				font = "hoi_36header"
 				borderSize = {x = 0 y = 0}
@@ -1348,14 +1349,30 @@ guiTypes = {
 				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
 			}
 			instantTextboxType = {
-				name = "country_inflation_rate_for_consumer_goods_factor_text"
-				position = { x = 300 y = 25 }
+				name = "military_tab_conscription_law_text"
+				position = { x = 50 y = 75 }
 				font = "hoi_18mbs"
 				borderSize = {x = 0 y = 0}
-				text = "INFLATION_rate_FOR_CONSUMER_GOODS_FACTOR_TEXT"
-				maxWidth = 400
+				text = "military_tab_conscription_law_text"
+				maxWidth = 100
 				maxHeight = 20
 				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+			}
+			buttontype = {
+				name = "military_tab_conscription_law_box"
+				position = { x = 115 y = 69 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "military_tab_conscription_law_status"
+				position = { x = 120 y = 75 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "MILITARY_CONSCRIPTION_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
 			}
 		}
 	}
