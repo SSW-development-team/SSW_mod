@@ -110,6 +110,9 @@ focus_tree = {
 		ai_will_do = {
 			base = 128
 		}
+		completion_reward = {
+			set_capital = 202
+		}
 	}
 	focus = {
 		id = UKR_hkaWqXMm
@@ -386,6 +389,20 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = UKR_intermarium
+		icon = GFX_goal_generic_alliance
+		cost = 10
+		prerequisite = {
+			focus = UKR_undo
+		}
+		x = -2
+		y = 1
+		relative_position_id = UKR_undo
+		completion_reward = {
+			create_faction = UKR_intermarium_faction
+		}
+	}
+	focus = {
 		id = UKR_invite_belarus
 		icon = GFX_focus_generic_polish_deal
 		cost = 10
@@ -395,6 +412,14 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_intermarium
+		bypass = {
+			NOT = {
+				OR = {
+					country_exists = NBL
+					country_exists = BLR
+				}
+			}
+		}
 		available = {
 			OR = {
 				country_exists = NBL
@@ -414,6 +439,39 @@ focus_tree = {
 					id = ssw_UKR.22
 					days = 1
 					random = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_mykolaiv
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_rebuild_town
+		}
+		x = -1
+		y = 1
+		relative_position_id = UKR_rebuild_town
+		available = {
+			197 = {
+				is_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			197 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = {
+						id = 11683
+					}
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
@@ -452,6 +510,22 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = UKR_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = UKR_administration
+		}
+		x = -11
+		y = 1
+		relative_position_id = UKR_administration
+		completion_reward = {
+			army_experience = 30
+			navy_experience = 30
+			air_experience = 30
+		}
+	}
+	focus = {
 		id = UKR_navy
 		icon = GFX_goal_unknown
 		cost = 10
@@ -484,6 +558,27 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = UKR_rada_under_german
+		}
+	}
+	focus = {
+		id = UKR_RTYNGyza
+		icon = GFX_goal_rhineland
+		cost = 10
+		prerequisite = {
+			focus = UKR_mtYrwcNb
+		}
+		x = -3
+		y = 1
+		relative_position_id = UKR_mtYrwcNb
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower = 10000
 		}
 	}
 	focus = {
@@ -553,27 +648,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = UKR_natives_army
-		}
-	}
-	focus = {
-		id = UKR_RTYNGyza
-		icon = GFX_goal_rhineland
-		cost = 10
-		prerequisite = {
-			focus = UKR_mtYrwcNb
-		}
-		x = -3
-		y = 1
-		relative_position_id = UKR_mtYrwcNb
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			add_manpower = 10000
 		}
 	}
 	focus = {
@@ -695,6 +769,18 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2
 		}
+		available = {
+			any_country = {
+				NOT = {
+					tag = ROOT
+				}
+				OR = {
+					controls_state = 192
+					controls_state = 198
+					controls_state = 766
+				}
+			}
+		}
 		completion_reward = {
 			every_country = {
 				limit = {
@@ -705,6 +791,39 @@ focus_tree = {
 						controls_state = 192
 						controls_state = 198
 						controls_state = 766
+					}
+				}
+				country_event = {
+					id = ssw_UKR.11
+					days = 3
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_xzOPZmWC
+		icon = GFX_goal_generic_territory_or_war
+		cost = 10
+		prerequisite = {
+			focus = UKR_CAdsbgyc
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_CAdsbgyc
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					NOT = {
+						tag = ROOT
+					}
+					OR = {
+						controls_state = 91
+						controls_state = 89
+						controls_state = 80
 					}
 				}
 				country_event = {
@@ -769,39 +888,6 @@ focus_tree = {
 					}
 					OR = {
 						controls_state = 88
-					}
-				}
-				country_event = {
-					id = ssw_UKR.11
-					days = 3
-				}
-			}
-		}
-	}
-	focus = {
-		id = UKR_xzOPZmWC
-		icon = GFX_goal_generic_territory_or_war
-		cost = 10
-		prerequisite = {
-			focus = UKR_CAdsbgyc
-		}
-		x = 0
-		y = 1
-		relative_position_id = UKR_CAdsbgyc
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 2
-		}
-		completion_reward = {
-			every_country = {
-				limit = {
-					NOT = {
-						tag = ROOT
-					}
-					OR = {
-						controls_state = 91
-						controls_state = 89
-						controls_state = 80
 					}
 				}
 				country_event = {
@@ -1128,6 +1214,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 1
+		available = {
+			has_government = national_fascism
+		}
 		relative_position_id = UKR_election
 		completion_reward = {
 			add_political_power = 150
@@ -1135,20 +1224,6 @@ focus_tree = {
 				ideology = national_fascism
 				popularity = 0.2
 			}
-		}
-	}
-	focus = {
-		id = UKR_intermarium
-		icon = GFX_goal_generic_alliance
-		cost = 10
-		prerequisite = {
-			focus = UKR_undo
-		}
-		x = -2
-		y = 1
-		relative_position_id = UKR_undo
-		completion_reward = {
-			create_faction = UKR_intermarium_faction
 		}
 	}
 	focus = {
@@ -1161,6 +1236,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_belarus
+		bypass = {
+			NOT = {
+				country_exists = RLB
+			}
+		}
 		completion_reward = {
 			RLB = {
 				country_event = {
@@ -1180,6 +1260,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = UKR_invite_mos
+		bypass = {
+			NOT = {
+				country_exists = SWE
+			}
+		}
 		completion_reward = {
 			SWE = {
 				country_event = {
@@ -1199,6 +1284,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_swe
+		available = {
+			country_exists = DEN
+		}
 		completion_reward = {
 			DEN = {
 				country_event = {
@@ -1218,6 +1306,9 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_invite_mos
+		available = {
+			country_exists = FIN
+		}
 		completion_reward = {
 			FIN = {
 				country_event = {
@@ -1237,6 +1328,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = UKR_intermarium
+		bypass = {
+			NOT = {
+				country_exists = BUL
+			}
+		}
 		completion_reward = {
 			BUL = {
 				country_event = {
@@ -1256,6 +1352,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = UKR_invite_bul
+		available = {
+			country_exists = TUR
+		}
 		completion_reward = {
 			TUR = {
 				country_event = {
@@ -1478,6 +1577,44 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = UKR_befriend_ros
+		icon = GFX_focus_JAP_dominate_the_chilean_industry
+		cost = 10
+		prerequisite = {
+			focus = UKR_befriend_can
+		}
+		x = 0
+		y = 1
+		relative_position_id = UKR_befriend_can
+		bypass = {
+			NOT = {
+				country_exists = LUI
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = LUI
+				modifier = SSW_friendly
+			}
+			reverse_add_opinion_modifier = {
+				target = LUI
+				modifier = SSW_friendly
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = LUI
+				value = 100
+			}
+			LUI = {
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = 100
+				}
+			}
+		}
+	}
+	focus = {
 		id = UKR_befriend_tex
 		icon = GFX_focus_JAP_dominate_the_chilean_industry
 		cost = 10
@@ -1507,42 +1644,6 @@ focus_tree = {
 				value = 100
 			}
 			TEX = {
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = ROOT
-					value = 100
-				}
-			}
-		}
-	}
-	focus = {
-		id = UKR_befriend_ros
-		icon = GFX_focus_JAP_dominate_the_chilean_industry
-		cost = 10
-		prerequisite = {
-			focus = UKR_befriend_can
-		}
-		x = 0
-		y = 1
-		relative_position_id = UKR_befriend_can
-		available = {
-			country_exists = LUI
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = LUI
-				modifier = SSW_friendly
-			}
-			reverse_add_opinion_modifier = {
-				target = LUI
-				modifier = SSW_friendly
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = LUI
-				value = 100
-			}
-			LUI = {
 				add_ai_strategy = {
 					type = send_volunteers_desire
 					id = ROOT
@@ -3030,7 +3131,7 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = {
 				idea = UKR_rebuild_town
-				days = 365
+				days = 180
 			}
 		}
 	}
@@ -3115,39 +3216,6 @@ focus_tree = {
 		relative_position_id = UKR_rebuild_kiev_univ
 		completion_reward = {
 			unlock_decision_category_tooltip = UKR_improve_literacy
-		}
-	}
-	focus = {
-		id = UKR_mykolaiv
-		icon = GFX_goal_unknown
-		cost = 10
-		prerequisite = {
-			focus = UKR_rebuild_town
-		}
-		x = -1
-		y = 1
-		relative_position_id = UKR_rebuild_town
-		available = {
-			197 = {
-				is_controlled_by = ROOT
-			}
-		}
-		completion_reward = {
-			197 = {
-				add_building_construction = {
-					type = naval_base
-					level = 2
-					instant_build = yes
-					province = {
-						id = 11683
-					}
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-			}
 		}
 	}
 	focus = {
@@ -3238,22 +3306,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-		}
-	}
-	focus = {
-		id = UKR_army
-		icon = GFX_goal_unknown
-		cost = 10
-		prerequisite = {
-			focus = UKR_administration
-		}
-		x = -11
-		y = 1
-		relative_position_id = UKR_administration
-		completion_reward = {
-			army_experience = 30
-			navy_experience = 30
-			air_experience = 30
 		}
 	}
 	focus = {
