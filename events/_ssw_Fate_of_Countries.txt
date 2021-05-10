@@ -200,6 +200,61 @@ country_event = { #ドイツの運命
 	}
 	option = {
 		name = ssw_foc_events.1.b
+		trigger = {
+			OR = {
+				has_government = progressive_communism
+				has_government = classical_communism
+			}
+		}
+		ai_chance = { base = 10 }
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = GER
+						is_core_of = HLH
+						is_core_of = HGR
+						is_core_of = LTV
+						is_core_of = MBR
+						is_core_of = WLK
+						is_core_of = SCH
+						is_core_of = RDA
+						is_core_of = ARO
+						is_core_of = PBH
+						is_core_of = CGR
+						is_core_of = EGR
+						is_core_of = WGR
+					}
+					is_owned_and_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+						has_state_flag = maybe_core_SWI
+						has_state_flag = maybe_core_AUS
+						has_state_flag = maybe_core_HUN
+						has_state_flag = maybe_core_LUX
+						has_state_flag = maybe_core_FRA
+						has_state_flag = maybe_core_SLV
+						has_state_flag = maybe_core_LIT
+						has_state_flag = maybe_core_DEN
+						has_state_flag = maybe_core_POL
+						has_state_flag = maybe_core_CZE
+						has_state_flag = maybe_core_BEL
+						has_state_flag = maybe_core_LIE
+						has_state_flag = maybe_core_RHINE
+					}
+				}
+				CGR = {
+					transfer_state = PREV
+					add_state_core = PREV
+					drop_cosmetic_tag = yes
+				}
+			}
+			puppet = CGR
+		}
+	}
+	option = {
+		name = ssw_foc_events.1.c
 		ai_chance = { base = 10 }
 		every_state = {
 			limit = {
@@ -589,6 +644,30 @@ country_event = { #ライン裁定
 			}
 			FRP = { transfer_state = PREV }
 			add_core_of = FRP
+		}
+	}
+	option = {
+		name = ssw_foc_events.2.j
+		trigger = {
+			OR = {
+				CGR = { is_subject_of = ROOT }
+				is_in_faction_with = CGR
+				original_tag = CGR
+			}
+			CGR = { owns_state = 51 }
+		}
+		ai_chance = { base = 90 }
+		every_state = {
+			limit = {
+				has_state_flag = maybe_core_RHINE
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = CGR
+			CGR = { transfer_state = PREV }
 		}
 	}
 }

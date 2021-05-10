@@ -1146,9 +1146,11 @@
 			JAP = { country_event = { id = ssw_faction.4 } }
 			hidden_effect = {
 				set_cosmetic_tag = HUN_JAP
-				JAP = {
-					set_autonomy = {	target = ROOT	autonomous_state = imperial_member	}
+				if = {
+					limit = { has_idea = HUN_restoration_flame_5 }
+					remove_ideas = HUN_restoration_flame_5
 				}
+				JAP = { set_autonomy = { target = ROOT autonomous_state = imperial_member } }
 			}
 		}
 	}
