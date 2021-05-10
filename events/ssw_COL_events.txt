@@ -1,0 +1,113 @@
+add_namespace = ssw_COL
+# General Unification Question
+country_event = {
+	id = ssw_COL.1
+	title = ssw_COL.1.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.1.d
+	option = {
+		name = ssw_COL.1.a		# Accept
+		FROM = {
+			country_event = {
+				id = ssw_COL.2
+				random_hours = 24
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.1.b		# Deny
+		FROM = {
+			country_event = {
+				id = ssw_COL.3
+				random_hours = 24
+			}
+		}
+	}
+}
+
+# They accepted
+country_event = {
+	id = ssw_COL.2
+	title = ssw_COL.2.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.2.d
+	option = {
+		name = ssw_COL.2.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_COL.3
+	title = ssw_COL.3.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.3.d
+	option = {
+		name = ssw_COL.3.a
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+# Camba aliance question
+country_event = {
+	id = ssw_COL.4
+	title = ssw_COL.4.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.4.d
+	option = {
+		name = ssw_COL.4.a		# Accept
+		FROM = {
+			country_event = {
+				id = ssw_COL.5
+				random_hours = 24
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.4.b		# Deny
+		FROM = {
+			country_event = {
+				id = ssw_COL.6
+				random_hours = 24
+			}
+		}
+	}
+}
+
+# They accepted
+country_event = {
+	id = ssw_COL.5
+	title = ssw_COL.5.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.5.d
+	option = {
+		name = ssw_COL.5.a
+		FROM = {
+			set_country_flag = COL_aliance
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_COL.6
+	title = ssw_COL.6.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.6.d
+	option = {
+		name = ssw_COL.6.a
+	}
+}

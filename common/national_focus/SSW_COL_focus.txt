@@ -7,6 +7,10 @@ focus_tree = {
 			tag = COL
 		}
 	}
+	continuous_focus_position = {
+		x = 2000
+		y = 700
+	}
 	default = no
 	focus = {
 		id = COL_expantion
@@ -14,7 +18,13 @@ focus_tree = {
 		cost = 10
 		x = 3
 		y = 0
-
+		completion_reward = {
+			# COL_increase_debt = yes
+			# ITA = {
+			# 	COL_add_bond = yes
+			# }
+			add_ideas = COL_expantion
+		}
 	}
 	focus = {
 		id = COL_enhance_dictatorship
@@ -22,7 +32,14 @@ focus_tree = {
 		cost = 10
 		x = 9
 		y = 0
-
+		completion_reward = {
+			add_ideas = ssw_authoritarian_regime
+			add_stability = 0.1
+			add_timed_idea = {
+				idea = COL_unreliable_regime
+				days = 140
+			}
+		}
 	}
 	focus = {
 		id = COL_disarmament_guerrira
@@ -30,7 +47,6 @@ focus_tree = {
 		cost = 10
 		x = 14
 		y = 0
-
 	}
 	focus = {
 		id = COL_industry
@@ -38,7 +54,6 @@ focus_tree = {
 		cost = 10
 		x = 23
 		y = 0
-
 	}
 	focus = {
 		id = COL_union_VEN
@@ -50,7 +65,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_expantion
-
+		completion_reward = {
+			VEN = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
 	}
 	focus = {
 		id = COL_eliminate_liberals
@@ -65,7 +87,17 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_enhance_dictatorship
-
+		completion_reward = {
+			add_stability = -0.2
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_timed_idea = {
+				idea = COL_eliminate_liberals_idea
+				days = 180
+			}
+		}
 	}
 	focus = {
 		id = COL_negociate_liberals
@@ -80,7 +112,16 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = COL_enhance_dictatorship
-
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.2
+			}
+		}
 	}
 	focus = {
 		id = COL_eliminate_communists
@@ -93,7 +134,6 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = COL_enhance_dictatorship
-
 	}
 	focus = {
 		id = COL_invade_PAN
@@ -105,7 +145,14 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = COL_expantion
-
+		completion_reward = {
+			PAN = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
 	}
 	focus = {
 		id = COL_expand_resources
@@ -117,7 +164,6 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = COL_industry
-
 	}
 	focus = {
 		id = COL_populism
@@ -128,7 +174,6 @@ focus_tree = {
 		}
 		x = 14
 		y = 1
-
 	}
 	focus = {
 		id = COL_women_suffrage
@@ -139,7 +184,6 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-
 	}
 	focus = {
 		id = COL_infra_1
@@ -150,7 +194,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
-
 	}
 	focus = {
 		id = COL_infra_2
@@ -161,7 +204,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 4
-
 	}
 	focus = {
 		id = COL_build_university
@@ -172,7 +214,6 @@ focus_tree = {
 		}
 		x = 15
 		y = 3
-
 	}
 	focus = {
 		id = COL_build_refinery
@@ -183,7 +224,6 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
 	}
 	focus = {
 		id = COL_pardon_landlords
@@ -197,7 +237,6 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
-
 	}
 	focus = {
 		id = COL_peasants_war
@@ -211,7 +250,6 @@ focus_tree = {
 		}
 		x = 15
 		y = 6
-
 	}
 	focus = {
 		id = COL_union_equ
@@ -223,7 +261,14 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = COL_expantion
-
+		completion_reward = {
+			ECU = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
 	}
 	focus = {
 		id = COL_integrate_EQU
@@ -235,7 +280,19 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_union_equ
-
+		available = {
+			any_owned_state = {
+				is_core_of = ECU
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = ECU
+				}
+				add_core_of = ROOT
+			}
+		}
 	}
 	focus = {
 		id = COL_integrate_VEN
@@ -247,7 +304,19 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_union_VEN
-
+		available = {
+			any_owned_state = {
+				is_core_of = VEN
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = VEN
+				}
+				add_core_of = ROOT
+			}
+		}
 	}
 	focus = {
 		id = COL_integrate_PAN
@@ -259,7 +328,19 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_invade_PAN
-
+		available = {
+			any_owned_state = {
+				is_core_of = PAN
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = PAN
+				}
+				add_core_of = ROOT
+			}
+		}
 	}
 	focus = {
 		id = COL_alliance_CMB
@@ -271,7 +352,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_integrate_EQU
-
+		completion_reward = {
+			CMB = {
+				country_event = {
+					id = ssw_COL.4
+					random_hours = 24
+				}
+			}
+		}
 	}
 	focus = {
 		id = COL_invade_PRU
@@ -283,7 +371,26 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_alliance_CMB
-
+		completion_reward = {
+			add_state_core = 1176
+			create_wargoal = {
+				target = PRU
+				type = annex_everything
+			}
+			if = {
+				limit = {
+					CMB = {
+						has_country_flag = COL_aliance
+					}
+				}
+				CMB = {
+					create_wargoal = {
+						target = PRU
+						type = annex_everything
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = COL_restore_gran
@@ -301,7 +408,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_integrate_VEN
-
+		completion_reward = {
+			set_cosmetic_tag = COL_GRAN
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = COL_invade_canal
@@ -313,7 +423,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_integrate_PAN
-
+		completion_reward = {
+			create_wargoal = {
+				target = PAC
+				type = take_core_state
+			}
+		}
 	}
 	focus = {
 		id = COL_invade_ATL
@@ -325,7 +440,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_restore_gran
-
+		completion_reward = {
+			add_state_claim = 309
+			add_state_claim = 310
+			create_wargoal = {
+				target = ATL
+				type = take_claimed_state
+			}
+		}
 	}
 	focus = {
 		id = COL_reconcile_ATL
@@ -337,7 +459,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_invade_ATL
-
+		completion_reward = {
+			309 = {
+				add_compliance = 50
+			}
+			310 = {
+				add_compliance = 50
+			}
+		}
 	}
 	focus = {
 		id = COL_encourage_economy
@@ -349,7 +478,6 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = COL_eliminate_communists
-
 	}
 	focus = {
 		id = COL_threat_VEN
@@ -361,7 +489,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = COL_eliminate_communists
-
 	}
 	focus = {
 		id = COL_invade_NIC
@@ -373,7 +500,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_threat_VEN
-
 	}
 	focus = {
 		id = COL_criticize_liberals
@@ -385,7 +511,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_encourage_economy
-
 	}
 	focus = {
 		id = COL_support_SPR
@@ -397,7 +522,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_eliminate_communists
-
 	}
 	focus = {
 		id = COL_stabilized_regime
@@ -412,7 +536,6 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = COL_support_SPR
-
 	}
 	focus = {
 		id = COL_more_dictatorship
@@ -427,7 +550,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_stabilized_regime
-
 	}
 	focus = {
 		id = COL_promised_election
@@ -442,7 +564,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = COL_stabilized_regime
-
 	}
 	focus = {
 		id = COL_weaken_diet
@@ -454,7 +575,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_more_dictatorship
-
 	}
 	focus = {
 		id = COL_support_catholic
@@ -467,7 +587,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_promised_election
-
 	}
 	focus = {
 		id = COL_oppresse_protestant
@@ -479,7 +598,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_support_catholic
-
 	}
 	focus = {
 		id = COL_church_power
@@ -491,7 +609,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = COL_support_catholic
-
 	}
 	focus = {
 		id = COL_authoritative_representatives
@@ -503,7 +620,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_weaken_diet
-
 	}
 	focus = {
 		id = COL_constitutional_amendment
@@ -515,7 +631,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_authoritative_representatives
-
 	}
 	focus = {
 		id = COL_moderate_solution
@@ -529,7 +644,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-
 	}
 	focus = {
 		id = COL_parade
@@ -541,7 +655,6 @@ focus_tree = {
 		}
 		x = 14
 		y = 7
-
 	}
 	focus = {
 		id = COL_tolerant_posture
@@ -555,7 +668,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 8
-
 	}
 	focus = {
 		id = COL_cow
@@ -569,7 +681,6 @@ focus_tree = {
 		}
 		x = 15
 		y = 8
-
 	}
 	focus = {
 		id = COL_break_two_parties
@@ -581,7 +692,6 @@ focus_tree = {
 		}
 		x = 14
 		y = 9
-
 	}
 	focus = {
 		id = COL_debt_ploblem
@@ -593,7 +703,6 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = COL_industry
-
 	}
 	focus = {
 		id = COL_financial_taskforce
@@ -605,7 +714,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_debt_ploblem
-
 	}
 	focus = {
 		id = COL_italian_loan
@@ -617,7 +725,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_financial_taskforce
-
 	}
 	focus = {
 		id = COL_british_loan
@@ -629,7 +736,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = COL_financial_taskforce
-
 	}
 	focus = {
 		id = COL_stimulate_economy
@@ -642,7 +748,6 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = COL_financial_taskforce
-
 	}
 	focus = {
 		id = COL_build_railway
@@ -654,7 +759,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_industry
-
 	}
 	focus = {
 		id = COL_build_port
@@ -666,7 +770,6 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = COL_build_railway
-
 	}
 	focus = {
 		id = COL_support_shipyard
@@ -678,7 +781,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_build_port
-
 	}
 	focus = {
 		id = COL_italian_investment
@@ -690,7 +792,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_build_railway
-
 	}
 	focus = {
 		id = COL_education
@@ -702,7 +803,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = COL_build_railway
-
 	}
 	focus = {
 		id = COL_sena
@@ -714,7 +814,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_education
-
 	}
 	focus = {
 		id = COL_italian_investment_2
@@ -726,7 +825,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_italian_investment
-
 	}
 	focus = {
 		id = COL_by_myself
@@ -741,7 +839,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = COL_expand_resources
-
 	}
 	focus = {
 		id = COL_british_development
@@ -756,7 +853,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = COL_expand_resources
-
 	}
 	focus = {
 		id = COL_american_development
@@ -768,6 +864,5 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = COL_british_development
-
 	}
 }
