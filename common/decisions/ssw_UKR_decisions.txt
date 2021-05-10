@@ -322,19 +322,14 @@ UKR_unification_wars = {
 	UKR_unification_wars_1 = {
 		target_trigger = {
 			FROM = {
-				OR = {
-					original_tag = UKR
-					tag = DON
-				}
+				original_tag = UKR
 				NOT = {
 					tag = ROOT
+					has_war_with = ROOT
 				}
-				any_owned_state = {
-					OR = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-					}
-				}
+			}
+			NOT = {
+				has_wargoal_against = FROM
 			}
 		}
 		cost = 50
