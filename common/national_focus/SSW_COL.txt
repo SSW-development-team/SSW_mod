@@ -1,0 +1,773 @@
+focus_tree = {
+	id = SSW_COL
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = COL
+		}
+	}
+	default = no
+	focus = {
+		id = COL_expantion
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 3
+		y = 0
+
+	}
+	focus = {
+		id = COL_enhance_dictatorship
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 9
+		y = 0
+
+	}
+	focus = {
+		id = COL_disarmament_guerrira
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 14
+		y = 0
+
+	}
+	focus = {
+		id = COL_industry
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 23
+		y = 0
+
+	}
+	focus = {
+		id = COL_union_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_expantion
+
+	}
+	focus = {
+		id = COL_eliminate_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_enhance_dictatorship
+		}
+		mutually_exclusive = {
+			focus = COL_negociate_liberals
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_enhance_dictatorship
+
+	}
+	focus = {
+		id = COL_negociate_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_enhance_dictatorship
+		}
+		mutually_exclusive = {
+			focus = COL_eliminate_liberals
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_enhance_dictatorship
+
+	}
+	focus = {
+		id = COL_eliminate_communists
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_liberals
+			focus = COL_negociate_liberals
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_enhance_dictatorship
+
+	}
+	focus = {
+		id = COL_invade_PAN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_expantion
+
+	}
+	focus = {
+		id = COL_expand_resources
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = 5
+		y = 1
+		relative_position_id = COL_industry
+
+	}
+	focus = {
+		id = COL_populism
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_disarmament_guerrira
+		}
+		x = 14
+		y = 1
+
+	}
+	focus = {
+		id = COL_women_suffrage
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_populism
+		}
+		x = 14
+		y = 2
+
+	}
+	focus = {
+		id = COL_infra_1
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_women_suffrage
+		}
+		x = 13
+		y = 3
+
+	}
+	focus = {
+		id = COL_infra_2
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_infra_1
+		}
+		x = 13
+		y = 4
+
+	}
+	focus = {
+		id = COL_build_university
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_women_suffrage
+		}
+		x = 15
+		y = 3
+
+	}
+	focus = {
+		id = COL_build_refinery
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_university
+		}
+		x = 15
+		y = 4
+
+	}
+	focus = {
+		id = COL_pardon_landlords
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_infra_2
+		}
+		prerequisite = {
+			focus = COL_build_refinery
+		}
+		x = 14
+		y = 5
+
+	}
+	focus = {
+		id = COL_peasants_war
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_pardon_landlords
+		}
+		mutually_exclusive = {
+			focus = COL_moderate_solution
+		}
+		x = 15
+		y = 6
+
+	}
+	focus = {
+		id = COL_union_equ
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_expantion
+
+	}
+	focus = {
+		id = COL_integrate_EQU
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_union_equ
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_union_equ
+
+	}
+	focus = {
+		id = COL_integrate_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_union_VEN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_union_VEN
+
+	}
+	focus = {
+		id = COL_integrate_PAN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_invade_PAN
+
+	}
+	focus = {
+		id = COL_alliance_CMB
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_EQU
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_EQU
+
+	}
+	focus = {
+		id = COL_invade_PRU
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_alliance_CMB
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_alliance_CMB
+
+	}
+	focus = {
+		id = COL_restore_gran
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_VEN
+		}
+		prerequisite = {
+			focus = COL_integrate_EQU
+		}
+		prerequisite = {
+			focus = COL_integrate_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_VEN
+
+	}
+	focus = {
+		id = COL_invade_canal
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_PAN
+
+	}
+	focus = {
+		id = COL_invade_ATL
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_restore_gran
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_restore_gran
+
+	}
+	focus = {
+		id = COL_reconcile_ATL
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_ATL
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_invade_ATL
+
+	}
+	focus = {
+		id = COL_encourage_economy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_eliminate_communists
+
+	}
+	focus = {
+		id = COL_threat_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_eliminate_communists
+
+	}
+	focus = {
+		id = COL_invade_NIC
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_threat_VEN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_threat_VEN
+
+	}
+	focus = {
+		id = COL_criticize_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_encourage_economy
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_encourage_economy
+
+	}
+	focus = {
+		id = COL_support_SPR
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_eliminate_communists
+
+	}
+	focus = {
+		id = COL_stabilized_regime
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_NIC
+		}
+		prerequisite = {
+			focus = COL_criticize_liberals
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_support_SPR
+
+	}
+	focus = {
+		id = COL_more_dictatorship
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_stabilized_regime
+		}
+		mutually_exclusive = {
+			focus = COL_promised_election
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_stabilized_regime
+
+	}
+	focus = {
+		id = COL_promised_election
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_stabilized_regime
+		}
+		mutually_exclusive = {
+			focus = COL_more_dictatorship
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_stabilized_regime
+
+	}
+	focus = {
+		id = COL_weaken_diet
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_more_dictatorship
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_more_dictatorship
+
+	}
+	focus = {
+		id = COL_support_catholic
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_promised_election
+			focus = COL_more_dictatorship
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_promised_election
+
+	}
+	focus = {
+		id = COL_oppresse_protestant
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_support_catholic
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_support_catholic
+
+	}
+	focus = {
+		id = COL_church_power
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_support_catholic
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_support_catholic
+
+	}
+	focus = {
+		id = COL_authoritative_representatives
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_weaken_diet
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_weaken_diet
+
+	}
+	focus = {
+		id = COL_constitutional_amendment
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_authoritative_representatives
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_authoritative_representatives
+
+	}
+	focus = {
+		id = COL_moderate_solution
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_pardon_landlords
+		}
+		mutually_exclusive = {
+			focus = COL_peasants_war
+		}
+		x = 13
+		y = 6
+
+	}
+	focus = {
+		id = COL_parade
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_moderate_solution
+			focus = COL_peasants_war
+		}
+		x = 14
+		y = 7
+
+	}
+	focus = {
+		id = COL_tolerant_posture
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_parade
+		}
+		mutually_exclusive = {
+			focus = COL_cow
+		}
+		x = 13
+		y = 8
+
+	}
+	focus = {
+		id = COL_cow
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_parade
+		}
+		mutually_exclusive = {
+			focus = COL_tolerant_posture
+		}
+		x = 15
+		y = 8
+
+	}
+	focus = {
+		id = COL_break_two_parties
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_tolerant_posture
+			focus = COL_cow
+		}
+		x = 14
+		y = 9
+
+	}
+	focus = {
+		id = COL_debt_ploblem
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = -5
+		y = 1
+		relative_position_id = COL_industry
+
+	}
+	focus = {
+		id = COL_financial_taskforce
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_debt_ploblem
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_debt_ploblem
+
+	}
+	focus = {
+		id = COL_italian_loan
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_financial_taskforce
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_financial_taskforce
+
+	}
+	focus = {
+		id = COL_british_loan
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_financial_taskforce
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_financial_taskforce
+
+	}
+	focus = {
+		id = COL_stimulate_economy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_italian_loan
+			focus = COL_british_loan
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_financial_taskforce
+
+	}
+	focus = {
+		id = COL_build_railway
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_industry
+
+	}
+	focus = {
+		id = COL_build_port
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_build_railway
+
+	}
+	focus = {
+		id = COL_support_shipyard
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_port
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_build_port
+
+	}
+	focus = {
+		id = COL_italian_investment
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_build_railway
+
+	}
+	focus = {
+		id = COL_education
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_build_railway
+
+	}
+	focus = {
+		id = COL_sena
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_education
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_education
+
+	}
+	focus = {
+		id = COL_italian_investment_2
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_italian_investment
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_italian_investment
+
+	}
+	focus = {
+		id = COL_by_myself
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expand_resources
+		}
+		mutually_exclusive = {
+			focus = COL_british_development
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_expand_resources
+
+	}
+	focus = {
+		id = COL_british_development
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expand_resources
+		}
+		mutually_exclusive = {
+			focus = COL_by_myself
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_expand_resources
+
+	}
+	focus = {
+		id = COL_american_development
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_british_development
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_british_development
+
+	}
+}
