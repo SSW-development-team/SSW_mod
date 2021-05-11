@@ -3224,6 +3224,14 @@ country_event = { #ルーマニアの運命
 	}
 	option = {
 		name = ssw_foc_eastern_europe.34.b
+		trigger = {
+			OR = {
+				MOL = { is_subject_of = ROOT }
+				is_in_faction_with = MOL
+				original_tag = MOL
+			}
+			MOL = { owns_state = 78 }
+		}
 		ai_chance = { base = 10 }
 		every_state = {
 			limit = {
@@ -3234,11 +3242,8 @@ country_event = { #ルーマニアの運命
 					is_claimed_by = ROOT
 				}
 			}
-			add_core_of = MRD
-			MRD = {
-				transfer_state = PREV
-				drop_cosmetic_tag = yes
-			}
+			add_core_of = MOL
+			MOL = { transfer_state = PREV }
 		}
 		every_state = {
 			limit = {
@@ -3258,7 +3263,6 @@ country_event = { #ルーマニアの運命
 				drop_cosmetic_tag = yes
 			}
 		}
-		puppet = MRD
 		puppet = WLC
 	}
 	option = {
