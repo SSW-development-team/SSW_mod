@@ -1,0 +1,280 @@
+add_namespace = ssw_COL
+# General Unification Question
+country_event = {
+	id = ssw_COL.1
+	title = ssw_COL.1.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.1.d
+	option = {
+		name = ssw_COL.1.a		# Accept
+		FROM = {
+			country_event = {
+				id = ssw_COL.2
+				random_hours = 24
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.1.b		# Deny
+		FROM = {
+			country_event = {
+				id = ssw_COL.3
+				random_hours = 24
+			}
+		}
+	}
+}
+
+# They accepted
+country_event = {
+	id = ssw_COL.2
+	title = ssw_COL.2.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.2.d
+	option = {
+		name = ssw_COL.2.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_COL.3
+	title = ssw_COL.3.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.3.d
+	option = {
+		name = ssw_COL.3.a
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+# Camba aliance question
+country_event = {
+	id = ssw_COL.4
+	title = ssw_COL.4.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.4.d
+	option = {
+		name = ssw_COL.4.a		# Accept
+		FROM = {
+			country_event = {
+				id = ssw_COL.5
+				random_hours = 24
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.4.b		# Deny
+		FROM = {
+			country_event = {
+				id = ssw_COL.6
+				random_hours = 24
+			}
+		}
+	}
+}
+
+# They accepted
+country_event = {
+	id = ssw_COL.5
+	title = ssw_COL.5.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.5.d
+	option = {
+		name = ssw_COL.5.a
+		FROM = {
+			set_country_flag = COL_aliance
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_COL.6
+	title = ssw_COL.6.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.6.d
+	option = {
+		name = ssw_COL.6.a
+	}
+}
+
+# Peasants riot
+country_event = {
+	id = ssw_COL.7
+	title = ssw_COL.7.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.7.d
+	option = {
+		name = ssw_COL.7.a
+		add_ideas = COL_peasants_riot
+	}
+}
+
+# Parade
+country_event = {
+	id = ssw_COL.8
+	title = ssw_COL.8.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.8.d
+	option = {
+		name = ssw_COL.8.a
+		add_ideas = COL_disrespectful
+	}
+}
+
+# Cow incident
+country_event = {
+	id = ssw_COL.9
+	title = ssw_COL.9.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.9.d
+	option = {
+		name = ssw_COL.9.a
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = -0.3
+		}
+	}
+}
+
+# Loan Question
+country_event = {
+	id = ssw_COL.10
+	title = ssw_COL.10.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.10.d
+	option = {
+		name = ssw_COL.10.a
+		add_timed_idea = {
+			idea = COL_loan
+			days = 90
+		}
+		FROM = {
+			country_event = {
+				id = ssw_COL.11
+				random_hours = 24
+			}
+			country_event = {
+				id = ssw_COL.13
+				days = 90
+				random_hours = 24
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.10.b
+		FROM = {
+			country_event = {
+				id = ssw_COL.12
+				random_hours = 24
+			}
+		}
+	}
+}
+
+# They accepted
+country_event = {
+	id = ssw_COL.11
+	title = ssw_COL.11.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.11.d
+	option = {
+		name = ssw_COL.11.a
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_COL.12
+	title = ssw_COL.12.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.12.d
+	option = {
+		name = ssw_COL.12.a
+	}
+}
+
+# [Root] starts repayment to [From]
+country_event = {
+	id = ssw_COL.13
+	title = ssw_COL.13.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.13.d
+	option = {
+		name = ssw_COL.13.a
+		FROM = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			add_ideas = COL_bonds
+			add_to_variable = {
+				var = COL_bonds
+				value = 1
+			}
+		}
+		COL_increase_debt = yes
+	}
+}
+
+# Build railway
+country_event = {
+	id = ssw_COL.14
+	title = ssw_COL.14.t
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	desc = ssw_COL.14.d
+	option = {
+		name = ssw_COL.14.a		# with Italian Support
+		ITA = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			add_ideas = COL_bonds
+			add_to_variable = {
+				var = COL_bonds
+				value = 1
+			}
+		}
+		COL_increase_debt = yes
+		every_owned_state = {
+			add_building_construction = {
+				level = 2
+				instant_build = yes
+				type = infrastructure
+			}
+		}
+	}
+	option = {
+		name = ssw_COL.14.b		# by myself
+		every_owned_state = {
+			add_building_construction = {
+				level = 1
+				instant_build = yes
+				type = infrastructure
+			}
+		}
+	}
+}
