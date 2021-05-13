@@ -519,7 +519,6 @@
 				picture = "gfx/leaders/HUN/Portrait_Hungary_Maria_Francesca.dds"
 				expire = "2001.12.7"
 				ideology = national_fascism_ideology
-				female = yes
 				traits = {
 				}
 			}
@@ -1147,11 +1146,9 @@
 			JAP = { country_event = { id = ssw_faction.4 } }
 			hidden_effect = {
 				set_cosmetic_tag = HUN_JAP
-				if = {
-					limit = { has_idea = HUN_restoration_flame_5 }
-					remove_ideas = HUN_restoration_flame_5
+				JAP = {
+					set_autonomy = {	target = ROOT	autonomous_state = imperial_member	}
 				}
-				JAP = { set_autonomy = { target = ROOT autonomous_state = imperial_member } }
 			}
 		}
 	}
@@ -5807,7 +5804,7 @@
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				technology = fighter_1936
+				technology = early_fighter
 				technology = fighter1
 				technology = fighter2
 				technology = fighter3
