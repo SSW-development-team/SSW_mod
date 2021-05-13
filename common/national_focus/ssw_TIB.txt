@@ -2553,6 +2553,37 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_kick_kuomintang_out
 		}
+		available = {
+			NOT = {
+				country_exists = CHI
+			}
+			has_country_flag = TIB_finish_zunyi_conf
+		}
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_flag = TIB_ccp_flag_histolical
+				}
+				set_cosmetic_tag = TIB_ccp_unified_2
+			}
+			else_if = {
+				limit = { has_country_flag = TIB_ccp_flag_alternative }
+				set_cosmetic_tag = TIB_ccp_unified_1
+			}
+			hidden_effect = {
+			create_country_leader = {
+				name = "Mao Zedong"
+				desc = "POLITICS_MAO_ZEDONG_TIB_DESC"
+				picture = "gfx/leaders/CHI/Portrait_PRC_Mao_Zedong.dds"
+				ideology = anti_revisionism_ideology 
+				traits = {
+					great_founder
+				}
+				expire = "1988.1.1"
+			}
+			}
+		}
 		x = 7
 		y = 11
 
@@ -2876,6 +2907,10 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = TIB_partial_constitutional_monarchy
+		}
+		ai_will_do = { factor = 2 }
+		completion_reward = {
+			country_event = tibet.18
 		}
 		x = 23
 		y = 5
