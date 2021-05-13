@@ -583,7 +583,19 @@ country_event = { #ガリツィア＝ロドメリアの運命
 	is_triggered_only = yes
 	option = {
 		name = ssw_foc_eastern_europe.3.a
-		ai_chance = { base = 10 }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0.1
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 		every_state = {
 			limit = {
 				is_owned_and_controlled_by = ROOT
@@ -602,19 +614,7 @@ country_event = { #ガリツィア＝ロドメリアの運命
 	}
 	option = {
 		name = ssw_foc_eastern_europe.3.b
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 20000000
-				OR = {
-					original_tag = GER
-					original_tag = HGR
-					original_tag = HLH
-					original_tag = LTV
-					original_tag = MBR
-				}
-			}
-		}
+		ai_chance = { base = 10 }
 		trigger = {
 			OR = {
 				POL = { is_subject_of = ROOT }
@@ -651,7 +651,19 @@ country_event = { #レムコの運命
 	is_triggered_only = yes
 	option = {
 		name = ssw_foc_eastern_europe.4.a
-		ai_chance = { base = 10 }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0.1
+				OR = {
+					original_tag = GER
+					original_tag = HGR
+					original_tag = HLH
+					original_tag = LTV
+					original_tag = MBR
+				}
+			}
+		}
 		every_state = {
 			limit = {
 				is_owned_and_controlled_by = ROOT
@@ -670,19 +682,7 @@ country_event = { #レムコの運命
 	}
 	option = {
 		name = ssw_foc_eastern_europe.4.b
-		ai_chance = {
-			base = 10
-			modifier = {
-				factor = 20000000
-				OR = {
-					original_tag = GER
-					original_tag = HGR
-					original_tag = HLH
-					original_tag = LTV
-					original_tag = MBR
-				}
-			}
-		}
+		ai_chance = { base = 10 }
 		trigger = {
 			OR = {
 				POL = { is_subject_of = ROOT }
@@ -1910,6 +1910,30 @@ country_event = { #スロベニアの運命
 		}
 	}
 	option = {
+		name = ssw_foc_eastern_europe.18.d
+		trigger = {
+			OR = {
+				WGR = { is_subject_of = ROOT }
+				is_in_faction_with = WGR
+				original_tag = WGR
+			}
+			WGR = { owns_state = 102 }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 941
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = WGR
+			WGR = { transfer_state = PREV }
+		}
+	}
+	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
@@ -1992,6 +2016,33 @@ country_event = { #イストリアの運命
 			}
 			add_core_of = ITP
 			ITP = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.19.d
+		trigger = {
+			OR = {
+				WGR = { is_subject_of = ROOT }
+				is_in_faction_with = WGR
+				original_tag = WGR
+			}
+			OR = {
+				WGR = { owns_state = 102 }
+				WGR = { owns_state = 941 }
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 736
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = WGR
+			WGR = { transfer_state = PREV }
 		}
 	}
 }
@@ -2156,6 +2207,33 @@ country_event = { #ムルスカ・ソボタの運命
 			}
 			add_core_of = YUG
 			YUG = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = ssw_foc_eastern_europe.21.d
+		trigger = {
+			OR = {
+				WGR = { is_subject_of = ROOT }
+				is_in_faction_with = WGR
+				original_tag = WGR
+			}
+			OR = {
+				WGR = { owns_state = 102 }
+				WGR = { owns_state = 981 }
+			}
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				state = 940
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = WGR
+			WGR = { transfer_state = PREV }
 		}
 	}
 }
@@ -3146,6 +3224,14 @@ country_event = { #ルーマニアの運命
 	}
 	option = {
 		name = ssw_foc_eastern_europe.34.b
+		trigger = {
+			OR = {
+				MOL = { is_subject_of = ROOT }
+				is_in_faction_with = MOL
+				original_tag = MOL
+			}
+			MOL = { owns_state = 78 }
+		}
 		ai_chance = { base = 10 }
 		every_state = {
 			limit = {
@@ -3156,11 +3242,8 @@ country_event = { #ルーマニアの運命
 					is_claimed_by = ROOT
 				}
 			}
-			add_core_of = MRD
-			MRD = {
-				transfer_state = PREV
-				drop_cosmetic_tag = yes
-			}
+			add_core_of = MOL
+			MOL = { transfer_state = PREV }
 		}
 		every_state = {
 			limit = {
@@ -3180,7 +3263,6 @@ country_event = { #ルーマニアの運命
 				drop_cosmetic_tag = yes
 			}
 		}
-		puppet = MRD
 		puppet = WLC
 	}
 	option = {

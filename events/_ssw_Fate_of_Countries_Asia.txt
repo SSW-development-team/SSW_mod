@@ -24,17 +24,10 @@ country_event = { #日本の運命
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					OR = {
-						is_core_of = JAP
-						is_core_of = JSF
-						is_core_of = PRJ
-					}
+					has_state_flag = maybe_own_JAP_GAMESTART
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						has_state_flag = maybe_core_MAN_GAMESTART
-						has_state_flag = maybe_core_KOR_GAMESTART
-						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -44,35 +37,20 @@ country_event = { #日本の運命
 						state = 1104
 					}
 				}
-				JAP = { transfer_state = PREV }
-				add_core_of = JAP
+				JPN = { transfer_state = PREV }
+				add_core_of = JPN
 			}
-			every_state = {
-				limit = { is_core_of = JSF }
-				remove_core_of = JSF
-			}
-			every_state = {
-				limit = { is_core_of = PRJ }
-				remove_core_of = PRJ
-			}
-			puppet = JAP
+			puppet = JPN
 		}
 		if = {
 			limit = { has_government = progressive_communism }
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					OR = {
-						is_core_of = JAP
-						is_core_of = JSF
-						is_core_of = PRJ
-					}
+					has_state_flag = maybe_own_JAP_GAMESTART
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						has_state_flag = maybe_core_MAN_GAMESTART
-						has_state_flag = maybe_core_KOR_GAMESTART
-						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -85,14 +63,6 @@ country_event = { #日本の運命
 				JSF = { transfer_state = PREV }
 				add_core_of = JSF
 			}
-			every_state = {
-				limit = { is_core_of = JAP }
-				remove_core_of = JAP
-			}
-			every_state = {
-				limit = { is_core_of = PRJ }
-				remove_core_of = PRJ
-			}
 			puppet = JSF
 		}
 		if = {
@@ -100,17 +70,10 @@ country_event = { #日本の運命
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = ROOT
-					OR = {
-						is_core_of = JAP
-						is_core_of = JSF
-						is_core_of = PRJ
-					}
+					has_state_flag = maybe_own_JAP_GAMESTART
 					NOT = {
 						is_core_of = ROOT
 						is_claimed_by = ROOT
-						has_state_flag = maybe_core_MAN_GAMESTART
-						has_state_flag = maybe_core_KOR_GAMESTART
-						has_state_flag = maybe_core_CHI_GAMESTART
 						state = 524
 						state = 537
 						state = 555
@@ -122,14 +85,6 @@ country_event = { #日本の運命
 				}
 				PRJ = { transfer_state = PREV }
 				add_core_of = PRJ
-			}
-			every_state = {
-				limit = { is_core_of = JAP }
-				remove_core_of = JAP
-			}
-			every_state = {
-				limit = { is_core_of = JSF }
-				remove_core_of = JSF
 			}
 			puppet = PRJ
 		}
@@ -152,17 +107,10 @@ country_event = { #日本の運命
 		every_state = {
 			limit = {
 				is_owned_and_controlled_by = ROOT
-				OR = {
-					is_core_of = JAP
-					is_core_of = JSF
-					is_core_of = PRJ
-				}
+				has_state_flag = maybe_own_JAP_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_KOR_GAMESTART
-					has_state_flag = maybe_core_CHI_GAMESTART
 					state = 524
 					state = 537
 					state = 555
@@ -173,16 +121,8 @@ country_event = { #日本の運命
 					state = 1104
 				}
 			}
-			JAP = { transfer_state = PREV }
-			add_core_of = JAP
-		}
-		every_state = {
-			limit = { is_core_of = JSF }
-			remove_core_of = JSF
-		}
-		every_state = {
-			limit = { is_core_of = PRJ }
-			remove_core_of = PRJ
+			JPN = { transfer_state = PREV }
+			add_core_of = JPN
 		}
 		KAN = {
 			transfer_state = 943
@@ -2038,11 +1978,11 @@ country_event = { #澎湖諸島の運命
 		name = ssw_foc_asia.17.e
 		trigger = {
 			OR = {
-				JAP = { is_subject_of = ROOT }
-				is_in_faction_with = JAP
-				original_tag = JAP
+				JPN = { is_subject_of = ROOT }
+				is_in_faction_with = JPN
+				original_tag = JPN
 			}
-			JAP = { owns_state = 524 }
+			JPN = { owns_state = 524 }
 		}
 		ai_chance = { base = 10 }
 		every_state = {
@@ -2054,8 +1994,8 @@ country_event = { #澎湖諸島の運命
 					is_claimed_by = ROOT
 				}
 			}
-			JAP = { transfer_state = PREV }
-			add_core_of = JAP
+			JPN = { transfer_state = PREV }
+			add_core_of = JPN
 		}
 	}
 }
@@ -2148,6 +2088,30 @@ country_event = { #台湾の運命
 			}
 			JAP = { transfer_state = PREV }
 			add_core_of = JAP
+		}
+	}
+	option = {
+		name = ssw_foc_asia.18.e
+		trigger = {
+			OR = {
+				JPN = { is_subject_of = ROOT }
+				is_in_faction_with = JPN
+				original_tag = JPN
+			}
+			NOT = { tag = JAP }
+		}
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_TWN_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = JPN
+			JPN = { transfer_state = PREV }
 		}
 	}
 	option = {

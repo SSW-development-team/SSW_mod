@@ -1,0 +1,362 @@
+add_namespace = ssw_chi_jap_war
+country_event = {
+    id = ssw_chi_jap_war.1
+    title = ssw_chi_jap_war.1.t
+    desc = ssw_chi_jap_war.1.d
+    fire_only_once = yes
+    hidden = yes
+    trigger = {
+        country_exists = JAP
+        country_exists = CHI
+        date > 1955.5.6
+    }
+    immediate = {
+        CHI = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+        JAP = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.1.a
+    }
+}
+country_event = { #盧溝橋事件
+    id = ssw_chi_jap_war.2
+    title = ssw_chi_jap_war.2.t
+    desc = ssw_chi_jap_war.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.2.a
+        set_global_flag = CHI_marco_polo_bridge_incident
+    }
+}
+country_event = { #河北事変
+    id = ssw_chi_jap_war.3
+    title = ssw_chi_jap_war.3.t
+    desc = ssw_chi_jap_war.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.3.a
+        if = {
+            limit = {
+                original_tag = CHI
+            }
+            start_border_war = {
+                change_state_after_war = no
+                attacker = {
+                    state = 608
+                    #state = 1014
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.4
+                    on_lose = ssw_chi_jap_war.4
+                    on_cancel = ssw_chi_jap_war.4
+                }
+                defender = {
+                    state = 609
+                    #state = 610
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.6
+                    on_lose = ssw_chi_jap_war.6
+                    on_cancel = ssw_chi_jap_war.6
+                }
+            }
+            set_border_war_data = {
+                attacker = 609
+                defender = 609
+                combat_width = 120
+                minimum_duration_in_days = 10
+            }
+        }
+        else_if = {
+            limit = {
+                original_tag = JAP
+            }
+            custom_effect_tooltip = ssw_chi_jap_war_3_tt
+        }
+    }
+}
+country_event = { #最後通牒(中国)
+    id = ssw_chi_jap_war.4
+    title = ssw_chi_jap_war.4.t
+    desc = ssw_chi_jap_war.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 4
+    option = {
+        name = ssw_chi_jap_war.4.a
+        ai_chance = {
+            base = 40
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = JAP
+            type = annex_everything
+        }
+        hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
+            MAN = {
+                add_to_war = {
+                    targeted_alliance = JAP
+                    enemy = CHI
+                }
+            }
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                set_country_flag = CHI_Asian_war
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.4.b
+        ai_chance = {
+            base = 60
+        }
+        custom_effect_tooltip = ssw_chi_jap_war_4_tt
+        hidden_effect = {
+            JAP = {
+                country_event = {id = ssw_chi_jap_war.5 days = 1}
+            }
+        }
+    }
+}
+country_event = { #最後通牒(日本)
+    id = ssw_chi_jap_war.5
+    title = ssw_chi_jap_war.5.t
+    desc = ssw_chi_jap_war.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi_jap_war.5.a
+        ai_chance = {
+            base = 80
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = CHI
+            type = annex_everything
+        }
+        hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                set_country_flag = CHI_Asian_war
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.5.b
+        ai_chance = {
+            base = 20
+        }
+    }
+}
+country_event = { #講和提案(中国の)
+    id = ssw_chi_jap_war.6
+    title = ssw_chi_jap_war.6.t
+    desc = ssw_chi_jap_war.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    trigger = {
+        always = no
+        has_global_flag = CHI_marco_polo_bridge_incident
+        NOT = {has_global_flag = CHI_Asia_war_finished}
+        original_tag = CHI
+        has_war_with = JAP
+    }
+    option = {
+        name = ssw_chi_jap_war.6.a
+        JAP = {
+            country_event = {id = ssw_chi_jap_war.7 days = 2}
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.6.b
+    }
+}
+country_event = {
+    id = ssw_chi_jap_war.7
+    title = ssw_chi_jap_war.7.t
+    desc = ssw_chi_jap_war.7.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi_jap_war.7.a
+    }
+    option = {
+        name = ssw_chi_jap_war.7.b
+    }
+}
+country_event = { #講和提案(日本の)
+    id = ssw_chi_jap_war.8
+    title = ssw_chi_jap_war.8.t
+    desc = ssw_chi_jap_war.8.d
+    fire_only_once = yes
+    trigger = {
+        always = no
+        has_global_flag = CHI_marco_polo_bridge_incident
+        NOT = {has_global_flag = CHI_Asia_war_finished}
+        original_tag = JAP
+        has_war_with = CHI
+        has_capitulated = no
+        MAN = {
+            has_war_with = CHI
+            has_war_together_with = JAP
+            is_in_faction_with = JAP
+            has_capitulated = yes
+        }
+        KOR = {
+            has_war_with = CHI
+            has_war_together_with = JAP
+            is_in_faction_with = JAP
+            has_capitulated = yes
+        }
+        SIB = {
+            has_war_with = CHI
+            has_war_together_with = JAP
+            is_in_faction_with = JAP
+            has_capitulated = yes
+        }
+        IND = {
+            OR = {
+                NOT = {has_war_with = CHI}
+                AND = {
+                    has_war_with = CHI
+                    OR = {
+                        NOT = {has_war_together_with = JAP}
+                        NOT = {is_in_faction_with = JAP}
+                    }
+                }
+                AND = {
+                    has_war_with = CHI
+                    has_war_together_with = JAP
+                    is_in_faction_with = JAP
+                    has_capitulated = yes
+                }
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.8.a
+        ai_chance = {
+            base = 100
+        }
+        CHI = {
+            country_event = {id = ssw_chi_jap_war.9 days = 2}
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.8.b
+        ai_chance = {
+            base = 0
+        }
+    }
+}
+country_event = {
+    id = ssw_chi_jap_war.9
+    title = ssw_chi_jap_war.9.t
+    desc = ssw_chi_jap_war.9.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi_jap_war.9.a
+    }
+    option = {
+        name = ssw_chi_jap_war.9.b
+    }
+}

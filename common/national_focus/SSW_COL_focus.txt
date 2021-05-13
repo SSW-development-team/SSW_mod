@@ -1,0 +1,1284 @@
+focus_tree = {
+	id = SSW_COL
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = COL
+		}
+	}
+	continuous_focus_position = {
+		x = 2000
+		y = 700
+	}
+	default = no
+	focus = {
+		id = COL_expantion
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 3
+		y = 0
+		completion_reward = {
+			# COL_increase_debt = yes
+			# ITA = {
+			# 	COL_add_bond = yes
+			# }
+			add_ideas = COL_expantion
+		}
+	}
+	focus = {
+		id = COL_enhance_dictatorship
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 9
+		y = 0
+		completion_reward = {
+			add_ideas = ssw_authoritarian_regime
+			add_stability = 0.1
+			add_timed_idea = {
+				idea = COL_unreliable_regime
+				days = 140
+			}
+		}
+	}
+	focus = {
+		id = COL_disarmament_guerrira
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 14
+		y = 0
+		completion_reward = {
+			add_ideas = COL_disarmament_guerrira
+		}
+	}
+	focus = {
+		id = COL_industry
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 23
+		y = 0
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 1
+					type = industrial_complex
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_union_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_expantion
+		completion_reward = {
+			VEN = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_eliminate_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_enhance_dictatorship
+		}
+		mutually_exclusive = {
+			focus = COL_negociate_liberals
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_enhance_dictatorship
+		completion_reward = {
+			add_stability = -0.2
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_timed_idea = {
+				idea = COL_eliminate_liberals_idea
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = COL_negociate_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_enhance_dictatorship
+		}
+		mutually_exclusive = {
+			focus = COL_eliminate_liberals
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_enhance_dictatorship
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.2
+			}
+		}
+	}
+	focus = {
+		id = COL_eliminate_communists
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_liberals
+			focus = COL_negociate_liberals
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_enhance_dictatorship
+		completion_reward = {
+			add_stability = -0.2
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_timed_idea = {
+				idea = COL_eliminate_communists_idea
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = COL_invade_PAN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_expantion
+		completion_reward = {
+			PAN = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_expand_resources
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = 5
+		y = 1
+		relative_position_id = COL_industry
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_resource = {
+					amount = 4
+					type = oil
+				}
+			}
+			add_timed_idea = {
+				idea = COL_resource_development
+				days = 70
+			}
+		}
+	}
+	focus = {
+		id = COL_populism
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_disarmament_guerrira
+		}
+		x = 14
+		y = 1
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.1
+			add_ideas = COL_stable_regime
+		}
+	}
+	focus = {
+		id = COL_women_suffrage
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_populism
+		}
+		x = 14
+		y = 2
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = COL_infra_1
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_women_suffrage
+		}
+		x = 13
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					instant_build = yes
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					instant_build = yes
+					level = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_infra_2
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_infra_1
+		}
+		x = 13
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					instant_build = yes
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					instant_build = yes
+					level = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_build_university
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_women_suffrage
+		}
+		x = 15
+		y = 3
+		completion_reward = {
+			add_ideas = COL_university
+		}
+	}
+	focus = {
+		id = COL_build_refinery
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_university
+		}
+		x = 15
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = synthetic_refinery
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_pardon_landlords
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_infra_2
+		}
+		prerequisite = {
+			focus = COL_build_refinery
+		}
+		x = 14
+		y = 5
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.1
+			}
+			hidden_effect = {
+				country_event = {
+					id = ssw_COL.7
+					days = 2
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_peasants_war
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_pardon_landlords
+		}
+		mutually_exclusive = {
+			focus = COL_moderate_solution
+		}
+		x = 15
+		y = 6
+		completion_reward = {
+			swap_ideas = {
+				add_idea = COL_peasants_war
+				remove_idea = COL_peasants_riot
+			}
+		}
+	}
+	focus = {
+		id = COL_union_equ
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expantion
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_expantion
+		completion_reward = {
+			ECU = {
+				country_event = {
+					id = ssw_COL.1
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_integrate_EQU
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_union_equ
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_union_equ
+		available = {
+			any_owned_state = {
+				is_core_of = ECU
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = ECU
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+	focus = {
+		id = COL_integrate_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_union_VEN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_union_VEN
+		available = {
+			any_owned_state = {
+				is_core_of = VEN
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = VEN
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+	focus = {
+		id = COL_integrate_PAN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_invade_PAN
+		available = {
+			any_owned_state = {
+				is_core_of = PAN
+			}
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = PAN
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+	focus = {
+		id = COL_alliance_CMB
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_EQU
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_EQU
+		completion_reward = {
+			CMB = {
+				country_event = {
+					id = ssw_COL.4
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_invade_PRU
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_alliance_CMB
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_alliance_CMB
+		completion_reward = {
+			add_state_core = 1176
+			create_wargoal = {
+				target = PRU
+				type = annex_everything
+			}
+			if = {
+				limit = {
+					CMB = {
+						has_country_flag = COL_aliance
+					}
+				}
+				CMB = {
+					create_wargoal = {
+						target = PRU
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_restore_gran
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_VEN
+		}
+		prerequisite = {
+			focus = COL_integrate_EQU
+		}
+		prerequisite = {
+			focus = COL_integrate_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_VEN
+		completion_reward = {
+			set_cosmetic_tag = COL_GRAN
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = COL_invade_canal
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_integrate_PAN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_integrate_PAN
+		completion_reward = {
+			create_wargoal = {
+				target = PAC
+				type = take_core_state
+			}
+		}
+	}
+	focus = {
+		id = COL_invade_ATL
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_restore_gran
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_restore_gran
+		completion_reward = {
+			add_state_claim = 309
+			add_state_claim = 310
+			create_wargoal = {
+				target = ATL
+				type = take_claimed_state
+			}
+		}
+	}
+	focus = {
+		id = COL_reconcile_ATL
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_ATL
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_invade_ATL
+		completion_reward = {
+			309 = {
+				add_compliance = 50
+			}
+			310 = {
+				add_compliance = 50
+			}
+		}
+	}
+	focus = {
+		id = COL_encourage_economy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_eliminate_communists
+		completion_reward = {
+			add_timed_idea = {
+				idea = COL_encouraged_economy
+				days = 1825
+			}
+		}
+	}
+	focus = {
+		id = COL_threat_VEN
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_eliminate_communists
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = VEN
+			}
+		}
+	}
+	focus = {
+		id = COL_invade_NIC
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_threat_VEN
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_threat_VEN
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = NIC
+			}
+		}
+	}
+	focus = {
+		id = COL_criticize_liberals
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_encourage_economy
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_encourage_economy
+		completion_reward = {
+			add_ideas = COL_criticized_liberals
+		}
+	}
+	focus = {
+		id = COL_support_SPR
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_eliminate_communists
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_eliminate_communists
+		completion_reward = {
+			add_stability = -0.1
+			add_opinion_modifier = {
+				target = SPR
+				modifier = SSW_friendly
+			}
+			reverse_add_opinion_modifier = {
+				target = SPR
+				modifier = SSW_friendly
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = SPR
+				value = 100
+			}
+			SPR = {
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = 100
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_stabilized_regime
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_invade_NIC
+		}
+		prerequisite = {
+			focus = COL_criticize_liberals
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_support_SPR
+		completion_reward = {
+			add_ideas = COL_stable_regime
+		}
+	}
+	focus = {
+		id = COL_more_dictatorship
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_stabilized_regime
+		}
+		mutually_exclusive = {
+			focus = COL_promised_election
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_stabilized_regime
+		completion_reward = {
+			add_ideas = ssw_fanatical_authoritarian_regime
+			add_stability = -0.1
+			add_ideas = COL_unpopular_dictator
+		}
+	}
+	focus = {
+		id = COL_promised_election
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_stabilized_regime
+		}
+		mutually_exclusive = {
+			focus = COL_more_dictatorship
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_stabilized_regime
+		completion_reward = {
+			add_ideas = ssw_mixed_regime
+		}
+	}
+	focus = {
+		id = COL_weaken_diet
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_more_dictatorship
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_more_dictatorship
+		completion_reward = {
+			add_ideas = COL_week_diet
+		}
+	}
+	focus = {
+		id = COL_support_catholic
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_promised_election
+			focus = COL_more_dictatorship
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_promised_election
+		completion_reward = {
+			add_ideas = COL_catholic
+		}
+	}
+	focus = {
+		id = COL_oppresse_protestant
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_support_catholic
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_support_catholic
+		completion_reward = {
+			add_political_power = 150
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = COL_church_power
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_support_catholic
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_support_catholic
+		completion_reward = {
+			add_ideas = COL_church_power
+		}
+	}
+	focus = {
+		id = COL_authoritative_representatives
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_weaken_diet
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_weaken_diet
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+			add_ideas = COL_cooporate_cooporations
+		}
+	}
+	focus = {
+		id = COL_constitutional_amendment
+		icon = GFX_goal_unknown
+		cost = 20
+		prerequisite = {
+			focus = COL_authoritative_representatives
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_authoritative_representatives
+		completion_reward = {
+			remove_ideas = COL_la_violencia
+			add_ideas = COL_completed_dictatorship
+		}
+	}
+	focus = {
+		id = COL_moderate_solution
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_pardon_landlords
+		}
+		mutually_exclusive = {
+			focus = COL_peasants_war
+		}
+		x = 13
+		y = 6
+		completion_reward = {
+			swap_ideas = {
+				add_idea = COL_moderate_solution
+				remove_idea = COL_peasants_riot
+			}
+		}
+	}
+	focus = {
+		id = COL_parade
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_moderate_solution
+			focus = COL_peasants_war
+		}
+		x = 14
+		y = 7
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 10
+			}
+			add_war_support = 10
+			hidden_effect = {
+				country_event = {
+					id = ssw_COL.8
+					days = 2
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_tolerant_posture
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_parade
+		}
+		mutually_exclusive = {
+			focus = COL_cow
+		}
+		x = 13
+		y = 8
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = COL_disrespectful
+				add_idea = COL_propaganda
+			}
+		}
+	}
+	focus = {
+		id = COL_cow
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_parade
+		}
+		mutually_exclusive = {
+			focus = COL_tolerant_posture
+		}
+		x = 15
+		y = 8
+		completion_reward = {
+			remove_ideas = COL_disrespectful
+			add_manpower = -1000
+			hidden_effect = {
+				country_event = {
+					id = ssw_COL.9
+					days = 2
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_break_two_parties
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_tolerant_posture
+			focus = COL_cow
+		}
+		x = 14
+		y = 9
+		completion_reward = {
+			add_timed_idea = {
+				days = 365
+				idea = COL_break_two_parties
+			}
+		}
+	}
+	focus = {
+		id = COL_debt_ploblem
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = -5
+		y = 1
+		relative_position_id = COL_industry
+		completion_reward = {
+			unlock_decision_category_tooltip = COL_debt
+		}
+	}
+	focus = {
+		id = COL_financial_taskforce
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_debt_ploblem
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_debt_ploblem
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = COL_italian_loan
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_financial_taskforce
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_financial_taskforce
+		completion_reward = {
+			ITA = {
+				country_event = {
+					id = ssw_COL.10
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_british_loan
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_financial_taskforce
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_financial_taskforce
+		completion_reward = {
+			ENG = {
+				country_event = {
+					id = ssw_COL.10
+					random_hours = 24
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_stimulate_economy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_italian_loan
+			focus = COL_british_loan
+		}
+		x = 0
+		y = 2
+		relative_position_id = COL_financial_taskforce
+		completion_reward = {
+			add_timed_idea = {
+				idea = COL_stimulated_economy
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = COL_build_railway
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_industry
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_industry
+		completion_reward = {
+			country_event = {
+				id = ssw_COL.14
+			}
+		}
+	}
+	focus = {
+		id = COL_build_port
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = -2
+		y = 1
+		relative_position_id = COL_build_railway
+		completion_reward = {
+			493 = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = naval_base
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_support_shipyard
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_port
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_build_port
+		completion_reward = {
+			493 = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = dockyard
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_italian_investment
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_build_railway
+		completion_reward = {
+			ITA = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_ideas = COL_bonds
+				add_to_variable = {
+					var = COL_bonds
+					value = 1
+				}
+			}
+			COL_increase_debt = yes
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = industrial_complex
+				}
+				add_building_construction = {
+					instant_build = yes
+					level = 1
+					type = arms_factory
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_education
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_build_railway
+		}
+		x = 2
+		y = 1
+		relative_position_id = COL_build_railway
+		completion_reward = {
+			add_ideas = COL_education
+		}
+	}
+	focus = {
+		id = COL_sena
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_education
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_education
+		completion_reward = {
+			add_ideas = COL_sena
+		}
+	}
+	focus = {
+		id = COL_italian_investment_2
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_italian_investment
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_italian_investment
+		completion_reward = {
+			ITA = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_ideas = COL_bonds
+				add_to_variable = {
+					var = COL_bonds
+					value = 1
+				}
+			}
+			COL_increase_debt = yes
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = industrial_complex
+				}
+				add_building_construction = {
+					instant_build = yes
+					level = 1
+					type = arms_factory
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_by_myself
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expand_resources
+		}
+		mutually_exclusive = {
+			focus = COL_british_development
+		}
+		x = -1
+		y = 1
+		relative_position_id = COL_expand_resources
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_resource = {
+					amount = 4
+					type = oil
+				}
+			}
+			add_timed_idea = {
+				idea = COL_resource_development
+				days = 70
+			}
+		}
+	}
+	focus = {
+		id = COL_british_development
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_expand_resources
+		}
+		mutually_exclusive = {
+			focus = COL_by_myself
+		}
+		x = 1
+		y = 1
+		relative_position_id = COL_expand_resources
+		completion_reward = {
+			ENG = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_ideas = COL_bonds
+				add_to_variable = {
+					var = COL_bonds
+					value = 1
+				}
+			}
+			COL_increase_debt = yes
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_resource = {
+					amount = 8
+					type = oil
+				}
+				add_resource = {
+					amount = 4
+					type = steel
+				}
+			}
+		}
+	}
+	focus = {
+		id = COL_american_development
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = COL_british_development
+		}
+		x = 0
+		y = 1
+		relative_position_id = COL_british_development
+		completion_reward = {
+			FSA = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_ideas = COL_bonds
+				add_to_variable = {
+					var = COL_bonds
+					value = 1
+				}
+			}
+			COL_increase_debt = yes
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_resource = {
+					amount = 4
+					type = oil
+				}
+				add_resource = {
+					amount = 8
+					type = steel
+				}
+			}
+		}
+	}
+}
