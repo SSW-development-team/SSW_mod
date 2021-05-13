@@ -1,10 +1,17 @@
-﻿add_namespace = ssw_UKR
+add_namespace = ssw_UKR
+# Ukrainian Insurgent Army starts resistance
 country_event = {
 	id = ssw_UKR.2
-	title = ssw_UKR.2.t
+	title = ssw_UKR.2.title
+	desc = ssw_UKR.2.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	fire_only_once = yes
-	desc = ssw_UKR.2.d
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = UKR
+	}
 	option = {
 		name = ssw_UKR.2.a
 		every_owned_state = {
@@ -18,45 +25,15 @@ country_event = {
 			days = 365
 		}
 	}
-	mean_time_to_happen = {
-		days = 3
-	}
-	trigger = {
-		tag = UKR
-	}
 }
 
+# Initiate Ukrainian Emergency
 country_event = {
 	id = ssw_UKR.3
-	title = ssw_UKR.3.t
-	picture = GFX_report_event_second_vienna_award_pact
+	title = ssw_UKR.3.title
+	desc = ssw_UKR.3.desc
 	fire_only_once = yes
-	desc = ssw_UKR.3.d
-	option = {
-		name = ssw_UKR.3.a
-		ai_chance = {
-			base = 999
-		}
-	}
-	option = {
-		name = ssw_UKR.3.b
-		UKA = {
-			change_tag_from = ROOT
-		}
-	}
-	option = {
-		name = ssw_UKR.3.c
-		UKB = {
-			change_tag_from = ROOT
-		}
-	}
-	option = {
-		name = ssw_UKR.3.d
-		country_event = {
-			id = ssw_UKR.4
-			hours = 1
-		}
-	}
+	picture = GFX_report_event_second_vienna_award_pact
 	mean_time_to_happen = {
 		days = 7
 	}
@@ -73,6 +50,7 @@ country_event = {
 	immediate = {
 		set_global_flag = UKR_independence_war_started
 		hidden_effect = {
+			# create Makhnovia
 			create_dynamic_country = {
 				original_tag = UKR
 				copy_tag = UKA
@@ -84,13 +62,14 @@ country_event = {
 					anarchism = 100
 				}
 				set_research_slots = 3
+				# transfer_state should be first line
 				transfer_state = 227
 				add_state_claim = 228
 				add_ideas = extensive_conscription
 				add_ideas = UKR_low_education_level
 				add_ideas = UKR_agricalture
 				add_ideas = UKR_civil_war
-				add_ideas = ssw_mixed_regime
+				add_ideas = ssw_mixed_regime				# 権威主義
 				add_war_support = 0.6
 				set_rule = {
 					can_puppet = no
@@ -138,11 +117,8 @@ country_event = {
 					target = UKR
 					type = annex_everything
 				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
 			}
+			# create Ukraine Socialist Republic
 			create_dynamic_country = {
 				original_tag = UKR
 				copy_tag = UKA
@@ -156,11 +132,12 @@ country_event = {
 					social_democracy = 10
 				}
 				set_research_slots = 3
+				# reserve_dynamic_country = yes
 				add_ideas = extensive_conscription
 				add_ideas = UKR_low_education_level
 				add_ideas = UKR_agricalture
 				add_ideas = UKR_civil_war
-				add_ideas = ssw_authoritarian_regime
+				add_ideas = ssw_authoritarian_regime				# 権威主義
 				add_war_support = 0.6
 				transfer_state = 220
 				add_state_claim = 240
@@ -210,11 +187,8 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
 			}
+			# create Ukraine Orthodox State
 			create_dynamic_country = {
 				original_tag = UKR
 				copy_tag = UKA
@@ -226,11 +200,12 @@ country_event = {
 					authority_despotism = 100
 				}
 				set_research_slots = 3
+				# reserve_dynamic_country = yes
 				add_ideas = extensive_conscription
 				add_ideas = UKR_low_education_level
 				add_ideas = UKR_agricalture
 				add_ideas = UKR_civil_war
-				add_ideas = ssw_authoritarian_regime
+				add_ideas = ssw_authoritarian_regime				# 権威主義
 				add_war_support = 0.6
 				transfer_state = 200
 				add_state_claim = 196
@@ -280,11 +255,8 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
 			}
+			# create Hetmanate of Ukraine
 			create_dynamic_country = {
 				original_tag = UKR
 				copy_tag = UKA
@@ -296,11 +268,12 @@ country_event = {
 					authority_democracy = 100
 				}
 				set_research_slots = 3
+				# reserve_dynamic_country = yes
 				add_ideas = extensive_conscription
 				add_ideas = UKR_low_education_level
 				add_ideas = UKR_agricalture
 				add_ideas = UKR_civil_war
-				add_ideas = ssw_authoritarian_regime
+				add_ideas = ssw_authoritarian_regime				# 権威主義
 				add_war_support = 0.6
 				transfer_state = 225
 				add_state_claim = 193
@@ -350,10 +323,6 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
 			}
 			UKA = {
 				set_rule = {
@@ -371,246 +340,27 @@ country_event = {
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
 						owner = PREV
-						prioritize_location = 6557
 					}
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
 						owner = PREV
-						prioritize_location = 6557
 					}
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
 						owner = PREV
-						prioritize_location = 6557
 					}
 					create_unit = {
 						division = "name = \"Pikhotna dyviziya\" division_template = \"Pikhotna dyviziya\" start_experience_factor = 0.7"
 						owner = PREV
-						prioritize_location = 6557
 					}
 					create_unit = {
 						division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.8"
 						owner = PREV
-						prioritize_location = 6557
 					}
 					create_unit = {
 						division = "name = \"Kinna dyviziya\" division_template = \"Kinna dyviziya\" start_experience_factor = 0.8"
 						owner = PREV
-						prioritize_location = 6557
 					}
-				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
-				create_field_marshal = {
-					name = "Vladimir Varyukhin"
-					# picture = "Portrait_Japan_Tomoyuki_Yamashita.dds"
-					traits = {
-					}
-					skill = 6
-					attack_skill = 5
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 3
-				}
-				create_field_marshal = {
-					name = "Oleksander Hrekov"
-					# picture = "Portrait_Japan_Tomoyuki_Yamashita.dds"
-					traits = {
-					}
-					skill = 6
-					attack_skill = 5
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 3
-				}
-				create_corps_commander = {
-					name = "Petro Dyachenko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Alexander Rodzyanko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Pavlo Shandruk"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Roman Shukhevych"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Mykola Kapustiansky"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Mykhailo Omelianovych-Pavlenko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Ivan Omelianowicz-Pavlenko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Oleksandr Udovychenko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Ivan Stepanenko"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Anatoly Nedbaylo"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Ivan Hladush"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Timofei Strokach"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Mykola Yakymchuk"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Yuriy Stelmashchuk"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Shum Oleksa"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Vsevolod Nikolaevich Petrov"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
-				}
-				create_corps_commander = {
-					name = "Oleksa Hasyn"
-					# picture = "Portrait_Japan_Shizuichi_Tanaka.dds"
-					traits = {
-					}
-					skill = 5
-					attack_skill = 4
-					defense_skill = 5
-					planning_skill = 5
-					logistics_skill = 4
 				}
 			}
 		}
@@ -620,14 +370,40 @@ country_event = {
 			idea = UKR_disroyal_army
 		}
 	}
+	option = {
+		name = ssw_UKR.3.a
+		ai_chance = {
+			base = 999
+		}
+	}
+	option = {
+		name = ssw_UKR.3.b
+		UKA = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.3.c
+		UKB = {
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = ssw_UKR.3.d
+		country_event = {
+			id = ssw_UKR.4
+			hours = 1
+		}
+	}
 }
 
+# Select country to fight for!
 country_event = {
 	id = ssw_UKR.4
-	title = ssw_UKR.4.t
+	title = ssw_UKR.4.title
+	desc = ssw_UKR.4.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.4.d
 	option = {
 		name = ssw_UKR.4.a
 		UKC = {
@@ -648,13 +424,14 @@ country_event = {
 	}
 }
 
+# Negociate with Ukrainian Insurgent Army
 country_event = {
 	id = ssw_UKR.5
-	title = ssw_UKR.5.t
+	title = ssw_UKR.5.title
+	desc = ssw_UKR.5.desc
 	picture = GFX_report_event_second_vienna_award_pact
-	is_triggered_only = yes
 	fire_only_once = yes
-	desc = ssw_UKR.5.d
+	is_triggered_only = yes
 	option = {
 		name = ssw_UKR.5.a
 		random_list = {
@@ -676,15 +453,17 @@ country_event = {
 	}
 }
 
+# Negociate succeed
 country_event = {
 	id = ssw_UKR.6
-	title = ssw_UKR.6.t
+	title = ssw_UKR.6.title
+	desc = ssw_UKR.6.desc
 	picture = GFX_report_event_second_vienna_award_pact
-	is_triggered_only = yes
 	fire_only_once = yes
-	desc = ssw_UKR.6.d
+	is_triggered_only = yes
 	option = {
 		name = ssw_UKR.6.a
+		# all Ukrainian 'core' states will be cored by UKR
 		add_state_core = 93
 		add_state_core = 201
 		add_state_core = 199
@@ -704,13 +483,14 @@ country_event = {
 	}
 }
 
+# Negociate failed
 country_event = {
 	id = ssw_UKR.7
-	title = ssw_UKR.7.t
+	title = ssw_UKR.7.title
+	desc = ssw_UKR.7.desc
 	picture = GFX_report_event_second_vienna_award_pact
-	is_triggered_only = yes
 	fire_only_once = yes
-	desc = ssw_UKR.7.d
+	is_triggered_only = yes
 	option = {
 		name = ssw_UKR.7.a
 		set_country_flag = UKR_combat_uia
@@ -718,12 +498,67 @@ country_event = {
 	}
 }
 
+# Select attitude against Russians
+# no longer used
+# country_event = {
+# 	id = ssw_UKR.8
+# 	title = ssw_UKR.8.title
+# 	desc = ssw_UKR.8.desc
+# 	picture = GFX_report_event_second_vienna_award_pact
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = ssw_UKR.8.a
+# 		complete_national_focus = UKR_jQZItTSU
+# 	}
+# 	option = {
+# 		name = ssw_UKR.8.b
+# 		complete_national_focus = UKR_nCyIqpHx
+# 	}
+# }
+# Select attitude against Germans
+# no longer used
+# country_event = {
+# 	id = ssw_UKR.9
+# 	title = ssw_UKR.9.title
+# 	desc = ssw_UKR.9.desc
+# 	picture = GFX_report_event_second_vienna_award_pact
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = ssw_UKR.9.a
+# 		complete_national_focus = UKR_qrKaLmuM
+# 	}
+# 	option = {
+# 		name = ssw_UKR.9.b
+# 		complete_national_focus = UKR_szUPGZCi
+# 	}
+# }
+# Select standpoint against German civil war
+# No longer used
+# country_event = {
+# 	id = ssw_UKR.10
+# 	title = ssw_UKR.10.title
+# 	desc = ssw_UKR.10.desc
+# 	picture = GFX_report_event_second_vienna_award_pact
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = ssw_UKR.10.a
+# 		complete_national_focus = UKR_kSthGWsB
+# 	}
+# 	option = {
+# 		name = ssw_UKR.10.b
+# 		complete_national_focus = UKR_hzfxCtiU
+# 	}
+# }
+# General Demand Event
 country_event = {
 	id = ssw_UKR.11
-	title = ssw_UKR.11.t
+	title = ssw_UKR.11.title
+	desc = ssw_UKR.11.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.11.d
 	option = {
 		name = ssw_UKR.11.a
 		ai_chance = {
@@ -812,23 +647,25 @@ country_event = {
 	}
 }
 
+# General Demand - Success!
 country_event = {
 	id = ssw_UKR.12
-	title = ssw_UKR.12.t
+	title = ssw_UKR.12.title
+	desc = ssw_UKR.12.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.12.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.12.a
 	}
 }
 
+# General Demand - Failed
 country_event = {
 	id = ssw_UKR.13
-	title = ssw_UKR.13.t
+	title = ssw_UKR.13.title
+	desc = ssw_UKR.13.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.13.d
 	option = {
 		name = ssw_UKR.13.a
 		ai_chance = {
@@ -890,13 +727,15 @@ country_event = {
 	}
 }
 
+# Transnistria Union Question
 country_event = {
 	id = ssw_UKR.14
-	title = ssw_UKR.14.t
+	title = ssw_UKR.14.title
+	desc = ssw_UKR.14.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.14.d
 	option = {
+		# Agree
 		name = ssw_UKR.14.a
 		ai_chance = {
 			base = 1
@@ -908,6 +747,7 @@ country_event = {
 		}
 	}
 	option = {
+		# Deny
 		name = ssw_UKR.14.b
 		ai_chance = {
 			base = 0
@@ -920,14 +760,15 @@ country_event = {
 	}
 }
 
+# Transnistria Agrees!
 country_event = {
 	id = ssw_UKR.15
-	title = ssw_UKR.15.t
+	title = ssw_UKR.15.title
+	desc = ssw_UKR.15.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.15.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.15.a
 		annex_country = {
 			target = DET
 			transfer_troops = yes
@@ -935,24 +776,27 @@ country_event = {
 	}
 }
 
+# Transnistria Denied...
 country_event = {
 	id = ssw_UKR.16
-	title = ssw_UKR.16.t
+	title = ssw_UKR.16.title
+	desc = ssw_UKR.16.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.16.d
 	option = {
 		name = ssw_UKR.16.a
 	}
 }
 
+# Reconcile OUN question
 country_event = {
 	id = ssw_UKR.17
-	title = ssw_UKR.17.t
+	title = ssw_UKR.17.title
+	desc = ssw_UKR.17.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.17.d
 	option = {
+		# the more you spend pp, the more they tend to reconcile
 		name = ssw_UKR.17.a
 		random_list = {
 			20 = {
@@ -1024,7 +868,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = ssw_UKR.17.e
+		# exile melnyk
+		name = ssw_UKR.17.d
 		add_political_power = -10
 		country_event = {
 			id = ssw_UKR.18
@@ -1033,12 +878,13 @@ country_event = {
 	}
 }
 
+# Bendera won
 country_event = {
 	id = ssw_UKR.18
-	title = ssw_UKR.18.t
+	title = ssw_UKR.18.title
+	desc = ssw_UKR.18.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.18.d
 	option = {
 		name = ssw_UKR.18.a
 		set_country_flag = UKR_bandera_join
@@ -1046,36 +892,40 @@ country_event = {
 	}
 }
 
+# Bendera and Melnyk are now friends!
 country_event = {
 	id = ssw_UKR.19
-	title = ssw_UKR.19.t
+	title = ssw_UKR.19.title
+	desc = ssw_UKR.19.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.19.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.19.a
 		set_country_flag = UKR_bandera_join
 	}
 }
 
+# Melnyk won
 country_event = {
 	id = ssw_UKR.20
-	title = ssw_UKR.20.t
+	title = ssw_UKR.20.title
+	desc = ssw_UKR.20.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.20.d
 	option = {
-		name = ssw_UKR.18.a
+		name = ssw_UKR.20.a
 	}
 }
 
+# Election!
 country_event = {
 	id = ssw_UKR.21
-	title = ssw_UKR.21.t
+	title = ssw_UKR.21.title
+	desc = ssw_UKR.21.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.21.d
 	option = {
+		# UNDO and UDP coalition
 		name = ssw_UKR.21.a
 		set_politics = {
 			ruling_party = social_conservatism
@@ -1096,6 +946,7 @@ country_event = {
 		}
 	}
 	option = {
+		# OUN
 		name = ssw_UKR.21.b
 		set_politics = {
 			ruling_party = national_fascism
@@ -1109,12 +960,13 @@ country_event = {
 	}
 }
 
+# General Invitation Question
 country_event = {
 	id = ssw_UKR.22
-	title = ssw_UKR.22.t
+	title = ssw_UKR.22.title
+	desc = ssw_UKR.22.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.22.d
 	option = {
 		name = ssw_UKR.22.a
 		ai_chance = {
@@ -1140,34 +992,37 @@ country_event = {
 	}
 }
 
+# Invitation Accepted
 country_event = {
 	id = ssw_UKR.23
-	title = ssw_UKR.23.t
+	title = ssw_UKR.23.title
+	desc = ssw_UKR.23.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.23.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.23.a
 	}
 }
 
+# Invitation Denied
 country_event = {
 	id = ssw_UKR.24
-	title = ssw_UKR.24.t
+	title = ssw_UKR.24.title
+	desc = ssw_UKR.24.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.24.d
 	option = {
-		name = ssw_UKR.16.a
+		name = ssw_UKR.24.a
 	}
 }
 
+# General Protection
 country_event = {
 	id = ssw_UKR.25
-	title = ssw_UKR.25.t
+	title = ssw_UKR.25.title
+	desc = ssw_UKR.25.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.25.d
 	option = {
 		name = ssw_UKR.25.a
 		ai_chance = {
@@ -1202,7 +1057,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = ssw_UKR.11.a
+		name = ssw_UKR.25.b
 		ai_chance = {
 			base = 1
 			modifier = {
@@ -1235,46 +1090,50 @@ country_event = {
 	}
 }
 
+# Offer Accepted
 country_event = {
 	id = ssw_UKR.26
-	title = ssw_UKR.26.t
+	title = ssw_UKR.26.title
+	desc = ssw_UKR.26.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.26.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.26.a
 	}
 }
 
+# Offer Denied
 country_event = {
 	id = ssw_UKR.27
-	title = ssw_UKR.27.t
+	title = ssw_UKR.27.title
+	desc = ssw_UKR.27.desc
 	picture = GFX_report_event_second_vienna_award_pact
 	is_triggered_only = yes
-	desc = ssw_UKR.27.d
 	option = {
-		name = ssw_UKR.16.a
+		name = ssw_UKR.27.a
 	}
 }
 
+# Ukrainian Independent Orthodox Returned!
 news_event = {
 	id = ssw_UKR.28
-	title = ssw_UKR.28.t
+	title = 01_news.28.title
+	desc = 01_news.28.desc
 	picture = GFX_news_event_07
 	is_triggered_only = yes
-	desc = ssw_UKR.28.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.28.a
 	}
 }
 
+# Ukrainian Independent Orthodox and Kiev church unified
 news_event = {
 	id = ssw_UKR.29
-	title = ssw_UKR.29.t
+	title = 01_news.29.title
+	desc = 01_news.29.desc
 	picture = GFX_news_event_07
 	is_triggered_only = yes
-	desc = ssw_UKR.29.d
 	option = {
-		name = ssw_UKR.6.a
+		name = ssw_UKR.29.a
 	}
 }

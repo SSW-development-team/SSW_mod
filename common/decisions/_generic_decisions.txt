@@ -915,32 +915,3 @@ SSW_foreign_support = {
 		}
 	}
 }
-
-military_access_decision={
-	military_access_decision = {
-		name = military_access_decision
-		icon = generic_nationalism
-		target_trigger = {
-			has_war_together_with = FROM
-			NOT={
-				has_military_access_to = FROM
-			}
-		}
-		ai_will_do = {
-			factor = 100
-		}
-		visible = {
-			is_ai = yes
-			NOT={
-				has_military_access_to = FROM
-			}
-		}
-		remove_effect = {
-			diplomatic_relation = {
-				country = FROM
-				relation = military_access
-				active = yes
-			}
-		}
-	}
-}

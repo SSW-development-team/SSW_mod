@@ -100,63 +100,23 @@ fate_of_countries_category_asia = {
 		fire_only_once = no
 		activation = {
 			NOT = {
-				country_exists = AIC
-				country_exists = AKI
-				country_exists = AOM
-				country_exists = CBA
-				country_exists = EHI
-				country_exists = FKK
-				country_exists = FKS
-				country_exists = FKU
-				country_exists = GIF
-				country_exists = GUN
-				country_exists = HIR
-				country_exists = HOK
-				country_exists = HYO
-				country_exists = IBA
-				country_exists = ISI
-				country_exists = IWA
 				country_exists = JAP
-				country_exists = JPN
 				country_exists = JSF
-				country_exists = KGS
-				country_exists = KGW
-				country_exists = KMM
-				country_exists = KOC
-				country_exists = KYO
-				country_exists = MIE
-				country_exists = MIY
-				country_exists = MYG
-				country_exists = NAG
-				country_exists = NAR
-				country_exists = NGO
-				country_exists = NII
-				country_exists = OIT
-				country_exists = OKA
-				country_exists = OKI
-				country_exists = OSK
 				country_exists = PRJ
-				country_exists = SAG
-				country_exists = SAI
-				country_exists = SHI
-				country_exists = SIG
-				country_exists = SKA
-				country_exists = TCG
-				country_exists = TKS
-				country_exists = TKY
-				country_exists = TOT
-				country_exists = TOY
-				country_exists = WAK
-				country_exists = YAM
-				country_exists = YMG
-				country_exists = YMN
 			}
 			any_state = {
 				is_owned_and_controlled_by = ROOT
-				has_state_flag = maybe_own_JAP_GAMESTART
+				OR = {
+					is_core_of = JAP
+					is_core_of = JSF
+					is_core_of = PRJ
+				}
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
+					has_state_flag = maybe_core_MAN_GAMESTART
+					has_state_flag = maybe_core_KOR_GAMESTART
+					has_state_flag = maybe_core_CHI_GAMESTART
 					state = 524
 					state = 537
 					state = 555
@@ -166,7 +126,9 @@ fate_of_countries_category_asia = {
 					state = 1104
 				}
 			}
-			942 = { is_owned_and_controlled_by = ROOT }
+			JAP = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			JSF = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			PRJ = { capital_scope = { is_owned_and_controlled_by = ROOT } }
 			hidden_trigger = {
 				always = yes
 				NOT = { has_country_flag = continue_to_occupy_japan }
@@ -176,57 +138,12 @@ fate_of_countries_category_asia = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
-				country_exists = AIC
-				country_exists = AKI
-				country_exists = AOM
-				country_exists = CBA
-				country_exists = EHI
-				country_exists = FKK
-				country_exists = FKS
-				country_exists = FKU
-				country_exists = GIF
-				country_exists = GUN
-				country_exists = HIR
-				country_exists = HOK
-				country_exists = HYO
-				country_exists = IBA
-				country_exists = ISI
-				country_exists = IWA
 				country_exists = JAP
-				country_exists = JPN
 				country_exists = JSF
-				country_exists = KGS
-				country_exists = KGW
-				country_exists = KMM
-				country_exists = KOC
-				country_exists = KYO
-				country_exists = MIE
-				country_exists = MIY
-				country_exists = MYG
-				country_exists = NAG
-				country_exists = NAR
-				country_exists = NGO
-				country_exists = NII
-				country_exists = OIT
-				country_exists = OKA
-				country_exists = OKI
-				country_exists = OSK
 				country_exists = PRJ
-				country_exists = SAG
-				country_exists = SAI
-				country_exists = SHI
-				country_exists = SIG
-				country_exists = SKA
-				country_exists = TCG
-				country_exists = TKS
-				country_exists = TKY
-				country_exists = TOT
-				country_exists = TOY
-				country_exists = WAK
-				country_exists = YAM
-				country_exists = YMG
-				country_exists = YMN
-				942 = { is_valid_annexation_state = no }
+				JAP = { capital_scope = { is_valid_annexation_state = no } }
+				JSF = { capital_scope = { is_valid_annexation_state = no } }
+				PRJ = { capital_scope = { is_valid_annexation_state = no } }
 				has_country_flag = continue_to_occupy_japan
 			}
 		}
@@ -949,11 +866,11 @@ fate_of_countries_category_asia = {
 				}
 				AND = {
 					OR = {
-						JPN = { is_subject_of = ROOT }
-						is_in_faction_with = JPN
-						original_tag = JPN
+						JAP = { is_subject_of = ROOT }
+						is_in_faction_with = JAP
+						original_tag = JAP
 					}
-					JPN = { owns_state = 524 }
+					JAP = { owns_state = 524 }
 				}
 			}
 		}

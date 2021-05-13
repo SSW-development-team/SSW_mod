@@ -322,23 +322,29 @@ UKR_unification_wars = {
 	UKR_unification_wars_1 = {
 		target_trigger = {
 			FROM = {
-				original_tag = UKR
+				OR = {
+					original_tag = UKR
+					tag = DON
+				}
 				NOT = {
 					tag = ROOT
-					has_war_with = ROOT
 				}
-			}
-			NOT = {
-				has_wargoal_against = FROM
+				any_owned_state = {
+					OR = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
 			}
 		}
 		cost = 50
 		days_remove = 30
+		fire_only_once = yes
 		ai_will_do = {
-			base = 8
+			base = 5
 			modifier = {
 				has_war = yes
-				factor = 0.25
+				factor = 0
 			}
 		}
 		visible = {
@@ -378,7 +384,7 @@ UKR_unification_wars = {
 		days_remove = 7
 		fire_only_once = no
 		ai_will_do = {
-			base = 2
+			base = 8
 			modifier = {
 				has_war = yes
 				factor = 0.5
