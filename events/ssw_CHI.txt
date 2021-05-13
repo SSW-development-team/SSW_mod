@@ -1,4 +1,59 @@
+add_namespace = ssw_chi_d
 add_namespace = ssw_chi
+add_namespace = ssw_chi_jap_war
+country_event = {
+    id = ssw_chi_d.2
+    title = ssw_chi_d.2.t
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi_d.2.a
+        load_focus_tree = {
+            tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+            keep_completed = yes
+        }
+    }
+    option = {
+        name = ssw_chi_d.2.b
+        load_focus_tree = {
+            tree = CHI_Rep_of_China_Gu_Zhutong_route
+            keep_completed = yes
+        }
+    }
+}
+country_event = {
+    id = ssw_chi_d.3
+    title = ssw_chi_d.3.t
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi_d.3.a
+        load_focus_tree = {
+            tree = CHI_Union_of_China_Gu_Zhutong_route
+            keep_completed = yes
+        }
+    }
+    option = {
+        name = ssw_chi_d.3.b
+        load_focus_tree = {
+            tree = CHI_Union_of_China_route
+            keep_completed = yes
+        }
+    }
+}
+country_event = {
+    id = ssw_chi_d.4
+    title = ssw_chi_d.4.t
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+        name = ssw_chi_d.4.a
+        load_focus_tree = {
+            tree = CHI_war_china_coup_route
+            keep_completed = yes
+        }
+    }
+}
 country_event = { #憲法制定1
     id = ssw_chi.1
     title = ssw_chi.1.t
@@ -560,6 +615,7 @@ country_event = {
         if = {
             limit = {
                 original_tag = CHI
+                is_faction_leader = no
             }
             if = {
                 limit = {
@@ -589,11 +645,6 @@ country_event = { #中国の要求(チベット)
                 has_war_with = CHI
                 factor = 0
             }
-            modifier = {
-                NOT =  {is_puppet_of = FROM}
-                is_puppet = yes
-                factor = 0
-            }
         }
         CHI = {
             country_event = {id = ssw_chi.22 days = 1}
@@ -609,11 +660,6 @@ country_event = { #中国の要求(チベット)
             }
             modifier = {
                 has_war_with = CHI
-                factor = 0
-            }
-            modifier = {
-                NOT =  {is_puppet_of = FROM}
-                is_puppet = yes
                 factor = 0
             }
         }
@@ -672,14 +718,6 @@ country_event = { #チベットが従属を選択
             target = TIB
             type = annex_everything
         }
-        every_state = {
-            limit = {
-                is_core_of = TIB
-                NOT = {is_core_of = CHI}
-                NOT = {is_claimed_by = CHI}
-            }
-            add_claim_by = CHI
-        }
     }
 }
 country_event = { #チベットが要求を拒否
@@ -693,14 +731,6 @@ country_event = { #チベットが要求を拒否
         create_wargoal = {
             target = TIB
             type = annex_everything
-        }
-        every_state = {
-            limit = {
-                is_core_of = TIB
-                NOT = {is_core_of = CHI}
-                NOT = {is_claimed_by = CHI}
-            }
-            add_claim_by = CHI
         }
     }
 }
@@ -727,11 +757,6 @@ country_event = { #中国の要求(トゥバ、トゥラン)
             modifier = {
                 has_war_with = FROM
                 factor = 0
-            }
-            modifier = {
-                NOT =  {is_puppet_of = FROM}
-                is_puppet = yes
-                factor = 0.5
             }
         }
         FROM = {
@@ -991,9 +1016,9 @@ country_event = { #新疆ウイグル共和国の成立
                         }
                     }
                     create_country_leader = {
-                        name = "Eysa Yusup Alptekin"
+                        name = "Isa Alptekin"
                         desc = ""
-                        picture = "gfx/leaders/SIK/Portrait_Eysa_Yusup_Alptekin.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1050,9 +1075,9 @@ country_event = { #新疆ウイグル共和国の成立
                     }
                     set_cosmetic_tag = SIK_Fede
                     create_country_leader = {
-                        name = "Eysa Yusup Alptekin"
+                        name = "Isa Alptekin"
                         desc = ""
-                        picture = "gfx/leaders/SIK/Portrait_Eysa_Yusup_Alptekin.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1231,7 +1256,7 @@ country_event = { #蒙古自治国の成立
                     create_country_leader = {
                         name = "Li Shouxin"
                         desc = ""
-                        picture = "gfx/leaders/MON/Portrait_Li_Shouxin.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1294,7 +1319,7 @@ country_event = { #蒙古自治国の成立
                     create_country_leader = {
                         name = "Li Shouxin"
                         desc = ""
-                        picture = "gfx/leaders/MON/Portrait_Li_Shouxin.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1344,7 +1369,7 @@ country_event = { #雲南民族共和国の成立
                         }
                     }
                     create_country_leader = {
-                        name = "Lu Han"
+                        name = "Lu han"
                         desc = ""
                         picture = "gfx/leaders/CHI/Portrait_Lu_Han.dds"
                         expire = "1990.1.1"
@@ -1395,7 +1420,7 @@ country_event = { #雲南民族共和国の成立
                     }
                     set_cosmetic_tag = YUN_Fede
                     create_country_leader = {
-                        name = "Lu Han"
+                        name = "Lu han"
                         desc = ""
                         picture = "gfx/leaders/CHI/Portrait_Lu_Han.dds"
                         expire = "1990.1.1"
@@ -1458,9 +1483,9 @@ country_event = { #満族自治区の成立
                         }
                     }
                     create_country_leader = {
-                        name = "Aisin gioro Pujie"
+                        name = "aisin-gioro pu-giye"
                         desc = ""
-                        picture = "gfx/leaders/MAN/Portrait_Aisin_gioro_Pujie.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1531,9 +1556,9 @@ country_event = { #満族自治区の成立
                     }
                     set_cosmetic_tag = MAN_Fede
                     create_country_leader = {
-                        name = "Aisin gioro Pujie"
+                        name = "aisin-gioro pu-giye"
                         desc = ""
-                        picture = "gfx/leaders/MAN/Portrait_Aisin_gioro_Pujie.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1912,7 +1937,7 @@ country_event = { #閩共和国の成立
                     create_country_leader = {
                         name = "Cai Peihuo"
                         desc = ""
-                        picture = "gfx/leaders/MIN/Portrait_Cai_Peihuo.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1967,7 +1992,7 @@ country_event = { #閩共和国の成立
                     create_country_leader = {
                         name = "Cai Peihuo"
                         desc = ""
-                        picture = "gfx/leaders/MIN/Portrait_Cai_Peihuo.dds"
+                        #picture = 
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -2118,10 +2143,6 @@ country_event = { #中国が連携を提案
                 }
                 factor = 1.5
             }
-            modifier = {
-                is_puppet_of = FROM
-                factor = 0
-            }
         }
         CHI = {
             country_event = {id = ssw_chi.44 days = 1}
@@ -2133,10 +2154,6 @@ country_event = { #中国が連携を提案
             base = 20
             modifier = {
                 has_war_with = JAP
-                factor = 0
-            }
-            modifier = {
-                is_puppet_of = FROM
                 factor = 0
             }
         }
@@ -2466,5 +2483,285 @@ country_event = { #南京裁判
         }
         add_political_power = 100
         army_experience = 15
+    }
+}
+
+country_event = {
+    id = ssw_chi_jap_war.1
+    title = ssw_chi_jap_war.1.t
+    desc = ssw_chi_jap_war.1.d
+    fire_only_once = yes
+    hidden = yes
+    trigger = {
+        country_exists = JAP
+        country_exists = CHI
+        date > 1955.5.6
+    }
+    immediate = {
+        CHI = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+        JAP = {
+            country_event = { id = ssw_chi_jap_war.2}
+            country_event = { id = ssw_chi_jap_war.3 days = 3}
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.1.a
+    }
+}
+country_event = { #盧溝橋事件
+    id = ssw_chi_jap_war.2
+    title = ssw_chi_jap_war.2.t
+    desc = ssw_chi_jap_war.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.2.a
+        set_global_flag = CHI_marco_polo_bridge_incident
+    }
+}
+country_event = { #河北事変
+    id = ssw_chi_jap_war.3
+    title = ssw_chi_jap_war.3.t
+    desc = ssw_chi_jap_war.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 2
+    option = {
+        name = ssw_chi_jap_war.3.a
+        if = {
+            limit = {
+                original_tag = CHI
+            }
+            start_border_war = {
+                change_state_after_war = no
+                attacker = {
+                    state = 608
+                    #state = 1014
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.4
+                    on_lose = ssw_chi_jap_war.4
+                    on_cancel = ssw_chi_jap_war.4
+                }
+                defender = {
+                    state = 609
+                    #state = 610
+                    num_provinces = 3
+                    on_win = ssw_chi_jap_war.6
+                    on_lose = ssw_chi_jap_war.6
+                    on_cancel = ssw_chi_jap_war.6
+                }
+            }
+            set_border_war_data = {
+                attacker = 609
+                defender = 609
+                combat_width = 120
+                minimum_duration_in_days = 10
+            }
+        }
+        else_if = {
+            limit = {
+                original_tag = JAP
+            }
+            custom_effect_tooltip = ssw_chi_jap_war_3_tt
+        }
+    }
+}
+country_event = { #最後通牒(中国)
+    id = ssw_chi_jap_war.4
+    title = ssw_chi_jap_war.4.t
+    desc = ssw_chi_jap_war.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    timeout_days = 4
+    option = {
+        name = ssw_chi_jap_war.4.a
+        ai_chance = {
+            base = 40
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = JAP
+            type = annex_everything
+        }
+        hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
+            MAN = {
+                add_to_war = {
+                    targeted_alliance = JAP
+                    enemy = CHI
+                }
+            }
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                set_country_flag = CHI_Asian_war
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.4.b
+        ai_chance = {
+            base = 60
+        }
+        custom_effect_tooltip = ssw_chi_jap_war_4_tt
+        hidden_effect = {
+            JAP = {
+                country_event = {id = ssw_chi_jap_war.5 days = 1}
+            }
+        }
+    }
+}
+country_event = { #最後通牒(日本)
+    id = ssw_chi_jap_war.5
+    title = ssw_chi_jap_war.5.t
+    desc = ssw_chi_jap_war.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_chi_jap_war.5.a
+        ai_chance = {
+            base = 80
+        }
+        add_threat = 4
+        declare_war_on = {
+            target = CHI
+            type = annex_everything
+        }
+        hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
+            CHI = {
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one
+                    }
+                    load_focus_tree = {
+                        tree = CHI_politic_tree_one_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_Gu_Zhutong_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_focus_tree = CHI_Union_of_China_route
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                set_country_flag = CHI_Asian_war
+            }
+        }
+    }
+    option = {
+        name = ssw_chi_jap_war.5.b
+        ai_chance = {
+            base = 20
+        }
+    }
+}
+country_event = { #講和提案(from日本)
+    id = ssw_chi_jap_war.6
+    title = ssw_chi_jap_war.6.t
+    desc = ssw_chi_jap_war.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    trigger = {
+        always = no
+    }
+    option = {
+        name = ssw_chi_jap_war.6.a
+    }
+    option = {
+        name = ssw_chi_jap_war.6.b
+    }
+}
+country_event = { #講和提案(from中国)
+    id = ssw_chi_jap_war.7
+    title = ssw_chi_jap_war.7.t
+    desc = ssw_chi_jap_war.7.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    trigger = {
+        always = no
+    }
+    option = {
+        name = ssw_chi_jap_war.7.a
+    }
+    option = {
+        name = ssw_chi_jap_war.7.b
     }
 }

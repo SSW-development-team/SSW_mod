@@ -1,21 +1,19 @@
 add_namespace = sswmos
+
 country_event = {
-	id = sswmos.1	#弁務官区崩壊
+	id = sswmos.1 #弁務官区崩壊
 	title = sswmos.1.title
 	desc = sswmos.1.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
 	option = {
 		name = sswmos.1.a
-		ai_chance = {
-			factor = 1
-		}
-		country_event = {
-			id = sswmos.4
-			days = 0
-		}
+		ai_chance = { factor = 1 }
+		country_event = { id = sswmos.4 days = 0 }
 		hidden_effect = {
 			set_capital = 351
+			
+
 			ACO = {
 				transfer_state = 248
 				transfer_state = 253
@@ -76,12 +74,9 @@ country_event = {
 				transfer_state = 194
 				transfer_state = 927
 				transfer_state = 928
-				every_state = {
-					limit = {
-						is_core_of = BLR
-					}
-					add_core_of = NBL
-				}
+				add_state_core = 194
+				add_state_core = 927
+				add_state_core = 928
 				set_research_slots = 3
 			}
 			PET = {
@@ -142,7 +137,7 @@ country_event = {
 }
 
 country_event = {
-	id = sswmos.2	#宗主の崩壊
+	id = sswmos.2 #宗主の崩壊
 	title = sswmos.2.title
 	desc = sswmos.2.desc
 	picture = GFX_event_test
@@ -151,14 +146,10 @@ country_event = {
 		has_global_flag = GER_civil_war
 		tag = MOS
 	}
-	mean_time_to_happen = {
-		days = 1
-	}
+	mean_time_to_happen = { days = 1 }
 	option = {
 		name = sswmos.2.a
-		ai_chance = {
-			factor = 1
-		}
+		ai_chance = { factor = 1 }
 		add_political_power = -300
 		add_stability = -0.3
 		hidden_effect = {
@@ -173,21 +164,19 @@ country_event = {
 }
 
 country_event = {
-	id = sswmos.3	#レジスタンスの蜂起
+	id = sswmos.3 #レジスタンスの蜂起
 	title = sswmos.3.title
 	desc = sswmos.3.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
 	option = {
 		name = sswmos.3.a
-		ai_chance = {
-			factor = 1
-		}
+		ai_chance = { factor = 1}
 		add_stability = -0.2
 		add_war_support = -0.3
 		hidden_effect = {
 			MOS = {
-				country_event = {
+				country_event = { 
 					id = sswmos.1
 					days = 10
 				}
@@ -197,20 +186,15 @@ country_event = {
 }
 
 country_event = {
-	id = sswmos.4	#国家を選ぼう！（ミハイル・ブラック）
+	id = sswmos.4 #国家を選ぼう！（ミハイル・ブラック）
 	title = sswmos.4.title
 	desc = sswmos.4.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
-	option = {
-		#ミハイル
+	option = { #ミハイル
 		name = sswmos.4.a
-		ai_chance = {
-			factor = 0
-		}
-		AMC = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		AMC = { change_tag_from = ROOT }
 		hidden_effect = {
 			inherit_technology = ACO
 			inherit_technology = AMC
@@ -223,15 +207,10 @@ country_event = {
 			inherit_technology = TOA
 		}
 	}
-	option = {
-		#ブラック
+	option = { #ブラック
 		name = sswmos.4.b
-		ai_chance = {
-			factor = 0
-		}
-		BLO = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		BLO = { change_tag_from = ROOT }
 		hidden_effect = {
 			inherit_technology = ACO
 			inherit_technology = AMC
@@ -244,16 +223,11 @@ country_event = {
 			inherit_technology = TOA
 		}
 	}
-	option = {
-		#次のページ
+	option = { #次のページ
 		name = sswmos.4.c
-		ai_chance = {
-			factor = 1
-		}
+		ai_chance = { factor = 1 }
 		MOS = {
-			country_event = {
-				id = sswmos.5
-			}
+			country_event = { id = sswmos.5 }
 		}
 		hidden_effect = {
 			inherit_technology = ACO
@@ -268,128 +242,81 @@ country_event = {
 		}
 	}
 }
-
 country_event = {
-	id = sswmos.5	#国家を選ぼう！（貴族・大司教・ロシアの空）
+	id = sswmos.5 #国家を選ぼう！（貴族・大司教・ロシアの空）
 	title = sswmos.5.title
 	desc = sswmos.5.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
-	option = {
-		#貴族
+	option = { #貴族
 		name = sswmos.5.a
-		ai_chance = {
-			factor = 0
-		}
-		ACO = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		ACO = { change_tag_from = ROOT }
 	}
-	option = {
-		#大司教
+	option = { #大司教
 		name = sswmos.5.b
-		ai_chance = {
-			factor = 0
-		}
-		TOA = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		TOA = { change_tag_from = ROOT }
 	}
-	option = {
-		#ロシアの空
+	option = { #ロシアの空
 		name = sswmos.5.c
-		ai_chance = {
-			factor = 0
-		}
-		RBL = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		RBL = { change_tag_from = ROOT }
 	}
-	option = {
-		#次のページ
+	option = { #次のページ
 		name = sswmos.5.d
-		ai_chance = {
-			factor = 1
-		}
+		ai_chance = { factor = 1}
 		MOS = {
-			country_event = {
-				id = sswmos.6
-			}
+			country_event = { id = sswmos.6 }
 		}
 	}
 }
-
 country_event = {
-	id = sswmos.6	#国家を選ぼう！（自由ロシア・ロシア帝国・全ロシア）
+	id = sswmos.6 #国家を選ぼう！（自由ロシア・ロシア帝国・全ロシア）
 	title = sswmos.6.title
 	desc = sswmos.6.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
-	option = {
-		#自由
+	option = { #自由
 		name = sswmos.6.a
-		ai_chance = {
-			factor = 0
-		}
-		RLB = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		RLB = { change_tag_from = ROOT }
 	}
-	option = {
-		#帝国
+	option = { #帝国
 		name = sswmos.6.b
-		ai_chance = {
-			factor = 0
-		}
-		RSE = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		RSE = { change_tag_from = ROOT }
 	}
-	option = {
-		#全ロシア
+	option = { #全ロシア
 		name = sswmos.6.c
-		ai_chance = {
-			factor = 0
-		}
-		FAR = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		FAR = { change_tag_from = ROOT }
 	}
-	option = {
-		#次のページ
+	option = { #次のページ
 		name = sswmos.6.d
-		ai_chance = {
-			factor = 1
-		}
-		MOS = {
-			country_event = {
-				id = sswmos.7
+		ai_chance = { factor = 1 }
+			MOS = {
+				country_event = { 
+					id = sswmos.7
+				}
 			}
-		}
+		
 	}
 }
 
 country_event = {
-	id = sswmos.7	#国家を選ぼう！（白ロシア・弁務官区）
+	id = sswmos.7 #国家を選ぼう！（白ロシア・弁務官区）
 	title = sswmos.7.title
 	desc = sswmos.7.desc
 	picture = GFX_event_test
 	is_triggered_only = yes
-	option = {
-		#白ロシア
+	option = { #白ロシア
 		name = sswmos.7.a
-		ai_chance = {
-			factor = 0
-		}
-		NBL = {
-			change_tag_from = ROOT
-		}
+		ai_chance = { factor = 0 }
+		NBL = { change_tag_from = ROOT }
 	}
-	option = {
-		#弁務官区
+	option = { #弁務官区
 		name = sswmos.7.b
-		ai_chance = {
-			factor = 2
-		}
+		ai_chance = { factor = 2 }
 	}
 }

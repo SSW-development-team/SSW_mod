@@ -1,0 +1,312 @@
+ideas ={
+    country = {
+    OKL_Army_plan = {#訓練時間-50％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+        training_time_army_factor = -0.5
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Army_NRA ={#歩兵銃生産効率+10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+            equipment_bonus ={
+                infantry_equipment = {
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1    
+    }
+    OKL_Army_regular = {#陸軍ドクトリン研究速度+10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+
+            research_bonus ={
+                land_doctrine = 0.1
+            } 
+        picture = generic_pp_unity_bonus
+        removal_cost = -1  
+    }
+    OKL_Army_exile_officer ={#陸軍閣僚コスト-50％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            military_leader_cost_factor	= -0.5
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+    }
+    OKL_Navy_budget ={#艦船設計社コスト-10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            naval_manufacturer_cost_factor = -0.1
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1 
+    }
+    OKL_Navy_officer = {#海軍閣僚コスト-50％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            navy_leader_cost_factor	= -0.5
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+    }
+    OKL_Navy_escort_fleet = {#潜水艦・駆逐艦・巡洋艦生産コスト-10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+            equipment_bonus ={
+                submarine ={ 
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+                screen_ship = {
+                    build_cost_ic = -0.1
+                    instant =yes
+                }
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+        }
+    OKL_Navy_battleship = {#艦隊保全ドクトリン研究速度+10％、艦載砲研究速度+50％→艦載砲だけを指定は調べる
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+            research_bonus ={
+                fleet_in_being_tree = 0.1
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+    }
+    OKL_Navy_aircraft_carrier = {#艦載機生産効率+10％、基地攻撃ドクトリン研究速度+10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+            research_bonus = {
+                base_strike_main = 0.1
+                naval_air = 0.1     
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1      
+    }
+    OKL_Air_fighter ={#軽戦闘機、重戦闘機生産コスト-10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        equipment_bonus ={
+                light_fighter ={ 
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+                cat_heavy_fighter = {
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+    }
+    OKL_Air_superfortress = {#戦術爆撃機、戦略爆撃機生産コスト-10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        equipment_bonus ={
+                tactical_bomber  ={ 
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+                cat_strategic_bomber  = {
+                    build_cost_ic = -0.1
+                    instant = yes
+                }
+            }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1   
+    }
+    OKL_Air_fleet = {#空軍経験値効率+10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            experience_gain_air_factor = 0.1
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Ind_agriculture = {#消費財-5％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            consumer_goods_factor = -0.05
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Ind_deregulation = {#研究速度+0.05
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+				research_speed_factor = 0.05
+			}
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_refugees = {#イデオロギー同様対処力-20％（数字は仮置き）
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            drift_defence_factor = -0.2
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_isolation = {#戦争協力度週ごと+0.05
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            war_support_weekly_factor = 0.05
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_white = {#師団攻防+10％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            army_attack_factor = 0.1
+            army_defence_factor = 0.1
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_jim_crow_laws = {#政治力獲得量-5％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            political_power_gain = -0.05
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_civil_rights_movement = {#人的資源+2％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier ={
+            conscription = 0.02
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+    OKL_Pol_jim_crow_laws_abolition = {#安定度-5％、政治力獲得+5％
+        allowed = {
+            original_tag = OKL
+            always = no
+        }
+        allowed_civil_war = {
+			always = yes
+		}
+        modifier = {
+            political_power_gain = 0.05
+            stability_factor = -0.05
+        }
+        picture = generic_pp_unity_bonus
+        removal_cost = -1
+    }
+}
+}
