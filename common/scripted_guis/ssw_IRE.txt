@@ -1,0 +1,35 @@
+scripted_gui = {
+	ire_congress_custom_gui = {
+		window_name = "ire_congress_gui"
+		context_type = player_context
+		visible = { has_country_flag = open_congress_of_ireland }
+		dynamic_lists = {
+			parliament_diagram = {
+				array = SAMPLE_seat_x
+				change_scope = no
+				entry_container = ire_parliament_seat
+				index = seat_idx
+			}
+		}
+		properties = {
+			icon_seats = {
+				x = SAMPLE_seat_x^seat_idx
+				y = SAMPLE_seat_y^seat_idx
+				frame = IRE_seats^seat_idx
+			}
+			seats_cover = {
+				x = SAMPLE_seat_x^seat_idx
+				y = SAMPLE_seat_y^seat_idx
+			}
+			parliament_dot_icon = {
+				x = SAMPLE_seat_x^seat_idx
+				y = SAMPLE_seat_y^seat_idx
+				frame = IRE_seats^seat_idx
+			}
+		}
+		effects = {
+			close_button_click = { clr_country_flag = open_congress_of_ireland }
+			refresh_button_click = { ire_open_congress = yes }
+		}
+	}
+}

@@ -20,6 +20,21 @@ on_actions = {
 				country_event = { id = ssw_policy_tab_event.1 }
 				set_country_flag = ssw_policy_tab_industrialization_event_triggered
 			}
+			every_country = {
+				limit = {
+					THIS = {
+						check_variable = { country_research_institute > 599 }
+						NOT = {
+							check_variable = { country_research_institute_level = 5 }
+							has_country_flag = ssw_research_institute_level_up_triggered
+						}
+					}
+				}
+				THIS = {
+					country_event = { id = ssw_policy_tab_event.2 }
+					set_country_flag = ssw_research_institute_level_up_triggered
+				}
+			}
 		}
 	}
 }

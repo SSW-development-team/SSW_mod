@@ -299,52 +299,52 @@ scripted_gui = {
 				check_variable = { country_research_institute > -1 }
 			}
 			research_institute_level_1_arrow_deactive_visible = {
-				check_variable = { country_research_institute < 241 }
+				check_variable = { country_research_institute_level < 2 }
 			}
 			research_institute_level_1_arrow_active_visible = {
-				check_variable = { country_research_institute > 240 }
+				check_variable = { country_research_institute_level > 1 }
 			}
 			research_institute_level_2_deactive_visible = {
-				check_variable = { country_research_institute < 241 }
+				check_variable = { country_research_institute_level < 2 }
 			}
 			research_institute_level_2_active_visible = {
-				check_variable = { country_research_institute > 240 }
+				check_variable = { country_research_institute_level > 1 }
 			}
 			research_institute_level_2_arrow_deactive_visible = {
-				check_variable = { country_research_institute < 531 }
+				check_variable = { country_research_institute_level < 3 }
 			}
 			research_institute_level_2_arrow_active_visible = {
-				check_variable = { country_research_institute > 530 }
+				check_variable = { country_research_institute_level > 2 }
 			}
 			research_institute_level_3_deactive_visible = {
-				check_variable = { country_research_institute < 531 }
+				check_variable = { country_research_institute_level < 3 }
 			}
 			research_institute_level_3_active_visible = {
-				check_variable = { country_research_institute > 530 }
+				check_variable = { country_research_institute_level > 2 }
 			}
 			research_institute_level_3_arrow_deactive_visible = {
-				check_variable = { country_research_institute < 951 }
+				check_variable = { country_research_institute_level < 4 }
 			}
 			research_institute_level_3_arrow_active_visible = {
-				check_variable = { country_research_institute > 950 }
+				check_variable = { country_research_institute_level > 3 }
 			}
 			research_institute_level_4_deactive_visible = {
-				check_variable = { country_research_institute < 951 }
+				check_variable = { country_research_institute_level < 4 }
 			}
 			research_institute_level_4_active_visible = {
-				check_variable = { country_research_institute > 950 }
+				check_variable = { country_research_institute_level > 3 }
 			}
 			research_institute_level_4_arrow_deactive_visible = {
-				check_variable = { country_research_institute < 2001 }
+				check_variable = { country_research_institute_level < 5 }
 			}
 			research_institute_level_4_arrow_active_visible = {
-				check_variable = {country_research_institute > 2000 }
+				check_variable = { country_research_institute_level > 4 }
 			}
 			research_institute_level_5_deactive_visible = {
-				check_variable = { country_research_institute < 2001 }
+				check_variable = { country_research_institute_level < 5 }
 			}
 			research_institute_level_5_active_visible = {
-				check_variable = { country_research_institute > 2000 }
+				check_variable = { country_research_institute_level > 4 }
 			}
 		}
 		effects = {
@@ -385,6 +385,12 @@ scripted_gui = {
 			close_button8_click = {
 				set_variable =  { country_research_institute = 0 }
 			}
+			close_button10_click = {
+				add_to_variable =  { country_research_institute_level = 1 }
+			}
+			close_button11_click = {
+				set_variable =  { country_research_institute = 600 }
+			}
 		}
 		properties = {
 		}
@@ -410,4 +416,30 @@ scripted_gui = {
 			}
 		}
 	}
+	SSW_Policy_tab_military_view_army_law = {
+		window_name = "SSW_Policy_tab_military_army_law"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military = 1 }
+		}
+
+		ai_enabled = {
+			always = no
+		}
+
+		triggers = {
+
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military = 0 }
+			}
+			military_tab_conscription_law_box_click = {
+				ROOT = {
+					add_ideas = military_tab_conscription_scraping_the_barrel
+				}
+			}
+		}
+	}
+
 }

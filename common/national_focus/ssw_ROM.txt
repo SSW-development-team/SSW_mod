@@ -1141,7 +1141,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			war_support_factor = 0.05
+			add_war_support = 0.05
 			add_tech_bonus = {
 				name = land_doc_bonus
 				bonus = 1.0
@@ -1174,7 +1174,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			add_idea = ROM_legacy_of_mountain_warfare_idea
+			add_ideas = ROM_legacy_of_mountain_warfare_idea
 		}
 	}
 	focus = {
@@ -2409,30 +2409,30 @@ focus_tree = {
 
 		completion_reward = {
 			if = {
-							limit = {
-									has_full_control_of_state = 46
-								}
-							46 = {
-									add_extra_state_shared_building_slots = 2
-									add_building_construction = {
-											type = industrial_complex
-											level = 2
-											instant_build = yes
-										}
-								}
-						}
-			46 = {
-							if = {
-									limit = {
-											has_full_control_of_state = 46
-										}
-									add_building_construction = {
-											type = infrastructure
-											level = 1
-											instant_build = yes
-										}
-								}
-						}
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 46
+				}
+				46 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -2835,7 +2835,7 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = {
-				id = SSW_ROM.35 day = 12
+				id = SSW_ROM.35 days = 12
 			}
 		}
 	}
@@ -3086,7 +3086,7 @@ focus_tree = {
 				name = "Mihai I"
 				desc = ""
 				picture = "gfx/leaders/ROM/Portrait_Mihai_1.dds"
-				ideology = authority_despotism
+				ideology = authority_despotism_ideology 
 				traits = {
 				}
 			}
@@ -3151,7 +3151,7 @@ focus_tree = {
 				desc = ""
 				picture = "gfx/leaders/ROM/Portrait_Mihai_1.dds"
 				expire = "1965.1.1"
-				ideology = authority_despotism
+				ideology = authority_despotism_ideology 
 				traits = {
 				}
 			}
@@ -3295,7 +3295,7 @@ focus_tree = {
 		completion_reward = {
 			country_event = {
 				id = SSW_ROM.36 
-				day = 3
+				days = 3
 			}
 	
 		}
@@ -3340,7 +3340,7 @@ focus_tree = {
 			focus = Frendship_with_Blugaria
 		}
 		available = {
-			exists = GER
+			country_exists = GER
 		}
 
 		x = 11
@@ -3375,8 +3375,8 @@ focus_tree = {
 		}
 		available = {
 			OR = {
-				exists = SOV
-				exists = RUS
+				country_exists = SOV
+				country_exists = RUS
 			}
 		}
 		x = 9
@@ -3503,7 +3503,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			set_politics = {
+			set_popularities={
 				ruling_party = authority_democracy
 			}
 			create_country_leader = {
@@ -3511,7 +3511,7 @@ focus_tree = {
 				desc = ""
 				picture = "gfx/leaders/ROM/Portrait_Carol_2.dds"
 				expire = "1965.1.1"
-				ideology = authority_despotism
+				ideology = authority_despotism_ideology 
 				traits = {
 					hedonist ROM_escaped_king
 				}
@@ -3577,7 +3577,7 @@ focus_tree = {
 				desc = ""
 				picture = "gfx/leaders/ROM/Portrait_Carol_2_sect.dds"
 				expire = "1965.1.1"
-				ideology = authority_despotism
+				ideology = authority_despotism_ideology 
 				traits = {
 				}
 			}
@@ -3959,10 +3959,10 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 100
-			add_ideas = ROM_Dealing_with_the_Remnants
+			add_ideas = ROM_Firm_and_Peaceful_Diplomacy
 		}
 	}
-s = {
+	focus = {
 		id = Election_law_amendment
 		icon = GFX_goal_unknown
 		cost = 10.00
