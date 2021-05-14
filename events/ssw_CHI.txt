@@ -488,7 +488,7 @@ country_event = { #汪兆銘の暗殺
         name = ssw_chi.17.a
         set_country_flag = CHI_three_route
         add_dynamic_modifier = {
-            modifier = ssw_CHI_death_Wang_dm
+            modifier = ssw_CHI_death_Wang
         }
         kill_country_leader = yes
         create_country_leader = {
@@ -503,7 +503,7 @@ country_event = { #汪兆銘の暗殺
         name = ssw_chi.17.b
         set_country_flag = CHI_Chen_route
         add_dynamic_modifier = {
-            modifier = ssw_CHI_death_Wang_dm
+            modifier = ssw_CHI_death_Wang
         }
         kill_country_leader = yes
         create_country_leader = {
@@ -900,7 +900,6 @@ country_event = { #第二回連邦代表大会
                     keep_completed = yes
                 }
             }
-            set_country_flag = CHI_second_fede_congress
         }
     }
     option = {
@@ -923,12 +922,18 @@ country_event = { #第二回連邦代表大会
             expire = "1990.1.1"
             ideology = authority_democracy_ideology
         }
+        hidden_effect = {
+            set_country_flag = CHI_second_fede_congress
+        }
     }
     option = {
         name = ssw_chi.29.c
         set_politics = {
             ruling_party = social_conservatism
             elections_allowed = no
+        }
+        hidden_effect = {
+            set_country_flag = CHI_second_fede_congress
         }
     }
     option = {
@@ -937,12 +942,18 @@ country_event = { #第二回連邦代表大会
             ruling_party = social_liberalism
             elections_allowed = no
         }
+        hidden_effect = {
+            set_country_flag = CHI_second_fede_congress
+        }
     }
     option = {
         name = ssw_chi.29.f
         set_politics = {
             ruling_party = progressive_communism
             elections_allowed = no
+        }
+        hidden_effect = {
+            set_country_flag = CHI_second_fede_congress
         }
     }
 }
@@ -1583,9 +1594,9 @@ country_event = { #回国の成立
                         }
                     }
                     create_country_leader = {
-                        name = "Ma Buqing"
+                        name = "Ma Jiyuan"
                         desc = ""
-                        #picture = 
+                        picture = "gfx/leaders/XSM/Portrait_Ma_jiyuan.dds"
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1632,9 +1643,9 @@ country_event = { #回国の成立
                     }
                     set_cosmetic_tag = XSM_Fede
                     create_country_leader = {
-                        name = "Ma Buqing"
+                        name = "Ma Jiyuan"
                         desc = ""
-                        #picture = 
+                        picture = "gfx/leaders/XSM/Portrait_Ma_jiyuan.dds"
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
