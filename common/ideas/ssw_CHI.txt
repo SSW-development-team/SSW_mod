@@ -1,5 +1,42 @@
 ideas = {
 	country = {
+		CHI_influence_local_warlord = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = CHI_influence_local_warlord
+			cancel = {
+				OR = {
+					AND = {
+						check_variable = {CHI_inf_l_w_d_m_w = 0}
+						check_variable = {CHI_inf_l_w_d_m_o = 0}
+						check_variable = {CHI_inf_l_w_d_m_d = 0}
+						check_variable = {CHI_inf_l_w_d_m_a = 0}
+					}
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = ssw_CHI_influence_local_warlord
+						}
+					}
+				}
+			}
+			modifier = {
+			}
+		}
+		idea_CHI_reckless_rapid_industrialization = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = CHI_reckless_rapid_industrialization
+			modifier = {
+			}
+		}
 		CHI_unenacted_constitution = {
 			allowed = {
 				always = yes
