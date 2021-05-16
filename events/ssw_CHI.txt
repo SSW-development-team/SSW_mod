@@ -889,15 +889,41 @@ country_event = { #第二回連邦代表大会
                 limit = {
                     has_completed_focus = CHI_compromise_KMT
                 }
-                load_focus_tree = {
-                    tree = CHI_Union_of_China_Gu_Zhutong_route
-                    keep_completed = yes
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one_wwJ
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else = {
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_Gu_Zhutong_route
+                        keep_completed = yes
+                    }
                 }
             }
             else = {
                 load_focus_tree = {
                     tree = CHI_Union_of_China_route
                     keep_completed = yes
+                }
+                if = {
+                    limit = {
+                        has_focus_tree = CHI_politic_tree_one_wwJ
+                    }
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route_wwJ
+                        keep_completed = yes
+                    }
+                }
+                else = {
+                    load_focus_tree = {
+                        tree = CHI_Union_of_China_route
+                        keep_completed = yes
+                    }
                 }
             }
         }
