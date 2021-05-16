@@ -430,20 +430,9 @@ country_event = { #国民大会経過(仮)
     fire_only_once = yes
     option = { #無事に
         name = ssw_chi.16.a
-        if = {
-            limit = {
-                has_focus_tree = CHI_politic_tree_one_wwJ
-            }
-            load_focus_tree = {
-                tree = CHI_Rep_of_China_Gu_Zhutong_route_wwJ
-                keep_completed = yes
-            }
-        }
-        else = {
-            load_focus_tree = {
-                tree = CHI_Rep_of_China_Gu_Zhutong_route
-                keep_completed = yes
-            }
+        load_focus_tree = {
+            tree = CHI_Rep_of_China_Gu_Zhutong_route
+            keep_completed = yes
         }
     }
 }
@@ -455,20 +444,9 @@ country_event = { #汪兆銘の暗殺
     fire_only_once = yes
     immediate = {
         hidden_effect = {
-            if = {
-                limit = {
-                    has_focus_tree = CHI_politic_tree_one_wwJ
-                }
-                load_focus_tree = {
-                    tree = CHI_Rep_of_China_Wang_Zhao_Ming_route_wwJ
-                    keep_completed = yes
-                }
-            }
-            else = {
-                load_focus_tree = {
-                    tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
-                    keep_completed = yes
-                }
+            load_focus_tree = {
+                tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                keep_completed = yes
             }
             set_variable = {
                 var = CHI_d_w_dm_s
@@ -889,41 +867,15 @@ country_event = { #第二回連邦代表大会
                 limit = {
                     has_completed_focus = CHI_compromise_KMT
                 }
-                if = {
-                    limit = {
-                        has_focus_tree = CHI_politic_tree_one_wwJ
-                    }
-                    load_focus_tree = {
-                        tree = CHI_Union_of_China_Gu_Zhutong_route_wwJ
-                        keep_completed = yes
-                    }
-                }
-                else = {
-                    load_focus_tree = {
-                        tree = CHI_Union_of_China_Gu_Zhutong_route
-                        keep_completed = yes
-                    }
+                load_focus_tree = {
+                    tree = CHI_Union_of_China_Gu_Zhutong_route
+                    keep_completed = yes
                 }
             }
             else = {
                 load_focus_tree = {
                     tree = CHI_Union_of_China_route
                     keep_completed = yes
-                }
-                if = {
-                    limit = {
-                        has_focus_tree = CHI_politic_tree_one_wwJ
-                    }
-                    load_focus_tree = {
-                        tree = CHI_Union_of_China_route_wwJ
-                        keep_completed = yes
-                    }
-                }
-                else = {
-                    load_focus_tree = {
-                        tree = CHI_Union_of_China_route
-                        keep_completed = yes
-                    }
                 }
             }
         }
@@ -1832,7 +1784,7 @@ country_event = { #広東自治国の成立
                     create_country_leader = {
                         name = "Li Hanhun"
                         desc = ""
-                        #picture = 
+                        picture = "gfx/leaders/GUD/Portrait_Li_Hanhuo.dds"
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
@@ -1895,7 +1847,7 @@ country_event = { #広東自治国の成立
                     create_country_leader = {
                         name = "Li Hanhun"
                         desc = ""
-                        #picture = 
+                        picture = "gfx/leaders/GUD/Portrait_Li_Hanhuo.dds"
                         expire = "1990.1.1"
                         ideology = social_conservatism_ideology
                     }
