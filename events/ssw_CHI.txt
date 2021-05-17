@@ -175,14 +175,18 @@ country_event = { #憲法決定
     desc = ssw_chi.6.d
     is_triggered_only = yes
     fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            load_focus_tree = {
+                tree = CHI_politic_tree_one
+                keep_completed = yes
+            }
+        }
+    }
     option = {
         name = ssw_chi.6.a
         trigger = {
             check_variable = {var_CHI_infr_federalism < var_CHI_infr_KMT}
-        }
-        load_focus_tree = {
-            tree = CHI_politic_tree_one
-            keep_completed = yes
         }
         complete_national_focus = CHI_return_rep_of_China
     }
@@ -193,10 +197,6 @@ country_event = { #憲法決定
                 check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
                 check_variable = {var_CHI_infr_federalism = var_CHI_infr_KMT}
             }
-        }
-        load_focus_tree = {
-            tree = CHI_politic_tree_one
-            keep_completed = yes
         }
         complete_national_focus = CHI_birth_of_Union
     }
@@ -428,12 +428,21 @@ country_event = { #国民大会経過(仮)
     desc = ssw_chi.16.d
     is_triggered_only = yes
     fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            load_focus_tree = {
+                tree = CHI_Rep_of_China_Gu_Zhutong_route
+                keep_completed = yes
+            }
+        }
+    }
     option = { #無事に
         name = ssw_chi.16.a
-        load_focus_tree = {
-            tree = CHI_Rep_of_China_Gu_Zhutong_route
-            keep_completed = yes
-        }
+        set_country_flag = CHI_Gu_Zhutong_route_flag
+    }
+    option = {
+        name = ssw_chi.16.b
+        set_country_flag = CHI_Chen_route
     }
 }
 country_event = { #汪兆銘の暗殺
@@ -469,13 +478,6 @@ country_event = { #汪兆銘の暗殺
             modifier = ssw_CHI_death_Wang
         }
         kill_country_leader = yes
-        create_country_leader = {
-            name = "Chen Gongbo"
-            desc = ""
-            picture = "gfx/leaders/CHI/Portrait_Chen_Gongbo_2.dds"
-            expire = "1990.1.1"
-            ideology = social_democracy_ideology
-        }
     }
     option = { #陳公博ルート
         name = ssw_chi.17.b
@@ -484,13 +486,6 @@ country_event = { #汪兆銘の暗殺
             modifier = ssw_CHI_death_Wang
         }
         kill_country_leader = yes
-        create_country_leader = {
-            name = "Chen Gongbo"
-            desc = ""
-            picture = "gfx/leaders/CHI/Portrait_Chen_Gongbo_2.dds"
-            expire = "1990.1.1"
-            ideology = social_democracy_ideology
-        }
     }
 }
 country_event = { #三人組の中で
