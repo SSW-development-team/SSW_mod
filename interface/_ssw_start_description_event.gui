@@ -1,0 +1,133 @@
+guiTypes = { 
+	containerWindowType = {
+		name = "ssw_start_description_event_open_button"
+		position = { x = -100 y = 100 }
+		size = { width = 100%% height = 100%% }
+
+		buttonType = {
+			name = "button_start_description_open"
+			position = { x = -148 y = 4 }
+			quadTextureSprite = "GFX_button_start_description_open"
+			Orientation = "UPPER_RIGHT"
+			scale = 0.75
+		}
+	}
+
+	containerWindowType = {
+		name = "ssw_start_description_event"
+		position = { x = 0 y = 0 }
+		size = { width=1350 height=800}
+		Orientation = center
+		Origo = center
+		background = {
+			name = "start_description_Background"
+			quadTextureSprite = "GFX_start_description_event_base"
+		}
+		iconType = { #background
+			name = "ssw_start_description_event_background"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_start_description_event_base"
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {#select_buttom
+			name = "ssw_start_description_select_buttom" 
+			size = { width = 100% height = 100% }
+			position = { x = 0 y = 0 }
+
+			buttonType = { #country description
+				name = "ssw_country_description"
+				position = { x = 780 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou"
+				rotaition = 0.5
+
+				text = "COUNTRY_DESCRIPTION"
+			}
+			iconType = { #country_flag
+				name = "ssw_country_description_player_flag" 
+				quadTextureSprite = "GFX_flag_small"
+				position = { x = 790 y = 715 }
+			}
+			buttonType = { #world description
+				name = "ssw_world_description"
+				position = { x = 535 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou"
+				text = "WORLD_DESCRIPTION"
+				rotaition = 0.5
+
+			}
+			buttonType = { #system description
+				name = "ssw_system_description"
+				position = { x = 290 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou"
+				rotaition = 0.5
+
+				text = "SYSTEM_DESCRIPTION"
+			}
+			buttonType = { #ssw mod description
+				name = "ssw_ssw_mod_description"
+				position = { x = 45 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou"
+				text = "SSW_MOD_DESCRIPTION"
+			}
+
+		}
+		iconType = { #picture
+			name = "ssw_start_description_pictures"
+			quadTextureSprite = "GFX_start_description_picture"
+			position = { x = 65 y = 60 }
+		}
+		iconType = { #texture filter
+			name = "ssw_start_description_event_texture_filter"
+			quadTextureSprite = "GFX_start_description_event_picture_filter"
+			position = { x = 65 y = 60 }
+		}
+		buttonType = { #Escape buttom
+			name = "ssw_escape"
+			position = { x = 1045 y = 688 }
+			quadTextureSprite = "GFX_start_description_event_select_button_1"
+			buttonFont = "ssw_soukou"
+				text = "SSW_ESCAPE_TEXT"
+			shortcut = "ESCAPE"
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_country_description_window"
+		position = { x = 0 y = -200 }
+		size = { width=1350 height=800}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+		
+		background = {
+			name = "start_description_Background_country_description"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_country_description_text"
+			size = { width = 650 height = 2000 }
+			instantTextBoxType = { #国名
+				name = "ssw_start_description_country_name"
+				position = { x = 10 y = 10 }
+				font = "ssw_kokutetu"
+				text = "GET_COUNTRY_NAME"
+				maxWidth = 620
+				maxHeight = 610
+			}
+
+			instantTextBoxType = { #文章
+				name = "ssw_start_description_country_description"
+				position = { x = 10 y = 50 }
+				font = "ssw_soukou"
+				text = "[COUNTRY_DESCRIPTION]"
+				maxWidth = 620
+				maxHeight = 635
+			}
+		}
+	}
+
+}

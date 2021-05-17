@@ -1,0 +1,70 @@
+scripted_gui = {	
+	ssw_start_description_event = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_event_open_button"
+
+		visible = {
+			is_ai = no
+		}
+
+		effects = {
+			topbar_opening_button_click = {
+				if = {
+					limit = { has_variable = ssw_start_description_event }
+					clear_variable = ssw_start_description_event
+				}
+				else = {
+					set_variable = { ssw_start_description_event = 1 }
+				}
+			}
+		}
+	}
+	ssw_start_description_event_base = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_event"
+
+		visible = {
+			has_variable = ssw_start_description_event
+		}
+
+		effects = {
+			ssw_escape_click = {
+				clear_variable = ssw_start_description_event
+			}
+			
+			ssw_country_description_click = {
+				set_variable = { ssw_start_description_event = 1 }
+			}
+			ssw_world_description_click = {
+				set_variable = { ssw_start_description_event = 2 }
+			}
+			ssw_system_description_click = {
+				set_variable = { ssw_start_description_event = 3 }
+			}
+			ssw_ssw_mod_description_click = {
+				set_variable = { ssw_start_description_event = 4 }
+			}
+		}
+		properties = {
+			ssw_country_description_player_flag = { 
+				image = "[This.GetFlag]" 
+			}
+			GFX_start_description_picture = {
+				image = "[START_DESCRIPTION_PICTURE]" 
+			}
+		}
+	}
+	ssw_start_description_event_country_description = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_country_description"
+
+		visible = {
+			has_variable = ssw_start_description_event
+			check_variable = { ssw_start_description_event = 1 }
+		}
+	}
+
+}
