@@ -629,3 +629,91 @@ country_event = { #‹‘”Û‚³‚ê‚½I
 		}
 	}
 }
+country_event = { #¶—ƒíü‚ªw‰c‰Á–¿‚ğ—v¿
+	id = ssw_lff.14
+	title = ssw_faction.4.title
+	desc = ssw_faction.4.desc
+	picture = GFX_report_event_generic_read_write
+	immediate = {
+		hidden_effect = {
+			save_event_target_as = alliance_inviter
+			FROM = { save_event_target_as = alliance_applicant }
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = ssw_faction.4.a
+		ai_chance = { base = 100 }
+		add_to_faction = FROM
+		FROM = { country_event = { id = ssw_faction.5 hours = 6 } }
+		hidden_effect = {
+			set_country_flag = alliance_inviter@ROOT
+			news_event = { id = ssw_lff.15 hours = 6 }
+			FROM = {
+				set_country_flag = alliance_applicant@ROOT
+				add_ai_strategy = {
+					type = alliance
+					id = ROOT
+					value = 200
+				}
+			}
+		}
+	}
+	option = {
+		name = ssw_faction.4.b
+		ai_chance = { factor = 0 }
+		FROM = { country_event = { id = ssw_faction.6 hours = 6 } }
+	}
+}
+news_event = { #Œ^”j‚è‚È“¯–¿
+	id = ssw_lff.15
+	title = ssw_lff.15.title
+	desc = ssw_lff.15.desc
+	is_triggered_only = yes
+    option = {
+		name = ssw_lff.15.a
+		ai_chance = { base = 100 }
+		trigger = {
+			OR = {
+				original_tag = GER
+				original_tag = LFF
+			}
+		}
+	}
+    option = {
+		name = ssw_lff.15.b
+		ai_chance = { base = 100 }
+		trigger = {
+			NOT = {
+				original_tag = GER
+				original_tag = LFF
+			}
+		}
+	}
+}
+news_event = { #‘O‘ã–¢•·‚Ì‹¦’è
+	id = ssw_lff.16
+	title = ssw_lff.16.title
+	desc = ssw_lff.16.desc
+	is_triggered_only = yes
+    option = {
+		name = ssw_lff.16.a
+		ai_chance = { base = 100 }
+		trigger = {
+			OR = {
+				original_tag = GER
+				original_tag = LFF
+			}
+		}
+	}
+    option = {
+		name = ssw_lff.16.b
+		ai_chance = { base = 100 }
+		trigger = {
+			NOT = {
+				original_tag = GER
+				original_tag = LFF
+			}
+		}
+	}
+}
