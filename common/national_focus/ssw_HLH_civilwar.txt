@@ -1,0 +1,642 @@
+focus_tree = {
+	id = ssw_Himmler_Germany_civilwar_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = HLH
+		}
+	}
+	default = no
+	focus = {
+		id = HIMMLER_ensuring_the_loyalty_of_ss
+		icon = GFX_focus_ss_loyalty
+		cost = 10.00
+		x = 7
+		y = 0
+			available = {
+					has_country_leader = {
+							name = "Heinrich Himmler"
+							ruling_only = yes
+						}
+				}
+			ai_will_do = {
+					factor = 100
+				}
+			completion_reward = {
+					add_political_power = 120
+					set_country_flag = HLH_SS_loyal_us
+					division_template = {
+							name = "SS-Sturmbrigade"
+							is_locked = yes
+							division_names_group = GER_Inf_01
+							regiments = {
+									infantry = {
+											x = 0
+											y = 0
+										}
+									infantry = {
+											x = 0
+											y = 1
+										}
+									infantry = {
+											x = 0
+											y = 2
+										}
+								}
+						}
+						hidden_effect = {
+					random_owned_controlled_state = {
+							limit = {
+									ROOT = {
+											has_full_control_of_state = PREV
+										}
+								}
+							create_unit = {
+									division = "name = \"1. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"2. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"3. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"4. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"5. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"6. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"7. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"8. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"9. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+							create_unit = {
+									division = "name = \"10. SS-Sturmbrigade\" division_template = \"SS-Sturmbrigade\" start_experience_factor = 0.1"
+									owner = HLH
+								}
+						}
+					}
+					custom_effect_tooltip = HIMMLER_ensuring_the_loyalty_of_ss_tt
+				}
+
+	}
+	focus = {
+		id = HIMMLER_utilize_the_gestapo
+		icon = GFX_focus_gestapo
+		cost = 5.00
+		x = 17
+		y = 0
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_ideas = HLH_gestapo
+		}
+	}
+	focus = {
+		id = HIMMLER_adolf_hitler
+		icon = GFX_focus_leipstandarte
+		cost = 7.5
+		x = 0
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = HIMMLER_waffen_ss
+		}
+	}
+	focus = {
+		id = HIMMLER_das_reich
+		icon = GFX_focus_das_reich
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_adolf_hitler
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss
+				add_idea = HIMMLER_waffen_ss_2
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = HIMMLER_totemkopf
+		icon = GFX_focus_totemkopf
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_das_reich
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss_2
+				add_idea = HIMMLER_waffen_ss_3
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 0
+		y = 2
+
+	}
+	focus = {
+		id = HIMMLER_wiking
+		icon = GFX_focus_wiking
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_totemkopf
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss_3
+				add_idea = HIMMLER_waffen_ss_4
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 0
+		y = 3
+
+	}
+	focus = {
+		id = HIMMLER_nord
+		icon = GFX_focus_nord
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_wiking
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss_4
+				add_idea = HIMMLER_waffen_ss_5
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 0
+		y = 4
+
+	}
+	focus = {
+		id = HIMMLER_prinz_eugen
+		icon = GFX_focus_prinz_eugen
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_nord
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss_5
+				add_idea = HIMMLER_waffen_ss_6
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 0
+		y = 5
+
+	}
+	focus = {
+		id = HIMMLER_cult_to_ancient_german_religion
+		icon = GFX_goal_generic_propaganda
+		cost = 6
+		prerequisite = {
+			focus = HIMMLER_ensuring_the_loyalty_of_ss
+		}
+		x = 2
+		y = 1
+			available = {
+					has_country_leader = {
+							name = "Heinrich Himmler"
+							ruling_only = yes
+						}
+				}
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_ideas = HLH_ancient_religion
+				}
+
+	}
+	focus = {
+		id = HIMMLER_gott_nicht_mit_uns
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 8
+		prerequisite = {
+			focus = HIMMLER_cult_to_ancient_german_religion
+		}
+		available = {
+			LTV = {
+				exists = yes
+			}
+		}
+		bypass = {
+			LTV = {
+				exists = no
+			}
+		}
+		completion_reward = {
+			add_timed_idea = { idea = HLH_annihilate_the_anti_nazi days = 180 }
+		}
+		x = 2
+		y = 3
+
+	}
+	focus = {
+		id = HIMMLER_nerobefehl
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 8
+		prerequisite = {
+			focus = HIMMLER_expropriation_of_industrial_land
+		}
+		x = 7
+		y = 4
+			available = {
+					has_country_flag = HLH_SS_loyal_us
+				}
+			ai_will_do = {
+					factor = 5
+				}
+			completion_reward = {
+				add_ideas = HLH_nerobefehl_for_himmler
+				every_country = {
+					limit = {
+						has_war_with = HLH
+					}
+					add_timed_idea = {
+						idea = HLH_nerobefehl_for_others
+						days = 730
+					}
+				}
+				custom_effect_tooltip = HIMMLER_nerobefehl_tt
+			}
+
+	}
+	focus = {
+		id = HIMMLER_secure_the_armories
+		icon = GFX_focus_generic_combined_arms
+		cost = 5
+		prerequisite = {
+			focus = HIMMLER_forced_labor_of_prisoners
+		}
+		x = 7
+		y = 2
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+								}
+						}
+					add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 3000
+						}
+					add_equipment_to_stockpile = {
+							type = artillery_equipment
+							amount = 100
+						}
+					add_equipment_to_stockpile = {
+							type = support_equipment
+							amount = 100
+						}
+				}
+
+	}
+	focus = {
+		id = HIMMLER_expropriation_of_industrial_land
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = HIMMLER_secure_the_armories
+		}
+		prerequisite = {
+			focus = HIMMLER_forced_labor_of_prisoners
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+
+	}
+	focus = {
+		id = HIMMLER_forced_labor_of_prisoners
+		icon = GFX_focus_cze_german_puppet
+		cost = 5
+		prerequisite = {
+			focus = HIMMLER_ensuring_the_loyalty_of_ss
+		}
+		completion_reward = {
+			add_ideas = HIMMLER_forced_labor_of_prisoners
+		}
+		x = 5
+		y = 1
+
+	}
+	focus = {
+		id = HIMMLER_meine_ehre_heisst_treue
+		icon = GFX_focus_meine_ehre_heist_treue
+		cost = 6
+		prerequisite = {
+			focus = HIMMLER_ensuring_the_loyalty_of_ss
+		}
+		completion_reward = {
+			add_ideas = HIMMLER_meine_ehre_heisst_treue
+		}
+		x = 9
+		y = 1
+
+	}
+	focus = {
+		id = HIMMLER_auslandische_freiwillige_der_waffen_ss
+		icon = GFX_focus_generic_manpower
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_meine_ehre_heisst_treue
+		}
+		prerequisite = {
+			focus = HIMMLER_secure_the_armories
+		}
+		x = 9
+		y = 3
+			available = {
+					has_country_flag = HLH_SS_loyal_us
+				}
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					unlock_decision_category_tooltip = HLH_foreign_volunteers
+				}
+
+	}
+	focus = {
+		id = HIMMLER_kick_out_the_traitors
+		icon = GFX_goal_generic_attack_allies
+		cost = 8
+		prerequisite = {
+			focus = HIMMLER_utilize_the_gestapo
+		}
+		prerequisite = {
+			focus = HIMMLER_ensuring_the_loyalty_of_ss
+		}
+		x = 12
+		y = 1
+			available = {
+					has_country_flag = HLH_SS_loyal_us
+				}
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_timed_idea = {
+							idea = HIMMLER_kick_out_the_traitors
+							days = 365
+						}
+				}
+
+	}
+	focus = {
+		id = HIMMLER_rather_totemkopf_than_hakenkreuz
+		icon = GFX_goal_generic_CAS
+		cost = 8
+		prerequisite = {
+			focus = HIMMLER_kick_out_the_traitors
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = HLH_hunt_down_the_apostate
+				days = 180
+			}
+		}
+		x = 12
+		y = 3
+
+	}
+	focus = {
+		id = HIMMLER_purge_in_ss
+		icon = GFX_focus_purge_ss
+		cost = 5
+		prerequisite = {
+			focus = HIMMLER_utilize_the_gestapo
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_political_power = 120
+		}
+		x = 15
+		y = 1
+
+	}
+	focus = {
+		id = HIMMLER_strengthen_sd
+		icon = GFX_goal_generic_military_sphere
+		cost = 7
+		prerequisite = {
+			focus = HIMMLER_utilize_the_gestapo
+		}
+		x = 17
+		y = 2
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HLH_gestapo
+				add_idea = HLH_gestapo_2
+			}
+		}
+
+	}
+	focus = {
+		id = HIMMLER_nacht_und_nebel
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 7
+		prerequisite = {
+			focus = HIMMLER_purge_in_ss
+		}
+		prerequisite = {
+			focus = HIMMLER_strengthen_sd
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = HIMMLER_nacht_und_nebel
+		}
+		x = 15
+		y = 3
+
+	}
+	focus = {
+		id = HIMMLER_integrate_the_internal_organization
+		icon = GFX_focus_integrate_orgs
+		cost = 10.00
+		prerequisite = {
+			focus = HIMMLER_strengthen_sd
+		}
+		prerequisite = {
+			focus = HIMMLER_nacht_und_nebel
+		}
+		completion_reward = {
+			add_war_support = 0.25
+			hidden_effect = {
+				create_corps_commander = {
+					name = "Theodor Eicke"
+					portrait_path = "gfx/leaders/HLH/ssw_Portrait_Himmler_Theodor_Eicke.dds"
+					traits = { infantry_officer}
+					attack_skill = 2
+					defense_skill = 5
+					planning_skill = 2
+					logistics_skill = 3
+					skill = 3
+				}
+				create_corps_commander = {
+					name = "Georg von Bassewitz-Behr"
+					portrait_path = "gfx/leaders/HLH/ssw_Portrait_Himmler_Georg_von_Bassewitz.dds"
+					traits = { harsh_leader commando}
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 1
+					logistics_skill = 3
+					skill = 2
+				}
+				create_corps_commander = {
+					name = "Ernst Kaltenbrunner"
+					portrait_path = "gfx/leaders/HLH/ssw_Portrait_Himmler_Ernst_Kaltenbrunner.dds"
+					traits = { trickster}
+					attack_skill = 3
+					defense_skill = 2
+					planning_skill = 5
+					logistics_skill = 2
+					skill = 2
+				}
+			}
+			custom_effect_tooltip = HIMMLER_integrate_the_internal_organization_tt
+		}
+		x = 17
+		y = 4
+
+	}
+	focus = {
+		id = HIMMLER_polizei_division
+		icon = GFX_focus_porizeidiv
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_utilize_the_gestapo
+		}
+		completion_reward = {
+			add_ideas = HIMMLER_pol_div
+		}
+		x = 19
+		y = 1
+
+	}
+	focus = {
+		id = HIMMLER_cooperate_with_arrested_wehrmacht_officers
+		icon = GFX_focus_generic_military_mission
+		cost = 8
+		prerequisite = {
+			focus = HIMMLER_strengthen_sd
+			focus = HIMMLER_polizei_division
+		}
+		x = 19
+		y = 3
+		completion_reward = {
+			add_ideas = HIMMLER_cooperate_with_arrested_wehrmacht_officers
+			custom_effect_tooltip = HIMMLER_cooperate_with_arrested_wehrmacht_officers_tt
+			hidden_effect = {
+				create_corps_commander = {
+					traits = { trickster}
+					attack_skill = 1
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 2
+					skill = 3
+				}
+				create_corps_commander = {
+					traits = {  trait_mountaineer trait_cautious}
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 2
+					skill = 2
+				}
+				create_corps_commander = {
+					traits = { trait_reckless politically_connected}
+					attack_skill = 4
+					defense_skill = 1
+					planning_skill = 3
+					logistics_skill = 3
+					skill = 3
+				}
+			}
+		}
+	}
+	focus = {
+		id = HIMMLER_florian_geyer
+		icon = GFX_focus_florian_geyer
+		cost = 7.5
+		prerequisite = {
+			focus = HIMMLER_prinz_eugen
+		}
+		x = 0
+		y = 6
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HIMMLER_waffen_ss_6
+				add_idea = HIMMLER_waffen_ss_7
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}

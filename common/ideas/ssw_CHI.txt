@@ -1,5 +1,42 @@
 ideas = {
 	country = {
+		CHI_influence_local_warlord = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = CHI_influence_local_warlord
+			cancel = {
+				OR = {
+					AND = {
+						check_variable = {CHI_inf_l_w_d_m_w = 0}
+						check_variable = {CHI_inf_l_w_d_m_o = 0}
+						check_variable = {CHI_inf_l_w_d_m_d = 0}
+						check_variable = {CHI_inf_l_w_d_m_a = 0}
+					}
+					NOT = {
+						has_dynamic_modifier = {
+							modifier = ssw_CHI_influence_local_warlord
+						}
+					}
+				}
+			}
+			modifier = {
+			}
+		}
+		idea_CHI_reckless_rapid_industrialization = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = CHI_reckless_rapid_industrialization
+			modifier = {
+			}
+		}
 		CHI_unenacted_constitution = {
 			allowed = {
 				always = yes
@@ -495,7 +532,7 @@ ideas = {
 			}
 		}
 
-		CHI_automotive_society = {
+		CHI_automotive_society = { #自動車化社会
 			allowed = {
 				always = yes
 			}
@@ -519,7 +556,7 @@ ideas = {
 			}
 		}
 
-		CHI_changjiang_wealth = {
+		CHI_changjiang_wealth = { #長江の富
 			allowed = {
 				always = yes
 			}
@@ -533,14 +570,14 @@ ideas = {
 			}
 		}
 
-		CHI_Blue_shirts_guidance = {
+		CHI_Blue_shirts_guidance = { #藍衣社の指導
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = yes
 			}
-			#picture = 
+			picture = FRA_national_mobilization_focus
 			modifier = {
 				subversive_activites_upkeep = -0.1
 				decryption_factor = 0.1
@@ -555,7 +592,7 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			#picture = 
+			picture = FRA_national_mobilization_focus
 			modifier = {
 				subversive_activites_upkeep = -0.1
 				decryption_factor = 0.2
@@ -567,14 +604,14 @@ ideas = {
 			}
 		}
 
-		CHI_revival_generalissimo = {
+		CHI_revival_generalissimo = { #大元帥の再興
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = yes
 			}
-			#picture = 
+			picture = generic_intel_bonus
 			modifier = {
 				stability_factor = 0.2
 				political_power_factor = 0.1
@@ -583,42 +620,42 @@ ideas = {
 			}
 		}
 
-		CHI_Cheung_Kong_mercy = {
+		CHI_Cheung_Kong_mercy = { #張群の慈悲
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = yes
 			}
-			#picture = 
+			picture = generic_pp_unity_bonus
 			modifier = {
 				political_power_factor = 0.15
 				stability_factor = 0.2
 			}
 		}
 
-		CHI_three_pep_principle_youth_group = {
+		CHI_three_pep_principle_youth_group = { #三民主義青年団
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = chi_army_corruption
 			modifier = {
 				conscription = 0.01
 				training_time_army_factor = -0.05
 			}
 		}
 
-		CHI_mighty_intelligence_agency = {
+		CHI_mighty_intelligence_agency = { #強大な諜報機関
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_spy_intel
 			modifier = {
 				operative_slot = 1
 				resistance_growth = -0.1
@@ -631,7 +668,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_spy_intel
 			modifier = {
 				operative_slot = 1
 				resistance_growth = -0.1
@@ -641,21 +678,21 @@ ideas = {
 			}
 		}
 
-		CHI_nationalism = {
+		CHI_nationalism = { #民族主義
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_morale_bonus
 			modifier = {
 				army_core_attack_factor = 0.05
 				army_core_defence_factor = 0.05
 			}
 		}
 
-		CHI_permanent_fuhrer = {
+		CHI_permanent_fuhrer = { #永久総統
 			allowed = {
 				always = yes
 			}
@@ -687,14 +724,14 @@ ideas = {
 			}
 		}
 
-		CHI_four_great_family = {
+		CHI_four_great_family = { #四大家族
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = generic_pp_unity_bonus
 			modifier = {
 				mobilization_laws_cost_factor = -0.25
 				economy_cost_factor = -0.25
@@ -703,21 +740,21 @@ ideas = {
 			}
 		}
 
-		CHI_american_asylum_seekers = {
+		CHI_american_asylum_seekers = { #アメリカ人亡命者
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_disjointed_gov
 			modifier = {
 				research_speed_factor = 0.05
 				consumer_goods_factor = -0.05
 			}
 		}
 
-		CHI_democratize_china = {
+		CHI_democratize_china = { #中国の民主化
 			allowed = {
 				always = yes
 			}
@@ -745,14 +782,14 @@ ideas = {
 			}
 		}
 
-		CHI_industrial_reform = {
+		CHI_industrial_reform = { #産業改革
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_production_bonus
 			modifier = {
 				global_building_slots_factor = 0.1
 				monthly_population = 0.3
@@ -766,7 +803,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_production_bonus
 			modifier = {
 				global_building_slots_factor = 0.1
 				monthly_population = 0.3
@@ -781,7 +818,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_production_bonus
 			modifier = {
 				global_building_slots_factor = 0.1
 				monthly_population = 0.3
@@ -804,14 +841,14 @@ ideas = {
 			}
 		}
 
-		CHI_chinese_century_idea = {
+		CHI_chinese_century_idea = { #中国の世紀
 			allowed = {
 				always = yes
 			}
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = chi_chinese_unity
 			modifier = {
 				justify_war_goal_time = -0.2
 				send_volunteer_factor = 5
@@ -825,7 +862,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = chi_army_corruption3
 			targeted_modifier = {
 				tag = JAP
 				offence = 0.05
@@ -839,7 +876,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = chi_army_corruption3
 			modifier = {
 				resistance_growth = 0.2
 				army_core_attack_factor = -0.1
@@ -858,7 +895,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = chi_army_corruption3
 			modifier = {
 				resistance_growth = 0.2
 				army_core_attack_factor = -0.1
@@ -880,7 +917,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_war_preparation
 			modifier = {
 				army_defence_factor = 0.05
 				army_org = 0.05
@@ -894,7 +931,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = chi_chinese_support
 			modifier = {
 				consumer_goods_factor = -0.05
 				political_power_factor = 0.03
@@ -908,7 +945,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_deal_with_the_devil
 			modifier = {
 				stability_factor = -0.1
 				war_support_factor = -0.2
@@ -922,7 +959,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = generic_central_management
 			modifier = {
 				industry_free_repair_factor = 0.2
 				industry_repair_factor = 0.2
@@ -937,7 +974,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = generic_manpower_bonus
 			modifier = {
 				army_org = 0.2
 				army_morale = 0.1
@@ -953,7 +990,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 				stability_factor = 0.1
@@ -966,7 +1003,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 				stability_factor = 0.1
@@ -980,7 +1017,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 				stability_factor = 0.1
@@ -996,7 +1033,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 				stability_factor = 0.1
@@ -1016,7 +1053,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_army_war_college
 			modifier = {
 				research_speed_factor = 0.05
 				political_power_factor = 0.03
@@ -1030,7 +1067,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = man_five_year_plan_industry
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.05
@@ -1043,7 +1080,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = man_five_year_plan_industry
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.05
@@ -1058,7 +1095,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = man_five_year_plan_industry
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.15
@@ -1071,7 +1108,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = man_five_year_plan_industry
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.15
@@ -1101,7 +1138,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = generic_democratic_drift_bonus
 			modifier = {
 				political_power_factor = 0.05
 			}
@@ -1114,7 +1151,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 			}
@@ -1126,7 +1163,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 				monthly_population = 0.3
@@ -1139,7 +1176,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 				monthly_population = 0.3
@@ -1153,7 +1190,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 				research_speed_factor = 0.08
@@ -1166,7 +1203,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 				research_speed_factor = 0.08
@@ -1181,7 +1218,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_reform
 			modifier = {
 				stability_factor = 0.05
 				research_speed_factor = 0.08
@@ -1197,7 +1234,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = eng_imperial_conscription
 			modifier = {
 				max_planning = 0.05
 				planning_speed = 0.05
@@ -1210,7 +1247,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = eng_imperial_conscription
 			modifier = {
 				max_planning = 0.05
 				planning_speed = 0.05
@@ -1225,7 +1262,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = eng_imperial_conscription
 			modifier = {
 				max_planning = 0.05
 				planning_speed = 0.05
@@ -1241,7 +1278,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = eng_imperial_conscription
 			modifier = {
 				max_planning = 0.05
 				planning_speed = 0.05
@@ -1288,7 +1325,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_democratic_drift_bonus
 			modifier = {
 				political_power_factor = 0.05
 			}
@@ -1301,7 +1338,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture =
+			picture = generic_flexible_foreign_policy2
 			modifier = {
 				min_export = 0.3
 				consumer_goods_factor = -0.05
@@ -1316,7 +1353,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_central_management
 			modifier = {
 				political_power_gain = -0.1
 				consumer_goods_factor = -0.05
@@ -1329,7 +1366,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_central_management
 			modifier = {
 				political_power_gain = -0.1
 				consumer_goods_factor = -0.05
@@ -1345,7 +1382,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_local_self_management
 			modifier = {
 				political_power_gain = 0.5
 				consumer_goods_factor = 0.03
@@ -1360,7 +1397,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_reserve_divisions
 			modifier = {
 				land_reinforce_rate = 0.1
 				attrition = 0.1
@@ -1374,7 +1411,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_reserve_divisions
 			modifier = {
 				land_reinforce_rate = 0.1
 				attrition = 0.1
@@ -1391,7 +1428,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_political_support
 			modifier = {
 				mobilization_laws_cost_factor = -0.3
 				economy_cost_factor = -0.3
@@ -1560,7 +1597,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = por_iberian_workers_united
 			modifier = {
 				consumer_goods_factor = -0.1
 				army_core_defence_factor = 0.05
@@ -1575,7 +1612,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_agrarian_society
 			modifier = {
 				monthly_population = 0.4
 				stability_factor = 0.1
@@ -1623,7 +1660,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_volunteer_expedition_bonus
 			modifier = {
 				conscription_factor = 0.08
 				army_core_attack_factor = 0.05
@@ -1736,7 +1773,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_morale_bonus
 			modifier = {
 				army_core_defence_factor = 0.1
 				army_org_factor = 0.05
@@ -1752,7 +1789,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = chi_chinese_unity
 			modifier = {
 				army_core_attack_factor = 0.1
 				war_support_factor = 0.1
@@ -1765,7 +1802,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = chi_chinese_unity
 			modifier = {
 				consumer_goods_factor = 0.06
 				army_attack_factor = 0.2
@@ -1782,7 +1819,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = ast_volunteer_defence_corps
 			modifier = {
 				consumer_goods_factor = 0.05
 				production_factory_max_efficiency_factor = 0.2
@@ -1797,7 +1834,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = ast_volunteer_defence_corps
 			modifier = {
 				stability_factor = -0.1
 				consumer_goods_factor = 0.1
@@ -1814,7 +1851,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_volunteer_expedition_bonus
 			modifier = {
 				war_support_factor = 0.1
 				army_attack_factor = 0.1
@@ -1828,7 +1865,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = CZE_planning_bonus
 			modifier = {
 				stability_factor = -0.15
 				consumer_goods_factor = 0.03
@@ -1844,7 +1881,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = general_staff
 			modifier = {
 				army_org_factor = 0.15
 				army_defence_factor = 0.1
@@ -1858,7 +1895,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_reserve_divisions
 			modifier = {
 				conscription_factor = 0.2
 			}
@@ -1876,7 +1913,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = hol_liberation
 			modifier = {
 				resistance_growth_on_our_occupied_states = 0.3
 				army_core_attack_factor = 0.1
@@ -1892,7 +1929,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_build_infrastructure
 			modifier = {
 				consumer_goods_factor = 0.05
 				production_speed_buildings_factor = 0.1
@@ -1905,7 +1942,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_purge
 			modifier = {
 				monthly_population = -0.2
 				stability_weekly = -0.001
@@ -1920,7 +1957,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = FRA_fortification_focus
 			modifier = {
 				consumer_goods_factor = 0.05
 				army_core_defence_factor = 0.05
@@ -1937,7 +1974,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_morale_bonus
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				political_power_factor = -0.05
@@ -1951,7 +1988,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_morale_bonus
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				political_power_factor = -0.05
@@ -1968,7 +2005,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_infantry_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 				attrition = -0.05
@@ -2012,7 +2049,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = generic_secret_police
 			modifier = {
 				stability_weekly = 0.001
 				national_socialism_drift = -0.01
@@ -2027,7 +2064,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = FRA_scw_intervention_republicans_focus
 			modifier = {
 				consumer_goods_factor = 0.05
 				production_speed_buildings_factor = 0.1
@@ -2117,7 +2154,7 @@ ideas = {
 			allowed_civil_war = {
 				always = no
 			}
-			#picture = 
+			picture = ast_classify_aliens
 			modifier = {
 				consumer_goods_factor = -0.05
 				political_power_factor = 0.05

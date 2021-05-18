@@ -7,7 +7,7 @@ shared_focus = { #中国の産業
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -41,7 +41,7 @@ shared_focus = { #地方主体の産業発展
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -447,7 +447,7 @@ shared_focus = { #中央政府の指導
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -556,7 +556,7 @@ shared_focus = { #都市経済の重視
 }
 shared_focus = { #三峡ダムの建設開始
     id = CHI_construct_three_gorges_dam_begin
-    #icon = 
+    icon = GFX_focus_CHI_construct_three_gorges_dam_begin
     cost = 5
     ai_will_do = {
         factor = 10
@@ -886,7 +886,7 @@ shared_focus = { #工場労働者の救済
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -920,7 +920,7 @@ shared_focus = { #児童労働を制限
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -953,7 +953,7 @@ shared_focus = { #立地の法的規制
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -985,7 +985,7 @@ shared_focus = { #工具の輸入
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -1017,7 +1017,7 @@ shared_focus = { #製造機械の輸入
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -1049,7 +1049,7 @@ shared_focus = { #労働者を育成
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -1081,7 +1081,7 @@ shared_focus = { #鉱業の拡大
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -1147,7 +1147,7 @@ shared_focus = { #工場労働者の規律
         factor = 10
         modifier = {
             has_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
             factor = 5
         }
@@ -1173,9 +1173,12 @@ shared_focus = { #工場労働者の規律
         custom_effect_tooltip = CHI_discipline_factory_worker_tt
         hidden_effect = {
             remove_dynamic_modifier = {
-                modifier = ssw_CHI_reckless_rapid_industrialization_dynamic_modifier
+                modifier = ssw_CHI_reckless_rapid_industrialization
             }
-            add_ideas = CHI_innovative_industry
+            swap_ideas = {
+                remove_idea = idea_CHI_reckless_rapid_industrialization
+                add_idea = CHI_innovative_industry
+            }
         }
     }
 }
@@ -1334,7 +1337,7 @@ shared_focus = { #中国連邦軍
     y = 1
     completion_reward = {
         add_dynamic_modifier = {
-            modifier = ssw_CHI_fede_army_dynamic_modifier
+            modifier = ssw_CHI_fede_army
         }
         set_variable = {
             var = CHI_f_a_d_m_adf
@@ -1744,7 +1747,7 @@ shared_focus = { #国民革命軍
     y = 1
     completion_reward = {
         add_dynamic_modifier = {
-            modifier = ssw_CHI_natio_revo_army_dynamic_modifier
+            modifier = ssw_CHI_natio_revo_army
         }
         set_variable = {
             var = CHI_n_r_a_d_m_cpgm
@@ -2930,6 +2933,9 @@ shared_focus = { #二つの太陽
     available = {
         has_war_with = JAP
     }
+    allow_branch = {
+        has_country_flag = CHI_Asian_war
+    }
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2946,7 +2952,7 @@ shared_focus = { #二つの太陽
 }
 shared_focus = { #抗日大戦
     id = CHI_anti_JAP_war
-    #icon = 
+    icon = GFX_focus_AST_war_japan
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3003,7 +3009,7 @@ shared_focus = { #国外の友
 }
 shared_focus = { #ドイツからの兵器購入
     id = CHI_purchase_weapon_GER
-    #icon = 
+    icon = GFX_goal_generic_trade
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3030,7 +3036,7 @@ shared_focus = { #ドイツからの兵器購入
 }
 shared_focus = { #戦争経済への移行
     id = CHI_transition_war_economy
-    #icon = 
+    icon = GFX_focus_generic_tank_production
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3055,7 +3061,7 @@ shared_focus = { #戦争経済への移行
 }
 shared_focus = { #ゲリラ戦の展開
     id = CHI_dev_guerrilla_warfare
-    #icon = 
+    icon = GFX_focus_prc_infiltration
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3148,7 +3154,7 @@ shared_focus = { #一面交渉、一面抵抗
 }
 shared_focus = { #断固たる抗戦
     id = CHI_resolute_defence
-    #icon = 
+    icon = GFX_goal_generic_demand_territory
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3201,7 +3207,7 @@ shared_focus = { #産業の保護
 }
 shared_focus = { #督戦隊の編成
     id = CHI_formation_viceroy_army
-    #icon = 
+    icon = GFX_focus_generic_manpower
     cost = 3
     ai_will_do = {
         factor = 10
@@ -3223,7 +3229,7 @@ shared_focus = { #督戦隊の編成
 }
 shared_focus = { #継戦
     id = CHI_continu_war
-    #icon = 
+    icon = GFX_goal_generic_major_war
     cost = 3
     ai_will_do = {
         factor = 10

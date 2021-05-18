@@ -1,0 +1,403 @@
+shared_focus = {
+	id = GER_death_of_hitler
+	icon = GFX_goal_unknown
+	cost = 1.00
+	x = 5
+	y = 0
+	completion_reward = {
+		custom_effect_tooltip = GER_death_of_hitler_tt
+	}
+}
+shared_focus = {
+	id = GER_legitimate_successor
+	icon = GFX_goal_unknown
+	relative_position_id = GER_death_of_hitler
+	cost = 1.00
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_death_of_hitler
+	}
+	completion_reward = {
+		add_timed_idea = {
+			idea = GER_idea_legitimate_successor
+			days = 30
+		}
+	}
+}
+shared_focus = {
+	id = GER_divided_army
+	icon = GFX_goal_unknown
+	relative_position_id = GER_legitimate_successor
+	cost = 2.00
+	x = 3
+	y = 1
+	prerequisite = {
+		focus = GER_legitimate_successor
+	}
+	completion_reward = {
+		add_idea = {
+			idea = GER_idea_chaotic_army
+		}
+	}
+}
+shared_focus = {
+	id = GER_prepare_total_war
+	icon = GFX_goal_unknown
+	relative_position_id = GER_divided_army
+	cost = 2.00
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_divided_army
+	}
+	completion_reward = {
+		if = {
+			limit = { has_idea = civilian_economy }
+			swap_ideas = {
+				remove_idea = civilian_economy
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = low_economic_mobilisation }
+			swap_ideas = {
+				remove_idea = low_economic_mobilisation
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = partial_economic_mobilisation }
+			swap_ideas = {
+				remove_idea = partial_economic_mobilisation
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = war_economy }
+			swap_ideas = {
+				remove_idea = war_economy
+				add_idea = tot_economic_mobilisation
+			}
+		}
+		else_if = {
+			limit = { has_idea = tot_economic_mobilisation }
+			add_war_support = 0.1
+		}
+	}
+}
+shared_focus = {
+	id = GER_start_of_propaganda
+	icon = GFX_goal_unknown
+	relative_position_id = GER_divided_army
+	cost = 2.00
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_divided_army
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_start_of_propaganda_tt
+		add_war_support = 0.05
+	}
+}
+shared_focus = {
+	id = GER_emergency_budget
+	icon = GFX_goal_unknown
+	relative_position_id = GER_legitimate_successor
+	cost = 2.00
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_legitimate_successor
+	}
+	completion_reward = {
+		add_idea = GER_idea_emergency_budget_1
+	}
+}
+shared_focus = {
+	id = GER_fair_deal
+	icon = GFX_goal_unknown
+	relative_position_id = GER_emergency_budget
+	cost = 2.00
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_emergency_budget
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_idea_emergency_budget_1
+			add_idea = GER_idea_emergency_budget_2
+		}
+	}
+}
+shared_focus = {
+	id = GER_always_and_forever
+	icon = GFX_goal_unknown
+	relative_position_id = GER_legitimate_successor
+	cost = 2.00
+	x = -3
+	y = 1
+	prerequisite = {
+		focus = GER_legitimate_successor
+	}
+	completion_reward = {
+		add_political_power = 100
+	}
+}
+shared_focus = {
+	id = GER_withdraw_from_east
+	icon = GFX_goal_unknown
+	relative_position_id = GER_always_and_forever
+	cost = 2.00
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_always_and_forever
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_withdraw_from_east_tt
+	}
+}
+shared_focus = {
+	id = GER_house_of_cards
+	icon = GFX_goal_unknown
+	relative_position_id = GER_always_and_forever
+	cost = 2.00
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_always_and_forever
+	}
+	completion_reward = {
+		set_political_power = 0
+		add_stability = 0.05
+		#and event
+	}
+}
+shared_focus = {
+	id = GER_our_economic_superiority
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fair_deal
+	cost = 4.00
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_fair_deal
+	}
+	prerequisite = {
+		focus = GER_house_of_cards
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_idea_emergency_budget_2
+			add_idea = GER_idea_emergency_budget_3
+		}
+	}
+}
+shared_focus = {
+	id = GER_enterprise_conciliatory
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fair_deal
+	cost = 4.00
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_fair_deal
+	}
+	prerequisite = {
+		focus = GER_prepare_total_war
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_enterprise_conciliatory_tt
+		add_to_variable = { capitalist_satisfaction = 5 }
+	}
+}
+shared_focus = {
+	id = GER_step_back
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fair_deal
+	cost = 4.00
+	x = -3
+	y = 1
+	prerequisite = {
+		focus = GER_fair_deal
+	}
+	prerequisite = {
+		focus = GER_withdraw_from_east
+	}
+	completion_reward = {
+		add_manpower = 300000
+		BAL = { add_manpower = -100000 }
+		UKR = { add_manpower = -100000 }
+		POL = { add_manpower = -100000 }
+	}
+}
+shared_focus = {
+	id = GER_open_the_armory
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fair_deal
+	cost = 4.00
+	x = 3
+	y = 1
+	prerequisite = {
+		focus = GER_prepare_total_war
+	}
+	prerequisite = {
+		focus = GER_start_of_propaganda
+	}
+	completion_reward = {
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_improvement_1948
+			amount = 40000
+			producer = GER
+		}
+	}
+}
+shared_focus = {
+	id = GER_what_are_we_fighting_for
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fair_deal
+	cost = 3.00
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_step_back
+	}
+	prerequisite = {
+		focus = GER_our_economic_superiority
+	}
+	prerequisite = {
+		focus = GER_enterprise_conciliatory
+	}
+	prerequisite = {
+		focus = GER_open_the_armory
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_what_are_we_fighting_for_tt
+		add_war_support = 0.1
+		add_to_variable = { wehrmacht_loyalty = 5 }
+		add_to_variable = { capitalist_satisfaction = 5 }
+		add_to_variable = { democrat_demand = 5 }
+	}
+}
+shared_focus = {
+	id = GER_for_peace
+	icon = GFX_goal_unknown
+	relative_position_id = GER_what_are_we_fighting_for
+	cost = 2.00
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = GER_what_are_we_fighting_for
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_for_peace_tt
+		add_to_variable = { democrat_demand = 5 }
+	}
+}
+shared_focus = {
+	id = GER_for_family
+	icon = GFX_goal_unknown
+	relative_position_id = GER_what_are_we_fighting_for
+	cost = 2.00
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_what_are_we_fighting_for
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_for_family_tt
+		add_to_variable = { wehrmacht_loyalty = 5 }
+	}
+}
+shared_focus = {
+	id = GER_for_money
+	icon = GFX_goal_unknown
+	relative_position_id = GER_what_are_we_fighting_for
+	cost = 2.00
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = GER_what_are_we_fighting_for
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_for_money_tt
+		add_to_variable = { capitalist_satisfaction = 5 }
+	}
+}
+shared_focus = {
+	id = GER_fight
+	icon = GFX_goal_unknown
+	relative_position_id = GER_for_family
+	cost = 2.00
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_for_family
+	}
+	prerequisite = {
+		focus = GER_for_peace
+	}
+	prerequisite = {
+		focus = GER_for_money
+	}
+	completion_reward = {
+		add_timed_idea = {
+			idea = GER_idea_massive_offensive
+			days = 45
+		}
+	}
+}
+shared_focus = {
+	id = GER_more_mans
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fight
+	cost = 3.00
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_fight
+	}
+	completion_reward = {
+		add_timed_idea = {
+			idea = GER_idea_temp_conscription
+			days = 200
+		}
+	}
+}
+shared_focus = {
+	id = GER_more_guns
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fight
+	cost = 3.00
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_fight
+	}
+	completion_reward = {
+		add_timed_idea = {
+			idea = GER_idea_mass_production
+			days = 100
+		}
+	}
+}
+shared_focus = {
+	id = GER_caterpillar
+	icon = GFX_goal_unknown
+	relative_position_id = GER_fight
+	cost = 3.00
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_more_mans
+	}
+	prerequisite = {
+		focus = GER_more_guns
+	}
+	completion_reward = {
+		add_idea = GER_idea_total_war
+	}
+}

@@ -367,8 +367,13 @@ country_event = { #左翼戦線が降伏
 		name = SSW_ALF.15.a
 		ai_chance = { base = 100 }
 		ALF = {
-			annex = LFF
+			annex_country = {
+				target = LFF
+				transfer_troops = no
+			}
 		}
+		set_country_flag = big_event_custom_america_liberty_federation_kill_LFF
+
 		load_focus_tree = {
 			tree = ALF_after_civil_war_with_LFF #ロードするフォーカス
 			keep_completed = yes #達成度が引き継がれるかどうか
@@ -1001,6 +1006,26 @@ country_event = { #ルイジアナ州の完全統合
 			add_dynamic_modifier = { modifier = ALF_Cooperation_with_each_legislature } 			
 		}
 	}
+}
+country_event = { #航空隊独立問題
+	id = SSW_ALF.43
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_ALF.38_Kansas" }
+	title = SSW_ALF.43.title
+	desc = SSW_ALF.43.desc
+	picture = GFX_Steel_factry_1
+	is_triggered_only = yes
+	option = { #独立する
+		name = SSW_ALF.43.a
+		ai_chance = { base = 100 }
+		custom_effect_tooltip = ALF_tooltip_4
+	}
+	option = { #独立しない
+		name = SSW_ALF.43.b
+		ai_chance = { base = 100 }
+		custom_effect_tooltip = ALF_tooltip_5
+
+	}
+
 }
 
 

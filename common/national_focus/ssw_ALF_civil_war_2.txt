@@ -28,7 +28,7 @@ shared_focus = {
 	id = ALF_Diplomatic_Efforts
 	icon = GFX_goal_generic_construct_mil_factory
 	cost = 20.00
-	x = -3
+	x = -2
 	y = 1
 	relative_position_id = ALF_Creditable_Nation
 	prerequisite = {
@@ -83,7 +83,7 @@ shared_focus = {
 	id = ALF_Coercion
 	icon = GFX_goal_generic_construct_mil_factory
 	cost = 20.00
-	x = 3
+	x = 2
 	y = 1
 	relative_position_id = ALF_Hardline_Unification_Thought
 	prerequisite = {
@@ -105,16 +105,321 @@ shared_focus = {
 	completion_reward = {
 	}
 }
+
+
+shared_focus = {
+	id = ALF_Secret_Agreement
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 0
+	y = 1
+	relative_position_id = ALF_Diplomatic_Efforts
+	prerequisite = {
+		focus = ALF_Diplomatic_Efforts
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Mississippi_Line_Proposal
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = -1
+	y = 1
+	relative_position_id = ALF_Secret_Agreement
+	prerequisite = {
+		focus = ALF_Secret_Agreement
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Countering_the_Motorized_Forces
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = -1
+	y = 1
+	relative_position_id = ALF_Mississippi_Line_Proposal
+	prerequisite = {
+		focus = ALF_Mississippi_Line_Proposal
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_All_thats_left_is_for_the_season_to_ripen
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 1
+	y = 1
+	relative_position_id = ALF_Mississippi_Line_Proposal
+	prerequisite = {
+		focus = ALF_Mississippi_Line_Proposal
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = ALF_Achieve_on_your_own
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 1
+	y = 2
+	relative_position_id = ALF_Creditable_Nation
+	prerequisite = {
+		focus = ALF_Diplomatic_Efforts focus = ALF_Coercion
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_draft_plan
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = -1
+	y = 1
+	relative_position_id = ALF_Achieve_on_your_own
+	prerequisite = {
+		focus = ALF_Achieve_on_your_own
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_factory_levy_plan
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 1
+	y = 1
+	relative_position_id = ALF_Achieve_on_your_own
+	prerequisite = {
+		focus = ALF_Achieve_on_your_own
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_General_Mobilization_Law
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 0
+	y = 2
+	relative_position_id = ALF_Achieve_on_your_own
+	prerequisite = {
+		focus = ALF_factory_levy_plan
+	}
+	prerequisite = {
+		focus = ALF_draft_plan
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Resonance_with_Capitalism
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 0
+	y = 1
+	relative_position_id = ALF_Coercion
+	prerequisite = {
+		focus = ALF_Coercion focus = ALF_Diplomatic_Efforts
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Anti_Fascist_Pledge
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 1
+	y = 1
+	relative_position_id = ALF_Resonance_with_Capitalism
+	prerequisite = {
+		focus = ALF_Resonance_with_Capitalism 
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Preliminary_Step
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = -1
+	y = 1
+	relative_position_id = ALF_Anti_Fascist_Pledge
+	prerequisite = {
+		focus = ALF_Anti_Fascist_Pledge 
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = ALF_Technology_licensing_from_UTC
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 5.00
+	x = 1
+	y = 1
+	relative_position_id = ALF_Anti_Fascist_Pledge
+	prerequisite = {
+		focus = ALF_Anti_Fascist_Pledge 
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+	}
+}
+
 shared_focus = {
 	id = ALF_Preparing_for_the_Next
 	icon = GFX_goal_generic_construct_mil_factory
 	cost = 20.00
 	x = 1
-	y = 2
+	y = 5
 	relative_position_id = ALF_Creditable_Nation
 	prerequisite = {
-		focus = ALF_Coercion
-		focus = ALF_Diplomatic_Efforts
+		focus = ALF_General_Mobilization_Law
+		focus = ALF_All_thats_left_is_for_the_season_to_ripen
+		focus = ALF_Countering_the_Motorized_Forces
+		focus = ALF_Preliminary_Step
+		focus = ALF_Technology_licensing_from_UTC
 
 	}
 

@@ -1,0 +1,299 @@
+guiTypes = { 
+	containerWindowType = {
+		name = "ssw_start_description_event_open_button"
+		position = { x = 0 y = 0 }
+		size = { width = 100%% height = 100%% }
+
+		buttonType = {
+			name = "button_start_description_open"
+			position = { x = -970 y = 4 }
+			quadTextureSprite = "GFX_button_start_description_open"
+			Orientation = "UPPER_RIGHT"
+			scale = 0.8
+		}
+	}
+
+	containerWindowType = {
+		name = "ssw_start_description_event"
+		position = { x = 0 y = 0 }
+		size = { width=1350 height=800}
+		Orientation = center
+		Origo = center
+		background = {
+			name = "start_description_Background"
+			quadTextureSprite = "GFX_start_description_event_base"
+		}
+		iconType = { #background
+			name = "ssw_start_description_event_background"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_start_description_event_base"
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {#select_buttom
+			name = "ssw_start_description_select_buttom" 
+			size = { width = 100% height = 100% }
+			position = { x = 0 y = 0 }
+
+			buttonType = { #country description
+				name = "ssw_country_description"
+				position = { x = 780 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou_black"
+
+				text = "COUNTRY_DESCRIPTION"
+			}
+			iconType = { #country_flag
+				name = "ssw_country_description_player_flag" 
+				quadTextureSprite = "GFX_flag_small"
+				position = { x = 790 y = 715 }
+			}
+			buttonType = { #world description
+				name = "ssw_world_description"
+				position = { x = 535 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou_black"
+				text = "WORLD_DESCRIPTION"
+
+			}
+			buttonType = { #system description
+				name = "ssw_system_description"
+				position = { x = 290 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou_black"
+
+				text = "SYSTEM_DESCRIPTION"
+			}
+			buttonType = { #ssw mod description
+				name = "ssw_ssw_mod_description"
+				position = { x = 45 y = 688 }
+				quadTextureSprite = "GFX_start_description_event_select_button_1"
+				buttonFont = "ssw_soukou_black"
+				text = "SSW_MOD_DESCRIPTION"
+			}
+			buttonType = { #update log
+				name = "ssw_update_log"
+				position = { x = 1185 y = 355 }
+				quadTextureSprite = "GFX_start_description_event_select_button_3"
+				buttonFont = "ssw_soukou_black"
+				text = "SSW_UPDATE_LOG"
+			}
+			buttonType = { #ssw logo
+				name = "ssw_logo"
+				position = { x = 1193 y = 580 }
+				quadTextureSprite = "GFX_button_ssw_logo"
+			}
+
+		}
+		iconType = { #picture
+			name = "ssw_start_description_picture"
+			quadTextureSprite = "GFX_start_description_pictures_generic"
+			position = { x = 65 y = 60 }
+		}
+		iconType = { #texture filter
+			name = "ssw_start_description_event_texture_filter"
+			quadTextureSprite = "GFX_start_description_event_picture_filter"
+			position = { x = 65 y = 60 }
+		}
+		buttonType = { #Escape buttom
+			name = "ssw_escape"
+			position = { x = 1045 y = 688 }
+			quadTextureSprite = "GFX_start_description_event_select_button_1"
+			buttonFont = "ssw_soukou_black"
+			text = "SSW_ESCAPE_TEXT"
+			shortcut = "ESCAPE"
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_country_description_window"
+		position = { x = 165 y = -40 }
+		size = { width=690 height=645}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+
+		background = {
+			name = "start_description_Background_country_description"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_country_description_text"
+			size = { width = 685 height = 1650 }
+			instantTextBoxType = { #country name
+				name = "ssw_start_description_country_name"
+				position = { x = 10 y = 10 }
+				font = "ssw_kokutetu"
+				text = "GET_COUNTRY_NAME"
+				maxWidth = 650
+				maxHeight = 610
+			}
+
+			instantTextBoxType = { #country description
+				name = "ssw_start_description_country_description"
+				position = { x = 10 y = 70 }
+				font = "ssw_soukou_black"
+				text = "[COUNTRY_DESCRIPTION]"
+				maxWidth = 650
+				maxHeight = 635
+			}
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_world_description_window"
+		position = { x = 165 y = -40 }
+		size = { width=690 height=645}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+
+		background = {
+			name = "start_description_Background_world_description"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_world_description_text"
+			size = { width = 685 height = 1650 }
+			instantTextBoxType = { #title
+				name = "ssw_start_description_world_name"
+				position = { x = 10 y = 10 }
+				font = "ssw_kokutetu"
+				text = "WORLD_DESCRIPTION_TITLE"
+				maxWidth = 650
+				maxHeight = 610
+			}
+			instantTextBoxType = { #world description
+				name = "ssw_start_description_world_description"
+				position = { x = 10 y = 70 }
+				font = "ssw_soukou_black"
+				text = "WORLD_DESCRIPTION_TEXT"
+				maxWidth = 650
+				maxHeight = 635
+			}
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_system_description_window"
+		position = { x = 165 y = -40 }
+		size = { width=690 height=645}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+
+		background = {
+			name = "start_description_Background_system_description"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_system_description_text"
+			size = { width = 685 height = 1650 }
+			instantTextBoxType = { #title
+				name = "ssw_start_description_system_name"
+				position = { x = 10 y = 10 }
+				font = "ssw_kokutetu"
+				text = "SYSTEM_DESCRIPTION_TITLE"
+				maxWidth = 650
+				maxHeight = 610
+			}
+			instantTextBoxType = { #system description
+				name = "ssw_start_description_system_description"
+				position = { x = 10 y = 70 }
+				font = "ssw_soukou_black"
+				text = "SYSTEM_DESCRIPTION_TEXT"
+				maxWidth = 650
+				maxHeight = 635
+			}
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_ssw_mod_description_window"
+		position = { x = 165 y = -40 }
+		size = { width=690 height=645}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+
+		background = {
+			name = "start_description_Background_ssw_mod_description"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_ssw_mod_description_text"
+			size = { width = 685 height = 1650 }
+			buttonType = { #discord link
+				name = "SSW_discord_button"
+				quadTextureSprite = "GFX_button_discord"
+				position = { x = 14 y = 10 }
+				web_link = "https://discord.gg/y87kgMWwBM"
+			}
+			buttonType = { #twitter link
+				name = "SSW_twitter_button"
+				quadTextureSprite = "GFX_button_twitter"
+				position = { x = 202 y = 10 }
+				web_link = "https://twitter.com/sun_ssw"
+			}
+			buttonType = { #reddit link
+				name = "SSW_reddit_button"
+				quadTextureSprite = "GFX_button_reddit"
+				position = { x = 400 y = 10 }
+				web_link = "https://www.reddit.com/r/SSWmod/"
+			}
+
+			instantTextBoxType = { #title
+				name = "ssw_start_description_ssw_mod_name"
+				position = { x = 10 y = 60 }
+				font = "ssw_kokutetu"
+				text = "SSW_MOD_DESCRIPTION_TITLE"
+				maxWidth = 650
+				maxHeight = 610
+			}
+			instantTextBoxType = { #ssw_mod description
+				name = "ssw_start_description_ssw_mod_description"
+				position = { x = 10 y = 100 }
+				font = "ssw_soukou_black"
+				text = "SSW_MOD_DESCRIPTION_TEXT"
+				maxWidth = 650
+				maxHeight = 635
+			}
+		}
+	}
+	containerWindowType = {
+		name = "ssw_start_description_event_update_log_window"
+		position = { x = -400 y = -40 }
+		size = { width=400 height=590}
+		verticalScrollbar = "right_vertical_slider" 
+		origo = center
+		orientation = center
+		moveable = yes
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_bg"
+		}
+		containerWindowType = {
+			name = "ssw_start_description_update_log_title"
+			size = { width = 400 height = 1000 }
+			instantTextBoxType = { #title
+				name = "ssw_start_description_system_name"
+				position = { x = 10 y = 15 }
+				font = "ssw_kokutetu"
+				text = "UPDATE_LOG_TITLE"
+				maxWidth = 380
+				maxHeight = 610
+			}
+			instantTextBoxType = { #system description
+				name = "ssw_start_description_update_log"
+				position = { x = 10 y = 70 }
+				font = "ssw_soukou"
+				text = "UPDATE_LOG"
+				maxWidth = 380
+				maxHeight = 635
+			}
+			buttonType = { #ssw logo
+				name = "ssw_update_log_clear"
+				position = { x = 183 y = 480 }
+				quadTextureSprite = "GFX_button_ssw_logo"
+			}
+
+		}
+	}
+
+}
