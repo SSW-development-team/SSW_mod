@@ -9,6 +9,9 @@ scripted_gui = {
 		}
 
 		effects = {
+			open_congress_button_click = {
+				set_variable = { open_congress_gui = 1 }
+			}
 		}
 	}
 	SSW_ALF_Congress_GUI = {
@@ -16,11 +19,15 @@ scripted_gui = {
 		window_name = "SSW_ALF_GUI_congress"
 
 		visible = {
-			always = no
 			tag = ALF
+			check_variable = { open_congress_gui = 1 }
+			always = no
 		}
 
 		effects = {
+			close_button_click = {
+				set_variable = { open_congress_gui = 0 }
+			}
 		}
 	}
 	SSW_Election_Congress_GUI = {
@@ -28,11 +35,30 @@ scripted_gui = {
 		window_name = "SSW_ALF_GUI_election"
 
 		visible = {
-			always = no
 			tag = ALF
+			check_variable = { open_congress_gui = 1 }
 		}
 
 		effects = {
+			close_button_click = {
+				set_variable = { open_congress_gui = 0 }
+			}
+		}
+		dynamic_lists = {
+			COG_R_diagram = {
+				array = COG_R_X
+				change_scope = no
+				entry_container = COG_R_container
+				index = seat_idx
+			}
+		}
+
+		properties = {
+			COG_seat = {
+				x = COG_R_X^seat_idx
+				y = COG_R_Y^seat_idx
+				frame = COG_FRAME^seat_idx
+			}
 		}
 	}
 }
