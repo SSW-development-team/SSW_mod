@@ -1,0 +1,38 @@
+scripted_gui = {	
+	ssw_research_atomic_panel = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_research_atomic_panel"
+
+		visible = {
+			is_ai = no
+		}
+
+		effects = {
+			button_open_atomic_gui_click = {
+				if = {
+					limit = { has_variable = ssw_atomic_gui }
+					clear_variable = ssw_atomic_gui
+
+				}
+				else = {
+					set_variable = { ssw_atomic_gui = 1 }
+				}
+			}
+		}
+	}
+	ssw_research_atomic_window = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_research_atomic_window"
+
+		visible = {
+			has_variable = ssw_atomic_gui
+		}
+
+		effects = {
+			button_open_atomic_gui_click = {
+			}
+		}
+	}
+
