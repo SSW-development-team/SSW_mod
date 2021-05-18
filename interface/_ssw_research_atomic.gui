@@ -14,10 +14,11 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "ssw_research_atomic_window"
-		position = { x = 400 y = -415 }
-		size = { width=600 height=300}
+		position = { x = 400 y = -310 }
+		size = { width=550 height=500}
 		Orientation = center
 		Origo = center
+		moveable = yes
 		background = {
 			name = "ssw_research_atomic_window_Background"
 			quadTextureSprite = "GFX_atomic_research_base"
@@ -28,52 +29,149 @@ guiTypes = {
 			spriteType = "GFX_atomic_research_base"
 			alwaystransparent = yes
 		}
+		instantTextBoxType = { #research_atomic title
+			name = "ssw_research_atomic_production_title"
+			position = { x = 120 y = 30 }
+			font = "ssw_soukou"
+			text = "research_atomic_production"
+			maxWidth = 650
+			maxHeight = 610
+		}
 
 		containerWindowType = {#production base
 			name = "ssw_research_atomic_production_uranium" 
 			size = { width = 100% height = 100% }
-			position = { x = 25 y = 35 }
+			position = { x = 20 y = 35 }
+
 			buttonType = { #uranium title
 				name = "ssw_research_atomic_production_uranium_title"
-				position = { x = 0 y = 0 }
-				spriteType = "GFX_buttom_atomic_research_2"
+				position = { x = 35 y = 53 }
+				spriteType = "GFX_buttom_atomic_research_slot_2"
 				alwaystransparent = yes
-				buttonFont = "ssw_soukou"
-				text = "URANIUM"
-
+				buttonFont = "hoi_16mbs"
+				text = "TITLE_URANIUM"
 			}
-
-			iconType = { #background
-				name = "ssw_research_atomic_production_uranium_buttom"
-				position = { x = 0 y = 40 }
-				spriteType = "GFX_buttom_atomic_research_1"
+			instantTextBoxType = { #amount of ic title
+				name = "ssw_research_atomic_production_uranium_amount_of_ic_title"
+				position = { x = 130 y = 100 }
+				font = "hoi_16mbs"
+				text = "IC_AMOUNT"
+				maxWidth = 650
+				maxHeight = 610
+			}
+			buttonType = { #amount of ic
+				name = "ssw_research_atomic_production_uranium_amount_of_ic_slot"
+				position = { x = 100 y = 125 }
+				spriteType = "GFX_buttom_atomic_research_slot_3"
 				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "650"
 			}
-			iconType = { #background
-				name = "ssw_research_atomic_production_uranium_updown_back"
-				position = { x = 0 y = 40 }
-				spriteType = "GFX_buttom_atomic_research_3"
-				alwaystransparent = yes
-			}
-
 			buttonType = { #gain factoly use
 				name = "ssw_research_atomic_production_uranium_up"
-				position = { x = 10 y = 43 }
+				position = { x = 30 y = 110 }
 				quadTextureSprite = "GFX_buttom_atomic_research_up"
 			}
 			buttonType = { #down factory use
 				name = "ssw_research_atomic_production_uranium_down"
-				position = { x = 10 y = 82 }
+				position = { x = 60 y = 110 }
 				quadTextureSprite = "GFX_buttom_atomic_research_down"
 			}
-			iconType = { #background
-				name = "ssw_research_atomic_production_uranium_buttom"
-				position = { x = 0 y = 40 }
-				spriteType = "GFX_buttom_atomic_research_1"
+			buttonType = { #sum of production uranium
+				name = "ssw_research_atomic_production_sum_of_uranium_slot"
+				position = { x = 126 y = 170 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
 				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "650"
+			}
+			instantTextBoxType = { #amount of ic title
+				name = "ssw_research_atomic_production_sum_of_uranium_title"
+				position = { x = 10 y = 177 }
+				font = "hoi_16mbs"
+				text = "SUM_OF_URANIUM"
+				maxWidth = 650
+				maxHeight = 610
 			}
 
-		}
+			buttonType = { #amount of uranium every month slot
+				name = "ssw_research_atomic_production_amount_of_uranium_every_month_slot"
+				position = { x = 126 y = 210 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "650"
+			}
+			instantTextBoxType = { #amount of uranium every month title
+				name = "ssw_research_atomic_production_amount_of_uranium_every_month_title"
+				position = { x = 10 y = 217 }
+				font = "hoi_16mbs"
+				text = "URANIUM_EVERY_MONTH"
+				maxWidth = 650
+				maxHeight = 610
+			}
 
+			buttonType = { #amount of uranium every month slot
+				name = "ssw_research_atomic_production_limit_of_uranium_slot"
+				position = { x = 126 y = 250 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "650"
+			}
+			instantTextBoxType = { #amount of uranium every month title
+				name = "ssw_research_atomic_production_limit_of_uranium_title"
+				position = { x = 10 y = 257 }
+				font = "hoi_16mbs"
+				text = "LIMIT_OF_URANIUM"
+				maxWidth = 650
+				maxHeight = 610
+			}
+			containerWindowType = {#production graph
+				name = "ssw_research_atomic_production_uranium" 
+				size = { width = 100% height = 100% }
+				position = { x = 0 y = 290 }
+
+				iconType = { #graph background
+					name = "ssw_research_atomic_graph_base"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_atomic_research_graph_base"
+					alwaystransparent = yes
+				}
+				iconType = { #graph background
+					name = "ssw_research_atomic_graph_line"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_atomic_research_graph_line"
+					alwaystransparent = yes
+				}
+				gridboxtype = {
+					name = "line_segments"
+					position = { x = 10 y = 10 }
+					size = { width = 220 height = 80 }
+					slotsize = { width = 220 height = 80 }
+					max_slots_horizontal = 20
+					add_horizontal = yes
+				}
+				buttonType = {#test
+					name = "close_button"
+					spriteType = "GFX_closebutton"
+					position = { x = 200 y = 0 }
+				}
+				containerWindowType = {
+					name = "line_graph_line_segment"
+					size = { width = 10 height = 80 }
+					position = { x = 0 y = 0 }
+
+					# Line segment progress bar, using our custom asset with custom shader
+					iconType = {
+						name = "segment"
+						spriteType = "GFX_atomic_research_graph_line_segment"
+						position = { x = 10 y = 0 }
+						frame = 57
+					}
+
+				}
+			}
+		}
 	}
 }
