@@ -1,0 +1,45 @@
+join_to_geacps = {
+	if = {
+		limit = { is_in_geacps = no }
+		add_to_array = {
+			#var:variable_geacps_leader.geacps_members = THIS
+			JAP.geacps_members = THIS
+		}
+		add_ideas = SSW_geacps_1
+	}
+}
+remove_from_geacps = {
+	if = {
+		limit = { is_in_geacps = yes }
+		hidden_effect = {
+			remove_from_array = {
+				#var:variable_geacps_leader.geacps_members = THIS
+				JAP.geacps_members = THIS
+			}
+			remove_ideas = {
+				SSW_geacps_1
+				SSW_geacps_2
+				SSW_geacps_3
+				SSW_geacps_4
+				SSW_geacps_5
+				SSW_geacps_6
+				SSW_geacps_7
+			}
+		}
+	}
+}
+leave_geacps = {
+	if = {
+		limit = { is_in_geacps = yes }
+		remove_from_geacps = yes
+		clr_country_flag = kicked_from_geacps_by_leader
+	}
+}
+kick_from_geacps = {
+	if = {
+		limit = { is_in_geacps = yes }
+		set_country_flag = kicked_from_geacps_by_leader
+		clr_country_flag = kicked_from_geacps_by_leader
+		remove_from_geacps = yes
+	}
+}
