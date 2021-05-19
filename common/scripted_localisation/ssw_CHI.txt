@@ -206,3 +206,69 @@ defined_text = {
 		localization_key = CHI_rr_industry_ef_n
 	}
 }
+defined_text = {
+	name = CHI_inf_f_K
+	text = {
+		trigger = {
+			OR = {
+				check_variable = {var_CHI_infr_federalism > var_CHI_infr_KMT}
+				check_variable = {var_CHI_infr_federalism = var_CHI_infr_KMT}
+			}
+		}
+		localization_key = CHI_inf_high_federalism
+	}
+	text = {
+		trigger = {
+			check_variable = {var_CHI_infr_KMT > var_CHI_infr_federalism}
+		}
+		localization_key = CHI_inf_high_KMT
+	}
+}
+defined_text = {#40
+	name = CHI_inf_num
+	text = {
+		trigger = {
+			set_temp_variable = {a = var_CHI_infr_federalism}
+			subtract_from_temp_variable = {a = var_CHI_infr_KMT}
+			OR = {
+				check_variable = {a > 29}
+				check_variable = {a < -29}
+			}
+		}
+		localization_key = CHI_inf_num_very
+	}
+	text = {
+		trigger = {
+			set_temp_variable = {a = var_CHI_infr_federalism}
+			subtract_from_temp_variable = {a = var_CHI_infr_KMT}
+			OR = {
+				AND = {
+					check_variable = {a < 29}
+					check_variable = {a > 9}
+				}
+				AND = {
+					check_variable = {a > -29}
+					check_variable = {a < -9}
+				}
+			}
+		}
+		localization_key = CHI_inf_num_many
+	}
+	text = {
+		trigger = {
+			set_temp_variable = {a = var_CHI_infr_federalism}
+			subtract_from_temp_variable = {a = var_CHI_infr_KMT}
+			OR = {
+				AND = {
+					check_variable = {a < 9}
+					check_variable = {a > -1}
+				}
+				AND = {
+					check_variable = {a > -9}
+					check_variable = {a < 0}
+				}
+			}
+		}
+		localization_key = CHI_inf_num_little
+	}
+}
