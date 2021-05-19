@@ -38,6 +38,69 @@ scripted_gui = {
 				# See scripted effect file
 				SAMPLE_add_random_point_to_line = yes
 			}
+			reset_button_click = {
+				# Invoke scripted effect to add a random point to the line
+				# See scripted effect file
+				set_variable = { uranium_value_every_month = 30 }
+				set_variable = { uranium_value = 1 }
+				set_variable = { plutonium_value_every_month = 30 }
+				set_variable = { plutonium_value = 1 }
+				set_variable = { uranium_max_value = 10 }
+				set_variable = { plutonium_max_value = 10 }
+				clamp_variable = { var = uranium_value min = 0 max = uranium_max_value } 
+				clamp_variable = { var = plutonium_value min = 0 max = plutonium_max_value } 
+
+				clear_array = SAMPLE_graph_offsets
+				clear_array = SAMPLE_graph_slopes
+				clear_array = SAMPLE_numbers
+				set_variable = { SAMPLE_count  = 0 }
+
+			}
+			ssw_research_atomic_production_uranium_up_click = {
+				if = {
+					limit = {
+						check_variable = { uranium_value < uranium_max_value }
+					}
+					add_to_variable = { uranium_value = 1 }
+					add_to_variable = { uranium_value_every_month = 30 }
+
+				}
+				else = {
+					add_to_variable = { uranium_value = 0 }
+
+				}
+
+			}
+			ssw_research_atomic_production_uranium_down_click = {
+				if = {
+					limit = {
+						check_variable = { uranium_value > 0 }
+					}
+					add_to_variable = { uranium_value = -1 }
+					add_to_variable = { uranium_value_every_month = -30 }
+
+				}
+				else = {
+					add_to_variable = { uranium_value = 0 }
+
+				}
+			}
+			ssw_research_atomic_production_plutonium_up_click = {
+				if = {
+					limit = {
+						check_variable = { plutonium_value < plutonium_max_value }
+					}
+					add_to_variable = { plutonium_value = 1 }
+					add_to_variable = { plutonium_value_every_month = 30 }
+				}
+				else = {
+				}
+
+			}
+			ssw_research_atomic_production_plutonium_down_click = {
+				add_to_variable = { plutonium_value = -1 }
+				add_to_variable = { plutonium_value_every_month = -30 }
+			}
 
 		}
 		dynamic_lists = {
@@ -45,7 +108,7 @@ scripted_gui = {
 				array = SAMPLE_graph_offsets
 				change_scope = no
 				entry_container = line_graph_line_segment
-				index = segment_idx
+				index = SAMPLE_numbers
 			}
 		}
 
@@ -54,15 +117,12 @@ scripted_gui = {
 				# Sets they position of the line segment to the graph offset
 				# Equal to -y1
 				y = SAMPLE_graph_offsets^segment_idx
-
 				# Tells the shader how steep to draw the line
 				# Must be equal to (y2 - y1) / 2 + 50
 				frame = SAMPLE_graph_slopes^segment_idx
 			}
 		}
-
 		triggers = {
 		}
-
 	}
 }
