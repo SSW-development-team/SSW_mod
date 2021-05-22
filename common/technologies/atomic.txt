@@ -1,193 +1,396 @@
 technologies = {
-	atomic_research = {
-
-		research_speed_factor = 0.04
+	atomic_theory = {
 		
 		path = {
-			leads_to_tech = nuclear_reactor 
+			leads_to_tech = cyclotron 
 			research_cost_coeff = 1
 		}
-		
 		start_year = 1950
-		research_cost = 5
+		research_cost = 2
 		
 		folder = {
-			name = electronics_folder
+			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 0 }
 		}
 		
 		ai_will_do = {
 			factor = 1
-			
-			modifier = {
-				factor = 1.2
-				date > "1951.1.1"
-			}
-			
-			modifier = {
-				factor = 1.2
-				date > "1952.1.1"
-			}
-			
-			modifier = {
-				factor = 1.2
-				date > "1953.1.1"
-			}
-			
 			modifier = {
 				factor = 2
 				tag = USA
 			}
 		}
-		
 		categories = {
 			nuclear
 		}
-		
-
 	}
-	
-	nuclear_reactor = {
-
-		# can build reactors
+	cyclotron = {
 		
-		start_year = 1952
-		research_cost = 5
+		path = {
+			leads_to_tech = atomic_fission 
+			research_cost_coeff = 1
+		}
+
+		start_year = 1950
+		research_cost = 2
 		
 		folder = {
-			name = electronics_folder
+			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 2 }
 		}
-
-		path = {
-			leads_to_tech = basic_nuclear_reactor 
-			research_cost_coeff = 1
-		}
 		
 		ai_will_do = {
-			factor = 3
+			factor = 1
 			modifier = {
-				tag = USA
 				factor = 2
+				tag = USA
 			}
 		}
-		
 		categories = {
 			nuclear
 		}
-		
-		enable_building = {
-			building = nuclear_reactor
-			level = 1
-		}
 	}
+	atomic_fission = {
+		
+		path = {
+			leads_to_tech = uranium_enrichment 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = plutonium_enrichment 
+			research_cost_coeff = 1
+		}
 
-	basic_nuclear_reactor = {
-
-        production_speed_nuclear_reactor_factor 0.15
-
-		start_year = 1953
-		research_cost = 4
+		start_year = 1950
+		research_cost = 2
 		
 		folder = {
-			name = electronics_folder
+			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 4 }
 		}
-
-		path = {
-			leads_to_tech = nukes 
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = commercial_nuclear_reactor 
-			research_cost_coeff = 1
-		}
 		
 		ai_will_do = {
-			factor = 3
+			factor = 1
 			modifier = {
-				tag = USA
 				factor = 2
+				tag = USA
 			}
 		}
-		
 		categories = {
 			nuclear
 		}
 	}
 
-	nukes = {
-	
-		start_year = 1955
+	uranium_enrichment = {
+		
+		path = {
+			leads_to_tech = nuclear_power_engine 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = hypersensational_lens 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = civilian_use_nuclear_reactors 
+			research_cost_coeff = 1
+		}
+
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	plutonium_enrichment = {
+		
+		path = {
+			leads_to_tech = nuclear_power_engine 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = hypersensational_lens 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = civilian_use_nuclear_reactors 
+			research_cost_coeff = 1
+		}
+
+		start_year = 1950
 		research_cost = 5
 		
 		folder = {
-			name = electronics_folder
-			position = { x = 0 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		nuclear_production = 1
-		categories = {
-			nuclear
-		}
-	}
-
-	commercial_nuclear_reactor = {
-		
-		research_speed_factor = 0.08
-
-		start_year = 1953
-		research_cost = 4
-		
-		folder = {
-			name = electronics_folder
+			name = power_and_nuclear_engineering_folder
 			position = { x = 2 y = 6 }
 		}
-
-		path = {
-			leads_to_tech = atomic_engine 
-			research_cost_coeff = 1
-		}
 		
 		ai_will_do = {
-			factor = 3
+			factor = 1
 			modifier = {
-				tag = USA
 				factor = 2
+				tag = USA
 			}
 		}
-		
 		categories = {
 			nuclear
 		}
 	}
-
-	atomic_engine  = {
+	nuclear_power_engine = {
 		
-		research_speed_factor = 0.10
-
-		start_year = 1955
+		path = {
+			leads_to_tech = small_power_reactor 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
 		research_cost = 5
 		
 		folder = {
-			name = electronics_folder
-			position = { x = 2 y = 8 }
-		}
-
-		ai_will_do = {
-			factor = 3
-			modifier = {
-				tag = USA
-				factor = 2
-			}
+			name = power_and_nuclear_engineering_folder
+			position = { x = -3 y = 8 }
 		}
 		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
 		categories = {
 			nuclear
 		}
 	}
+	small_power_reactor = {
+		
+		path = {
+			leads_to_tech = improved_power_reactor 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = -3 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	improved_power_reactor = {
+		
+		path = {
+			leads_to_tech = improved_power_reactor 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = -3 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	hypersensational_lens = {
+		
+		path = {
+			leads_to_tech = small_nuclear_test 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 9 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	small_nuclear_test = {
+		
+		path = {
+			leads_to_tech = nuclear_fusion_fheory 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	nuclear_fusion_fheory = {
+		
+		path = {
+			leads_to_tech = thermonuclear_weapon 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	thermonuclear_weapon = {
+		
+		path = {
+			leads_to_tech = miniaturization_of_thermonuclear_weapons 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	miniaturization_of_thermonuclear_weapons = {
+		
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 18 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	civilian_use_nuclear_reactors = {
+		
+		path = {
+			leads_to_tech = multiple_protection 
+			research_cost_coeff = 1
+		}
+		start_year = 1950
+		research_cost = 5
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 3 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+	multiple_protection = {
+		
+		start_year = 1950
+		research_cost = 2
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 3 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		categories = {
+			nuclear
+		}
+	}
+
+
 }
