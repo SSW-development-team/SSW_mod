@@ -1,6 +1,125 @@
-dealing_with_ethnic_conflicts  = {
-     icon = generic_prospect_for_resources
-     available = { 
-          has_idea = 
-     }
+BRM_deal_with_ethnic_conflicts = {
+	BRM_eliminate_operation = {
+		icon = generic_operation
+		ai_will_do = {
+			base = 1
+		}
+		available = {
+			command_power > 50
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				producer = BRM
+				type = infantry_equipment
+				amount = -500
+			}
+			add_command_power = -50
+			random_list = {
+				75 = {
+					add_to_variable = {
+						var = minorities_resistance
+						value = -20
+					}
+					add_political_power = 10
+				}
+				25 = {
+					add_to_variable = {
+						var = minorities_resistance
+						value = 10
+					}
+					add_political_power = 5
+				}
+			}
+			BRM_update_resistance_idea = yes
+		}
+	}
+	BRM_propaganda = {
+		icon = generic_speech
+		ai_will_do = {
+			base = 1
+		}
+		cost = 40
+		remove_effect = {
+			add_political_power = -40
+			add_to_variable = {
+				var = minorities_resistance
+				value = -10
+			}
+			BRM_update_resistance_idea = yes
+		}
+	}
+	BRM_minorities_resistance = {
+		icon = generic_nationalism
+		activation = {
+			check_variable = {
+				var = minorities_resistance
+				value = 20
+				compare = greater_than_or_equals
+			}
+		}
+		available = {
+			check_variable = {
+				var = minorities_resistance
+				value = 20
+				compare = less_than
+			}
+		}
+		days_mission_timeout = 50
+		timeout_effect = {
+			add_to_variable = {
+				var = minorities_resistance
+				value = 10
+			}
+			BRM_update_resistance_idea = yes
+		}
+		is_good = no
+	}
+}
+
+BRM_japanese_army = {
+	BRM_concession_fifteenth = {
+		icon = generic_military
+		cost = 100
+		complete_effect = {
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+		}
+	}
+	BRM_concession_minami = {
+		icon = generic_military
+		cost = 100
+		complete_effect = {
+			add_to_variable = {
+				var = minami_infulence
+				value = 1
+			}
+		}
+	}
+	BRM_increase_military_advisers = {
+		icon = generic_military
+		cost = 150
+		complete_effect = {
+			army_experience = 15
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+		}
+	}
+	BRM_lightweight_burden = {
+		icon = generic_industry
+		cost = 150
+		complete_effect = {
+			add_to_variable = {
+				var = minami_infulence
+				value = 1
+			}
+			add_timed_idea = {
+				idea = BRM_lightweight_burden
+				days = 30
+			}
+		}
+	}
 }
