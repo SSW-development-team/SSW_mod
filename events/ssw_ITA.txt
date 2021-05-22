@@ -1,4 +1,20 @@
 add_namespace = SSW_ITA
+#バルボ政権下のイタリア
+country_event = {
+    id = SSW_ITA.0
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.0"
+	}
+	title = SSW_ITA.0.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.0.d
+	option = {
+		name = SSW_ITA.0.a
+		add_political_power = 5
+	}
+}
 #イタリア産業の現状
 country_event = {
     id = SSW_ITA.1
@@ -312,7 +328,7 @@ country_event = {
 		name = SSW_ITA.15.a
 	}
 }
-#パレスチナ紛争
+#伊土同盟
 country_event = {
     id = SSW_ITA.16
 	immediate = {
@@ -325,7 +341,6 @@ country_event = {
 	desc = SSW_ITA.16.d
 	option = {
 		name = SSW_ITA.16.a
-		complete_national_focus = ITA_Balbo_event_focus_tree_top
 	}
 }
 #戦術の選択
@@ -368,7 +383,7 @@ country_event = {
 		}
 	}
 }
-#中央部での投票が開始
+#北部での投票が開始
 country_event = {
     id = SSW_ITA.19
 	immediate = {
@@ -379,15 +394,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.19.d
-	option = {#北部・南部でも投票を開始
+	option = {#南部でも投票を開始
 		name = SSW_ITA.19.a
 		custom_effect_tooltip = SSW_ITA_19_a_event
 		country_event = {
 			id = SSW_ITA.21
-			days = 7
-		}
-		country_event = {
-			id = SSW_ITA.22
 			days = 7
 		}
 		hidden_effect = {
@@ -398,7 +409,7 @@ country_event = {
 		}
 	}
 }
-#中央部での中間結果
+#北部での中間結果
 country_event = {
     id = SSW_ITA.20
 	immediate = {
@@ -431,7 +442,7 @@ country_event = {
 		name = SSW_ITA.21.a
 	}
 }
-#北部での投票が開始
+#植民地軍の編成
 country_event = {
     id = SSW_ITA.22
 	immediate = {
@@ -442,7 +453,34 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.22.d
-	option = {
+	option = {#現地住民の徴兵
 		name = SSW_ITA.22.a
+	}
+	option = {#専門の部門を設置
+		name = SSW_ITA.22.b
+	}
+}
+#戦車の設計方針
+country_event = {
+    id = SSW_ITA.23
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.23"
+	}
+	title = SSW_ITA.23.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.23.d
+	option = {#機動
+		name = SSW_ITA.23.a
+		unlock_national_focus = ITA_focus_balbo_Focus_on_mobile_tank
+	}
+	option = {#攻撃
+		name = SSW_ITA.23.b
+		unlock_national_focus = ITA_focus_balbo_Focus_on_attack_tank
+	}
+	option = {#防衛
+		name = SSW_ITA.23.c
+		unlock_national_focus = ITA_focus_balbo_Focus_on_defence_tank
 	}
 }
