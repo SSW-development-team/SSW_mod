@@ -41,4 +41,43 @@ LFF_policy = {
 			}
 		}
 	}
+	comply_with_the_agreement = {
+		icon = generic_operation
+		available = {
+			is_in_faction = no
+			has_completed_focus = LFF_dealing_with_the_devil
+			NOT = { has_war_with = FROM }
+			any_other_country = {
+				has_war_with = GER
+				has_war_with = LFF
+			}
+		}
+		visible = {
+			is_in_faction = no
+			has_completed_focus = LFF_dealing_with_the_devil
+			NOT = { has_war_with = FROM }
+			any_other_country = {
+				has_war_with = GER
+				has_war_with = LFF
+			}
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				original_tag = GER
+			}
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_faction_leader = yes
+				original_tag = GER
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		complete_effect = {
+			FROM = { country_event = { id = ssw_lff.14 } }
+		}
+	}
 }

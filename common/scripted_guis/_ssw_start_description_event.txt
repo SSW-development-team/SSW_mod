@@ -1,0 +1,140 @@
+scripted_gui = {	
+	ssw_start_description_event = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_event_open_button"
+
+		visible = {
+			is_ai = no
+		}
+
+		effects = {
+			button_start_description_open_click = {
+				if = {
+					limit = { has_variable = ssw_start_description_event }
+					clear_variable = ssw_start_description_event
+					clear_variable = ssw_start_description_event_update_log
+
+				}
+				else = {
+					set_variable = { ssw_start_description_event = 1 }
+				}
+			}
+		}
+	}
+	ssw_start_description_event_base = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_event"
+
+		visible = {
+			has_variable = ssw_start_description_event
+		}
+
+		effects = {
+			ssw_escape_click = {
+				if = {
+					limit = { has_variable = ssw_start_description_event_update_log }
+					clear_variable = ssw_start_description_event_update_log
+					clear_variable = ssw_start_description_event
+
+				}
+				else = {
+					clear_variable = ssw_start_description_event
+				}
+
+			}
+			
+			ssw_country_description_click = {
+				set_variable = { ssw_start_description_event = 1 }
+			}
+			ssw_world_description_click = {
+				set_variable = { ssw_start_description_event = 2 }
+			}
+			ssw_system_description_click = {
+				set_variable = { ssw_start_description_event = 3 }
+			}
+			ssw_ssw_mod_description_click = {
+				set_variable = { ssw_start_description_event = 4 }
+			}
+			ssw_update_log_click = {
+				if = {
+					limit = { has_variable = ssw_start_description_event_update_log }
+					clear_variable = ssw_start_description_event_update_log
+
+				}
+				else = {
+					set_variable = { ssw_start_description_event_update_log = 1 }
+				}
+
+			}
+
+		}
+		properties = {
+			ssw_country_description_player_flag = { 
+				image = "[This.GetFlag]" 
+			}
+			GFX_ssw_start_description_picture = {
+				image = "[GET_START_DESCRIPTION_PICTURE]" 
+			}
+		}
+	}
+	ssw_start_description_event_country_description = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_country_description_window"
+
+		visible = {
+			has_variable = ssw_start_description_event
+			check_variable = { ssw_start_description_event = 1 }
+		}
+	}
+	ssw_start_description_event_world_description = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_world_description_window"
+
+		visible = {
+			has_variable = ssw_start_description_event
+			check_variable = { ssw_start_description_event = 2 }
+		}
+	}
+	ssw_start_description_event_system_description = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_system_description_window"
+
+		visible = {
+			has_variable = ssw_start_description_event
+			check_variable = { ssw_start_description_event = 3 }
+		}
+	}
+	ssw_start_description_event_ssw_mod_description = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_ssw_mod_description_window"
+
+		visible = {
+			has_variable = ssw_start_description_event
+			check_variable = { ssw_start_description_event = 4 }
+		}
+	}
+	ssw_start_description_event_update_log = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ssw_start_description_event_update_log_window"
+
+		visible = {
+			has_variable = ssw_start_description_event_update_log
+			check_variable = { ssw_start_description_event_update_log = 1 }
+		}
+		effects = {
+			ssw_update_log_clear_click = {
+				clear_variable = ssw_start_description_event_update_log
+			}
+
+		}
+
+	}
+
+}

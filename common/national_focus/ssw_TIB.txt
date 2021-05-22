@@ -218,6 +218,32 @@ focus_tree = {
 			add_popularity = {
 				ideology = classical_communism popularity = 0.1
 			}
+			if = {
+				limit = {
+					OR = {
+						has_ideas = TIB_the_monasteries_1
+						has_ideas = TIB_the_monasteries_2
+						has_ideas = TIB_the_monasteries_3
+						has_ideas = TIB_the_monasteries_4
+						has_ideas = TIB_the_monasteries_5
+					}
+				}
+				custom_effect_tooltip = TIB_rebel_monast
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							has_ideas = TIB_the_monasteries_1
+							has_ideas = TIB_the_monasteries_2
+							has_ideas = TIB_the_monasteries_3
+							has_ideas = TIB_the_monasteries_4
+							has_ideas = TIB_the_monasteries_5
+						}
+					}
+					country_event = tibet.200
+				}
+			}
 		}
 		mutually_exclusive = {
 			focus = TIB_red_monastries
@@ -2446,7 +2472,9 @@ focus_tree = {
 		ai_will_do = { factor = 2 }
 		x = 1
 		y = 9
-
+		completion_reward = {
+			add_ideas = TIB_vasily_gorbatov
+		}
 	}
 	focus = {
 		id = TIB_tibetan_parliament
