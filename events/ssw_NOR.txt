@@ -1,0 +1,31 @@
+
+add_namespace = norway
+
+#大規模ストライキ
+country_event = {
+	id = norway.1
+	title = norway.1.t
+	desc = norway.1.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = NOR
+		date < 1950.2.1
+		not = {
+			has_global_flag = GER_civil_war
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.1.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+	}
+}
