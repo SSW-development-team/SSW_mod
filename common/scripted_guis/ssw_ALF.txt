@@ -43,14 +43,184 @@ scripted_gui = {
 			close_button_click = {
 				set_variable = { open_congress_gui = 0 }
 			}
+			emulate_button_click = {
+				randomize_variable = {
+					var = elc_california_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_california_ruling_party
+				randomize_variable = {
+					var = elc_oregon_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_oregon_ruling_party
+				randomize_variable = {
+					var = elc_washington_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_washington_ruling_party
+				randomize_variable = {
+					var = elc_nevada_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_nevada_ruling_party
+				randomize_variable = {
+					var = elc_idaho_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_idaho_ruling_party
+				randomize_variable = {
+					var = elc_utah_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_utah_ruling_party
+				randomize_variable = {
+					var = elc_arizona_ruling_party
+					distribution = uniform
+					min = 1
+					max = 3
+				}
+				round_variable = elc_arizona_ruling_party
+			}
+		}
+		triggers = {
+			election_gui_state_california_visible = {
+				always = no
+			}
+			election_gui_state_california_non_visible = {
+				ALF_election_has_state_califronia = no 
+			}
+			election_gui_state_california_dem_visible = {
+				ALF_election_has_state_califronia = yes
+				check_variable = { elc_california_ruling_party = 1 }
+			}
+			election_gui_state_california_rep_visible = {
+				ALF_election_has_state_califronia = yes
+				check_variable = { elc_california_ruling_party = 2 }
+			}
+			election_gui_state_california_oth_visible = {
+				ALF_election_has_state_califronia = yes
+				check_variable = { elc_california_ruling_party > 2 }
+			}
+			election_gui_state_oregon_visible = {
+				always = no
+			}
+			election_gui_state_oregon_non_visible = {
+				ALF_election_has_state_oregon = no 
+			}
+			election_gui_state_oregon_dem_visible = {
+				ALF_election_has_state_oregon = yes
+				check_variable = { elc_oregon_ruling_party = 1 }
+			}
+			election_gui_state_oregon_rep_visible = {
+				ALF_election_has_state_oregon = yes
+				check_variable = { elc_oregon_ruling_party = 2 }
+			}
+			election_gui_state_oregon_oth_visible = {
+				ALF_election_has_state_oregon = yes
+				check_variable = { elc_oregon_ruling_party > 2 }
+			}
+			election_gui_state_washington_visible = {
+				always = no
+			}
+			election_gui_state_washington_non_visible = {
+				ALF_election_has_state_washington = no 
+			}
+			election_gui_state_washington_dem_visible = {
+				ALF_election_has_state_washington = yes
+				check_variable = { elc_washington_ruling_party = 1 }
+			}
+			election_gui_state_washington_rep_visible = {
+				ALF_election_has_state_washington = yes
+				check_variable = { elc_washington_ruling_party = 2 }
+			}
+			election_gui_state_washington_oth_visible = {
+				ALF_election_has_state_washington = yes
+				check_variable = { elc_washington_ruling_party > 2 }
+			}
+			election_gui_state_nevada_visible = {
+				always = no
+			}
+			election_gui_state_nevada_non_visible = {
+				ALF_election_has_state_nevada = no 
+			}
+			election_gui_state_nevada_dem_visible = {
+				ALF_election_has_state_nevada = yes
+				check_variable = { elc_nevada_ruling_party = 1 }
+			}
+			election_gui_state_nevada_rep_visible = {
+				ALF_election_has_state_nevada = yes
+				check_variable = { elc_nevada_ruling_party = 2 }
+			}
+			election_gui_state_nevada_oth_visible = {
+				ALF_election_has_state_nevada = yes
+				check_variable = { elc_nevada_ruling_party > 2 }
+			}
+			election_gui_state_idaho_visible = {
+				always = no
+			}
+			election_gui_state_idaho_non_visible = {
+				ALF_election_has_state_idaho = no 
+			}
+			election_gui_state_idaho_dem_visible = {
+				ALF_election_has_state_idaho = yes
+				check_variable = { elc_idaho_ruling_party = 1 }
+			}
+			election_gui_state_idaho_rep_visible = {
+				ALF_election_has_state_idaho = yes
+				check_variable = { elc_idaho_ruling_party = 2 }
+			}
+			election_gui_state_idaho_oth_visible = {
+				ALF_election_has_state_idaho = yes
+				check_variable = { elc_idaho_ruling_party > 2 }
+			}
+			election_gui_state_utah_visible = {
+				always = no
+			}
+			election_gui_state_utah_non_visible = {
+				ALF_election_has_state_utah = no 
+			}
+			election_gui_state_utah_dem_visible = {
+				ALF_election_has_state_utah = yes
+				check_variable = { elc_utah_ruling_party = 1 }
+			}
+			election_gui_state_utah_rep_visible = {
+				ALF_election_has_state_utah = yes
+				check_variable = { elc_utah_ruling_party = 2 }
+			}
+			election_gui_state_utah_oth_visible = {
+				ALF_election_has_state_utah = yes
+				check_variable = { elc_utah_ruling_party > 2 }
+			}
+			election_gui_state_arizona_visible = {
+				always = no
+			}
+			election_gui_state_arizona_non_visible = {
+				always = no
+			}
+			election_gui_state_arizona_dem_visible = {
+				check_variable = { elc_arizona_ruling_party = 1 }
+			}
+			election_gui_state_arizona_rep_visible = {
+				check_variable = { elc_arizona_ruling_party = 2 }
+			}
+			election_gui_state_arizona_oth_visible = {
+				check_variable = { elc_arizona_ruling_party > 2 }
+			}
 		}
 		dynamic_lists = {
-			COG_R_diagram = {
-				array = COG_R_X
-				change_scope = no
-				entry_container = COG_R_container
-				index = seat_idx
-			}
 		}
 
 		properties = {
