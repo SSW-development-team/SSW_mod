@@ -11,7 +11,7 @@ country_event = {
 	
 	trigger = {
 		original_tag = NOR
-		date < 1950.2.1
+		date < 1950.2.15
 		not = {
 			has_global_flag = GER_civil_war
 		}
@@ -27,5 +27,41 @@ country_event = {
 			factor = 100
 		}
 		add_stability = -0.05
+	}
+}
+
+#レジスタンスによる鉄道破壊
+country_event = {
+	id = norway.2
+	title = norway.2.t
+	desc = norway.2.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = NOR
+		date > 1950.3.15
+		date < 1950.4.15
+		not = {
+			has_global_flag = GER_civil_war
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.2.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+		144 = {
+			damage_building = {
+				type = infrastructure
+				damage = 0.1
+			}
+		}
 	}
 }
