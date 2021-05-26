@@ -34,5 +34,47 @@ scripted_gui = {
 			}
 		}
 	}
+	
+	GER_Ethnicity_GUI_Open = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "GER_Ethnicity_GUI_Open"
+
+		visible = {
+			is_ai = no
+			tag = GER
+		}
+		
+		ai_enabled = {
+			always = no
+		}
+
+		effects = {
+			Open_Button_click = {
+				if = {
+					limit = { 
+						check_variable = { GER_Ethnicity_GUI_Opened = 1 }
+					}
+					set_variable = { GER_Ethnicity_GUI_Opened = 0 }
+				}
+				else = {
+					set_variable = { GER_Ethnicity_GUI_Opened = 1 }
+				}
+			}
+		}
+	}
+	GER_Ethnicity_GUI = {
+		window_name = "GER_Ethnicity_GUI"
+		context_type = player_context
+
+		visible = {
+			check_variable = { GER_Ethnicity_GUI_Opened = 1 }
+		}
+		effects = {
+			Close_Button_click = {
+				set_variable = { GER_Ethnicity_GUI_Opened = 0 }
+			}
+		}
+	}
 }
 
