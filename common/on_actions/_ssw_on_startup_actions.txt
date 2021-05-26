@@ -9,66 +9,6 @@ on_actions = {
 					SSW_Opening_Screen = 1
 				}
 			}
-			# create People's Republic of Ukraine
-			# Note: Other Ukrainian countries will be created at the event
-			create_dynamic_country = {
-				original_tag = UKR
-				copy_tag = UKR
-				set_country_flag = UKR_social_conservatism_flag
-				set_politics = {
-					ruling_party = social_conservatism
-				}
-				set_popularities = {
-					social_conservatism = 50
-					social_liberalism = 20
-					national_fascism = 20
-					social_democracy = 10
-				}
-				# Rename NSDAP to SNPU
-				set_party_name = {
-					ideology = national_socialism
-					long_name = UKR_snpu_party_long
-					name = UKR_snpu_party
-				}
-				set_research_slots = 3
-				reserve_dynamic_country = yes
-				add_ideas = extensive_conscription
-				add_ideas = UKR_low_education_level
-				add_ideas = UKR_agricalture
-				add_ideas = ssw_authoritarian_regime				# 権威主義
-				UKR_set_leaders = yes
-				# Delete SS divisions
-				delete_unit_template_and_units = {
-					division_template = "Schutzmannschaft"
-					disband = yes
-				}
-				delete_unit_template_and_units = {
-					division_template = "SS Division"
-					disband = yes
-				}
-			}
-			GER = {
-				set_variable = { power_game_X = 90 }
-				set_variable = { power_game_Y = 160 }
-				set_variable = { wehrmacht_loyalty = 60 }
-				set_variable = { capitalist_satisfaction = 80 }
-				set_variable = { democrat_demand = 40 }
-				set_variable = { Walter_Model_Influence = 10 }
-				set_variable = { Karl_Donitz_Influence = 1 }
-			}
-			UKR = {
-				# Remove all cores from Ukraine
-				every_state = {
-					limit = {
-						is_core_of = UKR
-					}
-					remove_core_of = UKR
-					add_claim_by = UKR
-				}
-				every_owned_state = {
-					add_claim_by = UKR
-				}
-			}
 			every_state = {
 				limit = {
 					OR = {
