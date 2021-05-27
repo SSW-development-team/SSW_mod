@@ -1,30 +1,408 @@
 ideas = {
-	country = { #National Idea#
-		BRM_wood_trade = {
-
+	political_leader = {
+		BRM_ba_maw_ssw = {
 			allowed = {
-			always = yes
+				original_tag = BRM
+			}
+			traits = {
+				emergency_powers
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	minister_of_foreign_affairs = {
+		BRM_ba_win_ssw = {
+			allowed = {
+				original_tag = BRM
+			}
+			traits = {
+				liberal_democratic_paragon
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	minister_of_finance = {
+		BRM_thein_maung_ssw = {
+			allowed = {
+				original_tag = BRM
+			}
+			traits = {
+				socialite_connections
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	minister_of_interior = {
+		BRM_u_saw_ssw = {
+			allowed = {
+				original_tag = BRM
+			}
+			traits = {
+				popular_figurehead
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	minister_of_army = {
+		BRM_aung_san_ssw = {
+			allowed = {
+				original_tag = BRM
+			}
+			traits = {
+				exiled_revolutionary
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	# tank_manufacturer = {
+	# 	designer = yes
+	# 	UKR_tank_manufacturer_Molozov = {
+	# 		picture = generic_tank_manufacturer_1
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		research_bonus = {
+	# 			armor = 0.05
+	# 			industry = 0.05
+	# 		}
+	# 		traits = {
+	# 			tank_manufacturer
+	# 		}
+	# 		equipment_bonus = {
+	# 			medium_tank_equipment = {
+	# 				build_cost_ic = -0.05
+	# 				instant = yes
+	# 			}
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# naval_manufacturer = {
+	# 	designer = yes
+	# 	UKR_naval_manufacturer_Black_sea = {
+	# 		picture = generic_naval_manufacturer_1
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		cost = 150
+	# 		research_bonus = {
+	# 			naval_equipment = 0.15
+	# 		}
+	# 		traits = {
+	# 			naval_manufacturer
+	# 		}
+	# 		equipment_bonus = {
+	# 			medium_tank_equipment = {
+	# 				build_cost_ic = -0.1
+	# 				instant = yes
+	# 			}
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# aircraft_manufacturer = {
+	# 	designer = yes
+	# 	UKR_aircraft_manufacturer_Antonov = {
+	# 		picture = generic_air_manufacturer_1
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			air_equipment = 0.1
+	# 		}
+	# 		traits = {
+	# 			medium_aircraft_manufacturer
+	# 			heavy_aircraft_manufacturer
+	# 		}
+	# 		equipment_bonus = {
+	# 			air_transport = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 			tactical_bomber = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 			strategic_bomber = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# 	UKR_aircraft_manufacturer_Kharkiv = {
+	# 		picture = generic_air_manufacturer_1
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			air_equipment = 0.1
+	# 		}
+	# 		traits = {
+	# 			light_aircraft_manufacturer
+	# 			naval_aircraft_manufacturer
+	# 		}
+	# 		equipment_bonus = {
+	# 			fighter = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 			interceptor = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 			cas = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 			naval_bomber = {
+	# 				build_cost_ic = -0.15
+	# 				instant = yes
+	# 			}
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# industrial_concern = {
+	# 	UKR_industrial_concern_Lutsk = {
+	# 		picture = generic_industrial_concern_1
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			industry = 0.15
+	# 			electronics = 0.15
+	# 		}
+	# 		traits = {
+	# 			industrial_concern
+	# 			electronics_concern
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# materiel_manufacturer = {
+	# 	designer = yes
+	# 	UKR_motorized_equipment_manufacturer_Lutsk = {
+	# 		picture = generic_motorized_equipment_manufacturer_3
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			motorized_equipment = 0.15
+	# 		}
+	# 		traits = {
+	# 			motorized_equipment_manufacturer
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# 	UKR_infantry_equipment_manufacturer_Ukro = {
+	# 		picture = generic_infantry_equipment_manufacturer_2
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 			has_completed_focus = UKR_national_company
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			infantry_weapons = 0.15
+	# 		}
+	# 		traits = {
+	# 			infantry_equipment_manufacturer
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# 	UKR_artillery_manufacturer_Ukro = {
+	# 		picture = generic_artillery_manufacturer_2
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 			has_completed_focus = UKR_national_company
+	# 		}
+	# 		cost = 150
+	# 		removal_cost = 10
+	# 		research_bonus = {
+	# 			artillery = 0.15
+	# 		}
+	# 		traits = {
+	# 			artillery_manufacturer
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# theorist = {
+	# 	UKR_military_theorist = {
+	# 		ledger = army
+	# 		allowed = {
+	# 			original_tag = UKR
+	# 		}
+	# 		available = {
+	# 			OR = {
+	# 				has_completed_focus = UKR_bandera
+	# 				has_completed_focus = UKR_oun_unity
+	# 			}
+	# 		}
+	# 		research_bonus = {
+	# 			land_doctrine = 0.2
+	# 		}
+	# 		traits = {
+	# 			military_theorist
+	# 		}
+	# 		modifier = {
+	# 			resistance_target_on_our_occupied_states = 0.5
+	# 			resistance_growth_on_our_occupied_states = 0.5
+	# 			resistance_damage_to_garrison_on_our_occupied_states = 0.5
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 10
+	# 		}
+	# 	}
+	# }
+	# army_chief = {
+	# 	UKR_army_chief_Dmytro = {
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			army_chief_offensive_1
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# navy_chief = {
+	# 	UKR_navy_chief_Aleksandr = {
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			navy_chief_decisive_battle_2
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# air_chief = {
+	# 	UKR_air_chief_all_weather = {
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			air_chief_all_weather_2
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# high_command = {
+	# 	UKR_army_art = {
+	# 		ledger = army
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			army_artillery_1
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# 	UKR_army_log = {
+	# 		ledger = army
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			army_logistics_2
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	# 	UKR_army_def = {
+	# 		ledger = army
+	# 		allowed = {
+	# 			OR = {
+	# 				original_tag = UKR
+	# 			}
+	# 		}
+	# 		traits = {
+	# 			army_logistics_2
+	# 		}
+	# 		ai_will_do = {
+	# 			factor = 1
+	# 		}
+	# 	}
+	country = {
+		#National Idea#
+		BRM_wood_trade = {
+			allowed = {
+				always = yes
 			}
 			removal_cost = -1
-			
 			modifier = {
 				political_power_gain = 0.05
 				consumer_goods_factor = -0.05
 			}
-			
-			cancel_if_invalid = yes
-
 			ai_will_do = {
-   				factor = 1
-   			}
+				factor = 1
+			}
 		}
 		BRM_hunter_of_mountain_and_jungle = {
-
 			allowed = {
-			always = yes
+				always = yes
 			}
 			removal_cost = -1
-			
 			modifier = {
 				attrition = -0.1
 				heat_attrition_factor = -0.05
@@ -34,12 +412,267 @@ ideas = {
 				terrain_penalty_reduction = 0.05
 				experience_loss_factor = -0.1
 			}
-			
-			cancel_if_invalid = yes
-
 			ai_will_do = {
-   				factor = 1
-   			}
+				factor = 1
+			}
+		}
+		BRM_japanese_army = {
+			modifier = {
+				stability_factor = -0.1
+				political_power_factor = -0.1
+				army_org_factor = 0.1
+			}
+		}
+		BRM_japanese_army2 = {
+			modifier = {
+				stability_factor = -0.1
+				political_power_factor = -0.1
+				army_org_factor = 0.15
+			}
+			research_bonus = {
+				land_doctrine = 0.1
+			}
+		}
+		BRM_minorities_oppose_1 = {
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.05
+			}
+		}
+		BRM_minorities_oppose_2 = {
+			modifier = {
+				conscription_factor = -0.1
+				stability_factor = -0.05
+				army_org_factor = -0.03
+			}
+		}
+		BRM_minorities_oppose_3 = {
+			# baseline
+			modifier = {
+				conscription_factor = -0.01
+				stability_factor = -0.1
+				war_support_factor = -0.05
+				army_org_factor = -0.05
+			}
+		}
+		BRM_minorities_oppose_4 = {
+			modifier = {
+				conscription_factor = -0.35
+				stability_factor = -0.2
+				war_support_factor = -0.1
+				army_org_factor = -0.1
+			}
+		}
+		BRM_minorities_oppose_5 = {
+			modifier = {
+				conscription_factor = -0.5
+				stability_factor = -0.3
+				war_support_factor = -0.1
+				army_org_factor = -0.1
+			}
+		}
+		BRM_compete_two_factions_0 = {
+			modifier = {
+				political_power_factor = -0.15
+				army_org = 10
+				max_planning = 5
+				stability_factor = -0.1
+			}
+		}
+		BRM_compete_two_factions_1 = {
+			modifier = {
+				political_power_factor = -0.07
+				army_org = 7
+				stability_factor = -0.05
+			}
+		}
+		BRM_compete_two_factions_2 = {
+			modifier = {
+				political_power_factor = -0.05
+				army_org = 5
+			}
+		}
+		BRM_compete_two_factions_3 = {
+			# baseline
+			modifier = {
+				political_power_factor = -0.03
+			}
+		}
+		BRM_compete_two_factions_4 = {
+			modifier = {
+				political_power_factor = -0.01
+				army_org = -3
+			}
+		}
+		BRM_compete_two_factions_5 = {
+			modifier = {
+				political_power_factor = 0.05
+				army_org = -5
+				stability_factor = 0.05
+			}
+		}
+		BRM_compete_two_factions_6 = {
+			modifier = {
+				political_power_factor = 0.1
+				army_org = -5
+				max_planning = -5
+				stability_factor = 0.1
+			}
+		}
+		BRM_lightweight_burden = {
+			modifier = {
+				consumer_goods_factor = -0.03
+			}
+		}
+		brm_pyi_taw_thar_plan = {
+			modifier = {
+				global_building_slots_factor = 0.5
+				# global_building_slots = 5
+			}
+		}
+		brm_pyi_taw_thar_plan2 = {
+			modifier = {
+				global_building_slots_factor = 0.5
+				consumer_goods_factor = 0.05
+				monthly_population = 30
+				stability_factor = 0.1
+			}
+		}
+		brm_pyi_taw_thar_plan3 = {
+			modifier = {
+				global_building_slots_factor = 0.5
+				consumer_goods_factor = 0.05
+				monthly_population = 30
+				stability_factor = 0.1
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+		partial_itroduction_of_buddhist_education = {
+			modifier = {
+				stability_factor = 0.1
+				army_core_defence_factor = 0.05
+			}
+		}
+		BRM_tired_economy = {
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
+		BRM_tired_economy2 = {
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
+		BRM_tired_economy3 = {
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.05
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
+		BRM_tired_economy4 = {
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		BRM_tired_economy5 = {
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		BRM_tired_economy6 = {
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		BRM_tired_economy7 = {
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.1
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
+		BRM_only_leader = {
+			modifier = {
+				political_power_gain = 5
+				war_support_factor = 0.1
+			}
+		}
+		BRM_new_agriculture = {
+			modifier = {
+				monthly_population = 0.2
+			}
+		}
+		BRM_national_company = {
+			modifier = {
+				consumer_goods_factor = -0.05
+				global_building_slots_factor = 0.1
+			}
+		}
+		BRM_father = {
+			modifier = {
+				army_attack_factor = 0.07
+				army_org_regain = 0.05
+			}
+		}
+		BRM_retreat_japanese_companies = {
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		BRM_anti_guerria = {
+			modifier = {
+				enemy_partisan_effect = -0.2
+			}
+		}
+		BRM_strong_militia = {
+			modifier = {
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.05
+				army_org = 5
+			}
+		}
+		BRM_fast_soldiers = {
+			modifier = {
+				army_speed_factor = 0.1
+				attrition = -0.05
+			}
+		}
+		BRM_military_academy = {
+			modifier = {
+				max_planning = 0.01
+				air_ace_generation_chance_factor = 0.05
+				air_escort_efficiency = 0.1
+			}
+			research_bonus = {
+				land_doctrine = 0.05
+				naval_doctrine = 0.05
+				air_doctrine = 0.05
+			}
+		}
+		BRM_elite = {
+			modifier = {
+				terrain_penalty_reduction = 0.15
+				attrition = -0.05
+				heat_attrition = -0.05
+			}
 		}
 	}
-}	
+}
