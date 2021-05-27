@@ -127,3 +127,20 @@ GER_Power_Game_Decision_Categories = {
 		}
 	}
 }
+GER_Under_Development_Decision_Categories = {
+	meeting_with_democrat = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			check_variable = { democrat_demand < 100 }
+		}
+		cost = 100
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.05
+			political_power_cost = -0.05
+		}
+		remove_effect = {
+			add_to_variable = { democrat_demand = 4 }
+		}
+	}
+}

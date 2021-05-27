@@ -35,44 +35,237 @@ scripted_gui = {
 		}
 	}
 	
-	GER_Ethnicity_GUI_Open = {
-		context_type = player_context
-		parent_window_token = politics_tab
-		window_name = "GER_Ethnicity_GUI_Open"
-
-		visible = {
-			is_ai = no
-			tag = GER
-		}
+	GER_Under_Development = {
+		window_name = "GER_Under_Development"
+		context_type = decision_category
 		
-		ai_enabled = {
-			always = no
-		}
-
 		effects = {
-			Open_Button_click = {
-				if = {
-					limit = { 
-						check_variable = { GER_Ethnicity_GUI_Opened = 1 }
-					}
-					set_variable = { GER_Ethnicity_GUI_Opened = 0 }
-				}
-				else = {
-					set_variable = { GER_Ethnicity_GUI_Opened = 1 }
+			station_berlin_click = { 
+				set_variable = { SELECTED_STATION = 1 }
+			}
+			station_bialystok_land_click = {
+				set_variable = { SELECTED_STATION = 2 }
+			}
+			station_konigsberg_click = {
+				set_variable = { SELECTED_STATION = 3 }
+			}
+			station_danzig_click = {
+				set_variable = { SELECTED_STATION = 4 }
+			}
+			station_posen_click = {
+				set_variable = { SELECTED_STATION = 5 }
+			}
+			station_stettin_click = {
+				set_variable = { SELECTED_STATION = 6 }
+			}
+			station_kattowitz_click = {
+				set_variable = { SELECTED_STATION = 7 }
+			}
+			station_breslau_click = {
+				set_variable = { SELECTED_STATION = 8 }
+			}
+			station_dresden_click = {
+				set_variable = { SELECTED_STATION = 9 }
+			}
+			station_reichenberg_click = {
+				set_variable = { SELECTED_STATION = 10 }
+			}
+			station_prag_click = {
+				set_variable = { SELECTED_STATION = 11 }
+			}
+			station_wien_click = {
+				set_variable = { SELECTED_STATION = 12 }
+			}
+			station_steiermark_click = {
+				set_variable = { SELECTED_STATION = 13 }
+			}
+			station_klagenfurt_click = {
+				set_variable = { SELECTED_STATION = 14 }
+			}
+			station_linz_click = {
+				set_variable = { SELECTED_STATION = 15 }
+			}
+			station_innsbruck_click = {
+				set_variable = { SELECTED_STATION = 16 }
+			}
+			station_munchen_click = {
+				set_variable = { SELECTED_STATION = 17 }
+			}
+			station_strassburg_click = {
+				set_variable = { SELECTED_STATION = 18 }
+			}
+			station_saarbrucken_click = {
+				set_variable = { SELECTED_STATION = 19 }
+			}
+			station_koblenz_click = {
+				set_variable = { SELECTED_STATION = 20 }
+			}
+			station_essen_click = {
+				set_variable = { SELECTED_STATION = 21 }
+			}
+			station_oldenburg_click = {
+				set_variable = { SELECTED_STATION = 22 }
+			}
+			station_hannover_click = {
+				set_variable = { SELECTED_STATION = 23 }
+			}
+			station_kiel_click = {
+				set_variable = { SELECTED_STATION = 24 }
+			}
+			station_weimar_click = {
+				set_variable = { SELECTED_STATION = 25 }
+			}
+			station_frankfurt_click = {
+				set_variable = { SELECTED_STATION = 26 }
+			}
+			station_nurnberg_click = {
+				set_variable = { SELECTED_STATION = 27 }
+			}
+			station_stuttgart_click = {
+				set_variable = { SELECTED_STATION = 28 }
+			}
+        }
+		
+		triggers = {
+			station_berlin_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 1 }
 				}
 			}
-		}
-	}
-	GER_Ethnicity_GUI = {
-		window_name = "GER_Ethnicity_GUI"
-		context_type = player_context
-
-		visible = {
-			check_variable = { GER_Ethnicity_GUI_Opened = 1 }
-		}
-		effects = {
-			Close_Button_click = {
-				set_variable = { GER_Ethnicity_GUI_Opened = 0 }
+			station_bialystok_land_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 2 }
+				}
+			}
+			station_konigsberg_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 3 }
+				}
+			}
+			station_danzig_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 4 }
+				}
+			}
+			station_posen_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 5 }
+				}
+			}
+			station_stettin_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 6 }
+				}
+			}
+			station_kattowitz_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 7 }
+				}
+			}
+			station_breslau_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 8 }
+				}
+			}
+			station_dresden_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 9 }
+				}
+			}
+			station_reichenberg_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 10 }
+				}
+			}
+			station_prag_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 11 }
+				}
+			}
+			station_wien_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 12 }
+				}
+			}
+			station_steiermark_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 13 }
+				}
+			}
+			station_klagenfurt_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 14 }
+				}
+			}
+			station_linz_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 15 }
+				}
+			}
+			station_innsbruck_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 16 }
+				}
+			}
+			station_munchen_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 17 }
+				}
+			}
+			station_strassburg_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 18 }
+				}
+			}
+			station_saarbrucken_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 19 }
+				}
+			}
+			station_koblenz_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 20 }
+				}
+			}
+			station_essen_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 21 }
+				}
+			}
+			station_oldenburg_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 22 }
+				}
+			}
+			station_hannover_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 23 }
+				}
+			}
+			station_kiel_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 24 }
+				}
+			}
+			station_weimar_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 25 }
+				}
+			}
+			station_frankfurt_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 26 }
+				}
+			}
+			station_nurnberg_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 27 }
+				}
+			}
+			station_stuttgart_visible = {
+				NOT = {
+					check_variable = { SELECTED_STATION = 28 }
+				}
 			}
 		}
 	}
