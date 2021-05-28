@@ -227,3 +227,59 @@ country_event = {
 		name = ssw_brm.8.b
 	}
 }
+
+# Ne win speech
+country_event = {
+	id = ssw_brm.9
+	title = ssw_brm.9.Three_Mans_Speech
+	desc = ssw_brm.9.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.9.a
+	}
+}
+
+# Ne win dies?
+country_event = {
+	id = ssw_brm.10
+	title = ssw_brm.10.Three_Mans_Speech
+	desc = ssw_brm.10.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# nope
+		name = ssw_brm.10.a
+	}
+	option = {
+		# yea
+		name = ssw_brm.10.b
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = national_fascism
+			elections_allowed = yes
+			# last_election = "1935.12.17"
+			election_frequency = 48
+		}
+	}
+}
+
+# Fate of Ne Win
+country_event = {
+	id = ssw_brm.11
+	title = ssw_brm.11.Three_Mans_Speech
+	desc = ssw_brm.11.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.11.a
+		add_stability = 0.05
+		add_popularity = {
+			ideology = national_socialism
+			popularity = -0.1
+		}
+	}
+}
