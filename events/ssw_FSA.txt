@@ -7,7 +7,9 @@ country_event = {
 	desc = SSW_FSA.1.d
 	option = {
 		name = SSW_FSA.1.a
+		ai_chance = { base = 100 }
 		add_political_power = 1
+		mark_focus_tree_layout_dirty = yes
 	}
 }
 
@@ -125,7 +127,411 @@ country_event = {
 	desc = SSW_FSA.9.d
 	option = {
 		name = SSW_FSA.9.a
-		add_ideas = FSA_SLIA_idea
+		add_state_core = 276
+		add_state_core = 468
+		add_state_core = 465
+		add_state_core = 464
+		
 	}
 	
 }
+
+country_event = {
+    id = SSW_FSA.10 
+	title = SSW_FSA.10.t
+	picture = GFX_report_event_generic_ruins
+	desc = SSW_FSA.10.d
+	fire_only_once = yes
+	trigger = {
+		tag = FSA
+		has_global_flag = GER_civil_war
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	option = {
+		name = SSW_FSA.10.a
+		ai_chance = { base = 100 }
+		
+	}
+	option = {
+		name = SSW_FSA.10.b
+		ai_chance = { base = 0 }
+		add_popularity = {
+    	ideology = national_socialism
+    	popularity = 0.05
+		}
+		country_event = {
+							id = SSW_FSA.11
+							days = 21
+						}
+	}
+	
+}
+
+country_event = {
+    id = SSW_FSA.11
+	title = SSW_FSA.11.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.11.d
+	option = {
+		name = SSW_FSA.11.a
+		
+	}
+	option = {
+		name = SSW_FSA.11.b
+		country_event = {
+							id = SSW_FSA.12
+							days = 14
+						}
+	}
+	
+}
+
+country_event = {
+    id = SSW_FSA.12
+	title = SSW_FSA.12.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.12.d
+	option = {
+		name = SSW_FSA.12.a
+		add_stability = 0.05
+		country_event = {
+							id = SSW_FSA.13
+							days = 5
+						}
+	}
+	option = {
+		name = SSW_FSA.12.b
+		set_country_flag = FFFF
+		country_event = {
+							id = SSW_FSA.14
+							days = 5
+						}
+	}
+	
+}
+
+country_event = {
+    id = SSW_FSA.13
+	title = SSW_FSA.13.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.13.d
+	option = {
+		name = SSW_FSA.13.a	
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.14
+	title = SSW_FSA.14.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.14.d
+	option = {
+		name = SSW_FSA.14.a	
+		mark_focus_tree_layout_dirty = yes
+		add_ideas = FSA_dissatisfaction
+		add_ideas = FSA_low_support
+		add_ideas = FSA_pervasive_fear
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.15
+	title = SSW_FSA.15.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.15.d
+	option = {
+		name = SSW_FSA.15.a	
+	}	
+	option = {
+		name = SSW_FSA.15.b
+	}
+	option = {
+		name = SSW_FSA.15.c
+	}
+}
+
+country_event = {
+    id = SSW_FSA.16
+	title = SSW_FSA.16.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.16.d
+	option = {
+		name = SSW_FSA.16.a	
+	}	
+	option = {
+		name = SSW_FSA.16.b
+		set_country_flag = BLACK
+		country_event = {
+							id = SSW_FSA.17
+							days = 4
+						}
+	}
+}
+
+country_event = {
+    id = SSW_FSA.17
+	title = SSW_FSA.17.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.17.d
+	option = {
+		name = SSW_FSA.17.a
+		mark_focus_tree_layout_dirty = yes
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.18
+	title = SSW_FSA.18.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.18.d
+	option = {
+		name = SSW_FSA.18.a
+		LIB = {
+			transfer_state = 779
+			transfer_state = 780
+			add_state_core = 779
+			add_state_core = 780
+		}
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.19
+	title = SSW_FSA.19.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.19.d
+	option = {
+		name = SSW_FSA.19.a
+		LIB = {
+			transfer_state = 274
+		}
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.20
+	title = SSW_FSA.20.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.20.d
+	option = {
+		name = SSW_FSA.20.a
+		puppet = LIB
+		LIB = {
+			set_cosmetic_tag = LIB_FSA_slave
+		}
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.21
+	title = SSW_FSA.21.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.21.d
+	option = {
+		name = SSW_FSA.21.a
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.22
+	title = SSW_FSA.22.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.22.d
+	option = {
+		name = SSW_FSA.22.a
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.23
+	title = SSW_FSA.23.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.23.d
+	option = {
+		name = SSW_FSA.23.a
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.24
+	title = SSW_FSA.24.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.24.d
+	option = {
+		name = SSW_FSA.24.a
+		add_timed_idea = {
+    	idea = FSA_great_navy
+    	days = 210
+		}
+	}
+	option = {
+		name = SSW_FSA.24.b
+		add_timed_idea = {
+    	idea = FSA_air_expansion
+    	days = 210
+		}
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.25
+	title = SSW_FSA.25.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.25.d
+	option = {
+		name = SSW_FSA.25.a
+		add_ideas = FSA_race_G
+	}
+	option = {
+		name = SSW_FSA.25.b
+		add_ideas = FSA_race_A
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.26 
+	title = SSW_FSA.26.t
+	picture = GFX_report_event_generic_ruins
+	desc = SSW_FSA.26.d
+	fire_only_once = yes
+	trigger = {
+		tag = FSA
+		has_global_flag = FSA_hur
+	}
+	mean_time_to_happen = {
+		days = 270
+	}
+	option = {
+		name = SSW_FSA.26.a
+		ai_chance = { base = 100 }
+		
+        366 = {
+            damage_building = {
+            type = industrial_complex
+            damage = 50
+                }
+            }
+        }
+	
+	
+}
+
+country_event = {
+    id = SSW_FSA.100
+	title = SSW_FSA.100.t
+	picture = GFX_report_event_generic_ruins
+	desc = SSW_FSA.100.d
+	fire_only_once = yes
+	trigger = {
+		tag = FSA
+		UTC = {
+			exists = no
+		}
+	}
+	mean_time_to_happen = {
+		days = 3
+	}
+	option = {
+		name = SSW_FSA.100.a
+		ai_chance = { base = 100 }
+		country_event = {
+							id = SSW_FSA.101
+							days = 3
+						}
+		
+	}
+		
+}
+
+country_event = {
+    id = SSW_FSA.101
+	title = SSW_FSA.101.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.101.d
+	option = {
+		name = SSW_FSA.101.a
+		ai_chance = { base = 100 }
+		country_event = {
+							id = SSW_FSA.102
+							days = 2
+						}
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.102
+	title = SSW_FSA.102.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.102.d
+	option = {
+		name = SSW_FSA.102.a
+		set_country_flag = FSA_UTCS
+		unlock_decision_category_tooltip = FSA_con_UTC
+		
+		
+	}
+	option = {
+		name = SSW_FSA.102.b
+		ai_chance = { base = 100 }
+		
+		
+	}	
+}
+
+country_event = {
+    id = SSW_FSA.103
+	title = SSW_FSA.103.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	desc = SSW_FSA.103.d
+	option = {
+		name = SSW_FSA.103.a
+		ai_chance = { base = 100 }
+		393 = {
+			remove_building = {
+					type = industrial_complex
+					level = 3
+				}
+		}
+		add_ideas = FSA_requisition_of_UTC_idea1	
+	}
+	option = {
+		name = SSW_FSA.103.b
+		ai_chance = { base = 0 }
+		393 = {
+			remove_building = {
+					type = industrial_complex
+					level = 2
+				}
+		}
+		add_ideas = FSA_requisition_of_UTC_idea2
+	}	
+}
+
+
+
+
