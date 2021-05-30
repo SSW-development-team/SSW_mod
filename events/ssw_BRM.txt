@@ -1,47 +1,285 @@
 add_namespace = ssw_brm
-
 country_event = {
 	id = ssw_brm.1
 	title = ssw_brm.1.Three_Mans_Speech
 	desc = ssw_brm.1.desc
 	picture = GFX_BRM_three_mans_speech
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-    option = {
+	option = {
 		name = ssw_brm.1.a
-		ai_chance = { factor = 0}
+		ai_chance = {
+			factor = 0
+		}
 		unlock_national_focus = brm_pious_u_nu
 		add_popularity = {
-		ideology = social_conservatism
-		popularity = 0.3
+			ideology = social_conservatism
+			popularity = 0.3
 		}
 		set_politics = {
-		ruling_party = social_conservatism
-		elections_allowed = yes
-		last_election = "1950.1.1"
-		election_frequency = 48
+			ruling_party = social_conservatism
+			elections_allowed = yes
+			last_election = "1950.1.1"
+			election_frequency = 48
 		}
 	}
-    option = {
+	option = {
 		name = ssw_brm.1.b
-		ai_chance = { factor = 10}
+		ai_chance = {
+			factor = 10
+		}
 		unlock_national_focus = brm_ba_maus_guaidance
 	}
-    option = {
+	option = {
 		name = ssw_brm.1.c
-		ai_chance = { factor = 0}
+		ai_chance = {
+			factor = 0
+		}
 		unlock_national_focus = brm_socialist_ne_win
 		add_popularity = {
-		ideology = national_socialism
-		popularity = 0.3
+			ideology = national_socialism
+			popularity = 0.3
 		}
 		set_politics = {
-		ruling_party = national_socialism
-		elections_allowed = yes
-		last_election = "1950.1.1"
-		election_frequency = 48
+			ruling_party = national_socialism
+			elections_allowed = yes
+			last_election = "1950.1.1"
+			election_frequency = 48
+		}
+	}
+}
+
+# Independence Question
+country_event = {
+	id = ssw_brm.2
+	title = ssw_brm.2.Three_Mans_Speech
+	desc = ssw_brm.2.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.2.a
+		ai_chance = {
+			base = 1
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.3
+			}
+		}
+	}
+	option = {
+		name = ssw_brm.2.b
+		ai_chance = {
+			base = 1
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.4
+			}
+		}
+	}
+}
+
+# Japan approve!
+country_event = {
+	id = ssw_brm.3
+	title = ssw_brm.3.Three_Mans_Speech
+	desc = ssw_brm.3.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.3.a
+		FROM = {
+			end_puppet = ROOT
+		}
+	}
+}
+
+# Japan denied.
+country_event = {
+	id = ssw_brm.4
+	title = ssw_brm.4.Three_Mans_Speech
+	desc = ssw_brm.4.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.4.a
+	}
+}
+
+# Free Election
+country_event = {
+	id = ssw_brm.5
+	title = ssw_brm.5.Three_Mans_Speech
+	desc = ssw_brm.5.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.5.a
+		set_politics = {
+			elections_allowed = yes
+			election_frequency = 48
+			ruling_party = social_democracy
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = ssw_brm.5.b
+		set_politics = {
+			elections_allowed = yes
+			election_frequency = 48
+			ruling_party = social_conservatism
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = ssw_brm.5.c
+		set_politics = {
+			elections_allowed = yes
+			election_frequency = 48
+			ruling_party = social_liberalism
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = ssw_brm.5.d
+		set_politics = {
+			elections_allowed = yes
+			election_frequency = 48
+			ruling_party = authority_democracy
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# Japanese-Burma joint excercise
+country_event = {
+	id = ssw_brm.6
+	title = ssw_brm.6.Three_Mans_Speech
+	desc = ssw_brm.6.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.6.a
+		army_experience = 20
+		air_experience = 5
+	}
+}
+
+# New Order
+country_event = {
+	id = ssw_brm.7
+	title = ssw_brm.7.Three_Mans_Speech
+	desc = ssw_brm.7.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.7.a
+		set_party_name = {
+			ideology = national_socialism
+			name = BRM_socialist_party
+			long_name = BRM_socialist_party
+		}
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.2
+		}
+	}
+}
+
+# Remove Japanese
+country_event = {
+	id = ssw_brm.8
+	title = ssw_brm.8.Three_Mans_Speech
+	desc = ssw_brm.8.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# Yes!
+		name = ssw_brm.8.a
+		every_enemy_country = {
+			white_peace = ROOT
+		}
+		JAP = {
+			end_puppet = ROOT
+		}
+		add_timed_idea = {
+			idea = BRM_retreat_japanese_companies
+			days = 100
+		}
+	}
+	option = {
+		name = ssw_brm.8.b
+	}
+}
+
+# Ne win speech
+country_event = {
+	id = ssw_brm.9
+	title = ssw_brm.9.Three_Mans_Speech
+	desc = ssw_brm.9.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.9.a
+	}
+}
+
+# Ne win dies?
+country_event = {
+	id = ssw_brm.10
+	title = ssw_brm.10.Three_Mans_Speech
+	desc = ssw_brm.10.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# nope
+		name = ssw_brm.10.a
+	}
+	option = {
+		# yea
+		name = ssw_brm.10.b
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = national_fascism
+			elections_allowed = yes
+			# last_election = "1935.12.17"
+			election_frequency = 48
+		}
+	}
+}
+
+# Fate of Ne Win
+country_event = {
+	id = ssw_brm.11
+	title = ssw_brm.11.Three_Mans_Speech
+	desc = ssw_brm.11.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.11.a
+		add_stability = 0.05
+		add_popularity = {
+			ideology = national_socialism
+			popularity = -0.1
 		}
 	}
 }

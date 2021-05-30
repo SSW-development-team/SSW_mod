@@ -484,7 +484,7 @@ completion_reward = {
 		amount = 25
 		state = 2
 		}
-}
+	}
 }
 #住区画の隔離
 shared_focus = {
@@ -633,9 +633,9 @@ shared_focus = {
 	x = 5
 	y = 5
 	completion_reward = {
-			add_ideas = ITA_idea_35
+		add_ideas = ITA_idea_35
 	}
-	}
+}
 #アウトストラーダの拡大
 shared_focus = {
 id = ITA_focus_industry_Expanding_the_Outstrada
@@ -688,6 +688,7 @@ shared_focus = {
 	x = 3
 	y = 5
 	completion_reward = {
+		activate_decision = ITA_Expanding_the_steel_industory
 	}
 }
 #移民問題の解消
@@ -1062,7 +1063,83 @@ shared_focus = {
 			add_idea = ITA_idea_42
 		}
 	}
+}
+#公共施設の拡張
+shared_focus = {
+	id = ITA_focus_balbo_Expansion_of_public_facilities
+	icon = GFX_ITA_Italian_Army
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Modern_welfare_state
+		 }
+	available = {
 	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 12
+	y = 5
+	completion_reward = {
+	}
+}
+#労働者の権利
+shared_focus = {
+	id = ITA_focus_balbo_Workers_Rights
+	icon = GFX_ITA_Italian_Army
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Modern_welfare_state
+		 }
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 14
+	y = 5
+	completion_reward = {
+	}
+}
+#政府と民間の完全な協力
+shared_focus = {
+	id = ITA_focus_balbo_Government_and_cvilian_cooperation
+	icon = GFX_ITA_Italian_Army
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Expansion_of_public_facilities
+		}
+		prerequisite = {
+			focus = ITA_focus_balbo_Workers_Rights
+			}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 13
+	y = 6
+	completion_reward = {
+		remove_ideas = ITA_idea_42
+	}
+}
 #ノルマの適正化
 shared_focus = {
 	id = ITA_focus_balbo_Quota_optimization
@@ -2158,15 +2235,126 @@ shared_focus = {
 		}
 	}
 }
-#機動力重視
+#戦車の設計方針
 shared_focus = {
-	id = ITA_focus_balbo_Focus_on_Mobility
+	id = ITA_focus_balbo_Tank_Design_Policy
 	icon = GFX_ITA_Tank_Raid
 	cost = 6.00
 	prerequisite = {
 		focus = ITA_focus_balbo_Transition_to_Mobile_Warfare
 		}
-	mutually_exclusive = {
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 37
+	y = 8
+	completion_reward = {
+		country_event = {
+			id = SSW_ITA.23
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = armor 
+		}
+	}
+}
+#機動性特化戦車の設計
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_mobile_tank
+	icon = GFX_ITA_Tank_Raid
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Tank_Design_Policy
+		}
+	available = {
+		always = no
+		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_mobile_tank_available_tooltip
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 35
+	y = 9
+	completion_reward = {
+		add_ideas = ITA_idea_85
+	}
+}
+#攻撃性特化戦車の設計
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_attack_tank
+	icon = GFX_ITA_Tank_Raid
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Tank_Design_Policy
+		}
+	available = {
+		always = no
+		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_attack_tank_available_tooltip
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 37
+	y = 9
+	completion_reward = {
+		add_ideas = ITA_idea_86
+	}
+}
+#防御性特化戦車の設計
+shared_focus = {
+	id = ITA_focus_balbo_Focus_on_defence_tank
+	icon = GFX_ITA_Tank_Raid
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Tank_Design_Policy
+		}
+	available = {
+		always = no
+		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_defence_tank_available_tooltip
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 39
+	y = 9
+	completion_reward = {
+		add_ideas = ITA_idea_87
+	}
+}
+#戦車製造体制の確立
+shared_focus = {
+	id = ITA_focus_balbo_Establishment_of_tank_manufacture_system
+	icon = GFX_ITA_Tank_Raid
+	cost = 4.00
+	prerequisite = {
+		focus = a
 		}
 	available = {
 		always = no
@@ -2180,9 +2368,41 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 	search_filters = { FOCUS_FILTER_POLITICAL }
-	x = 36
+	x = 37
+	y = 10
+	completion_reward = {
+	}
+}
+#機動戦理論の確立
+shared_focus = {
+	id = ITA_focus_balbo_establish_mobile_warfare_theory
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_Mobile_Warfare
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 33
 	y = 8
 	completion_reward = {
+		#country_event = {
+		#	id
+		#}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = armor 
+		}
 	}
 }
 #多様な戦術の導入
@@ -2566,7 +2786,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_focus_colony_dev_colonial_army
 	icon = GFX_ITA_Italian_Colony
-	cost = 1.00
+	cost = 4.00
 	prerequisite = {
 		focus = ITA_focus_colony_dev
 	}
@@ -2590,7 +2810,9 @@ shared_focus = {
 	x = 9
 	y = 12
 	completion_reward = {
-
+		country_event = {
+			id = SSW_ITA.22
+		}
 	}
 }
 ###北アフリカルート###
@@ -3623,7 +3845,7 @@ shared_focus = {
 #ドイツ内戦への対応
 shared_focus = {
     id = ITA_Balbo_event_focus_german_civil_war_tree_top
-    icon = GFX_focus_generic_tank_production
+    icon = GFX_ITA_German_Civil_War
     cost = 5.00
     prerequisite = {
         focus = ITA_Balbo_event_focus_tree_top
@@ -3705,6 +3927,34 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_POLITICAL }
     x = -8
     y = 1
+    completion_reward = {
+    }
+}
+####################
+###POLITICAL_TREE###
+####################
+#バルボ政権
+shared_focus = {
+    id = ITA_Balbo_political_Balbo_Government
+    icon = GFX_ITA_Balbo_Face
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 80
+    y = 0
     completion_reward = {
     }
 }

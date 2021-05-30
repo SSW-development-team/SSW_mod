@@ -1,0 +1,115 @@
+
+add_namespace = norway
+
+#大規模ストライキ
+country_event = {
+	id = norway.1
+	title = norway.1.t
+	desc = norway.1.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1950.2.15
+		date < 1950.3.1
+		not = {
+			has_global_flag = GER_civil_war
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.1.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+		add_timed_idea = {
+			idea = strikes_1
+			days = 75
+		}
+		
+	}
+}
+
+#レジスタンスによる鉄道襲撃
+country_event = {
+	id = norway.2
+	title = norway.2.t
+	desc = norway.2.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1950.3.15
+		date < 1950.4.1
+		not = {
+			has_global_flag = GER_civil_war
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.2.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.05
+		144 = {
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		add_manpower = -10
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -150
+			producer = NOR
+		}
+	}
+}
+
+#北部でのレジスタンス運動の活発化
+country_event = {
+	id = norway.3
+	title = norway.3.t
+	desc = norway.3.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1950.4.15
+		date < 1950.5.15
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.3.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.10
+		144 = {
+			damage_building = {
+				type = arms_factory
+				damage = 1.0
+			}
+		}
+		add_manpower = -50
+		remove_state_core = 144
+		add_state_claim = 144
+	}
+}
