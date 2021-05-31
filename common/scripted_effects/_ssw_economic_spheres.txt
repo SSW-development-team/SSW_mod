@@ -5,7 +5,11 @@ join_to_geacps = {
 			#var:variable_geacps_leader.geacps_members = THIS
 			JAP.geacps_members = THIS
 		}
-		add_ideas = SSW_geacps_1
+		if = {
+			limit = { tag = JAP }
+			add_ideas = SSW_roma_entente_7
+			else = { add_ideas = SSW_geacps_1 }
+		}
 	}
 }
 remove_from_geacps = {
@@ -41,5 +45,49 @@ kick_from_geacps = {
 		set_country_flag = kicked_from_geacps_by_leader
 		clr_country_flag = kicked_from_geacps_by_leader
 		remove_from_geacps = yes
+	}
+}
+join_to_roma_entente = {
+	if = {
+		limit = { is_in_roma_entente = no }
+		add_to_array = { ITA.roma_entente_members = THIS }
+		add_ideas = SSW_roma_entente_1
+		if = {
+			limit = { tag = ITA }
+			add_ideas = SSW_roma_entente_7
+			else = { add_ideas = SSW_roma_entente_1 }
+		}
+	}
+}
+remove_from_roma_entente = {
+	if = {
+		limit = { is_in_roma_entente = yes }
+		hidden_effect = {
+			remove_from_array = { ITA.roma_entente_members = THIS }
+			remove_ideas = {
+				SSW_roma_entente_1
+				SSW_roma_entente_2
+				SSW_roma_entente_3
+				SSW_roma_entente_4
+				SSW_roma_entente_5
+				SSW_roma_entente_6
+				SSW_roma_entente_7
+			}
+		}
+	}
+}
+leave_roma_entente = {
+	if = {
+		limit = { is_in_roma_entente = yes }
+		remove_from_roma_entente = yes
+		clr_country_flag = kicked_from_roma_entente_by_leader
+	}
+}
+kick_from_roma_entente = {
+	if = {
+		limit = { is_in_roma_entente = yes }
+		set_country_flag = kicked_from_roma_entente_by_leader
+		clr_country_flag = kicked_from_roma_entente_by_leader
+		remove_from_roma_entente = yes
 	}
 }
