@@ -2607,4 +2607,64 @@ country_event = { #アナーキストによる暴動
         add_stability = -0.15
         add_war_support = -0.2
     }
-} 
+}
+
+country_event = { #アレクサンドル・ツァンコフの引退
+    id = ssw_bul.55
+    title = ssw_bul.55.t
+    desc = ssw_bul.55.d
+    fire_only_once = yes
+    picture = GFX_report_event_bose_meeting
+    trigger = {
+        date > 1954.1.1
+        original_tag = BUL
+        OR = {
+            AND = {
+                has_government = national_socialism
+                has_country_leader = {
+                    name = "Aleksandar Tsankov"
+                }
+            }
+            AND = {
+                NOT = {has_government = national_socialism}
+                has_country_leader = {
+                    name = "Aleksandar Tsankov"
+                    ruling_only = no
+                }
+            }
+        }
+    }
+    mean_time_to_happen = {
+        days = 30
+    }
+    option = { #いなくなると寂しい
+        name = ssw_bul.55.a
+        trigger = {
+            NOT = {has_government = national_socialism}
+        }
+        retire_ideology_leader = national_socialism
+        create_country_leader = {
+            name = "Todor Kozhukharov"
+            desc = "POLITICS_TODOR_KOZHUKHAROV_DESC"
+            picture = "gfx/leaders/BUL/Portrait_Todor_Kozhukharov.dds"
+            traits = {BUL_anti_comm_ideology_natisoc}
+            expire = "1970.1.1"
+            ideology = national_socialism_ideology
+        }
+    }
+    option = { #彼は大きな役割を果たした
+        name = ssw_bul.55.b
+        trigger = {
+            has_government = national_socialism
+        }
+        retire_country_leader = yes
+        create_country_leader = {
+            name = "Todor Kozhukharov"
+            desc = "POLITICS_TODOR_KOZHUKHAROV_DESC"
+            picture = "gfx/leaders/BUL/Portrait_Todor_Kozhukharov.dds"
+            traits = {BUL_anti_comm_ideology_natisoc}
+            expire = "1970.1.1"
+            ideology = national_socialism_ideology
+        }
+    }
+}

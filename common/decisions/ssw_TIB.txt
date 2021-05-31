@@ -387,6 +387,97 @@ TIB_ccp_reforms = {
 	}
 }
 TIB_kham_problem = {
+	TIB_calm_chushi_gandruks = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 20
+		cost = 15
+		days_re_enable = 1
+		remove_effect = {
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 5
+			}
+		}
+	}
+	TIB_stimulate_chushi_gandruks = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 15
+		cost = 10
+		days_re_enable = 1
+		remove_effect = {
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = -5
+			}
+		}
+	}
+	TIB_full_annex_peace_ = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+			}
+			check_variable = {
+				TIB_kham_relation > 90
+			}
+		}
+		visible = {
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		remove_effect = {
+			601 = {
+				add_core_of = TIB
+				remove_dynamic_modifier = { modifier = TIB_state_chushi_gangdruk } 
+			}
+			920 = {
+				add_core_of = TIB
+				remove_dynamic_modifier = { modifier = TIB_state_chushi_gangdruk } 
+			}
+			add_stability = 0.03
+		}
+	}
 }
 TIB_second_zunyi_conference_dec = {
 	TIB_decide_new_flag = {

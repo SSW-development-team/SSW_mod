@@ -2,37 +2,64 @@ GER_Power_Game_Decision_Categories = {
 	meeting_with_democrat = {
 		icon = hol_exchange_intelligence_data
 		visible = {
-			always = yes
+			check_variable = { democrat_demand < 100 }
 		}
 		cost = 100
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.05
+			political_power_cost = -0.05
+		}
 		remove_effect = {
+			add_to_variable = { democrat_demand = 4 }
 		}
 	}
 	meeting_with_businessmans = {
 		icon = hol_exchange_intelligence_data
 		visible = {
-			always = yes
+			check_variable = { capitalist_satisfaction < 100 }
 		}
 		cost = 100
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.05
+			production_speed_buildings_factor = 0.05
+		}
 		remove_effect = {
+			add_to_variable = { capitalist_satisfaction = 4 }
 		}
 	}
 	meeting_with_generals = {
 		icon = hol_exchange_intelligence_data
 		visible = {
-			always = yes
+			check_variable = { wehrmacht_loyalty < 100 }
 		}
 		cost = 100
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.05
+			experience_gain_army_unit = 0.1
+		}
 		remove_effect = {
+			add_to_variable = { wehrmacht_loyalty = 4 }
 		}
 	}
 	weapon_purchase_from_businessmans = {
 		icon = ger_military_buildup
 		custom_cost_trigger = {
-			has_equipment = { infantry_equipment_1  > 1000 }
+			num_of_available_civilian_factories > 0
 		}
-		custom_cost_text = GER_need_weapon_text
+		custom_cost_text = GER_need_civ_fac_text
+		days_remove = 50
+		modifier = {
+			civilian_factory_use = 1
+		}
 		remove_effect = {
+			add_to_variable = { capitalist_satisfaction = 4 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 2000
+			}
 		}
 	}
 	manpower_supply_for_generals = {
@@ -41,16 +68,29 @@ GER_Power_Game_Decision_Categories = {
 			has_manpower > 999
 		}
 		custom_cost_text = GER_need_manpower_text
+		days_remove = 70
+		modifier = {
+			weekly_manpower = -100
+			army_org_regain = 0.01
+			supply_consumption_factor = 0.01
+		}
 		remove_effect = {
+			add_to_variable = { wehrmacht_loyalty = 4 }
 		}
 	}
 	gain_political_support_from_democrat = {
 		icon = gre_investment_decisions
 		custom_cost_trigger = {
-			num_of_available_civilian_factories > 1
+			num_of_available_civilian_factories > 0
 		}
 		custom_cost_text = GER_need_civ_fac_text
+		days_remove = 50
+		modifier = {
+			civilian_factory_use = 1
+		}
 		remove_effect = {
+			add_to_variable = { democrat_demand = 4 }
+			add_political_power = 100
 		}
 	}
 	decrease_democrat_influence = {
@@ -59,7 +99,9 @@ GER_Power_Game_Decision_Categories = {
 			always = yes
 		}
 		cost = 150
-		remove_effect = {
+		complete_effect = {
+			add_political_power = 50
+			subtract_from_variable = { democrat_demand = 4 }
 		}
 	}
 	decrease_generals_influence = {
@@ -68,7 +110,9 @@ GER_Power_Game_Decision_Categories = {
 			always = yes
 		}
 		cost = 150
-		remove_effect = {
+		complete_effect = {
+			add_political_power = 50
+			subtract_from_variable = { wehrmacht_loyalty = 4 }
 		}
 	}
 	decrease_businessmans_influence = {
@@ -77,7 +121,333 @@ GER_Power_Game_Decision_Categories = {
 			always = yes
 		}
 		cost = 150
+		complete_effect = {
+			add_political_power = 50
+			subtract_from_variable = { capitalist_satisfaction = 4 }
+		}
+	}
+}
+GER_Under_Development_Decision_Categories = {
+	building_reconstruction_plan_apartment = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 2 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
 		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 2 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 2 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 2 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 2 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 2 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_food = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 3 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 3 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 3 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 3 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 3 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 3 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_hall = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 4 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 4 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 4 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 4 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 4 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 4 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_lab = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 5 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 5 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 5 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 5 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 5 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 5 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_shelter = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 6 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 6 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 6 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 6 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 6 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 6 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_shop = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 7 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 7 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 7 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 7 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 7 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 7 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
+		}
+	}
+	building_reconstruction_plan_subway = {
+		icon = hol_exchange_intelligence_data
+		visible = {
+			NOT = {
+				check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 8 }
+			}
+		}
+		cost = 10
+		days_remove = 1
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 8 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 8 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_5 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 8 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_4 = 1 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+				}
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 8 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_3 = 1 }
+			}
+			else = {
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_1 = 8 }
+				set_variable = { SELECTED_STATION:SELECTED_ST_BUILDING_2 = 1 }
+			}
 		}
 	}
 }
