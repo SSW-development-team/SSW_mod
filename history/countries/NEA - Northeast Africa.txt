@@ -2,7 +2,15 @@
 	capital = 271
 	oob = "NEA_1950"
 	set_cosmetic_tag = NEA_ITA
-
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = "NEA_1950_naval_mtg"
+		else = {
+			set_naval_oob = "NEA_1950_naval_legacy"
+		}
+	}
 	set_convoys = 5
 
 	set_technology = {
@@ -384,15 +392,28 @@
 		}
 	}
 	create_field_marshal = {
+		name = "Amedeo Savoia-Aosta"
+		picture = "ssw_Portrait_AOI_Amedeo_DAosta_normal.dds"
+		traits = { career_officer war_hero media_personality skilled_staffer organizer logistics_wizard charismatic }
+		desc = "NEA_AMEDEO_FIELD_MARSHAL_DESC"
+		skill = 4
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+		id = 5600
+	}
+	create_field_marshal = {
 		name = "Guglielmo Nasi"
 		picture = "ssw_Portrait_AOI_Guglielmo_Nasi.dds"
-		traits = { career_officer war_hero brilliant_strategist inspirational_leader  }
+		traits = { career_officer war_hero brilliant_strategist inspirational_leader fast_planner }
 		desc = "NEA_GUGLIELMO_NASI_DESC"
 		skill = 4
 		attack_skill = 3
 		defense_skill = 3
 		planning_skill = 4
 		logistics_skill = 3
+		id = 5601
 	}
 	create_corps_commander = {
 		name = "Carlo de Simone"
@@ -405,6 +426,7 @@
 		defense_skill = 3
 		planning_skill = 1
 		logistics_skill = 3
+		id = 5602
 	}
 	create_corps_commander = {
 		name = "Giuzeppe Daodice"
@@ -417,6 +439,7 @@
 		defense_skill = 2
 		planning_skill = 2
 		logistics_skill = 2
+		id = 5603
 	}
 	create_corps_commander = {
 		name = "Gustavo Pesenti"
@@ -429,6 +452,7 @@
 		defense_skill = 1
 		planning_skill = 3
 		logistics_skill = 2
+		id = 5604
 	}
 	create_corps_commander = {
 		name = "Orlando Lorenzini"
@@ -441,11 +465,12 @@
 		defense_skill = 2
 		planning_skill = 2
 		logistics_skill = 2
+		id = 5605
 	}
 	create_corps_commander = {
 		name = "Amedeo Guillet"
 		picture = "ssw_Portrait_AOI_Amedeo_Guillet.dds"
-		traits = { cavalry_officer skilled_staffer old_guard war_hero }
+		traits = { cavalry_officer skilled_staffer war_hero }
 		skill = 3
 		desc = "NEA_AMEDEO_GUILLET_DESC"
 		rank = 1
@@ -453,6 +478,7 @@
 		defense_skill = 4
 		planning_skill = 2
 		logistics_skill = 3
+		id = 5607
 	}
 	create_corps_commander = {
 		name = "Domenico Mondelli"
@@ -465,6 +491,7 @@
 		defense_skill = 4
 		planning_skill = 3
 		logistics_skill = 1
+		id = 5606
 	}
 	create_navy_leader = {
 		name = "Carlo Balsamo di Specchia Normandia"
@@ -476,6 +503,7 @@
 		defense_skill = 2
 		maneuvering_skill = 2
 		coordination_skill = 3
+		id = 5608
 	}
 	create_navy_leader = {
 		name = "Ibrahim Mohammed Farag"
@@ -487,5 +515,89 @@
 		defense_skill = 3
 		maneuvering_skill = 2
 		coordination_skill = 2
+		id = 5609
+	}
+}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	create_equipment_variant = {
+		name = "Adua Class"
+		type = submarine_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			sub_engine_upgrade = 1
+			sub_stealth_upgrade = 1
+			sub_torpedo_upgrade = 1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Sauro Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 1
+			destroyer_engine_upgrade = 1
+			ship_ASW_upgrade = 1
+			ship_anti_air_upgrade = 1
+		}
+		obsolete = yes
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns"}
+	create_equipment_variant = {
+		name = "Sauro Class"
+		type = ship_hull_light_1
+		name_group = ITA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Archimede Class"
+		type = ship_hull_submarine_1
+		name_group = ITA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Brin Class"
+		type = ship_hull_submarine_1
+		name_group = ITA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Adua Class"
+		type = ship_hull_submarine_1
+		name_group = ITA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
 	}
 }

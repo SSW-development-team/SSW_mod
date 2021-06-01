@@ -30,7 +30,7 @@ country_event = {
 		add_stability = -0.05
 		add_timed_idea = {
 			idea = strikes_1
-			days = 45
+			days = 90
 		}
 		
 	}
@@ -74,6 +74,158 @@ country_event = {
 			type = infantry_equipment
 			amount = -150
 			producer = NOR
+		}
+	}
+}
+
+#北部でのレジスタンス運動の活発化
+country_event = {
+	id = norway.3
+	title = norway.3.t
+	desc = norway.3.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1950.4.15
+		date < 1950.5.15
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.3.a
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = -0.10
+		144 = {
+			damage_building = {
+				type = arms_factory
+				damage = 1.0
+			}
+		}
+		add_manpower = -50
+		remove_state_core = 144
+		add_state_claim = 144
+		remove_state_core = 1231
+		add_state_claim = 1231
+		hidden_effect = {
+			FNO = {
+				set_cosmetic_tag = FNO_REB
+			}
+		}
+	}
+}
+
+#ノルウェー解放戦線の蜂起(ノルウェー内戦の開始)
+country_event = {
+	id = norway.4
+	title = norway.4.t
+	desc = norway.4.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		has_global_flag = GER_civil_war
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.4.a
+		ai_chance = {
+			factor = 100
+		}
+		FNO = {
+			add_state_core = 144
+			add_state_core = 1231
+			transfer_state = 144
+			transfer_state = 1231
+			declare_war_on = {
+				target = NOR
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				inherit_technology = NOR
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 149
+					producer = NOR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 300
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_anti_tank_equipment
+					amount = 50
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+					producer = ENG
+				}
+				delete_unit_template_and_units = {
+					division_template = "Hirden Inndeling"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = norway.4.b
+		ai_chance = {
+			factor = 0
+		}
+		FNO = {
+			add_state_core = 144
+			add_state_core = 1231
+			transfer_state = 144
+			transfer_state = 1231
+			declare_war_on = {
+				target = NOR
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				inherit_technology = NOR
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 149
+					producer = NOR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 300
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_anti_tank_equipment
+					amount = 50
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+					producer = ENG
+				}
+				delete_unit_template_and_units = {
+					division_template = "Hirden Inndeling"
+				}
+				change_tag_from = NOR
+			}
 		}
 	}
 }
