@@ -1,0 +1,50 @@
+NEA_indep_of_eth = {
+	NEA_eritrea_front = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			has_war_with = ETH
+			has_government = fascism
+			controls_state = 550
+			controls_state = 1067
+		}
+
+		cost = 0
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				ETH = { controls_state = 1068 }
+			}
+		}
+
+		visible = {
+			has_war_with = ETH
+		}
+
+		complete_effect = {
+			ERI = {
+				transfer_state = 550
+				transfer_state = 1067
+				set_cosmetic_tag = NOR_reichskommissariat
+				create_country_leader = {
+					name = "Domenico Mondelli"
+					desc = "POLITICS_DOMENICO_MONDELLI_INDEPETH_DESC"
+					picture = "gfx/leaders/AOI/ssw_Portrait_AOI_Domenico_Mondelli.dds"
+					expire = "1965.1.1"
+					ideology = national_fascism_ideology
+					traits = {
+					}
+				}
+			}
+			set_autonomy = { target = ETH autonomy_state = autonomy_integrated_puppet }
+			random_unit_leader = {
+				limit = {
+					has_id = 5606
+				}
+				set_nationality = ERI
+			}
+		}
+	}
+}
