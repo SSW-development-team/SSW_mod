@@ -113,5 +113,131 @@ country_event = {
 		add_state_claim = 144
 		remove_state_core = 1231
 		add_state_claim = 1231
+		hidden_effect = {
+			FNO = {
+				set_cosmetic_tag = FNO_REB
+			}
+		}
+	}
+}
+
+#ノルウェー解放戦線の蜂起(ノルウェー内戦の開始)
+country_event = {
+	id = norway.4
+	title = norway.4.t
+	desc = norway.4.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		has_global_flag = GER_civil_war
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = norway.4.a
+		ai_chance = {
+			factor = 100
+		}
+		end_puppet = GER
+		leave_faction = yes
+		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
+		FNO = {
+			add_state_core = 144
+			add_state_core = 1231
+			transfer_state = 144
+			transfer_state = 1231
+			declare_war_on = {
+				target = NOR
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				inherit_technology = NOR
+				add_ideas = FNO_all_for_norway
+				load_oob = "FNO_Civil_War"
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 149
+					producer = NOR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 300
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_anti_tank_equipment
+					amount = 50
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+					producer = ENG
+				}
+				delete_unit_template_and_units = {
+					division_template = "Hirden Inndeling"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = norway.4.b
+		ai_chance = {
+			factor = 0
+		}
+		end_puppet = GER
+		leave_faction = yes
+		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
+		FNO = {
+			add_state_core = 144
+			add_state_core = 1231
+			transfer_state = 144
+			transfer_state = 1231
+			declare_war_on = {
+				target = NOR
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				inherit_technology = NOR
+				add_ideas = FNO_all_for_norway
+				load_oob = "FNO_Civil_War"
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 149
+					producer = NOR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 300
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_anti_tank_equipment
+					amount = 50
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+					producer = ENG
+				}
+				delete_unit_template_and_units = {
+					division_template = "Hirden Inndeling"
+				}
+				change_tag_from = NOR
+			}
+		}
 	}
 }
