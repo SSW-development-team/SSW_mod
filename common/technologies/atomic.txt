@@ -16,7 +16,11 @@ technologies = {
 
 		on_research_complete = {
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
-			set_variable = { ssw_atomic_gui = 1 }
+			set_variable = { ssw_atomic_gui_buttom = 1 }
+			set_variable = { ROOT.ssw_atomic_incident_rate = 0.15 }
+			set_variable = { ROOT.ssw_atomic_ic_uranium = 1 }
+			set_variable = { ROOT.ssw_atomic_ic_plutonium = 1 }
+
 		}
 		ai_will_do = {
 			factor = 1
@@ -36,17 +40,50 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		allow = {
-			has_variable = ssw_atomic_gui
+			OR = {
+				check_variable = {
+					var = ROOT.uranium_value
+					value = 50
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = ROOT.plutonium_value
+					value = 50
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		enable_building = {
+			building = nuclear_reactor
+			level = 1
+		}
+		on_research_complete = {
+			set_variable = { ROOT.ssw_atomic_experimental_reacter_uranium = 6 }
+			set_variable = { ROOT.ssw_atomic_experimental_reacter_plutonium = 4 }
+			if = {
+				limit = {
+					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+				}
+				add_to_variable = {
+					var = ROOT.ssw_atomic_experimental_reacter_plutonium
+					value = -40
+				}
+			}
+			else = {
+				add_to_variable = {
+					var = ROOT.ssw_atomic_experimental_reacter_uranium
+					value = -40
+				}
+			}
 		}
 
 		start_year = 1945
-		research_cost = 2
+		research_cost = 1.25
 		desc = "CYCLOTRON"
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 2 }
 		}
-		
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -59,7 +96,47 @@ technologies = {
 		}
 	}
 	atomic_fission = {
-		
+		allow = {
+			OR = {
+				check_variable = {
+					var = ROOT.uranium_value
+					value = 200
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = ROOT.plutonium_value
+					value = 200
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		on_research_complete = {
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_uranium
+				value = 1
+			}
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+				}
+				add_to_variable = {
+					var = ROOT.uranium_value
+					value = -160
+				}
+			}
+			else = {
+				add_to_variable = {
+					var = ROOT.plutonium_value
+					value = -160
+				}
+			}
+
+		}
+
 		path = {
 			leads_to_tech = uranium_enrichment 
 			research_cost_coeff = 1
@@ -76,9 +153,6 @@ technologies = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 4 }
 		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
-		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -92,7 +166,27 @@ technologies = {
 	}
 
 	uranium_enrichment = {
-		
+		allow = {
+			check_variable = {
+				var = ROOT.uranium_value
+				value = 100
+				compare = greater_than_or_equals
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = JET_ENGINES_RESEARCHED
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_uranium
+				value = 3
+			}
+			add_to_variable = {
+				var = ROOT.uranium_value
+				value = -80
+			}
+
+		}
+
+
 		path = {
 			leads_to_tech = nuclear_power_engine 
 			research_cost_coeff = 1
@@ -113,9 +207,6 @@ technologies = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = -2 y = 6 }
 		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
-		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -128,7 +219,25 @@ technologies = {
 		}
 	}
 	plutonium_enrichment = {
-		
+		allow = {
+			check_variable = {
+				var = ROOT.plutonium_value
+				value = 100
+				compare = greater_than_or_equals
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = JET_ENGINES_RESEARCHED
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				value = 3
+			}
+			add_to_variable = {
+				var = ROOT.plutonium_value
+				value = -80
+			}
+
+		}
 		path = {
 			leads_to_tech = nuclear_power_engine 
 			research_cost_coeff = 1
@@ -149,9 +258,6 @@ technologies = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = 2 y = 6 }
 		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
-		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -164,7 +270,36 @@ technologies = {
 		}
 	}
 	nuclear_power_engine = {
-		
+		allow = {
+			check_variable = {
+				var = ROOT.uranium_value
+				value = 200
+				compare = greater_than_or_equals
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = hypersensational_lens
+					is_researching_technology = small_nuclear_test
+					is_researching_technology = nuclear_fusion_fheory
+					is_researching_technology = thermonuclear_weapon
+					is_researching_technology = miniaturization_of_thermonuclear_weapons
+
+				}
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = NOT_SET_YET
+			add_to_variable = {
+				var = ROOT.plutonium_value
+				value = -160
+			}
+
+		}
+		desc = "NOT_SET_YET"
+
 		path = {
 			leads_to_tech = small_power_reactor 
 			research_cost_coeff = 1
@@ -175,9 +310,6 @@ technologies = {
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = -3 y = 8 }
-		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 		}
 		ai_will_do = {
 			factor = 1
@@ -191,7 +323,38 @@ technologies = {
 		}
 	}
 	small_power_reactor = {
-		
+		allow = {
+			check_variable = {
+				var = ROOT.uranium_value
+				value = 120
+				compare = greater_than_or_equals
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = hypersensational_lens
+					is_researching_technology = small_nuclear_test
+					is_researching_technology = nuclear_fusion_fheory
+					is_researching_technology = thermonuclear_weapon
+					is_researching_technology = miniaturization_of_thermonuclear_weapons
+
+				}
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = NOT_SET_YET
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				value = 3
+			}
+			add_to_variable = {
+				var = ROOT.plutonium_value
+				value = -96
+			}
+		}
+		desc = "NOT_SET_YET"
 		path = {
 			leads_to_tech = improved_power_reactor 
 			research_cost_coeff = 1
@@ -202,9 +365,6 @@ technologies = {
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = -3 y = 10 }
-		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 		}
 		ai_will_do = {
 			factor = 1
@@ -218,7 +378,38 @@ technologies = {
 		}
 	}
 	improved_power_reactor = {
-		
+		allow = {
+			check_variable = {
+				var = ROOT.uranium_value
+				value = 100
+				compare = greater_than_or_equals
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = hypersensational_lens
+					is_researching_technology = small_nuclear_test
+					is_researching_technology = nuclear_fusion_fheory
+					is_researching_technology = thermonuclear_weapon
+					is_researching_technology = miniaturization_of_thermonuclear_weapons
+
+				}
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = NOT_SET_YET
+			add_to_variable = {
+				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				value = 3
+			}
+			add_to_variable = {
+				var = ROOT.plutonium_value
+				value = -80
+			}
+		}
+		desc = "NOT_SET_YET"
 		path = {
 			leads_to_tech = improved_power_reactor 
 			research_cost_coeff = 1
@@ -229,9 +420,6 @@ technologies = {
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = -3 y = 12 }
-		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 		}
 		ai_will_do = {
 			factor = 1
@@ -245,7 +433,49 @@ technologies = {
 		}
 	}
 	hypersensational_lens = {
-		
+		allow = {
+			OR = {
+				check_variable = {
+					var = ROOT.uranium_value
+					value = 300
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = ROOT.plutonium_value
+					value = 300
+					compare = greater_than_or_equals
+				}
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = nuclear_power_engine
+					is_researching_technology = small_power_reactor
+					is_researching_technology = improved_power_reactor
+
+				}
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = NOT_SET_YET
+			if = {
+				limit = {
+					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+				}
+				add_to_variable = {
+					var = ROOT.uranium_value
+					value = -240
+				}
+			}
+			else = {
+				add_to_variable = {
+					var = ROOT.plutonium_value
+					value = -240
+				}
+			}
+		}
 		path = {
 			leads_to_tech = small_nuclear_test 
 			research_cost_coeff = 1
@@ -256,9 +486,6 @@ technologies = {
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 9 }
-		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 		}
 		ai_will_do = {
 			factor = 1
@@ -272,7 +499,45 @@ technologies = {
 		}
 	}
 	small_nuclear_test = {
-		
+		allow = {
+			AND = {
+				check_variable = {
+					var = ROOT.uranium_value
+					value = 300
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = ROOT.plutonium_value
+					value = 100
+					compare = greater_than_or_equals
+				}
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = nuclear_power_engine
+					is_researching_technology = small_power_reactor
+					is_researching_technology = improved_power_reactor
+
+				}
+			}
+		}
+		on_research_complete = {
+			custom_effect_tooltip = NOT_SET_YET
+			add_to_variable = {
+				var = ROOT.uranium_value
+				value = -240
+			}
+			add_to_variable = {
+				var = ROOT.plutonium_value
+				value = -80
+			}
+			country_event = {
+				id = SSW_atomic.1
+			}
+		}
 		path = {
 			leads_to_tech = nuclear_fusion_fheory 
 			research_cost_coeff = 1
@@ -283,9 +548,6 @@ technologies = {
 		folder = {
 			name = power_and_nuclear_engineering_folder
 			position = { x = 0 y = 12 }
-		}
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 		}
 		ai_will_do = {
 			factor = 1
