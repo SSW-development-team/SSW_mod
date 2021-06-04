@@ -449,3 +449,162 @@ news_event = {
 		name = flavor.15.a
 	}	
 }
+#1984
+news_event = {
+	id = flavor.16
+	title = flavor.16.t
+	desc = flavor.16.d
+	picture = 
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1953.6.8
+		OR = {
+			capital_is_europe
+			capital_is_north_america
+			tag = JAP
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = flavor.16.a
+		trigger = {
+			OR = {
+				tag = GER
+				tag = UKR
+				tag = NFR
+				tag = BEL
+				tag = HOL
+				tag = CZE
+				tag = SLO
+				tag = CRO 
+				tag = BAL 
+				tag = POL 
+				tag = MOS
+				tag = DON
+				tag = CCS 
+				tag = CRI 
+				tag = PET
+			}
+		}
+	}	
+	option = {
+		name = flavor.16.b
+		trigger {
+			OR = {
+				tag = UTC
+				tag = LFF
+			}
+		}
+	}
+	option = {
+		name = flavor.16.c
+		trigger {
+			OR = {
+				tag = ANS
+				tag = BLS 
+			}
+		}
+	}
+	option = {
+		name = flavor.16.d
+		trigger {
+			tag = JAP 
+		}
+	}
+	option = {
+		name = flavor.16.e
+		trigger {
+			tag = ENG
+			tag = CAN
+			tag = FSA
+			tag = ALF 
+			tag = OKL 
+			tag = TEX 
+			tag = LUI 
+			tag = MEX 
+			tag = NEL 
+			tag = NFL
+			tag = ATL 
+			tag = ICE 
+			tag = IRE 
+			tag = SPR 
+			tag = POR
+			tag = ITA 
+			tag = SER 
+			tag = ALB 
+			tag = BUL 
+			tag = GRE 
+			tag = HUN 
+			tag = ROM 
+			tag = GIB
+			tag = TUR
+			tag = DEN 
+			tag = SWE
+			tag = NOR 
+			tag = FIN 
+		}
+	}
+}
+#cold_war
+news_event = {
+	id = flavor.17
+	title = flavor.17.t
+	desc = flavor.17.d
+	picture = 
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 
+		OR = {
+			tag = JAP
+			tag = GER
+			tag = AST
+			tag = CAN
+			tag = ENG
+			tag = NIR
+			tag = NZL
+			capital_is_north_america
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = flavor.17.a
+		trigger = {
+			AND {
+				capital_is_north_america
+				NOT = {
+					tag = CAN
+				}
+			}
+			
+		}
+	}	
+	option = {
+		name = flavor.17.b
+		trigger = {
+			tag = AST
+			tag = CAN
+			tag = ENG
+			tag = NIR
+			tag = NZL
+		}
+	}	
+	option = {
+		name = flavor.17.c
+		trigger = {
+			tag = GER
+			tag = JAP
+		}
+	}	
+}
