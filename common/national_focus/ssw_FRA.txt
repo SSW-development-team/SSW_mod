@@ -57,7 +57,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 5.00
 		x = 27
-		y = 11
+		y = 12
 		available = {
 			always = no
 		}
@@ -625,7 +625,7 @@ focus_tree = {
 			focus = FRA_Territorial_negotiations_with_Germany
 		}
 		x = 26
-		y = 12
+		y = 13
 		completion_reward = {
 			add_ideas = Preparing_for_war
 		}
@@ -1567,7 +1567,7 @@ focus_tree = {
 			focus = FRA_Preparing_for_the_war
 		}
 		x = 28
-		y = 12
+		y = 13
 		completion_reward = {
 			GER = {
 				country_event = {
@@ -1587,7 +1587,7 @@ focus_tree = {
 			focus = FRA_Preparing_for_the_war
 		}
 		x = 27
-		y = 13
+		y = 14
 		completion_reward = {
 			add_timed_idea = {
 				idea = Military_plan
@@ -1597,25 +1597,11 @@ focus_tree = {
 
 	}
 	focus = {
-		id = FRA_Intervention_in_the_German_CivilWar
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Military_Plan
-		}
-		x = 27
-		y = 14
-		completion_reward = {
-			add_war_support = 0.1
-		}
-
-	}
-	focus = {
 		id = FRA_Operation_to_recapture_the_northern_part
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Intervention_in_the_German_CivilWar
+			focus = FRA_Military_Plan
 		}
 		x = 27
 		y = 15
@@ -1634,6 +1620,178 @@ focus_tree = {
 			exists = no
 			}
 		}
+
+	}
+	focus = {
+		id = FRA_unnmeino_tennbinn
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Operation_to_recapture_the_northern_part
+		}
+		x = 27
+		y = 16
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_german_alilance
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_unnmeino_tennbinn
+		}
+		mutually_exclusive = {
+			focus = FRA_british_alilance
+			focus = FRA_europian_defender
+		}
+		x = 23
+		y = 17
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_hokubu_dakkan_nokuudeta
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_german_alilance
+		}
+		x = 24
+		y = 18
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_han_german_seiryoku_tuihou
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_german_alilance
+		}
+		x = 22
+		y = 18
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_join_german
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_hokubu_dakkan_nokuudeta	
+		}
+		prerequisite = {
+			focus = FRA_han_german_seiryoku_tuihou
+		}
+		x = 23
+		y = 19
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_gizyutu_kyouryoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_join_german
+		}
+		x = 22
+		y = 20
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_gunzi_kyouryoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_join_german
+		}
+		x = 24
+		y = 20
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_touhouseizonnken_saisinnkou
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_gunzi_kyouryoku
+		}
+		prerequisite = {
+			focus = FRA_gizyutu_kyouryoku
+		}
+		x = 23
+		y = 21
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_british_kill
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_touhouseizonnken_saisinnkou
+		}
+		x = 23
+		y = 22
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_british_alilance
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_unnmeino_tennbinn
+		}
+		mutually_exclusive = {
+			focus = FRA_german_alilance
+			focus = FRA_europian_defender
+		}
+		x = 29
+		y = 17
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_europian_defender
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_unnmeino_tennbinn
+		}
+		mutually_exclusive = {
+			focus = FRA_german_alilance
+			focus = FRA_british_alilance
+		}
+		x = 27
+		y = 17
+		completion_reward = {
+
+		}	
 
 	}
 	focus = {

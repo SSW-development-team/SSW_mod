@@ -113,6 +113,11 @@ country_event = {
 		add_state_claim = 144
 		remove_state_core = 1231
 		add_state_claim = 1231
+		hidden_effect = {
+			FNO = {
+				set_cosmetic_tag = FNO_REB
+			}
+		}
 	}
 }
 
@@ -134,10 +139,14 @@ country_event = {
 	}
 	
 	option = {
-		name = norwway.4.a
+		name = norway.4.a
 		ai_chance = {
 			factor = 100
 		}
+		end_puppet = GER
+		leave_faction = yes
+		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
 		FNO = {
 			add_state_core = 144
 			add_state_core = 1231
@@ -151,6 +160,9 @@ country_event = {
 		hidden_effect = {
 			FNO = {
 				inherit_technology = NOR
+				add_ideas = FNO_all_for_norway
+				add_ideas = FNO_passione_for_liberation
+				load_oob = "FNO_Civil_War"
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 149
@@ -177,5 +189,57 @@ country_event = {
 			}
 		}
 	}
+	
+	option = {
+		name = norway.4.b
+		ai_chance = {
+			factor = 0
+		}
+		end_puppet = GER
+		leave_faction = yes
+		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
+		FNO = {
+			add_state_core = 144
+			add_state_core = 1231
+			transfer_state = 144
+			transfer_state = 1231
+			declare_war_on = {
+				target = NOR
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				inherit_technology = NOR
+				add_ideas = FNO_all_for_norway
+				add_ideas = FNO_passione_for_liberation
+				load_oob = "FNO_Civil_War"
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 149
+					producer = NOR
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 300
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_anti_tank_equipment
+					amount = 50
+					producer = ENG
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 50
+					producer = ENG
+				}
+				delete_unit_template_and_units = {
+					division_template = "Hirden Inndeling"
+				}
+				change_tag_from = NOR
+			}
+		}
+	}
 }
-
