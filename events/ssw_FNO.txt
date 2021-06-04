@@ -1,0 +1,35 @@
+add_namespace = FNO_event
+
+#自由ノルウェー軍の到着
+country_event = {
+    id = FNO_event.1
+	title = FNO_event.1.t
+	desc = FNO_event.1.d
+	picture = GFX_flying_fighter_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FNO
+		FNO = {
+			has_war_with = NOR
+		}
+	}
+	
+	option = {
+		name = FNO_event.1.a
+		ai_chance = { base = 100 }
+		hidden_effect = {
+			load_oob = "FNO_Civil_War_2"
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 70
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment
+				amount = 30
+				producer = ENG
+			}
+		}
+	}
+}
