@@ -645,6 +645,72 @@ USA_policy = {
 	}
 }
 SSW_foreign_support = {
+	release_the_nation = {
+		icon = generic_prepare_civil_war
+		cost = 50
+		available = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					is_core_of = FROM
+					is_claimed_by = FROM
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			is_subject = no
+			NOT = { has_government = anarchism }
+		}
+        visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					is_core_of = FROM
+					is_claimed_by = FROM
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			is_subject = no
+			NOT = { has_government = anarchism }
+			FROM = {
+				there_is_no_puppet_decision = yes
+				exists = no
+				capital_scope = { is_owned_and_controlled_by = ROOT }
+			}
+        }
+        target_trigger = {
+			FROM = {
+				there_is_no_puppet_decision = yes
+				exists = no
+				capital_scope = { is_owned_and_controlled_by = ROOT }
+			}
+		}
+		complete_effect = {
+			every_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					OR = {
+						is_core_of = FROM
+						is_claimed_by = FROM
+					}
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				FROM = { transfer_state = PREV }
+			}
+			puppet = FROM
+		}
+		target_non_existing = yes
+		#target_array = occupied_countries
+		ai_will_do = { base = 100 }
+	}
 	return_cores_to_ally = {
 		icon = generic_operation
 		available = {
