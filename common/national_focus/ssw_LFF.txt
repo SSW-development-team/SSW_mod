@@ -1178,9 +1178,9 @@ focus_tree = {
 				ruling_only = yes
 				name = "William Z. Foster"
 			}
-			ARC = { controls_state = 463 }
+			NOT = { owns_state = 463 }
 		}
-		bypass = { NOT = { ARC = { controls_state = 463 } } }
+		bypass = { owns_state = 463 }
 		x = 0
 		y = 2
 		relative_position_id = LFF_with_foster
@@ -1188,7 +1188,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
-			ARC = { country_event = { id = ssw_lff.11 } }
+			random_other_country = {
+				limit = {
+					owns_state = 463
+					NOT = { original_tag = LFF }
+				}
+				country_event = { id = ssw_lff.11 }
+			}
 		}
 	}
 	focus = { #ÉÅÉLÉVÉRêNçU
