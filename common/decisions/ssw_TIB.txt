@@ -398,6 +398,7 @@ TIB_kham_problem = {
 		available = {
 			NOT = {
 				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
 			}
 		}
 		visible = {
@@ -409,11 +410,16 @@ TIB_kham_problem = {
 		days_remove = 20
 		cost = 15
 		days_re_enable = 1
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
 		remove_effect = {
 			add_to_variable = {
 				var = TIB_kham_relation
 				value = 5
 			}
+			custom_effect_tooltip = TIB_kham_decision_up_5
+			clr_country_flag = TIB_other_kham_decision
 		}
 	}
 	TIB_stimulate_chushi_gandruks = {
@@ -427,6 +433,7 @@ TIB_kham_problem = {
 		available = {
 			NOT = {
 				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
 			}
 		}
 		visible = {
@@ -438,11 +445,16 @@ TIB_kham_problem = {
 		days_remove = 15
 		cost = 10
 		days_re_enable = 1
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
 		remove_effect = {
 			add_to_variable = {
 				var = TIB_kham_relation
 				value = -5
 			}
+			custom_effect_tooltip = TIB_kham_decision_down_5
+			clr_country_flag = TIB_other_kham_decision
 		}
 	}
 	TIB_full_annex_peace_ = {
@@ -456,9 +468,13 @@ TIB_kham_problem = {
 		available = {
 			NOT = {
 				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
 			}
-			check_variable = {
-				TIB_kham_relation > 90
+			custom_trigger_tooltip = {
+				tooltip = TIB_kham_relation_greater_than_90_tt
+				check_variable = {
+					TIB_kham_relation > 90
+				}
 			}
 		}
 		visible = {
@@ -466,6 +482,9 @@ TIB_kham_problem = {
 		fire_only_once = yes
 		days_remove = 50
 		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
 		remove_effect = {
 			601 = {
 				add_core_of = TIB
@@ -476,6 +495,7 @@ TIB_kham_problem = {
 				remove_dynamic_modifier = { modifier = TIB_state_chushi_gangdruk } 
 			}
 			add_stability = 0.03
+			clr_country_flag = TIB_other_kham_decision
 		}
 	}
 }
@@ -502,6 +522,106 @@ TIB_second_zunyi_conference_dec = {
 		days_remove = 0
 		complete_effect = {
 			country_event = tibet.150
+		}
+	}
+	TIB_decide_policy_against_kmt = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_against_roc_policy_decided
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_against_roc_policy_decided
+			}
+		}
+		fire_only_once = yes
+		days_remove = 0
+		complete_effect = {
+			
+		}
+	}
+	TIB_decide_religion_policy = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_religion_policy_decided
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_religion_policy_decided
+			}
+		}
+		fire_only_once = yes
+		days_remove = 0
+		complete_effect = {
+			
+		}
+	}
+	TIB_decide_how_to_continue_war = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_civilwar_tactical_policy_decided
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_civilwar_tactical_policy_decided
+			}
+		}
+		fire_only_once = yes
+		days_remove = 0
+		complete_effect = {
+			
+		}
+	}
+	TIB_decide_policy_of_gcd = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_all_policy_decided
+			}
+			has_country_flag = TIB_ccp_flag_decided
+			has_country_flag = TIB_against_roc_policy_decided
+			has_country_flag = TIB_religion_policy_decided
+			has_country_flag = TIB_civilwar_tactical_policy_decided
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_all_policy_decided
+			}
+		}
+		fire_only_once = yes
+		days_remove = 0
+		complete_effect = {
+			
 		}
 	}
 }
