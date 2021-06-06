@@ -1,1 +1,36 @@
-
+liberation_as_puppet_states = {
+	set_variable = { collaboration_formed@var:country_to_initiate = 1 }
+	if = {
+		limit = { var:country_to_initiate = { exists = no } }
+		every_controlled_state = {
+			limit = {
+				occupied_country_tag = country_to_initiate
+				NOT = {
+					is_core_of = PREV.PREV
+					is_claimed_by = PREV.PREV
+				}
+			}
+			var:country_to_initiate = { transfer_state = PREV }
+		}
+		puppet = country_to_initiate
+	}
+	else = {
+		create_dynamic_country = {
+			original_tag = country_to_initiate
+			set_temp_variable = { new_country = THIS }
+			PREV = {
+				every_state = {
+					limit = {
+						occupied_country_tag = country_to_initiate
+						NOT = {
+							is_core_of = PREV.PREV
+							is_claimed_by = PREV.PREV
+						}
+					}
+					var:new_country = { transfer_state = PREV }
+				}
+				puppet = new_country
+			}
+		}
+	}
+}
