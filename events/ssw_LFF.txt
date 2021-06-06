@@ -717,3 +717,45 @@ news_event = { #前代未聞の協定
 		}
 	}
 }
+country_event = { #ブラウダーの演説
+	id = ssw_lff.17
+	title = ssw_lff.17.title
+	desc = ssw_lff.17.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	trigger = {
+		original_tag = LFF
+		date > 1952.1.1
+		surrender_progress > 0.5
+		OR = {
+			has_war_with = ALF
+			has_war_with = FSA
+			has_war_with = TEX
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = ssw_lff.17.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = lff_ideas_27
+			days = 777
+		}
+		set_country_flag = earl_browder_is_inaugurated_as_a_general
+		create_corps_commander = {
+			name = "Earl Browder"
+			id = 188
+			portrait_path = "gfx/leaders/LFF/portrait_lff_earl_browder.dds"
+			traits = {}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+}

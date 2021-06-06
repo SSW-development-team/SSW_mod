@@ -530,6 +530,7 @@ USA_policy = {
 		target_trigger = {
 			OR = {
 				original_tag = BLS
+				original_tag = CSA
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
@@ -557,6 +558,7 @@ USA_policy = {
 		visible = {
 			OR = {
 				original_tag = BLS
+				original_tag = CSA
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
@@ -587,6 +589,7 @@ USA_policy = {
 		available = {
 			OR = {
 				original_tag = BLS
+				original_tag = CSA
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
@@ -605,6 +608,7 @@ USA_policy = {
 		visible = {
 			OR = {
 				original_tag = BLS
+				original_tag = CSA
 				original_tag = TEX
 				original_tag = OKL
 				original_tag = LUI
@@ -625,7 +629,15 @@ USA_policy = {
 				set_cosmetic_tag = NEL_america
 			}
 			if = {
-				limit = { original_tag = LFF }
+				limit = {
+					original_tag = LFF
+					NOT = {
+						has_cosmetic_tag = LFF_unification
+						has_cosmetic_tag = LFF_moderate
+						has_cosmetic_tag = LFF_denikin
+						has_cosmetic_tag = LFF_cornish
+					}
+				}
 				set_cosmetic_tag = LFF_unification
 			}
 			if = {

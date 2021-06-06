@@ -1026,7 +1026,7 @@ focus_tree = {
 				}
 				bypass_recruitment = no
 				available_to_spy_master = yes
-				nationalities = { ALF FSA LFF USA UTC }
+				nationalities = { ALF CSA FSA LFF USA UTC }
 			}
 			create_operative_leader = {
 				name = "John Abt"
@@ -1037,7 +1037,7 @@ focus_tree = {
 				}
 				bypass_recruitment = no
 				available_to_spy_master = yes
-				nationalities = { ALF FSA LFF USA UTC }
+				nationalities = { ALF CSA FSA LFF USA UTC }
 			}
 			create_operative_leader = {
 				name = "Elizabeth Bentley"
@@ -1049,7 +1049,7 @@ focus_tree = {
 				bypass_recruitment = no
 				available_to_spy_master = yes
 				female = yes
-				nationalities = { ALF FSA LFF USA UTC }
+				nationalities = { ALF CSA FSA LFF USA UTC }
 			}
 		}
 	}
@@ -2535,6 +2535,20 @@ focus_tree = {
 			if = {
 				limit = { has_idea = lff_withdesc_ideas_1 }
 				remove_ideas = lff_withdesc_ideas_1
+			}
+			if = {
+				limit = { NOT = { has_country_flag = earl_browder_is_inaugurated_as_a_general } }
+				create_corps_commander = {
+					name = "Earl Browder"
+					id = 188
+					portrait_path = "gfx/leaders/LFF/portrait_lff_earl_browder.dds"
+					traits = {}
+					skill = 4
+					attack_skill = 4
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 3
+				}
 			}
 		}
 	}
