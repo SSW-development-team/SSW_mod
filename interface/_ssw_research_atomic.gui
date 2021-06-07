@@ -34,7 +34,7 @@ guiTypes = {
 		}
 		instantTextBoxType = { #research_atomic title
 			name = "ssw_research_atomic_production_title"
-			position = { x = 220 y = 30 }
+			position = { x = 300 y = 30 }
 			font = "ssw_soukou"
 			text = "research_atomic_production"
 			maxWidth = 200
@@ -62,82 +62,95 @@ guiTypes = {
 				buttonFont = "hoi_16mbs"
 				text = "TITLE_URANIUM"
 			}
-			instantTextBoxType = { #amount of ic title
+##民需工場
+			instantTextBoxType = { #民需工場の割り当て数の表記
 				name = "ssw_research_atomic_production_uranium_amount_of_ic_title"
-				position = { x = 200 y = 100 }
+				position = { x = 80 y = 125 }
 				font = "hoi_16mbs"
 				text = "IC_AMOUNT"
 				maxWidth = 100
 				maxHeight = 30
 			}
-			buttonType = { #amount of ic
+			buttonType = { #民需工場の割り当てスロット
 				name = "ssw_research_atomic_production_uranium_amount_of_ic_slot"
-				position = { x = 170 y = 125 }
+				position = { x = 210 y = 120 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?ssw_atomic_amount_ic_uranium]/[?num_of_civilian_factories]"
+			}
+			buttonType = { #民需工場増加
+				name = "ssw_research_atomic_production_uranium_ic_up"
+				position = { x = 150 y = 120 }
+				quadTextureSprite = "GFX_buttom_atomic_research_up"
+			}
+			buttonType = { #民需工場現象
+				name = "ssw_research_atomic_production_uranium_ic_down"
+				position = { x = 180 y = 120 }
+				quadTextureSprite = "GFX_buttom_atomic_research_down"
+			}
+##原子炉
+instantTextBoxType = { #原子炉の割り当て数の表記
+				name = "ssw_research_atomic_production_uranium_amount_of_nukeplant_title"
+				position = { x = 80 y = 175 }
+				font = "hoi_16mbs"
+				text = "NUKE_PLANT_AMOUNT"
+				maxWidth = 100
+				maxHeight = 30
+			}
+			buttonType = { #原子炉の割り当てスロット
+				name = "ssw_research_atomic_production_uranium_amount_of_nukeplant_slot"
+				position = { x = 210 y = 170 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?ssw_atomic_amount_nukeplant_uranium]/[?num_of_nuclear_reactor]"
+			}
+			buttonType = { #原子炉増加
+				name = "ssw_research_atomic_production_uranium_nukeplant_up"
+				position = { x = 150 y = 170 }
+				quadTextureSprite = "GFX_buttom_atomic_research_up"
+			}
+			buttonType = { #原子炉現象
+				name = "ssw_research_atomic_production_uranium_nukeplant_down"
+				position = { x = 180 y = 170 }
+				quadTextureSprite = "GFX_buttom_atomic_research_down"
+			}
+###精製済/最大貯蓄量
+			buttonType = { #精製済/最大貯蓄量日毎の精製量
+				name = "ssw_research_atomic_production_amount_of_uranium_slot"
+				position = { x = 185 y = 220 }
 				spriteType = "GFX_buttom_atomic_research_slot_3"
 				alwaystransparent = yes
 				buttonFont = "hoi_16mbs"
-				text = "[?uranium_value]"
+				text = "[?uranium_value]/[?uranium_limit_value]"
 			}
-			buttonType = { #gain factoly use
-				name = "ssw_research_atomic_production_uranium_up"
-				position = { x = 90 y = 110 }
-				quadTextureSprite = "GFX_buttom_atomic_research_up"
-			}
-			buttonType = { #down factory use
-				name = "ssw_research_atomic_production_uranium_down"
-				position = { x = 120 y = 110 }
-				quadTextureSprite = "GFX_buttom_atomic_research_down"
-			}
-			buttonType = { #sum of production uranium
-				name = "ssw_research_atomic_production_sum_of_uranium_slot"
-				position = { x = 196 y = 170 }
-				spriteType = "GFX_buttom_atomic_research_slot_1"
-				alwaystransparent = yes
-				buttonFont = "hoi_16mbs"
-				text = ""
-			}
-			instantTextBoxType = { #amount of ic title
-				name = "ssw_research_atomic_production_sum_of_uranium_title"
-				position = { x = 80 y = 177 }
+			instantTextBoxType = { #精製済/最大貯蓄量のテキスト
+				name = "ssw_research_atomic_production_amount_of_uranium_title"
+				position = { x = 80 y = 227 }
 				font = "hoi_16mbs"
-				text = "SUM_OF_URANIUM"
+				text = "AMOUNT_OF_URANIUM"
 				maxWidth = 100
 				maxHeight = 30
 			}
-			buttonType = { #amount of uranium every month slot
-				name = "ssw_research_atomic_production_amount_of_uranium_every_month_slot"
-				position = { x = 196 y = 210 }
-				spriteType = "GFX_buttom_atomic_research_slot_1"
+###日毎の精製量
+			buttonType = { #日毎の精製量
+				name = "ssw_research_atomic_production_par_day_uranium_slot"
+				position = { x = 185 y = 260 }
+				spriteType = "GFX_buttom_atomic_research_slot_3"
 				alwaystransparent = yes
 				buttonFont = "hoi_16mbs"
-				text = "[?uranium_value_every_month]"
+				text = "[?ssw_atomic_total_production_uranium]"
 			}
-			instantTextBoxType = { #amount of uranium every month title
-				name = "ssw_research_atomic_production_amount_of_uranium_every_month_title"
-				position = { x = 80 y = 217 }
+			instantTextBoxType = { #日毎の精製量のテキスト
+				name = "ssw_research_atomic_production_par_day_uranium_title"
+				position = { x = 80 y = 267 }
 				font = "hoi_16mbs"
-				text = "URANIUM_EVERY_MONTH"
+				text = "PER_DAY_URANIUM"
 				maxWidth = 100
 				maxHeight = 30
 			}
-
-			buttonType = { #amount of uranium every month slot
-				name = "ssw_research_atomic_production_limit_of_uranium_slot"
-				position = { x = 196 y = 250 }
-				spriteType = "GFX_buttom_atomic_research_slot_1"
-				alwaystransparent = yes
-				buttonFont = "hoi_16mbs"
-				text = "[?uranium_max_value]"
-			}
-			instantTextBoxType = { #amount of uranium every month title
-				name = "ssw_research_atomic_production_limit_of_uranium_title"
-				position = { x = 80 y = 257 }
-				font = "hoi_16mbs"
-				text = "LIMIT_OF_URANIUM"
-				maxWidth = 100
-				maxHeight = 30
-			}
-
+###進捗バー
 			buttonType = { #uranium bar_slot
 				name = "ssw_research_atomic_production_bar_slot"
 				position = { x = 15 y = 100 }
@@ -150,7 +163,7 @@ guiTypes = {
 				name = "ssw_research_atomic_ber"
 				spriteType = "GFX_atomic_research_ber"
 				position = { x = 15 y = 103 }
-	#			pdx_tooltip = KOR_current_discontent_bar_tt
+				pdx_tooltip = URANIUMU_BAR
 			}
 			buttonType = { #uranium bar_slot flame
 				name = "ssw_research_atomic_production_bar_flame"

@@ -33,37 +33,54 @@ scripted_gui = {
 		effects = {
 			button_open_atomic_gui_click = {
 			}
-			ssw_research_atomic_production_uranium_up_click = {
+			ssw_research_atomic_production_uranium_ic_up_click = {
 				if = {
 					limit = {
-						check_variable = { uranium_value < uranium_max_value }
+						check_variable = { ssw_atomic_amount_ic_uranium < num_of_civilian_factories }
 					}
-					add_to_variable = { uranium_value = 1 }
-					add_to_variable = { uranium_value_every_month = 30 }
+					add_to_variable = { ssw_atomic_amount_ic_uranium = 1 }
+					calculate_value_of_uranium = yes
+				}
+				else = {
+				}
+			}
+			ssw_research_atomic_production_uranium_ic_down_click = {
+				if = {
+					limit = {
+						check_variable = { ssw_atomic_amount_ic_uranium > 0 }
+					}
+					add_to_variable = { ssw_atomic_amount_ic_uranium = -1 }
+					calculate_value_of_uranium = yes
 
 				}
 				else = {
-					add_to_variable = { uranium_value = 1 }
-					add_to_variable = { uranium_value_every_month = 30 }
-
-
 				}
-
 			}
-			ssw_research_atomic_production_uranium_down_click = {
+			ssw_research_atomic_production_uranium_nukeplant_up_click = {
 				if = {
 					limit = {
-						check_variable = { uranium_value > 0 }
+						check_variable = { ssw_atomic_amount_nukeplant_uranium < num_of_nuclear_reactor }
 					}
-					add_to_variable = { uranium_value = -1 }
-					add_to_variable = { uranium_value_every_month = -30 }
+					add_to_variable = { ssw_atomic_amount_nukeplant_uranium = 1 }
+					calculate_value_of_uranium = yes
 
 				}
 				else = {
-					add_to_variable = { uranium_value = 0 }
-
 				}
 			}
+			ssw_research_atomic_production_uranium_nukeplant_down_click = {
+				if = {
+					limit = {
+						check_variable = { ssw_atomic_amount_nukeplant_uranium > 0 }
+					}
+					add_to_variable = { ssw_atomic_amount_nukeplant_uranium = -1 }
+					calculate_value_of_uranium = yes
+
+				}
+				else = {
+				}
+			}
+
 			test_click = {
 				add_to_variable = { uranium_value = 1 }
 				calculate_value_of_uranium = yes
@@ -85,7 +102,7 @@ scripted_gui = {
 		}
 		properties = {
 			ssw_research_atomic_ber = {
-				frame = uranium_value
+				frame = uranium_late
 			}
 		}
 		triggers = {
