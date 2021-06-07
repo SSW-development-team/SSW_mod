@@ -131,3 +131,82 @@ TIB_temple_gov_idea = {
 		}
 	}
 }
+
+TIB_upward_taxe_to_khams = {
+	if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_none
+		}
+		add_ideas = TIB_tax_to_kham_1
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_1
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_1
+			add_idea = TIB_tax_to_kham_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_2
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_2
+			add_idea = TIB_tax_to_kham_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_3
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_3
+			add_idea = TIB_tax_to_kham_4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_4
+		}
+	}
+}
+TIB_downau_taxe_to_khams = {
+	if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_4
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_4
+			add_idea = TIB_tax_to_kham_3	
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_3
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_3
+			add_idea = TIB_tax_to_kham_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_2
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_2
+			add_idea = TIB_tax_to_kham_1	
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = TIB_tax_to_kham_1
+		}
+		swap_ideas = {
+			remove_idea = TIB_tax_to_kham_1
+			add_idea = TIB_tax_to_kham_none	
+		}
+	}
+}
