@@ -69,6 +69,72 @@ calculate_country_Industrialization_growth_rate_to_add = {
 }
 calculate_country_poverty_rate_growth_rate_to_add = {
 	add_to_variable = { country_poverty_rate = country_poverty_rate_growth_rate }
+	add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 20 }
+				check_variable = { country_poverty_rate = 20 }	
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_1
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_1
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 40 }
+				check_variable = { country_poverty_rate = 40 }
+			}
+			check_variable = { country_poverty_rate > 20 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_2
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_2
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 40 }
+			OR = {
+				check_variable = { country_poverty_rate < 60 }
+				check_variable = { country_poverty_rate = 60 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_3
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_3
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 60 }
+			OR = {
+				check_variable = { country_poverty_rate < 80 }
+				check_variable = { country_poverty_rate = 80 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_4
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_4
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 80 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_5
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_5
+	}
 }
 calculate_country_literacy_rate_growth_rate_to_add = {
 	add_to_variable = { country_literacy_rate = country_literacy_rate_growth_rate }
@@ -88,6 +154,15 @@ delete_all_industrialization_rate_idea = {
 		idea_social_tab_industrialization_level_3
 		idea_social_tab_industrialization_level_4
 		idea_social_tab_industrialization_level_5
+	}
+}
+delete_all_poverty_rate_idea = {
+	remove_ideas = {
+		idea_social_tab_poverty_level_1
+		idea_social_tab_poverty_level_2
+		idea_social_tab_poverty_level_3
+		idea_social_tab_poverty_level_4
+		idea_social_tab_poverty_level_5
 	}
 }
 #徴兵法
