@@ -32,7 +32,7 @@ TIB_influence_mongol = {
 			MON = {
 				retire_ideology_leader = authority_despotism
 				create_country_leader = {
-					name = "16th Karmapa"
+					name = "9th Jebtsundamba Khutughtu"
 					desc = "POLITICS_16_KARMAPA_DESC"
 					picture = "gfx/leaders/TIB/ssw_Portrait_Tibet_16th_Karmapa.dds"
 					ideology = authority_despotism_ideology     
@@ -454,6 +454,200 @@ TIB_kham_problem = {
 				value = -5
 			}
 			custom_effect_tooltip = TIB_kham_decision_down_5
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_give_precious_to_noble_of_khm = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
+			}
+			num_of_civilian_factories > 2
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 35
+		days_re_enable = 10
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 10
+			}
+			custom_effect_tooltip = TIB_kham_decision_up_10
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_oppression_noble_of khm = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 20
+		days_re_enable = 10
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = -10
+			}
+			custom_effect_tooltip = TIB_kham_decision_down_10
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_tax_to_kham = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
+			}
+			custom_trigger_tooltip
+				tooltip = TIB_kham_taxes_uplimit
+				check_variable = {
+					TIB_kham_taxes < 5
+				}
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 35
+		cost = 30
+		days_re_enable = 10
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+			if = {
+				limit = {
+					NOT = {
+						has_variable = TIB_kham_taxes
+					}
+				}
+				set_variable = {
+					var = TIB_kham_taxes
+					value = 2
+				}
+			}
+		}
+		modifier = {
+		}
+		remove_effect = {
+			TIB_upward_taxe_to_khams = yes
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = -5
+			}
+			add_to_variable = {
+				var = TIB_kham_taxes
+				value = 1
+			}
+			custom_effect_tooltip = TIB_kham_decision_down_5
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_detax_to_kham = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
+			}
+			custom_trigger_tooltip
+				tooltip = TIB_kham_taxes_downlimit
+				check_variable = {
+					TIB_kham_taxes > 1
+				}
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+			}
+		}
+		fire_only_once = no
+		days_remove = 35
+		cost = 50
+		days_re_enable = 10
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+			if = {
+				limit = {
+					NOT = {
+						has_variable = TIB_kham_taxes
+					}
+				}
+				set_variable = {
+					var = TIB_kham_taxes
+					value = 2
+				}
+			}
+		}
+		modifier = {
+		}
+		remove_effect = {
+			TIB_downau_taxe_to_khams = yes
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 5
+			}
+			add_to_variable = {
+				var = TIB_kham_taxes
+				value = -1
+			}
+			custom_effect_tooltip = TIB_kham_decision_up_5
 			clr_country_flag = TIB_other_kham_decision
 		}
 	}
