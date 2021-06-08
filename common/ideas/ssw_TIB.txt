@@ -222,8 +222,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				license_purchase_cost_factor = -0.5
-				license_tech_difference_speed_factor = -0.5
+				license_purchase_cost = -0.5
+				license_tech_difference_speed = -0.5 #Factor removed ##"Unknown modifier: license_tech_difference_speed_factor"
 			}
 		}
 		TIB_14th_dalai_lama = {
@@ -493,7 +493,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				research_speed_factor = 0.7
+				research_speed_factor = 0.07
 			}
 		}
 		TIB_nobles_wealth = {
@@ -506,6 +506,70 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.3
 				production_speed_buildings_factor = 0.1
+			}
+		}
+		###kham tax
+		TIB_tax_to_kham_none = {
+			picture = chi_hyper_inflation
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.01
+			}
+		}
+		TIB_tax_to_kham_1 = {
+			picture = chi_hyper_inflation2
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.01
+				political_power_factor = 0.05
+				stability_factor = -0.01
+			}
+		}
+		TIB_tax_to_kham_2 = {
+			picture = chi_hyper_inflation3
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				political_power_factor = 0.1
+				stability_factor = -0.02
+			}
+		}
+		TIB_tax_to_kham_3 = {
+			picture = chi_hyper_inflation4
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.03
+				political_power_factor = 0.15
+				stability_factor = -0.03
+			}
+		}
+		TIB_tax_to_kham_4 = {
+			picture = chi_hyper_inflation5
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.04
+				political_power_factor = 0.2
+				stability_factor = -0.04
 			}
 		}
 	}
@@ -618,6 +682,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_pandatsang_rapga = {
+			picture = pandatsan_rapga
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_foreign_affairs = {
 		TIB_tsepon_shakabpa_fa = {
@@ -654,6 +734,38 @@ ideas = {
 		}
 		TIB_chen_yi_fa = {
 			picture = chen_yi_civil
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			cancel_if_invalid = no
+			allowed = {
+					tag = TIB
+			}
+			traits = {
+			}
+		}
+		TIB_chang_wei_pei = {
+			picture = chang_wei_pei
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			cancel_if_invalid = no
+			allowed = {
+					tag = TIB
+			}
+			traits = {
+			}
+		}
+		TIB_heinrich_harrer = {
+			picture = heinrich_harrer
 			removal_cost = -1
 			available = {
 				custom_trigger_tooltip = {
@@ -832,6 +944,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_thubten_kunphela = {
+			picture = thubten_kunphela
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_army = {
 		TIB_wangchen_gelek = {
@@ -898,6 +1026,68 @@ ideas = {
 			}
 			
 			traits = { electronics_concern }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	theorist = {
+		TIB_ernst_shafer = {
+			picture = ernst_schafer
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	army_chief = {
+		TIB_jigme_taring_mil = {
+			picture = jigme_taring_military
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		TIB_tsarong_mil = {
+			picture = tsarong_military
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	air_chief = {
+		TIB_peter_aufschnaiter = {
+			picture = peter_aufschnaiter
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			traits = {  }
 
 			ai_will_do = {
 				factor = 1
