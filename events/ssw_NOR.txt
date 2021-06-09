@@ -1,11 +1,10 @@
-
-add_namespace = norway
+add_namespace = NOR_event
 
 #大規模ストライキ
 country_event = {
-	id = norway.1
-	title = norway.1.t
-	desc = norway.1.d
+	id = NOR_event.1
+	title = NOR_event.1.t
+	desc = NOR_event.1.d
 	picture = GFX_demonstration_1
 	fire_only_once = yes
 	
@@ -13,9 +12,6 @@ country_event = {
 		tag = NOR
 		date > 1950.2.15
 		date < 1950.3.1
-		not = {
-			has_global_flag = GER_civil_war
-		}
 	}
 	
 	mean_time_to_happen = {
@@ -23,7 +19,7 @@ country_event = {
 	}
 	
 	option = {
-		name = norway.1.a
+		name = NOR_event.1.a
 		ai_chance = {
 			factor = 100
 		}
@@ -38,9 +34,9 @@ country_event = {
 
 #レジスタンスによる鉄道襲撃
 country_event = {
-	id = norway.2
-	title = norway.2.t
-	desc = norway.2.d
+	id = NOR_event.2
+	title = NOR_event.2.t
+	desc = NOR_event.2.d
 	picture = GFX_demonstration_1
 	fire_only_once = yes
 	
@@ -48,9 +44,6 @@ country_event = {
 		tag = NOR
 		date > 1950.3.15
 		date < 1950.4.1
-		not = {
-			has_global_flag = GER_civil_war
-		}
 	}
 	
 	mean_time_to_happen = {
@@ -58,7 +51,7 @@ country_event = {
 	}
 	
 	option = {
-		name = norway.2.a
+		name = NOR_event.2.a
 		ai_chance = {
 			factor = 100
 		}
@@ -80,9 +73,9 @@ country_event = {
 
 #北部でのレジスタンス運動の活発化
 country_event = {
-	id = norway.3
-	title = norway.3.t
-	desc = norway.3.d
+	id = NOR_event.3
+	title = NOR_event.3.t
+	desc = NOR_event.3.d
 	picture = GFX_demonstration_1
 	fire_only_once = yes
 	
@@ -97,7 +90,7 @@ country_event = {
 	}
 	
 	option = {
-		name = norway.3.a
+		name = NOR_event.3.a
 		ai_chance = {
 			factor = 100
 		}
@@ -105,7 +98,7 @@ country_event = {
 		144 = {
 			damage_building = {
 				type = arms_factory
-				damage = 1.0
+				damage = 0.5
 			}
 		}
 		add_manpower = -50
@@ -121,11 +114,11 @@ country_event = {
 	}
 }
 
-#ノルウェー解放戦線の蜂起(ノルウェー内戦の開始)
+#駐ノルウェードイツ軍の撤退
 country_event = {
-	id = norway.4
-	title = norway.4.t
-	desc = norway.4.d
+	id = NOR_event.4
+	title = NOR_event.4.t
+	desc = NOR_event.4.d
 	picture = GFX_demonstration_1
 	fire_only_once = yes
 	
@@ -139,13 +132,45 @@ country_event = {
 	}
 	
 	option = {
-		name = norway.4.a
+		name = NOR_event.4.a
+		ai_chance = {
+			factor = 100
+		}
+		remove_ideas = NOR_german_army_in_norway
+	}
+}
+
+#ノルウェー解放戦線の蜂起(ノルウェー内戦の開始)
+country_event = {
+	id = NOR_event.5
+	title = NOR_event.5.t
+	desc = NOR_event.5.d
+	picture = GFX_demonstration_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		has_global_flag = GER_civil_war
+		NOR = {
+			not = {
+				has_idea = NOR_german_army_in_norway
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = NOR_event.5.a
 		ai_chance = {
 			factor = 100
 		}
 		end_puppet = GER
 		leave_faction = yes
 		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
 		FNO = {
 			add_state_core = 144
 			add_state_core = 1231
@@ -160,6 +185,7 @@ country_event = {
 			FNO = {
 				inherit_technology = NOR
 				add_ideas = FNO_all_for_norway
+				add_ideas = FNO_passione_for_liberation
 				load_oob = "FNO_Civil_War"
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
@@ -189,13 +215,14 @@ country_event = {
 	}
 	
 	option = {
-		name = norway.4.b
+		name = NOR_event.5.b
 		ai_chance = {
 			factor = 0
 		}
 		end_puppet = GER
 		leave_faction = yes
 		add_ideas = NOR_resistance
+		add_ideas = NOR_panic_in_army
 		FNO = {
 			add_state_core = 144
 			add_state_core = 1231
@@ -210,6 +237,7 @@ country_event = {
 			FNO = {
 				inherit_technology = NOR
 				add_ideas = FNO_all_for_norway
+				add_ideas = FNO_passione_for_liberation
 				load_oob = "FNO_Civil_War"
 				add_equipment_to_stockpile = {
 					type = infantry_equipment

@@ -80,13 +80,32 @@ ideas = {
 			picture = FRA_scw_intervention_republicans_focus
 			
 			modifier = {
-				army_attack_factor = -0.20
-				army_defence_factor = -0.20
-				army_core_attack_factor = -0.2
-				army_core_defence_factor = -0.3
-				army_org_factor = -0.5
-				army_morale_factor = -0.5
 				army_speed_factor = -0.25
+				army_org_factor = -0.25
+				army_morale_factor = -0.50
+				army_attack_factor = -0.25
+				army_defence_factor = -0.25
+			}
+		}
+		#軍内部の混乱
+		NOR_panic_in_army = {
+			
+			allowed = {always = yes}
+			
+			removal_cost = -1
+			
+			allowed_civil_war = {always = yes}
+			
+			picture = chi_incompetent_officers
+			
+			modifier = {
+				army_org_factor = -0.25
+				surrender_limit = -0.20
+			}
+			targeted_modifier = {
+				tag = FNO
+				attack_bonus_against = -0.25
+				defense_bonus_against = -0.25
 			}
 		}
 	}

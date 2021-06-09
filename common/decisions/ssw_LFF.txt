@@ -15,6 +15,7 @@ LFF_policy = {
 					original_tag = OKL
 					original_tag = TEX
 					original_tag = USA
+					original_tag = UTC
 				}
 			}
 		}
@@ -27,6 +28,7 @@ LFF_policy = {
 					original_tag = OKL
 					original_tag = TEX
 					original_tag = USA
+					original_tag = UTC
 				}
 			}
 		}
@@ -45,8 +47,11 @@ LFF_policy = {
 		icon = generic_operation
 		available = {
 			is_in_faction = no
-			has_completed_focus = LFF_dealing_with_the_devil
-			NOT = { has_war_with = FROM }
+			NOT = {
+				has_war_with = FROM
+				country_exists = ALF
+				country_exists = FSA
+			}
 			any_other_country = {
 				has_war_with = GER
 				has_war_with = LFF
@@ -54,8 +59,11 @@ LFF_policy = {
 		}
 		visible = {
 			is_in_faction = no
-			has_completed_focus = LFF_dealing_with_the_devil
-			NOT = { has_war_with = FROM }
+			NOT = {
+				has_war_with = FROM
+				country_exists = ALF
+				country_exists = FSA
+			}
 			any_other_country = {
 				has_war_with = GER
 				has_war_with = LFF
@@ -78,6 +86,59 @@ LFF_policy = {
 		ai_will_do = { factor = 10 }
 		complete_effect = {
 			FROM = { country_event = { id = ssw_lff.14 } }
+		}
+	}
+	ambition_counterattack = {
+		icon = generic_operation
+		available = {
+			surrender_progress > 0.15
+			OR = {
+				has_war_with = ALF
+				has_war_with = FSA
+			}
+		}
+		fire_only_once = yes
+		visible = {
+			surrender_progress > 0.15
+			OR = {
+				has_war_with = ALF
+				has_war_with = FSA
+			}
+		}
+		ai_will_do = { factor = 10 }
+		days_remove = 720
+		cost = 0
+		modifier = {
+			army_morale_factor = 0.25
+			defence = 0.25
+			offence = 0.25
+			attrition = -0.1
+			supply_consumption_factor = -0.1
+		}
+	}
+	last_resort = {
+		icon = generic_operation
+		available = {
+			surrender_progress > 0.5
+			OR = {
+				has_war_with = ALF
+				has_war_with = FSA
+			}
+		}
+		fire_only_once = yes
+		visible = {
+			surrender_progress > 0.5
+			OR = {
+				has_war_with = ALF
+				has_war_with = FSA
+			}
+		}
+		ai_will_do = { factor = 10 }
+		days_remove = 400
+		cost = 0
+		modifier = {
+			defence = 0.5
+			offence = 0.5
 		}
 	}
 }

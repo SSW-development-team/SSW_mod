@@ -625,7 +625,15 @@ USA_policy = {
 				set_cosmetic_tag = NEL_america
 			}
 			if = {
-				limit = { original_tag = LFF }
+				limit = {
+					original_tag = LFF
+					NOT = {
+						has_cosmetic_tag = LFF_unification
+						has_cosmetic_tag = LFF_moderate
+						has_cosmetic_tag = LFF_denikin
+						has_cosmetic_tag = LFF_cornish
+					}
+				}
 				set_cosmetic_tag = LFF_unification
 			}
 			if = {
@@ -645,6 +653,65 @@ USA_policy = {
 	}
 }
 SSW_foreign_support = {
+	release_the_nation = {
+		icon = generic_prepare_civil_war
+		cost = 77
+		available = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					is_core_of = FROM
+					is_claimed_by = FROM
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			is_subject = no
+			NOT = { has_government = anarchism }
+			FROM = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+		}
+        visible = {
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					is_core_of = FROM
+					is_claimed_by = FROM
+				}
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			is_subject = no
+			NOT = { has_government = anarchism }
+			FROM = { there_is_no_puppet_decision = yes }
+        }
+        target_trigger = { FROM = { there_is_no_puppet_decision = yes } }
+		complete_effect = {
+			#set_temp_variable = { country_to_initiate = FROM }
+			#liberation_as_puppet_states = yes
+			every_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					OR = {
+						is_core_of = FROM
+						is_claimed_by = FROM
+					}
+					NOT = {
+						is_core_of = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				FROM = { transfer_state = PREV }
+			}
+			puppet = FROM
+		}
+		target_non_existing = yes
+		target_array = occupied_countries
+		ai_will_do = { base = 10 }
+	}
 	return_cores_to_ally = {
 		icon = generic_operation
 		available = {

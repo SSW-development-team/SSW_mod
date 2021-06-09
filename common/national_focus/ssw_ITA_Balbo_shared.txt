@@ -2277,7 +2277,7 @@ shared_focus = {
 		}
 	available = {
 		always = no
-		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_mobile_tank_available_tooltip
+		custom_effect_tooltip = ITA_focus_balbo_Focus_on_mobile_tank_available_tooltip
 	}
 	ai_will_do = {
 		factor = 5
@@ -2304,7 +2304,7 @@ shared_focus = {
 		}
 	available = {
 		always = no
-		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_attack_tank_available_tooltip
+		custom_effect_tooltip = ITA_focus_balbo_Focus_on_attack_tank_available_tooltip
 	}
 	ai_will_do = {
 		factor = 5
@@ -2331,7 +2331,7 @@ shared_focus = {
 		}
 	available = {
 		always = no
-		#custom_trigger_tooltip = ITA_focus_balbo_Focus_on_defence_tank_available_tooltip
+		custom_effect_tooltip = ITA_focus_balbo_Focus_on_defence_tank_available_tooltip
 	}
 	ai_will_do = {
 		factor = 5
@@ -2395,9 +2395,70 @@ shared_focus = {
 	x = 33
 	y = 8
 	completion_reward = {
-		#country_event = {
-		#	id
-		#}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = armor 
+		}
+	}
+}
+#ドイツにならう
+shared_focus = {
+	id = ITA_focus_balbo_Learn_from_Germany
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Transition_to_Mobile_Warfare
+		}
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_General_Messes_plan
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 33
+	y = 9
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = armor 
+		}
+	}
+}
+#メッセ将軍の案
+shared_focus = {
+	id = ITA_focus_balbo_General_Messes_plan
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_establish_mobile_warfare_theory
+		}
+	mutually_exclusive = {
+		focus = ITA_focus_balbo_Learn_from_Germany
+	}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 31
+	y = 9
+	completion_reward = {
 		add_tech_bonus = {
 			bonus = 1.5
 			uses = 1
@@ -3956,6 +4017,9 @@ shared_focus = {
     x = 80
     y = 0
     completion_reward = {
+		country_event = {
+			id = SSW_ITA.balbo_political
+		}
     }
 }
 #国内での影響力を強化
@@ -3981,5 +4045,6 @@ shared_focus = {
     x = 80
     y = 1
     completion_reward = {
+		activate_decision
     }
 }

@@ -20,6 +20,7 @@ NGame = {
 	MAX_EFFECT_ITERATION = 1000,					-- maximum allowed iteration for loop effects
 	MAX_SCRIPTED_LOC_RECURSION = 30,				-- max recursion for scripted localizations
 	HANDS_OFF_START_TAG = "JAP",					-- tag for player country for -hands_off runs. use an existing tag that is less likely to affect the game
+	ALERT_SFX_COOLDOWN_DAYS = 14,					-- After playing an alert sound, don't play the same sound for XXX days, even if it fires again.
 },
 
 NDiplomacy = {
@@ -1929,7 +1930,7 @@ NAI = {
 	TOO_INSIGNIFICANT_MAX_PENALTY = 350,						-- max penalty that will be applied for thinking a country is too insignificant
 
 	MANPOWER_FREE_USAGE_THRESHOLD = 500000,			-- If AI has this much manpower he doesn't care about the percentage
-	RT_TRAINING_EQUIPMENT_LEVEL = 0.9,               -- ai will not start to train if equipment drops below this level
+	START_TRAINING_EQUIPMENT_LEVEL = 0.9,               -- ai will not start to train if equipment drops below this level
 	STOP_TRAINING_EQUIPMENT_LEVEL = 0.8,                -- ai will not train if equipment drops below this level
 	BUILD_REFINERY_LACK_OF_RESOURCE_MODIFIER = 0.003,	-- How much lack of resources are worth when evaluating what to build.
 	DIVISION_DESIGN_WEIGHTS = {							-- Base values used by AI to evaluate value of a stat

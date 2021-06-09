@@ -571,8 +571,7 @@ country_event = { #スイスの運命
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_NFR_GAMESTART
-					has_state_flag = maybe_core_ITA_GAMESTART
+					state = 838
 				}
 			}
 			SWI = { transfer_state = PREV }
@@ -597,19 +596,39 @@ country_event = { #スイスの運命
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_NFR_GAMESTART
-					has_state_flag = maybe_core_ITA_GAMESTART
+					state = 838
 				}
 			}
-			WGR = { transfer_state = PREV }
 			add_core_of = WGR
+			WGR = { transfer_state = PREV }
 		}
+	}
+	option = {
+		name = ssw_foc_western_europe.4.c
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				is_core_of = SWI
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+					state = 838
+				}
+			}
+			SWI = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = SWI_helvetia
+			}
+		}
+		puppet = SWI
 	}
 	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
-		set_country_flag = continue_to_occupy_austria
+		set_country_flag = continue_to_occupy_switzerland
 	}
 }
 country_event = { #ルクセンブルクの運命
@@ -865,7 +884,7 @@ country_event = { #リヒテンシュタインの運命
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
-		set_country_flag = continue_to_occupy_luxembourg
+		set_country_flag = continue_to_occupy_liechtenstein
 	}
 }
 country_event = { #イギリスの運命
