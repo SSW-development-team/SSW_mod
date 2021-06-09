@@ -166,3 +166,42 @@ country_event = {
 		add_stability = 0.1
 	}
 }
+
+#国内の安定化
+country_event = {
+    id = FNO_event.6
+	title = FNO_event.6.t
+	desc = FNO_event.6.d
+	picture = GFX_flying_fighter_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FNO
+		FNO = {
+			owns_state = 110
+		}
+		110 = {
+			is_core_of = FNO
+		}
+		1230 = {
+			is_core_of = FNO
+		}
+		142 = {
+			is_core_of = FNO
+		}
+		143 = {
+			is_core_of = FNO
+		}
+	}
+	
+	option = {
+		name = FNO_event.6.a
+		ai_chance = { base = 100 }
+		
+		delete_unit_template_and_units = {
+			division_template = "Innenriksfront"
+		}
+		add_political_power = 10
+		add_stability = 0.1
+	}
+}
