@@ -1,6 +1,14 @@
 
+update_growth_rate = {
+	set_variable = { country_industrialization_growth_rate_2 = 0 }
+	set_variable = { country_Industrialization_growth_rate_2 = country_industrialization_growth_rate }
+	set_temp_variable = { temp2 = country_Industrialization_growth_rate_2 }
+	add_to_temp_variable = { temp2 = modifier@industrialization_growth_rate_modifier }
+	add_to_temp_variable = { temp2 = modifier@industrialization_growth_rate_factor }
+	set_variable = { country_Industrialization_growth_rate_2 = temp2 }
+}
 calculate_country_Industrialization_growth_rate_to_add = {
-	add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate }
+	add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate_2 }
 	if = {
 		limit = {
 			OR = {
@@ -66,18 +74,153 @@ calculate_country_Industrialization_growth_rate_to_add = {
 		delete_all_industrialization_rate_idea = yes
 		add_ideas = idea_social_tab_industrialization_level_5
 	}
+	clamp_variable = { var = country_industrialization_rate min = 0 max = 100 }
 }
 calculate_country_poverty_rate_growth_rate_to_add = {
 	add_to_variable = { country_poverty_rate = country_poverty_rate_growth_rate }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 20 }
+				check_variable = { country_poverty_rate = 20 }	
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_1
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_1
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 40 }
+				check_variable = { country_poverty_rate = 40 }
+			}
+			check_variable = { country_poverty_rate > 20 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_2
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_2
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 40 }
+			OR = {
+				check_variable = { country_poverty_rate < 60 }
+				check_variable = { country_poverty_rate = 60 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_3
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_3
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 60 }
+			OR = {
+				check_variable = { country_poverty_rate < 80 }
+				check_variable = { country_poverty_rate = 80 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_4
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_4
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 80 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_5
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_5
+	}
+	clamp_variable = { var = country_poverty_rate min = 0 max = 100 }
 }
 calculate_country_literacy_rate_growth_rate_to_add = {
 	add_to_variable = { country_literacy_rate = country_literacy_rate_growth_rate }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_literacy_rate < 20 }
+				check_variable = { country_literacy_rate = 20 }	
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_1
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_1
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_literacy_rate < 40 }
+				check_variable = { country_literacy_rate = 40 }
+			}
+			check_variable = { country_literacy_rate > 20 }
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_2
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_2
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 40 }
+			OR = {
+				check_variable = { country_literacy_rate < 60 }
+				check_variable = { country_literacy_rate = 60 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_3
+			}
+		}
+		delete_all_literacyrate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_3
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 60 }
+			OR = {
+				check_variable = { country_literacy_rate < 80 }
+				check_variable = { country_literacy_rate = 80 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_4
+			}
+		}
+		delete_all_literacyy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_4
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 80 }
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_5
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_5
+	}
+	clamp_variable = { var = country_literacy_rate min = 0 max = 100 }
 }
 calculate_country_reserch_invest_to_add = {
-	set_temp_variable = { temp1 = country_industrial_complex_invest }
-	divide_temp_variable = { temp1 = 6 }
-	add_to_variable = { country_research_institute = temp1  }
-	clamp_variable = { var = country_research_institute min = -100 max = 600 }
+		set_temp_variable = { temp1 = num_of_civilian_factories }
+		multiply_temp_variable = { temp1 = country_industrial_complex_invest }
+		divide_temp_variable = { temp1 = 4.5 }
+		add_to_temp_variable = { temp1 = modifier@research_institute_invest_growth_modifier }
+		add_to_variable = { country_research_institute = temp1  }
+		clamp_variable = { var = country_research_institute min = -200 max = 600 }
 }
 reload_policy_tab_dynamic_modifiers = {
 }
@@ -88,6 +231,24 @@ delete_all_industrialization_rate_idea = {
 		idea_social_tab_industrialization_level_3
 		idea_social_tab_industrialization_level_4
 		idea_social_tab_industrialization_level_5
+	}
+}
+delete_all_poverty_rate_idea = {
+	remove_ideas = {
+		idea_social_tab_poverty_level_1
+		idea_social_tab_poverty_level_2
+		idea_social_tab_poverty_level_3
+		idea_social_tab_poverty_level_4
+		idea_social_tab_poverty_level_5
+	}
+}
+delete_all_literacy_rate_idea = {
+	remove_ideas = {
+		idea_social_tab_literacy_level_1
+		idea_social_tab_literacy_level_2
+		idea_social_tab_literacy_level_3
+		idea_social_tab_literacy_level_4
+		idea_social_tab_literacy_level_5
 	}
 }
 #徴兵法

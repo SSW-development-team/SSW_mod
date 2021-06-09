@@ -1,9 +1,21 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			SWL = {
+			every_country = {
+				limit = {
+				}
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier}
+				set_variable = { country_industrialization_rate = 47 }
+				set_variable = { country_poverty_rate = 55 }
+				set_variable = { country_literacy_rate = 42 }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			every_country = {
+				update_growth_rate = yes
 			}
 		}
 	}
@@ -12,7 +24,6 @@ on_actions = {
 		effect = {
 			every_country = {
 				limit = {
-					tag = SWL
 					NOT = {
 					has_country_flag = ssw_policy_tab_industrialization_event_triggered
 					}
