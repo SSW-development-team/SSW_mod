@@ -1,10 +1,51 @@
 add_namespace = FNO_event
 
-#自由ノルウェー軍の到着
+#ノルウェー国内のレジスタンスが援助を求める
 country_event = {
     id = FNO_event.1
 	title = FNO_event.1.t
 	desc = FNO_event.1.d
+	picture = GFX_flying_fighter_1
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SWE
+		has_global_flag = GER_civil_war
+	}
+	
+	option = {
+		name = FNO_event.1.a
+		ai_chance = { base = 100 }
+		
+		SWE = {
+			add_political_power = -15
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 150
+				target = FNO
+			}
+		}
+		hidden_effect = {
+			FNO = {
+				add_opinion_modifier = {
+					target = SWE
+					modifier = SSW_support_civil_war
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = FNO_event.1.b
+		ai_chance = { base = 0 }
+	}
+}
+
+#自由ノルウェー軍の到着
+country_event = {
+    id = FNO_event.2
+	title = FNO_event.2.t
+	desc = FNO_event.2.d
 	picture = GFX_flying_fighter_1
 	fire_only_once = yes
 	
@@ -16,7 +57,7 @@ country_event = {
 	}
 	
 	option = {
-		name = FNO_event.1.a
+		name = FNO_event.2.a
 		ai_chance = { base = 100 }
 		
 		add_equipment_to_stockpile = {
@@ -38,9 +79,9 @@ country_event = {
 
 #ベルゲンでミログが蜂起
 country_event = {
-    id = FNO_event.2
-	title = FNO_event.2.t
-	desc = FNO_event.2.d
+    id = FNO_event.3
+	title = FNO_event.3.t
+	desc = FNO_event.3.d
 	picture = GFX_flying_fighter_1
 	fire_only_once = yes
 	
@@ -58,7 +99,7 @@ country_event = {
 	}
 	
 	option = {
-		name = FNO_event.2.a
+		name = FNO_event.3.a
 		ai_chance = { base = 100 }
 		
 		hidden_effect = {
@@ -70,9 +111,9 @@ country_event = {
 
 #国王の帰還
 country_event = {
-    id = FNO_event.3
-	title = FNO_event.3.t
-	desc = FNO_event.3.d
+    id = FNO_event.5
+	title = FNO_event.5.t
+	desc = FNO_event.5.d
 	picture = GFX_flying_fighter_1
 	fire_only_once = yes
 	
@@ -80,6 +121,7 @@ country_event = {
 		tag = FNO
 		not = { 
 			country_exists = NOR
+			has_idea = FNO_passione_for_liberation
 		}
 		FNO = {
 			owns_state = 110
@@ -91,7 +133,7 @@ country_event = {
 	}
 	
 	option = {
-		name = FNO_event.3.a
+		name = FNO_event.5.a
 		ai_chance = { base = 100 }
 		
 		add_political_power = 50
