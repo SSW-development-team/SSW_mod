@@ -8,6 +8,9 @@ calculate_value_of_nukeplant_uranium = {#原発からの日毎の生産量を計
 	set_variable = { ssw_atomic_nukeplant_uranium = ssw_atomic_amount_nukeplant_uranium }#原発からの日毎の生産量に割り当てられている原発の数を代入
 	multiply_variable = { ssw_atomic_nukeplant_uranium = ssw_atomic_nukeplant_uranium }#割り当てられている原発の数に原発の出力量をかける
 }
+calculate_total_uranium = {
+	add_to_variable = { ssw_atomic_nukeplant_uranium = ssw_atomic_ic_uranium }#原発の日毎の出力量に民需工場の日毎の出力量と足す
+}
 calculate_late_of_uranium = {#最大貯蓄量に対する貯蓄量の割合の計算
 	
 	set_variable = { calculate_parcent_uranium = modifier@uranium_value }
