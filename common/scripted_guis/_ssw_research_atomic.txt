@@ -40,7 +40,6 @@ scripted_gui = {
 						check_variable = { ssw_atomic_amount_ic_uranium < num_of_civilian_factories }
 					}
 					add_to_variable = { ssw_atomic_amount_ic_uranium = 1 }
-					calculate_value_of_uranium = yes
 				}
 				else = {
 				}
@@ -51,7 +50,6 @@ scripted_gui = {
 						check_variable = { ssw_atomic_amount_ic_uranium > 0 }
 					}
 					add_to_variable = { ssw_atomic_amount_ic_uranium = -1 }
-					calculate_value_of_uranium = yes
 
 				}
 				else = {
@@ -63,7 +61,7 @@ scripted_gui = {
 						check_variable = { ssw_atomic_amount_nukeplant_uranium < num_of_nuclear_reactor }
 					}
 					add_to_variable = { ssw_atomic_amount_nukeplant_uranium = 1 }
-					calculate_value_of_uranium = yes
+					calculate_value_of_nukeplant_uranium = yes
 
 				}
 				else = {
@@ -76,18 +74,12 @@ scripted_gui = {
 						check_variable = { ssw_atomic_amount_nukeplant_uranium > 0 }
 					}
 					add_to_variable = { ssw_atomic_amount_nukeplant_uranium = -1 }
-					calculate_value_of_uranium = yes
+					calculate_value_of_nukeplant_uranium = yes
 
 				}
 				else = {
 				}
 			}
-
-			test_click = {
-				add_to_variable = { uranium_value = 1 }
-				calculate_value_of_uranium = yes
-			}
-
 			ssw_research_atomic_bomb_buttom_click = {
 				if = {
 					limit = { 	check_variable = { ssw_atomic_gui = 2 }

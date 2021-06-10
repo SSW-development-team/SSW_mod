@@ -2,43 +2,17 @@ on_actions = {
 	on_startup = {
 		calculate_limit_of_uranium = yes
 		ROOT = {
-			limit = {
-				NOT = {
-					has_tech = atomic_theory
-				}
-			}
-			set_variable = { ssw_atomic_ic_uranium = 0 }
-			set_variable = { ssw_atomic_ic_plutonium = 0 }
-			set_variable = { ssw_atomic_experimental_reacter_uranium = 0 }
-			set_variable = { ssw_atomic_experimental_reacter_plutonium = 0 }
+			add_ideas = ideas_ssw_atomic_ic_uranium_modifier
+			add_ideas = ideas_ssw_atomic_nukeplant_uranium_modifier
+			set_variable = { uranium_value = 0 }
 		}
 	}
-	on_daily = {#�f���o�[�ח���̃C�x���g
+	on_daily = {
 		effect = {
 			ROOT = {
 				limit = {
-					has_tech = atomic_theory
 				}
 				every_country = {
-					calculate_limit_of_uranium = yes
-					if = {
-						limit = {
-							check_variable = { uranium_value < uranium_limit_value }
-						} 
-						add_to_variable = { uranium_value = ssw_atomic_amount_ic_uranium }
-						add_to_variable = { plutonium_value = ssw_atomic_total_production_plutonium }
-					}
-					if = {
-						limit = {
-							check_variable = { plutonium_value < plutonium_limit_value }
-						} 
-						add_to_variable = { plutonium_value = ssw_atomic_total_production_plutonium }
-					}
-
-					calculate_value_of_uranium = yes
-					calculate_value_of_plutonium = yes
-					calculate_late_of_uranium = yes
-					calculate_late_of_plutonium = yes
 				}
 
 			}
