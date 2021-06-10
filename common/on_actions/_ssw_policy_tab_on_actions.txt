@@ -1,9 +1,23 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			SWL = {
+			every_country = {
+				limit = {
+				}
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier}
+				set_variable = { country_industrialization_rate = 47 }
+				set_variable = { country_poverty_rate = 55 }
+				set_variable = { country_literacy_rate = 42 }
+				set_variable = { country_research_institute_level = 3 }
+				set_variable = { country_industrial_complex_invest = 0.05 }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			every_country = {
+				update_growth_rate = yes
 			}
 		}
 	}
@@ -12,7 +26,6 @@ on_actions = {
 		effect = {
 			every_country = {
 				limit = {
-					tag = SWL
 					NOT = {
 					has_country_flag = ssw_policy_tab_industrialization_event_triggered
 					}
@@ -34,6 +47,18 @@ on_actions = {
 					country_event = { id = ssw_policy_tab_event.2 }
 					set_country_flag = ssw_research_institute_level_up_triggered
 				}
+			}
+			every_country = {
+				limit = {
+					NOT = {
+						OR = {
+							has_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
+							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
+						}
+					}
+				}
+				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
 			}
 		}
 	}
