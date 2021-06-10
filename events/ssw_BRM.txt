@@ -349,3 +349,143 @@ country_event = {
 		}
 	}
 }
+
+# Who is suitable leader
+country_event = {
+	id = ssw_brm.13
+	title = ssw_brm.13.Three_Mans_Speech
+	desc = ssw_brm.13.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# Ne win
+		name = ssw_brm.13.a
+		set_politics = {
+			ruling_party = national_socialism
+		}
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.2
+		}
+	}
+	option = {
+		# Smith Don
+		name = ssw_brm.13.b
+		set_politics = {
+			ruling_party = authority_despotism
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.35
+		}
+		set_party_name = {
+			ideology = authority_despotism
+			name = BRM_tammad
+			long_name = BRM_tammad
+		}
+	}
+}
+
+# General integration question
+country_event = {
+	id = ssw_brm.14
+	title = ssw_brm.14.Three_Mans_Speech
+	desc = ssw_brm.14.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# agree
+		name = ssw_brm.14.a
+		ai_chance = {
+			base = 4
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.15
+			}
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.14.a
+		ai_chance = {
+			base = 6
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.16
+			}
+		}
+	}
+}
+
+# They agreed!
+country_event = {
+	id = ssw_brm.15
+	title = ssw_brm.15.Three_Mans_Speech
+	desc = ssw_brm.15.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.15.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_brm.16
+	title = ssw_brm.16.Three_Mans_Speech
+	desc = ssw_brm.16.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.16.a
+	}
+}
+
+# we won the border conflict
+country_event = {
+	id = ssw_brm.17
+	title = ssw_brm.17.Three_Mans_Speech
+	desc = ssw_brm.17.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.17.a
+	}
+}
+
+# the border conflict was draw
+country_event = {
+	id = ssw_brm.18
+	title = ssw_brm.18.Three_Mans_Speech
+	desc = ssw_brm.18.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.18.a
+	}
+}
+
+# we lose the border conflict
+country_event = {
+	id = ssw_brm.19
+	title = ssw_brm.19.Three_Mans_Speech
+	desc = ssw_brm.19.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.19.a
+	}
+}

@@ -69,6 +69,10 @@ focus_tree = {
 		cost = 10
 		x = 38
 		y = 0
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = brm_breakthrough_of_the_burmese_socialist_party
@@ -1334,6 +1338,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 50
+				category = military_police_tech
+				name = military_police_tech
+			}
+		}
 	}
 	focus = {
 		id = BRM_dispute_initiative
@@ -1344,6 +1355,11 @@ focus_tree = {
 		}
 		x = 38
 		y = 1
+		completion_reward = {
+			country_event = {
+				id = ssw_brm.13
+			}
+		}
 	}
 	focus = {
 		id = BRM_minority_collaborators
@@ -1360,6 +1376,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
+		completion_reward = {
+			add_manpower = 50000
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = BRM_gather_weapons
@@ -1370,6 +1390,13 @@ focus_tree = {
 		}
 		x = 40
 		y = 1
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				amount = 1000
+				producer = ROOT
+				type = infantry_equipment
+			}
+		}
 	}
 	focus = {
 		id = BRM_buy_jap_weapons
@@ -1386,6 +1413,27 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
+		completion_reward = {
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+			add_equipment_to_stockpile = {
+				amount = 1000
+				producer = JAP
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 150
+				producer = JAP
+				type = support_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 150
+				producer = JAP
+				type = artillery_equipment
+			}
+		}
 	}
 	focus = {
 		id = BRM_our_weapons
@@ -1400,6 +1448,13 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				amount = 1000
+				producer = ROOT
+				type = infantry_equipment
+			}
+		}
 	}
 	focus = {
 		id = BRM_call_bombing
@@ -1414,6 +1469,24 @@ focus_tree = {
 		}
 		x = 39
 		y = 3
+		completion_reward = {
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+			every_country = {
+				limit = {
+					original_tag = BRM
+					NOT = {
+						tag = ROOT
+					}
+				}
+				add_timed_idea = {
+					days = 300
+					idea = BRM_JAP_bombing
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_jap_volunteers
@@ -1428,6 +1501,128 @@ focus_tree = {
 		}
 		x = 39
 		y = 4
+		completion_reward = {
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+			division_template = {
+				name = "Japanese Infantary Volunteers"
+				regiments = {
+					infantry = {
+						x = 0
+						y = 0
+					}
+					infantry = {
+						x = 0
+						y = 1
+					}
+					infantry = {
+						x = 0
+						y = 2
+					}
+					infantry = {
+						x = 1
+						y = 0
+					}
+					infantry = {
+						x = 1
+						y = 1
+					}
+					infantry = {
+						x = 1
+						y = 2
+					}
+				}
+				support = {
+					artillery = {
+						x = 0
+						y = 1
+					}
+					engineer = {
+						x = 0
+						y = 1
+					}
+					recon = {
+						x = 0
+						y = 1
+					}
+					morter_unit = {
+						x = 0
+						y = 1
+					}
+				}
+			}
+			division_template = {
+				name = "Japanese Armored Volunteers"
+				regiments = {
+					modern_armor = {
+						x = 0
+						y = 1
+					}
+					modern_armor = {
+						x = 0
+						y = 2
+					}
+					modern_armor = {
+						x = 0
+						y = 3
+					}
+					motorized = {
+						x = 1
+						y = 0
+					}
+					motorized = {
+						x = 1
+						y = 1
+					}
+					motorized = {
+						x = 1
+						y = 2
+					}
+					motorized = {
+						x = 1
+						y = 3
+					}
+					motorized = {
+						x = 1
+						y = 4
+					}
+				}
+				support = {
+					artillery = {
+						x = 0
+						y = 1
+					}
+					engineer = {
+						x = 0
+						y = 1
+					}
+					maintenance_company = {
+						x = 0
+						y = 2
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Japanese Infantary Volunteers\" division_template = \"Japanese Infantary Volunteers\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Japanese Infantary Volunteers\" division_template = \"Japanese Infantary Volunteers\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Japanese Infantary Volunteers\" division_template = \"Japanese Infantary Volunteers\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Japanese Armored Volunteers\" division_template = \"Japanese Armored Volunteers\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_minami_support
@@ -1442,6 +1637,14 @@ focus_tree = {
 		}
 		x = 37
 		y = 4
+		completion_reward = {
+			add_to_variable = {
+				var = minami_infulence
+				value = 1
+			}
+			add_political_power = 50
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = BRM_jap_naval_support
@@ -1456,6 +1659,27 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
+		completion_reward = {
+			add_to_variable = {
+				var = fifteenth_infulence
+				value = 1
+			}
+			add_equipment_to_stockpile = {
+				amount = 50
+				producer = JAP
+				type = convoy
+			}
+			add_equipment_to_stockpile = {
+				amount = 500
+				producer = JAP
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = JAP
+				type = support_equipment
+			}
+		}
 	}
 	focus = {
 		id = BRM_treat_ne_win
@@ -3302,6 +3526,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
+		completion_reward = {
+			add_ideas = BRM_battle_for_burnese
+		}
 	}
 	focus = {
 		id = BRM_preparation_war
@@ -3313,6 +3540,80 @@ focus_tree = {
 		}
 		x = 38
 		y = 6
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				swap_ideas = {
+					remove_idea = extensive_conscription
+					add_idea = service_by_requirement
+				}
+			}
+			if = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				swap_ideas = {
+					remove_idea = limited_conscription
+					add_idea = extensive_conscription
+				}
+			}
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				swap_ideas = {
+					remove_idea = volunteer_only
+					add_idea = limited_conscription
+				}
+			}
+			if = {
+				limit = {
+					has_idea = disarmed_nation
+				}
+				swap_ideas = {
+					remove_idea = disarmed_nation
+					add_idea = volunteer_only
+				}
+			}
+			if = {
+				limit = {
+					has_idea = war_economy
+				}
+				swap_ideas = {
+					remove_idea = war_economy
+					add_idea = tot_economic_mobilisation
+				}
+			}
+			if = {
+				limit = {
+					has_idea = partial_economic_mobilisation
+				}
+				swap_ideas = {
+					remove_idea = partial_economic_mobilisation
+					add_idea = war_economy
+				}
+			}
+			if = {
+				limit = {
+					has_idea = low_economic_mobilisation
+				}
+				swap_ideas = {
+					remove_idea = low_economic_mobilisation
+					add_idea = partial_economic_mobilisation
+				}
+			}
+			if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				swap_ideas = {
+					remove_idea = civilian_economy
+					add_idea = low_economic_mobilisation
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_attack
@@ -3323,6 +3624,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 7
+		completion_reward = {
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = BRM_integrate_naga
@@ -3333,6 +3637,12 @@ focus_tree = {
 		}
 		x = 35
 		y = 8
+		completion_reward = {
+			add_political_power = -100
+			country_event = {
+				id = ssw_brm.14
+			}
+		}
 	}
 	focus = {
 		id = BRM_operation_necklace
@@ -3343,6 +3653,25 @@ focus_tree = {
 		}
 		x = 37
 		y = 8
+		completion_reward = {
+			start_border_war = {
+				change_state_after_war = yes
+				attacker = {
+					state = 640
+					num_provinces = 2
+					on_win = ssw_brm.17
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.19
+				}
+				defender = {
+					state = 1196
+					num_provinces = 2
+					on_win = ssw_brm.19
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.17
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_operation_rock
@@ -3355,6 +3684,25 @@ focus_tree = {
 		}
 		x = 36
 		y = 9
+		completion_reward = {
+			start_border_war = {
+				change_state_after_war = yes
+				attacker = {
+					state = 288
+					num_provinces = 1
+					on_win = ssw_brm.17
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.19
+				}
+				defender = {
+					state = 1219
+					num_provinces = 1
+					on_win = ssw_brm.19
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.17
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_deal_guerrilla
@@ -3375,6 +3723,25 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
+		completion_reward = {
+			start_border_war = {
+				change_state_after_war = yes
+				attacker = {
+					state = 1194
+					num_provinces = 2
+					on_win = ssw_brm.17
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.19
+				}
+				defender = {
+					state = 1191
+					num_provinces = 1
+					on_win = ssw_brm.19
+					on_lose = ssw_brm.18
+					on_cancel = ssw_brm.17
+				}
+			}
+		}
 	}
 	focus = {
 		id = BRM_coop_arakan
@@ -3385,6 +3752,12 @@ focus_tree = {
 		}
 		x = 41
 		y = 8
+		completion_reward = {
+			add_political_power = -100
+			country_event = {
+				id = ssw_brm.14
+			}
+		}
 	}
 	focus = {
 		id = BRM_incorporate_mon
@@ -3396,6 +3769,12 @@ focus_tree = {
 		}
 		x = 40
 		y = 9
+		completion_reward = {
+			add_political_power = -100
+			country_event = {
+				id = ssw_brm.14
+			}
+		}
 	}
 	focus = {
 		id = BRM_disupute_initiative
@@ -3407,5 +3786,21 @@ focus_tree = {
 		}
 		x = 38
 		y = 10
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = BRM
+					NOT = {
+						tag = ROOT
+					}
+				}
+				ROOT = {
+					declare_war_on = {
+						target = THIS
+						type = annex_everything
+					}
+				}
+			}
+		}
 	}
 }
