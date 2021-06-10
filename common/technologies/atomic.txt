@@ -13,13 +13,15 @@ technologies = {
 			position = { x = 0 y = 0 }
 		}
 		desc = "ATOMIC_THEORY"
-
-		on_research_complete = {
+  		on_research_complete = {
+			calculate_limit_of_uranium = yes
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 			set_variable = { ssw_atomic_gui_buttom = 1 }
-			set_variable = { ROOT.ssw_atomic_incident_rate = 0.15 }
-			set_variable = { ROOT.ssw_atomic_ic_uranium = 1 }
-			set_variable = { ROOT.ssw_atomic_ic_plutonium = 1 }
+			set_variable = { ssw_atomic_incident_rate = 0.15 }
+			set_variable = { ssw_atomic_ic_uranium = 1 }
+			set_variable = { ssw_atomic_ic_plutonium = 1 }
+			set_variable = { ssw_atomic_experimental_reacter_uranium = 0 }
+			set_variable = { ssw_atomic_experimental_reacter_plutonium = 0 }
 
 		}
 		ai_will_do = {
@@ -58,20 +60,20 @@ technologies = {
 			level = 1
 		}
 		on_research_complete = {
-			set_variable = { ROOT.ssw_atomic_experimental_reacter_uranium = 6 }
-			set_variable = { ROOT.ssw_atomic_experimental_reacter_plutonium = 4 }
+			set_variable = { ssw_atomic_experimental_reacter_uranium = 6 }
+			set_variable = { ssw_atomic_experimental_reacter_plutonium = 4 }
 			if = {
 				limit = {
-					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+					check_variable = { uranium_value < plutonium_value }
 				}
 				add_to_variable = {
-					var = ROOT.ssw_atomic_experimental_reacter_plutonium
+					var = plutonium_value
 					value = -40
 				}
 			}
 			else = {
 				add_to_variable = {
-					var = ROOT.ssw_atomic_experimental_reacter_uranium
+					var = uranium_value
 					value = -40
 				}
 			}
@@ -99,12 +101,12 @@ technologies = {
 		allow = {
 			OR = {
 				check_variable = {
-					var = ROOT.uranium_value
+					var = uranium_value
 					value = 200
 					compare = greater_than_or_equals
 				}
 				check_variable = {
-					var = ROOT.plutonium_value
+					var = plutonium_value
 					value = 200
 					compare = greater_than_or_equals
 				}
@@ -121,16 +123,16 @@ technologies = {
 			}
 			if = {
 				limit = {
-					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+					check_variable = { uranium_value < plutonium_value }
 				}
 				add_to_variable = {
-					var = ROOT.uranium_value
+					var = plutonium_value
 					value = -160
 				}
 			}
 			else = {
 				add_to_variable = {
-					var = ROOT.plutonium_value
+					var = uranium_value
 					value = -160
 				}
 			}
@@ -168,7 +170,7 @@ technologies = {
 	uranium_enrichment = {
 		allow = {
 			check_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = 100
 				compare = greater_than_or_equals
 			}
@@ -176,11 +178,11 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
 			add_to_variable = {
-				var = ROOT.ssw_atomic_experimental_reacter_uranium
+				var = ssw_atomic_experimental_reacter_uranium
 				value = 3
 			}
 			add_to_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = -80
 			}
 
@@ -221,7 +223,7 @@ technologies = {
 	plutonium_enrichment = {
 		allow = {
 			check_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = 100
 				compare = greater_than_or_equals
 			}
@@ -233,7 +235,7 @@ technologies = {
 				value = 3
 			}
 			add_to_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = -80
 			}
 
@@ -272,7 +274,7 @@ technologies = {
 	nuclear_power_engine = {
 		allow = {
 			check_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = 200
 				compare = greater_than_or_equals
 			}
@@ -293,7 +295,7 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = NOT_SET_YET
 			add_to_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = -160
 			}
 
@@ -325,7 +327,7 @@ technologies = {
 	small_power_reactor = {
 		allow = {
 			check_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = 120
 				compare = greater_than_or_equals
 			}
@@ -346,11 +348,11 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = NOT_SET_YET
 			add_to_variable = {
-				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				var = ssw_atomic_experimental_reacter_plutonium
 				value = 3
 			}
 			add_to_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = -96
 			}
 		}
@@ -380,7 +382,7 @@ technologies = {
 	improved_power_reactor = {
 		allow = {
 			check_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = 100
 				compare = greater_than_or_equals
 			}
@@ -401,11 +403,11 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = NOT_SET_YET
 			add_to_variable = {
-				var = ROOT.ssw_atomic_experimental_reacter_plutonium
+				var = ssw_atomic_experimental_reacter_plutonium
 				value = 3
 			}
 			add_to_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = -80
 			}
 		}
@@ -436,12 +438,12 @@ technologies = {
 		allow = {
 			OR = {
 				check_variable = {
-					var = ROOT.uranium_value
+					var = uranium_value
 					value = 300
 					compare = greater_than_or_equals
 				}
 				check_variable = {
-					var = ROOT.plutonium_value
+					var = plutonium_value
 					value = 300
 					compare = greater_than_or_equals
 				}
@@ -462,16 +464,16 @@ technologies = {
 			custom_effect_tooltip = NOT_SET_YET
 			if = {
 				limit = {
-					check_variable = { ROOT.ssw_atomic_experimental_reacter_uranium < ROOT.ssw_atomic_experimental_reacter_plutonium }
+					check_variable = { plutonium_value < uranium_value }
 				}
 				add_to_variable = {
-					var = ROOT.uranium_value
+					var = uranium_value
 					value = -240
 				}
 			}
 			else = {
 				add_to_variable = {
-					var = ROOT.plutonium_value
+					var = plutonium_value
 					value = -240
 				}
 			}
@@ -502,12 +504,12 @@ technologies = {
 		allow = {
 			AND = {
 				check_variable = {
-					var = ROOT.uranium_value
+					var = uranium_value
 					value = 300
 					compare = greater_than_or_equals
 				}
 				check_variable = {
-					var = ROOT.plutonium_value
+					var = plutonium_value
 					value = 100
 					compare = greater_than_or_equals
 				}
@@ -527,11 +529,11 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = NOT_SET_YET
 			add_to_variable = {
-				var = ROOT.uranium_value
+				var = uranium_value
 				value = -240
 			}
 			add_to_variable = {
-				var = ROOT.plutonium_value
+				var = plutonium_value
 				value = -80
 			}
 			country_event = {
@@ -561,7 +563,21 @@ technologies = {
 		}
 	}
 	nuclear_fusion_fheory = {
-		
+		allow = {
+			amount_research_slots > 3
+			nuclear_reactor > 2
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+					is_researching_technology = nuclear_power_engine
+					is_researching_technology = small_power_reactor
+					is_researching_technology = improved_power_reactor
+
+				}
+			}
+		}
+
 		path = {
 			leads_to_tech = thermonuclear_weapon 
 			research_cost_coeff = 1
@@ -575,6 +591,10 @@ technologies = {
 		}
 		on_research_complete = {
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
+			country_event = {
+				id = SSW_atomic.3#核融合理論
+			}
+
 		}
 		ai_will_do = {
 			factor = 1
@@ -588,7 +608,31 @@ technologies = {
 		}
 	}
 	thermonuclear_weapon = {
-		
+		allow = {
+			AND = {
+				check_variable = {
+					var = uranium_value
+					value = 300
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = plutonium_value
+					value = 100
+					compare = greater_than_or_equals
+				}
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = nuclear_power_engine
+					is_researching_technology = small_power_reactor
+					is_researching_technology = improved_power_reactor
+
+				}
+			}
+		}
 		path = {
 			leads_to_tech = miniaturization_of_thermonuclear_weapons 
 			research_cost_coeff = 1
@@ -602,6 +646,10 @@ technologies = {
 		}
 		on_research_complete = {
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
+			country_event = {
+				id = SSW_atomic.4#最強の抑止力
+			}
+
 		}
 		ai_will_do = {
 			factor = 1
@@ -615,7 +663,31 @@ technologies = {
 		}
 	}
 	miniaturization_of_thermonuclear_weapons = {
-		
+		allow = {
+			AND = {
+				check_variable = {
+					var = uranium_value
+					value = 300
+					compare = greater_than_or_equals
+				}
+				check_variable = {
+					var = plutonium_value
+					value = 100
+					compare = greater_than_or_equals
+				}
+			}
+			NOT = {
+				OR = {
+					is_researching_technology = civilian_use_nuclear_reactors
+					is_researching_technology = multiple_protection
+
+					is_researching_technology = nuclear_power_engine
+					is_researching_technology = small_power_reactor
+					is_researching_technology = improved_power_reactor
+
+				}
+			}
+		}
 		start_year = 1971
 		research_cost = 2
 		
