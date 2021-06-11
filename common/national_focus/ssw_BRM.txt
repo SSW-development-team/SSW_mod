@@ -8,12 +8,21 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = {
+		x = 2400
+		y = 1500
+	}
 	focus = {
 		id = brm_politics_in_burma
 		icon = GFX_focus_generic_self_management
 		cost = 10
 		x = 13
 		y = 0
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 		completion_reward = {
 			add_political_power = 50
 		}
@@ -24,6 +33,11 @@ focus_tree = {
 		cost = 10
 		x = 28
 		y = 7
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 	}
 	focus = {
 		id = brm_burma_national_army
@@ -41,6 +55,11 @@ focus_tree = {
 		cost = 10
 		x = 7
 		y = 15
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 	}
 	focus = {
 		id = BRM_continue_ba_mau
@@ -48,6 +67,11 @@ focus_tree = {
 		cost = 10
 		x = 20
 		y = 15
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 	}
 	focus = {
 		id = BRM_ne_win
@@ -55,6 +79,11 @@ focus_tree = {
 		cost = 10
 		x = 31
 		y = 15
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 	}
 	focus = {
 		id = BRM_aung_san
@@ -62,6 +91,11 @@ focus_tree = {
 		cost = 10
 		x = 39
 		y = 15
+		allow_branch = {
+			NOT = {
+				has_global_flag = BRM_civil_war
+			}
+		}
 	}
 	focus = {
 		id = BRM_civil_war
@@ -69,6 +103,9 @@ focus_tree = {
 		cost = 10
 		x = 38
 		y = 0
+		allow_branch = {
+			has_global_flag = BRM_civil_war
+		}
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = -0.05
@@ -1340,7 +1377,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 50
+				bonus = 0.5
 				category = military_police_tech
 				name = military_police_tech
 			}
