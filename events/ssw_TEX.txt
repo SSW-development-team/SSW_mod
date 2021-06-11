@@ -1,248 +1,719 @@
-country_event = {
-	id = TEX.bunker_america
-	title = TEX.bunker_america.t
-	desc = {
-		text = TEX.bunker_america.d
-		trigger = {
-			original_tag = TEX
-		}
+add_namespace = sswtex
+
+country_event = { #テキサス総選挙
+	id = sswtex.1
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.1"
 	}
-	desc = {
-		text = TEX.bunker_america.d2
-		trigger = {
-			NOT = {
-				original_tag = TEX
-			}
-		}
-	}
-	
-	
-	picture = GFX_report_event_bunker_01
+	title = sswtex.1.t
+	desc = sswtex.1.desc
+	#picture = 
 	
 	is_triggered_only = yes
+	fire_only_once = yes
 	
-	option = {
-		name = TEX.bunker_america.a
-		trigger = {
-			original_tag = TEX
-		}
-		375 = {
-			add_building_construction = {
-				type = bunker
-				province = 4955
-				level = 1
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = bunker
-				province = 1998
-				level = 1
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = bunker
-				province = 9773
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 12848
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 3875
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 5085
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 2082
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 9829
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 5001
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 6968
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 4577
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 12486
-				level = 1
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 1500
-				level = 1
-				instant_build = yes
-			}
+	option = { #
+		name = sswtex.1.a
+		ai_chance = { base = 10 }
+		complete_national_focus = ssw_tex_write_1
+	}
+	option = { #
+		name = sswtex.1.b
+		ai_chance = { base = 5 }
+		complete_national_focus = ssw_tex_hunt_1
+	}
+}
+
+country_event = { #黒人の奴隷化
+	id = sswtex.2
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.2"
+	}
+	title = sswtex.2.t
+	desc = sswtex.2.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.2.a
+		ai_chance = { base = 1 }
+		add_ideas = TEX_black_slave_idea_1
+	}
+}
+
+country_event = { #故郷へと送る
+	id = sswtex.3
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.3"
+	}
+	title = sswtex.3.t
+	desc = sswtex.3.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.3.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #テキサスからの脅迫
+	id = sswtex.4
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.4"
+	}
+	title = sswtex.4.t
+	desc = sswtex.4.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.4.a
+		ai_chance = { base = 80 }
+		TEX = {
+			puppet = LIB
 		}
 	}
-	option = {
-		name = TEX.bunker_america.b
-		trigger = {
-			NOT = {
-				original_tag = TEX
+	option = { #
+		name = sswtex.4.b
+		ai_chance = { base = 20 }
+		TEX = {
+			create_wargoal = {
+				target = LIB
+				type = puppet_wargoal_focus
 			}
 		}
 	}
 }
 
-country_event = {
-	id = TEX.bunker_mexico
-	title = TEX.bunker_mexico.t
-	desc = {
-		text = TEX.bunker_mexico.d
-		trigger = {
-			original_tag = TEX
-		}
+country_event = { #
+	id = sswtex.5
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.5"
 	}
-	desc = {
-		text = TEX.bunker_mexico.d2
-		trigger = {
-			NOT = {
-				original_tag = TEX
-			}
-		}
-	}
-	picture = GFX_report_event_bunker_01
+	title = sswtex.5.t
+	desc = sswtex.5.desc
+	#picture = 
 	
 	is_triggered_only = yes
+	fire_only_once = yes
 	
-	option = {
-		name = TEX.bunker_mexico.a
-		trigger = {
-			original_tag = TEX
-		}
-		375 = {
-			add_building_construction = {
-				type = bunker
-				province = 12369
-				level = 3
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = bunker
-				province = 5061
-				level = 3
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = bunker
-				province = 2019
-				level = 3
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 12728
-				level = 3
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 5038
-				level = 3
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 1954
-				level = 3
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 10894
-				level = 3
-				instant_build = yes
-			}
-            add_building_construction = {
-				type = bunker
-				province = 10740
-				level = 3
-				instant_build = yes
-			}
-		}
+	option = { #
+		name = sswtex.5.a
+		ai_chance = { base = 1 }
+		
 	}
-	option = {
-		name = TEX.bunker_mexico.b
-		trigger = {
-			NOT = {
-				original_tag = TEX
-			}
-		}
+	option = { #
+		name = sswtex.5.b
+		ai_chance = { base = 1 }
+		
 	}
 }
 
-country_event = {
-	id = TEX.commander
-	title = TEX.commander.t
-	desc = TEX.commander.d
-	picture = GFX_report_event_bunker_01
+country_event = { #
+	id = sswtex.6
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.6"
+	}
+	title = sswtex.6.t
+	desc = sswtex.6.desc
+	#picture = 
 	
 	is_triggered_only = yes
+	fire_only_once = yes
 	
-	option = {
-		name = TEX.commender.a
-        create_corps_commander = {
-	    name = "xxx"   #未定　MG Everett S. Simpsonが候補　第36歩兵師団の61年の指揮官　画像はhttps://www.nmmi.edu/alumni/hall-of-fame/1986-mg-everett-selden-simpson-aus-ret-1934-jc/　スキル系は指揮官決める前に単純に防衛向きにしたけど変更の余地あり　有識者が編集してくれたら助かります
-	    picture = "xxx"
-	    traits = { Inflexible Strategist }
-	    skill = 5
-	    attack_skill = 2
-	    defense_skill = 6
-	    planning_skill = 3
-	    logistics_skill = 4
-        }
-    }
-}
-
-country_event = {
-	id = TEX.dockyard
-	title = TEX.dockyard.t
-	desc = TEX.deckyard.d
-	picture = GFX_report_event_ast_navy
-
-	is_triggered_only = yes
-
-	option = {
-		name = TEX.dockyard.a
-		375 = {
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-			}	
+	option = { #
+		name = sswtex.6.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.6.b
+		ai_chance = { base = 1 }
+		
 	}
 }
+
+country_event = { #
+	id = sswtex.7
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.7"
+	}
+	title = sswtex.7.t
+	desc = sswtex.7.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.7.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.7.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.8
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.8"
+	}
+	title = sswtex.8.t
+	desc = sswtex.8.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.8.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.8.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.9
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.9"
+	}
+	title = sswtex.9.t
+	desc = sswtex.9.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.9.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.9.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.10
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.10"
+	}
+	title = sswtex.10.t
+	desc = sswtex.10.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.10.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.10.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.11
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.11"
+	}
+	title = sswtex.11.t
+	desc = sswtex.11.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.11.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.11.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.12
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.12"
+	}
+	title = sswtex.12.t
+	desc = sswtex.12.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.12.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.12.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.13
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.13"
+	}
+	title = sswtex.13.t
+	desc = sswtex.13.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.13.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.13.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.14
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.14"
+	}
+	title = sswtex.14.t
+	desc = sswtex.14.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.14.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.14.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.15
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.15"
+	}
+	title = sswtex.15.t
+	desc = sswtex.15.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.15.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.15.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.16
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.16"
+	}
+	title = sswtex.16.t
+	desc = sswtex.16.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.16.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.16.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.17
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.17"
+	}
+	title = sswtex.17.t
+	desc = sswtex.17.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.17.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.17.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.18
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.18"
+	}
+	title = sswtex.18.t
+	desc = sswtex.18.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.18.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.18.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.19
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.19"
+	}
+	title = sswtex.19.t
+	desc = sswtex.19.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.19.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.19.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.20
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.20"
+	}
+	title = sswtex.20.t
+	desc = sswtex.20.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.20.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.20.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.21
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.21"
+	}
+	title = sswtex.21.t
+	desc = sswtex.21.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.21.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.21.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.22
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.22"
+	}
+	title = sswtex.22.t
+	desc = sswtex.22.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.22.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.22.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.23
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.23"
+	}
+	title = sswtex.23.t
+	desc = sswtex.23.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.23.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.23.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.24
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.24"
+	}
+	title = sswtex.24.t
+	desc = sswtex.24.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.24.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.24.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.25
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.25"
+	}
+	title = sswtex.25.t
+	desc = sswtex.25.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.25.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.25.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.26
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.26"
+	}
+	title = sswtex.26.t
+	desc = sswtex.26.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.26.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.26.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.27
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.27"
+	}
+	title = sswtex.27.t
+	desc = sswtex.27.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.27.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.27.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.28
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.28"
+	}
+	title = sswtex.28.t
+	desc = sswtex.28.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.28.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.28.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.29
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.29"
+	}
+	title = sswtex.29.t
+	desc = sswtex.29.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.29.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.29.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = sswtex.30
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sswtex.30"
+	}
+	title = sswtex.30.t
+	desc = sswtex.30.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = sswtex.30.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = sswtex.30.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
