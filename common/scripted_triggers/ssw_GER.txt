@@ -25,3 +25,31 @@ is_german_tag = {
 		original_tag = WUR
 	}
 }
+Goering_is_Best = {
+	set_temp_variable = { who_temp = Current_Himmler_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Goering_Influence > who_temp }
+}
+Himmler_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Himmler_Influence > who_temp }
+}
+Goebbels_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Goebbels_Influence > who_temp }
+}
+Bormann_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Bormann_Influence > who_temp }
+}
