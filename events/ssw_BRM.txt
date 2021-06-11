@@ -489,3 +489,97 @@ country_event = {
 		name = ssw_brm.19.a
 	}
 }
+
+# Communist attitude against Burma
+country_event = {
+	id = ssw_brm.20
+	title = ssw_brm.20.Three_Mans_Speech
+	desc = ssw_brm.20.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# aliance
+		name = ssw_brm.20.a
+	}
+	option = {
+		# coup
+		name = ssw_brm.20.a
+		random = {
+			50 = {
+				#success
+				# annex_country = {
+				# 	target = SHAN
+				# }
+			}
+			50 = {
+				#fail
+				# declare_war_on = {
+				# 	target = SHAN
+				# 	type = annex_everything
+				# }
+			}
+		}
+	}
+}
+
+# aliance with communists?
+country_event = {
+	id = ssw_brm.21
+	title = ssw_brm.21.Three_Mans_Speech
+	desc = ssw_brm.21.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# approve
+		name = ssw_brm.21.a
+		FROM = {
+			add_to_faction = ROOT
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.21.b
+	}
+}
+
+# ask china to support burmese communists
+country_event = {
+	id = ssw_brm.22
+	title = ssw_brm.22.Three_Mans_Speech
+	desc = ssw_brm.22.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# approve
+		name = ssw_brm.22.a
+		FROM = {
+			add_equipment_to_stockpile = {
+				amount = 3000
+				producer = ROOT
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = support_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = artillery_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = anti_tank_equipment
+			}
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.22.a
+	}
+}
