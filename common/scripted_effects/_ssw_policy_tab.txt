@@ -1,4 +1,17 @@
-
+#経済タブ
+calculate_country_inflation_rate = {
+	set_variable = { country_inflation_late_for_consumer_goods_factor = country_inflation_late_for_consumer_goods_factor_3 }
+	set_temp_variable = { ecotemp1 = 0.345 }
+	set_temp_variable = { ecotemp2 = 0 }
+	multiply_temp_variable = { ecotemp1 = country_inflation_late }
+	randomize_temp_variable = {  var = ecotemp2 distribution = uniform min = 1 max = 1.3 }
+	multiply_temp_variable = { ecotemp1 = ecotemp2 }
+	set_variable = { country_inflation_late_for_consumer_goods_factor = ecotemp1 }
+	clamp_variable = { var = country_inflation_late_for_consumer_goods_factor min = country_inflation_late_for_consumer_goods_factor_3 max = 50 }
+	set_variable ={ country_inflation_late_for_consumer_goods_factor_2 = country_inflation_late_for_consumer_goods_factor }
+	multiply_variable = { country_inflation_late_for_consumer_goods_factor_2 = 0.01 }
+}
+#社会タブ
 update_growth_rate = {
 	set_variable = { country_industrialization_growth_rate_2 = 0 }
 	set_variable = { country_industrialization_growth_rate_2 = country_industrialization_growth_rate }
