@@ -1,11 +1,7 @@
-﻿1950.1.1 = {
-	capital = 335
-	oob = "INS_1950"
-
-	set_convoys = 5
-
-	set_technology = {
-	# Infantary
+﻿capital = 335
+oob = "INS_1950"
+set_convoys = 5
+set_technology = {
 	infantry_weapons = 1
 	improved_infantry_weapons = 1
 	advanced_infantry_weapons = 1
@@ -35,7 +31,6 @@
 	tech_special_forces = 1
 	advanced_special_forces = 1
 	improved_special_forces = 1
-	# Mortorized
 	motorised_infantry = 1
 	motorized_rocket_unit = 1
 	armored_car1 = 1
@@ -47,7 +42,6 @@
 	mechanised_infantry3 = 1
 	amphibious_mechanized_infantry = 1
 	amphibious_mechanized_infantry_2 = 1
-	# Support
 	tech_support = 1
 	tech_support_2 = 1
 	tech_support_3 = 1
@@ -105,7 +99,6 @@
 	tech_morter_unit2 = 1
 	tech_morter_unit3 = 1
 	tech_morter_unit4 = 1
-	# Armor
 	gwtank = 1
 	advanced_light_tank = 1
 	advanced_light_td = 1
@@ -150,7 +143,6 @@
 	super_heavy_art_1948 = 1
 	super_heavy_spaa_1948 = 1
 	land_battleship_tank_1948 = 1
-	# Artillery
 	artillery1 = 1
 	artillery_improvement1 = 1
 	artillery2 = 1
@@ -173,7 +165,6 @@
 	antitank3 = 1
 	antitank_improvement1 = 1
 	antitank_improvement2 = 1
-	# MTG naval
 	early_ship_hull_light = 1
 	basic_ship_hull_light = 1
 	improved_ship_hull_light = 1
@@ -194,7 +185,6 @@
 	tech_ship_hull_cruiser_5 = 1
 	improved_cruiser_armor_scheme = 1
 	advanced_cruiser_armor_scheme = 1
-	# 大型艦船体
 	early_ship_hull_heavy = 1
 	basic_ship_hull_heavy = 1
 	improved_ship_hull_heavy = 1
@@ -241,7 +231,6 @@
 	basic_secondary_battery = 1
 	improved_secondary_battery = 1
 	dp_secondary_battery = 1
-	# 機雷
 	basic_naval_mines = 1
 	submarine_mine_laying = 1
 	improved_submarine_mine_laying = 1
@@ -254,8 +243,6 @@
 	mtg_transport = 1
 	mtg_landing_craft = 1
 	mtg_tank_landing_craft = 1
-	# ダメコンは年指定無いので無し
-	# Air
 	fighter_1936 = 1
 	fighter_1940 = 1
 	jet_fighter_1944 = 1
@@ -281,7 +268,6 @@
 	scout_plane1 = 1
 	scout_plane2 = 1
 	scout_plane3 = 1
-	# Industry
 	basic_machine_tools = 1
 	improved_machine_tools = 1
 	advanced_machine_tools = 1
@@ -319,7 +305,6 @@
 	excavation4 = 1
 	excavation5 = 1
 	excavation6 = 1
-	# Electronic
 	electronic_mechanical_engineering = 1
 	radio = 1
 	radio_detection = 1
@@ -351,30 +336,45 @@
 	magnetic_recording_medium_1 = 1
 	magnetic_recording_medium_2 = 1
 }
-
-	add_ideas = {
-		civilian_economy
-		INS_idea_00
-		INS_idea_000
+add_ideas = {
+	civilian_economy
+	ins_ideas_0
+	ins_ideas_1
+}
+set_politics = {
+	ruling_party = social_conservatism
+	last_election = "1950.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = {
+	anarchism = 5
+	progressive_communism = 10
+	classical_communism = 0
+	social_democracy = 5
+	social_liberalism = 0
+	social_conservatism = 60
+	authority_democracy = 10
+	authority_despotism = 10
+	national_fascism = 0
+	national_socialism = 0
+	corporatocracism = 0
+}
+create_country_leader = {
+	name = "Anarchist Commune"
+	desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Anarchist_Commune.dds"
+	expire = "1965.1.1"
+	ideology = anarchism_ideology
+	traits = {
 	}
-
-	set_politics = {
-		ruling_party = social_conservatism
-		last_election = "1950.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-		social_conservatism= 100
-	}
-
-	create_country_leader = {
-		name = "Sukarno"
-		desc = ""
-		picture = "ssw_Portrait_Indonesia_Soekarno.dds"
-		expire = "1953.3.1"
-		ideology = social_conservatism_ideology
-		traits = {
-		}
+}
+create_country_leader = {
+	name = "Sukarno"
+	desc = ""
+	picture = "ssw_Portrait_Indonesia_Soekarno.dds"
+	expire = "1953.3.1"
+	ideology = social_conservatism_ideology
+	traits = {
 	}
 }
