@@ -1,20 +1,26 @@
 on_actions = {
 	on_startup = {
-		calculate_limit_of_uranium = yes
-		ROOT = {
+		every_country = {
 			add_dynamic_modifier = { modifier = ideas_ssw_atomic_ic_uranium_modifier } 		
-			add_dynamic_modifier = { modifier = ideas_ssw_atomic_nukeplant_uranium_modifier } 		
-			set_variable = { uranium_value = 0 }
+			add_dynamic_modifier = { modifier = ideas_ssw_atomic_nukeplant_uranium_modifier } 
+			add_ideas = ideas_ssw_atomic_uranium_substract_40
 		}
 	}
 	on_daily = {
 		effect = {
-			ROOT = {
+			if = {
 				limit = {
+					check_variable = { uranium_value < uranium_limit_value }
 				}
-				every_country = {
-				}
+				calculate_total_uranium =yes
+				calculate_limit_of_uranium = yes
+				calculate_late_of_uranium = yes
+				add_to_variable = { uranium_value = ssw_atomic_amount_ic_uranium }
+				add_to_variable = { uranium_value = ssw_atomic_amount_nukeplant_uranium }
 
+			}
+			else = {
+				set_variable = { uranium_value = uranium_limit_value }
 			}
 		}
 	}

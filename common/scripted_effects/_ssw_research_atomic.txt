@@ -9,12 +9,15 @@ calculate_value_of_nukeplant_uranium = {#原発からの日毎の生産量を計
 	multiply_variable = { ssw_atomic_nukeplant_uranium = ssw_atomic_nukeplant_uranium }#割り当てられている原発の数に原発の出力量をかける
 }
 calculate_total_uranium = {
-	add_to_variable = { ssw_atomic_nukeplant_uranium = ssw_atomic_ic_uranium }#原発の日毎の出力量に民需工場の日毎の出力量と足す
+	set_variable = { ssw_atomic_total_production_uranium = ssw_atomic_amount_nukeplant_uranium }
+	multiply_variable = { ssw_atomic_total_production_uranium = ssw_atomic_nukeplant_uranium }#割り当てられている原発の数に原発の出力量をかける
+	add_to_variable = { ssw_atomic_total_production_uranium = ssw_atomic_ic_uranium }#原発の日毎の出力量に民需工場の日毎の出力量と足す
+#	set_variable = { ssw_atomic_total_production_uranium = calculate_total_uranium }#原発の日毎の出力量に民需工場の日毎の出力量と足す
 }
 calculate_late_of_uranium = {#最大貯蓄量に対する貯蓄量の割合の計算
 	
-	set_variable = { calculate_parcent_uranium = modifier@uranium_value }
+	set_variable = { calculate_parcent_uranium = uranium_value }
 	divide_variable = { calculate_parcent_uranium = uranium_limit_value }
 	multiply_variable = { calculate_parcent_uranium = 100 }
-	set_variable = { uranium_late = calculate_parcent_uranium }	
+	set_variable = { uranium_late = calculate_parcent_uranium }
 }
