@@ -1,6 +1,3 @@
-###Made by Choco
-######What are you doing?
-
 JAP_create_political_party_values = {
 	clear_array = HOR_X
 	clear_array = HOR_Y
@@ -2071,5 +2068,51 @@ JAP_NIN_low_gold_system_decrease_effect = {#インド
 		var = Nin_gold_system
 		min = 0
 		max = 100
+	}
+}
+
+JAP_Clear_disarmament_program_All_effect = {
+	remove_ideas = {
+		JAP_disarmament_program_0
+		JAP_disarmament_program_1
+		JAP_disarmament_program_2
+		JAP_disarmament_program_3
+	}
+}
+
+JAP_Upgrade_JAP_disarmament_program_effect = {
+	#Powerful Idea First, this is very IMPORTANT
+	else_if = {
+		limit = {
+			has_ideas = JAP_disarmament_program_2
+		}
+		swap_ideas = {
+			remove_idea = JAP_disarmament_program_2
+			add_idea = JAP_disarmament_program_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_ideas = JAP_disarmament_program_1
+		}
+		swap_ideas = {
+			remove_idea = JAP_disarmament_program_1
+			add_idea = JAP_disarmament_program_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_ideas = JAP_disarmament_program_0
+		}
+		swap_ideas = {
+			remove_idea = JAP_disarmament_program_0
+			add_idea = JAP_disarmament_program_1
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { has_ideas = JAP_disarmament_program_0 }
+		}
+		add_ideas = JAP_disarmament_program_0
 	}
 }
