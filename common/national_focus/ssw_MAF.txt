@@ -152,7 +152,6 @@ focus_tree = {
 		ai_will_do={
 			factor=1
 		}
-		
 	}
 	#ツチ族とフツ族
 	focus={
@@ -221,6 +220,9 @@ focus_tree = {
 		x=20
 		y=5
 		cost=10
+		available={
+			has_war = no
+		}
 		prerequisite={focus=maf_focus_15}
 		available_if_capitulated=yes
 		ai_will_do={
@@ -273,6 +275,16 @@ focus_tree = {
 		x=20
 		y=7
 		cost=10
+		available={
+			GER={
+				NOT={
+					has_country_leader = {
+    					name= "Adolf Hitler"
+    					ruling_only = yes
+					}
+				}
+			}			
+		}
 		prerequisite={focus=maf_focus_17}
 		mutually_exclusive={
 			focus=maf_focus_48
@@ -417,7 +429,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_31
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=14
 		cost=10
 		prerequisite={focus=maf_focus_82}
@@ -444,7 +456,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_33
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=15
 		cost=10
 		prerequisite={focus=maf_focus_31}
@@ -457,7 +469,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_34
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=16
 		cost=10
 		prerequisite={focus=maf_focus_33}
@@ -607,7 +619,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_44
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=17
 		cost=10
 		prerequisite={focus=maf_focus_34}
@@ -664,9 +676,14 @@ focus_tree = {
 	focus={
 		id=maf_focus_48
 		icon=GFX_focus_chi_mission_to_germany
-		x=28
+		x=30
 		y=7
 		cost=10
+		available={
+			GER={
+				has_government=national_socialism
+			}
+		}
 		prerequisite={focus=maf_focus_17}
 		mutually_exclusive={
 			focus=maf_focus_20
@@ -681,7 +698,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_49
 		icon=GFX_goal_unknown
-		x=28
+		x=30
 		y=8
 		cost=10
 		prerequisite={focus=maf_focus_48}
@@ -694,7 +711,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_50
 		icon=GFX_goal_unknown
-		x=28
+		x=30
 		y=9
 		cost=10
 		prerequisite={focus=maf_focus_49}
@@ -707,7 +724,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_51
 		icon=GFX_goal_unknown
-		x=26
+		x=27
 		y=10
 		cost=10
 		prerequisite={focus=maf_focus_50}
@@ -720,7 +737,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_52
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=10
 		cost=10
 		prerequisite={focus=maf_focus_50}
@@ -733,7 +750,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_53
 		icon=GFX_goal_unknown
-		x=26
+		x=27
 		y=11
 		cost=10
 		prerequisite={focus=maf_focus_51}
@@ -746,7 +763,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_54
 		icon=GFX_focus_generic_steel
-		x=26
+		x=27
 		y=12
 		cost=10
 		prerequisite={focus=maf_focus_53}
@@ -759,7 +776,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_55
 		icon=GFX_goal_unknown
-		x=30
+		x=33
 		y=11
 		cost=10
 		prerequisite={focus=maf_focus_52}
@@ -772,7 +789,7 @@ focus_tree = {
 	focus={
 		id=maf_focus_56
 		icon=GFX_goal_unknown
-		x=26
+		x=27
 		y=13
 		cost=10
 		prerequisite={focus=maf_focus_54}
@@ -896,6 +913,7 @@ focus_tree = {
 		x=8
 		y=10
 		cost=10
+		mutually_exclusive={focus=maf_focus_64}
 		prerequisite={
 			focus=maf_focus_62
 			focus=maf_focus_60
@@ -915,6 +933,7 @@ focus_tree = {
 		x=16
 		y=10
 		cost=10
+		mutually_exclusive={focus=maf_focus_63}
 		prerequisite={
 			focus=maf_focus_62
 			focus=maf_focus_60
@@ -1104,7 +1123,7 @@ focus_tree = {
 		id=maf_focus_77
 		icon=GFX_goal_unknown
 		x=23
-		y=16
+		y=17
 		cost=10
 		prerequisite={focus=maf_focus_37}
 		available_if_capitulated=yes
@@ -1124,26 +1143,28 @@ focus_tree = {
 			factor=1
 		}
 	}
-	focus={
-		id=maf_focus_79
-		icon=GFX_goal_unknown
-		x=23
-		y=17
-		cost=10
-		prerequisite={focus=maf_focus_77}
-		available_if_capitulated=yes
-		ai_will_do={
-			factor=1
-		}
-	}
+	#focus={
+	#	id=maf_focus_79
+	#	icon=GFX_goal_unknown
+	#	x=23
+	#	y=17
+	#	cost=10
+	#	prerequisite={focus=maf_focus_77}
+	#	available_if_capitulated=yes
+	#	ai_will_do={
+	#		factor=1
+	#	}
+	#}
 	focus={
 		id=maf_focus_80
 		icon=GFX_goal_unknown
 		x=22
 		y=18
 		cost=10
-		prerequisite={focus=maf_focus_79}
-		prerequisite={focus=maf_focus_78}
+		prerequisite={
+			focus=maf_focus_77
+			focus=maf_focus_78
+		}
 		available_if_capitulated=yes
 		ai_will_do={
 			factor=1
@@ -1182,6 +1203,7 @@ focus_tree = {
 		x=10
 		y=15
 		cost=10
+		mutually_exclusive={focus=maf_focus_84}
 		prerequisite={
 			focus=maf_focus_72
 			focus=maf_focus_71
@@ -1200,6 +1222,7 @@ focus_tree = {
 		x=14
 		y=15
 		cost=10
+		mutually_exclusive={focus=maf_focus_83}
 		prerequisite={
 			focus=maf_focus_72
 			focus=maf_focus_71
