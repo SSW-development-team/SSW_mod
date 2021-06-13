@@ -85,6 +85,18 @@ scripted_gui = {
 			NO_button_Black_1_visible = {
 			check_variable = { corporate_law_Antitrust = 1 }
 			}
+			tax_rate_increase_click_enabled = {
+				NOT = {
+					check_variable = { country_tax_late > 49.9 }
+				}
+				has_political_power > 5
+			}
+			tax_rate_decrease_click_enabled = {
+				NOT = {
+					check_variable = { country_tax_late < 25.1 }
+				}
+				has_political_power > 5
+			}
 		}
 		effects = {
 			YES_button_Light_1_click = {
@@ -121,12 +133,23 @@ scripted_gui = {
 				add_to_variable = { var = scrollbar_point1XPos value = 1 }
 			}
 			i_button_click = {
-				add_to_variable = { country_inflation_late = 1 }
-				calculate_country_inflation_rate = yes
+				add_to_variable = { country_tax_late = 1 }
 			}
 			i_button2_click = {
-				set_variable = { country_inflation_late = 0 }
-				calculate_country_inflation_rate = yes
+				set_variable = { scrollbar_point1XPos = 0 }
+				set_variable = { scrollbar_point1YPos = 1 }
+			}
+			tax_rate_increase_click = { 
+				add_to_variable = { country_tax_late = 1 }
+				calculate_country_tax_rate = yes
+				clamp_variable = { var = country_tax_late min = 25 max = 50 }
+				add_political_power = -5
+			}
+			tax_rate_decrease_click = { 
+				subtract_from_variable = { country_tax_late = 1 }
+				calculate_country_tax_rate = yes
+				clamp_variable = { var = country_tax_late min = 25 max = 50 }
+				add_political_power = -5
 			}
 		}
 		properties = {

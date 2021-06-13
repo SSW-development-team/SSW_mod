@@ -1,10 +1,32 @@
 #経済タブ
 calculate_country_inflation_rate = {
-	set_temp_variable = { ecotemp1 = 0.048 }
+	set_temp_variable = { ecotemp1 = 0.046 }
 	multiply_temp_variable = { ecotemp1 = country_inflation_late }
-	multiply_temp_variable = { ecotemp1 = 1.5854 }
+	multiply_temp_variable = { ecotemp1 = 2.7591 }
 	clamp_temp_variable = { var = ecotemp1 min = -25 max = 50 }
 	set_variable = { country_inflation_late_for_consumer_goods_factor = ecotemp1 }
+	set_temp_variable = { ecotemp2 = country_inflation_late_for_consumer_goods_factor }
+	multiply_temp_variable = { ecotemp2 = 0.01 }
+	set_variable = { country_inflation_late_for_consumer_goods_factor_2 = ecotemp2 }
+}
+calculate_country_tax_rate = {
+	clamp_variable = { var = country_tax_rate mix = 25 max = 50 }
+	set_temp_variable = { ecotemp3 = country_tax_late }
+	set_temp_variable = { ecotemp4 = country_tax_late }
+	set_temp_variable = { ecotemp5 = country_tax_late }
+	set_variable = { country_tax_late_for_consumer_goods_factor = 5 }
+	set_variable = { country_tax_late_for_stability_factor = 20 }
+	add_to_temp_variable = { ecotemp3 = -25 }
+	multiply_temp_variable = { ecotemp3 = 16.4 }
+	set_variable = { scrollbar_point1XPos = ecotemp3 }
+	add_to_temp_variable = { ecotemp4 = -25 }
+	multiply_temp_variable = { ecotemp4 = 0.4 }
+	subtract_from_variable = { country_tax_late_for_consumer_goods_factor = ecotemp4 }
+	multiply_variable = { country_tax_late_for_consumer_goods_factor = 0.01 }
+	add_to_temp_variable = { ecotemp5 = -25 }
+	multiply_temp_variable = { ecotemp5 = -1.6 }
+	add_to_variable = { country_tax_late_for_stability_factor = ecotemp5 }
+	multiply_variable = { country_tax_late_for_stability_factor = 0.01 }
 }
 #社会タブ
 update_growth_rate = {
