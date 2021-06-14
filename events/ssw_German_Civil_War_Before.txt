@@ -182,12 +182,16 @@ country_event = { #Last Focus Event
 		ai_chance = { base = 1 }
 		add_stability = -0.02
 		add_war_support = -0.07
-		add_building_construction = {
-			type = industrial_complex
-			level = -2
-			instant_build = yes
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = -2
+				instant_build = yes
+			}
 		}
-		
 	}
 }
 
@@ -266,6 +270,7 @@ country_event = { #Announcement of Successors
 			add_to_variable = { Current_Goering_Influence = 3 }## Current : 4
 		}
 		hidden_effect = {
+			set_country_flag = Goering_is_Successor
 			country_event = {
 				id = GER_Before_GCW.12
 				days = 1
@@ -288,6 +293,7 @@ country_event = { #Announcement of Successors
 			add_to_variable = { Current_Himmler_Influence = 3 }## Current : 4
 		}
 		hidden_effect = {
+			set_country_flag = Himmler_is_Successor
 			country_event = {
 				id = GER_Before_GCW.11
 				days = 1
@@ -310,6 +316,7 @@ country_event = { #Announcement of Successors
 			add_to_variable = { Current_Goebbels_Influence = 3 }## Current : 4
 		}
 		hidden_effect = {
+			set_country_flag = Goebbels_is_Successor
 			country_event = {
 				id = GER_Before_GCW.12
 				days = 1
@@ -332,6 +339,7 @@ country_event = { #Announcement of Successors
 			add_to_variable = { Current_Bormann_Influence = 3 }## Current : 4
 		}
 		hidden_effect = {
+			set_country_flag = Bormann_is_Successor
 			country_event = {
 				id = GER_Before_GCW.12
 				days = 1
@@ -365,21 +373,39 @@ country_event = { #Goering's Protest
 		ai_chance = { base = 1 }
 		add_stability = 0.02
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Goering_Influence = 4 }
+				1 = {
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+				}
+				1 = {
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+				}
+				1 = {
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+				}
+				1 = {
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+				}
+				1 = {
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -388,21 +414,55 @@ country_event = { #Goering's Protest
 		ai_chance = { base = 1 }
 		add_stability = -0.01
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Goering_Influence = 2 }
+				1 = {
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+				}
+				1 = {
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+				}
+				1 = {
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+				}
+				1 = {
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+				}
+				1 = {
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -425,21 +485,39 @@ country_event = { #Himmler's Protest
 		ai_chance = { base = 1 }
 		add_stability = 0.02
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Himmler_Influence = 4 }
+				1 = {
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+				}
+				1 = {
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+				}
+				1 = {
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+				}
+				1 = {
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+				}
+				1 = {
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -448,21 +526,55 @@ country_event = { #Himmler's Protest
 		ai_chance = { base = 1 }
 		add_war_support = -0.03
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Himmler_Influence = 2 }
+				1 = {
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+				}
+				1 = {
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+				}
+				1 = {
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+				}
+				1 = {
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+				}
+				1 = {
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -485,21 +597,39 @@ country_event = { #Goebbels's Protest
 		ai_chance = { base = 1 }
 		add_war_support = 0.02
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Goebbels_Influence = 4 }
+				1 = {
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+				}
+				1 = {
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+				}
+				1 = {
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+				}
+				1 = {
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+				}
+				1 = {
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -508,21 +638,55 @@ country_event = { #Goebbels's Protest
 		ai_chance = { base = 1 }
 		add_war_support = -0.03
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Goebbels_Influence = 2 }
+				1 = {
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+				}
+				1 = {
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+				}
+				1 = {
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+				}
+				1 = {
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+				}
+				1 = {
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -545,21 +709,39 @@ country_event = { #Bormann's Protest
 		ai_chance = { base = 1 }
 		add_war_support = 0.02
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Bormann_Influence = 4 }
+				1 = {
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+				}
+				1 = {
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+				}
+				1 = {
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+				}
+				1 = {
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+				}
+				1 = {
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -568,21 +750,55 @@ country_event = { #Bormann's Protest
 		ai_chance = { base = 1 }
 		add_war_support = -0.03
 		hidden_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					is_germany_mainland = yes
-					PREV = {
-						NOT = {
-							OR = {
-								has_variable = Current_Goering_Influence
-								has_variable = Current_Himmler_Influence
-								has_variable = Current_Goebbels_Influence
-								has_variable = Current_Bormann_Influence
-							}
-						}
-					}
+			random_list = {
+				1 = {
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
 				}
-				set_variable = { Current_Bormann_Influence = 2 }
+				1 = {
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+				}
+				1 = {
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+				}
+				1 = {
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+				}
+				1 = {
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+				}
+				1 = {
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+				}
 			}
 		}
 	}
@@ -605,15 +821,29 @@ country_event = { #Hitler's Coma(Deep Sleep)
 		ai_chance = { base = 1 }
 		set_stability = 0
 		retire_country_leader = yes
-		create_country_leader = {
-			name = "Hermann Göring"
-			desc = "POLITICS_HERMANN_GORING_DESC"
-			picture = "Portrait_Germany_Hermann_Goring.tga"
-			expire = "1965.1.1"
-			ideology = national_socialism
-			traits = {
-				
+		if = {
+			limit = {
+				has_country_flag = Goering_is_Successor
 			}
+			set_GER_Leader_Goering = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Himmler_is_Successor
+			}
+			set_GER_Leader_Himmler = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Goebbels_is_Successor
+			}
+			set_GER_Leader_Goebbels = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Bormann_is_Successor
+			}
+			set_GER_Leader_Bormann = Yes
 		}
 	}
 }
