@@ -1,337 +1,38 @@
 ideas = {
-	hidden_ideas = {
-		ger_balance_adjustment_1 = {
-			allowed = { always = yes }
-			allowed_civil_war = { always = yes }
-			available = { has_war = yes }
-			removal_cost = -1
-			modifier = {
-				army_defence_factor = -0.15
-				surrender_limit = -0.15
-			}
-		}
-	}
 	country = {
-		GER_idea_1 = {
-			
-			allowed = {always = yes} 
-			
-			removal_cost = -1
-
-			allowed_civil_war = {always = yes}
-
-			picture = eng_imperial_conscription 
-			
-			modifier = {
-				custom_modifier_tooltip = GER_idea_1.d
-			}
-		}
-		Emergency_conscription = {
-			
-			allowed = {always = yes} 
-			
-			removal_cost = -1 
-
-			allowed_civil_war = {always = yes}
-
-			picture = Emergency_conscription 
-			
-			modifier = {
-				training_time_army_factor = -0.25
-				non_core_manpower = 0.25
-				weekly_manpower = 2000
-				ai_call_ally_desire_factor = -100
-			}
-		}
-		Protester = {
-			
-			allowed = {always = yes}
-			
-			removal_cost = -1 
-
-			allowed_civil_war = {always = yes}
-
-			picture = generic_intel_bonus
-			
-			modifier = {
-				surrender_limit = 0.1
-			}
-		}
-		Air_force_conspiracy = {
+		GER_idea_Economic_Advisors = {
+			picture = triumphant_will
 			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_conspiracy
-
-			equipment_bonus = {
-				fighter_equipment = {
-					build_cost_ic = 100
-					instant = yes
-				}
-				CAS_equipment = {
-					build_cost_ic = 100
-					instant = yes
-				}
-				tac_bomber_equipment = {
-					build_cost_ic = 100
-					instant = yes
-				}
-				strat_bomber_equipment = {
-					build_cost_ic = 100
-					instant = yes
-				}
-			}
-
-			modifier = {
-				custom_modifier_tooltip = Air_force_conspiracy.d
-			}
-		}
-
-		Colonial_government = {
-			allowed = {
-				always = yes
-				is_puppet = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			#picture = 
-			modifier = {
-				army_attack_factor = -0.3
-				conscription = -0.5
-			}
-			
-		}
-
-		GER_war_ideas_1 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			modifier = {
-				air_ace_generation_chance_factor = -0.10
-				enemy_army_bonus_air_superiority_factor = 0.05
-				army_bonus_air_superiority_factor = -0.05
-				air_accidents_factor = 0.05
-				air_night_penalty = 0.1
-				air_weather_penalty = 0.1
-				experience_gain_air_factor = -0.1
-			}
-			
-		}
-		GER_war_ideas_2 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			modifier = {
-				ai_join_ally_desire_factor = -10000
-				ai_call_ally_desire_factor = -10000
-			}
-			
-		}
-		GER_war_idea_3 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			targeted_modifier = {
 				tag = GER
-				attack_bonus_against = 0.15
-			}
-		}
-		GER_war_idea_4 = {
-			allowed = {
-				always = yes
 			}
 			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			targeted_modifier = {
-				tag = HGR
-				attack_bonus_against = 0.15
-			}
-		}
-		GER_war_idea_5 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			targeted_modifier = {
-				tag = LTV
-				attack_bonus_against = 0.15
-			}
-		}
-		GER_war_idea_6 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			targeted_modifier = {
-				tag = HLH
-				attack_bonus_against = 0.15
-			}
-		}
-		GER_war_idea_7 = {
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = air_war_plans_division_focus
-			#hidden_modifier = { ###Hidden modifier is does not exist
-			#	ai_focus_aggressive_factor = 100
-			#}
-		}
-
-		#ここから追加分
-		GER_Reichskommissariat = {#楽観的姿勢
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = generic_fascism_drift_bonus
 			modifier = {
-				stability_factor = 0.05
+				political_power_factor = 0.1
+				political_power_cost = 0.1
 			}
 		}
-
-		GER_Reichskommissariat_amnesty = {#恩赦
+		GER_idea_Technical_Schools = {
+			picture = triumphant_will
 			allowed = {
-				always = yes
+				tag = GER
 			}
 			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = generic_fascism_drift_bonus
 			modifier = {
-				stability_factor = 0.05
+				research_speed_factor = 0.03
+				recruitable_population_factor = -0.03
+				production_factory_efficiency_gain_factor = 0.02
 			}
 		}
-
-		GER_Reichskommissariat_trash_can = {#缶詰作戦
+		GER_idea_Technical_Schools = {
+			picture = triumphant_will
 			allowed = {
-				always = yes
+				tag = GER
 			}
 			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = generic_fascism_drift_bonus
-			modifier = {
-				stability_factor = -0.05
-			}
-		}
-
-		GER_Reichskommissariat_madagascar = {#マダガスカル計画
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = generic_fascism_drift_bonus
-			modifier = {
-				consumer_goods_factor = 0.025
-			}
-		}
-
-		GER_true_govament = {#正統政府
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = idea_chi_war_of_resistance3
-			modifier = {
-				army_core_attack_factor = 0.25
-				army_core_defence_factor = 0.25
-				army_org_Factor = 0.10
-				ai_focus_aggressive_factor = 1
-				offence = 0.5
-				terrain_penalty_reduction = 0.5
-			}
-		}
-
-		GER_false_govament = {#反乱政府
-			allowed = {
-				always = yes
-			}
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			picture = idea_prc_low_popular_support
-			modifier = {
-				army_core_attack_factor = -0.25
-				army_core_defence_factor = -0.25
-				army_org_Factor = -0.10
+			equipment_bonus = {
+				motorized = {
+					build_cost_ic = -0.1
+				}
 			}
 		}
 	}
