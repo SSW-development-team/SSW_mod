@@ -25,7 +25,95 @@ GER_is_debug = {
 }
 
 GER_Before_Civil_War_Power_Struggle_Categories = {
-	GER_phase_one = {
+	Update_Goering_Power = {
+		allowed = { 
+			always = no
+		}
+		available = {
+			has_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		}
+		is_good = no
+		days_mission_timeout = 40
+		timeout_effect = {
+			activate_mission = Update_Goering_Power
+			every_controlled_state = {
+				limit = {
+					has_variable = Current_Goering_Influence
+				}
+				every_neighbor_state = {
+					add_to_variable = { Current_Goering_Influence = 1 }
+				}
+			}
+			log = "updated"
+		}
+	}
+	Update_Himmler_Power = {
+		allowed = { 
+			always = no
+		}
+		available = {
+			has_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		}
+		is_good = no
+		days_mission_timeout = 40
+		timeout_effect = {
+			activate_mission = Update_Himmler_Power
+			every_controlled_state = {
+				limit = {
+					has_variable = Current_Himmler_Influence
+				}
+				every_neighbor_state = {
+					add_to_variable = { Current_Himmler_Influence = 1 }
+				}
+			}
+			log = "updated"
+		}
+	}
+	Update_Goebbels_Power = {
+		allowed = { 
+			always = no
+		}
+		available = {
+			has_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		}
+		is_good = no
+		days_mission_timeout = 40
+		timeout_effect = {
+			activate_mission = Update_Goebbels_Power
+			every_controlled_state = {
+				limit = {
+					has_variable = Current_Goebbels_Influence
+				}
+				every_neighbor_state = {
+					add_to_variable = { Current_Goebbels_Influence = 1 }
+				}
+			}
+			log = "updated"
+		}
+	}
+	Update_Bormann_Power = {
+		allowed = { 
+			always = no
+		}
+		available = {
+			has_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		}
+		is_good = no
+		days_mission_timeout = 40
+		timeout_effect = {
+			activate_mission = Update_Bormann_Power
+			every_controlled_state = {
+				limit = {
+					has_variable = Current_Bormann_Influence
+				}
+				every_neighbor_state = {
+					add_to_variable = { Current_Bormann_Influence = 1 }
+				}
+			}
+			log = "updated"
+		}
+	}
+	GER_phase_one = {###MAP
 		icon = ger_mefo_bills
 		fire_only_once = yes
 		cost = 15
