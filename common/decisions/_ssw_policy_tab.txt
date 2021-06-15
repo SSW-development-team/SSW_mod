@@ -9,10 +9,11 @@ SSW_policy_tab_decision = {
 		}
 		days_remove = 28
 		modifier = {
-            consumer_goods_factor = 0.15
+            consumer_goods_factor = 0.10
+			industrialization_growth_rate_modifier = 0.005
+			industrialization_growth_rate_factor = 2.00
         }
 		complete_effect = {
-			custom_effect_tooltip = SSW_policy_tooltip_0
 			custom_effect_tooltip = SSW_policy_tooltip_1
 			add_to_variable =  { country_Industrialization_growth_rate = 0.05 }
 		}
@@ -30,16 +31,17 @@ SSW_policy_tab_decision = {
 		}
 		days_remove = 28
 		modifier = {
-            consumer_goods_factor = 0.15
+            consumer_goods_factor = 0.05
 			political_power_gain = -0.10
+			poverty_growth_rate_modifier = 0.005
+			poverty_growth_rate_factor = 2.00
         }
 		complete_effect = {
-			custom_effect_tooltip = SSW_policy_tooltip_0
 			custom_effect_tooltip = SSW_policy_tooltip_2
-			add_to_variable =  { country_poverty_rate_growth_rate = 0.05 }
+			add_to_variable =  { country_poverty_growth_rate = 0.05 }
 		}
 		remove_effect = {
-			subtract_from_variable =  { country_poverty_rate_growth_rate = 0.05 }
+			subtract_from_variable =  { country_poverty_growth_rate = 0.05 }
 		}
 	}
 	policy_decision_3 = {
@@ -52,66 +54,16 @@ SSW_policy_tab_decision = {
 		}
 		days_remove = 28
 		modifier = {
-            consumer_goods_factor = 0.15
-			political_power_gain = -0.10
+            political_power_gain = -0.15
+			literacy_growth_rate_modifier = 0.005
+			literacy_growth_rate_factor = 2.00
         }
 		complete_effect = {
-			custom_effect_tooltip = SSW_policy_tooltip_0
 			custom_effect_tooltip = SSW_policy_tooltip_3
-			add_to_variable =  { country_literacy_rate_growth_rate = 0.05 }
+			add_to_variable =  { country_literacy_growth_rate = 0.05 }
 		}
 		remove_effect = {
-			subtract_from_variable =  { country_literacy_rate_growth_rate = 0.05 }
-		}
-	}
-	debug_policy_decision_for_Swaziland_1 = {
-		icon = generic_army_support
-		ai_will_do = {
-			factor = 0
-		}
-		available = {
-			tag = SWL
-			is_ai = no
-			is_debug = yes
-		}
-		complete_effect = {
-			add_offsite_building = { type = arms_factory level = 15 }
-			add_offsite_building = { type = industrial_complex level = 25 }
-		}
-	}
-	debug_policy_decision_for_Swaziland_2 = {
-		icon = generic_army_support
-		ai_will_do = {
-			factor = 0
-		}
-		available = {
-			tag = SWL
-			is_ai = no
-			is_debug = yes
-		}
-		fire_only_once = yes
-		complete_effect = {
-			every_state = {
-				limit = {
-					OR = {
-					is_core_of = SAF
-					is_core_of = LES
-					}
-				}
-				add_core_of = SWL
-			}
-			annex_country = {
-    			target = SAF
-    			transfer_troops = yes
-			}
-			annex_country = {
-    			target = LES
-    			transfer_troops = yes
-			}
-			ENG = {
-				end_puppet = SWL
-			}
-			drop_cosmetic_tag = yes
+			subtract_from_variable =  { country_literacy_growth_rate = 0.05 }
 		}
 	}
 }

@@ -1,0 +1,1145 @@
+add_namespace = ssw_bal
+add_namespace = ssw_bal_break
+country_event = { #ドイツの影響力消滅
+    id = ssw_bal_break.1
+    title = ssw_bal_break.1.t
+    desc = ssw_bal_break.1.d
+    fire_only_once = yes
+    trigger = {
+        original_tag = BAL
+        has_global_flag = GER_civil_war
+    }
+    mean_time_to_happen = {
+        days = 1
+    }
+    option = { #なんということだ
+        name = ssw_bal_break.1.a
+        add_stability = -0.1
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.2 days = 10}
+        }
+    }
+}
+country_event = { #オストランドの分裂
+    id = ssw_bal_break.2
+    title = ssw_bal_break.2.t
+    desc = ssw_bal_break.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            LIT = {
+                transfer_state = 189
+                transfer_state = 188
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                load_focus_tree = ssw_Lithuania_tree
+                set_stability = 0.4
+                set_popularities = {
+                    anarchism = 0
+                    progressive_communism = 4
+                    classical_communism = 13
+                    social_democracy = 9
+                    social_liberalism = 5
+                    social_conservatism = 10
+                    authority_democracy = 34
+                    authority_despotism = 15
+                    national_fascism = 8
+                    national_socialism = 2
+                    corporatocracism = 0
+                }
+                create_country_leader = {
+                    name = "Stasys Lozoraitis"
+                    desc = ""
+                    picture = ""
+                    expire = 1990.1.1
+                    ideology = authority_democracy_ideology
+                    traits = {}
+                }
+                division_template = {
+                    name = "Lietuvos laisvoji armija"
+                    regiments = {
+                        militia = {x = 0 y = 0}
+                        militia = {x = 1 y = 0}
+                        militia = {x = 2 y = 0}
+                        militia = {x = 0 y = 1}
+                        militia = {x = 1 y = 1}
+                        militia = {x = 2 y = 1}
+                    }
+                }
+                189 = {
+                    create_unit = {
+                        division = "name = \"Lietuvos laisvoji armija\" division_template = \"Lietuvos laisvoji armija\" start_experience_factor = 0.08"
+						owner = PREV
+                        prioritize_location = 530
+                    }
+                    create_unit = {
+                        division = "name = \"Lietuvos laisvoji armija\" division_template = \"Lietuvos laisvoji armija\" start_experience_factor = 0.08"
+						owner = PREV
+                        prioritize_location = 6229
+                    }
+                    create_unit = {
+                        division = "name = \"Lietuvos laisvoji armija\" division_template = \"Lietuvos laisvoji armija\" start_experience_factor = 0.08"
+						owner = PREV
+                        prioritize_location = 9483
+                    }
+                    create_unit = {
+                        division = "name = \"Lietuvos laisvoji armija\" division_template = \"Lietuvos laisvoji armija\" start_experience_factor = 0.08"
+						owner = PREV
+                        prioritize_location = 9314
+                    }
+                }
+            }
+            LAT = {
+                transfer_state = 190
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    anarchism = 0
+                    progressive_communism = 4
+                    classical_communism = 8
+                    social_democracy = 11
+                    social_liberalism = 5
+                    social_conservatism = 13
+                    authority_democracy = 37
+                    authority_despotism = 12
+                    national_fascism = 8
+                    national_socialism = 2
+                    corporatocracism = 0
+                }
+                create_country_leader = {
+                    name = "Ernests Blanks"
+                    desc = ""
+                    picture = ""
+                    expire = 1990.1.1
+                    ideology = authority_democracy_ideology
+                    traits = {}
+                }
+                division_template = {
+                    name = "Latvijas Brīvā armija"
+                    regiments = {
+                        militia = {x = 0 y = 0}
+                        militia = {x = 1 y = 0}
+                        militia = {x = 2 y = 0}
+                        militia = {x = 0 y = 1}
+                        militia = {x = 1 y = 1}
+                        militia = {x = 2 y = 1}
+                    }
+                }
+                190 = {
+                    create_unit = {
+                        division = "name = \"Latvijas Brīvā armija\" division_template = \"Latvijas Brīvā armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 3255
+                    }
+                    create_unit = {
+                        division = "name = \"Latvijas Brīvā armija\" division_template = \"Latvijas Brīvā armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 6222
+                    }
+                    create_unit = {
+                        division = "name = \"Latvijas Brīvā armija\" division_template = \"Latvijas Brīvā armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 9262
+                    }
+                    create_unit = {
+                        division = "name = \"Latvijas Brīvā armija\" division_template = \"Latvijas Brīvā armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 265
+                    }
+                }
+            }
+            EST = {
+                transfer_state = 13
+                transfer_state = 191
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    anarchism = 0
+                    progressive_communism = 5
+                    classical_communism = 13
+                    social_democracy = 10
+                    social_liberalism = 7
+                    social_conservatism = 16
+                    authority_democracy = 30
+                    authority_despotism = 8
+                    national_fascism = 9
+                    national_socialism = 2
+                    corporatocracism = 0
+                }
+                create_country_leader = {
+                    name = "Otto Tief"
+                    desc = ""
+                    picture = ""
+                    expire = 1990.1.1
+                    ideology = authority_democracy_ideology
+                    traits = {}
+                }
+                division_template = {
+                    name = "Eesti vaba armee"
+                    regiments = {
+                        militia = {x = 0 y = 0}
+                        militia = {x = 1 y = 0}
+                        militia = {x = 2 y = 0}
+                        militia = {x = 0 y = 1}
+                        militia = {x = 1 y = 1}
+                        militia = {x = 2 y = 1}
+                    }
+                }
+                13 = {
+                    create_unit = {
+                        division = "name = \"Eesti vaba armee\" division_template = \"Eesti vaba armee\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 308
+                    }
+                    create_unit = {
+                        division = "name = \"Eesti vaba armee\" division_template = \"Eesti vaba armee\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 3152
+                    }
+                    create_unit = {
+                        division = "name = \"Eesti vaba armee\" division_template = \"Eesti vaba armee\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 6099
+                    }
+                }
+            }
+            BLR = {
+                transfer_state = 204
+                transfer_state = 206
+                transfer_state = 94
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    anarchism = 0
+                    progressive_communism = 2
+                    classical_communism = 15
+                    social_democracy = 13
+                    social_liberalism = 5
+                    social_conservatism = 11
+                    authority_democracy = 33
+                    authority_despotism = 10
+                    national_fascism = 9
+                    national_socialism = 2
+                    corporatocracism = 0
+                }
+                create_country_leader = {
+                    name = "Mikola Abramchyk"
+                    desc = ""
+                    picture = ""
+                    expire = 1990.1.1
+                    ideology = authority_democracy_ideology
+                    traits = {}
+                }
+                division_template = {
+                    name = "Bielaruskaja Voĺnaja Armija"
+                    regiments = {
+                        militia = {x = 0 y = 0}
+                        militia = {x = 1 y = 0}
+                        militia = {x = 2 y = 0}
+                        militia = {x = 0 y = 1}
+                        militia = {x = 1 y = 1}
+                        militia = {x = 2 y = 1}
+                    }
+                }
+                206 = {
+                    create_unit = {
+                        division = "name = \"Bielaruskaja Voĺnaja Armija\" division_template = \"Bielaruskaja Voĺnaja Armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 11370
+                    }
+                }
+                204 = {
+                    create_unit = {
+                        division = "name = \"Bielaruskaja Voĺnaja Armija\" division_template = \"Bielaruskaja Voĺnaja Armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 11313
+                    }
+                }
+                94 = {
+                    create_unit = {
+                        division = "name = \"Bielaruskaja Voĺnaja Armija\" division_template = \"Bielaruskaja Voĺnaja Armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 560
+                    }
+                    create_unit = {
+                        division = "name = \"Bielaruskaja Voĺnaja Armija\" division_template = \"Bielaruskaja Voĺnaja Armija\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 3556
+                    }
+                }
+            }
+            create_dynamic_country = {
+                original_tag = BAL
+                copy_tag = BAD
+                set_capital = 1233
+                set_country_flag = BAL_duchy
+                set_politics = {
+                    ruling_party = authority_despotism
+                    elections_allowed = no
+                }
+                set_popularities = {
+                    anarchism = 0
+                    progressive_communism = 4
+                    classical_communism = 8
+                    social_democracy = 9
+                    social_liberalism = 5
+                    social_conservatism = 12
+                    authority_democracy = 13
+                    authority_despotism = 39
+                    national_fascism = 8
+                    national_socialism = 2
+                    corporatocracism = 0
+                }
+                create_country_leader = {
+                    name = "Adolf Friedrich"
+                    desc = ""
+                    picture = ""
+                    expire = 1990.1.1
+                    ideology = authority_despotism_ideology
+                    traits = {}
+                }
+                set_research_slots = 2
+                transfer_state = 12
+                transfer_state = 1232
+                division_template = {
+                    name = "Baltijas brīvība"
+                    regiments = {
+                        militia = {x = 0 y = 0}
+                        militia = {x = 1 y = 0}
+                        militia = {x = 2 y = 0}
+                        militia = {x = 0 y = 1}
+                        militia = {x = 1 y = 1}
+                        militia = {x = 2 y = 1}
+                    }
+                }
+                12 = {
+                    create_unit = {
+                        division = "name = \"Baltijas brīvība\" division_template = \"Baltijas brīvība\" start_experience_factor = 0.1"
+                        owner = PREV
+                        prioritize_location = 310
+                    }
+                    create_unit = {
+                        division = "name = \"Baltijas brīvība\" division_template = \"Baltijas brīvība\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 7482
+                    }
+                    create_unit = {
+                        division = "name = \"Baltijas brīvība\" division_template = \"Baltijas brīvība\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 11302
+                    }
+                }
+                1232 = {
+                    create_unit = {
+                        division = "name = \"Baltijas brīvība\" division_template = \"Baltijas brīvība\" start_experience_factor = 0.08"
+                        owner = PREV
+                        prioritize_location = 9221
+                    }
+                }
+            }
+            division_template = {
+                name = "Freiwillige der Verteidigung"
+                regiments = {
+                    militia = {x = 0 y = 0}
+                    militia = {x = 1 y = 0}
+                    militia = {x = 2 y = 0}
+                    militia = {x = 0 y = 1}
+                    militia = {x = 1 y = 1}
+                    militia = {x = 2 y = 1}
+                }
+            }
+            96 = {
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.09"
+                    owner = PREV
+                    prioritize_location = 406
+                }
+            }
+            784 = {
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.08"
+                    owner = PREV
+                    prioritize_location = 3320
+                }
+            }
+            11 = {
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.08"
+                    owner = PREV
+                    prioritize_location = 6296
+                }
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.09"
+                    owner = PREV
+                    prioritize_location = 6281
+                }
+            }
+            95 = {
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.09"
+                    owner = PREV
+                    prioritize_location = 9304
+                }
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.09"
+                    owner = PREV
+                    prioritize_location = 6359
+                }
+            }
+            1233 = {
+                create_unit = {
+                    division = "name = \"Freiwillige der Verteidigung\" division_template = \"Freiwillige der Verteidigung\" start_experience_factor = 0.1"
+                    owner = PREV
+                    prioritize_location = 9340
+                }
+            }
+        }
+    }
+    option = { #我がバルト民族のために
+        name = ssw_bal_break.2.a
+        ai_chance = {
+            base = 0
+        }
+        country_event = {id = ssw_bal_break.3}
+    }
+    option = { #公国のために
+        name = ssw_bal_break.2.b
+        ai_chance = {
+            base = 0
+        }
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+        BAD = {
+            change_tag_from = ROOT
+        }
+    }
+    option = { #ドイツのために
+        name = ssw_bal_break.2.c
+        ai_chance = {
+            base = 100
+        }
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+    }
+}
+country_event = { #各バルト人の国
+    id = ssw_bal_break.3
+    title = ssw_bal_break.3.t
+    desc = ssw_bal_break.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #リトアニアで
+        name = ssw_bal_break.3.a
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+        LIT = {
+            change_tag_from = ROOT
+        }
+    }
+    option = { #ラトビアで
+        name = ssw_bal_break.3.b
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+        LAT = {
+            change_tag_from = ROOT
+        }
+    }
+    option = { #エストニアで
+        name = ssw_bal_break.3.c
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+        EST = {
+            change_tag_from = ROOT
+        }
+    }
+    option = { #ベラルーシで
+        name = ssw_bal_break.3.e
+        hidden_effect = {
+            country_event = {id = ssw_bal_break.4}
+        }
+        BLR = {
+            change_tag_from = ROOT
+        }
+    }
+}
+country_event = { #戦闘開始(hidden)
+    id = ssw_bal_break.4
+    title = ssw_bal_break.4.t
+    desc = ssw_bal_break.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    hidden = yes
+    option = {
+        name = ssw_bal_break.4.a
+        set_global_flag = Ostland_break
+        declare_war_on = {
+            target = LIT
+            type = annex_everything
+        }
+        declare_war_on = {
+            target = LAT
+            type = annex_everything
+        }
+        declare_war_on = {
+            target = EST
+            type = annex_everything
+        }
+        declare_war_on = {
+            target = BLR
+            type = annex_everything
+        }
+        declare_war_on = {
+            target = BAD
+            type = annex_everything
+        }
+        if = {
+            limit = {
+                LIT = {
+                    is_ai = no
+                }
+            }
+            LIT = {
+                country_event = {id = ssw_bal_break.5 days = 1}
+            }
+        }
+        else_if = {
+            limit = {
+                LAT = {
+                    is_ai = no
+                }
+            }
+            LAT = {
+                country_event = {id = ssw_bal_break.5 days = 1}
+            }
+        }
+        else_if = {
+            limit = {
+                EST = {
+                    is_ai = no
+                }
+            }
+            EST = {
+                country_event = {id = ssw_bal_break.5 days = 1}
+            }
+        }
+        else = {
+            LIT = {
+                country_event = {id = ssw_bal_break.5 days = 1}
+            }
+        }
+        LAT = {
+            country_event = {id = ssw_bal_break.9 days = 3}
+        }
+        LIT = {
+            country_event = {id = ssw_bal_break.12 days = 5}
+        }
+    }
+}
+
+country_event = { #開放のための協力
+    id = ssw_bal_break.5
+    title = ssw_bal_break.5.t
+    desc = ssw_bal_break.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #バルトの兄弟たちと共に
+        name = ssw_bal_break.5.a
+        ai_chance = {
+            base = 20
+        }
+        if = {
+            limit = {
+                original_tag = LIT
+            }
+            LAT = {country_event = {id = ssw_bal_break.6}}
+            EST = {country_event = {id = ssw_bal_break.6}}
+        }
+        else_if = {
+            limit = {
+                original_tag = LAT
+            }
+            LIT = {country_event = {id = ssw_bal_break.6}}
+            EST = {country_event = {id = ssw_bal_break.6}}
+        }
+        else_if = {
+            limit = {
+                original_tag = EST
+            }
+            LIT = {country_event = {id = ssw_bal_break.6}}
+            LAT = {country_event = {id = ssw_bal_break.6}}
+        }
+        set_country_flag = BAL_break_coop
+    }
+    option = { #ベラルーシとも協力しよう
+        name = ssw_bal_break.5.b
+        ai_chance = {
+            base = 80
+        }
+        if = {
+            limit = {
+                original_tag = LIT
+            }
+            LAT = {country_event = {id = ssw_bal_break.6}}
+            EST = {country_event = {id = ssw_bal_break.6}}
+            BLR = {country_event = {id = ssw_bal_break.6}}
+        }
+        else_if = {
+            limit = {
+                original_tag = LAT
+            }
+            LIT = {country_event = {id = ssw_bal_break.6}}
+            EST = {country_event = {id = ssw_bal_break.6}}
+            BLR = {country_event = {id = ssw_bal_break.6}}
+        }
+        else_if = {
+            limit = {
+                original_tag = EST
+            }
+            LIT = {country_event = {id = ssw_bal_break.6}}
+            LAT = {country_event = {id = ssw_bal_break.6}}
+            BLR = {country_event = {id = ssw_bal_break.6}}
+        }
+        set_country_flag = BAL_break_coop
+    }
+    option = { #協力などない
+        name = ssw_bal_break.5.c
+        ai_chance = {
+            base = 0
+        }
+    }
+}
+country_event = { #Fromが協力を提案
+    id = ssw_bal_break.6
+    title = ssw_bal_break.6.t
+    desc = ssw_bal_break.6.d
+    is_triggered_only = yes
+    option = { #願ってもないことだ
+        name = ssw_bal_break.6.a
+        ai_chance = {
+            base = 99
+        }
+        FROM = {country_event = {id = ssw_bal_break.7}}
+        set_country_flag = BAL_break_coop
+    }
+    option = { #協力など不要だ
+        name = ssw_bal_break.6.b
+        ai_chance = {
+            base = 1
+            modifier = {
+                original_tag = BLR
+                add = 10
+            }
+        }
+        FROM = {country_event = {id = ssw_bal_break.8}}
+    }
+}
+country_event = { #Fromが提案を受諾
+    id = ssw_bal_break.7
+    title = ssw_bal_break.7.t
+    desc = ssw_bal_break.7.d
+    is_triggered_only = yes
+    option = { #大変結構！
+        name = ssw_bal_break.7.a
+        give_military_access = FROM
+        FROM = {
+            give_military_access = ROOT
+        }
+    }
+}
+country_event = { #Fromが提案を拒否
+    id = ssw_bal_break.8
+    title = ssw_bal_break.8.t
+    desc = ssw_bal_break.8.d
+    is_triggered_only = yes
+    option = { #どうなってもしらんぞ
+        name = ssw_bal_break.8.a
+    }
+}
+
+country_event = { #バルト連合公国の運命
+    id = ssw_bal_break.9
+    title = ssw_bal_break.9.t
+    desc = ssw_bal_break.9.d
+    is_triggered_only = yes
+    option = { #我らの土地を取り返せ！
+        name = ssw_bal_break.9.a
+        ai_chance = {
+            base = 100
+        }
+        if = {
+            limit = {
+                has_non_aggression_pact_with = BAD
+            }
+            diplomatic_relation = {
+                country = BAD
+                relation = non_aggression_pact
+                active = no
+            }
+        }
+        if = {
+            limit = {
+                has_military_access_to = BAD
+            }
+            diplomatic_relation = {
+                country = BAD
+                relation = military_access
+                active = no
+            }
+        }
+        if = {
+            limit = {
+                has_military_access_to = BAD
+            }
+            BAD = {
+                diplomatic_relation = {
+                    country = ROOT
+                    relation = military_access
+                    active = no
+                }
+            }
+        }
+        declare_war_on = {
+            target = BAD
+            type = annex_everything
+        }
+        set_country_flag = war_BAD_crush
+        every_country = {
+            limit = {
+                has_country_flag = BAL_break_coop
+            }
+            country_event = {id = ssw_bal_break.10}
+        }
+        EST = {
+            if = {
+                limit = {
+                    NOT = {has_country_flag = BAL_break_coop}
+                    BAD = {
+                        any_owned_state = {
+                            is_core_of = EST
+                        }
+                    }
+                }
+                country_event = {id = ssw_bal_break.10}
+            }
+        }
+    }
+    option = { #放っておけ
+        name = ssw_bal_break.9.b
+        ai_chance = {
+            base = 0
+            modifier = {
+                original_tag = EST
+                add = 10
+            }
+        }
+        if = {
+            limit = {
+                NOT = {original_tag = EST}
+                BAD = {
+                    any_owned_state = {
+                        is_core_of = EST
+                    }
+                }
+            }
+            EST = {
+                country_event = {id = ssw_bal_break.9 days = 1}
+            }
+        }
+    }
+}
+country_event = { #Fromがバルト連合に宣戦布告
+    id = ssw_bal_break.10
+    title = ssw_bal_break.10.t
+    desc = ssw_bal_break.10.d
+    is_triggered_only = yes
+    option = { #共に戦う！
+        name = ssw_bal_break.10.a
+        ai_chance = {
+            base = 100
+        }
+        if = {
+            limit = {
+                has_non_aggression_pact_with = BAD
+            }
+            diplomatic_relation = {
+                country = BAD
+                relation = non_aggression_pact
+                active = no
+            }
+        }
+        if = {
+            limit = {
+                has_military_access_to = BAD
+            }
+            diplomatic_relation = {
+                country = BAD
+                relation = military_access
+                active = no
+            }
+        }
+        if = {
+            limit = {
+                has_military_access_to = BAD
+            }
+            BAD = {
+                diplomatic_relation = {
+                    country = ROOT
+                    relation = military_access
+                    active = no
+                }
+            }
+        }
+        declare_war_on = {
+            target = BAD
+            type = annex_everything
+        }
+        set_country_flag = war_BAD_crush_support
+    }
+    option = { #勝手にやってくれ
+        name = ssw_bal_break.10.b
+        ai_chance = {
+            base = 0
+            modifier = {
+                original_tag = LIT
+                add = 5
+            }
+            modifier = {
+                original_tag = BLR
+                add = 10
+            }
+        }
+    }
+}
+
+country_event = { #仲間の土地を返還
+    id = ssw_bal_break.11
+    title = ssw_bal_break.11.t
+    desc = ssw_bal_break.11.d
+    trigger = {
+        OR = {
+            original_tag = LIT
+            original_tag = LAT
+            original_tag = EST
+            original_tag = BLR
+        }
+        has_country_flag = BAL_break_coop
+        has_war = no
+        NOT = {country_exists = BAL}
+        any_other_country = {
+            has_country_flag = BAL_break_coop
+        }
+        OR = {
+            AND = {
+                original_tag = LIT
+                any_owned_state = {
+                    OR = {
+                        is_core_of = LAT
+                        is_core_of = EST
+                        is_core_of = BLR
+                    }
+                }
+            }
+            AND = {
+                original_tag = LAT
+                any_owned_state = {
+                    OR = {
+                        is_core_of = LIT
+                        is_core_of = EST
+                        is_core_of = BLR
+                    }
+                }
+            }
+            AND = {
+                original_tag = EST
+                any_owned_state = {
+                    OR = {
+                        is_core_of = LIT
+                        is_core_of = LAT
+                        is_core_of = BLR
+                    }
+                }
+            }
+            AND = {
+                original_tag = BLR
+                any_owned_state = {
+                    OR = {
+                        is_core_of = LIT
+                        is_core_of = LAT
+                        is_core_of = EST
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                OR = {
+                    LAT = {
+                        has_country_flag = war_BAD_crush
+                    }
+                    EST = {
+                        has_country_flag = war_BAD_crush
+                    }
+                }
+                has_country_flag = war_BAD_crush_support
+            }
+            NOT = {country_exists = BAD}
+        }
+    }
+    option = { #もちろん、全て返すべきだ
+        name = ssw_bal_break.11.a
+        ai_chance = {
+            base = 100
+        }
+        if = {
+            limit = {
+                NOT = {original_tag = LIT}
+                LIT = {has_country_flag = BAL_break_coop}
+                any_owned_state = {
+                    is_core_of = LIT
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = LIT
+                }
+                LIT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+        if = {
+            limit = {
+                NOT = {original_tag = LAT}
+                LAT = {has_country_flag = BAL_break_coop}
+                any_owned_state = {
+                    is_core_of = LAT
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = LAT
+                }
+                LAT = {
+                    transfer_state = PREV
+                }
+            }
+        }
+        if = {
+            limit = {
+                NOT = {original_tag = EST}
+                EST = {has_country_flag = BAL_break_coop}
+                any_owned_state = {
+                    is_core_of = EST
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = EST
+                }
+                EST = {
+                    transfer_state = PREV
+                }
+            }
+        }
+        if = {
+            limit = {
+                NOT = {original_tag = BLR}
+                LIT = {has_country_flag = BAL_break_coop}
+                any_owned_state = {
+                    is_core_of = BLR
+                }
+            }
+            every_owned_state = {
+                limit = {
+                    is_core_of = BLR
+                }
+                BLR = {
+                    transfer_state = PREV
+                }
+            }
+        }
+    }
+    option = { #返すなどとんでもない
+        name = ssw_bal_break.11.b
+        ai_chance = {
+            base = 0
+        }
+        every_owned_state = {
+            limit = {
+                OR = {
+                    is_core_of = LIT
+                    is_core_of = LAT
+                    is_core_of = EST
+                    is_core_of = BLR
+                }
+                NOT = {is_core_of = ROOT}
+            }
+            add_claim_by = ROOT
+        }
+    }
+}
+
+country_event = { #クライペダの確保
+    id = ssw_bal_break.12
+    title = ssw_bal_break.12.t
+    desc = ssw_bal_break.12.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #最早"メーメル"ではない
+        name = ssw_bal_break.12.a
+        ai_chance = {
+            base = 80
+        }
+        every_other_country = {
+            limit = {
+                owns_state = 188
+            }
+            country_event = {id = ssw_bal_break.13}
+        }
+        transfer_state = 188
+        188 = {
+            create_unit = {
+                division = "name = \"Lietuvos laisvoji armija\" division_template = \"Lietuvos laisvoji armija\" start_experience_factor = 0.08"
+				owner = PREV
+                prioritize_location = 3288
+            }
+        }
+        188 = {
+            add_claim_by = BAL
+            add_claim_by = BAD
+        }
+    }
+    option = { #危険すぎる…
+        name = ssw_bal_break.12.b
+        ai_chance = {
+            base = 10
+        }
+    }
+}
+country_event = { #Fromがメーメルを占領
+    id = ssw_bal_break.13
+    title = ssw_bal_break.13.t
+    desc = ssw_bal_break.13.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #今すぐ取り返せ！
+        name = ssw_bal_break.13.a
+        ai_chance = {
+            base = 1
+        }
+        declare_war_on = {
+            target = FROM
+            type = annex_everything
+        }
+    }
+    option = { #今は放っておこう…今は…
+        name = ssw_bal_break.13.b
+        ai_chance = {
+            base = 40
+        }
+        create_wargoal = {
+            type = annex_everything
+            target = ROOT
+            generator = 188
+        }
+    }
+    option = { #今はそれどころではない
+        name = ssw_bal_break.13.c
+        ai_chance = {
+            base = 60
+        }
+        hidden_effect = {
+            BAL = {
+                add_state_claim = 188
+            }
+            BAD = {
+                remove_state_claim = 188
+                add_state_core = 188
+            }
+        }
+    }
+    option = { #"メーメル"は"クライペダ"となった
+        name = ssw_bal_break.13.e
+        ai_chance = {
+            base = 1
+        }
+        add_war_support = -0.03
+        remove_state_core = 188
+        BAL = {
+            add_state_core = 188
+        }
+        hidden_effect = {
+            BAL = {
+                remove_state_claim = 188
+                add_state_core = 188
+            }
+            BAD = {
+                remove_state_claim = 188
+                add_state_core = 188
+            }
+        }
+    }
+}
+country_event = { #オストランド独立戦争の終結(hidden)
+    id = ssw_bal_break.14
+    title = ssw_bal_break.14.t
+    desc = ssw_bal_break.14.d
+    fire_only_once = yes
+    hidden = yes
+    trigger = {
+        has_global_flag = Ostland_break
+        OR = {
+            AND = {
+                OR = {
+                    original_tag = LIT
+                    original_tag = LAT
+                    original_tag = EST
+                    original_tag = BLR
+                }
+                NOT = {country_exists = BAL}
+                NOT = {country_exists = BAD}
+                has_war = no
+            }
+            AND = {
+                original_tag = BAL
+                NOT = {country_exists = LAT}
+                NOT = {country_exists = EST}
+                has_war = no
+                OR = {
+                    AND = {
+                        tag = BAD
+                        NOT = {country_exists = BAL}
+                    }
+                    AND = {
+                        tag = BAL
+                        NOT = {country_exists = BAD}
+                        NOT = {country_exists = LIT}
+                        NOT = {country_exists = BLR}
+                    }
+                }
+            }
+        }
+
+    }
+    immediate = {
+        set_global_flag = Ostland_independent_war_end
+        log = "Ostland Broke." 
+    }
+    option = {
+        name = ssw_bal_break.14.a
+    }
+}

@@ -1,0 +1,1355 @@
+focus_tree = {
+    id = ssw_Lithuania_tree
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = LIT
+        }
+    }
+    continuous_focus_position = {
+        x = 0
+        y = 1300
+    }
+    focus = { #独立の達成
+        id = LIT_achive_independent
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            has_global_flag = Ostland_independent_war_end
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 11
+        y = 0
+        completion_reward = {
+            add_stability = 0.1
+            add_war_support = 0.1
+        }
+    }
+    focus = { #暫定政府を解決
+        id = LIT_settle_caretaker_gov
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 11
+        y = 1
+        prerequisite = {
+            focus = LIT_achive_independent
+        }
+        completion_reward = {
+            country_event = {id = ssw_lit.1}
+        }
+    }
+    focus = { #民主主義派の勝利
+        id = LIT_democratic_victory
+        icon = GFX_goal_support_democracy
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 2
+        prerequisite = {
+            focus = LIT_settle_caretaker_gov
+        }
+        available = {
+            has_country_flag = LIT_vic_democrat
+        }
+        mutually_exclusive = {
+            focus = LIT_nationalist_victory
+            focus = LIT_monarchist_victory
+            focus = LIT_communist_victory
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = social_democracy
+                popularity = 0.1
+            }
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = 0.1
+            }
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #人民のために
+        id = LIT_for_people
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 0
+        y = 3
+        prerequisite = {
+            focus = LIT_democratic_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_for_free
+            focus = LIT_for_stable
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = social_democracy
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = social_democracy
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #労働環境の改善
+        id = LIT_improve_working_envi
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 0
+        y = 4
+        prerequisite = {
+            focus = LIT_for_people
+        }
+        completion_reward = {
+            add_ideas = LIT_reform_people_1
+        }
+    }
+    focus = { #失業者への保障
+        id = LIT_guarantee_unemploy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 0
+        y = 5
+        prerequisite = {
+            focus = LIT_improve_working_envi
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_people_1
+                add_idea = LIT_reform_people_2
+            }
+        }
+    }
+    focus = { #民主主義への意欲
+        id = LIT_willingness_democracy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 0
+        y = 6
+        prerequisite = {
+            focus = LIT_guarantee_unemploy
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_people_2
+                add_idea = LIT_reform_people_3
+            }
+        }
+    }
+    focus = { #社会全体の利益
+        id = LIT_benefit_all_social
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 0
+        y = 7
+        prerequisite = {
+            focus = LIT_willingness_democracy
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_people_3
+                add_idea = LIT_reform_people_4
+            }
+        }
+    }
+    focus = { #自由のために
+        id = LIT_for_free
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 3
+        prerequisite = {
+            focus = LIT_democratic_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_for_people
+            focus = LIT_for_stable
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = social_liberalism
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #自由主義経済
+        id = LIT_liberal_economy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 4
+        prerequisite = {
+            focus = LIT_for_free
+        }
+        completion_reward = {
+            add_ideas = LIT_reform_free_1
+        }
+    }
+    focus = { #海外からの投資拡大
+        id = LIT_expansion_invest_oversea
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 5
+        prerequisite = {
+            focus = LIT_liberal_economy
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_free_1
+                add_idea = LIT_reform_free_2
+            }
+        }
+    }
+    focus = { #差別からの解放
+        id = LIT_freedom_from_discrimination
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 6
+        prerequisite = {
+            focus = LIT_expansion_invest_oversea
+        }
+        completion_reward = {
+            add_stability = 0.05
+            add_war_support = 0.05
+            add_popularity = {
+                ideology = social_liberalism
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #自由の恩恵
+        id = LIT_benefit_freedom
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 7
+        prerequisite = {
+            focus = LIT_freedom_from_discrimination
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_free_2
+                add_idea = LIT_reform_free_3
+            }
+        }
+    }
+    focus = { #安定のために
+        id = LIT_for_stable
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 4
+        y = 3
+        prerequisite = {
+            focus = LIT_democratic_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_for_free
+            focus = LIT_for_people
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = social_conservatism
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #経済発展を
+        id = LIT_economic_dev
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 4
+        y = 4
+        prerequisite = {
+            focus = LIT_for_stable
+        }
+        completion_reward = {
+            add_ideas = LIT_reform_stable_1
+        }
+    }
+    focus = { #基盤の強化
+        id = LIT_strength_foundation
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 4
+        y = 5
+        prerequisite = {
+            focus = LIT_economic_dev
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_stable_1
+                add_idea = LIT_reform_stable_2
+            }
+        }
+    }
+    focus = { #普遍的な幸福
+        id = LIT_universal_happy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 4
+        y = 6
+        prerequisite = {
+            focus = LIT_strength_foundation
+        }
+        completion_reward = {
+            add_stability = 0.1
+            add_popularity = {
+                ideology = social_conservatism
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #平和のために
+        id = LIT_for_peace
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 4
+        y = 7
+        prerequisite = {
+            focus = LIT_universal_happy
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_reform_stable_2
+                add_idea = LIT_reform_stable_3
+            }
+        }
+    }
+    focus = { #民主主義的改革
+        id = LIT_democratic_reform
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 2
+        y = 8
+        prerequisite = {
+            focus = LIT_benefit_all_social
+            focus = LIT_benefit_freedom
+            focus = LIT_for_peace
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_government = social_democracy
+                }
+                add_popularity = {
+                    ideology = social_democracy
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_reform_people_4
+                    add_idea = LIT_reform_people_5
+                }
+            }
+            else_if = {
+                limit = {
+                    has_government = social_liberalism
+                }
+                add_popularity = {
+                    ideology = social_liberalism
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_reform_free_3
+                    add_idea = LIT_reform_free_4
+                }
+            }
+            else_if = {
+                limit = {
+                    has_government = social_conservatism
+                }
+                add_popularity = {
+                    ideology = social_conservatism
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_reform_stable_3
+                    add_idea = LIT_reform_stable_4
+                }
+            }
+        }
+    }
+    focus = { #民族主義派の勝利
+        id = LIT_nationalist_victory
+        icon = GFX_focus_generic_support_the_left_right
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 9
+        y = 2
+        prerequisite = {
+            focus = LIT_settle_caretaker_gov
+        }
+        available = {
+            has_country_flag = LIT_vic_nationalist
+        }
+        mutually_exclusive = {
+            focus = LIT_democratic_victory
+            focus = LIT_monarchist_victory
+            focus = LIT_communist_victory
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.1
+            }
+            add_popularity = {
+                ideology = national_fascism
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #穏健派
+        id = LIT_moderate
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 8
+        y = 3
+        prerequisite = {
+            focus = LIT_nationalist_victory
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = authority_democracy
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #急進派
+        id = LIT_radicals
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 10
+        y = 3
+        prerequisite = {
+            focus = LIT_nationalist_victory
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = national_fascism
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = national_fascism
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #他民族融和
+        id = LIT_reconcil_other_ethnic
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 8
+        y = 4
+        prerequisite = {
+            focus = LIT_moderate
+        }
+        completion_reward = {
+            add_stability = 0.1
+        }
+    }
+    focus = { #ドイツ人の追放
+        id = LIT_ban_germany
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 10
+        y = 4
+        prerequisite = {
+            focus = LIT_radicals
+        }
+        completion_reward = {
+            add_stability = -0.05
+            add_war_support = 0.1
+            add_popularity = {
+                ideology = national_fascism
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #国民のための国家
+        id = LIT_country_for_people
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 8
+        y = 5
+        prerequisite = {
+            focus = LIT_reconcil_other_ethnic
+        }
+        completion_reward = {
+            add_ideas = LIT_moderate_nationalism
+        }
+    }
+    focus = { #民族のための国家
+        id = LIT_country_for_ethnic
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 10
+        y = 5
+        prerequisite = {
+            focus = LIT_ban_germany
+        }
+        completion_reward = {
+            add_ideas = LIT_radical_nationalism
+        }
+    }
+    focus = { #リトアニアの自立
+        id = LIT_lithuanian_independence
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 9
+        y = 6
+        prerequisite = {
+            focus = LIT_country_for_people
+            focus = LIT_country_for_ethnic
+        }
+        completion_reward = {
+            add_ideas = LIT_idea_independe
+        }
+    }
+    focus = { #寛容たれ
+        id = LIT_tolerate
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 8
+        y = 7
+        prerequisite = {
+            focus = LIT_country_for_people
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_moderate_nationalism
+                add_idea = LIT_moderate_nationalism_2
+            }
+        }
+    }
+    focus = { #確固たれ
+        id = LIT_firmly
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 10
+        y = 7
+        prerequisite = {
+            focus = LIT_country_for_ethnic
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_radical_nationalism
+                add_idea = LIT_radical_nationalism_2
+            }
+        }
+    }
+    focus = { #国民国家の確立
+        id = LIT_establish_national_state
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 9
+        y = 8
+        prerequisite = {
+            focus = LIT_tolerate
+            focus = LIT_firmly
+        }completion_reward = {
+            if = {
+                limit = {
+                    has_government = authority_democracy
+                }
+                add_popularity = {
+                    ideology = authority_democracy
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_moderate_nationalism_2
+                    add_idea = LIT_moderate_nationalism_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_government = national_fascism
+                }
+                add_popularity = {
+                    ideology = national_fascism
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_radical_nationalism_2
+                    add_idea = LIT_radical_nationalism_3
+                }
+            }
+        }
+    }
+    focus = { #君主主義派の勝利
+        id = LIT_monarchist_victory
+        icon = GFX_focus_generic_home_defense
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 14
+        y = 2
+        prerequisite = {
+            focus = LIT_settle_caretaker_gov
+        }
+        available = {
+            has_country_flag = LIT_vic_monarchy
+        }
+        mutually_exclusive = {
+            focus = LIT_nationalist_victory
+            focus = LIT_democratic_victory
+            focus = LIT_communist_victory
+        }
+        completion_reward = {
+            hidden_effect = {   
+                set_political_party = {
+                    ideology = authority_democracy
+                    popularity = 20
+                }
+            }
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.1
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = 0.1
+            }
+            set_party_name = {
+                ideology = authority_democracy
+                long_name = LIT_monarchy_democ_party_long
+                name = LIT_monarchy_democ_party
+            }
+        }
+    }
+    focus = { #リトアニア貴族から
+        id = LIT_from_lithuanian_aristocrats
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 13
+        y = 3
+        prerequisite = {
+            focus = LIT_monarchist_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_Mindaugas_III
+        }
+        completion_reward = {
+            create_country_leader = {
+                name = "Kazimieras Viktoras Tiškevičius"
+                desc = ""
+                #picture = 
+                expire = "1990.1.1"
+                ideology = authority_democracy_ideology 
+            }
+            create_country_leader = {
+                name = "Kazimieras Viktoras Tiškevičius"
+                desc = ""
+                #picture = 
+                expire = "1990.1.1"
+                ideology = absolute_monarchism_ideology  
+            }
+            set_politics = {
+                ruling_party = authority_despotism
+                elections_allowed = no
+            }
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #カール・ゲロ
+        id = LIT_Mindaugas_III
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 15
+        y = 3
+        prerequisite = {
+            focus = LIT_monarchist_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_from_lithuanian_aristocrats
+        }
+        completion_reward = {
+            create_country_leader = {
+                name = "Karl Gero"
+                desc = ""
+                #picture = 
+                expire = "1990.1.1"
+                ideology = authority_democracy_ideology 
+            }
+            create_country_leader = {
+                name = "Karl Gero"
+                desc = ""
+                #picture = 
+                expire = "1990.1.1"
+                ideology = absolute_monarchism_ideology  
+            }
+            set_politics = {
+                ruling_party = authority_despotism
+                elections_allowed = no
+            }
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #支持の確立
+        id = LIT_establish_support
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 14
+        y = 4
+        prerequisite = {
+            focus = LIT_from_lithuanian_aristocrats
+            focus = LIT_Mindaugas_III
+        }
+        completion_reward = {
+        }
+    }
+    focus = { #影響力の確立
+        id = LIT_establish_influence
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 14
+        y = 5
+        prerequisite = {
+            focus = LIT_establish_support
+        }
+        completion_reward = {
+        }
+    }
+    focus = { #伝統あるリトアニア王国
+        id = LIT_traditional_lithuania
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 13
+        y = 6
+        prerequisite = {
+            focus = LIT_from_lithuanian_aristocrats
+        }
+        prerequisite = {
+            focus = LIT_establish_influence
+        }
+        completion_reward = {
+            add_ideas = LIT_idea_traditional_LIT
+        }
+    }
+    focus = { #新たなるリトアニア王国
+        id = LIT_new_lithuania
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 15
+        y = 6
+        prerequisite = {
+            focus = LIT_establish_influence
+        }
+        prerequisite = {
+            focus = LIT_Mindaugas_III
+        }
+        completion_reward = {
+            add_ideas = LIT_idea_new_LIT
+        }
+    }
+    focus = { #君臨すれども統治せず
+        id = LIT_reign_but_not_rule
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 13
+        y = 7
+        prerequisite = {
+            focus = LIT_traditional_lithuania
+            focus = LIT_new_lithuania
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = authority_democracy
+                popularity = 0.1
+            }
+            if = {
+                limit = {
+                    has_idea = LIT_idea_traditional_LIT
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_traditional_LIT
+                    add_idea = LIT_idea_traditional_LIT_democ
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = LIT_idea_new_LIT
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_new_LIT
+                    add_idea = LIT_idea_new_LIT_democ
+                }
+            }
+        }
+    }
+    focus = { #朕は国家なり
+        id = LIT_I_am_the_state
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 15
+        y = 7
+        prerequisite = {
+            focus = LIT_traditional_lithuania
+            focus = LIT_new_lithuania
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = authority_despotism
+                popularity = 0.1
+            }
+            if = {
+                limit = {
+                    has_idea = LIT_idea_traditional_LIT
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_traditional_LIT
+                    add_idea = LIT_idea_traditional_LIT_despo
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = LIT_idea_new_LIT
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_new_LIT
+                    add_idea = LIT_idea_new_LIT_despo
+                }
+            }
+        }
+    }
+    focus = { #即位式
+        id = LIT_enthronement
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 14
+        y = 8
+        prerequisite = {
+            focus = LIT_reign_but_not_rule
+            focus = LIT_I_am_the_state
+        }
+        completion_reward = {
+            hidden_effect = {
+                retire_ideology_leader = authority_democracy
+                retire_ideology_leader = authority_despotism
+            }
+            if = {
+                limit = {
+                    has_completed_focus = LIT_from_lithuanian_aristocrats
+                }
+                create_country_leader = {
+                    name = "Kazimieras II"
+                    desc = ""
+                    #picture = 
+                    expire = "1990.1.1"
+                    ideology = authority_democracy_ideology
+                }
+                create_country_leader = {
+                    name = "Kazimieras II"
+                    desc = ""
+                    #picture = 
+                    expire = "1990.1.1"
+                    ideology = absolute_monarchism_ideology
+                }
+            }
+            else_if = {
+                limit = {
+                    has_completed_focus = LIT_Mindaugas_III
+                }
+                create_country_leader = {
+                    name = "Mindaugas III"
+                    desc = ""
+                    #picture = 
+                    expire = "1990.1.1"
+                    ideology = authority_democracy_ideology
+                }
+                create_country_leader = {
+                    name = "Mindaugas III"
+                    desc = ""
+                    #picture = 
+                    expire = "1990.1.1"
+                    ideology = absolute_monarchism_ideology
+                }
+            }
+            if = {
+                limit = {
+                    has_completed_focus = LIT_reign_but_not_rule
+                }
+                add_popularity = {
+                    ideology = authority_democracy
+                    popularity = 0.05
+                }
+                set_politics = {
+                    ruling_party = authority_democracy
+                    elections_allowed = no
+                }
+                if = {
+                    limit = {
+                        has_idea = LIT_idea_traditional_LIT_democ
+                    }
+                    swap_ideas = {
+                        remove_idea = LIT_idea_traditional_LIT_democ
+                        add_idea = LIT_idea_traditional_LIT_democ_2
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_idea = LIT_idea_new_LIT_democ
+                    }
+                    swap_ideas = {
+                        remove_idea = LIT_idea_new_LIT_democ
+                        add_idea = LIT_idea_new_LIT_democ_2
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_completed_focus = LIT_I_am_the_state
+                }
+                add_popularity = {
+                    ideology = authority_despotism
+                    popularity = 0.05
+                }
+                set_politics = {
+                    ideology = authority_despotism
+                    elections_allowed = no
+                }
+                if = {
+                    limit = {
+                        has_idea = LIT_idea_traditional_LIT_despo
+                    }
+                    swap_ideas = {
+                        remove_idea = LIT_idea_traditional_LIT_despo
+                        add_idea = LIT_idea_traditional_LIT_despo_2
+                    }
+                }
+                else_if = {
+                    limit = {
+                        has_idea = LIT_idea_new_LIT_despo
+                    }
+                    swap_ideas = {
+                        remove_idea = LIT_idea_new_LIT_despo
+                        add_idea = LIT_idea_new_LIT_despo_2
+                    }
+                }
+            }
+        }
+    }
+    focus = { #共産主義派の勝利
+        id = LIT_communist_victory
+        icon = GFX_focus_generic_join_comintern
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 19
+        y = 2
+        prerequisite = {
+            focus = LIT_settle_caretaker_gov
+        }
+        available = {
+            has_country_flag = LIT_vic_communist
+        }
+        mutually_exclusive = {
+            focus = LIT_nationalist_victory
+            focus = LIT_monarchist_victory
+            focus = LIT_democratic_victory
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = classical_communism
+                popularity = 0.1
+            }
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = 0.1
+            }
+        }
+    }
+}

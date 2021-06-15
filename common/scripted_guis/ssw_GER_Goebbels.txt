@@ -277,5 +277,44 @@ scripted_gui = {
 			}
 		}
 	}
+	
+	GER_Government_Structure = {
+		window_name = "GER_Government_Structure"
+		context_type = player_context
+		parent_window_token = politics_tab
+
+		visible = {
+			is_ai = no
+			tag = GER
+		}
+
+		effects = {
+			GS_button_click = {
+				if = {
+					limit = { has_country_flag = GS_opened }
+					clr_country_flag = GS_opened
+				}
+				else = {
+					set_country_flag = GS_opened
+				}
+			}
+		}
+	}
+	GER_Government_Structure_main = {
+		window_name = "GER_Government_Structure_main"
+		context_type = player_context
+
+		visible = {
+			is_ai = no
+			tag = GER
+			has_country_flag = GS_opened
+		}
+
+		effects = {
+			close_button_click = {
+				clr_country_flag = GS_opened
+			}
+		}
+	}
 }
 
