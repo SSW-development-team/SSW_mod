@@ -1,0 +1,211 @@
+guiTypes = { 
+	containerWindowType = {
+		name = "ssw_research_atomic_panel"
+		position = { x = 0 y = 0 }
+		size = { width = 100%% height = 100%% }
+
+		buttonType = {
+			name = "button_open_atomic_gui"
+			position = { x = -500 y = 4 }
+			quadTextureSprite = "GFX_button_start_description_open"
+			Orientation = "UPPER_RIGHT"
+			scale = 0.8
+		}
+	}
+	containerWindowType = {
+		name = "ssw_research_atomic_window"
+		position = { x = 400 y = -310 }
+		size = { width=700 height=500}
+		Orientation = center
+		Origo = center
+		moveable = yes
+		fade_time = 1000
+		fade_type = linear
+
+		background = {
+			name = "ssw_research_atomic_window_Background"
+			quadTextureSprite = "GFX_atomic_research_base"
+		}
+		iconType = { #background
+			name = "ssw_research_atomic_window_background"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_atomic_research_base"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = { #research_atomic title
+			name = "ssw_research_atomic_production_title"
+			position = { x = 300 y = 30 }
+			font = "ssw_soukou"
+			text = "research_atomic_production"
+			maxWidth = 200
+			maxHeight = 30
+		}
+		buttonType = { #atomic bomb buttom
+			name = "ssw_research_atomic_bomb_buttom"
+			position = { x = 15 y = 340 }
+			spriteType = "GFX_buttom_atomic_research_slot_4"
+			buttonFont = "ssw_soukou"
+			text = "TITLE_ATOMIC_BOMB"
+
+		}
+
+		containerWindowType = {#production base
+			name = "ssw_research_atomic_production_uranium" 
+			size = { width = 100% height = 100% }
+			position = { x = 20 y = 35 }
+
+			buttonType = { #uranium title
+				name = "ssw_research_atomic_production_uranium_title"
+				position = { x = 50 y = 53 }
+				spriteType = "GFX_buttom_atomic_research_slot_2"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "TITLE_URANIUM"
+			}
+##民需工場
+			instantTextBoxType = { #民需工場の割り当て数の表記
+				name = "ssw_research_atomic_production_uranium_amount_of_ic_title"
+				position = { x = 80 y = 125 }
+				font = "hoi_16mbs"
+				text = "IC_AMOUNT"
+				maxWidth = 100
+				maxHeight = 30
+			}
+			buttonType = { #民需工場の割り当てスロット
+				name = "ssw_research_atomic_production_uranium_amount_of_ic_slot"
+				position = { x = 210 y = 120 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?ssw_atomic_amount_ic_uranium]/[?num_of_civilian_factories]"
+			}
+			buttonType = { #民需工場増加
+				name = "ssw_research_atomic_production_uranium_ic_up"
+				position = { x = 150 y = 120 }
+				quadTextureSprite = "GFX_buttom_atomic_research_up"
+			}
+			buttonType = { #民需工場現象
+				name = "ssw_research_atomic_production_uranium_ic_down"
+				position = { x = 180 y = 120 }
+				quadTextureSprite = "GFX_buttom_atomic_research_down"
+			}
+##原子炉
+instantTextBoxType = { #原子炉の割り当て数の表記
+				name = "ssw_research_atomic_production_uranium_amount_of_nukeplant_title"
+				position = { x = 80 y = 175 }
+				font = "hoi_16mbs"
+				text = "NUKE_PLANT_AMOUNT"
+				maxWidth = 100
+				maxHeight = 30
+			}
+			buttonType = { #原子炉の割り当てスロット
+				name = "ssw_research_atomic_production_uranium_amount_of_nukeplant_slot"
+				position = { x = 210 y = 170 }
+				spriteType = "GFX_buttom_atomic_research_slot_1"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?ssw_atomic_amount_nukeplant_uranium]/[?num_of_nuclear_reactor]"
+			}
+			buttonType = { #原子炉増加
+				name = "ssw_research_atomic_production_uranium_nukeplant_up"
+				position = { x = 150 y = 170 }
+				quadTextureSprite = "GFX_buttom_atomic_research_up"
+			}
+			buttonType = { #原子炉現象
+				name = "ssw_research_atomic_production_uranium_nukeplant_down"
+				position = { x = 180 y = 170 }
+				quadTextureSprite = "GFX_buttom_atomic_research_down"
+			}
+###精製済/最大貯蓄量
+			buttonType = { #精製済/最大貯蓄量日毎の精製量
+				name = "ssw_research_atomic_production_amount_of_uranium_slot"
+				position = { x = 185 y = 220 }
+				spriteType = "GFX_buttom_atomic_research_slot_3"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?uranium_value]/[?uranium_limit_value]"
+				pdx_tooltip = URANIUM_BAR
+
+
+			}
+			instantTextBoxType = { #精製済/最大貯蓄量のテキスト
+				name = "ssw_research_atomic_production_amount_of_uranium_title"
+				position = { x = 80 y = 227 }
+				font = "hoi_16mbs"
+				text = "AMOUNT_OF_URANIUM"
+				maxWidth = 100
+				maxHeight = 30
+			}
+###日毎の精製量
+			buttonType = { #日毎の精製量
+				name = "ssw_research_atomic_production_par_day_uranium_slot"
+				position = { x = 185 y = 260 }
+				spriteType = "GFX_buttom_atomic_research_slot_3"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?ssw_atomic_total_production_uranium]"
+
+			}
+			instantTextBoxType = { #日毎の精製量のテキスト
+				name = "ssw_research_atomic_production_par_day_uranium_title"
+				position = { x = 80 y = 267 }
+				font = "hoi_16mbs"
+				text = "PER_DAY_URANIUM"
+				maxWidth = 100
+				maxHeight = 30
+			}
+###進捗バー
+			buttonType = { #uranium bar_slot
+				name = "ssw_research_atomic_production_bar_slot"
+				position = { x = 15 y = 100 }
+				spriteType = "GFX_buttom_atomic_research_slot_5"
+				alwaystransparent = yes
+				buttonFont = "hoi_16mbs"
+				text = "[?uranium_max_value]"
+
+			}
+			iconType = {
+				name = "ssw_research_atomic_ber"
+				spriteType = "GFX_atomic_research_ber"
+				position = { x = 15 y = 103 }
+				pdx_tooltip = URANIUM_BAR
+
+			}
+			buttonType = { #uranium bar_slot flame
+				name = "ssw_research_atomic_production_bar_flame"
+				position = { x = 15 y = 100 }
+				spriteType = "GFX_buttom_atomic_research_slot_5_flame"
+				alwaystransparent = yes
+
+			}
+
+		}
+	}
+	containerWindowType = {
+		name = "ssw_research_atomic_bomb_window"
+		position = { x = 880 y = 450 }
+		orientation = upper_left
+		size = {width=315 height=614}
+		clipping = no
+		fade_time = 10000
+		fade_type = linear
+		moveable = yes
+
+		iconType = {
+			name = "button_open_atomic_gui"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_atomic_research_bomb_base"
+			Orientation = "UPPER_RIGHT"
+		}
+		buttonType = { #nucler mark
+			name = "ssw_research_atomic_production_bar_flame"
+			position = { x = 430 y = 60 }
+			spriteType = "GFX_buttom_nuclear"
+			alwaystransparent = yes
+			scale = 0.5
+
+		}
+
+	}
+
+}
