@@ -1,0 +1,277 @@
+technologies = {
+	atomic_research = {
+
+		research_speed_factor = 0.04
+		
+		path = {
+			leads_to_tech = nuclear_reactor 
+			research_cost_coeff = 1
+		}
+		
+		start_year = 1950
+		research_cost = 5
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 1.2
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 1.2
+				date > "1952.1.1"
+			}
+			
+			modifier = {
+				factor = 1.2
+				date > "1953.1.1"
+			}
+			
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+
+		}
+		
+		categories = {
+			nuclear
+		}
+		
+
+	}
+	
+	nuclear_reactor = {
+
+		# can build reactors
+		
+		start_year = 1952
+		research_cost = 5
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 2 }
+		}
+
+		path = {
+			leads_to_tech = basic_nuclear_reactor 
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+		
+		enable_building = {
+			building = nuclear_reactor
+			level = 1
+		}
+	}
+
+	basic_nuclear_reactor = {
+
+      		production_speed_nuclear_reactor_factor 0.15
+
+		start_year = 1953
+		research_cost = 4
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 4 }
+		}
+
+		path = {
+			leads_to_tech = nukes 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = commercial_nuclear_reactor 
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+
+	nukes = {
+	
+		start_year = 1955
+		research_cost = 5
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 0 y = 8 }
+		}
+		on_research_complete = {
+			
+			country_event = {
+				id = SSW_atomic.1
+			}
+
+		}
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+
+		}
+		
+		nuclear_production = 1
+		categories = {
+			nuclear
+		}
+	}
+
+	commercial_nuclear_reactor = {
+		
+		research_speed_factor = 0.08
+
+		start_year = 1953
+		research_cost = 4
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 2 y = 6 }
+		}
+
+		path = {
+			leads_to_tech = atomic_engine 
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+
+	atomic_engine  = {
+		
+		research_speed_factor = 0.10
+
+		start_year = 1955
+		research_cost = 5
+		
+		folder = {
+			name = power_and_nuclear_engineering_folder
+			position = { x = 2 y = 8 }
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				tag = CHI
+			}
+			modifier = {
+				factor = 1.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 10
+			}
+			modifier = {
+				factor = 0.5
+				num_of_civilian_factories < 5
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+}
