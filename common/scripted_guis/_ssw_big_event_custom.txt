@@ -112,7 +112,7 @@ scripted_gui = { #donau_war
 		}
 	}
 }
-scripted_gui = { #unification_of_rossia_RBL(???V?A?????????)
+scripted_gui = { #unification_of_rossia_RBL(���V�A�̋�������)
 	SSW_SG_big_event_unification_rossia_RBL_custom = {
 		context_type = player_context
 		window_name = "SSW_SG_big_event_unification_rossia_RBL_custom_window"
@@ -414,28 +414,58 @@ scripted_gui = { #nuke_experiment_1
 		effects = {
 			Option_click = { 
 				clr_country_flag = big_event_nuke_experiment_1 
-				random_list = {
-					20 = {
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = anarchism 
+								has_government = progressive_communism  
+								has_government = classical_communism  
+
+							}
+					} 
+					country_event = {
+						id = SSW_atomic.5
+					}
+			        }
+				else_if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = social_conservatism  
+								has_government = social_liberalism   
+								has_government = social_conservatism  
+							}
+					} 
+					country_event = {
+						id = SSW_atomic.4
+					}
+				}
+				else = {
+					random_list = {
+					    25 = {
 						country_event = {
 							id = SSW_atomic.2
 						}
-			        	}
-					20 = {
+					    }
+					    25 = {
 						country_event = {
 							id = SSW_atomic.3
 						}
-			        	}
-					20 = {
+					    }
+					    25 = {
 						country_event = {
 							id = SSW_atomic.4
 						}
-			        	}
-					20 = {
+					    }
+					    25 = {
 						country_event = {
 							id = SSW_atomic.5
 						}
-			        	}
+					    }
+					}
 				}
+
 			}
 		}
 	}
