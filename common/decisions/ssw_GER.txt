@@ -98,7 +98,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Himmler_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goering_Influence = 1 }
+						add_to_variable = { Current_Himmler_Influence = 1 }
 					}
 				}
 				random_list = {
@@ -108,7 +108,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 								has_variable = Current_Goering_Influence
 							}
 							every_neighbor_state = {
-								add_to_variable = { Current_Himmler_Influence = -1 }
+								add_to_variable = { Current_Goering_Influence = -1 }
 							}
 						}
 					}
@@ -210,7 +210,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Bormann_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goering_Influence = 1 }
+						add_to_variable = { Current_Bormann_Influence = 1 }
 					}
 				}
 				random_list = {
@@ -240,7 +240,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 								has_variable = Current_Goebbels_Influence
 							}
 							every_neighbor_state = {
-								add_to_variable = { Current_Bormann_Influence = -1 }
+								add_to_variable = { Current_Goebbels_Influence = -1 }
 							}
 						}
 					}
@@ -268,33 +268,37 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 					limit = {
 						has_country_flag = Goering_is_Successor
 					}
-					country_event = {
-						id = GER_Before_GCW.17 #for Goering
-					}
+					add_to_variable = { Current_Goering_Influence = 1 }
+					add_to_variable = { Current_Himmler_Influence = -1 }
+					add_to_variable = { Current_Goebbels_Influence = -1 }
+					add_to_variable = { Current_Bormann_Influence = -1 }
 				}
 				if = {
 					limit = {
 						has_country_flag = Himmler_is_Successor
 					}
-					country_event = {
-						id = GER_Before_GCW.18 #for Himmler
-					}
+					add_to_variable = { Current_Goering_Influence = -1 }
+					add_to_variable = { Current_Himmler_Influence = 1 }
+					add_to_variable = { Current_Goebbels_Influence = -1 }
+					add_to_variable = { Current_Bormann_Influence = -1 }
 				}
 				if = {
 					limit = {
 						has_country_flag = Goebbels_is_Successor
 					}
-					country_event = {
-						id = GER_Before_GCW.19 #for Goebbels
-					}
+					add_to_variable = { Current_Goering_Influence = -1 }
+					add_to_variable = { Current_Himmler_Influence = -1 }
+					add_to_variable = { Current_Goebbels_Influence = 1 }
+					add_to_variable = { Current_Bormann_Influence = -1 }
 				}
 				if = {
 					limit = {
 						has_country_flag = Bormann_is_Successor
 					}
-					country_event = {
-						id = GER_Before_GCW.20 #for Bormann
-					}
+					add_to_variable = { Current_Goering_Influence = -1 }
+					add_to_variable = { Current_Himmler_Influence = -1 }
+					add_to_variable = { Current_Goebbels_Influence = -1 }
+					add_to_variable = { Current_Bormann_Influence = 1 }
 				}
 			}
 		}
