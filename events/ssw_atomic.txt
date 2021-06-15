@@ -1,4 +1,6 @@
 add_namespace = SSW_atomic
+add_namespace = SSW_atomic_news
+
 country_event = { #
 	id = SSW_atomic.1
 	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_atomic.1"}
@@ -12,16 +14,117 @@ country_event = { #
 		name = SSW_atomic.1.a
 		ai_chance = { base = 98 }
 		set_country_flag = nuke_experiment
-		random_list = {
-			20 = {
-				set_country_flag = big_event_nuke_experiment_1
-		        }
-			30 = {
-				set_country_flag = big_event_nuke_experiment_2
-		        }
-			30 = {
-				set_country_flag = big_event_nuke_experiment_3
-		        }
+		hidden_effect = {
+			random_list = {
+				20 = {
+					set_country_flag = big_event_nuke_experiment_1
+			        }
+				30 = {
+					set_country_flag = big_event_nuke_experiment_2
+			        }
+				30 = {
+					set_country_flag = big_event_nuke_experiment_3
+			        }
+			}
+			news_event = {
+				id = SSW_atomic_news.1
+				days = 1
+			}
 		}
 	}
 }
+country_event = { #
+	id = SSW_atomic.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_atomic.2"}
+	title = SSW_atomic.2.title
+	desc = SSW_atomic.2.desc
+    	picture = GFX_nuclear_1
+	
+	is_triggered_only = yes
+	
+	option = { #
+		name = SSW_atomic.2.a
+		ai_chance = { base = 100 }
+		add_stability = 0.05
+	}
+}
+country_event = { #
+	id = SSW_atomic.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_atomic.3"}
+	title = SSW_atomic.3.title
+	desc = SSW_atomic.3.desc
+    	picture = GFX_nuclear_2
+	
+	is_triggered_only = yes
+	
+	option = { #
+		name = SSW_atomic.3.a
+		ai_chance = { base = 100 }
+		add_command_power = 15
+	}
+}
+country_event = { #
+	id = SSW_atomic.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_atomic.4"}
+	title = SSW_atomic.4.title
+	desc = SSW_atomic.4.desc
+    	picture = GFX_nuclear_3
+	
+	is_triggered_only = yes
+	
+	option = { #
+		name = SSW_atomic.4.a
+		ai_chance = { base = 100 }
+		add_political_power = 10
+	}
+}
+country_event = { #
+	id = SSW_atomic.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event SSW_atomic.5"}
+	title = SSW_atomic.5.title
+	desc = SSW_atomic.5.desc
+    	picture = GFX_nuclear_4
+	
+	is_triggered_only = yes
+	
+	option = { #
+		name = SSW_atomic.5.a
+		ai_chance = { base = 100 }
+		add_war_support = 0.1
+
+	}
+}
+
+news_event = {
+	id = SSW_atomic_news.1
+	title = SSW_atomic_news.1.title
+	desc = SSW_atomic_news.1.desc
+	picture = GFX_news_nuke
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+	option = {
+		name = SSW_atomic_news.1.a
+		trigger = { 
+			AND = {
+				NOT = { TAG = FROM }
+				NOT = { has_war_with = FROM }
+			}
+		}
+	}
+	option = {
+		name = SSW_atomic_news.1.b
+		trigger = { TAG = FROM }
+	}
+	option = {
+		name = SSW_atomic_news.1.c
+		trigger = { 
+			AND = {
+				NOT = { TAG = FROM }
+				has_war_with = FROM
+			}
+		}
+	}
+
+}
+
