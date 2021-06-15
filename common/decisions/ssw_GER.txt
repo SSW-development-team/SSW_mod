@@ -2,7 +2,7 @@ GER_is_debug = {
 	GER_is_debug_1 = {
 		icon = ger_mefo_bills
 		complete_effect = {
-			country_event = { id = SSW_GER.10 }
+			#country_event = { id = SSW_GER.10 }
 		}
 	}
 	GER_is_debug_2 = {
@@ -35,13 +35,47 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		is_good = no
 		days_mission_timeout = 25
 		timeout_effect = {
-			activate_mission = Update_Goering_Power
-			every_controlled_state = {
-				limit = {
-					has_variable = Current_Goering_Influence
+			hidden_effect = {
+				activate_mission = Update_Goering_Power
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Goering_Influence
+					}
+					every_neighbor_state = {
+						add_to_variable = { Current_Goering_Influence = 1 }
+					}
 				}
-				every_neighbor_state = {
-					add_to_variable = { Current_Goering_Influence = 1 }
+				random_list = {
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Himmler_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Himmler_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goebbels_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Goebbels_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Bormann_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Bormann_Influence = -1 }
+							}
+						}
+					}
 				}
 			}
 			log = "updated"
@@ -57,13 +91,47 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		is_good = no
 		days_mission_timeout = 25
 		timeout_effect = {
-			activate_mission = Update_Himmler_Power
-			every_controlled_state = {
-				limit = {
-					has_variable = Current_Himmler_Influence
+			hidden_effect = {
+				activate_mission = Update_Himmler_Power
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Himmler_Influence
+					}
+					every_neighbor_state = {
+						add_to_variable = { Current_Goering_Influence = 1 }
+					}
 				}
-				every_neighbor_state = {
-					add_to_variable = { Current_Himmler_Influence = 1 }
+				random_list = {
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goering_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Himmler_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goebbels_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Goebbels_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Bormann_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Bormann_Influence = -1 }
+							}
+						}
+					}
 				}
 			}
 			log = "updated"
@@ -79,13 +147,47 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		is_good = no
 		days_mission_timeout = 25
 		timeout_effect = {
-			activate_mission = Update_Goebbels_Power
-			every_controlled_state = {
-				limit = {
-					has_variable = Current_Goebbels_Influence
+			hidden_effect = {
+				activate_mission = Update_Goebbels_Power
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Goebbels_Influence
+					}
+					every_neighbor_state = {
+						add_to_variable = { Current_Goering_Influence = 1 }
+					}
 				}
-				every_neighbor_state = {
-					add_to_variable = { Current_Goebbels_Influence = 1 }
+				random_list = {
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Himmler_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Himmler_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goering_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Goering_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Bormann_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Bormann_Influence = -1 }
+							}
+						}
+					}
 				}
 			}
 			log = "updated"
@@ -101,22 +203,56 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		is_good = no
 		days_mission_timeout = 25
 		timeout_effect = {
-			activate_mission = Update_Bormann_Power
-			every_controlled_state = {
-				limit = {
-					has_variable = Current_Bormann_Influence
+			hidden_effect = {
+				activate_mission = Update_Bormann_Power
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Bormann_Influence
+					}
+					every_neighbor_state = {
+						add_to_variable = { Current_Goering_Influence = 1 }
+					}
 				}
-				every_neighbor_state = {
-					add_to_variable = { Current_Bormann_Influence = 1 }
+				random_list = {
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Himmler_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Himmler_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goering_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Goering_Influence = -1 }
+							}
+						}
+					}
+					1 = {
+						every_controlled_state = {
+							limit = {
+								has_variable = Current_Goebbels_Influence
+							}
+							every_neighbor_state = {
+								add_to_variable = { Current_Bormann_Influence = -1 }
+							}
+						}
+					}
 				}
 			}
 			log = "updated"
 		}
 	}
-	GER_phase_one = {###MAP
+	GER_upgrade_one = {###MAP down anothers
 		icon = ger_mefo_bills
 		fire_only_once = yes
-		cost = 15
+		cost = 40
 		on_map_mode = map_only 
 		state_target = yes
 		highlight_color_while_active = 1
@@ -127,6 +263,40 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		}
 		days_remove = 20
 		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = Goering_is_Successor
+					}
+					country_event = {
+						id = GER_Before_GCW.17 #for Goering
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = Himmler_is_Successor
+					}
+					country_event = {
+						id = GER_Before_GCW.18 #for Himmler
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = Goebbels_is_Successor
+					}
+					country_event = {
+						id = GER_Before_GCW.19 #for Goebbels
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = Bormann_is_Successor
+					}
+					country_event = {
+						id = GER_Before_GCW.20 #for Bormann
+					}
+				}
+			}
 		}
 	}
 }
