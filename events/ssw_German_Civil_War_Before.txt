@@ -234,7 +234,7 @@ country_event = { #Birth day of Hitler
 		add_political_power = 20
 		country_event = {
 			id = GER_Before_GCW.10
-			days = 7
+			days = 2
 		}
 	}
 	option = { #No! I dont need successor
@@ -409,9 +409,9 @@ country_event = { #Goering's Protest
 			}
 		}
 	}
-	option = { #Fuck you, Pig
+	option = { #Fuck you
 		name = GER_Before_GCW.11.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 9 }
 		add_stability = -0.01
 		hidden_effect = {
 			random_list = {
@@ -523,7 +523,7 @@ country_event = { #Himmler's Protest
 	}
 	option = { #Fuckyou
 		name = GER_Before_GCW.12.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 9 }
 		add_war_support = -0.03
 		hidden_effect = {
 			random_list = {
@@ -635,7 +635,7 @@ country_event = { #Goebbels's Protest
 	}
 	option = { #Fuckyou
 		name = GER_Before_GCW.13.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 9 }
 		add_war_support = -0.03
 		hidden_effect = {
 			random_list = {
@@ -747,7 +747,7 @@ country_event = { #Bormann's Protest
 	}
 	option = { #Fuckyou
 		name = GER_Before_GCW.14.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 9 }
 		add_war_support = -0.03
 		hidden_effect = {
 			random_list = {
@@ -860,11 +860,57 @@ country_event = { #Start Power Struggle
 	is_triggered_only = yes
 	fire_only_once = yes
 	
-	option = { #
+	option = { #if you select Goring
 		name = GER_Before_GCW.16.a
 		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Goering_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Himmler
+		name = GER_Before_GCW.16.b
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Himmler_is_Successor
+		}
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
 		activate_mission = Update_Goering_Power
-		set_country_flag = available_Power_Struggle_Goering
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Goebbels
+		name = GER_Before_GCW.16.c
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Goebbels_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		activate_mission = Update_Goering_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Pig
+		name = GER_Before_GCW.16.d
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Bormann_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		activate_mission = Update_Goering_Power
 	}
 }
 
