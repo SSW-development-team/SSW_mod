@@ -38,3 +38,34 @@ set_GER_Leader_Bormann = {
 		traits = { dictator GER_Brown_Eminence }
 	}
 }
+
+start_german_civil_war = {
+	all_controlled_state = {
+		add_core_of = HGR
+		add_core_of = HLH
+		add_core_of = MBR
+	}
+}
+
+state_owner_change = {
+	every_owned_state = {
+		if = {
+			limit = { Goering_is_Best = yes }
+			HGR ={
+				transfer_state = PREV
+			}
+		}
+		if = {
+			limit = { Himmler_is_Best = yes }
+			HLH ={
+				transfer_state = PREV
+			}
+		}
+		if = {
+			limit = { Bormann_is_Best = yes }
+			MBR ={
+				transfer_state = PREV
+			}
+		}
+	}
+}

@@ -4,6 +4,12 @@ shared_focus = {
 	cost = 1.00
 	x = 5
 	y = 0
+	allow_branch = {
+		has_country_leader = {
+			name = "Adolf Hitler"
+			ruling_only = yes
+		}
+	}
 	completion_reward = {
 		country_event = {
 			id = GER_Before_GCW.0
@@ -257,7 +263,7 @@ shared_focus = {
 		focus = GER_Technical_School
 	}
 	completion_reward = {
-		add_ideas = GER_idea_Technical_Schools
+		add_ideas = GER_idea_Vehicle_Companies
 	}
 }
 shared_focus = {
@@ -379,7 +385,13 @@ shared_focus = {
 	cost = 2.00
 	x = 8
 	y = 0
+	#allow_branch = {
+	#	has_country_flag = Goering_is_Successor
+	#}
 	completion_reward = {
+		country_event = {
+			id = GER_Before_GCW.17
+		}
 	}
 }
 shared_focus = {
@@ -393,7 +405,7 @@ shared_focus = {
 		focus = GER_Goering_is_Fuhrer
 	}
 	completion_reward = {
-		
+		add_ideas = GER_idea_rightful_successor
 	}
 }
 shared_focus = {
@@ -407,7 +419,13 @@ shared_focus = {
 		focus = GER_Goering_is_Fuhrer
 	}
 	completion_reward = {
-		
+		custom_effect_tooltip = Upgrade_in_Berlin
+		custom_effect_tooltip = Upgrade_in_Munich
+		Goering_Berlin_upgrade = yes
+		Goering_Munich_upgrade = yes
+		country_event = {
+			id = GER_Before_GCW.19
+		}
 	}
 }
 shared_focus = {
@@ -421,7 +439,9 @@ shared_focus = {
 		focus = GER_Goerings_Inauguration
 	}
 	completion_reward = {
-		
+		country_event = {
+			id = GER_Before_GCW.18
+		}
 	}
 }
 shared_focus = {
@@ -435,7 +455,9 @@ shared_focus = {
 		focus = GER_Fuhrers_Directive_one
 	}
 	completion_reward = {
-		
+		country_event = {
+			id = GER_Before_GCW.18
+		}
 	}
 }
 shared_focus = {
@@ -449,7 +471,8 @@ shared_focus = {
 		focus = GER_Fuhrers_Directive_two
 	}
 	completion_reward = {
-		
+		add_stability = 0.07
+		add_ideas = GER_idea_order_police
 	}
 }
 shared_focus = {
@@ -463,7 +486,9 @@ shared_focus = {
 		focus = GER_Fuhrers_Directive_two
 	}
 	completion_reward = {
-		
+		country_event = {
+			id = GER_Before_GCW.20
+		}
 	}
 }
 shared_focus = {
@@ -477,7 +502,9 @@ shared_focus = {
 		focus = GER_Legacy_of_Hitler
 	}
 	completion_reward = {
-		
+		country_event = {
+			id = GER_Before_GCW.21
+		}
 	}
 }
 shared_focus = {
@@ -487,11 +514,17 @@ shared_focus = {
 	cost = 2.00
 	x = 0
 	y = 1
+	available = {
+		NOT = {
+			has_idea = GER_idea_Corruption_Investigation
+		}
+	}
 	prerequisite = {
 		focus = GER_Kill_Bormann
 	}
 	completion_reward = {
-		
+		add_political_power = 100
+		Goering_Alsace_Lorraine_upgrade = yes
 	}
 }
 shared_focus = {
@@ -505,7 +538,9 @@ shared_focus = {
 		focus = GER_Legacy_of_Hitler
 	}
 	completion_reward = {
-		
+		country_event = {
+			id = GER_Before_GCW.24
+		}
 	}
 }
 shared_focus = {
@@ -519,7 +554,7 @@ shared_focus = {
 		focus = GER_Kill_Goebbels
 	}
 	completion_reward = {
-		
+		Goering_Wien_upgrade = yes
 	}
 }
 shared_focus = {
@@ -534,7 +569,7 @@ shared_focus = {
 		focus = GER_Curruption_Investigation
 	}
 	completion_reward = {
-		
+		add_ideas = GER_idea_Enhanced_Abwehr
 	}
 }
 shared_focus = {
@@ -554,6 +589,16 @@ shared_focus = {
 		focus = GER_Revive_Order_Police_from_SS
 	}
 	completion_reward = {
-		
+		hidden_effect = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Hermann Göring"
+				desc = "POLITICS_HERMANN_GORING_DESC"
+				picture = "gfx/leaders/GER/Portrait_Germany_Hermann_Goring.tga"
+				expire = "1980.1.1"
+				ideology = neo_national_socialism_idology
+				traits = { Air_Force_founder dictator }
+			}
+		}
 	}
 }
