@@ -46,6 +46,38 @@ start_german_civil_war = {
 		add_core_of = MBR
 	}
 }
+Declare_war_on_GER_Everyone = {
+	HGR = {
+		declare_war_on = {
+			target = HLH
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+	}
+	HLH = {
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+	}
+	GER = {
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+	}
+}
 
 state_owner_change = {
 	every_owned_state = {
@@ -58,6 +90,12 @@ state_owner_change = {
 		if = {
 			limit = { Himmler_is_Best = yes }
 			HLH ={
+				transfer_state = PREV
+			}
+		}
+		if = {
+			limit = { Goebbels_is_Best = yes }
+			GER ={
 				transfer_state = PREV
 			}
 		}
