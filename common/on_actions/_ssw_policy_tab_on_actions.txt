@@ -4,13 +4,17 @@ on_actions = {
 			every_country = {
 				limit = {
 				}
+				set_variable = { country_tax_late = 38 }
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier}
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
 				set_variable = { country_industrialization_rate = 47 }
 				set_variable = { country_poverty_rate = 55 }
 				set_variable = { country_literacy_rate = 42 }
 				set_variable = { country_research_institute_level = 3 }
 				set_variable = { country_industrial_complex_invest = 0.05 }
+				country_event = { id = ssw_policy_tab_event.1 }
+				set_variable = { country_inflation_late = 6 }
 			}
 		}
 	}
@@ -54,11 +58,13 @@ on_actions = {
 						OR = {
 							has_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
+							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
 						}
 					}
 				}
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
 			}
 		}
 	}

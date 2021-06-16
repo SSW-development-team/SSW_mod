@@ -25,3 +25,165 @@ is_german_tag = {
 		original_tag = WUR
 	}
 }
+is_germany_mainland = {
+	OR = { #GERMANY
+		state =1229
+		state =97
+		state =188
+		state =763
+		state =5
+		state =98
+		state =1207
+		state =85
+		state =87
+		state =86
+		state =63
+		state =68
+		state =66
+		state =1228
+		state =762
+		state =67
+		state =74
+		state =62
+		state =978
+		state =65
+		state =1042
+		state =69
+		state =966
+		state =965
+		state =61
+		state =64
+		state =58
+		state =812
+		state =59
+		state =60
+		state =981
+		state =152
+		state =102
+		state =153
+		state =52
+		state =53
+		state =54
+		state =55
+		state =50
+		state =28
+		state =42
+		state =1021
+		state =8
+		state =4
+		state =938
+		state =1023
+		state =1022
+		state =51
+		state =57
+		state =56
+		
+		#Czech
+		state =72
+		state =75
+		state =9
+	}
+}
+Goering_is_Best = {
+	set_temp_variable = { who_temp = Current_Himmler_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Goering_Influence > who_temp }
+}
+Himmler_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Himmler_Influence > who_temp }
+}
+Goebbels_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Himmler_Influence }
+	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Goebbels_Influence > who_temp }
+}
+Bormann_is_Best = {
+	set_temp_variable = { who_temp = Current_Goering_Influence }
+	add_to_temp_variable = { who_temp = Current_Himmler_Influence }
+	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
+	divide_temp_variable = { who_temp = 3 }
+	check_variable = { Current_Bormann_Influence > who_temp }
+}
+
+is_East_Prussia_Area = {
+	state = 1229
+	state = 97
+	state = 188
+	state = 763
+	state = 5
+	state = 1207
+	state = 98
+}
+is_West_Prussia_Area = {
+	state = 85
+	state = 86
+	state = 87
+	state = 66
+	state = 67
+	state = 74
+	state = 762
+	state = 1228
+}
+is_Berlin_Area = {
+	state = 63
+	state = 68
+	state = 65
+	state = 69
+	state = 978
+	state = 62
+	state =966
+	state =965
+	state =64
+	state =61
+	state =62
+}
+is_Hanover_Area = {
+	state =812
+	state =58
+	state =59
+	state =56
+	state =60
+}
+is_Wien_Area = {
+	state =981
+	state =102
+	state =4
+	state =1042
+	state =152
+	state =153
+}
+is_Munich_Area = {
+	state =50
+	state =52
+	state =53
+	state =54
+	state =812
+}
+is_Alsace_Lorraine_Area = {
+	state =28
+	state =8
+	state =42
+	state =1021
+	state =812
+}
+is_Rhein_Area = {
+	state =938
+	state =1023
+	state =1022
+	state =51
+	state =57
+	state =55
+}
+is_Czech_Area = {
+	state =9
+	state =75
+	state =72
+}
