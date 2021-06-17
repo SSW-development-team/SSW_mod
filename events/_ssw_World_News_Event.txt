@@ -1,8 +1,5 @@
-#これはニュースイベントだよ！
-
 add_namespace = World_News
 
-#ローマオリンピック
 news_event = { #Goering is Fuhrer
 	id = World_News.1 
 	title = World_News.1.t  
@@ -14,12 +11,19 @@ news_event = { #Goering is Fuhrer
 	
 	option = {
 		name = World_News.1.a #Heil Goering!
-		is_in_faction_with = GER
+		trigger = {
+			OR = {
+				is_in_faction_with = GER
+				tag = GER
+			}
+		}
 	}
 	option = {
 		name = World_News.1.b #Fucking Goering
-		NOT = {
-			is_in_faction_with = GER
+		trigger = {
+			NOT = {
+				is_in_faction_with = GER
+			}
 		}
 	}
 }
