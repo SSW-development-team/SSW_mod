@@ -32,6 +32,9 @@ focus_tree = {
         completion_reward = {
             add_stability = 0.1
             add_war_support = 0.1
+            hidden_effect = {
+                country_event = {id = ssw_lit.6 days = 10}
+            }
         }
     }
     focus = { #暫定政府を解決
@@ -132,7 +135,7 @@ focus_tree = {
     }
     focus = { #労働環境の改善
         id = LIT_improve_working_envi
-        #icon = 
+        icon = GFX_goal_generic_production
         cost = 5
         ai_will_do = {
             factor = 10
@@ -154,7 +157,7 @@ focus_tree = {
     }
     focus = { #失業者への保障
         id = LIT_guarantee_unemploy
-        #icon = 
+        icon = GFX_focus_hol_abandon_the_gold_standard
         cost = 5
         ai_will_do = {
             factor = 10
@@ -179,7 +182,7 @@ focus_tree = {
     }
     focus = { #民主主義への意欲
         id = LIT_willingness_democracy
-        #icon = 
+        icon = GFX_goal_generic_propaganda
         cost = 5
         ai_will_do = {
             factor = 10
@@ -204,7 +207,7 @@ focus_tree = {
     }
     focus = { #社会全体の利益
         id = LIT_benefit_all_social
-        #icon = 
+        icon = GFX_focus_usa_reestablish_the_gold_standard
         cost = 5
         ai_will_do = {
             factor = 10
@@ -229,7 +232,7 @@ focus_tree = {
     }
     focus = { #自由のために
         id = LIT_for_free
-        #icon = 
+        icon = GFX_focus_focus_fra_revolution_utmost
         cost = 2
         ai_will_do = {
             factor = 10
@@ -262,7 +265,7 @@ focus_tree = {
     }
     focus = { #自由主義経済
         id = LIT_liberal_economy
-        #icon = 
+        icon = GFX_focus_generic_industry_1
         cost = 5
         ai_will_do = {
             factor = 10
@@ -284,7 +287,7 @@ focus_tree = {
     }
     focus = { #海外からの投資拡大
         id = LIT_expansion_invest_oversea
-        #icon = 
+        icon = GFX_goal_generic_trade
         cost = 5
         ai_will_do = {
             factor = 10
@@ -361,7 +364,7 @@ focus_tree = {
     }
     focus = { #安定のために
         id = LIT_for_stable
-        #icon = 
+        icon = GFX_goal_generic_neutrality_focus
         cost = 2
         ai_will_do = {
             factor = 10
@@ -394,7 +397,7 @@ focus_tree = {
     }
     focus = { #経済発展を
         id = LIT_economic_dev
-        #icon = 
+        icon = GFX_focus_mex_privatisation
         cost = 5
         ai_will_do = {
             factor = 10
@@ -416,7 +419,7 @@ focus_tree = {
     }
     focus = { #基盤の強化
         id = LIT_strength_foundation
-        #icon = 
+        icon = GFX_focus_generic_self_management
         cost = 5
         ai_will_do = {
             factor = 10
@@ -467,7 +470,7 @@ focus_tree = {
     }
     focus = { #平和のために
         id = LIT_for_peace
-        #icon = 
+        icon = GFX_goal_generic_major_alliance
         cost = 5
         ai_will_do = {
             factor = 10
@@ -591,7 +594,7 @@ focus_tree = {
     }
     focus = { #穏健派
         id = LIT_moderate
-        #icon = 
+        icon = GFX_goal_generic_improve_relations
         cost = 2
         ai_will_do = {
             factor = 10
@@ -607,6 +610,9 @@ focus_tree = {
         prerequisite = {
             focus = LIT_nationalist_victory
         }
+        mutually_exclusive = {
+            focus = LIT_radicals
+        }
         completion_reward = {
             add_popularity = {
                 ideology = authority_democracy
@@ -620,7 +626,7 @@ focus_tree = {
     }
     focus = { #急進派
         id = LIT_radicals
-        #icon = 
+        icon = GFX_goal_generic_demand_territory
         cost = 2
         ai_will_do = {
             factor = 10
@@ -636,6 +642,9 @@ focus_tree = {
         prerequisite = {
             focus = LIT_nationalist_victory
         }
+        mutually_exclusive = {
+            focus = LIT_moderate
+        }
         completion_reward = {
             add_popularity = {
                 ideology = national_fascism
@@ -649,7 +658,7 @@ focus_tree = {
     }
     focus = { #他民族融和
         id = LIT_reconcil_other_ethnic
-        #icon = 
+        icon = GFX_goal_generic_national_unity
         cost = 5
         ai_will_do = {
             factor = 10
@@ -671,7 +680,7 @@ focus_tree = {
     }
     focus = { #ドイツ人の追放
         id = LIT_ban_germany
-        #icon = 
+        icon = GFX_focus_attack_germany
         cost = 5
         ai_will_do = {
             factor = 10
@@ -742,7 +751,7 @@ focus_tree = {
     }
     focus = { #リトアニアの自立
         id = LIT_lithuanian_independence
-        #icon = 
+        icon = GFX_focus_generic_the_giant_wakes
         cost = 5
         ai_will_do = {
             factor = 10
@@ -765,7 +774,7 @@ focus_tree = {
     }
     focus = { #寛容たれ
         id = LIT_tolerate
-        #icon = 
+        icon = GFX_focus_generic_concessions
         cost = 5
         ai_will_do = {
             factor = 10
@@ -790,7 +799,7 @@ focus_tree = {
     }
     focus = { #確固たれ
         id = LIT_firmly
-        #icon = 
+        icon = GFX_goal_generic_defence
         cost = 5
         ai_will_do = {
             factor = 10
@@ -933,14 +942,14 @@ focus_tree = {
             create_country_leader = {
                 name = "Kazimieras Viktoras Tiškevičius"
                 desc = ""
-                #picture = 
+                picture = "gfx/leaders/LIT/Portrait_Tiskevicius_Kazimieras_Viktoras.dds"
                 expire = "1990.1.1"
                 ideology = authority_democracy_ideology 
             }
             create_country_leader = {
                 name = "Kazimieras Viktoras Tiškevičius"
                 desc = ""
-                #picture = 
+                picture = "gfx/leaders/LIT/Portrait_Tiskevicius_Kazimieras_Viktoras.dds"
                 expire = "1990.1.1"
                 ideology = absolute_monarchism_ideology  
             }
@@ -983,14 +992,14 @@ focus_tree = {
             create_country_leader = {
                 name = "Karl Gero"
                 desc = ""
-                #picture = 
+                picture = "gfx/leaders/LIT/Portrait_Karl_Gero.dds"
                 expire = "1990.1.1"
                 ideology = authority_democracy_ideology 
             }
             create_country_leader = {
                 name = "Karl Gero"
                 desc = ""
-                #picture = 
+                picture = "gfx/leaders/LIT/Portrait_Karl_Gero.dds"
                 expire = "1990.1.1"
                 ideology = absolute_monarchism_ideology  
             }
@@ -1010,7 +1019,7 @@ focus_tree = {
     }
     focus = { #支持の確立
         id = LIT_establish_support
-        #icon = 
+        icon = GFX_goal_generic_intelligence_exchange
         cost = 5
         ai_will_do = {
             factor = 10
@@ -1032,7 +1041,7 @@ focus_tree = {
     }
     focus = { #影響力の確立
         id = LIT_establish_influence
-        #icon = 
+        icon = GFX_focus_generic_treaty
         cost = 5
         ai_will_do = {
             factor = 10
@@ -1120,6 +1129,9 @@ focus_tree = {
             focus = LIT_traditional_lithuania
             focus = LIT_new_lithuania
         }
+        mutually_exclusive = {
+            focus = LIT_I_am_the_state
+        }
         completion_reward = {
             add_popularity = {
                 ideology = authority_democracy
@@ -1163,6 +1175,9 @@ focus_tree = {
         prerequisite = {
             focus = LIT_traditional_lithuania
             focus = LIT_new_lithuania
+        }
+        mutually_exclusive = {
+            focus = LIT_reign_but_not_rule
         }
         completion_reward = {
             add_popularity = {
@@ -1217,17 +1232,21 @@ focus_tree = {
                 limit = {
                     has_completed_focus = LIT_from_lithuanian_aristocrats
                 }
+                hidden_effect = {
+                    retire_ideology_leader = authority_democracy
+                    retire_ideology_leader = authority_despotism
+                }
                 create_country_leader = {
                     name = "Kazimieras II"
                     desc = ""
-                    #picture = 
+                    picture = "gfx/leaders/LIT/Portrait_Tiskevicius_Kazimieras_Viktoras.dds"
                     expire = "1990.1.1"
                     ideology = authority_democracy_ideology
                 }
                 create_country_leader = {
                     name = "Kazimieras II"
                     desc = ""
-                    #picture = 
+                    picture = "gfx/leaders/LIT/Portrait_Tiskevicius_Kazimieras_Viktoras.dds"
                     expire = "1990.1.1"
                     ideology = absolute_monarchism_ideology
                 }
@@ -1236,17 +1255,21 @@ focus_tree = {
                 limit = {
                     has_completed_focus = LIT_Mindaugas_III
                 }
+                hidden_effect = {
+                    retire_ideology_leader = authority_democracy
+                    retire_ideology_leader = authority_despotism
+                }
                 create_country_leader = {
                     name = "Mindaugas III"
                     desc = ""
-                    #picture = 
+                    picture = "gfx/leaders/LIT/Portrait_Karl_Gero.dds"
                     expire = "1990.1.1"
                     ideology = authority_democracy_ideology
                 }
                 create_country_leader = {
                     name = "Mindaugas III"
                     desc = ""
-                    #picture = 
+                    picture = "gfx/leaders/LIT/Portrait_Karl_Gero.dds"
                     expire = "1990.1.1"
                     ideology = absolute_monarchism_ideology
                 }
@@ -1291,7 +1314,7 @@ focus_tree = {
                     popularity = 0.05
                 }
                 set_politics = {
-                    ideology = authority_despotism
+                    ruling_party = authority_despotism
                     elections_allowed = no
                 }
                 if = {
@@ -1349,6 +1372,1810 @@ focus_tree = {
             add_popularity = {
                 ideology = progressive_communism
                 popularity = 0.1
+            }
+        }
+    }
+    focus = { #マルクス・レーニン主義
+        id = LIT_marxism_leninism
+        icon = GFX_focus_eng_liberate_the_home_of_marx
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 18
+        y = 3
+        prerequisite = {
+            focus = LIT_communist_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_communism_for_lithuania
+        }
+        completion_reward = {
+            add_war_support = 0.05
+            add_popularity = {
+                ideology = classical_communism
+                popularity = 0.1
+            }
+            set_politics = {
+                ruling_party = classical_communism
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #リトアニアのための共産主義
+        id = LIT_communism_for_lithuania
+        #icon = 
+        cost = 2
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 20
+        y = 3
+        prerequisite = {
+            focus = LIT_communist_victory
+        }
+        mutually_exclusive = {
+            focus = LIT_marxism_leninism
+        }
+        completion_reward = {
+            add_war_support = 0.05
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = 0.05
+            }
+            set_politics = {
+                ruling_party = progressive_communism
+                elections_allowed = no
+            }
+        }
+    }
+    focus = { #五か年計画
+        id = LIT_five_years_plan
+        icon = GFX_goal_generic_soviet_construction
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 18
+        y = 4
+        prerequisite = {
+            focus = LIT_marxism_leninism
+        }
+        completion_reward = {
+            add_ideas = LIT_idea_classical_communism
+            add_popularity = {
+                ideology = classical_communism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #適切な成長
+        id = LIT_approptiate_growth
+        icon = GFX_focus_prc_agrarian_socialism
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 20
+        y = 4
+        prerequisite = {
+            focus = LIT_communism_for_lithuania
+        }
+        completion_reward = {
+            add_ideas = LIT_only_lithuanian_communism
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #ソヴィエトからの教訓
+        id = LIT_lesson_from_soviet
+        icon = GFX_focus_fra_loyalty_stalin
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 18
+        y = 5
+        prerequisite = {
+            focus = LIT_five_years_plan
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_classical_communism
+                add_idea = LIT_idea_classical_communism_2
+            }
+        }
+    }
+    focus = { #ソヴィエトからの反省
+        id = LIT_reflect_from_soviet
+        icon = GFX_goal_generic_war_with_comintern
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 20
+        y = 5
+        prerequisite = {
+            focus = LIT_approptiate_growth
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_only_lithuanian_communism
+                add_idea = LIT_only_lithuanian_communism_2
+            }
+        }
+    }
+    focus = { #全てを国家に
+        id = LIT_everything_for_country
+        icon = GFX_focus_generic_self_management
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 18
+        y = 6
+        prerequisite = {
+            focus = LIT_lesson_from_soviet
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_classical_communism_2
+                add_idea = LIT_idea_classical_communism_3
+            }
+            add_popularity = {
+                ideology = classical_communism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #全てを人民に
+        id = LIT_everything_for_people
+        icon = GFX_focus_spr_torchbearers_of_tomorrow
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 20
+        y = 6
+        prerequisite = {
+            focus = LIT_reflect_from_soviet
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_only_lithuanian_communism_2
+                add_idea = LIT_only_lithuanian_communism_3
+            }
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = 0.05
+            }
+        }
+    }
+    focus = { #世界革命論
+        id = LIT_communism_of_world
+        icon = GFX_focus_fra_loyalty_trotzky
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 18
+        y = 7
+        prerequisite = {
+            focus = LIT_everything_for_country
+            focus = LIT_everything_for_people
+        }
+        mutually_exclusive = {
+            focus = LIT_communism_of_lithuania
+        }
+        completion_reward = {
+            add_ideas = LIT_idea_communism_of_world
+        }
+    }
+    focus = { #一国社会主義論
+        id = LIT_communism_of_lithuania
+        icon = GFX_focus_por_workers_of_iberia
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 20
+        y = 7
+        prerequisite = {
+            focus = LIT_everything_for_country
+            focus = LIT_everything_for_people
+        }
+        mutually_exclusive = {
+            focus = LIT_communism_of_world
+        }
+        completion_reward = {
+            add_ideas = LIT_one_country_communism
+        }
+    }
+    focus = { #共産党大会の開催
+        id = LIT_hold_communist_congress
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 19
+        y = 8
+        prerequisite = {
+            focus = LIT_communism_of_world
+            focus = LIT_communism_of_lithuania
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_completed_focus = LIT_marxism_leninism
+                }
+                add_popularity = {
+                    ideology = classical_communism
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_classical_communism_3
+                    add_idea = LIT_idea_classical_communism_4
+                }
+            }
+            else_if = {
+                limit = {
+                    has_completed_focus = LIT_communism_for_lithuania
+                }
+                add_popularity = {
+                    ideology = progressive_communism
+                    popularity = 0.05
+                }
+                swap_ideas = {
+                    remove_idea = LIT_only_lithuanian_communism_3
+                    add_idea = LIT_only_lithuanian_communism_4
+                }
+            }
+        }
+    }
+    focus = { #産業の確認
+        id = LIT_industry_checks
+        icon = GFX_goal_generic_production2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = LIT_finished_politic
+                OR = {
+                    has_completed_focus = LIT_democratic_reform
+                    has_completed_focus = LIT_establish_national_state
+                    has_completed_focus = LIT_enthronement
+                    has_completed_focus = LIT_hold_communist_congress
+                }
+            }
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 28
+        y = 0
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = industry
+            }
+        }
+    }
+    focus = { #着実な発展
+        id = LIT_steady_dev
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        available = {
+            NOT = {has_government = classical_communism}
+            NOT = {has_government = national_fascism}
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_industry_checks
+        }
+        mutually_exclusive = {
+            focus = LIT_rapid_dev
+        }
+        x = 26
+        y = 1
+        completion_reward = {
+            add_ideas = LIT_careful_dev
+        }
+    }
+    focus = { #開発計画の策定
+        id = LIT_form_dev_plan
+        icon = GFX_goal_generic_position_armies
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_steady_dev
+        }
+        x = 24
+        y = 2
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_careful_dev
+                add_idea = LIT_careful_dev_2
+            }
+        }
+    }
+    focus = { #ライフラインの拡充
+        id = LIT_expand_lifeline
+        icon = GFX_goal_generic_consumer_goods
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_form_dev_plan
+        }
+        x = 24
+        y = 3
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_careful_dev_2
+                add_idea = LIT_careful_dev_3
+            }
+        }
+    }
+    focus = { #産業機械の更新
+        id = LIT_renewal_industry_machine
+        icon = GFX_goal_generic_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_expand_lifeline
+        }
+        x = 24
+        y = 4
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = industry
+            }
+        }
+    }
+    focus = { #周辺国との連携
+        id = LIT_cooperate_neighboring_countries
+        icon = GFX_goal_generic_national_unity
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_renewal_industry_machine
+        }
+        x = 24
+        y = 5
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = LIT
+                        tag = LAT
+                        tag = EST
+                        tag = BLR
+                    }
+                }
+                random_owned_state = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        NOT = {tag = LIT}
+                    }
+                    add_opinion_modifier = {
+                        target = ROOT
+                        modifier = LIT_industry_coop
+                    }
+                    reverse_add_opinion_modifier = {
+                        target = ROOT
+                        modifier = LIT_industry_coop
+                    }
+                }
+            }
+        }
+    }
+    focus = { #国民のための大学
+        id = LIT_university_for_people
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_cooperate_neighboring_countries
+        }
+        x = 24
+        y = 6
+        completion_reward = {
+            add_research_slot = 1
+            add_stability = 0.05
+            swap_ideas = {
+                remove_idea = LIT_careful_dev_3
+                add_idea = LIT_careful_dev_4
+            }
+        }
+    }
+    focus = { #充実した産業支援
+        id = LIT_full_industrial_support
+        icon = GFX_focus_generic_industry_2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_steady_dev
+        }
+        x = 26
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_industry_support
+        }
+    }
+    focus = { #投資の呼びかけ
+        id = LIT_call_investment
+        icon = GFX_goal_generic_positive_trade_relations
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_full_industrial_support
+        }
+        x = 26
+        y = 3
+        completion_reward = {
+        }
+    }
+    focus = { #民間のインフラ
+        id = LIT_private_infra
+        icon = GFX_goal_generic_construct_infrastructure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_call_investment
+        }
+        prerequisite = {
+            focus = LIT_urban_dev
+        }
+        x = 26
+        y = 4
+        completion_reward = {
+            random_owned_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            random_owned_state = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = construction_tech
+            }
+        }
+    }
+    focus = { #自然との共存
+        id = LIT_coexist_nature
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_private_infra
+        }
+        x = 26
+        y = 5
+        completion_reward = {
+            add_ideas = LIT_idea_coexist_nature
+        }
+    }
+    focus = { #安定のための資源
+        id = LIT_resource_for_stability
+        icon = GFX_goal_generic_neutrality_focus
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_coexist_nature
+        }
+        prerequisite = {
+            focus = LIT_start_resource_survey
+        }
+        x = 26
+        y = 6
+        completion_reward = {
+            add_ideas = LIT_utilization_resource
+        }
+    }
+    focus = { #安定した経済
+        id = LIT_stability_economy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_university_for_people
+        }
+        prerequisite = {
+            focus = LIT_resource_for_stability
+        }
+        x = 25
+        y = 7
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_careful_dev_4
+                add_idea = LIT_careful_dev_5
+            }
+        }
+    }
+    focus = { #急速な発展
+        id = LIT_rapid_dev
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        available = {
+            NOT = {has_government = social_democracy}
+            NOT = {has_government = social_conservatism}
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_industry_checks
+        }
+        mutually_exclusive = {
+            focus = LIT_steady_dev
+        }
+        x = 30
+        y = 1
+        completion_reward = {
+            add_ideas = LIT_agressive_dev
+        }
+    }
+    focus = { #大規模な工業化計画
+        id = LIT_large_scale_industrialize_plan
+        icon = GFX_goal_generic_construct_mil_factory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_rapid_dev
+        }
+        x = 32
+        y = 2
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_agressive_dev
+                add_idea = LIT_agressive_dev_2
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 0
+                        include_locked = no
+                    }
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #重工業化の推進
+        id = LIT_promote_industry
+        icon = GFX_focus_generic_tank_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_large_scale_industrialize_plan
+        }
+        x = 32
+        y = 3
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_agressive_dev_2
+                add_idea = LIT_agressive_dev_3
+            }
+        }
+    }
+    focus = { #労働者の訓練
+        id = LIT_worker_training
+        icon = GFX_focus_generic_self_management
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_promote_industry
+        }
+        x = 32
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_agressive_dev_3
+                add_idea = LIT_agressive_dev_4
+            }
+        }
+    }
+    focus = { #仲間との連携
+        id = LIT_collaborate_friends
+        icon = GFX_goal_generic_improve_relations
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_worker_training
+        }
+        x = 32
+        y = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = industry
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = electronics
+            }
+        }
+    }
+    focus = { #国家のための大学
+        id = LIT_university_for_country
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_collaborate_friends
+        }
+        x = 32
+        y = 6
+        completion_reward = {
+            add_research_slot = 1
+            swap_ideas = {
+                remove_idea = LIT_agressive_dev_4
+                add_idea = LIT_agressive_dev_5
+            }
+        }
+    }
+    focus = { #産業の国営化
+        id = LIT_nationalization_industry
+        icon = GFX_focus_generic_industry_2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_rapid_dev
+        }
+        x = 30
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_nationalization
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #労働者への還元
+        id = LIT_return_worker
+        icon = GFX_goal_generic_consumer_goods
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_nationalization_industry
+        }
+        x = 30
+        y = 3
+        completion_reward = {
+            add_ideas = LIT_idea_return_worker
+        }
+    }
+    focus = { #国鉄の路線増強
+        id = LIT_reinforce_national_railway
+        icon = GFX_goal_generic_construct_infrastructure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_return_worker
+        }
+        prerequisite = {
+            focus = LIT_urban_dev
+        }
+        x = 30
+        y = 4
+        completion_reward = {
+            every_owned_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #発展のための犠牲
+        id = LIT_sacrifice_dev
+        icon = GFX_focus_CZE_german_puppet
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_reinforce_national_railway
+        }
+        x = 30
+        y = 5
+        completion_reward = {
+            add_ideas = LIT_great_dev_and_scrifice
+        }
+    }
+    focus = { #発展のためのの資源
+        id = LIT_resource_for_dev
+        icon = GFX_goal_generic_trade
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_sacrifice_dev
+        }
+        prerequisite = {
+            focus = LIT_start_resource_survey
+        }
+        x = 30
+        y = 6
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_great_dev_and_scrifice
+                add_idea = LIT_great_dev_and_scrifice_2
+            }
+        }
+    }
+    focus = { #発展した経済
+        id = LIT_developed_economy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_university_for_country
+        }
+        prerequisite = {
+            focus = LIT_resource_for_dev
+        }
+        x = 31
+        y = 7
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_agressive_dev_5
+                add_idea = LIT_agressive_dev_6
+            }
+        }
+    }
+    focus = { #農業技術の更新
+        id = LIT_agri_tech_renewal
+        icon = GFX_goal_generic_construction2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_steady_dev
+            focus = LIT_rapid_dev
+        }
+        x = 28
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_new_agri_tech
+        }
+    }
+    focus = { #都市開発
+        id = LIT_urban_dev
+        icon = GFX_focus_generic_industry_3
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_agri_tech_renewal
+        }
+        x = 28
+        y = 3
+        completion_reward = {
+            every_owned_state = {
+                limit = {
+                    OR = {
+                        state = 11
+                        state = 784
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #港湾施設の改修
+        id = LIT_renovation_port_facility
+        icon = GFX_goal_generic_construct_naval_dockyard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_urban_dev
+        }
+        x = 28
+        y = 4
+        completion_reward = {
+            if = {
+                limit = {
+                    owns_state = 188
+                }
+                188 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = dockyard
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 1
+                        instant_build = yes
+                        province = 3288
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    owns_state = 189
+                }
+                189 = {
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = dockyard
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 1
+                        instant_build = yes
+                        province = 6314
+                    }
+                }
+            }
+        }
+    }
+    focus = { #資源調査の開始
+        id = LIT_start_resource_survey
+        icon = GFX_focus_generic_steel
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_renovation_port_facility
+        }
+        x = 28
+        y = 5
+        completion_reward = {
+        }
+    }
+    focus = { #採掘技術の獲得
+        id = LIT_acquisite_mining_tech
+        icon = GFX_goal_generic_production2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_start_resource_survey
+        }
+        x = 28
+        y = 6
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = excavation_tech
+            }
+        }
+    }
+    focus = { #国際列車
+        id = LIT_international_train
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_acquisite_mining_tech
+        } 
+        x = 28
+        y = 7
+        completion_reward = {
+        }
+    }
+    focus = { #安全のための軍
+        id = LIT_army_for_safety
+        icon = GFX_goal_generic_military_sphere
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = LIT_finished_politic
+                OR = {
+                    has_completed_focus = LIT_democratic_reform
+                    has_completed_focus = LIT_establish_national_state
+                    has_completed_focus = LIT_enthronement
+                    has_completed_focus = LIT_hold_communist_congress
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 39
+        y = 0
+        completion_reward = {
+            army_experience = 15
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = land_doctrine  
+            }
+        }
+    }
+    focus = { #牽制のための軍
+        id = LIT_army_for_restraint
+        icon = GFX_goal_generic_small_arms
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_army_for_safety
+        }
+        x = 39
+        y = 1
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = infantry_tech
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = artillery
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = support_tech
+            }
+        }
+    }
+    focus = { #独立維持の努力
+        id = LIT_effort_maintain_independent
+        icon = GFX_goal_generic_demand_territory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_army_for_restraint
+        }
+        x = 36
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_to_not_perish_again
+        }
+    }
+    focus = { #リトアニア国家保安局
+        id = LIT_national_security_agency
+        icon = GFX_goal_generic_defence
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_effort_maintain_independent
+        }
+        x = 36
+        y = 3
+        completion_reward = {
+            if = {
+                limit = {
+                    has_intelligence_agency = no
+                }
+                create_intelligence_agency = yes
+            }
+            swap_ideas = {
+                remove_idea = LIT_to_not_perish_again
+                add_idea = LIT_to_not_perish_again_2
+            }
+        }
+    }
+    focus = { #特殊部隊の訓練
+        id = LIT_special_force_training
+        icon = GFX_goal_generic_special_forces
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_national_security_agency
+        }
+        x = 36
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_to_not_perish_again_2
+                add_idea = LIT_to_not_perish_again_3
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = marine_tech
+                category = para_tech
+                category = mountaineers_tech
+            }
+        }
+    }
+    focus = { #装甲部隊の検討
+        id = LIT_examinate_armored_unit
+        icon = GFX_goal_generic_build_tank
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_special_force_training
+        }
+        mutually_exclusive = {
+            focus = LIT_all_people_defence
+        }
+        x = 36
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_to_not_perish_again_3
+                add_idea = LIT_to_not_perish_again_4
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = armor
+            }
+        }
+    }
+    focus = { #先手必勝！
+        id = LIT_first_win
+        icon = GFX_focus_generic_army_tanks2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_examinate_armored_unit
+        }
+        x = 36
+        y = 6
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_to_not_perish_again_4
+                add_idea = LIT_to_not_perish_again_5
+            }
+        }
+    }
+    focus = { #地域防衛軍
+        id = LIT_regional_defense_force
+        icon = GFX_focus_generic_manpower
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_army_for_restraint
+        }
+        x = 38
+        y = 2
+        completion_reward = {
+            add_war_support = 0.03
+            add_ideas = LIT_idea_regional_defense
+        }
+    }
+    focus = { #独立した指揮系統
+        id = LIT_independent_chain_command
+        icon = GFX_focus_generic_military_mission
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_regional_defense_force
+        }
+        x = 38
+        y = 3
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_regional_defense
+                add_idea = LIT_idea_regional_defense_2
+            }
+        }
+    }
+    focus = { #ゲリラ戦術
+        id = LIT_guerrilla_tactic
+        icon = GFX_focus_focus_fra_maquis
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_independent_chain_command
+        }
+        x = 38
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_regional_defense_2
+                add_idea = LIT_idea_regional_defense_3
+            }
+        }
+    }
+    focus = { #全民衆防衛
+        id = LIT_all_people_defence
+        icon = GFX_focus_prc_infiltration
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_guerrilla_tactic
+        }
+        mutually_exclusive = {
+            focus = LIT_examinate_armored_unit
+        }
+        x = 38
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_regional_defense_3
+                add_idea = LIT_idea_regional_defense_4
+            }
+        }
+    }
+    focus = { #祖国のために！
+        id = LIT_for_my_homeland
+        icon = GFX_focus_generic_little_entente
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_all_people_defence
+        }
+        x = 38
+        y = 6
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_regional_defense_4
+                add_idea = LIT_idea_regional_defense_5
+            }
+        }
+    }
+    focus = { #防衛計画の策定
+        id = LIT_form_defense_plan
+        icon = GFX_goal_generic_position_armies
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_army_for_restraint
+        }
+        mutually_exclusive = {
+            focus = LIT_attack_for_defense
+        }
+        x = 40
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_defense_plan
+        }
+    }
+    focus = { #警戒を怠るな
+        id = LIT_dont_be_vigilant
+        icon = GFX_focus_secret_rearmament
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_form_defense_plan
+        }
+        x = 40
+        y = 3
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_defense_plan
+                add_idea = LIT_defense_plan_2
+            }
+        }
+    }
+    focus = { #要塞による防御
+        id = LIT_fortress_defense
+        icon = GFX_goal_generic_construct_military
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_dont_be_vigilant
+        }
+        x = 40
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_defense_plan_2
+                add_idea = LIT_defense_plan_3
+            }
+            784 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = bunker
+                        level = 2
+                        instant_build = yes
+                        province = 3320
+                    }
+                }
+            }
+        }
+    }
+    focus = { #地形を活かす
+        id = LIT_make_most_terrain
+        icon = GFX_focus_GRE_a_land_of_mountains
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_fortress_defense
+        }
+        prerequisite = {
+            focus = LIT_special_force_training
+            focus = LIT_guerrilla_tactic
+        }
+        x = 40
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_defense_plan_3
+                add_idea = LIT_defense_plan_4
+            }
+            add_tech_bonus = {
+                bonus = 0.8
+                uses = 2
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #防衛のための攻撃
+        id = LIT_attack_for_defense
+        icon = GFX_goal_generic_major_war
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_army_for_restraint
+        }
+        mutually_exclusive = {
+            focus = LIT_form_defense_plan
+        }
+        x = 42
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_attack_plan
+        }
+    }
+    focus = { #消耗抑制
+        id = LIT_suppress_wear
+        icon = GFX_goal_generic_secret_weapon
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_attack_for_defense
+        }
+        x = 42
+        y = 3
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_attack_plan
+                add_idea = LIT_attack_plan_2
+            }
+        }
+    }
+    focus = { #装備生産の効率化
+        id = LIT_efficient_equip_product
+        icon = GFX_goal_generic_production2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_suppress_wear
+        }
+        x = 42
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_attack_plan_2
+                add_idea = LIT_attack_plan_3
+            }
+        }
+    }
+    focus = { #戦術訓練の拡充
+        id = LIT_expansion_tactic_training
+        icon = GFX_goal_generic_army_doctrines
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_efficient_equip_product
+        }
+        prerequisite = {
+            focus = LIT_special_force_training
+            focus = LIT_guerrilla_tactic
+        }
+        x = 42
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_attack_plan_3
+                add_idea = LIT_attack_plan_4
+            }
+            add_tech_bonus = {
+                bonus = 0.8
+                uses = 2
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #支援部隊の配備
+        id = LIT_deploy_support_unit
+        icon = GFX_focus_chi_army_reform
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_make_most_terrain
+            focus = LIT_expansion_tactic_training
+        }
+        x = 41
+        y = 6
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = support_tech
+            }
+            add_ideas = LIT_support
+        }
+    }
+    focus = { #諸兵科連合
+        id = LIT_combined_army
+        icon = GFX_focus_generic_combined_arms
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_deploy_support_unit
+        }
+        x = 41
+        y = 7
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_support
+                add_idea = LIT_support_2
             }
         }
     }
