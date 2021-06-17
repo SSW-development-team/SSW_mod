@@ -117,7 +117,7 @@ country_event = { #
 	}
 }
 
-country_event = { #
+country_event = { #テキサスからの打診
 	id = sswtex.6
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event sswtex.6"
@@ -131,17 +131,21 @@ country_event = { #
 	
 	option = { #
 		name = sswtex.6.a
-		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 90 }
+		give_guarantee = ALF
+		ALF = {
+			give_guarantee = TEX
+		}
+		set_country_flag = tex_friend_ALF
 	}
 	option = { #
 		name = sswtex.6.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 0 }
 		
 	}
 }
 
-country_event = { #
+country_event = { #自由連盟が戦争に突入
 	id = sswtex.7
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event sswtex.7"
@@ -150,22 +154,24 @@ country_event = { #
 	desc = sswtex.7.desc
 	#picture = 
 	
-	is_triggered_only = yes
+	trigger = {
+		has_country_flag = tex_friend_ALF
+		ALF = {
+			has_war_with = UTC
+		}
+	}
 	fire_only_once = yes
 	
 	option = { #
 		name = sswtex.7.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = sswtex.7.b
-		ai_chance = { base = 1 }
-		
+		declare_war_on = {
+			target = UTC
+		}
 	}
 }
 
-country_event = { #
+country_event = { #最終決戦（自由連盟）
 	id = sswtex.8
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event sswtex.8"
@@ -174,18 +180,20 @@ country_event = { #
 	desc = sswtex.8.desc
 	#picture = 
 	
-	is_triggered_only = yes
+	trigger = {
+		has_country_flag = tex_friend_ALF
+		ALF = {
+			has_war_with = FSA
+		}
+	}
 	fire_only_once = yes
 	
 	option = { #
 		name = sswtex.8.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = sswtex.8.b
-		ai_chance = { base = 1 }
-		
+		declare_war_on = {
+			target = FSA
+		}
 	}
 }
 
@@ -204,7 +212,12 @@ country_event = { #
 	option = { #
 		name = sswtex.9.a
 		ai_chance = { base = 1 }
-		
+		ai_chance = { base = 90 }
+		give_guarantee = FSA
+		FSA = {
+			give_guarantee = TEX
+		}
+		set_country_flag = tex_friend_FSA
 	}
 	option = { #
 		name = sswtex.9.b
@@ -213,7 +226,7 @@ country_event = { #
 	}
 }
 
-country_event = { #
+country_event = { #連邦が戦争に突入
 	id = sswtex.10
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event sswtex.10"
@@ -222,22 +235,25 @@ country_event = { #
 	desc = sswtex.10.desc
 	#picture = 
 	
-	is_triggered_only = yes
+	trigger = {
+		has_country_flag = tex_friend_FSA
+		FSA = {
+			has_war_with = UTC
+		}
+	}
 	fire_only_once = yes
 	
 	option = { #
 		name = sswtex.10.a
 		ai_chance = { base = 1 }
-		
+		declare_war_on = {
+			target = UTC
+		}
 	}
-	option = { #
-		name = sswtex.10.b
-		ai_chance = { base = 1 }
-		
-	}
+
 }
 
-country_event = { #
+country_event = { #最終決戦（連邦）
 	id = sswtex.11
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event sswtex.11"
@@ -246,18 +262,20 @@ country_event = { #
 	desc = sswtex.11.desc
 	#picture = 
 	
-	is_triggered_only = yes
+	trigger = {
+		has_country_flag = tex_friend_FSA
+		FSA = {
+			has_war_with = ALF
+		}
+	}
 	fire_only_once = yes
 	
 	option = { #
 		name = sswtex.11.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = sswtex.11.b
-		ai_chance = { base = 1 }
-		
+		declare_war_on = {
+			target = ALF
+		}
 	}
 }
 
@@ -275,11 +293,6 @@ country_event = { #
 	
 	option = { #
 		name = sswtex.12.a
-		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = sswtex.12.b
 		ai_chance = { base = 1 }
 		
 	}

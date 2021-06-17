@@ -1,0 +1,1242 @@
+add_namespace = GER_Before_GCW
+
+country_event = { #Economy Descirption
+	id = GER_Before_GCW.0
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.0"
+	}
+	title = GER_Before_GCW.0.t
+	desc = GER_Before_GCW.0.desc
+	picture = GFX_report_event_GER_Reichstag
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #For the Fuhrer!
+		name = GER_Before_GCW.0.a
+		ai_chance = { base = 1 }
+		add_political_power = 10
+	}
+}
+
+country_event = { #for GER_Endless_Unemployment
+	id = GER_Before_GCW.1
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.1"
+	}
+	title = GER_Before_GCW.1.t
+	desc = GER_Before_GCW.1.desc
+	picture = GFX_report_event_GER_Undeployments
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Yes, We need New Social Policy
+		name = GER_Before_GCW.1.a
+		ai_chance = { base = 1 }
+		add_stability = 0.02
+	}
+}
+
+country_event = { #for GER_Expand_Education_Policy
+	id = GER_Before_GCW.2
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.2"
+	}
+	title = GER_Before_GCW.2.t
+	desc = GER_Before_GCW.2.desc
+	picture = GFX_report_event_GER_Education
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.2.a
+		ai_chance = { base = 1 }
+		add_stability = 0.01
+		add_political_power = -10
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.3
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.3"
+	}
+	title = GER_Before_GCW.3.t
+	desc = GER_Before_GCW.3.desc
+	picture = GFX_report_event_GER_Autobahn
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.3.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.4
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.4"
+	}
+	title = GER_Before_GCW.4.t
+	desc = GER_Before_GCW.4.desc
+	picture = GFX_report_event_Dam
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.4.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.5
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.5"
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.6
+				days = 15
+			}
+		}
+	}
+	title = GER_Before_GCW.5.t
+	desc = GER_Before_GCW.5.desc
+	picture = GFX_report_event_GER_Reichsmark
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.5.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.6
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.6"
+	}
+	title = GER_Before_GCW.6.t
+	desc = GER_Before_GCW.6.desc
+	picture = GFX_report_event_Ruin
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.6.a
+		ai_chance = { base = 1 }
+		add_stability = -0.05
+		add_war_support = -0.03
+	}
+}
+
+country_event = { #Last Focus Event
+	id = GER_Before_GCW.7
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.7"
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.8
+				days = 15
+			}
+		}
+	}
+	title = GER_Before_GCW.7.t
+	desc = GER_Before_GCW.7.desc
+	picture = GFX_report_event_River
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.7.a
+		ai_chance = { base = 1 }
+	}
+}
+
+country_event = { #Last Focus Event
+	id = GER_Before_GCW.8
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.8"
+	}
+	title = GER_Before_GCW.8.t
+	desc = GER_Before_GCW.8.desc
+	picture = GFX_report_event_Ruin
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.8.a
+		ai_chance = { base = 1 }
+		add_stability = -0.02
+		add_war_support = -0.07
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = -2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+#####################################################################################
+##  #####  #### ###   ######   ######  #######   #####    #####    ####   ######   ##
+## ##   #   ##   #   ##   ##  ##   ##   ##   #  ##   #   ##   #   ##  ##   ##  ##  ##
+## ###      ##   #   ##    #  ##    #   ##      ###      ###      #    #   ##  ##  ##
+##  ####    ##   #   ##       ##        #####    ####     ####    #    #   #####   ##
+##    ###   ##   #   ##       ##        ##         ###      ###   #    #   ## ##   ##
+## #   ##   ##   #   ##   ##  ##   ##   ##   #  #   ##   #   ##   ##  ##   ##  ##  ##
+## #####     ####     #####    #####   #######  #####    #####     ####   #### ### ##
+#####################################################################################
+
+country_event = { #Birth day of Hitler
+	id = GER_Before_GCW.9
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.9"
+		hidden_effect = {
+			if = {
+				limit = {
+					is_germany_mainland = yes
+				}
+				set_variable = { Current_Goering_Influence = 1 }
+				set_variable = { Current_Himmler_Influence = 1 }
+				set_variable = { Current_Goebbels_Influence = 1 }
+				set_variable = { Current_Bormann_Influence = 1 }
+			}
+		}
+	}
+	title = GER_Before_GCW.9.t
+	desc = GER_Before_GCW.9.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Select Successor
+		name = GER_Before_GCW.9.a
+		ai_chance = { base = 99 }
+		add_political_power = 20
+		country_event = {
+			id = GER_Before_GCW.10
+			days = 2
+		}
+	}
+	option = { #No! I dont need successor
+		name = GER_Before_GCW.9.b
+		ai_chance = { base = 1 }
+		add_political_power = -200
+	}
+}
+
+country_event = { #Announcement of Successors
+	id = GER_Before_GCW.10
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.10"
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.15
+				days = 7
+			}
+		}
+	}
+	title = GER_Before_GCW.10.t
+	desc = GER_Before_GCW.10.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Goering
+		name = GER_Before_GCW.10.a
+		ai_chance = { base = 100 } #Temptory
+		add_stability = -0.5
+		966 = {### Berlin
+			add_to_variable = { Current_Goering_Influence = 3 }## Current : 4
+		}
+		hidden_effect = {
+			set_country_flag = Goering_is_Successor
+			country_event = {
+				id = GER_Before_GCW.12
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.13
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.14
+				days = 1
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	option = { #Himmler
+		name = GER_Before_GCW.10.b
+		ai_chance = { base = 1 }
+		add_stability = -0.15
+		966 = {### Berlin
+			add_to_variable = { Current_Himmler_Influence = 3 }## Current : 4
+		}
+		hidden_effect = {
+			set_country_flag = Himmler_is_Successor
+			country_event = {
+				id = GER_Before_GCW.11
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.13
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.14
+				days = 1
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	option = { #Goebbels
+		name = GER_Before_GCW.10.c
+		ai_chance = { base = 1 }
+		add_stability = -0.8
+		966 = {### Berlin
+			add_to_variable = { Current_Goebbels_Influence = 3 }## Current : 4
+		}
+		hidden_effect = {
+			set_country_flag = Goebbels_is_Successor
+			country_event = {
+				id = GER_Before_GCW.12
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.11
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.14
+				days = 1
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	option = { #Bormann
+		name = GER_Before_GCW.10.d
+		ai_chance = { base = 1 }
+		add_stability = -0.1
+		966 = {### Berlin
+			add_to_variable = { Current_Bormann_Influence = 3 }## Current : 4
+		}
+		hidden_effect = {
+			set_country_flag = Bormann_is_Successor
+			country_event = {
+				id = GER_Before_GCW.12
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.13
+				days = 1
+			}
+			country_event = {
+				id = GER_Before_GCW.11
+				days = 1
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
+country_event = { #Goering's Protest
+	id = GER_Before_GCW.11
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.11"
+	}
+	title = GER_Before_GCW.11.t
+	desc = GER_Before_GCW.11.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Soothing
+		name = GER_Before_GCW.11.a
+		ai_chance = { base = 1 }
+		add_stability = 0.02
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+				}
+				1 = {
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+				}
+				1 = {
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+				}
+				1 = {
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+				}
+				1 = {
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+	option = { #Fuck you
+		name = GER_Before_GCW.11.b
+		ai_chance = { base = 9 }
+		add_stability = -0.01
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+					Goering_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+					Goering_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+					Goering_Berlin_upgrade = yes
+				}
+				1 = {
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+					Goering_Hanover_upgrade = yes
+				}
+				1 = {
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+					Goering_Wien_upgrade = yes
+				}
+				1 = {
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+					Goering_Munich_upgrade = yes
+				}
+				1 = {
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+					Goering_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+					Goering_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Himmler's Protest
+	id = GER_Before_GCW.12
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.12"
+	}
+	title = GER_Before_GCW.12.t
+	desc = GER_Before_GCW.12.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Soothing
+		name = GER_Before_GCW.12.a
+		ai_chance = { base = 1 }
+		add_stability = 0.02
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+				}
+				1 = {
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+				}
+				1 = {
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+				}
+				1 = {
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+				}
+				1 = {
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+	option = { #Fuckyou
+		name = GER_Before_GCW.12.b
+		ai_chance = { base = 9 }
+		add_war_support = -0.03
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+					Himmler_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+					Himmler_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+					Himmler_Berlin_upgrade = yes
+				}
+				1 = {
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+					Himmler_Hanover_upgrade = yes
+				}
+				1 = {
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+					Himmler_Wien_upgrade = yes
+				}
+				1 = {
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+					Himmler_Munich_upgrade = yes
+				}
+				1 = {
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+					Himmler_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+					Himmler_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Goebbels's Protest
+	id = GER_Before_GCW.13
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.13"
+	}
+	title = GER_Before_GCW.13.t
+	desc = GER_Before_GCW.13.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Soothing
+		name = GER_Before_GCW.13.a
+		ai_chance = { base = 1 }
+		add_war_support = 0.02
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+				}
+				1 = {
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+				}
+				1 = {
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+				}
+				1 = {
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+				}
+				1 = {
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+	option = { #Fuckyou
+		name = GER_Before_GCW.13.b
+		ai_chance = { base = 9 }
+		add_war_support = -0.03
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+					Goebbels_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+					Goebbels_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+					Goebbels_Berlin_upgrade = yes
+				}
+				1 = {
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+					Goebbels_Hanover_upgrade = yes
+				}
+				1 = {
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+					Goebbels_Wien_upgrade = yes
+				}
+				1 = {
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+					Goebbels_Munich_upgrade = yes
+				}
+				1 = {
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+					Goebbels_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+					Goebbels_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Bormann's Protest
+	id = GER_Before_GCW.14
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.14"
+	}
+	title = GER_Before_GCW.14.t
+	desc = GER_Before_GCW.14.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Soothing
+		name = GER_Before_GCW.14.a
+		ai_chance = { base = 1 }
+		add_war_support = 0.02
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+				}
+				1 = {
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+				}
+				1 = {
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+				}
+				1 = {
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+				}
+				1 = {
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+	option = { #Fuckyou
+		name = GER_Before_GCW.14.b
+		ai_chance = { base = 9 }
+		add_war_support = -0.03
+		hidden_effect = {
+			random_list = {
+				1 = {
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+					Bormann_East_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+					Bormann_West_Prussia_upgrade = yes
+				}
+				1 = {
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+					Bormann_Berlin_upgrade = yes
+				}
+				1 = {
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+					Bormann_Hanover_upgrade = yes
+				}
+				1 = {
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+					Bormann_Wien_upgrade = yes
+				}
+				1 = {
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+					Bormann_Munich_upgrade = yes
+				}
+				1 = {
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+					Bormann_Alsace_Lorraine_upgrade = yes
+				}
+				1 = {
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+					Bormann_Rhein_upgrade = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Hitler's Coma(Deep Sleep)
+	id = GER_Before_GCW.15
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.15"
+	}
+	title = GER_Before_GCW.15.t
+	desc = GER_Before_GCW.15.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.15.a
+		ai_chance = { base = 1 }
+		set_stability = 0
+		kill_country_leader = yes
+		if = {
+			limit = {
+				has_country_flag = Goering_is_Successor
+			}
+			set_GER_Leader_Goering = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Himmler_is_Successor
+			}
+			set_GER_Leader_Himmler = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Goebbels_is_Successor
+			}
+			set_GER_Leader_Goebbels = Yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = Bormann_is_Successor
+			}
+			set_GER_Leader_Bormann = Yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.16
+				days = 4
+			}
+		}
+	}
+}
+
+country_event = { #Start Power Struggle
+	id = GER_Before_GCW.16
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.16"
+	}
+	title = GER_Before_GCW.16.t
+	desc = GER_Before_GCW.16.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #if you select Goring
+		name = GER_Before_GCW.16.a
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Goering_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Himmler
+		name = GER_Before_GCW.16.b
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Himmler_is_Successor
+		}
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		activate_mission = Update_Goering_Power
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Goebbels
+		name = GER_Before_GCW.16.c
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Goebbels_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		activate_mission = Update_Goering_Power
+		set_country_flag = Power_Struggle_Bormann_Decision_NOT_Available
+		activate_mission = Update_Bormann_Power
+	}
+	option = { #Pig
+		name = GER_Before_GCW.16.d
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Bormann_is_Successor
+		}
+		set_country_flag = Power_Struggle_Himmler_Decision_NOT_Available
+		activate_mission = Update_Himmler_Power
+		set_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available
+		activate_mission = Update_Goebbels_Power
+		set_country_flag = Power_Struggle_Goering_Decision_NOT_Available
+		activate_mission = Update_Goering_Power
+	}
+}
+
+country_event = { #Goering is Fuhrer
+	id = GER_Before_GCW.17
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.17"
+	}
+	title = GER_Before_GCW.17.t
+	desc = GER_Before_GCW.17.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #It is a good day
+		name = GER_Before_GCW.17.a
+		ai_chance = { base = 1 }
+		add_stability = 0.02
+		news_event = {
+			id = World_News.1
+		}
+	}
+}
+
+country_event = { #Reduce SS Troops
+	id = GER_Before_GCW.18
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.18"
+	}
+	title = GER_Before_GCW.18.t
+	desc = GER_Before_GCW.18.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.18.a
+		ai_chance = { base = 1 }
+		add_manpower = -20000
+		add_stability = -0.05
+		hidden_effect = {
+			Goering_Berlin_upgrade = yes
+			Himmler_Rhein_upgrade = yes
+			Himmler_Rhein_upgrade = yes
+		}
+	}
+}
+
+country_event = { #Goerings Inauguration
+	id = GER_Before_GCW.19
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.19"
+	}
+	title = GER_Before_GCW.19.t
+	desc = GER_Before_GCW.19.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.19.a
+		ai_chance = { base = 1 }
+		add_stability = -0.02
+	}
+}
+
+country_event = { #Himmlers Protest - Police
+	id = GER_Before_GCW.20
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.20"
+	}
+	title = GER_Before_GCW.20.t
+	desc = GER_Before_GCW.20.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.20.a
+		ai_chance = { base = 1 }
+		add_stability = -0.8
+		set_country_flag = SS_lose_Police_Admin
+	}
+}
+
+country_event = { #Problem of Bormann
+	id = GER_Before_GCW.21
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.21"
+	}
+	title = GER_Before_GCW.21.t
+	desc = GER_Before_GCW.21.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Good, Search him
+		name = GER_Before_GCW.21.a
+		ai_chance = { base = 1 }
+		add_timed_idea = {
+			idea = GER_idea_Corruption_Investigation
+			days = 30
+		}
+	}
+}
+
+country_event = { #German Civil War Start Command
+	id = GER_Before_GCW.22
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.22"
+	}
+	title = GER_Before_GCW.22.t
+	desc = GER_Before_GCW.22.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.22.a
+		ai_chance = { base = 1 }
+		state_owner_change = yes
+		start_german_civil_war = yes
+		Declare_war_on_GER_Everyone = yes
+		set_global_flag = big_event_custom_german_civil_war
+		set_global_flag = GER_civil_war
+		dismantle_faction = yes
+	}
+}
+
+country_event = { #Goebbels Dislike
+	id = GER_Before_GCW.23
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.23"
+	}
+	title = GER_Before_GCW.23.t
+	desc = GER_Before_GCW.23.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.23.a
+		ai_chance = { base = 1 }
+		Goering_Hanover_upgrade = yes
+		add_war_support = -0.05
+		add_political_power = -80
+	}
+}
+
+country_event = { #Goebbels Kill
+	id = GER_Before_GCW.24
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.24"
+	}
+	title = GER_Before_GCW.24.t
+	desc = GER_Before_GCW.24.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.24.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.25
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.25"
+	}
+	title = GER_Before_GCW.25.t
+	desc = GER_Before_GCW.25.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.25.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.25.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.26
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.26"
+	}
+	title = GER_Before_GCW.26.t
+	desc = GER_Before_GCW.26.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.26.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.26.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.27
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.27"
+	}
+	title = GER_Before_GCW.27.t
+	desc = GER_Before_GCW.27.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.27.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.27.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.28
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.28"
+	}
+	title = GER_Before_GCW.28.t
+	desc = GER_Before_GCW.28.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.28.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.28.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.29
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.29"
+	}
+	title = GER_Before_GCW.29.t
+	desc = GER_Before_GCW.29.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.29.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.29.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = GER_Before_GCW.30
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.30"
+	}
+	title = GER_Before_GCW.30.t
+	desc = GER_Before_GCW.30.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = GER_Before_GCW.30.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = GER_Before_GCW.30.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+

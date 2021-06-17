@@ -25,18 +25,33 @@ on_actions = {
 			}
 		}
 	}
-	#いづれ月ごとに動かす
-	on_weekly = {
+	on_liberate = {
 		effect = {
 			every_country = {
 				limit = {
 					NOT = {
-					has_country_flag = ssw_policy_tab_industrialization_event_triggered
+						has_country_flag = policy_tab_flag
 					}
 				}
 				country_event = { id = ssw_policy_tab_event.1 }
-				set_country_flag = ssw_policy_tab_industrialization_event_triggered
 			}
+		}
+	}
+	on_monthly = { 
+		effect = {
+			every_country = {
+				limit = {
+					NOT = {
+						has_country_flag = policy_tab_flag
+					}
+				}
+				country_event = { id = ssw_policy_tab_event.1 }
+			}
+		}
+	}
+	#いづれ月ごとに動かす
+	on_weekly = {
+		effect = {
 			every_country = {
 				limit = {
 					THIS = {

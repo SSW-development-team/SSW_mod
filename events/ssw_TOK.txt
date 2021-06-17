@@ -1,0 +1,59 @@
+add_namespace = ssw_tok
+country_event = { #標準軌の統一
+    id = ssw_tok.1
+    title = ssw_tok.1.t
+    desc = ssw_tok.1.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #完全に統一すべきだ
+        name = ssw_tok.1.a
+        add_political_power = -75
+        add_timed_idea = {
+            idea = TOK_standard_gauge_unify
+            days = 200
+        }
+    }
+    option = { #部分的に行えばようだろう
+        name = ssw_tok.1.b
+        add_political_power = -30
+        add_timed_idea = {
+            idea = TOK_standard_gauge_unify_2
+            days = 120
+        }
+    }
+}
+country_event = { #標準軌の完全統一
+    id = ssw_tok.2
+    title = ssw_tok.2.t
+    desc = ssw_tok.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #素晴らしい！
+        name = ssw_tok.2.a
+        every_owned_state = {
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+        }
+        add_ideas = TOK_unified_standard_gauge
+    }
+}
+country_event = { #標準軌の部分統一
+    id = ssw_tok.3
+    title = ssw_tok.3.t
+    desc = ssw_tok.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #こんなものか
+        name = ssw_tok.3.a
+        every_owned_state = {
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+                instant_build = yes
+            }
+        }
+    }
+}
