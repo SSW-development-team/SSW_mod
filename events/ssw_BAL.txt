@@ -657,6 +657,17 @@ country_event = { #Fromが提案を受諾
         FROM = {
             give_military_access = ROOT
         }
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_flag = BAL_break_coop
+                }
+                give_military_access = FROM
+                FROM = {
+                    give_military_access = PREV
+                }
+            }
+        }
     }
 }
 country_event = { #Fromが提案を拒否
