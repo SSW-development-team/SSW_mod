@@ -109,8 +109,19 @@ Bormann_is_Best = {
 }
 
 who_is_Best = {
-	add_to_temp_variable = { temp1 = Current_Goering_Influence }
-	check_variable = { temp1 < Current_Himmler_Influence }
+	set_temp_variable = { temp1 = Current_Goering_Influence }
+	if = {
+		limit = {
+			check_variable = { temp1 < Current_Himmler_Influence }
+		}
+		set_temp_variable = { temp1 = Current_Himmler_Influence }
+	}
+	else_if = {
+		limit = {
+			check_variable = { temp1 < Current_Goebbels_Influence }
+		}
+		set_temp_variable = { temp1 = Current_Goering_Influence }
+	}
 }
 
 is_East_Prussia_Area = {
