@@ -30,7 +30,6 @@ country_event = { #オストランドの分裂
         hidden_effect = {
             LIT = {
                 transfer_state = 189
-                transfer_state = 188
                 set_politics = {
                     ruling_party = authority_democracy
                     elections_allowed = no
@@ -53,7 +52,7 @@ country_event = { #オストランドの分裂
                 create_country_leader = {
                     name = "Stasys Lozoraitis"
                     desc = ""
-                    picture = ""
+                    picture = "gfx/leaders/LIT/Portrait_Stasys_Lozoraitis.dds"
                     expire = 1990.1.1
                     ideology = authority_democracy_ideology
                     traits = {}
@@ -114,7 +113,7 @@ country_event = { #オストランドの分裂
                 create_country_leader = {
                     name = "Ernests Blanks"
                     desc = ""
-                    picture = ""
+                    picture = "gfx/leaders/LAT/Portrait_Ernests_Blanks.dds"
                     expire = 1990.1.1
                     ideology = authority_democracy_ideology
                     traits = {}
@@ -234,7 +233,7 @@ country_event = { #オストランドの分裂
                 create_country_leader = {
                     name = "Mikola Abramchyk"
                     desc = ""
-                    picture = ""
+                    picture = "gfx/leaders/BLR/Portrait_Mikola_Abramchyk.dds"
                     expire = 1990.1.1
                     ideology = authority_democracy_ideology
                     traits = {}
@@ -302,7 +301,7 @@ country_event = { #オストランドの分裂
                 create_country_leader = {
                     name = "Adolf Friedrich"
                     desc = ""
-                    picture = ""
+                    picture = "gfx/leaders/BAL/Portrait_Adolf_Friedrich.dds"
                     expire = 1990.1.1
                     ideology = authority_despotism_ideology
                     traits = {}
@@ -657,6 +656,17 @@ country_event = { #Fromが提案を受諾
         give_military_access = FROM
         FROM = {
             give_military_access = ROOT
+        }
+        hidden_effect = {
+            every_country = {
+                limit = {
+                    has_country_flag = BAL_break_coop
+                }
+                give_military_access = FROM
+                FROM = {
+                    give_military_access = PREV
+                }
+            }
         }
     }
 }
