@@ -26,6 +26,12 @@ d_set_goering = {
 	}
 }
 
+d_disband_all = {
+	set_variable = { disband_fraction = args^0 }
+	disband_units_fraction = yes
+	clear_variable = disband_fraction
+}
+
 d_Randomize_GCW = {
 	FROM = {
 		every_owned_state = {
@@ -45,6 +51,7 @@ d_start_GCW = {
 				HGR ={
 					transfer_state = PREV
 				}
+				Check_load_oob = yes
 			}
 			if = {
 				limit = { Himmler_is_Best = yes }
@@ -96,4 +103,11 @@ d_start_GCW = {
 			type = annex_everything
 		}
 	}
+}
+
+d_load_oob_infantry = {
+	create_unit = {
+		division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = FROM
+	}
+	log = "Created"
 }
