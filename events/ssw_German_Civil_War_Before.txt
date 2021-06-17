@@ -230,7 +230,7 @@ country_event = { #Birth day of Hitler
 	
 	option = { #Select Successor
 		name = GER_Before_GCW.9.a
-		ai_chance = { base = 90 }
+		ai_chance = { base = 99 }
 		add_political_power = 20
 		country_event = {
 			id = GER_Before_GCW.10
@@ -239,7 +239,7 @@ country_event = { #Birth day of Hitler
 	}
 	option = { #No! I dont need successor
 		name = GER_Before_GCW.9.b
-		ai_chance = { base = 10 }
+		ai_chance = { base = 1 }
 		add_political_power = -200
 	}
 }
@@ -849,6 +849,12 @@ country_event = { #Hitler's Coma(Deep Sleep)
 			}
 			set_GER_Leader_Bormann = Yes
 		}
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.16
+				days = 4
+			}
+		}
 	}
 }
 
@@ -1046,6 +1052,7 @@ country_event = { #German Civil War Start Command
 		Declare_war_on_GER_Everyone = yes
 		set_global_flag = big_event_custom_german_civil_war
 		set_global_flag = GER_civil_war
+		dismantle_faction = yes
 	}
 }
 
