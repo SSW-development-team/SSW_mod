@@ -230,7 +230,7 @@ country_event = { #Birth day of Hitler
 	
 	option = { #Select Successor
 		name = GER_Before_GCW.9.a
-		ai_chance = { base = 90 }
+		ai_chance = { base = 99 }
 		add_political_power = 20
 		country_event = {
 			id = GER_Before_GCW.10
@@ -239,7 +239,7 @@ country_event = { #Birth day of Hitler
 	}
 	option = { #No! I dont need successor
 		name = GER_Before_GCW.9.b
-		ai_chance = { base = 10 }
+		ai_chance = { base = 1 }
 		add_political_power = -200
 	}
 }
@@ -264,7 +264,7 @@ country_event = { #Announcement of Successors
 	
 	option = { #Goering
 		name = GER_Before_GCW.10.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 100 } #Temptory
 		add_stability = -0.5
 		966 = {### Berlin
 			add_to_variable = { Current_Goering_Influence = 3 }## Current : 4
@@ -283,6 +283,7 @@ country_event = { #Announcement of Successors
 				id = GER_Before_GCW.14
 				days = 1
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	option = { #Himmler
@@ -306,6 +307,7 @@ country_event = { #Announcement of Successors
 				id = GER_Before_GCW.14
 				days = 1
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	option = { #Goebbels
@@ -329,6 +331,7 @@ country_event = { #Announcement of Successors
 				id = GER_Before_GCW.14
 				days = 1
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	option = { #Bormann
@@ -352,6 +355,7 @@ country_event = { #Announcement of Successors
 				id = GER_Before_GCW.11
 				days = 1
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 }
@@ -820,7 +824,7 @@ country_event = { #Hitler's Coma(Deep Sleep)
 		name = GER_Before_GCW.15.a
 		ai_chance = { base = 1 }
 		set_stability = 0
-		retire_country_leader = yes
+		kill_country_leader = yes
 		if = {
 			limit = {
 				has_country_flag = Goering_is_Successor
@@ -844,6 +848,12 @@ country_event = { #Hitler's Coma(Deep Sleep)
 				has_country_flag = Bormann_is_Successor
 			}
 			set_GER_Leader_Bormann = Yes
+		}
+		hidden_effect = {
+			country_event = {
+				id = GER_Before_GCW.16
+				days = 4
+			}
 		}
 	}
 }
@@ -914,7 +924,7 @@ country_event = { #Start Power Struggle
 	}
 }
 
-country_event = { #
+country_event = { #Goering is Fuhrer
 	id = GER_Before_GCW.17
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.17"
@@ -926,19 +936,17 @@ country_event = { #
 	is_triggered_only = yes
 	fire_only_once = yes
 	
-	option = { #up your influence
+	option = { #It is a good day
 		name = GER_Before_GCW.17.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #down someone influence
-		name = GER_Before_GCW.17.b
-		ai_chance = { base = 1 }
-		
+		add_stability = 0.02
+		news_event = {
+			id = World_News.1
+		}
 	}
 }
 
-country_event = { #
+country_event = { #Reduce SS Troops
 	id = GER_Before_GCW.18
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.18"
@@ -953,16 +961,17 @@ country_event = { #
 	option = { #
 		name = GER_Before_GCW.18.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.18.b
-		ai_chance = { base = 1 }
-		
+		add_manpower = -20000
+		add_stability = -0.05
+		hidden_effect = {
+			Goering_Berlin_upgrade = yes
+			Himmler_Rhein_upgrade = yes
+			Himmler_Rhein_upgrade = yes
+		}
 	}
 }
 
-country_event = { #
+country_event = { #Goerings Inauguration
 	id = GER_Before_GCW.19
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.19"
@@ -977,16 +986,11 @@ country_event = { #
 	option = { #
 		name = GER_Before_GCW.19.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.19.b
-		ai_chance = { base = 1 }
-		
+		add_stability = -0.02
 	}
 }
 
-country_event = { #
+country_event = { #Himmlers Protest - Police
 	id = GER_Before_GCW.20
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.20"
@@ -1001,16 +1005,12 @@ country_event = { #
 	option = { #
 		name = GER_Before_GCW.20.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.20.b
-		ai_chance = { base = 1 }
-		
+		add_stability = -0.8
+		set_country_flag = SS_lose_Police_Admin
 	}
 }
 
-country_event = { #
+country_event = { #Problem of Bormann
 	id = GER_Before_GCW.21
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.21"
@@ -1022,19 +1022,17 @@ country_event = { #
 	is_triggered_only = yes
 	fire_only_once = yes
 	
-	option = { #
+	option = { #Good, Search him
 		name = GER_Before_GCW.21.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.21.b
-		ai_chance = { base = 1 }
-		
+		add_timed_idea = {
+			idea = GER_idea_Corruption_Investigation
+			days = 30
+		}
 	}
 }
 
-country_event = { #
+country_event = { #German Civil War Start Command
 	id = GER_Before_GCW.22
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.22"
@@ -1049,16 +1047,35 @@ country_event = { #
 	option = { #
 		name = GER_Before_GCW.22.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.22.b
-		ai_chance = { base = 1 }
-		
+		dismantle_faction = yes
+		state_owner_change = yes
+		start_german_civil_war = yes
+		Declare_war_on_GER_Everyone = yes
+		set_global_flag = big_event_custom_german_civil_war
+		set_global_flag = GER_civil_war
+		end_puppet = SLO
+		end_puppet = DEN
+		end_puppet = NOR
+		end_puppet = HOL
+		end_puppet = BEL
+		end_puppet = NFR
+		end_puppet = FRA
+		end_puppet = CRO
+		end_puppet = BAL
+		end_puppet = UKR
+		end_puppet = MOS
+		end_puppet = CCS
+		end_puppet = ATL
+		end_puppet = TOG
+		end_puppet = CMR
+		end_puppet = MAF
+		end_puppet = MAD
+		end_puppet = CRI
+		end_puppet = PET
 	}
 }
 
-country_event = { #
+country_event = { #Goebbels Dislike
 	id = GER_Before_GCW.23
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.23"
@@ -1073,16 +1090,13 @@ country_event = { #
 	option = { #
 		name = GER_Before_GCW.23.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.23.b
-		ai_chance = { base = 1 }
-		
+		Goering_Hanover_upgrade = yes
+		add_war_support = -0.05
+		add_political_power = -80
 	}
 }
 
-country_event = { #
+country_event = { #Goebbels Kill
 	id = GER_Before_GCW.24
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_Before_GCW.24"
@@ -1096,11 +1110,6 @@ country_event = { #
 	
 	option = { #
 		name = GER_Before_GCW.24.a
-		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = GER_Before_GCW.24.b
 		ai_chance = { base = 1 }
 		
 	}

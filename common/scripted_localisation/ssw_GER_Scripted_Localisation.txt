@@ -3,7 +3,17 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Goering_is_Best = yes
+				who_is_Best = yes
+				check_variable = { Winner_Var = 5 }
+			}
+		}
+		localization_key = GFX_GER_Power_Struggle_normal
+	}
+	text = {
+		trigger = {
+			PREV = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 1 }
 			}
 		}
 		localization_key = GFX_GER_Power_Struggle_Goering
@@ -11,7 +21,8 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Himmler_is_Best = yes
+				who_is_Best = yes
+				check_variable = { Winner_Var = 2 }
 			}
 		}
 		localization_key = GFX_GER_Power_Struggle_Himmler
@@ -19,7 +30,8 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Goebbels_is_Best = yes
+				who_is_Best = yes
+				check_variable = { Winner_Var = 3 }
 			}
 		}
 		localization_key = GFX_GER_Power_Struggle_Goebbels
@@ -27,18 +39,11 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Bormann_is_Best = yes
+				who_is_Best = yes
+				check_variable = { Winner_Var = 4 }
 			}
 		}
 		localization_key = GFX_GER_Power_Struggle_Bormann
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				always = yes
-			}
-		}
-		localization_key = GFX_GER_Power_Struggle_normal
 	}
 }
 
@@ -47,7 +52,19 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Goering_is_Best = yes
+				who_is_Best = yes
+				check_variable = { Winner_Var = 5 }
+			}
+		}
+		localization_key = GER_THIS_IS_NEUTRAL_STATE
+	}
+	text = {
+		trigger = {
+			PREV = {
+				limit = {
+					who_is_Best = yes
+					check_variable = { Winner_Var = 1 }
+				}
 			}
 		}
 		localization_key = GER_THIS_IS_GOERING_STATE
@@ -55,7 +72,10 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Himmler_is_Best = yes
+				limit = {
+					who_is_Best = yes
+					check_variable = { Winner_Var = 2 }
+				}
 			}
 		}
 		localization_key = GER_THIS_IS_HIMMLER_STATE
@@ -63,7 +83,10 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Goebbels_is_Best = yes
+				limit = {
+					who_is_Best = yes
+					check_variable = { Winner_Var = 3 }
+				}
 			}
 		}
 		localization_key = GER_THIS_IS_GOEBBELS_STATE
@@ -71,18 +94,13 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				Bormann_is_Best = yes
+				limit = {
+					who_is_Best = yes
+					check_variable = { Winner_Var = 4 }
+				}
 			}
 		}
 		localization_key = GER_THIS_IS_Bormann_STATE
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				always = yes
-			}
-		}
-		localization_key = GER_THIS_IS_NEUTRAL_STATE
 	}
 }
 
@@ -91,39 +109,15 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goering_Influence = 0 }
+				check_variable = { Current_Goering_Influence > 4 }
 			}
 		}
-		localization_key = ""
+		localization_key = GER_CLASS_FIVE
 	}
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goering_Influence = 1 }
-			}
-		}
-		localization_key = GER_CLASS_ONE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goering_Influence = 2 }
-			}
-		}
-		localization_key = GER_CLASS_TWO
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goering_Influence = 3 }
-			}
-		}
-		localization_key = GER_CLASS_THREE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goering_Influence = 4 }
+				check_variable = { Current_Goering_Influence > 3 }
 			}
 		}
 		localization_key = GER_CLASS_FOUR
@@ -131,10 +125,26 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goering_Influence = 5 }
+				check_variable = { Current_Goering_Influence > 2 }
 			}
 		}
-		localization_key = GER_CLASS_FIVE
+		localization_key = GER_CLASS_THREE
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Goering_Influence > 1 }
+			}
+		}
+		localization_key = GER_CLASS_TWO
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Goering_Influence > 0 }
+			}
+		}
+		localization_key = GER_CLASS_ONE
 	}
 }
 defined_text = {
@@ -142,39 +152,15 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Himmler_Influence = 0 }
+				check_variable = { Current_Himmler_Influence > 4 }
 			}
 		}
-		localization_key = ""
+		localization_key = GER_CLASS_FIVE
 	}
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Himmler_Influence = 1 }
-			}
-		}
-		localization_key = GER_CLASS_ONE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Himmler_Influence = 2 }
-			}
-		}
-		localization_key = GER_CLASS_TWO
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Himmler_Influence = 3 }
-			}
-		}
-		localization_key = GER_CLASS_THREE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Himmler_Influence = 4 }
+				check_variable = { Current_Himmler_Influence > 3 }
 			}
 		}
 		localization_key = GER_CLASS_FOUR
@@ -182,10 +168,26 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Himmler_Influence = 5 }
+				check_variable = { Current_Himmler_Influence > 2 }
 			}
 		}
-		localization_key = GER_CLASS_FIVE
+		localization_key = GER_CLASS_THREE
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Himmler_Influence > 1 }
+			}
+		}
+		localization_key = GER_CLASS_TWO
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Himmler_Influence > 0 }
+			}
+		}
+		localization_key = GER_CLASS_ONE
 	}
 }
 defined_text = {
@@ -193,39 +195,15 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goebbels_Influence = 0 }
+				check_variable = { Current_Goebbels_Influence > 4 }
 			}
 		}
-		localization_key = ""
+		localization_key = GER_CLASS_FIVE
 	}
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goebbels_Influence = 1 }
-			}
-		}
-		localization_key = GER_CLASS_ONE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goebbels_Influence = 2 }
-			}
-		}
-		localization_key = GER_CLASS_TWO
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goebbels_Influence = 3 }
-			}
-		}
-		localization_key = GER_CLASS_THREE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Goebbels_Influence = 4 }
+				check_variable = { Current_Goebbels_Influence > 3 }
 			}
 		}
 		localization_key = GER_CLASS_FOUR
@@ -233,10 +211,26 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Goebbels_Influence = 5 }
+				check_variable = { Current_Goebbels_Influence > 2 }
 			}
 		}
-		localization_key = GER_CLASS_FIVE
+		localization_key = GER_CLASS_THREE
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Goebbels_Influence > 1 }
+			}
+		}
+		localization_key = GER_CLASS_TWO
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Goebbels_Influence > 0 }
+			}
+		}
+		localization_key = GER_CLASS_ONE
 	}
 }
 defined_text = {
@@ -244,39 +238,15 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Bormann_Influence = 0 }
+				check_variable = { Current_Bormann_Influence > 4 }
 			}
 		}
-		localization_key = ""
+		localization_key = GER_CLASS_FIVE
 	}
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Bormann_Influence = 1 }
-			}
-		}
-		localization_key = GER_CLASS_ONE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Bormann_Influence = 2 }
-			}
-		}
-		localization_key = GER_CLASS_TWO
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Bormann_Influence = 3 }
-			}
-		}
-		localization_key = GER_CLASS_THREE
-	}
-	text = {
-		trigger = {
-			PREV = {
-				check_variable = { Current_Bormann_Influence = 4 }
+				check_variable = { Current_Bormann_Influence > 3 }
 			}
 		}
 		localization_key = GER_CLASS_FOUR
@@ -284,9 +254,25 @@ defined_text = {
 	text = {
 		trigger = {
 			PREV = {
-				check_variable = { Current_Bormann_Influence = 5 }
+				check_variable = { Current_Bormann_Influence > 2 }
 			}
 		}
-		localization_key = GER_CLASS_FIVE
+		localization_key = GER_CLASS_THREE
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Bormann_Influence > 1 }
+			}
+		}
+		localization_key = GER_CLASS_TWO
+	}
+	text = {
+		trigger = {
+			PREV = {
+				check_variable = { Current_Bormann_Influence > 0 }
+			}
+		}
+		localization_key = GER_CLASS_ONE
 	}
 }

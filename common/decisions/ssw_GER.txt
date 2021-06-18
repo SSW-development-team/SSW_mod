@@ -33,7 +33,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 			NOT = { has_country_flag = Power_Struggle_Goering_Decision_NOT_Available }
 		}
 		is_good = no
-		days_mission_timeout = 25
+		days_mission_timeout = 20
 		timeout_effect = {
 			hidden_effect = {
 				activate_mission = Update_Goering_Power
@@ -42,7 +42,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Goering_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goering_Influence = 1 }
+						add_to_variable = { Current_Goering_Influence = 2 }
 					}
 				}
 				random_list = {
@@ -89,7 +89,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 			NOT = { has_country_flag = Power_Struggle_Himmler_Decision_NOT_Available }
 		}
 		is_good = no
-		days_mission_timeout = 25
+		days_mission_timeout = 20
 		timeout_effect = {
 			hidden_effect = {
 				activate_mission = Update_Himmler_Power
@@ -98,7 +98,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Himmler_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Himmler_Influence = 1 }
+						add_to_variable = { Current_Himmler_Influence = 2 }
 					}
 				}
 				random_list = {
@@ -145,7 +145,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 			NOT = { has_country_flag = Power_Struggle_Goebbels_Decision_NOT_Available }
 		}
 		is_good = no
-		days_mission_timeout = 25
+		days_mission_timeout = 20
 		timeout_effect = {
 			hidden_effect = {
 				activate_mission = Update_Goebbels_Power
@@ -154,7 +154,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Goebbels_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goering_Influence = 1 }
+						add_to_variable = { Current_Goebbels_Influence = 2 }
 					}
 				}
 				random_list = {
@@ -201,7 +201,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 			NOT = { has_country_flag = Power_Struggle_Bormann_Decision_NOT_Available }
 		}
 		is_good = no
-		days_mission_timeout = 25
+		days_mission_timeout = 20
 		timeout_effect = {
 			hidden_effect = {
 				activate_mission = Update_Bormann_Power
@@ -259,6 +259,14 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 		target_trigger = {
 			FROM = {
 				is_germany_mainland = yes
+			}
+		}
+		visible = {
+			OR = {
+				has_country_flag = Goering_is_Successor
+				has_country_flag = Bormann_is_Successor
+				has_country_flag = Goebbels_is_Successor
+				has_country_flag = Himmler_is_Successor
 			}
 		}
 		days_remove = 20

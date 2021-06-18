@@ -1,0 +1,29 @@
+add_namespace = World_News
+
+news_event = { #Goering is Fuhrer
+	id = World_News.1 
+	title = World_News.1.t  
+	desc = World_News.1.d 
+	#picture = GFX_news_event_07 
+	is_triggered_only = yes
+	fire_only_once = yes
+	major = yes
+	
+	option = {
+		name = World_News.1.a #Heil Goering!
+		trigger = {
+			OR = {
+				is_in_faction_with = GER
+				tag = GER
+			}
+		}
+	}
+	option = {
+		name = World_News.1.b #Fucking Goering
+		trigger = {
+			NOT = {
+				is_in_faction_with = GER
+			}
+		}
+	}
+}
