@@ -92,28 +92,40 @@ Declare_war_on_GER_Everyone = {
 state_owner_change = {
 	every_owned_state = {
 		if = {
-			limit = { Goering_is_Best = yes }
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 1 }
+			}
 			HGR ={
 				transfer_state = PREV
 				Check_load_oob_Goering = yes
 			}
 		}
 		if = {
-			limit = { Himmler_is_Best = yes }
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 2 }
+			}
 			HLH ={
 				transfer_state = PREV
 				Check_load_oob_Himmler = yes
 			}
 		}
 		if = {
-			limit = { Goebbels_is_Best = yes }
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 3 }
+			}
 			GER ={
 				transfer_state = PREV
 				Check_load_oob_Goebbels = yes
 			}
 		}
 		if = {
-			limit = { Bormann_is_Best = yes }
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 4 }
+			}
 			MBR ={
 				transfer_state = PREV
 				Check_load_oob_Bormann = yes

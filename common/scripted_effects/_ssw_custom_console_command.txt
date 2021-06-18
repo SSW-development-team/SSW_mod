@@ -44,70 +44,35 @@ d_Randomize_GCW = {
 }
 
 d_start_GCW = {
-	FROM = {
-		every_owned_state = {
-			if = {
-				limit = { Goering_is_Best = yes }
-				HGR ={
-					transfer_state = PREV
-				}
-				Check_load_oob = yes
-			}
-			if = {
-				limit = { Himmler_is_Best = yes }
-				HLH ={
-					transfer_state = PREV
-				}
-			}
-			if = {
-				limit = { Goebbels_is_Best = yes }
-				GER ={
-					transfer_state = PREV
-				}
-			}
-			if = {
-				limit = { Bormann_is_Best = yes }
-				MBR ={
-					transfer_state = PREV
-				}
-			}
-		}
-	}
-	HGR = {
-		declare_war_on = {
-			target = HLH
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = GER
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = MBR
-			type = annex_everything
-		}
-	}
-	HLH = {
-		declare_war_on = {
-			target = GER
-			type = annex_everything
-		}
-		declare_war_on = {
-			target = MBR
-			type = annex_everything
-		}
-	}
-	GER = {
-		declare_war_on = {
-			target = MBR
-			type = annex_everything
-		}
-	}
-}
-
-d_load_oob_infantry = {
-	create_unit = {
-		division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = FROM
-	}
-	log = "Created"
+	dismantle_faction = yes
+	log = "Complete"
+	state_owner_change = yes
+	log = "Complete"
+	start_german_civil_war = yes
+	log = "Complete"
+	Declare_war_on_GER_Everyone = yes
+	log = "Complete"
+	set_global_flag = big_event_custom_german_civil_war
+	set_global_flag = GER_civil_war
+	log = "Complete"
+	end_puppet = SLO
+	end_puppet = DEN
+	end_puppet = NOR
+	end_puppet = HOL
+	end_puppet = BEL
+	end_puppet = NFR
+	end_puppet = FRA
+	end_puppet = CRO
+	end_puppet = BAL
+	end_puppet = UKR
+	end_puppet = MOS
+	end_puppet = CCS
+	end_puppet = ATL
+	end_puppet = TOG
+	end_puppet = CMR
+	end_puppet = MAF
+	end_puppet = MAD
+	end_puppet = CRI
+	end_puppet = PET
+	log = "Complete"
 }
