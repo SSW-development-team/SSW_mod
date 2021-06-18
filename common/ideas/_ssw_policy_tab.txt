@@ -1,5 +1,5 @@
 ideas = {
-	country = {
+	hidden_ideas = {
 		#社会タブ
 		idea_social_tab_industrialization_level_1 = { #工業化レベル1
 			picture = SSW_vacancy
@@ -15,6 +15,7 @@ ideas = {
 				production_speed_buildings_factor = -0.50
 				local_resources_factor = -0.30
 				MONTHLY_POPULATION = 0.30
+				industrialization_growth_rate_factor = 0.05
 			}
 		}
 		idea_social_tab_industrialization_level_2 = { #工業化レベル2
@@ -31,6 +32,7 @@ ideas = {
 				production_speed_buildings_factor = -0.35
 				local_resources_factor = -0.25
 				MONTHLY_POPULATION = 0.15
+				industrialization_growth_rate_factor = -0.10
 			}
 		}
 		idea_social_tab_industrialization_level_3 = { #工業化レベル3
@@ -47,6 +49,7 @@ ideas = {
 				production_speed_buildings_factor = -0.15
 				local_resources_factor = -0.15
 				MONTHLY_POPULATION = 0.05
+				industrialization_growth_rate_factor = -0.20
 			}
 		}
 		idea_social_tab_industrialization_level_4 = { #工業化レベル4
@@ -63,9 +66,10 @@ ideas = {
 				industrial_capacity_dockyard = 0.00
 				production_speed_buildings_factor = 0.10
 				local_resources_factor = 0.00
+				industrialization_growth_rate_factor = -0.35
 			}
 		}
-		idea_social_tab_industrialization_level_5 = { #工業化レベル4
+		idea_social_tab_industrialization_level_5 = { #工業化レベル5
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
@@ -91,109 +95,184 @@ ideas = {
 				stability_factor = -0.40
 				war_support_factor = -0.40
 				MONTHLY_POPULATION = -0.40
-				global_building_slots_factor = 0.20
 				political_power_factor = 0.15
 				consumer_goods_factor = -0.05
 			}
 		}
-		#軍事タブ
-		idea_military_tab_conscription_disarmed_nation = { #武装解除国家
+		idea_social_tab_poverty_level_2 = { #生活水準レベル2
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				conscription = 0.01
+				stability_factor = -0.25
+				war_support_factor = -0.25
+				MONTHLY_POPULATION = -0.30
+				political_power_factor = 0.10
 			}
 		}
-		idea_military_tab_conscription_volunteer_only = { #志願兵のみ
+		idea_social_tab_poverty_level_3 = { #生活水準レベル3
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				conscription = 0.015
+				stability_factor = -0.10
+				war_support_factor = -0.10
+				MONTHLY_POPULATION = -0.15
+				political_power_factor = 0.05
 			}
 		}
-		idea_military_tab_conscription_limited_conscription = { #限定的徴兵
+		idea_social_tab_poverty_level_4 = { #生活水準レベル4
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				conscription = 0.025
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				MONTHLY_POPULATION = 0.10
+				political_power_factor = 0.00
 			}
 		}
-		idea_military_tab_conscription_extensive_conscription = { #大規模徴兵
+		idea_social_tab_poverty_level_5 = { #生活水準レベル5
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				conscription = 0.05
-				training_time_factor = 0.1
+				stability_factor = 0.15
+				war_support_factor = 0.15
+				MONTHLY_POPULATION = 0.30
+				political_power_factor = -0.10
 			}
 		}
-		idea_ilitary_tab_conscription_service_by_requirement = { #無際限徴兵
+		idea_social_tab_literacy_level_1 = { #識字率レベル1
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				conscription = 0.1
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = -0.1
-				production_speed_buildings_factor = -0.1
-				training_time_factor = 0.2
+				political_power_gain = 0.15
+				research_speed_factor = -0.07
+				army_org_Factor = -0.30
+				training_time_factor = 0.30
+				conscription_factor = 0.10
+				stability_factor = -0.15
 			}
 		}
-		idea_military_tab_conscription_all_adults_serve = { #全成人徴兵
+		idea_social_tab_literacy_level_2 = { #識字率レベル2
 			picture = SSW_vacancy
+			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				removal_cost = -1
-				conscription = 0.2
-				industrial_capacity_factory = -0.3
-				industrial_capacity_dockyard = -0.3
-				production_speed_buildings_factor = -0.3
-				training_time_factor = 0.3
+				political_power_gain = 0.07
+				research_speed_factor = -0.04
+				army_org_Factor = -0.20
+				training_time_factor = 0.20
+				conscription_factor = 0.05
+				stability_factor = -0.05
 			}
 		}
-		idea_military_tab_conscription_scraping_the_barrel = { #根こそぎ動員
+		idea_social_tab_literacy_level_3 = { #識字率レベル3
 			picture = SSW_vacancy
+			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
-				removal_cost = -1
-				conscription = 0.25
-				industrial_capacity_factory = -0.4
-				industrial_capacity_dockyard = -0.4
-				production_speed_buildings_factor = -0.4
-				training_time_factor = 0.5
+				research_speed_factor = 0.00
+				army_org_Factor = -0.10
+				training_time_factor = 0.10
+				conscription_factor = 0.03
+				stability_factor = -0.05
 			}
 		}
-		idea_military_tab_disagree_female_conscription = { #女性徴兵なし
+		idea_social_tab_literacy_level_4 = { #識字率レベル4
 			picture = SSW_vacancy
+			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
+				research_speed_factor = 0.04
+				army_org_Factor = 0.05
+				stability_factor = 0.05
 			}
 		}
-		idea_military_tab_agree_female_conscription = { #女性を徴兵する
+		idea_social_tab_literacy_level_5 = { #識字率レベル5
 			picture = SSW_vacancy
+			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
+				research_speed_factor = 0.10
+				army_org_Factor = 0.15
+				stability_factor = 0.15
+			}
+		}
+		idea_social_tab_research_institute_level_1 = { #研究機関レベル1
+			picture = SSW_vacancy
+			removal_cost = -1
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = -0.25
+				production_speed_industrial_complex_factor = 0.10
+				research_institute_invest_growth_modifier = -0.05
+			}
+		}
+		idea_social_tab_research_institute_level_2 = { #研究機関レベル2
+			picture = SSW_vacancy
+			removal_cost = -1
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = -0.15
+				production_speed_industrial_complex_factor = 0.05
+				research_institute_invest_growth_modifier = -0.15
+			}
+		}
+		idea_social_tab_research_institute_level_3 = { #研究機関レベル3
+			picture = SSW_vacancy
+			removal_cost = -1
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = -0.05
+				research_institute_invest_growth_modifier = -0.35
+			}
+		}
+		idea_social_tab_research_institute_level_4 = { #研究機関レベル4
+			picture = SSW_vacancy
+			removal_cost = -1
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.10
+				research_institute_invest_growth_modifier = -0.55
+			}
+		}
+		idea_social_tab_research_institute_level_5 = { #研究機関レベル5
+			picture = SSW_vacancy
+			removal_cost = -1
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.25
 			}
 		}
 	}

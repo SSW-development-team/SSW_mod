@@ -1,0 +1,78 @@
+d_SSW_Cheat_Lists = {
+	log = "Randomize_GCW"
+	log = "start_GCW"
+}
+
+d_set_goering = {
+	if = {
+		limit = {
+			is_debug = yes
+			check_variable = { args^num = 1 }
+		}
+		for_each_scope_loop = {
+			array = args
+			PREV = {
+				set_variable = { Current_Goering_Influence = args^0 }
+			}
+		}
+		log = "[?PREV.GetName]"
+		log = "[?value]"
+		log = "[?args^0]"
+		log = "[?FROM.GetName]"
+		log = "----------------------"
+	}
+	else = {
+		log = "Command was used in wrong scope!"
+	}
+}
+
+d_disband_all = {
+	set_variable = { disband_fraction = args^0 }
+	disband_units_fraction = yes
+	clear_variable = disband_fraction
+}
+
+d_Randomize_GCW = {
+	FROM = {
+		every_owned_state = {
+			set_variable = { Current_Goering_Influence = random }
+			set_variable = { Current_Himmler_Influence = random }
+			set_variable = { Current_Goebbels_Influence = random }
+			set_variable = { Current_Bormann_Influence = random }
+		}
+	}
+}
+
+d_start_GCW = {
+	dismantle_faction = yes
+	log = "Complete"
+	state_owner_change = yes
+	log = "Complete"
+	start_german_civil_war = yes
+	log = "Complete"
+	Declare_war_on_GER_Everyone = yes
+	log = "Complete"
+	set_global_flag = big_event_custom_german_civil_war
+	set_global_flag = GER_civil_war
+	log = "Complete"
+	end_puppet = SLO
+	end_puppet = DEN
+	end_puppet = NOR
+	end_puppet = HOL
+	end_puppet = BEL
+	end_puppet = NFR
+	end_puppet = FRA
+	end_puppet = CRO
+	end_puppet = BAL
+	end_puppet = UKR
+	end_puppet = MOS
+	end_puppet = CCS
+	end_puppet = ATL
+	end_puppet = TOG
+	end_puppet = CMR
+	end_puppet = MAF
+	end_puppet = MAD
+	end_puppet = CRI
+	end_puppet = PET
+	log = "Complete"
+}

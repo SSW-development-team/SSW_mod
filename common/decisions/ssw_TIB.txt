@@ -387,6 +387,37 @@ TIB_ccp_reforms = {
 	}
 }
 TIB_kham_problem = {
+	#mission
+	TIB_uprise_chushi_gandruk = {
+		icon = generic_civil_support
+		available = {
+			always = no
+		}
+		days_mission_timeout = MAN_main_control_timer?300
+		activation = {
+			custom_trigger_tooltip = {
+				tooltip = TIB_kham_relation_lower_than_40_tt
+				check_variable = {
+					TIB_kham_relation < -40
+				}
+			}
+		}
+		cancel_trigger = {
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = TIB_kham_relation_lower_than_40_tt
+					check_variable = {
+						TIB_kham_relation < -40
+					}
+				}
+			}
+		}
+		is_good = yes
+		timeout_effect = {
+			#kham uprise
+			set_country_flag = TIB_kham_uprised
+		}
+	}
 	TIB_calm_chushi_gandruks = {
 		icon = generic_form_nation
 		allowed = {
@@ -397,13 +428,13 @@ TIB_kham_problem = {
 		}
 		available = {
 			NOT = {
-				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		visible = {
 			NOT = {
-				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
@@ -432,13 +463,13 @@ TIB_kham_problem = {
 		}
 		available = {
 			NOT = {
-				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		visible = {
 			NOT = {
-				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
@@ -467,20 +498,20 @@ TIB_kham_problem = {
 		}
 		available = {
 			NOT = {
-				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 			num_of_civilian_factories > 2
 		}
 		visible = {
 			NOT = {
-				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
 		days_remove = 40
 		cost = 35
-		days_re_enable = 10
+		days_re_enable = 40
 		complete_effect = {
 			set_country_flag = TIB_other_kham_decision
 		}
@@ -508,17 +539,19 @@ TIB_kham_problem = {
 			NOT = {
 				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		visible = {
 			NOT = {
 				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
 		days_remove = 40
 		cost = 20
-		days_re_enable = 10
+		days_re_enable = 40
 		complete_effect = {
 			set_country_flag = TIB_other_kham_decision
 		}
@@ -543,8 +576,8 @@ TIB_kham_problem = {
 		}
 		available = {
 			NOT = {
-				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 			custom_trigger_tooltip = {
 				tooltip = TIB_kham_taxes_uplimit
@@ -555,7 +588,7 @@ TIB_kham_problem = {
 		}
 		visible = {
 			NOT = {
-				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
@@ -602,8 +635,8 @@ TIB_kham_problem = {
 		}
 		available = {
 			NOT = {
-				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_kham_uprised
 			}
 			custom_trigger_tooltip
 				tooltip = TIB_kham_taxes_downlimit
@@ -614,7 +647,7 @@ TIB_kham_problem = {
 		}
 		visible = {
 			NOT = {
-				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
 			}
 		}
 		fire_only_once = no
@@ -651,7 +684,7 @@ TIB_kham_problem = {
 			clr_country_flag = TIB_other_kham_decision
 		}
 	}
-	TIB_full_annex_peace_ = {
+	TIB_oppression_karma_kagyu = {
 		icon = generic_form_nation
 		allowed = {
 			tag = TIB
@@ -663,15 +696,247 @@ TIB_kham_problem = {
 			NOT = {
 				country_exists = KHM
 				has_country_flag = TIB_other_kham_decision
-			}
-			custom_trigger_tooltip = {
-				tooltip = TIB_kham_relation_greater_than_90_tt
-				check_variable = {
-					TIB_kham_relation > 90
+				has_country_flag = TIB_karma_kagyu_decided
+				has_country_flag = TIB_kham_uprised
+				custom_trigger_tooltip = {
+					tooltip = TIB_kham_relation_lower_than_20_tt
+					check_variable = {
+						TIB_kham_relation < -20
+					}
 				}
 			}
 		}
 		visible = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_karma_kagyu_decided
+			}
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 40
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_political_power = 30
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = -20
+			}
+			custom_effect_tooltip = TIB_kham_decision_down_20
+			add_days_mission_timeout = {
+				mission = TIB_uprise_chushi_gandruk
+				days = -20
+			}
+			set_country_flag = TIB_karma_kagyu_decided
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_accept_karma_kagyu = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_karma_kagyu_decided
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_accepted_karma_kagyu
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_karma_kagyu_decided
+				has_country_flag = TIB_accepted_karma_kagyu
+			}
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 20
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_political_power = 10
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 5
+			}
+			custom_effect_tooltip = TIB_kham_decision_up_5
+			set_country_flag = TIB_accepted_karma_kagyu
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_official_karma_kagyu = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_karma_kagyu_decided
+				has_country_flag = TIB_kham_uprised
+			}
+			has_country_flag = TIB_accepted_karma_kagyu
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_karma_kagyu_decided
+			}
+			has_country_flag = TIB_accepted_karma_kagyu
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 20
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_stability = 0.05
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 20
+			}
+			custom_effect_tooltip = TIB_kham_decision_up_20
+			set_country_flag = TIB_karma_kagyu_decided
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_abolish_mini_kingdoms = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_mini_kingdoms_decided
+				has_country_flag = TIB_kham_uprised
+			}
+		}
+		visible = {
+			NOT = {
+				country_exists = KHM
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_mini_kingdoms_decided
+			}
+			check_variable = {
+				TIB_kham_relation < 20
+			}
+		}
+		fire_only_once = yes
+		days_remove = 60
+		cost = 30
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_stability = -0.05
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = -20
+			}
+			custom_effect_tooltip = TIB_kham_decision_down_20
+			set_country_flag = TIB_mini_kingdoms_decided
+			clr_country_flag = TIB_other_kham_decision
+			add_days_mission_timeout = {
+				mission = TIB_uprise_chushi_gandruk
+				days = -50
+			}
+		}
+	}
+	TIB_accept_mini_kingdoms = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_other_kham_decision
+				has_country_flag = TIB_mini_kingdoms_decided
+				has_country_flag = TIB_kham_uprised
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_kham_uprised
+				has_country_flag = TIB_mini_kingdoms_decided
+			}
+			check_variable = {
+				TIB_kham_relation < 20
+			}
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 30
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		modifier = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				var = TIB_kham_relation
+				value = 15
+			}
+			custom_effect_tooltip = TIB_kham_decision_up_15
+			set_country_flag = TIB_mini_kingdoms_decided
+			clr_country_flag = TIB_other_kham_decision
+		}
+	}
+	TIB_set_autonomous_of_kham = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = {
+				country_exists = KHM
+			}
+			NOT = {
+				has_country_flag = TIB_other_kham_decision
+			}
+			custom_trigger_tooltip = {
+				tooltip = TIB_kham_relation_greater_than_50_tt
+				check_variable = {
+					TIB_kham_relation > 50
+				}
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_kham_uprised
+			}
 		}
 		fire_only_once = yes
 		days_remove = 50
@@ -680,6 +945,72 @@ TIB_kham_problem = {
 			set_country_flag = TIB_other_kham_decision
 		}
 		remove_effect = {
+			random_country = {
+				limit = {
+					original_tag = KHM
+				}
+				transfer_state = 601
+				transfer_state = 920
+				TIB = {
+					puppet = PREV
+					set_autonomy = { target = PREV autonomy_state = ssw_overseas_territory_renewal }
+				}
+				KHM = {
+					set_cosmetic_tag = KHM_tibet
+				}
+			}
+		}
+	}
+	TIB_full_annex_peace_khm = {
+		icon = generic_form_nation
+		allowed = {
+			tag = TIB
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			OR = {
+				NOT = {
+					country_exists = KHM
+				}
+				KHM = {
+					is_subject_of = TIB
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = TIB_kham_relation_greater_than_90_tt
+				check_variable = {
+					TIB_kham_relation > 90
+				}
+			}
+			NOT = {
+				has_country_flag = TIB_other_kham_decision
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_kham_uprised
+			}
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_other_kham_decision
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					KHM = {
+						is_subject_of = TIB
+					}
+				}
+				annex_country = {
+					target = KHM
+					transfer_troops = yes
+				}
+			}
 			601 = {
 				add_core_of = TIB
 				remove_dynamic_modifier = { modifier = TIB_state_chushi_gangdruk } 

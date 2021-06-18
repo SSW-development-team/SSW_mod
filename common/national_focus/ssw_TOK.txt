@@ -1,0 +1,2102 @@
+focus_tree = {
+    id = SSW_TOK_NF_tree
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = TOK
+        }
+    }
+    continuous_focus_position = {
+        x = 0
+        y = 1200
+    }
+    focus = { #経済の状況を確認
+        id = TOK_check_economy_condition
+        icon = GFX_focus_generic_industry_1
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 3
+        y = 0
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_RESEARCH
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = industry
+            }
+        }
+    }
+    focus = { #飢饉への対処
+        id = TOK_dealing_famine
+        icon = GFX_focus_hol_abandon_the_gold_standard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 1
+        y = 1
+        prerequisite = {
+            focus = TOK_check_economy_condition
+        }
+        completion_reward = {
+            add_political_power = 120
+        }
+    }
+    focus = { #耕地の拡大
+        id = TOK_expand_farm
+        icon = GFX_goal_generic_construction2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 0
+        y = 2
+        prerequisite = {
+            focus = TOK_dealing_famine
+        }
+        mutually_exclusive = {
+            focus = TOK_import_food_from_CHI
+        }
+        completion_reward = {
+            add_political_power = -50
+            every_owned_state = {
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #中国からの食糧輸入
+        id = TOK_import_food_from_CHI
+        icon = GFX_goal_generic_positive_trade_relations
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_MANPOWER
+        }
+        x = 2
+        y = 2
+        prerequisite = {
+            focus = TOK_dealing_famine
+        }
+        mutually_exclusive = {
+            focus = TOK_expand_farm
+        }
+        completion_reward = {
+            add_stability = -0.1
+            swap_ideas = {
+                remove_idea = TOK_effect_famine
+                add_idea = TOK_effect_famine_1
+            }
+        }
+    }
+    focus = { #食用作物の栽培の推奨
+        id = TOK_recommend_grow_edible_crop
+        icon = GFX_goal_generic_consumer_goods
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_MANPOWER
+        }
+        x = 0
+        y = 3
+        prerequisite = {
+            focus = TOK_expand_farm
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_effect_famine
+                add_idea = TOK_effect_famine_1
+            }
+        }
+    }
+    focus = { #相互貿易の振興
+        id = TOK_promot_mutual_trade
+        icon = GFX_goal_generic_trade
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 2
+        y = 3
+        prerequisite = {
+            focus = TOK_import_food_from_CHI
+        }
+        completion_reward = {
+            add_ideas = TOK_china_trade
+        }
+    }
+    focus = { #農業協同組合の設置
+        id = TOK_establish_agri_cooperative
+        icon = GFX_focus_generic_self_management
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
+        }
+        x = 0
+        y = 4
+        prerequisite = {
+            focus = TOK_recommend_grow_edible_crop
+            focus = TOK_promot_mutual_trade
+        }
+        completion_reward = {
+            add_ideas = TOK_agri_fund
+        }
+    }
+    focus = { #農業基金の設置
+        id = TOK_establish_agri_fund
+        icon = GFX_focus_usa_reestablish_the_gold_standard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_STABILITY
+        }
+        x = 2
+        y = 4
+        prerequisite = {
+            focus = TOK_recommend_grow_edible_crop
+            focus = TOK_promot_mutual_trade
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = TOK_effect_famine_1
+                }
+                swap_ideas = {
+                    remove_idea = TOK_effect_famine_1
+                    add_idea = TOK_effect_famine_2
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = TOK_effect_famine_3
+                }
+                swap_ideas = {
+                    remove_idea = TOK_effect_famine_3
+                    add_idea = TOK_effect_famine_4
+                }
+            }
+        }
+    }
+    focus = { #自給自足の支援
+        id = TOK_self_sufficiency_support
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 0
+        y = 5
+        prerequisite = {
+            focus = TOK_establish_agri_cooperative
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = TOK_effect_famine_1
+                }
+                swap_ideas = {
+                    remove_idea = TOK_effect_famine_1
+                    add_idea = TOK_effect_famine_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = TOK_effect_famine_2
+                }
+                swap_ideas = {
+                    remove_idea = TOK_effect_famine_2
+                    add_idea = TOK_effect_famine_4
+                }
+            }
+        }
+    }
+    focus = { #機械化農業に投資
+        id = TOK_invest_mechanize_agri
+        icon = GFX_focus_NZL_bob_semple_tank
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 2
+        y = 5
+        prerequisite = {
+            focus = TOK_establish_agri_fund
+        }
+        prerequisite = {
+            focus = TOK_modernize_plan
+        }
+        completion_reward = {
+            add_ideas = TOK_modern_agri
+        }
+    }
+    focus = { #飢饉の解消
+        id = TOK_solve_famine
+        icon = GFX_goal_JAP_expansion_of_the_scope_of_application_of_the_relief_act
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_MANPOWER
+            FOCUS_FILTER_STABILITY
+        }
+        x = 1
+        y = 6
+        prerequisite = {
+            focus = TOK_self_sufficiency_support
+        }
+        prerequisite = {
+            focus = TOK_invest_mechanize_agri
+        }
+        completion_reward = {
+            remove_ideas = TOK_effect_famine_4
+        }
+    }
+    focus = { #基礎インフラの整備
+        id = TOK_dev_base_infra
+        icon = GFX_goal_generic_construction
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 4
+        y = 1
+        prerequisite = {
+            focus = TOK_check_economy_condition
+        }
+        completion_reward = {
+            1235 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+            1237 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    focus = { #標準軌を中国と統一
+        id = TOK_unify_standard_gauge_china
+        icon = GFX_goal_generic_construct_infrastructure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
+        }
+        x = 4
+        y = 2
+        prerequisite = {
+            focus = TOK_dev_base_infra
+        }
+        completion_reward = {
+            country_event = {id = ssw_tok.1}
+        }
+    }
+    focus = { #産業基盤の確立
+        id = TOK_establish_industrial_base
+        icon = GFX_goal_generic_construct_civ_factory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_RESEARCH
+        }
+        x = 6
+        y = 2
+        prerequisite = {
+            focus = TOK_dev_base_infra
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = industry
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #ベトナム鉄道の延伸
+        id = TOK_extension_vietnam_railway
+        icon = GFX_goal_generic_construct_infrastructure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 4
+        y = 3
+        prerequisite = {
+            focus = TOK_unify_standard_gauge_china
+        }
+        completion_reward = {
+            every_owned_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #地元産業の保護
+        id = TOK_protect_local_industry
+        icon = GFX_goal_generic_defence
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
+        }
+        x = 6
+        y = 3
+        prerequisite = {
+            focus = TOK_establish_industrial_base
+        }
+        completion_reward = {
+            add_ideas = TOK_protect_industry
+        }
+    }
+    focus = { #タングステン鉱山への投資
+        id = TOK_invest_W_mine
+        icon = GFX_focus_generic_tungsten
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 8
+        y = 3
+        prerequisite = {
+            focus = TOK_establish_industrial_base
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_resource = {
+                        type = tungsten
+                        amount = 8
+                    }
+                }
+            }
+        }
+    }
+    focus = { #近代化計画
+        id = TOK_modernize_plan
+        icon = GFX_goal_generic_construct_mil_factory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                OR = {
+                    has_idea = TOK_effect_famine
+                    has_idea = TOK_effect_famine_1
+                    has_idea = TOK_effect_famine_2
+                    has_idea = TOK_effect_famine_3
+                    has_idea = TOK_effect_famine_4
+                }
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 5
+        y = 4
+        prerequisite = {
+            focus = TOK_extension_vietnam_railway
+        }
+        prerequisite = {
+            focus = TOK_protect_local_industry
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_modernize_plan
+        }
+    }
+    focus = { #鉱業助成金
+        id = TOK_mining_subsidy
+        icon = GFX_focus_generic_steel
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 7
+        y = 4
+        prerequisite = {
+            focus = TOK_protect_local_industry
+        }
+        prerequisite = {
+            focus = TOK_invest_W_mine
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_mining_subsidy
+        }
+    }
+    focus = { #軽工業の充実
+        id = TOK_enhance_light_industry
+        icon = GFX_goal_generic_production2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 4
+        y = 5
+        prerequisite = {
+            focus = TOK_modernize_plan
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #ハイフォン港の拡大
+        id = TOK_expand_hai_phong_port
+        icon = GFX_goal_generic_construct_naval_dockyard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 6
+        y = 5
+        prerequisite = {
+            focus = TOK_modernize_plan
+        }
+        prerequisite = {
+            focus = TOK_mining_subsidy
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 2
+                        instant_build = yes
+                        province = 4119
+                    }
+                }
+            }
+        }
+    }
+    focus = { #紅河の治水事業
+        id = TOK_red_river_hydraulic
+        icon = GFX_goal_generic_construct_civilian
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 3
+        y = 6
+        prerequisite = {
+            focus = TOK_enhance_light_industry
+        }
+        completion_reward = {
+            1235 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
+                }
+            }
+        }
+    }
+    focus = { #工業団地の建設
+        id = TOK_construct_industry_park
+        icon = GFX_focus_generic_tank_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 5
+        y = 6
+        prerequisite = {
+            focus = TOK_enhance_light_industry
+        }
+        prerequisite = {
+            focus = TOK_expand_hai_phong_port
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = industrial_complex
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #石炭の輸出促進
+        id = TOK_coal_export_promotion
+        icon = GFX_goal_generic_construction2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 7
+        y = 6
+        prerequisite = {
+            focus = TOK_expand_hai_phong_port
+        } 
+        completion_reward = {
+            add_ideas = TOK_export_coal
+        }
+    }
+    focus = { #均衡のとれた経済体制
+        id = TOK_balanced_economy_system
+        icon = GFX_focus_generic_the_giant_wakes
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+            FOCUS_FILTER_STABILITY
+        }
+        x = 4
+        y = 7
+        prerequisite = {
+            focus = TOK_solve_famine
+        }
+        prerequisite = {
+            focus = TOK_construct_industry_park
+        }
+        prerequisite = {
+            focus = TOK_coal_export_promotion
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_idea_modernize_plan
+                add_idea = TOK_dev_economy
+            }
+        }
+    }
+
+    focus = { #陸軍改革
+        id = TOK_army_reform
+        icon = GFX_focus_chi_army_reform
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 14
+        y = 0
+        completion_reward = {
+            army_experience = 30
+        }
+    }
+    focus = { #我々のやり方
+        id = TOK_our_way
+        icon = GFX_focus_generic_support_the_left_right
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 13
+        y = 1
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_army_reform
+        }
+        mutually_exclusive = {
+            focus = TOK_learn_from_CHI
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = cat_grand_battle_plan 
+                category = cat_mass_assault 
+            }
+        }
+    }
+    focus = { #中国に学ぶ
+        id = TOK_learn_from_CHI
+        icon = GFX_focus_chi_cooperation_with_the_nationalists
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 15
+        y = 1
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_army_reform
+        } 
+        mutually_exclusive = {
+            focus = TOK_our_way
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = cat_superior_firepower
+                category = cat_mobile_warfare 
+            }
+        }
+    }
+    focus = { #陸軍士官学校の設置
+        id = TOK_establish_army_officer_school
+        icon = GFX_focus_generic_military_academy
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 13
+        y = 2
+        prerequisite = {
+            focus = TOK_our_way
+        } 
+        completion_reward = {
+            add_ideas = TOK_officer_school
+        }
+    }
+    focus = { #士官の留学
+        id = TOK_study_abroad_officer
+        icon = GFX_focus_eng_concessions_to_the_trade_unions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 15
+        y = 2
+        prerequisite = {
+            focus = TOK_learn_from_CHI
+        } 
+        completion_reward = {
+            add_ideas = TOK_chinese_training_method
+        }
+    }
+    focus = { #野砲の開発
+        id = TOK_field_gun_dev
+        icon = GFX_goal_generic_army_artillery2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 10
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_establish_army_officer_school
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = artillery
+            }
+        }
+    }
+    focus = { #新たな小銃の模索
+        id = TOK_search_new_rifle
+        icon = GFX_goal_generic_small_arms
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 12
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_establish_army_officer_school
+        } 
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = infantry_weapons
+            }
+        }
+    }
+    focus = { #改革の完了
+        id = TOK_finish_reform
+        icon = GFX_goal_generic_axis_build_infantry
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_idea = TOK_chinese_dependent_army
+                factor = 5
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 14
+        y = 3
+        prerequisite = {
+            focus = TOK_establish_army_officer_school
+            focus = TOK_study_abroad_officer
+        }
+        completion_reward = {
+            remove_ideas = TOK_chinese_dependent_army
+        }
+    }
+    focus = { #中国から兵器の輸入
+        id = TOK_buy_weapon_from_CHI
+        icon = GFX_focus_generic_combined_arms
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 16
+        y = 3
+        prerequisite = {
+            focus = TOK_study_abroad_officer
+        }
+        completion_reward = {
+        }
+    }
+    focus = { #中国顧問団の受け入れ
+        id = TOK_accept_chinese_advisor_group
+        icon = GFX_focus_generic_military_mission
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 18
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_MANPOWER
+        }
+        prerequisite = {
+            focus = TOK_study_abroad_officer
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_chinese_training_method
+                add_idea = TOK_chinese_training_method_2
+            }
+        }
+    }
+    focus = { #野砲の生産工場
+        id = TOK_field_gun_product_factory
+        icon = GFX_goal_generic_army_artillery
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_INDUSTRY
+        }
+        x = 9
+        y = 4
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_field_gun_dev
+        }
+        prerequisite = {
+            focus = TOK_invest_W_mine
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 0
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 1
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = artillery
+            }
+        }
+    }
+    focus = { #兵器生産の効率化
+        id = TOK_streamlining_weapon_product
+        icon = GFX_goal_generic_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 11
+        y = 4
+        prerequisite = {
+            focus = TOK_field_gun_dev
+        }
+        prerequisite = {
+            focus = TOK_search_new_rifle
+        }
+        completion_reward = {
+            add_ideas = TOK_product_rifle
+        }
+    }
+    focus = { #戦術の模索
+        id = TOK_search_tactic
+        icon = GFX_goal_generic_army_doctrines
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 14
+        y = 4
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_finish_reform
+        } 
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #中国からの軍事投資
+        id = TOK_military_invest_from_CHI
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 16
+        y = 4
+        prerequisite = {
+            focus = TOK_buy_weapon_from_CHI
+        }
+        prerequisite = {
+            focus = TOK_accept_chinese_advisor_group
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #ドクトリンの共同研究
+        id = TOK_doctorine_joint_research
+        icon = GFX_goal_generic_scientific_exchange
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 18
+        y = 4
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_accept_chinese_advisor_group
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #軍需工場の拡張
+        id = TOK_expand_arms_factory
+        icon = GFX_goal_generic_construct_mil_factory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 11
+        y = 5
+        prerequisite = {
+            focus = TOK_field_gun_product_factory
+        }
+        prerequisite = {
+            focus = TOK_streamlining_weapon_product
+        }
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+    focus = { #ゲリラ戦の採用
+        id = TOK_adopt_guerilla_warfare
+        icon = GFX_focus_prc_infiltration
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_completed_focus = TOK_study_abroad_officer
+                factor = 0.05
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 13
+        y = 5
+        prerequisite = {
+            focus = TOK_search_tactic
+        }
+        mutually_exclusive = {
+            focus = TOK_burn_out_firepower
+        }
+        completion_reward = {
+            add_ideas = TOK_guerrilla_warfare
+        }
+    }
+    focus = { #火力で焼き尽くす
+        id = TOK_burn_out_firepower
+        icon = GFX_goal_continuous_suppression
+        cost = 5
+        ai_will_do = {
+            factor = 10
+            modifier = {
+                has_completed_focus = TOK_establish_army_officer_school
+                factor = 0.05
+            }
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 15
+        y = 5
+        prerequisite = {
+            focus = TOK_search_tactic
+        }
+        mutually_exclusive = {
+            focus = TOK_adopt_guerilla_warfare
+        }
+        completion_reward = {
+            add_ideas = TOK_firepower_supreme
+        }
+    }
+    focus = { #機械化支援
+        id = TOK_mechanize_support
+        icon = GFX_goal_generic_army_motorized
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 17
+        y = 5
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_military_invest_from_CHI
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = motorized_equipment
+            }
+            random_owned_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 0
+                        include_locked = no
+                    }
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 1
+            }
+        }
+    }
+    focus = { #携帯支援装備の生産
+        id = TOK_product_mobile_support_equip
+        icon = GFX_focus_secret_rearmament
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 11
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_expand_arms_factory
+        } 
+        prerequisite = {
+            focus = TOK_adopt_guerilla_warfare
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = support_tech
+            }
+        }
+    }
+    focus = { #戦術の改良
+        id = TOK_tactic_improve
+        icon = GFX_goal_generic_position_armies
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 13
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_adopt_guerilla_warfare
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = land_doctrine
+            }
+        }
+    }
+    focus = { #野砲の増産
+        id = TOK_increase_product_field_gun
+        icon = GFX_goal_generic_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 15
+        y = 6
+        prerequisite = {
+            focus = TOK_burn_out_firepower
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_field_gun_product
+        }
+    }
+    focus = { #戦車研究の開始
+        id = TOK_start_tank_research
+        icon = GFX_focus_generic_army_tanks2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 17
+        y = 6
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_burn_out_firepower
+        }
+        prerequisite = {
+            focus = TOK_mechanize_support
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = armor
+            }
+        }
+    }
+    focus = { #密林での戦闘訓練
+        id = TOK_combat_training_jungle
+        icon = GFX_focus_RAJ_indian_gurkhas
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 11
+        y = 7
+        prerequisite = {
+            focus = TOK_product_mobile_support_equip
+        }
+        completion_reward = {
+            set_technology = {
+                TOK_jungle_combat = 1
+            }
+        }
+    }
+    focus = { #砲の改良
+        id = TOK_cannon_improve
+        icon = GFX_goal_generic_army_artillery2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 16
+        y = 7
+        prerequisite = {
+            focus = TOK_increase_product_field_gun
+        }
+        prerequisite = {
+            focus = TOK_start_tank_research
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_firepower_supreme
+                add_idea = TOK_firepower_supreme_2
+            }
+        }
+    }
+    focus = { #空軍の設立
+        id = TOK_establish_air_force
+        icon = GFX_goal_generic_air_fighter
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 22
+        y = 0
+        completion_reward = {
+            air_experience = 20
+        }
+    }
+    focus = { #パイロットの育成
+        id = TOK_pilot_training
+        icon = GFX_focus_generic_manpower
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 20
+        y = 1
+        prerequisite = {
+            focus = TOK_establish_air_force
+        }
+        completion_reward = {
+            air_experience = 20
+            add_ideas = TOK_focus_pilot_training
+        }
+    }
+    focus = { #飛行場の整備
+        id = TOK_airfield_maintenance
+        icon = GFX_goal_generic_construct_civilian
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 22
+        y = 1
+        prerequisite = {
+            focus = TOK_establish_air_force
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = air_base
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    focus = { #空襲への備え
+        id = TOK_prepare_air_raid
+        icon = GFX_focus_generic_air_defense
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 24
+        y = 1
+        prerequisite = {
+            focus = TOK_establish_air_force
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = anti_air_building
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    focus = { #中古の航空機を購入
+        id = TOK_buy_used_aircraft
+        icon = GFX_goal_generic_trade
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 22
+        y = 2
+        prerequisite = {
+            focus = TOK_airfield_maintenance
+        } 
+        prerequisite = {
+            focus = TOK_prepare_air_raid
+        }
+        completion_reward = {
+            add_equipment_to_stockpile = {
+                type = fighter_equipment_2
+                amount = 100
+            }
+        }
+    }
+    focus = { #制空任務
+        id = TOK_air_control_mission
+        icon = GFX_goal_generic_air_fighter2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 21
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_buy_used_aircraft
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = light_fighter
+            }
+        }
+    }
+    focus = { #戦場支援
+        id = TOK_battlefield_support
+        icon = GFX_goal_generic_CAS
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 23
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_buy_used_aircraft
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = cas_bomber
+                category = tactical_bomber
+            }
+        }
+    }
+    focus = { #空軍の拡大
+        id = TOK_expand_air_force
+        icon = GFX_goal_generic_air_doctrine
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        x = 22
+        y = 4
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        prerequisite = {
+            focus = TOK_air_control_mission
+        }
+        prerequisite = {
+            focus = TOK_battlefield_support
+        }
+        completion_reward = {
+            add_ideas = TOK_enhance_aviation_industry
+        }
+    }
+    focus = { #海軍の創設
+        id = TOK_create_navy
+        icon = GFX_goal_generic_navy_doctrines_tactics
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 29
+        y = 0
+        completion_reward = {
+            navy_experience = 35
+        }
+    }
+    focus = { #海軍基地の整備
+        id = TOK_maintenance_naval_base
+        icon = GFX_focus_generic_navy_battleship2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 29
+        y = 1
+        prerequisite = {
+            focus = TOK_create_navy
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 2
+                        instant_build = yes
+                        province = 4119
+                    }
+                }
+            }
+            1237 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 2
+                        instant_build = yes
+                        province = 1157
+                    }
+                }
+            }
+        }
+    }
+    focus = { #造船所への設備投資
+        id = TOK_capital_invest_shipyard
+        icon = GFX_goal_generic_construct_naval_dockyard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 31
+        y = 1
+        prerequisite = {
+            focus = TOK_create_navy
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = dockyard
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
+                }
+            }
+        }
+    }
+    focus = { #燃料貯蔵所の拡大
+        id = TOK_expand_fuel_depot
+        icon = GFX_goal_generic_oil_refinery
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 27
+        y = 2
+        prerequisite = {
+            focus = TOK_maintenance_naval_base
+        }
+        completion_reward = {
+            1237 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = fuel_silo
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
+                }
+            }
+        }
+    }
+    focus = { #トンキン湾の守護者
+        id = TOK_guardian_gulf_tonkin
+        icon = GFX_goal_generic_navy_cruiser
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 29
+        y = 2
+        prerequisite = {
+            focus = TOK_maintenance_naval_base
+        }
+        prerequisite = {
+            focus = TOK_capital_invest_shipyard
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_guardian_gulf_tonkin
+        }
+    }
+    focus = { #更なる造船所の拡大
+        id = TOK_further_expand_shipyard
+        icon = GFX_goal_generic_construct_naval_dockyard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 31
+        y = 2
+        prerequisite = {
+            focus = TOK_capital_invest_shipyard
+        }
+        completion_reward = {
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = dockyard
+                        level = 2
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 2
+                }
+            }
+        }
+    }
+    focus = { #小型艦艇の充実
+        id = TOK_enhance_small_ship
+        icon = GFX_focus_generic_cruiser2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 28
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_guardian_gulf_tonkin
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = dd_tech
+                category = cl_tech
+            }
+        }
+    }
+    focus = { #水面下の戦い
+        id = TOK_underwater_battle
+        icon = GFX_goal_generic_wolf_pack
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 30
+        y = 3
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_guardian_gulf_tonkin
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = ss_tech
+            }
+        }
+    }
+    focus = { #大海を目指して
+        id = TOK_aim_ocean
+        icon = GFX_goal_generic_navy_battleship
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        x = 29
+        y = 4
+        search_filters = {
+            FOCUS_FILTER_RESEARCH
+        }
+        prerequisite = {
+            focus = TOK_enhance_small_ship
+        } 
+        prerequisite = {
+            focus = TOK_underwater_battle
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = bb_tech 
+                category = cv_tech 
+            }
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = dockyard
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+}

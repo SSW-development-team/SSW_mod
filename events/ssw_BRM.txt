@@ -125,6 +125,10 @@ country_event = {
 			election_frequency = 48
 			ruling_party = social_democracy
 		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.1
+		}
 		ai_chance = {
 			base = 1
 		}
@@ -135,6 +139,10 @@ country_event = {
 			elections_allowed = yes
 			election_frequency = 48
 			ruling_party = social_conservatism
+		}
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = 0.1
 		}
 		ai_chance = {
 			base = 1
@@ -147,6 +155,10 @@ country_event = {
 			election_frequency = 48
 			ruling_party = social_liberalism
 		}
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.1
+		}
 		ai_chance = {
 			base = 1
 		}
@@ -157,6 +169,10 @@ country_event = {
 			elections_allowed = yes
 			election_frequency = 48
 			ruling_party = authority_democracy
+		}
+		add_popularity = {
+			ideology = authority_democracy
+			popularity = 0.1
 		}
 		ai_chance = {
 			base = 1
@@ -281,5 +297,460 @@ country_event = {
 			ideology = national_socialism
 			popularity = -0.1
 		}
+	}
+}
+
+# Burnase Civil War
+country_event = {
+	id = ssw_brm.12
+	title = ssw_brm.12.Three_Mans_Speech
+	desc = ssw_brm.12.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.12.a
+		set_global_flag = BRM_civil_war
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_kachin
+			set_state_owner = 1189
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_shan
+			set_state_owner = 954
+			set_state_owner = 1217
+			set_state_owner = 955
+			set_state_owner = 957
+		}
+		# communist burma
+		create_dynamic_country = {
+			original_tag = BRM
+			set_state_owner = 1192
+			set_state_owner = 1193
+			set_politics = {
+				ruling_party = classical_communism
+				elections_allowed = no
+			}
+			set_popularities = {
+				classical_communism = 80
+				progressive_communism = 20
+			}
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_naga
+			set_state_owner = 1196
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_chin
+			set_state_owner = 1190
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_karen
+			set_state_owner = 1210
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_mon
+			set_state_owner = 1219
+			set_state_owner = 1195
+		}
+		create_dynamic_country = {
+			original_tag = BRM
+			set_cosmetic_tag = BRM_arakan
+			set_state_owner = 1191
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+# Who is suitable leader
+country_event = {
+	id = ssw_brm.13
+	title = ssw_brm.13.Three_Mans_Speech
+	desc = ssw_brm.13.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# Ne win
+		name = ssw_brm.13.a
+		set_politics = {
+			ruling_party = national_socialism
+		}
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.2
+		}
+	}
+	option = {
+		# Smith Don
+		name = ssw_brm.13.b
+		set_politics = {
+			ruling_party = authority_despotism
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = 0.35
+		}
+		set_party_name = {
+			ideology = authority_despotism
+			name = BRM_tammad
+			long_name = BRM_tammad
+		}
+	}
+}
+
+# General integration question
+country_event = {
+	id = ssw_brm.14
+	title = ssw_brm.14.Three_Mans_Speech
+	desc = ssw_brm.14.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# agree
+		name = ssw_brm.14.a
+		ai_chance = {
+			base = 4
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.15
+			}
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.14.a
+		ai_chance = {
+			base = 6
+		}
+		FROM = {
+			country_event = {
+				id = ssw_brm.16
+			}
+		}
+	}
+}
+
+# They agreed!
+country_event = {
+	id = ssw_brm.15
+	title = ssw_brm.15.Three_Mans_Speech
+	desc = ssw_brm.15.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.15.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+
+# They denied
+country_event = {
+	id = ssw_brm.16
+	title = ssw_brm.16.Three_Mans_Speech
+	desc = ssw_brm.16.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.16.a
+	}
+}
+
+# we won the border conflict
+country_event = {
+	id = ssw_brm.17
+	title = ssw_brm.17.Three_Mans_Speech
+	desc = ssw_brm.17.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.17.a
+	}
+}
+
+# the border conflict was draw
+country_event = {
+	id = ssw_brm.18
+	title = ssw_brm.18.Three_Mans_Speech
+	desc = ssw_brm.18.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.18.a
+	}
+}
+
+# we lose the border conflict
+country_event = {
+	id = ssw_brm.19
+	title = ssw_brm.19.Three_Mans_Speech
+	desc = ssw_brm.19.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.19.a
+	}
+}
+
+# Communist attitude against Burma
+country_event = {
+	id = ssw_brm.20
+	title = ssw_brm.20.Three_Mans_Speech
+	desc = ssw_brm.20.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# aliance
+		name = ssw_brm.20.a
+	}
+	option = {
+		# coup
+		name = ssw_brm.20.a
+		random = {
+			50 = {
+				#success
+				# annex_country = {
+				# 	target = SHAN
+				# }
+			}
+			50 = {
+				#fail
+				# declare_war_on = {
+				# 	target = SHAN
+				# 	type = annex_everything
+				# }
+			}
+		}
+	}
+}
+
+# aliance with communists?
+country_event = {
+	id = ssw_brm.21
+	title = ssw_brm.21.Three_Mans_Speech
+	desc = ssw_brm.21.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# approve
+		name = ssw_brm.21.a
+		FROM = {
+			add_to_faction = ROOT
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.21.b
+	}
+}
+
+# ask china to support burmese communists
+country_event = {
+	id = ssw_brm.22
+	title = ssw_brm.22.Three_Mans_Speech
+	desc = ssw_brm.22.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# approve
+		name = ssw_brm.22.a
+		FROM = {
+			add_equipment_to_stockpile = {
+				amount = 3000
+				producer = ROOT
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = support_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = artillery_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 300
+				producer = ROOT
+				type = anti_tank_equipment
+			}
+		}
+	}
+	option = {
+		# deny
+		name = ssw_brm.22.a
+	}
+}
+
+# Ne win's plan
+country_event = {
+	id = ssw_brm.23
+	title = ssw_brm.23.Three_Mans_Speech
+	desc = ssw_brm.23.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# facilitate socialism
+		name = ssw_brm.23.a
+		add_political_power = 150
+	}
+	option = {
+		# Buddism and nationalism
+		name = ssw_brm.23.b
+		add_war_support = 0.05
+		add_stability = 0.03
+	}
+}
+
+# Ne win's battle with ethnic minorities
+country_event = {
+	id = ssw_brm.24
+	title = ssw_brm.24.Three_Mans_Speech
+	desc = ssw_brm.24.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# eliminate them!
+		name = ssw_brm.24.a
+		add_equipment_to_stockpile = {
+			amount = -1000
+			type = infantry_equipment
+		}
+		add_political_power = -50
+		add_to_variable = {
+			var = minorities_resistance
+			value = 10
+		}
+		set_temp_variable = {
+			delta = 10
+		}
+		custom_effect_tooltip = BRM_minorities_resistance_tooltip_red
+		BRM_update_resistance_idea = yes
+	}
+	option = {
+		# Integrate them!
+		name = ssw_brm.24.b
+		add_political_power = 50
+		add_to_variable = {
+			var = minorities_resistance
+			value = 15
+		}
+		set_temp_variable = {
+			delta = 15
+		}
+		custom_effect_tooltip = BRM_minorities_resistance_tooltip_red
+		BRM_update_resistance_idea = yes
+	}
+}
+
+# Ne win deal with political enemies
+country_event = {
+	id = ssw_brm.25
+	title = ssw_brm.25.Three_Mans_Speech
+	desc = ssw_brm.25.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		# Purge everyone
+		name = ssw_brm.25.a
+		add_political_power = -200
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.1
+		}
+	}
+	option = {
+		# Choose several persons to purge
+		name = ssw_brm.25.b
+		add_political_power = -100
+		add_popularity = {
+			ideology = national_socialism
+			popularity = 0.03
+		}
+	}
+}
+
+# Demo
+country_event = {
+	id = ssw_brm.26
+	title = ssw_brm.26.Three_Mans_Speech
+	desc = ssw_brm.26.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.26.a
+		add_stability = -0.15
+		add_popularity = {
+			ideology = national_socialism
+			popularity = -0.15
+		}
+	}
+}
+
+# Aung San's coup
+country_event = {
+	id = ssw_brm.27
+	title = ssw_brm.27.Three_Mans_Speech
+	desc = ssw_brm.27.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.27.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.45
+		}
+		set_politics = {
+			election_frequency = 48
+			elections_allowed = yes
+			ruling_party = progressive_communism
+		}
+		set_party_name = {
+			ideology = progressive_communism
+			long_name = BRM_progressive_communism
+			name = BRM_progressive_communism
+		}
+		complete_national_focus = BRM_aung_san
+	}
+}
+
+# Ne Win announces his new plan
+country_event = {
+	id = ssw_brm.28
+	title = ssw_brm.28.Three_Mans_Speech
+	desc = ssw_brm.28.desc
+	picture = GFX_BRM_three_mans_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ssw_brm.28.a
+		add_political_power = 100
+		complete_national_focus = BRM_ne_win
 	}
 }

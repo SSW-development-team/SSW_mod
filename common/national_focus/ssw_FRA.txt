@@ -23,7 +23,7 @@ focus_tree = {
 		id = FRA_Army_Reform
 		icon = GFX_goal_generic_allies_build_infantry
 		cost = 5.00
-		x = 46
+		x = 48
 		y = 2
 		completion_reward = {
 			army_experience = 25
@@ -1275,7 +1275,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Army_Reform
 		}
-		x = 43
+		x = 42
 		y = 3
 		completion_reward = {
 			swap_ideas = {
@@ -1296,7 +1296,7 @@ focus_tree = {
 			focus = FRA_Blitzkrieg
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 41
+		x = 40
 		y = 4
 		completion_reward = {
 			add_tech_bonus = {
@@ -1316,7 +1316,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Overwhelming_firepower
 		}
-		x = 41
+		x = 40
 		y = 5
 		completion_reward = {
 			add_tech_bonus = {
@@ -1335,7 +1335,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Modernization_of_equipment
 		}
-		x = 41
+		x = 40
 		y = 6
 		completion_reward = {
 			add_ideas = Emphasis_on_thermal_power
@@ -1353,7 +1353,7 @@ focus_tree = {
 			focus = FRA_Overwhelming_firepower
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 43
+		x = 42
 		y = 4
 		completion_reward = {
 			add_tech_bonus = {
@@ -1373,7 +1373,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Blitzkrieg
 		}
-		x = 43
+		x = 42
 		y = 5
 		completion_reward = {
 			add_tech_bonus = {
@@ -1391,7 +1391,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_French_tank
 		}
-		x = 43
+		x = 42
 		y = 6
 		completion_reward = {
 			add_ideas = Focus_on_armor
@@ -1409,7 +1409,7 @@ focus_tree = {
 			focus = FRA_Overwhelming_firepower
 			focus = FRA_Blitzkrieg
 		}
-		x = 45
+		x = 44
 		y = 4
 		completion_reward = {
 			add_tech_bonus = {
@@ -1430,7 +1430,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Development_of_Infantry_Equipment
 		}
-		x = 45
+		x = 44
 		y = 5
 		completion_reward = {
 			add_tech_bonus = {
@@ -1449,7 +1449,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Planned_Offensive
 		}
-		x = 45
+		x = 44
 		y = 6
 		completion_reward = {
 			add_ideas = Focus_on_infantry
@@ -1465,7 +1465,7 @@ focus_tree = {
 			focus = FRA_Strengthening_French_tanks
 			focus = FRA_Destructive_Firepower
 		}
-		x = 43
+		x = 42
 		y = 7
 		completion_reward = {
 			add_ideas = FRA_Doctrine_enhancement
@@ -1479,7 +1479,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Army_Reform
 		}
-		x = 49
+		x = 53
 		y = 3
 		completion_reward = {
 			add_war_support = 0.05
@@ -1493,12 +1493,12 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Retaliation_Armed_Plan
 		}
-		x = 48
+		x = 52
 		y = 4
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Defeated_army
-				add_idea = Defeated_army_2
+				add_idea = Defeated_army_3
 			}
 		}
 
@@ -1510,12 +1510,12 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Strengthening_the_Military_Academy
 		}
-		x = 48
+		x = 52
 		y = 5
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Defeated_army_2
-				add_idea = Defeated_army_3
+				remove_idea = Defeated_army_3
+				add_idea = Defeated_army_5
 			}
 		}
 
@@ -1709,7 +1709,11 @@ focus_tree = {
 		x = 22
 		y = 20
 		completion_reward = {
-
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = armor_tech
+			}
 		}	
 
 	}
@@ -1750,11 +1754,15 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_touhouseizonnken_saisinnkou
+			focus = FRA_attack_spain
 		}
 		x = 23
 		y = 22
 		completion_reward = {
-
+			declare_war_on = {
+				target = ENG
+				type = annex_everything
+			}
 		}	
 
 	}
@@ -1769,8 +1777,50 @@ focus_tree = {
 			focus = FRA_german_alilance
 			focus = FRA_europian_defender
 		}
-		x = 29
+		x = 31
 		y = 17
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_Join_british
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_british_alilance
+		}
+		x = 31
+		y = 18
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_british_gizyutukyouryoku
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_Join_british
+		}
+		x = 31
+		y = 19
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_Strengthening_the_German_border
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_british_gizyutukyouryoku
+		}
+		x = 31
+		y = 20
 		completion_reward = {
 
 		}	
@@ -1795,19 +1845,87 @@ focus_tree = {
 
 	}
 	focus = {
+		id = FRA_europian_union
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_europian_defender
+		}
+		x = 27
+		y = 18
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_grand_defender
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_europian_union
+		}
+		x = 27
+		y = 19
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_attack_spain
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_grand_defender
+		}
+		x = 27
+		y = 20
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_benerukusu_kaihou
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_attack_spain
+			focus = FRA_Strengthening_the_German_border
+		}
+		x = 29
+		y = 21
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
+		id = FRA_attack_germany
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_benerukusu_kaihou
+		}
+		x = 29
+		y = 22
+		completion_reward = {
+
+		}	
+
+	}
+	focus = {
 		id = FRA_Learn_from_defeat
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_Retaliation_Armed_Plan
 		}
-		x = 50
+		x = 54
 		y = 4
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army_2
-				add_idea = Defeated_army_4
-			}
+			add_ideas = Kako_wo_Manabu
 		}
 
 	}
@@ -1818,13 +1936,10 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Learn_from_defeat
 		}
-		x = 50
+		x = 54
 		y = 5
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Defeated_army_4
-				add_idea = Defeated_army_5
-			}
+			add_war_support = 0.1
 		}
 
 	}
@@ -1838,7 +1953,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_French_militarism
 		}
-		x = 49
+		x = 53
 		y = 6
 		completion_reward = {
 			swap_ideas = {
@@ -1871,13 +1986,13 @@ focus_tree = {
 		icon = GFX_goal_generic_axis_build_infantry
 		cost = 5.00
 		prerequisite = {
-			focus = FRA_Doctrine_focus
+			focus = FRA_Army_Reform
 		}
-		prerequisite = {
-			focus = FRA_For_my_homeland
+		x = 48
+		y = 3
+		available = {
+			has_completed_focus = FRA_For_my_homeland
 		}
-		x = 46
-		y = 8
 		completion_reward = {
 			army_experience = 35
 			swap_ideas = {
@@ -1895,8 +2010,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 44
-		y = 9
+		x = 46
+		y = 4
 		completion_reward = {
 			add_ideas = Seeking_freedom
 		}
@@ -1909,8 +2024,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 48
-		y = 9
+		x = 50
+		y = 4
 		completion_reward = {
 			add_ideas = Determination
 		}
@@ -1981,8 +2096,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Expansion_of_the_French_Army
 		}
-		x = 46
-		y = 9
+		x = 48
+		y = 4
 		completion_reward = {
 			set_technology = {
 				bicycle_infantry = 1

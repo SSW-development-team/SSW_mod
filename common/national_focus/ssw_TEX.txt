@@ -1,5 +1,6 @@
 focus_tree = {
 	id = ssw_TEX
+	continuous_focus_position = { x = 220 y = 2500 }
 	country = {
 		factor = 0
 		modifier = {
@@ -14,6 +15,17 @@ focus_tree = {
 		cost = 5.00
 		x = 13
 		y = 0
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				country_event = {
+					id = sswtex.1
+				}
+			}
 
 	}
 	focus = {
@@ -23,8 +35,20 @@ focus_tree = {
 		prerequisite = {
 			focus = ssw_tex_1
 		}
+		available = {
+			always = no
+		}
 		x = 8
 		y = 2
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				
+			}
 
 	}
 	focus = {
@@ -36,6 +60,15 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				country_event = sswtex.2
+			}
 
 	}
 	focus = {
@@ -47,6 +80,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = TEX_black_slave_idea_1
+					add_idea = TEX_black_slave_idea_2
+				}
+			}
 
 	}
 	focus = {
@@ -58,6 +103,15 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_stability = -0.15	
+			}
 
 	}
 	focus = {
@@ -69,10 +123,18 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_stability = 0.05	
+			}
 	}
 	focus = {
-		id = ssw_tex_write_９
+		id = ssw_tex_write_9
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
@@ -80,18 +142,67 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				random_owned_controlled_state={
+					limit = {
+					free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+					}
+			
+					}
+			
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_write_10
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = ssw_tex_write_９
+			focus = ssw_tex_write_9
 		}
 		x = 10
 		y = 7
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_popularity = {
+					ideology = progressive_communism
+					popularity = -0.20
+				}
+				add_popularity = {
+					ideology = anarchism
+					popularity = -0.20
+				}
+				add_popularity = {
+					ideology = classical_communism
+					popularity = -0.20
+				}
+				add_popularity = {
+					ideology = social_democracy
+					popularity = -0.20
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_KKK_1
@@ -111,6 +222,9 @@ focus_tree = {
 		prerequisite = {
 			focus = ssw_tex_1
 		}
+		available = {
+			always = no
+		}
 		x = 18
 		y = 2
 
@@ -124,6 +238,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_political_power = -25	
+			}
 
 	}
 	focus = {
@@ -135,7 +258,19 @@ focus_tree = {
 		}
 		x = 16
 		y = 4
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_resource = {
+					type = oil
+					amount = 50
+					state = 375
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_7
@@ -146,7 +281,15 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				country_event = sswtex.3	
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_8
@@ -157,7 +300,18 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_timed_idea = {
+					idea = TEX_fucking_black_idea
+					days = 210
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_9
@@ -168,7 +322,39 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				random_owned_controlled_state={
+					limit = {
+					free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+					}
+			
+					}
+			
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+			
+					set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_10
@@ -179,7 +365,17 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				LIB = {
+					country_event = sswtex.4
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_write_5
@@ -190,6 +386,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 5
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = TEX_black_slave_idea_2
+					add_idea = TEX_black_slave_idea_3
+				}
+			}
 
 	}
 	focus = {
@@ -201,6 +409,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = TEX_black_slave_idea_4
+					add_idea = TEX_black_slave_idea_5
+				}
+			}
 
 	}
 	focus = {
@@ -212,6 +432,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 7
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = TEX_black_slave_idea_5
+					add_idea = TEX_black_slave_idea_6
+				}
+			}
 
 	}
 	focus = {
@@ -226,7 +458,15 @@ focus_tree = {
 		}
 		x = 8
 		y = 8
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_ideas = TEX_Southern_Spirit_idea
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_4
@@ -237,7 +477,15 @@ focus_tree = {
 		}
 		x = 16
 		y = 5
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_ideas = TEX_fucking_strike_idea
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_5
@@ -248,7 +496,22 @@ focus_tree = {
 		}
 		x = 16
 		y = 6
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_popularity = {
+					ideology = progressive_communism
+					popularity = -0.20
+				}
+				add_popularity = {
+					ideology = classical_communism
+					popularity = -0.20
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_6
@@ -259,7 +522,18 @@ focus_tree = {
 		}
 		x = 16
 		y = 7
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_popularity = {
+					ideology = anarchism
+					popularity = -0.20
+				}
+			}
 	}
 	focus = {
 		id = ssw_tex_hunt_11
@@ -273,6 +547,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 8
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_ideas = TEX_sundown_state_idea
+			}
 
 	}
 	focus = {
@@ -285,7 +568,15 @@ focus_tree = {
 		}
 		x = 13
 		y = 10
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_political_power = 150
+			}
 	}
 	focus = {
 		id = ssw_tex_3
@@ -302,7 +593,15 @@ focus_tree = {
 		}
 		x = 8
 		y = 11
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				custom_effect_tooltip = Confederate_States_of_America
+			}
 	}
 	focus = {
 		id = ssw_tex_4
@@ -318,7 +617,15 @@ focus_tree = {
 		}
 		x = 13
 		y = 11
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				custom_effect_tooltip = neutrality_texs
+			}
 	}
 	focus = {
 		id = ssw_tex_5
@@ -334,7 +641,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				custom_effect_tooltip = Republic_of_Texas
+			}
 	}
 	focus = {
 		id = ssw_tex_6
@@ -348,7 +663,15 @@ focus_tree = {
 		}
 		x = 11
 		y = 12
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				ALF = {country_event = sswtex.6}
+			}
 	}
 	focus = {
 		id = ssw_tex_7
@@ -362,7 +685,15 @@ focus_tree = {
 		}
 		x = 15
 		y = 12
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				FSA = {country_event = sswtex.9}
+			}
 	}
 	focus = {
 		id = ssw_tex_8
@@ -373,7 +704,15 @@ focus_tree = {
 		}
 		x = 8
 		y = 12
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_ideas = TEX_CSA_unite_idea
+			}
 	}
 	focus = {
 		id = ssw_tex_9
@@ -384,7 +723,47 @@ focus_tree = {
 		}
 		x = 8
 		y = 13
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				create_wargoal = {
+					target = OKL
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = ANS
+					type = annex_everything
+				}
 
+					every_state = {
+						limit = {
+							is_core_of = OKL
+						}
+						add_core_of = ROOT
+					}
+					every_state = {
+						limit = {
+							is_core_of = ANS
+						}
+						add_core_of = ROOT
+					}
+					every_state = {
+						limit = {
+							is_core_of = LUI
+						}
+						add_core_of = ROOT		
+					}
+					every_state = {
+						limit = {
+							is_core_of = BLS
+						}
+						add_core_of = ROOT
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_write_12
@@ -395,6 +774,17 @@ focus_tree = {
 		}
 		x = 4
 		y = 8
+		ai_will_do = {
+			factor = 2
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				declare_war_on = {
+					target = BLS
+				}
+			}
 
 	}
 	focus = {
@@ -406,7 +796,35 @@ focus_tree = {
 		}
 		x = 5
 		y = 14
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				create_wargoal = {
+					target = LFF
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = ALF
+					type = annex_everything
+				}
 
+					every_state = {
+						limit = {
+							is_core_of = LFF
+						}
+						add_claim_by  = ROOT
+					}
+					every_state = {
+						limit = {
+							is_core_of = ALF
+						}
+						add_claim_by  = ROOT
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_11
@@ -417,7 +835,25 @@ focus_tree = {
 		}
 		x = 8
 		y = 14
+		ai_will_do = {
+			factor = 30
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				create_wargoal = {
+					target = UTC
+					type = annex_everything
+				}
 
+					every_state = {
+						limit = {
+							is_core_of = UTC
+						}
+						add_claim_by  = ROOT
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_12
@@ -428,7 +864,25 @@ focus_tree = {
 		}
 		x = 11
 		y = 14
+		ai_will_do = {
+			factor = 5
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				create_wargoal = {
+					target = FSA
+					type = annex_everything
+				}
 
+					every_state = {
+						limit = {
+							is_core_of = FSA
+						}
+						add_claim_by  = ROOT
+					}
+			}
 	}
 	focus = {
 		id = ssw_tex_13
@@ -445,6 +899,21 @@ focus_tree = {
 		}
 		x = 8
 		y = 15
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+
+					every_state = {
+						limit = {
+							is_claimed_by  = TEX
+						}
+						add_core_of  = ROOT
+					}
+			}
 
 	}
 	focus = {
@@ -456,7 +925,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 12
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				add_political_power = 100
+			}
 	}
 	focus = {
 		id = ssw_tex_15
@@ -467,7 +944,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 13
-
+		ai_will_do = {
+			factor = 10
+			}
+	
+			available_if_capitulated = no
+	
+			completion_reward = {
+				
+			}
 	}
 	focus = {
 		id = ssw_tex_16

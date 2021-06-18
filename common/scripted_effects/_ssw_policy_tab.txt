@@ -1,6 +1,64 @@
-
+#経済タブ
+calculate_country_inflation_rate = {
+	set_temp_variable = { ecotemp1 = 0.046 }
+	multiply_temp_variable = { ecotemp1 = country_inflation_late }
+	multiply_temp_variable = { ecotemp1 = 2.7591 }
+	clamp_temp_variable = { var = ecotemp1 min = -25 max = 50 }
+	set_variable = { country_inflation_late_for_consumer_goods_factor = ecotemp1 }
+	set_temp_variable = { ecotemp2 = country_inflation_late_for_consumer_goods_factor }
+	multiply_temp_variable = { ecotemp2 = 0.01 }
+	set_variable = { country_inflation_late_for_consumer_goods_factor_2 = ecotemp2 }
+}
+calculate_country_tax_rate = {
+	clamp_variable = { var = country_tax_rate mix = 25 max = 50 }
+	set_temp_variable = { ecotemp3 = country_tax_late }
+	set_temp_variable = { ecotemp4 = country_tax_late }
+	set_temp_variable = { ecotemp5 = country_tax_late }
+	set_variable = { country_tax_late_for_consumer_goods_factor = 5 }
+	set_variable = { country_tax_late_for_stability_factor = 20 }
+	add_to_temp_variable = { ecotemp3 = -25 }
+	multiply_temp_variable = { ecotemp3 = 16.4 }
+	set_variable = { scrollbar_point1XPos = ecotemp3 }
+	add_to_temp_variable = { ecotemp4 = -25 }
+	multiply_temp_variable = { ecotemp4 = 0.4 }
+	subtract_from_variable = { country_tax_late_for_consumer_goods_factor = ecotemp4 }
+	multiply_variable = { country_tax_late_for_consumer_goods_factor = 0.01 }
+	add_to_temp_variable = { ecotemp5 = -25 }
+	multiply_temp_variable = { ecotemp5 = -1.6 }
+	add_to_variable = { country_tax_late_for_stability_factor = ecotemp5 }
+	multiply_variable = { country_tax_late_for_stability_factor = 0.01 }
+}
+#社会タブ
+update_growth_rate = {
+	set_variable = { country_industrialization_growth_rate_2 = 0 }
+	set_variable = { country_industrialization_growth_rate_2 = country_industrialization_growth_rate }
+	set_temp_variable = { temp2 = country_Industrialization_growth_rate_2 }
+	add_to_temp_variable = { temp2 = modifier@industrialization_growth_rate_modifier }
+	set_temp_variable = { temp5 = temp2 }
+	multiply_temp_variable = { temp5 = modifier@industrialization_growth_rate_factor }
+	add_to_temp_variable = { temp2 = temp5 }
+	set_variable = { country_industrialization_growth_rate_2 = temp2 }
+	##
+	set_variable = { country_poverty_growth_rate_2 = 0 }
+	set_variable = { country_poverty_growth_rate_2 = country_poverty_growth_rate }
+	set_temp_variable = { temp3 = country_poverty_growth_rate_2 }
+	add_to_temp_variable = { temp3 = modifier@poverty_growth_rate_modifier }
+	set_temp_variable = { temp6 = temp3 }
+	multiply_temp_variable = { temp6 = modifier@poverty_growth_rate_factor }
+	add_to_temp_variable = { temp3 = temp6 }
+	set_variable = { country_poverty_growth_rate_2 = temp3 }
+	##
+	set_variable = { country_literacy_growth_rate_2 = 0 }
+	set_variable = { country_literacy_growth_rate_2 = country_literacy_growth_rate }
+	set_temp_variable = { temp4 = country_literacy_growth_rate_2 }
+	add_to_temp_variable = { temp4 = modifier@literacy_growth_rate_modifier }
+	set_temp_variable = { temp7 = temp4 }
+	multiply_temp_variable = { temp7 = modifier@literacy_growth_rate_factor }
+	add_to_temp_variable = { temp4 = temp7 }
+	set_variable = { country_literacy_growth_rate_2 = temp4 }
+}
 calculate_country_Industrialization_growth_rate_to_add = {
-	add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate }
+	add_to_variable = { country_Industrialization_rate = country_Industrialization_growth_rate_2 }
 	if = {
 		limit = {
 			OR = {
@@ -66,18 +124,204 @@ calculate_country_Industrialization_growth_rate_to_add = {
 		delete_all_industrialization_rate_idea = yes
 		add_ideas = idea_social_tab_industrialization_level_5
 	}
+	clamp_variable = { var = country_industrialization_rate min = 0 max = 100 }
 }
 calculate_country_poverty_rate_growth_rate_to_add = {
-	add_to_variable = { country_poverty_rate = country_poverty_rate_growth_rate }
+	add_to_variable = { country_poverty_rate = country_poverty_growth_rate_2 }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 20 }
+				check_variable = { country_poverty_rate = 20 }	
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_1
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_1
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_poverty_rate < 40 }
+				check_variable = { country_poverty_rate = 40 }
+			}
+			check_variable = { country_poverty_rate > 20 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_2
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_2
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 40 }
+			OR = {
+				check_variable = { country_poverty_rate < 60 }
+				check_variable = { country_poverty_rate = 60 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_3
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_3
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 60 }
+			OR = {
+				check_variable = { country_poverty_rate < 80 }
+				check_variable = { country_poverty_rate = 80 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_4
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_4
+	}
+	if = {
+		limit = {
+			check_variable = { country_poverty_rate > 80 }
+			NOT = {
+				has_idea = idea_social_tab_poverty_level_5
+			}
+		}
+		delete_all_poverty_rate_idea = yes
+		add_ideas = idea_social_tab_poverty_level_5
+	}
+	clamp_variable = { var = country_poverty_rate min = 0 max = 100 }
+	clamp_variable = { var = country_poverty_rate_2 min = 0 max = 100 }
 }
 calculate_country_literacy_rate_growth_rate_to_add = {
-	add_to_variable = { country_literacy_rate = country_literacy_rate_growth_rate }
+	add_to_variable = { country_literacy_rate = country_literacy_growth_rate_2 }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_literacy_rate < 20 }
+				check_variable = { country_literacy_rate = 20 }	
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_1
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_1
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { country_literacy_rate < 40 }
+				check_variable = { country_literacy_rate = 40 }
+			}
+			check_variable = { country_literacy_rate > 20 }
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_2
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_2
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 40 }
+			OR = {
+				check_variable = { country_literacy_rate < 60 }
+				check_variable = { country_literacy_rate = 60 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_3
+			}
+		}
+		delete_all_literacyrate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_3
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 60 }
+			OR = {
+				check_variable = { country_literacy_rate < 80 }
+				check_variable = { country_literacy_rate = 80 }
+			}
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_4
+			} 
+		}
+		delete_all_literacyy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_4
+	}
+	if = {
+		limit = {
+			check_variable = { country_literacy_rate > 80 }
+			NOT = {
+				has_idea = idea_social_tab_literacy_level_5
+			}
+		}
+		delete_all_literacy_rate_idea = yes
+		add_ideas = idea_social_tab_literacy_level_5
+	}
+	clamp_variable = { var = country_literacy_rate min = 0 max = 100 }
 }
 calculate_country_reserch_invest_to_add = {
-	set_temp_variable = { temp1 = country_industrial_complex_invest }
-	divide_temp_variable = { temp1 = 6 }
-	add_to_variable = { country_research_institute = temp1  }
-	clamp_variable = { var = country_research_institute min = -100 max = 600 }
+		set_temp_variable = { temp1 = num_of_civilian_factories }
+		multiply_temp_variable = { temp1 = country_industrial_complex_invest }
+		divide_temp_variable = { temp1 = 4.5 }
+		add_to_temp_variable = { temp1 = modifier@research_institute_invest_growth_modifier }
+		add_to_variable = { country_research_institute = temp1  }
+		clamp_variable = { var = country_research_institute min = -200 max = 600 }
+		if = {
+			limit = {
+				check_variable = { country_research_institute_level = 1 }
+				NOT = {
+					has_idea = idea_social_tab_research_institute_level_1
+				}
+			}
+			delete_all_research_institute_idea = yes
+			add_ideas = idea_social_tab_research_institute_level_1
+		}
+		if = {
+			limit = {
+				check_variable = { country_research_institute_level = 2 }
+				NOT = {
+					has_idea = idea_social_tab_research_institute_level_2
+				}
+			}
+			delete_all_research_institute_idea = yes
+			add_ideas = idea_social_tab_research_institute_level_2
+		}
+		if = {
+			limit = {
+				check_variable = { country_research_institute_level = 3 }
+			}
+			NOT = {
+					has_idea = idea_social_tab_research_institute_level_3
+				}
+			delete_all_research_institute_idea = yes
+			add_ideas = idea_social_tab_research_institute_level_3
+		}
+		if = {
+			limit = {
+				check_variable = { country_research_institute_level = 4 }
+			}
+			NOT = {
+					has_idea = idea_social_tab_research_institute_level_4
+				}
+			delete_all_research_institute_idea = yes
+			add_ideas = idea_social_tab_research_institute_level_4
+		}
+		if = {
+			limit = {
+				check_variable = { country_research_institute_level = 5 }
+				NOT = {
+					has_idea = idea_social_tab_research_institute_level_5
+				}
+			}
+			delete_all_research_institute_idea = yes
+			add_ideas = idea_social_tab_research_institute_level_5
+		}
 }
 reload_policy_tab_dynamic_modifiers = {
 }
@@ -88,6 +332,33 @@ delete_all_industrialization_rate_idea = {
 		idea_social_tab_industrialization_level_3
 		idea_social_tab_industrialization_level_4
 		idea_social_tab_industrialization_level_5
+	}
+}
+delete_all_poverty_rate_idea = {
+	remove_ideas = {
+		idea_social_tab_poverty_level_1
+		idea_social_tab_poverty_level_2
+		idea_social_tab_poverty_level_3
+		idea_social_tab_poverty_level_4
+		idea_social_tab_poverty_level_5
+	}
+}
+delete_all_literacy_rate_idea = {
+	remove_ideas = {
+		idea_social_tab_literacy_level_1
+		idea_social_tab_literacy_level_2
+		idea_social_tab_literacy_level_3
+		idea_social_tab_literacy_level_4
+		idea_social_tab_literacy_level_5
+	}
+}
+delete_all_research_institute_idea = {
+	remove_ideas = {
+		idea_social_tab_research_institute_level_1
+		idea_social_tab_research_institute_level_2
+		idea_social_tab_research_institute_level_3
+		idea_social_tab_research_institute_level_4
+		idea_social_tab_research_institute_level_5
 	}
 }
 #徴兵法

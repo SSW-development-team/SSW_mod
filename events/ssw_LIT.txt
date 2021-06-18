@@ -1,0 +1,207 @@
+add_namespace = ssw_lit
+
+country_event = { #今後の方針
+    id = ssw_lit.1
+    title = ssw_lit.1.t
+    desc = ssw_lit.1.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #どうすべきだろうか？
+        name = ssw_lit.1.a
+        country_event = {id = ssw_lit.2 days = 2}
+    }
+}
+country_event = { #セイマスの開催
+    id = ssw_lit.2
+    title = ssw_lit.2.t
+    desc = ssw_lit.2.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #民主的な方法で
+        name = ssw_lit.2.a
+        ai_chance = {
+            base = 40
+        }
+        add_stability = 0.03
+        country_event = {id = ssw_lit.3 days = 2}
+    }
+    option = { #セイマスの中で決めよう
+        name = ssw_lit.2.b
+        ai_chance = {
+            base = 60
+        }
+        country_event = {id = ssw_lit.5 days = 3}
+    }
+}
+country_event = { #選挙における共産党の扱い
+    id = ssw_lit.3
+    title = ssw_lit.3.t
+    desc = ssw_lit.3.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #禁止しておけ
+        name = ssw_lit.3.a
+        ai_chance = {
+            base = 70
+        }
+        add_stability = -0.05
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.05
+        }
+        country_event = {id = ssw_lit.4 days = 3}
+        set_country_flag = LIT_ban_communism
+    }
+    option = { #奴らにも機会ぐらいは与えるべきではないか？
+        name = ssw_lit.3.b
+        ai_chance = {
+            base = 30
+        }
+        country_event = { id = ssw_lit.4 days = 3}
+    }
+}
+country_event = { #選挙の結果
+    id = ssw_lit.4
+    title = ssw_lit.4.t
+    desc = ssw_lit.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #民主派の勝利
+        name = ssw_lit.4.a
+        ai_chance = {
+            base = 30
+        }
+        set_country_flag = LIT_vic_democrat
+    }
+    option = { #民族主義派の勝利
+        name = ssw_lit.4.b
+        ai_chance = {
+            base = 40
+        }
+        set_country_flag = LIT_vic_nationalist
+    }
+    option = { #君主主義派の勝利
+        name = ssw_lit.4.c
+        ai_chance = {
+            base = 30
+        }
+        set_country_flag = LIT_vic_monarchy
+    }
+    option = { #共産主義派の勝利
+        name = ssw_lit.4.e
+        ai_chance = {
+            base = 30
+        }
+        trigger = {
+            NOT = {has_country_flag = LIT_ban_communism}
+        }
+        set_country_flag = LIT_vic_communist
+    }
+}
+country_event = { #セイマスでの投票
+    id = ssw_lit.5
+    title = ssw_lit.5.t
+    desc = ssw_lit.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #民主主義派の勝利
+        name = ssw_lit.5.a
+        ai_chance = {
+            base = 30
+        }
+        set_country_flag = LIT_vic_democrat
+    }
+    option = { #民族主義派の勝利
+        name = ssw_lit.5.b
+        ai_chance = {
+            base = 50
+        }
+        set_country_flag = LIT_vic_nationalist
+    }
+    option = { #君主主義派の勝利
+        name = ssw_lit.5.c
+        ai_chance = {
+            base = 20
+        }
+        set_country_flag = LIT_vic_monarchy
+    }
+}
+country_event = { #亡命者の帰還
+    id = ssw_lit.6
+    title = ssw_lit.6.t
+    desc = ssw_lit.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #おかえりなさい！
+        name = ssw_lit.6.a
+        add_stability = 0.05
+        create_country_leader = {
+            name = "Antanas Merkys"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Antanas_Merkys.dds"
+            expire = "1990.1.1"
+            ideology = authority_democracy_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Justas Paleckis"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Justas_Paleckis.dds"
+            expire = "1990.1.1"
+            ideology = classical_communism_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Antanas Sniečkus"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Antanas_Snieckus.dds"
+            expire = "1990.1.1"
+            ideology = progressive_communism_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Leonas Bistras"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Leonas_Bistras.dds"
+            expire = "1990.1.1"
+            ideology = christian_rightist_democracy_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Rapolas Skipitis"
+            desc = ""
+            picture = ""
+            expire = "1990.1.1"
+            ideology = social_liberalism_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Kipras Bielinis"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Kipras_Bielinis.dds"
+            expire = "1990.1.1"
+            ideology = social_democracy_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Regency Council"
+            desc = ""
+            picture = ""
+            expire = "1990.1.1"
+            ideology = authority_despotism_ideology
+            traits = {}
+        }
+        create_country_leader = {
+            name = "Augustinas Voldemaras"
+            desc = ""
+            picture = "gfx/leaders/LIT/Portrait_Augustinas_Voldemaras.dds"
+            expire = "1990.1.1"
+            ideology = national_fascism_ideology
+            traits = {}
+        }
+    }
+}

@@ -1,0 +1,504 @@
+set_GER_Leader_Goering = {
+	create_country_leader = {
+		name = "Hermann Göring"
+		desc = "POLITICS_HERMANN_GORING_DESC"
+		picture = "gfx/leaders/GER/Portrait_Germany_Hermann_Goring.tga"
+		expire = "1980.1.1"
+		ideology = national_socialism_ideology
+		traits = { Air_Force_founder dictator }
+	}
+}
+set_GER_Leader_Himmler = {
+	create_country_leader = {
+		name = "Heinrich Himmler"
+		desc = "POLITICS_HEINRICH_HIMMLER_DESC"
+		picture = "gfx/leaders/HLH/Portrait_Himmler.tga"
+		expire = "1980.1.1"
+		ideology = national_socialism_ideology
+		traits = { dictator GER_SS_Leader }
+	}
+}
+set_GER_Leader_Goebbels = {
+	create_country_leader = {
+		name = "Joseph Goebbels"
+		desc = "POLITICS_JOSEPH_GOEBBELS_bDESC"
+		picture = "gfx/leaders/GER/Goebbels.dds"
+		expire = "1980.1.1"
+		ideology = national_socialism_ideology
+		traits = { dictator GER_Master_of_Propaganda }
+	}
+}
+set_GER_Leader_Bormann = {
+	create_country_leader = {
+		name = "Martin Bormann"
+		desc = "POLITICS_Martin_Bormann_DESC"
+		picture = "gfx/leaders/GER/Portrait_Germany_Martin_Bormann.tga"
+		expire = "1980.1.1"
+		ideology = national_socialism_ideology
+		traits = { dictator GER_Brown_Eminence }
+	}
+}
+
+start_german_civil_war = {
+	all_controlled_state = {
+		add_core_of = HGR
+		add_core_of = HLH
+		add_core_of = MBR
+	}
+	set_variable = { disband_fraction = 1 }
+	disband_units_fraction = yes
+	clear_variable = disband_fraction
+}
+
+Declare_war_on_GER_Everyone = {
+	HGR = {
+		declare_war_on = {
+			target = HLH
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+		set_GER_Leader_Goering = yes
+	}
+	HLH = {
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+		set_GER_Leader_Himmler = yes
+	}
+	GER = {
+		declare_war_on = {
+			target = MBR
+			type = annex_everything
+		}
+		set_GER_Leader_Goebbels = yes
+	}
+	MBR = {
+		set_GER_Leader_Bormann = yes
+	}
+}
+
+state_owner_change = {
+	every_owned_state = {
+		if = {
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 1 }
+			}
+			HGR ={
+				transfer_state = PREV
+				Check_load_oob_Goering = yes
+			}
+		}
+		if = {
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 2 }
+			}
+			HLH ={
+				transfer_state = PREV
+				Check_load_oob_Himmler = yes
+			}
+		}
+		if = {
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 3 }
+			}
+			GER ={
+				transfer_state = PREV
+				Check_load_oob_Goebbels = yes
+			}
+		}
+		if = {
+			limit = {
+				who_is_Best = yes
+				check_variable = { Winner_Var = 4 }
+			}
+			MBR ={
+				transfer_state = PREV
+				Check_load_oob_Bormann = yes
+			}
+		}
+	}
+}
+
+disband_units_fraction = {
+	GER = { 
+		set_temp_variable = {
+			old_manpower = manpower_k
+		}
+	}
+	random_state = {
+		limit = {
+			is_coastal = no
+			owner = {
+				PREV = {
+					is_fully_controlled_by = PREV
+				}
+			}
+		}
+		owner = { save_event_target_as = disband_state_owner }
+		save_event_target_as = disband_state
+		GER = { set_state_owner = PREV }
+	}
+	transfer_units_fraction = {
+		target = GER
+		size = 0
+		army_ratio = var:disband_fraction
+		keep_unit_leaders_trigger = {
+			always = yes
+		}
+	}
+	GER = {
+		every_state = {
+			GER = {
+				delete_unit = { 
+					state = PREV
+					disband = yes
+				}
+			}
+		}
+		set_temp_variable = {
+			manpower_diff = manpower_k
+		}
+		subtract_from_temp_variable = {
+			manpower_diff = old_manpower
+		}
+		while_loop_effect = { #avoid overflows
+			limit = { check_variable = { manpower_diff > 1 } }
+			subtract_from_temp_variable = { manpower_diff = 1 }
+			ROOT = { add_manpower = 1000 }
+			add_manpower = -1000
+		}
+		multiply_temp_variable = {
+			manpower_diff = 1000
+		}
+		ROOT = { add_manpower = PREV.manpower_diff }
+		multiply_temp_variable = {
+			manpower_diff = -1
+		}
+		add_manpower = manpower_diff
+		transfer_units_fraction = {
+			target = ROOT
+			size = 0
+			stockpile_ratio = 1
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+	}
+	event_target:disband_state = {
+		event_target:disband_state_owner = { set_state_owner = PREV }
+	}
+	annex_country = {
+		target = GER
+	}
+}
+
+Check_load_oob_Goering = {
+	PREV = {
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 9 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 8 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 7 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 6 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 5 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 4 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 3 }
+			}
+			load_oob_paratrooper = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 2 }
+			}
+			load_oob_mountaineers = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 1 }
+			}
+			load_oob_infantry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goering_Influence > 0 }
+			}
+			load_oob_infantry = yes
+		}
+	}
+}
+
+Check_load_oob_Himmler = {
+	PREV = {
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 9 }
+			}
+			load_oob_SS = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 8 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 7 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 6 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 5 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 4 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 3 }
+			}
+			load_oob_paratrooper = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 2 }
+			}
+			load_oob_mountaineers = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 1 }
+			}
+			load_oob_infantry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Himmler_Influence > 0 }
+			}
+			load_oob_infantry = yes
+		}
+	}
+}
+
+Check_load_oob_Goebbels = {
+	PREV = {
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 9 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 8 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 7 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 6 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 5 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 4 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 3 }
+			}
+			load_oob_paratrooper = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 2 }
+			}
+			load_oob_mountaineers = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 1 }
+			}
+			load_oob_infantry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Goebbels_Influence > 0 }
+			}
+			load_oob_infantry = yes
+		}
+	}
+}
+
+Check_load_oob_Bormann = {
+	PREV = {
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 9 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 8 }
+			}
+			load_oob_light_armor = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 7 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 6 }
+			}
+			load_oob_motorized = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 5 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 4 }
+			}
+			load_oob_cavalry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 3 }
+			}
+			load_oob_paratrooper = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 2 }
+			}
+			load_oob_mountaineers = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 1 }
+			}
+			load_oob_infantry = yes
+		}
+		if = {
+			limit = { 
+				check_variable = { Current_Bormann_Influence > 0 }
+			}
+			load_oob_infantry = yes
+		}
+	}
+}
+
+load_oob_infantry = {
+	create_unit = {
+		division = "division_template = \"Infanterie-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = PREV
+	}
+}
+load_oob_mountaineers = {
+	create_unit = {
+		division = "division_template = \"Gebirgs-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = PREV
+	}
+}
+load_oob_paratrooper = {
+	create_unit = {
+		division = "division_template = \"Fallschirmjager-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = HGR
+	}
+}
+load_oob_motorized = {
+	create_unit = {
+		division = "division_template = \"Infanterie-Division (mot.)\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = HGR
+	}
+}
+load_oob_light_armor = {
+	create_unit = {
+		division = "division_template = \"Panzer-Division\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = HGR
+	}
+}
+load_oob_cavalry = {
+	create_unit = {
+		division = "division_template = \"Kavallerie-Brigade\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = HGR
+	}
+}
+load_oob_SS = {
+	create_unit = {
+		division = "division_template = \"SS-Regiment\" start_experience_factor = 0.1  start_equipment_factor = 0.5" owner = HGR
+	}
+}
