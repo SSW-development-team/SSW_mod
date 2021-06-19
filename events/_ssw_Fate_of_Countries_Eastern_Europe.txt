@@ -11,134 +11,36 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 		trigger = {
 			NOT = {
 				AMR = { is_subject_of = ROOT }
-				is_in_faction_with = AMR
-				original_tag = AMR
-				SIB = { is_subject_of = ROOT }
-				is_in_faction_with = SIB
-				original_tag = SIB
 				MOS = { is_subject_of = ROOT }
-				is_in_faction_with = MOS
-				original_tag = MOS
+				SIB = { is_subject_of = ROOT }
 				TUV = { is_subject_of = ROOT }
+				is_in_faction_with = AMR
+				is_in_faction_with = MOS
+				is_in_faction_with = SIB
 				is_in_faction_with = TUV
+				original_tag = AMR
+				original_tag = MOS
+				original_tag = SIB
 				original_tag = TUV
-				ACO = { is_subject_of = ROOT }
-				is_in_faction_with = ACO
-				original_tag = ACO
-				AMC = { is_subject_of = ROOT }
-				is_in_faction_with = AMC
-				original_tag = AMC
-				BLO = { is_subject_of = ROOT }
-				is_in_faction_with = BLO
-				original_tag = BLO
-				FAR = { is_subject_of = ROOT }
-				is_in_faction_with = FAR
-				original_tag = FAR
-				NBL = { is_subject_of = ROOT }
-				is_in_faction_with = NBL
-				original_tag = NBL
-				RBL = { is_subject_of = ROOT }
-				is_in_faction_with = RBL
-				original_tag = RBL
-				RSE = { is_subject_of = ROOT }
-				is_in_faction_with = RSE
-				original_tag = RSE
-				RLB = { is_subject_of = ROOT }
-				is_in_faction_with = RLB
-				original_tag = RLB
-				TOA = { is_subject_of = ROOT }
-				is_in_faction_with = TOA
-				original_tag = TOA
 			}
 		}
-		if = {
+		every_state = {
 			limit = {
-				OR = {
-					has_government = progressive_communism
-					has_government = classical_communism
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
 				}
 			}
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = RUS
-						is_core_of = SOV
-					}
-					is_owned_and_controlled_by = ROOT
-					NOT = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-						has_state_flag = maybe_core_WTR_GAMESTART
-						has_state_flag = maybe_core_TUV_GAMESTART
-						has_state_flag = maybe_core_BLR_GAMESTART
-						has_state_flag = maybe_core_UKR_GAMESTART
-						has_state_flag = maybe_core_BAL_GAMESTART
-						has_state_flag = maybe_core_FIN_GAMESTART
-						has_state_flag = maybe_core_CCS_GAMESTART
-						has_state_flag = maybe_core_SIB_GAMESTART
-						has_state_flag = maybe_core_MAN_GAMESTART
-						has_state_flag = maybe_core_DON_GAMESTART
-						has_state_flag = maybe_core_GER_GAMESTART
-						has_state_flag = maybe_core_POL_GAMESTART
-						has_state_flag = maybe_core_ROM_GAMESTART
-					}
-				}
-				SOV = { transfer_state = PREV }
-				add_core_of = SOV
-				if = {
-					limit = { SOV = { has_cosmetic_tag = SOV_provisional } }
-					SOV = { drop_cosmetic_tag = yes }
-				}
-			}
-			puppet = SOV
+			add_core_of = RSP
+			RSP = { transfer_state = PREV }
 		}
-		if = {
-			limit = {
-				OR = {
-					has_government = social_democracy
-					has_government = social_liberalism
-					has_government = social_conservatism
-					has_government = authority_despotism
-					has_government = authority_democracy
-					has_government = national_fascism
-					has_government = national_socialism
-					has_government = corporatocracism
-				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = RUS
-						is_core_of = SOV
-					}
-					is_owned_and_controlled_by = ROOT
-					NOT = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-						has_state_flag = maybe_core_WTR_GAMESTART
-						has_state_flag = maybe_core_TUV_GAMESTART
-						has_state_flag = maybe_core_BLR_GAMESTART
-						has_state_flag = maybe_core_UKR_GAMESTART
-						has_state_flag = maybe_core_BAL_GAMESTART
-						has_state_flag = maybe_core_FIN_GAMESTART
-						has_state_flag = maybe_core_CCS_GAMESTART
-						has_state_flag = maybe_core_SIB_GAMESTART
-						has_state_flag = maybe_core_MAN_GAMESTART
-						has_state_flag = maybe_core_DON_GAMESTART
-						has_state_flag = maybe_core_GER_GAMESTART
-						has_state_flag = maybe_core_POL_GAMESTART
-						has_state_flag = maybe_core_ROM_GAMESTART
-					}
-				}
-				RUS = { transfer_state = PREV }
-				add_core_of = RUS
-			}
-			puppet = RUS
-		}
+		puppet = RSP
 	}
 	option = {
 		name = ssw_foc_eastern_europe.0.b
-		ai_chance = { base = 10 }
+		ai_chance = { base = 190 }
 		trigger = {
 			OR = {
 				SIB = { is_subject_of = ROOT }
@@ -148,39 +50,23 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 		}
 		every_state = {
 			limit = {
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
 				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_WTR_GAMESTART
-					has_state_flag = maybe_core_TUV_GAMESTART
-					has_state_flag = maybe_core_BLR_GAMESTART
-					has_state_flag = maybe_core_UKR_GAMESTART
-					has_state_flag = maybe_core_BAL_GAMESTART
-					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_CCS_GAMESTART
-					has_state_flag = maybe_core_SIB_GAMESTART
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_DON_GAMESTART
-					has_state_flag = maybe_core_GER_GAMESTART
-					has_state_flag = maybe_core_POL_GAMESTART
-					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
+			add_core_of = SIB
 			SIB = {
 				transfer_state = PREV
 				set_cosmetic_tag = SIB_russia
 			}
-			add_core_of = SIB
 		}
 	}
 	option = {
 		name = ssw_foc_eastern_europe.0.c
-		ai_chance = { base = 10 }
+		ai_chance = { base = 190 }
 		trigger = {
 			OR = {
 				MOS = { is_subject_of = ROOT }
@@ -190,101 +76,52 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 		}
 		every_state = {
 			limit = {
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
 				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_WTR_GAMESTART
-					has_state_flag = maybe_core_TUV_GAMESTART
-					has_state_flag = maybe_core_BLR_GAMESTART
-					has_state_flag = maybe_core_UKR_GAMESTART
-					has_state_flag = maybe_core_BAL_GAMESTART
-					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_CCS_GAMESTART
-					has_state_flag = maybe_core_SIB_GAMESTART
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_DON_GAMESTART
-					has_state_flag = maybe_core_GER_GAMESTART
-					has_state_flag = maybe_core_POL_GAMESTART
-					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
+			add_core_of = MOS
 			MOS = {
 				transfer_state = PREV
 				set_cosmetic_tag = MOS_russia
 			}
-			add_core_of = MOS
 		}
 	}
 	option = {
 		name = ssw_foc_eastern_europe.0.d
-		ai_chance = { base = 10 }
+		ai_chance = { base = 190 }
 		trigger = {
 			OR = {
-				ACO = { is_subject_of = ROOT }
-				is_in_faction_with = ACO
-				original_tag = ACO
-				AMC = { is_subject_of = ROOT }
-				is_in_faction_with = AMC
-				original_tag = AMC
-				BLO = { is_subject_of = ROOT }
-				is_in_faction_with = BLO
-				original_tag = BLO
-				FAR = { is_subject_of = ROOT }
-				is_in_faction_with = FAR
-				original_tag = FAR
-				NBL = { is_subject_of = ROOT }
-				is_in_faction_with = NBL
-				original_tag = NBL
-				RBL = { is_subject_of = ROOT }
-				is_in_faction_with = RBL
-				original_tag = RBL
-				RSE = { is_subject_of = ROOT }
-				is_in_faction_with = RSE
-				original_tag = RSE
-				RLB = { is_subject_of = ROOT }
-				is_in_faction_with = RLB
-				original_tag = RLB
-				TOA = { is_subject_of = ROOT }
-				is_in_faction_with = TOA
-				original_tag = TOA
+				ARC = { is_subject_of = ROOT }
+				is_in_faction_with = ARC
+				original_tag = ARC
+			}
+			ARC = {
+				owns_state = 564
+				owns_state = 565
+				owns_state = 574
+				owns_state = 644
 			}
 		}
 		every_state = {
 			limit = {
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
 				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_WTR_GAMESTART
-					has_state_flag = maybe_core_TUV_GAMESTART
-					has_state_flag = maybe_core_BLR_GAMESTART
-					has_state_flag = maybe_core_UKR_GAMESTART
-					has_state_flag = maybe_core_BAL_GAMESTART
-					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_CCS_GAMESTART
-					has_state_flag = maybe_core_SIB_GAMESTART
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_DON_GAMESTART
-					has_state_flag = maybe_core_GER_GAMESTART
-					has_state_flag = maybe_core_POL_GAMESTART
-					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
-			add_claim_by = ROOT
+			add_core_of = ARC
+			ARC = { transfer_state = PREV }
 		}
 	}
 	option = {
 		name = ssw_foc_eastern_europe.0.e
-		ai_chance = { base = 10 }
+		ai_chance = { base = 190 }
 		trigger = {
 			OR = {
 				AMR = { is_subject_of = ROOT }
@@ -294,34 +131,18 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 		}
 		every_state = {
 			limit = {
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
 				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_WTR_GAMESTART
-					has_state_flag = maybe_core_TUV_GAMESTART
-					has_state_flag = maybe_core_BLR_GAMESTART
-					has_state_flag = maybe_core_UKR_GAMESTART
-					has_state_flag = maybe_core_BAL_GAMESTART
-					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_CCS_GAMESTART
-					has_state_flag = maybe_core_SIB_GAMESTART
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_DON_GAMESTART
-					has_state_flag = maybe_core_GER_GAMESTART
-					has_state_flag = maybe_core_POL_GAMESTART
-					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
+			add_core_of = AMR
 			AMR = {
 				transfer_state = PREV
 				set_cosmetic_tag = AMR_russia
 			}
-			add_core_of = AMR
 		}
 	}
 	option = {
@@ -336,34 +157,18 @@ country_event = { #ÉçÉVÉAÇÃâ^ñΩ
 		}
 		every_state = {
 			limit = {
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
 				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
-					has_state_flag = maybe_core_WTR_GAMESTART
-					has_state_flag = maybe_core_TUV_GAMESTART
-					has_state_flag = maybe_core_BLR_GAMESTART
-					has_state_flag = maybe_core_UKR_GAMESTART
-					has_state_flag = maybe_core_BAL_GAMESTART
-					has_state_flag = maybe_core_FIN_GAMESTART
-					has_state_flag = maybe_core_CCS_GAMESTART
-					has_state_flag = maybe_core_SIB_GAMESTART
-					has_state_flag = maybe_core_MAN_GAMESTART
-					has_state_flag = maybe_core_DON_GAMESTART
-					has_state_flag = maybe_core_GER_GAMESTART
-					has_state_flag = maybe_core_POL_GAMESTART
-					has_state_flag = maybe_core_ROM_GAMESTART
 				}
 			}
+			add_core_of = TUV
 			TUV = {
 				transfer_state = PREV
 				set_cosmetic_tag = TUV_russia
 			}
-			add_core_of = TUV
 		}
 	}
 	option = {
