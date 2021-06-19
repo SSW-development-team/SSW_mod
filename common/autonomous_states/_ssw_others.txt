@@ -1,0 +1,60 @@
+autonomy_state = {
+	id = condominium
+	is_puppet = yes
+	
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.0
+	manpower_influence = 1
+	
+	rule = {}
+	modifier = {}
+	
+	ai_subject_wants_higher = {	factor = 1	}
+	ai_overlord_wants_lower = {	factor = 0	}
+	
+	allowed = {
+		has_variable = ssw_condominium_variable
+		NOT = {	has_variable = ssw_colony_variable	}
+		NOT = {	has_variable = ssw_protectirate_variable	}
+	}
+}
+
+autonomy_state = {
+	id = occupied_territories
+	is_puppet = yes
+	
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.0
+	manpower_influence = 1.0
+	
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+	}
+	modifier = {}
+	
+	allowed = {
+		has_country_flag = occupied_territories_formed_by
+	}
+}
+
+autonomy_state = {
+	id = junior_partner_state
+	is_puppet = yes
+	
+	use_overlord_color = yes
+	
+	min_freedom_level = 0.0
+	manpower_influence = 1
+	
+	rule = {}
+	modifier = {}
+	
+	allowed = {
+		has_variable = ssw_junior_partner_state_variable
+		NOT = {	has_variable = ssw_colony_variable	}
+		NOT = {	has_variable = ssw_protectirate_variable	}
+	}
+}

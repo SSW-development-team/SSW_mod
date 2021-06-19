@@ -87,6 +87,16 @@ BRM_deal_with_ethnic_conflicts = {
 			}
 			custom_effect_tooltip = BRM_minorities_resistance_tooltip_red
 			BRM_update_resistance_idea = yes
+			if = {
+				limit = {
+					check_variable = {
+						minorities_resistance > 99
+					}
+				}
+				country_event = {
+					id = ssw_brm.12
+				}
+			}
 		}
 		is_good = no
 	}

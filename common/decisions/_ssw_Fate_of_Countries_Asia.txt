@@ -999,4 +999,49 @@ fate_of_countries_category_asia = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	fate_of_indonesia = { #インドネシアの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			NOT = {
+				country_exists = IDN
+				country_exists = INS
+			}
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_INS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			IDN = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			INS = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_indonesia }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_government = anarchism
+				is_subject = yes
+				country_exists = IDN
+				country_exists = INS
+				IDN = { capital_scope = { is_valid_annexation_state = no } }
+				INS = { capital_scope = { is_valid_annexation_state = no } }
+				has_country_flag = continue_to_occupy_indonesia
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_asia.19 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_indonesia
+		}
+		ai_will_do = { factor = 100 }
+	}
 }

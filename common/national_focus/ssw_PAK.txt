@@ -1,0 +1,687 @@
+focus_tree = {
+	id = ssw_PAK
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PAK
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 1200
+		y = 1000
+	}
+	focus = {
+		id = PAK_imminent_war
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 8
+		y = 0
+		completion_reward = {
+			add_political_power = 5
+			army_experience = 5
+		}
+	}
+	focus = {
+		id = PAK_1946
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 2
+		y = 4
+		completion_reward = {
+			add_stability = -0.1
+			add_ideas = PAK_1946
+		}
+	}
+	focus = {
+		id = PAK_strengthen_army
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 17
+		y = 0
+	}
+	focus = {
+		id = PAK_chinese_doctorine
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_strengthen_army
+		}
+		x = 0
+		y = 1
+		relative_position_id = PAK_strengthen_army
+	}
+	focus = {
+		id = PAK_recovery_signs
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_1946
+		}
+		x = 2
+		y = 5
+		completion_reward = {
+			add_stability = 0.005
+		}
+	}
+	focus = {
+		id = PAK_economic_reform
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_recovery_signs
+		}
+		x = 2
+		y = 6
+	}
+	focus = {
+		id = PAK_build_infra
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_economic_reform
+		}
+		x = 0
+		y = 7
+	}
+	focus = {
+		id = PAK_promote_agriculture
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_economic_reform
+		}
+		x = 2
+		y = 7
+	}
+	focus = {
+		id = PAK_agricultural_reform
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_promote_agriculture
+		}
+		x = 2
+		y = 8
+	}
+	focus = {
+		id = PAK_expand_industry
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_agricultural_reform
+		}
+		x = 2
+		y = 9
+	}
+	focus = {
+		id = PAK_reinforce_every_genre
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_expand_industry
+		}
+		x = 2
+		y = 10
+	}
+	focus = {
+		id = PAK_political_problem
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_imminent_war
+		}
+		x = 8
+		y = 1
+		completion_reward = {
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = PAK_Liaquat_won
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_political_problem
+		}
+		x = 8
+		y = 2
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = PAK_continue_Liaquat
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_Liaquat_won
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+			add_ideas = PAK_continue_Liaquat
+			add_political_power = 5
+		}
+	}
+	focus = {
+		id = PAK_holy_revolt
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_Liaquat_won
+		}
+		x = 10
+		y = 3
+	}
+	focus = {
+		id = PAK_islam_first
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_holy_revolt
+		}
+		x = 10
+		y = 4
+	}
+	focus = {
+		id = PAK_national_unity
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_islam_first
+		}
+		x = 10
+		y = 5
+	}
+	focus = {
+		id = PAK_deal_with_traitor
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_national_unity
+		}
+		x = 9
+		y = 6
+	}
+	focus = {
+		id = PAK_build_camps
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_national_unity
+		}
+		x = 11
+		y = 6
+	}
+	focus = {
+		id = PAK_disown_east
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_deal_with_traitor
+		}
+		prerequisite = {
+			focus = PAK_build_camps
+		}
+		x = 10
+		y = 7
+	}
+	focus = {
+		id = PAK_reinforce_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_chinese_doctorine
+		}
+		x = 14
+		y = 2
+	}
+	focus = {
+		id = PAK_to_great_army
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_reinforce_army
+		}
+		x = 13
+		y = 3
+	}
+	focus = {
+		id = PAK_secure_supply
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_to_great_army
+		}
+		x = 13
+		y = 4
+	}
+	focus = {
+		id = PAK_mountainious_battle
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_reinforce_army
+		}
+		x = 15
+		y = 3
+	}
+	focus = {
+		id = PAK_buy_chinese_artillery
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_mountainious_battle
+		}
+		x = 15
+		y = 4
+	}
+	focus = {
+		id = PAK_modernize_divisions
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_secure_supply
+		}
+		prerequisite = {
+			focus = PAK_buy_chinese_artillery
+		}
+		x = 14
+		y = 5
+	}
+	focus = {
+		id = PAK_navy_preparation
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_chinese_doctorine
+		}
+		x = 17
+		y = 2
+	}
+	focus = {
+		id = PAK_excercize_arabia
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_navy_preparation
+		}
+		x = 17
+		y = 3
+	}
+	focus = {
+		id = PAK_build_ports
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_excercize_arabia
+		}
+		x = 17
+		y = 4
+	}
+	focus = {
+		id = PAK_improve_quality
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_build_ports
+		}
+		x = 17
+		y = 5
+	}
+	focus = {
+		id = PAK_protect_territorial
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_improve_quality
+		}
+		x = 17
+		y = 6
+	}
+	focus = {
+		id = PAK_Liaquat_speech
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_continue_Liaquat
+		}
+		x = 6
+		y = 4
+	}
+	focus = {
+		id = PAK_seek_public_support
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_Liaquat_speech
+		}
+		x = 5
+		y = 5
+	}
+	focus = {
+		id = PAK_focus_administration
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_seek_public_support
+		}
+		x = 5
+		y = 6
+		completion_reward = {
+			add_ideas = PAK_focus_administration
+		}
+	}
+	focus = {
+		id = PAK_prepare_war
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_Liaquat_speech
+		}
+		x = 7
+		y = 5
+		completion_reward = {
+			add_ideas = PAK_prepare_war
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = PAK_cooperation_CHI
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_prepare_war
+		}
+		x = 7
+		y = 6
+	}
+	focus = {
+		id = PAK_invite_chinese_engineers
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_build_infra
+		}
+		x = 0
+		y = 8
+	}
+	focus = {
+		id = PAK_build_roads
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_invite_chinese_engineers
+		}
+		x = 0
+		y = 9
+	}
+	focus = {
+		id = PAK_promote_industrialization
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_focus_administration
+		}
+		prerequisite = {
+			focus = PAK_economic_reform
+		}
+		x = 4
+		y = 7
+	}
+	focus = {
+		id = PAK_expand_arms_factories
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_promote_industrialization
+		}
+		x = 4
+		y = 8
+	}
+	focus = {
+		id = PAK_improve_production_efficiency
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_expand_arms_factories
+		}
+		x = 4
+		y = 9
+	}
+	focus = {
+		id = PAK_solve_political_problem
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_focus_administration
+		}
+		prerequisite = {
+			focus = PAK_cooperation_CHI
+		}
+		x = 6
+		y = 7
+		completion_reward = {
+			add_ideas = PAK_solve_political_problem
+			add_political_power = 10
+		}
+	}
+	focus = {
+		id = PAK_far_east_situation
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_solve_political_problem
+		}
+		prerequisite = {
+			focus = PAK_disown_east
+		}
+		x = 8
+		y = 8
+		completion_reward = {
+			army_experience = 1
+			add_stability = -0.1
+		}
+	}
+	focus = {
+		id = PAK_start_mobilization
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_far_east_situation
+		}
+		x = 8
+		y = 9
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = disarmed_nation
+				}
+				swap_ideas = {
+					remove_idea = disarmed_nation
+					add_idea = volunteer_only
+				}
+			}
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				swap_ideas = {
+					remove_idea = volunteer_only
+					add_idea = limited_conscription
+				}
+			}
+			if = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				swap_ideas = {
+					remove_idea = limited_conscription
+					add_idea = extensive_conscription
+				}
+			}
+			if = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				swap_ideas = {
+					remove_idea = extensive_conscription
+					add_idea = service_by_requirement
+				}
+			}
+		}
+	}
+	focus = {
+		id = PAK_beat_heathen
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_start_mobilization
+		}
+		x = 8
+		y = 10
+		completion_reward = {
+			add_war_support = 5
+			add_ideas = PAK_beat_heathen
+		}
+	}
+	focus = {
+		id = PAK_expand_spy
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_beat_heathen
+		}
+		x = 7
+		y = 11
+	}
+	focus = {
+		id = PAK_islam_volunteers
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_expand_spy
+		}
+		x = 7
+		y = 12
+	}
+	focus = {
+		id = PAK_anti_india
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_islam_volunteers
+		}
+		x = 7
+		y = 13
+	}
+	focus = {
+		id = PAK_infantary_training
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_beat_heathen
+		}
+		x = 9
+		y = 11
+	}
+	focus = {
+		id = PAK_over_river
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_infantary_training
+		}
+		x = 9
+		y = 12
+	}
+	focus = {
+		id = PAK_aim_Delhi
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_over_river
+		}
+		x = 9
+		y = 13
+	}
+	focus = {
+		id = PAK_path_win
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_anti_india
+		}
+		prerequisite = {
+			focus = PAK_aim_Delhi
+		}
+		x = 8
+		y = 14
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = PAK_organize_moutainious_divisions
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_modernize_divisions
+		}
+		x = 14
+		y = 6
+	}
+	focus = {
+		id = PAK_buy_fighters
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_chinese_doctorine
+		}
+		x = 19
+		y = 2
+	}
+	focus = {
+		id = PAK_expand_airbases
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_buy_fighters
+		}
+		x = 19
+		y = 3
+	}
+	focus = {
+		id = PAK_expand_airbases2
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_expand_airbases
+		}
+		x = 19
+		y = 4
+	}
+	focus = {
+		id = PAK_conduct_excercise
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_expand_airbases2
+		}
+		x = 19
+		y = 5
+	}
+	focus = {
+		id = PAK_produce_fighters
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = PAK_conduct_excercise
+		}
+		x = 19
+		y = 6
+	}
+}

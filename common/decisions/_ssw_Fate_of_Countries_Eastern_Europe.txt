@@ -8,6 +8,7 @@ fate_of_countries_category_eastern_europe = {
 		fire_only_once = no
 		activation = {
 			NOT = {
+				country_exists = RSP
 				country_exists = RUS
 				country_exists = SOV
 				has_cosmetic_tag = AMR_russia
@@ -18,10 +19,7 @@ fate_of_countries_category_eastern_europe = {
 			}
 			any_state = {
 				is_owned_and_controlled_by = ROOT
-				OR = {
-					is_core_of = RUS
-					is_core_of = SOV
-				}
+				has_state_flag = maybe_less_RUS_GAMESTART
 				NOT = {
 					is_core_of = ROOT
 					is_claimed_by = ROOT
@@ -34,6 +32,7 @@ fate_of_countries_category_eastern_europe = {
 			OR = {
 				has_government = anarchism
 				is_subject = yes
+				country_exists = RSP
 				country_exists = RUS
 				country_exists = SOV
 				249 = { is_valid_annexation_state = no }

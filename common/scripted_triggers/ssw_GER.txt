@@ -148,7 +148,15 @@ who_is_Best = {
 	}
 	else = {
 		limit = {
-			check_variable = { test = 0 }
+			OR = {
+				check_variable = { test = 0 }
+				NOT = {
+					has_variable =Current_Goering_Influence
+					has_variable =Current_Himmler_Influence
+					has_variable =Current_Goebbels_Influence
+					has_variable =Current_Bormann_Influence
+				}
+			}
 		}
 		set_temp_variable = { Winner_Var = 5 }
 	}
