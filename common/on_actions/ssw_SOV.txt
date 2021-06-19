@@ -1,26 +1,16 @@
 on_actions = {
-	on_state_control_changed = {#モスクワ陥落後のイベント
+	on_state_control_changed = { #モスクワ陥落後のイベント
 		effect = {
 			if = {
 				limit = {
-					ROOT = {
-						OR = {
-							tag = SOV
-						}
-					}
-					FROM.FROM = { 
-							state = 219
-					}
+					ROOT = { tag = SOV }
+					FROM.FROM = { state = 219 }
 				}
 				every_country = {
-					limit = {
-						is_ai = no
-					}
+					limit = { is_ai = no }
 					set_country_flag = big_event_soviet_moscow_custom
 				}
-
 			}
 		}
 	}
-
 }

@@ -4,7 +4,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = BRM
+			original_tag = BRM
 		}
 	}
 	default = no
@@ -72,6 +72,9 @@ focus_tree = {
 				has_global_flag = BRM_civil_war
 			}
 		}
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BRM_ne_win
@@ -84,6 +87,11 @@ focus_tree = {
 				has_global_flag = BRM_civil_war
 			}
 		}
+		available = {
+			has_country_leader = {
+				name = "Ne Win"
+			}
+		}
 	}
 	focus = {
 		id = BRM_aung_san
@@ -94,6 +102,11 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_global_flag = BRM_civil_war
+			}
+		}
+		available = {
+			has_country_leader = {
+				name = "Aung San"
 			}
 		}
 	}
@@ -2202,6 +2215,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			remove_ideas = BRM_tired_economy6
+			complete_national_focus = BRM_continue_ba_mau
 		}
 	}
 	focus = {
@@ -2321,6 +2335,9 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			remove_ideas = BRM_tired_economy7
+			country_event = {
+				id = ssw_brm.23
+			}
 		}
 	}
 	focus = {
@@ -3676,8 +3693,10 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			NGL = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
@@ -3791,8 +3810,10 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			ARK = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
@@ -3808,8 +3829,10 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			PEG = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
@@ -3826,9 +3849,20 @@ focus_tree = {
 		completion_reward = {
 			every_country = {
 				limit = {
-					original_tag = BRM
-					NOT = {
-						tag = ROOT
+					OR = {
+						AND = {
+							original_tag = BRM
+							NOT = {
+								tag = ROOT
+							}
+						}
+						tag = ARK
+						tag = KAC
+						tag = SHA
+						tag = NGL
+						tag = CHN
+						tag = KRE
+						tag = PEG
 					}
 				}
 				ROOT = {

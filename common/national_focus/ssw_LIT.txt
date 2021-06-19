@@ -2139,7 +2139,7 @@ focus_tree = {
                     free_building_slots = {
                         building = industrial_complex
                         size > 0
-                        include_locked = no
+                        include_locked = yes
                     }
                 }
                 add_extra_state_shared_building_slots = 1
@@ -2283,7 +2283,7 @@ focus_tree = {
                     free_building_slots = {
                         building = arms_factory
                         size > 1
-                        include_locked = no
+                        include_locked = yes
                     }
                 }
                 add_extra_state_shared_building_slots = 2
@@ -3176,6 +3176,664 @@ focus_tree = {
             swap_ideas = {
                 remove_idea = LIT_support
                 add_idea = LIT_support_2
+            }
+        }
+    }
+    focus = { #海軍の編成
+        id = LIT_navy_form
+        icon = GFX_goal_generic_navy_battleship
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = LIT_finished_politic
+                OR = {
+                    has_completed_focus = LIT_democratic_reform
+                    has_completed_focus = LIT_establish_national_state
+                    has_completed_focus = LIT_enthronement
+                    has_completed_focus = LIT_hold_communist_congress
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 46
+        y = 0
+        completion_reward = {
+            navy_experience = 15
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = naval_doctrine
+            }
+        }
+    }
+    focus = { #バルト海の艦隊
+        id = LIT_baltic_fleet
+        icon = GFX_focus_generic_navy_battleship2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_navy_form
+        }
+        x = 45
+        y = 1
+        completion_reward = {
+            random_owned_state = {
+                limit = {
+                    is_coastal = yes
+                    free_building_slots = {
+                        building = dockyard
+                        size > 1
+                        include_locked = yes
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = { #建造の依頼
+        id = LIT_request_construct
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_fleet
+        }
+        x = 45
+        y = 2
+        completion_reward = {
+        }
+    }
+    focus = { #自立した艦隊
+        id = LIT_independent_fleet
+        icon = GFX_goal_generic_occupy_states_coastal
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_request_construct
+        }
+        x = 45
+        y = 3
+        completion_reward = {
+            if = {
+                limit = {
+                    has_idea = LIT_idea_navy_2
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_navy_2
+                    add_idea = LIT_idea_navy_3
+                }
+            }
+            else = {
+                add_ideas = LIT_idea_navy_1
+            }
+        }
+    }
+    focus = { #クライペダ軍港
+        id = LIT_Klaipeda_military_port
+        icon = GFX_goal_generic_construct_naval_dockyard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            owns_state = 188
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_independent_fleet
+        }
+        prerequisite = {
+            focus = LIT_protect_and_destruct
+        }
+        mutually_exclusive = {
+            focus = LIT_cooperate_Riga
+        }
+        x = 45
+        y = 4
+        completion_reward = {
+            188 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = dockyard
+                        level = 2
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = naval_base
+                        level = 2
+                        instant_build = yes
+                        province = 3288
+                    }
+                }
+            }
+        }
+    }
+    focus = { #リトアニアの海軍
+        id = LIT_lithuanian_navy
+        icon = GFX_goal_generic_navy_cruiser
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_Klaipeda_military_port
+        }
+        x = 45
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_navy_3
+                add_idea = LIT_idea_navy_mine
+            }
+        }
+    }
+    focus = { #通商保護
+        id = LIT_trade_protect
+        icon = GFX_focus_generic_destroyer
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_navy_form
+        }
+        x = 47
+        y = 1
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = dd_tech
+            }
+        }
+    }
+    focus = { #オストランドの遺産
+        id = LIT_regacy_of_ostland
+        icon = GFX_goal_generic_navy_submarine
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_trade_protect
+        }
+        x = 47
+        y = 2
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 2
+                category = ss_tech
+            }
+        }
+    }
+    focus = { #保護と破壊
+        id = LIT_protect_and_destruct
+        icon = GFX_goal_generic_navy_anti_submarine
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_regacy_of_ostland
+        }
+        x = 47
+        y = 3
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = naval_doctrine
+            }
+            if = {
+                limit = {
+                    has_idea = LIT_idea_navy_1
+                }
+                swap_ideas = {
+                    remove_idea = LIT_idea_navy_1
+                    add_idea = LIT_idea_navy_3
+                }
+            }
+            else = {
+                add_ideas = LIT_idea_navy_2
+            }
+        }
+    }
+    focus = { #リガとの協力
+        id = LIT_cooperate_Riga
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            country_exists = LAT
+            LAT = {
+                owns_state = 1233
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_independent_fleet
+        }
+        prerequisite = {
+            focus = LIT_protect_and_destruct
+        }
+        mutually_exclusive = {
+            focus = LIT_Klaipeda_military_port
+        }
+        x = 47
+        y = 4
+        completion_reward = {
+            1233 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = naval_base
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            add_offsite_building = {
+                type = dockyard
+                level = 1
+            }
+            diplomatic_relation = {
+                country = LAT
+                relation = docking_rights
+                active = yes
+            }
+        }
+    }
+    focus = { #バルトの海軍
+        id = LIT_baltic_navy
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_cooperate_Riga
+        }
+        x = 47
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_navy_3
+                add_idea = LIT_idea_navy_balt
+            }
+        }
+    }
+    focus = { #我々の空を確保
+        id = LIT_secure_our_sky
+        icon = GFX_focus_generic_air_defense
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = LIT_finished_politic
+                OR = {
+                    has_completed_focus = LIT_democratic_reform
+                    has_completed_focus = LIT_establish_national_state
+                    has_completed_focus = LIT_enthronement
+                    has_completed_focus = LIT_hold_communist_congress
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 50
+        y = 0
+        completion_reward = {
+            air_experience = 15
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = air_doctrine
+            }
+        }
+    }
+    focus = { #爆撃機隊の編成
+        id = LIT_bomber_corp_form
+        icon = GFX_goal_generic_air_bomber
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_secure_our_sky
+        }
+        x = 49
+        y = 1
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = tactical_bomber
+            }
+        }
+    }
+    focus = { #陸軍の支援
+        id = LIT_support_army
+        icon = GFX_goal_generic_CAS
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_bomber_corp_form
+        }
+        x = 49
+        y = 2
+        completion_reward = {
+            add_ideas = LIT_bomber_corp
+        }
+    }
+    focus = { #戦略爆撃
+        id = LIT_strategy_bomb
+        icon = GFX_goal_poland_goal
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_support_army
+        }
+        x = 49
+        y = 3
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = cat_strategic_bomber
+            }
+            swap_ideas = {
+                remove_idea = LIT_bomber_corp
+                add_idea = LIT_bomber_corp_2
+            }
+        }
+    }
+    focus = { #海軍の支援
+        id = LIT_support_navy
+        icon = GFX_goal_generic_air_naval_bomber
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_strategy_bomb
+        }
+        prerequisite = {
+            focus = LIT_independent_fleet
+            focus = LIT_protect_and_destruct
+        }
+        x = 49
+        y = 4
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = naval_air
+            }
+            swap_ideas = {
+                remove_idea = LIT_bomber_corp_2
+                add_idea = LIT_bomber_corp_3
+            }
+        }
+    }
+    focus = { #空軍戦術の刷新
+        id = LIT_renewal_air_force_tactic
+        icon = GFX_goal_generic_air_doctrine
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_support_navy
+        }
+        prerequisite = {
+            focus = LIT_secure_product_air_equip
+        }
+        x = 49
+        y = 5
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = air_doctrine
+            }
+            add_ideas = LIT_new_air_tactic
+        }
+    }
+    focus = { #制空への努力
+        id = LIT_effort_control_air
+        icon = GFX_goal_generic_air_fighter2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_secure_our_sky
+        }
+        x = 51
+        y = 1
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = light_fighter
+            }
+            add_ideas = LIT_idea_effort_control_air
+        }
+    }
+    focus = { #自国での開発
+        id = LIT_air_dev_our_country
+        icon = GFX_focus_research
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_effort_control_air
+        }
+        mutually_exclusive = {
+            focus = LIT_technology_coop_others
+        }
+        x = 51
+        y = 2
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 2
+                category = air_equipment
+            }
+        }
+    }
+    focus = { #他国との技術協力
+        id = LIT_technology_coop_others
+        icon = GFX_goal_generic_scientific_exchange
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_effort_control_air
+        }
+        mutually_exclusive = {
+            focus = LIT_air_dev_our_country
+        }
+        x = 53
+        y = 2
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = air_equipment
+            }
+        }
+    }
+    focus = { #グスタティスの近代化(Antanas Gustaitis)
+        id = LIT_Gustatis_modernization
+        icon = GFX_goal_generic_air_fighter
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_air_dev_our_country
+        }
+        x = 51
+        y = 3
+        completion_reward = {
+            add_ideas = LIT_modernization_Gustatis_s
+        }
+    }
+    focus = { #協力先の模索
+        id = LIT_search_cooperate
+        icon = GFX_goal_generic_radar
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_technology_coop_others
+        }
+        x = 53
+        y = 3
+        completion_reward = {
+            add_ideas = LIT_air_dev_coop
+        }
+    }
+    focus = { #生産設備の確保
+        id = LIT_secure_product_air_equip
+        icon = GFX_goal_generic_production2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_Gustatis_modernization
+            focus = LIT_search_cooperate
+        }
+        x = 51
+        y = 4
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_effort_control_air
+                add_idea = LIT_idea_effort_control_air_2
+            }
+        }
+    }
+    focus = { #パイロットの育成
+        id = LIT_pilot_training
+        icon = GFX_focus_generic_military_academy
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_secure_product_air_equip
+        }
+        prerequisite = {
+            focus = LIT_support_navy
+        }
+        x = 51
+        y = 5
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_idea_effort_control_air_2
+                add_idea = LIT_idea_effort_control_air_3
             }
         }
     }
