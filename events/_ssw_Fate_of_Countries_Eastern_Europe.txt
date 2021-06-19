@@ -836,6 +836,37 @@ country_event = { #ƒZƒ‹ƒrƒA‚Ì‰^–½
 		puppet = YUG
 	}
 	option = {
+		name = ssw_foc_eastern_europe.6.b
+		ai_chance = { base = 190 }
+		trigger = {
+			OR = {
+				CRO = { is_subject_of = ROOT }
+				is_in_faction_with = CRO
+				original_tag = CRO
+			}
+			CRO = {
+				owns_state = 971
+				owns_state = 972
+				owns_state = 976
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_SER_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = CRO
+			CRO = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+	option = {
 		name = OCCUPY_TT
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
