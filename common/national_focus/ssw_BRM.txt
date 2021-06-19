@@ -4,7 +4,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = BRM
+			original_tag = BRM
 		}
 	}
 	default = no
@@ -116,9 +116,9 @@ focus_tree = {
 		cost = 10
 		x = 38
 		y = 0
-		allow_branch = {
-			has_global_flag = BRM_civil_war
-		}
+		# allow_branch = {
+		# 	has_global_flag = BRM_civil_war
+		# }
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = -0.05
@@ -3693,8 +3693,10 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			NGL={
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
@@ -3808,9 +3810,11 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
-			}
+			ARK={
+				country_event = {
+					id = ssw_brm.14
+				}
+			}			
 		}
 	}
 	focus = {
@@ -3825,9 +3829,11 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
-			}
+			PEG={
+				country_event = {
+					id = ssw_brm.14
+				}
+			}			
 		}
 	}
 	focus = {
@@ -3843,10 +3849,21 @@ focus_tree = {
 		completion_reward = {
 			every_country = {
 				limit = {
-					original_tag = BRM
-					NOT = {
-						tag = ROOT
-					}
+					OR={
+						AND={
+							original_tag = BRM
+							NOT = {
+								tag = ROOT
+							}
+						}
+						tag=ARK
+						tag=KAC
+						tag=SHA
+						tag=NGL
+						tag=CHN
+						tag=KRE
+						tag=PEG
+					}					
 				}
 				ROOT = {
 					declare_war_on = {
