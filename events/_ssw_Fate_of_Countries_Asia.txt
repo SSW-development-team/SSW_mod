@@ -2121,3 +2121,60 @@ country_event = { #台湾の運命
 		set_country_flag = continue_to_occupy_taiwan
 	}
 }
+country_event = { #インドネシアの運命
+	id = ssw_foc_asia.19
+	title = ssw_foc_asia.19.title
+	desc = ssw_foc_asia.19.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.19.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_INS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = IDN
+			IDN = { transfer_state = PREV }
+		}
+		puppet = IDN
+	}
+	option = {
+		name = ssw_foc_asia.19.b
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				MAL = { is_subject_of = ROOT }
+				is_in_faction_with = MAL
+				original_tag = MAL
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_INS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = MAL
+			MAL = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = MAL_majapahit
+			}
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_indonesia
+	}
+}
