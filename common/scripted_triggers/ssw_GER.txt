@@ -109,58 +109,66 @@ Bormann_is_Best = {
 }
 
 who_is_Best = {
-	add_to_temp_array = { temp1 = Current_Goering_Influence }
-	add_to_temp_array = { temp1 = Current_Himmler_Influence }
-	add_to_temp_array = { temp1 = Current_Goebbels_Influence }
-	add_to_temp_array = { temp1 = Current_Bormann_Influence }
-	find_highest_in_array = { 
-		array = temp1
-		value = v
-		index = i
+	if = {
+		limit = {
+			OR = {
+				has_variable = Current_Goering_Influence
+				has_variable = Current_Himmler_Influence
+				has_variable = Current_Goebbels_Influence
+				has_variable = Current_Bormann_Influence
+			}
+		}
+		add_to_temp_array = { temp1 = Current_Goering_Influence }
+		add_to_temp_array = { temp1 = Current_Himmler_Influence }
+		add_to_temp_array = { temp1 = Current_Goebbels_Influence }
+		add_to_temp_array = { temp1 = Current_Bormann_Influence }
+		find_highest_in_array = { 
+			array = temp1
+			value = v
+			index = i
+		}
 	}
-	set_temp_variable = { test = temp1^i }
+	set_variable = { test = temp1^i }
+	log = "Info"
+	log = "[?Current_Goering_Influence]"
+	log = "[?Current_Himmler_Influence]"
+	log = "[?Current_Goebbels_Influence]"
+	log = "[?Current_Bormann_Influence]"
+	log = "-----------------------------"
 	log = "[?v]"
+	log = "[?temp1^i]"
 	log = "[?test]"
 	log = "-----------------------------"
 	if = {
 		limit = {
-			check_variable = { Current_Goering_Influence = test }
+			check_variable = { temp1^i = 0 }
+		}
+		set_temp_variable = { Winner_Var = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { temp1^i = Current_Goering_Influence}
 		}
 		set_temp_variable = { Winner_Var = 1 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Himmler_Influence }
+			check_variable = { temp1^i = Current_Himmler_Influence }
 		}
 		set_temp_variable = { Winner_Var = 2 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Goebbels_Influence }
+			check_variable = { temp1^i = Current_Goebbels_Influence }
 		}
 		set_temp_variable = { Winner_Var = 3 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Bormann_Influence }
+			check_variable = { temp1^i = Current_Bormann_Influence }
 		}
 		set_temp_variable = { Winner_Var = 4 }
 	}
-	else = {
-		limit = {
-			OR = {
-				check_variable = { test = 0 }
-				NOT = {
-					has_variable =Current_Goering_Influence
-					has_variable =Current_Himmler_Influence
-					has_variable =Current_Goebbels_Influence
-					has_variable =Current_Bormann_Influence
-				}
-			}
-		}
-		set_temp_variable = { Winner_Var = 5 }
-	}
-	clear_temp_array = temp1
 	log = "[?Winner_Var]"
 	log = "-----------------------------"
 }
