@@ -447,15 +447,33 @@ country_event = { #国民大会経過(仮)
                 tree = CHI_Rep_of_China_Gu_Zhutong_route
                 keep_completed = yes
             }
+            set_variable = {
+                var = CHI_d_w_dm_s
+                value = -0.3
+            }
+            set_variable = {
+                var = CHI_d_w_dm_ppf
+                value = -0.2
+            }
+            set_variable = {
+                var = CHI_d_w_dm_ws
+                value = -0.1
+            }
         }
     }
     option = { #無事に
         name = ssw_chi.16.a
         set_country_flag = CHI_Gu_Zhutong_route_flag
+        add_dynamic_modifier = {
+            modifier = ssw_CHI_death_Wang
+        }
     }
     option = {
         name = ssw_chi.16.b
         set_country_flag = CHI_Chen_route
+        add_dynamic_modifier = {
+            modifier = ssw_CHI_death_Wang
+        }
     }
 }
 country_event = { #汪兆銘の暗殺
