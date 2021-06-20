@@ -2071,48 +2071,18 @@ JAP_NIN_low_gold_system_decrease_effect = {#インド
 	}
 }
 
-JAP_Clear_disarmament_program_All_effect = {
-	remove_ideas = {
-		JAP_disarmament_program_0
-		JAP_disarmament_program_1
-		JAP_disarmament_program_2
-		JAP_disarmament_program_3
-	}
-}
-
-JAP_Upgrade_JAP_disarmament_program_effect = {
-	#Powerful Idea First, this is very IMPORTANT
-	else_if = {
-		limit = {
-			has_ideas = JAP_disarmament_program_2
+load_template_Marine = {
+	division_template = {
+		name = "Marine"					
+		division_names_group = JAP_Inf_01
+		is_locked = no
+		regiments = {
+			marine = { x = 0 y = 0 }
+			marine = { x = 0 y = 1 }
+			marine = { x = 0 y = 2 }
+			marine = { x = 1 y = 0 }
+			marine = { x = 1 y = 1 }
+			marine = { x = 1 y = 2 }
 		}
-		swap_ideas = {
-			remove_idea = JAP_disarmament_program_2
-			add_idea = JAP_disarmament_program_3
-		}
-	}
-	else_if = {
-		limit = {
-			has_ideas = JAP_disarmament_program_1
-		}
-		swap_ideas = {
-			remove_idea = JAP_disarmament_program_1
-			add_idea = JAP_disarmament_program_2
-		}
-	}
-	else_if = {
-		limit = {
-			has_ideas = JAP_disarmament_program_0
-		}
-		swap_ideas = {
-			remove_idea = JAP_disarmament_program_0
-			add_idea = JAP_disarmament_program_1
-		}
-	}
-	else_if = {
-		limit = {
-			NOT = { has_ideas = JAP_disarmament_program_0 }
-		}
-		add_ideas = JAP_disarmament_program_0
 	}
 }
