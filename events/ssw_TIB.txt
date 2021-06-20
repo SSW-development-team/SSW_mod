@@ -843,11 +843,49 @@ country_event = {
 	}
 }
 country_event = {
+	id = tibet.250
+	title = tibet.250.t
+	desc = tibet.250.desc
+	fire_only_once = yes
+	trigger = {
+		KHM = {
+			is_subject_of = TIB
+			has_country_leader = {
+				name = "Lhalu Tsewang Dorje"
+				ruling_only = yes
+			}
+		}
+		TIB = {
+			has_country_leader = {
+				name = "Lhalu Tsewang Dorje"
+				ruling_only = yes
+			}
+		}
+	}
+	option = {
+		name = tibet.250.a
+		ai_chance = {
+			factor = 20
+		}
+		KHM = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Ngapoi Ngawang Jigme"
+				desc = "POLITICS_NGAPO_NGAWANG_KHAM_DESC"
+				picture = "ssw_Portrait_Tibet_Ngapoi_Ngawang_Jigme_Political.dds"
+				ideology = authority_despotism_ideology 
+				traits = {
+				}
+				expire = "1988.1.1"
+			}
+		}
+	}
+}
+country_event = {
 	id = tibet.1000 #Himmler(Lhunpolto) appear
 	title = tibet.1000.t
 	desc = tibet.1000.desc
 	fire_only_once = yes
-	is_triggered_only = yes
 	mean_time_to_happen = { days = 500 }
 	trigger = {
 		has_country_leader = {

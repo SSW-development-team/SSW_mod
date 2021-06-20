@@ -1,7 +1,7 @@
 #三人組基礎
 shared_focus = { #三人組の台頭
     id = CHI_rise_triumvirate
-    #icon = 
+    icon = GFX_focus_CHI_rise_triumvirate
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -2336,6 +2336,12 @@ shared_focus = { #顧祝同の続投
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_death_Wang
+            }
+            factor = 6
+        }
     }
     available = {
         has_country_flag = CHI_Gu_Zhutong_route_flag
@@ -2361,6 +2367,12 @@ shared_focus = { #中道の大総統
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_death_Wang
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2405,6 +2417,12 @@ shared_focus = { #安定的政権の確立
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            has_dynamic_modifier = {
+                modifier = ssw_CHI_death_Wang
+            }
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2420,6 +2438,9 @@ shared_focus = { #安定的政権の確立
     y = 2
     completion_reward = {
         add_stability = 0.05
+        remove_dynamic_modifier = {
+            modifier = ssw_CHI_death_Wang
+        }
     }
 }
 shared_focus = { #軍閥との団結
