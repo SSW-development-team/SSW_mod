@@ -915,6 +915,13 @@ focus_tree = {
                 long_name = LIT_monarchy_democ_party_long
                 name = LIT_monarchy_democ_party
             }
+            create_country_leader = {
+                name = "Regency Council"
+                desc = ""
+                picture = ""
+                expire = "1990.1.1"
+                ideology = authority_democracy_ideology
+            }
         }
     }
     focus = { #リトアニア貴族から
@@ -1037,6 +1044,7 @@ focus_tree = {
             focus = LIT_Mindaugas_III
         }
         completion_reward = {
+            unlock_decision_category_tooltip = LIT_cate_establish_support
         }
     }
     focus = { #影響力の確立
@@ -1058,6 +1066,7 @@ focus_tree = {
             focus = LIT_establish_support
         }
         completion_reward = {
+            unlock_decision_category_tooltip = LIT_cate_establish_influence
         }
     }
     focus = { #伝統あるリトアニア王国
@@ -3834,6 +3843,1289 @@ focus_tree = {
             swap_ideas = {
                 remove_idea = LIT_idea_effort_control_air_2
                 add_idea = LIT_idea_effort_control_air_3
+            }
+        }
+    }
+    focus = { #外交方針
+        id = LIT_foreign_policy
+        icon = GFX_goal_anschluss
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = LIT_finished_politic
+                OR = {
+                    has_completed_focus = LIT_democratic_reform
+                    has_completed_focus = LIT_establish_national_state
+                    has_completed_focus = LIT_enthronement
+                    has_completed_focus = LIT_hold_communist_congress
+                }
+            }
+            has_army_manpower = {
+                size > 120000
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 62
+        y = 0
+        completion_reward = {
+            add_political_power = 120
+        }
+    }
+    focus = { #周辺国との関係
+        id = LIT_relation_neighbor_country
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_foreign_policy
+        }
+        x = 60
+        y = 1
+        completion_reward = {
+            add_ideas = LIT_diplomat_effort
+        }
+    }
+    focus = { #バルトの協力
+        id = LIT_cooperate_balt
+        icon = GFX_goal_generic_improve_relations
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                NOT = {has_completed_focus = LIT_baltic_fede}
+                AND = {
+                    has_completed_focus = LIT_baltic_fede
+                    has_completed_focus = LIT_baltic_independent
+                }
+                NOT = {has_completed_focus = LIT_grand_duchy_lithuania}
+                AND = {
+                    has_completed_focus = LIT_grand_duchy_lithuania
+                    has_completed_focus = LIT_belarusi_integrate
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_relation_neighbor_country
+        }
+        x = 57
+        y = 2
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = LAT
+                        tag = EST
+                        tag = BLR
+                    }
+                }
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = LIT_balt_cooperate
+                }
+                reverse_add_opinion_modifier = {
+                    target = ROOT
+                    modifier = LIT_balt_cooperate
+                }
+            }
+        }
+    }
+    focus = { #独立協力の発展
+        id = LIT_progress_independ_coop
+        icon = GFX_goal_generic_national_unity
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_cooperate_balt
+        }
+        x = 57
+        y = 3
+        completion_reward = {
+            every_country = {
+                limit = {
+                    has_country_flag = BAL_break_coop
+                }
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 1500
+                }
+                add_manpower = 1000
+            }
+        }
+    }
+    focus = { #経済面での協力
+        id = LIT_economic_coope
+        icon = GFX_goal_generic_construct_civ_factory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_progress_independ_coop
+        }
+        x = 57
+        y = 4
+        completion_reward = {
+            every_country = {
+                limit = {
+                    has_country_flag = BAL_break_coop
+                }
+                add_ideas = LIT_idea_economic_coope
+            }
+        }
+    }
+    focus = { #バルト縦断列車
+        id = LIT_baltic_traverse_train
+        icon = GFX_goal_generic_construct_infrastructure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_economic_coope
+        }
+        x = 55
+        y = 5
+        completion_reward = {
+            every_state = {
+                limit = {
+                    OR = {
+                        state = 13
+                        state = 1233
+                        state = 190
+                        state = 11
+                        state = 784
+                        #state = 96
+                        #state = 206
+                    }
+                }
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            if = {
+                limit = {
+                    BLR = {
+                        has_idea = LIT_idea_economic_coope
+                    }
+                }
+                96 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+                206 = {
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+    focus = { #技術面での協力
+        id = LIT_technology_coope
+        icon = GFX_goal_generic_intelligence_exchange
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_economic_coope
+        }
+        x = 57
+        y = 5
+        completion_reward = {
+            every_country = {
+                limit = {
+                    has_idea = LIT_idea_economic_coope
+                }
+                set_country_flag = Baltic_tech_coope
+                add_to_tech_sharing_group = baltic_research
+            }
+        }
+    }
+    focus = { #軍事同盟への発展
+        id = LIT_progress_military_alliance
+        icon = GFX_focus_generic_diplomatic_treaty
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_technology_coope
+        }
+        x = 57
+        y = 6
+        completion_reward = {
+            create_faction = Baltic_Allicance
+            every_country = {
+                limit = {
+                    has_idea = LIT_idea_economic_coope
+                    NOT = {tag = LIT}
+                }
+                ROOT = {
+                    add_to_faction = PREV
+                }
+            }
+        }
+    }
+    focus = { #バルト沿岸の安全
+        id = LIT_baltic_coastal_safe
+        icon = GFX_goal_generic_construct_military
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_progress_military_alliance
+        }
+        x = 55
+        y = 7
+        completion_reward = {
+            188 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = coastal_bunker
+                        level = 1
+                        instant_build = yes
+                        province = 3288
+                    }
+                }
+            }
+            1233 = {
+                if = {
+                    limit = {
+                        is_owned_by = LAT
+                    }
+                    add_building_construction = {
+                        type = coastal_bunker
+                        level = 1
+                        instant_build = yes
+                        province = 9340
+                    }
+                }
+            }
+            13 = {
+                if = {
+                    limit = {
+                        is_owned_by = EST
+                    }
+                    add_building_construction = {
+                        type = coastal_bunker
+                        level = 1
+                        instant_build = yes
+                        province = 3152
+                    }
+                }
+            }
+        }
+    }
+    focus = { #空も、海も
+        id = LIT_and_sky_and_sea
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_coastal_safe
+        }
+        x = 55
+        y = 8
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        is_in_faction_with = ROOT
+                        tag = LIT
+                    }
+                }
+                add_ideas = LIT_safe_sky_and_sea
+            }
+        }
+    }
+    focus = { #バルト海全体の協力
+        id = LIT_coope_throughout_baltic_sea
+        icon = GFX_goal_tripartite_pact
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_progress_military_alliance
+        }
+        x = 57
+        y = 7
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = FIN
+                        tag = SWE
+                        tag = DEN
+                        tag = FNO
+                    }
+                    NOT = {has_government = national_socialism}
+                    NOT = {has_government = anarchism}
+                    exists = yes
+                }
+                country_event = {id = ssw_lit.7 days = 1}
+            }
+        }
+    }
+    focus = { #バルト協定
+        id = LIT_baltic_agreement
+        icon = GFX_goal_generic_scientific_exchange
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_coope_throughout_baltic_sea
+        }
+        x = 57
+        y = 8
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = FIN
+                        tag = SWE
+                        tag = DEN
+                        tag = FNO
+                    }
+                    NOT = {has_government = national_socialism}
+                    NOT = {has_government = anarchism}
+                    exists = yes
+                }
+                country_event = {id = ssw_lit.10 days = 1}
+            }
+        }
+    }
+    focus = { #より広範な協力を！
+        id = LIT_wider_coope
+        icon = GFX_goal_generic_major_alliance
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_agreement
+        }
+        x = 57
+        y = 9
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = FIN
+                        tag = SWE
+                        tag = DEN
+                        tag = FNO
+                    }
+                    NOT = {has_government = national_socialism}
+                    NOT = {has_government = anarchism}
+                    exists = yes
+                }
+                country_event = {id = ssw_lit.11 days = 1}
+            }
+        }
+    }
+    focus = { #バルトの連邦
+        id = LIT_baltic_fede
+        icon = GFX_goal_generic_alliance
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_relation_neighbor_country
+        }
+        mutually_exclusive = {
+            focus = LIT_grand_duchy_lithuania
+        }
+        x = 60
+        y = 2
+        completion_reward = {
+            add_stability = 0.05
+        }
+    }
+    focus = { #バルト首脳会議
+        id = LIT_baltic_summit
+        icon = GFX_focus_eng_concessions_to_the_trade_unions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            NOT = {has_completed_focus = LIT_made_of_blood}
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_fede
+        }
+        x = 59
+        y = 3
+        completion_reward = {
+            LAT = {
+                country_event = {id = ssw_lit.12 days = 1}
+            }
+            EST = {
+                country_event = {id = ssw_lit.12 days = 1}
+            }
+            hidden_effect = {
+                country_event = {id = ssw_lit.15 days = 10}
+            }
+            set_country_flag = baltic_summit_in
+        }
+    }
+    focus = { #血によってなす
+        id = LIT_made_of_blood
+        icon = GFX_goal_generic_major_war
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            NOT = {has_country_flag = fede_complete}
+            NOT = {has_country_flag = baltic_summit_in}
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_fede
+        }
+        x = 61
+        y = 3
+        completion_reward = {
+            add_ideas = LIT_advance_baltic
+        }
+    }
+    focus = { #緩やかな連邦
+        id = LIT_loose_fede
+        icon = GFX_focus_generic_self_management
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                has_country_flag = fede_complete
+                has_country_flag = fede_not_complete
+            }
+        }
+        available = {
+            has_country_flag = fede_complete
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_baltic_summit
+        }
+        x = 59
+        y = 4
+        completion_reward = {
+            add_ideas = LIT_idea_loose_fede
+        }
+    }
+    focus = { #リガへの進軍
+        id = LIT_advance_Riga
+        icon = GFX_goal_generic_political_pressure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        bypass = {
+            OR = {
+                LAT = {
+                    OR = {
+                        has_country_flag = agree_balt_fede
+                        is_puppet_of = ROOT
+                    }
+                }
+                AND = {
+                    owns_state = 190
+                    owns_state = 1233
+                    owns_state = 12
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_made_of_blood
+        }
+        x = 61
+        y = 4
+        completion_reward = {
+            diplomatic_relation = {
+                country = LAT
+                relation = non_aggression_pact
+                active = no
+            }
+            diplomatic_relation = {
+                country = LAT
+                relation = military_access
+                active = no
+            }
+            declare_war_on = {
+                target = LAT
+                type = annex_everything
+            }
+            every_state = {
+                limit = {
+                    is_core_of = LAT
+                }
+                add_claim_by = ROOT
+            }
+        }
+    }
+    focus = { #連邦の憲法制定
+        id = LIT_fede_constitution_enactment
+        icon = GFX_focus_generic_treaty
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_loose_fede
+        }
+        x = 59
+        y = 5
+        completion_reward = {
+            add_war_support = 0.05
+            add_timed_idea = {
+                idea = LIT_enactment_constituion
+                days = 180
+            }
+        }
+    }
+    focus = { #エストニア侵攻
+        id = LIT_invasion_estonia
+        icon = GFX_goal_generic_more_territorial_claims
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        bypass = {
+            OR = {
+                EST = {
+                    OR = {
+                        has_country_flag = agree_balt_fede
+                        is_puppet_of = ROOT
+                    }
+                }
+                AND = {
+                    owns_state = 13
+                    owns_state = 191
+                    owns_state = 1232
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_advance_Riga
+        }
+        x = 61
+        y = 5
+        completion_reward = {
+            diplomatic_relation = {
+                country = EST
+                relation = non_aggression_pact
+                active = no
+            }
+            diplomatic_relation = {
+                country = EST
+                relation = military_access
+                active = no
+            }
+            declare_war_on = {
+                target = EST
+                type = annex_everything
+            }
+            every_state = {
+                limit = {
+                    is_core_of = EST
+                }
+                add_claim_by = ROOT
+            }
+        }
+    }
+    focus = { #バルト連邦形成
+        id = LIT_balt_fede_form
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            NOT = {has_idea = LIT_enactment_constituion}
+            OR = {
+                LAT = {
+                    has_country_flag = agree_balt_fede
+                }
+                LAT = {
+                    is_puppet_of = ROOT
+                }
+                AND = {
+                    owns_state = 190
+                    owns_state = 1233
+                    owns_state = 12
+                }
+            }
+            OR = {
+                EST = {
+                    has_country_flag = agree_balt_fede
+                }
+                EST = {
+                    is_puppet_of = ROOT
+                }
+                AND = {
+                    owns_state = 13
+                    owns_state = 191
+                    owns_state = 1232
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_fede_constitution_enactment
+            focus = LIT_invasion_estonia
+        }
+        x = 60
+        y = 6
+        if = {
+            limit = {
+                country_exists = LAT
+            }
+            annex_country = {
+                target = LAT
+                transfer_troops = yes
+            }
+        }
+        if = {
+            limit = {
+                country_exists = EST
+            }
+            annex_country = {
+                target = EST
+                transfer_troops = yes
+            }
+        }
+        every_state = {
+            limit = {
+                OR = {
+                    is_core_of = LAT
+                    is_core_of = EST
+                }
+            }
+            add_core_of = ROOT
+        }
+    }
+    focus = { #三民族の国家
+        id = LIT_three_ethnic_nation
+        icon = GFX_goal_generic_national_unity
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 59
+        y = 7
+        prerequisite = {
+            focus = LIT_balt_fede_form
+        }
+        prerequisite = {
+            focus = LIT_fede_constitution_enactment
+        }
+        mutually_exclusive = {
+            focus = LIT_balt_ethnic_nation
+        }
+        completion_reward = {
+            add_ideas = LIT_ethnic_coope
+        }
+    }
+    focus = { #バルト人の国家
+        id = LIT_balt_ethnic_nation
+        icon = GFX_goal_generic_demand_territory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 61
+        y = 7
+        prerequisite = {
+            focus = LIT_balt_fede_form
+        }
+        prerequisite = {
+            focus = LIT_invasion_estonia
+        }
+        mutually_exclusive = {
+            focus = LIT_three_ethnic_nation
+        }
+        completion_reward = {
+            add_ideas = LIT_awareness_balt
+        }
+    }
+    focus = { #連邦全体の発展
+        id = LIT_fede_wide_dev
+        icon = GFX_goal_generic_consumer_goods
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 59
+        y = 8
+        prerequisite = {
+            focus = LIT_three_ethnic_nation
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = LIT_ethnic_coope
+                add_idea = LIT_ethnic_coope_2
+            }
+        }
+    }
+    focus = { #一国としての成長
+        id = LIT_growth_country
+        icon = GFX_goal_generic_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 61
+        y = 8
+        prerequisite = {
+            focus = LIT_balt_ethnic_nation
+        }
+        completion_reward = {
+            set_temp_variable ={maj = LIT.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
+            swap_ideas = {
+                remove_idea = LIT_awareness_balt
+                add_idea = LIT_awareness_balt_2
+            }
+        }
+    }
+    focus = { #バルトの自立
+        id = LIT_baltic_independent
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        x = 60
+        y = 9
+        prerequisite = {
+            focus = LIT_fede_wide_dev
+            focus = LIT_growth_country
+        }
+        completion_reward = {
+            if = {
+                limit = {
+                    has_completed_focus = LIT_three_ethnic_nation
+                }
+                swap_ideas = {
+                    remove_idea = LIT_ethnic_coope_2
+                    add_idea = LIT_ethnic_coope_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_completed_focus = LIT_balt_ethnic_nation
+                }
+                swap_ideas = {
+                    remove_idea = LIT_awareness_balt_2
+                    add_idea = LIT_awareness_balt_3
+                }
+            }
+            else = {
+                custom_effect_tooltip = LIT_baltic_independent_tt
+            }
+        }
+    }
+    focus = { #偉大なるリトアニア
+        id = LIT_great_lithuania
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_foreign_policy
+        }
+        x = 64
+        y = 1
+        completion_reward = {
+            add_war_support = 0.1
+        }
+    }
+    focus = { #リトアニア大公位
+        id = LIT_grand_duchy_lithuania
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                has_government = authority_despotism
+                AND = {
+                    has_government = authority_democracy
+                    OR = {
+                        has_country_leader = {
+                            name = "Kazimieras II"
+                            ruling_only = yes
+                        }
+                        has_country_leader = {
+                            name = "Mindaugas III"
+                            ruling_only = yes
+                        }
+                    }
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_great_lithuania
+        }
+        mutually_exclusive = {
+            focus = LIT_baltic_fede
+        }
+        x = 64
+        y = 2
+        completion_reward = {
+            set_temp_variable ={maj = LIT.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
+            add_ideas = LIT_claim_grand_duchy_lithuania
+        }
+    }
+    focus = { #ベラルーシの懐柔
+        id = LIT_belarusi_softness
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_grand_duchy_lithuania
+        }
+        mutually_exclusive = {
+            focus = LIT_Minsk_in_our_hand
+        }
+        x = 63
+        y = 3
+        completion_reward = {
+            BLR = {
+                country_event = {id = ssw_lit.21}
+            }
+        }
+    }
+    focus = { #ミンスクを我らの手に
+        id = LIT_Minsk_in_our_hand
+        icon = GFX_goal_generic_more_territorial_claims
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_grand_duchy_lithuania
+        }
+        mutually_exclusive = {
+            focus = LIT_belarusi_softness
+        }
+        x = 65
+        y = 3
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = BLR
+                }
+                add_claim_by = ROOT
+            }
+            diplomatic_relation = {
+                country = BLR
+                relation = non_aggression_pact
+                active = no
+            }
+            diplomatic_relation = {
+                country = BLR
+                relation = military_access
+                active = no
+            }
+            declare_war_on = {
+                target = BLR
+                type = annex_everything
+            }
+        }
+    }
+    focus = { #ベラルーシの統合
+        id = LIT_belarusi_integrate
+        icon = GFX_goal_generic_position_armies
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        bypass = {
+            BLR = {
+                is_puppet_of = ROOT
+            }
+        }
+        available = {
+            owns_state = 96
+            owns_state = 95
+            owns_state = 94
+            owns_state = 204
+            owns_state = 206
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_belarusi_softness
+            focus = LIT_Minsk_in_our_hand
+        }
+        x = 64
+        y = 4
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_core_of = BLR
+                    is_owned_by = LIT
+                }
+                add_resistance_target = -5
+                add_compliance = 10
+            }
+        }
+    }
+    focus = { #ウクライナへの提案
+        id = LIT_proposal_ukraine
+        icon = GFX_focus_eng_concessions_to_the_trade_unions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_belarusi_integrate
+        }
+        mutually_exclusive = {
+            focus = LIT_Kiev_seizure
+        }
+        x = 63
+        y = 5
+        completion_reward = {
+            UKR = {
+                country_event = {id = ssw_lit.21}
+            }
+        }
+    }
+    focus = { #キエフの奪取
+        id = LIT_Kiev_seizure
+        icon = GFX_goal_generic_major_war
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_belarusi_integrate
+        }
+        mutually_exclusive = {
+            focus = LIT_proposal_ukraine
+        }
+        x = 65
+        y = 5
+        completion_reward = {
+            diplomatic_relation = {
+                country = UKR
+                relation = non_aggression_pact
+                active = no
+            }
+            diplomatic_relation = {
+                country = UKR
+                relation = military_access
+                active = no
+            }
+            declare_war_on = {
+                target = UKR
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = UKA
+                type = annex_everything
+            }
+            every_state = {
+                limit = {
+                    OR = {
+                        is_core_of = UKR
+                        is_core_of = UKA
+                    }
+                }
+                add_claim_by = ROOT
+            }
+        }
+    }
+    focus = { #他民族の待遇
+        id = LIT_treatment_other_ethnic_group
+        icon = GFX_goal_tripartite_pact
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            OR = {
+                UKR = {
+                    is_puppet_of = ROOT
+                }
+                AND = {
+                    owns_state = 93
+                    owns_state = 199
+                    owns_state = 201
+                    owns_state = 202
+                    owns_state = 203
+                    owns_state = 197
+                    owns_state = 196
+                    owns_state = 226
+                    owns_state = 200
+                    owns_state = 227
+                    owns_state = 228
+                    owns_state = 221
+                    owns_state = 240
+                    owns_state = 220
+                    owns_state = 225
+                    owns_state = 259
+                    owns_state = 193
+                }
+            }
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_proposal_ukraine
+            focus = LIT_Kiev_seizure
+        }
+        x = 64
+        y = 6
+        completion_reward = {
+            country_event = {id = ssw_lit.25}
+        }
+    }
+    focus = { #統治政策の確認
+        id = LIT_confirm_govrnance_policy
+        icon = GFX_goal_generic_radar
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_treatment_other_ethnic_group
+        }
+        x = 64
+        y = 7
+        completion_reward = {
+            every_owned_state = {
+                limit = {
+                    NOT = {is_core_of = ROOT}
+                }
+                add_compliance = 8
+                add_resistance_target = -0.05
+            }
+        }
+    }
+    focus = { #リトアニアのルーシ
+        id = LIT_lithuanian_rus
+        icon = GFX_goal_demand_sudetenland
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_confirm_govrnance_policy
+        }
+        x = 64
+        y = 8
+        completion_reward = {
+            every_country = {
+                limit = {
+                    OR = {
+                        owns_state = 194
+                        owns_state = 928
+                        owns_state = 927
+                        owns_state = 207
+                        owns_state = 242
+                        owns_state = 243
+                        owns_state = 241
+                        owns_state = 224
+                        owns_state = 205
+                        owns_state = 997
+                        owns_state = 222
+                        owns_state = 223
+                    }
+                }
+                ROOT = {
+                    create_wargoal = {
+                        target = PREV
+                        type = annex_everything
+                    }
+                }
+            }
+            add_state_claim = 194
+            add_state_claim = 928
+            add_state_claim = 927
+            add_state_claim = 207
+            add_state_claim = 242
+            add_state_claim = 243
+            add_state_claim = 241
+            add_state_claim = 224
+            add_state_claim = 205
+            add_state_claim = 997
+            add_state_claim = 222
+            add_state_claim = 223
+        }
+    }
+    focus = { #リトアニア大公国の再興
+        id = LIT_revival_grand_duchy_lithuania
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+        prerequisite = {
+            focus = LIT_lithuanian_rus
+        }
+        x = 64
+        y = 9
+        completion_reward = {
+            every_state = {
+                limit = {
+                    OR = {
+                        is_core_of = BLR
+                        is_core_of = UKR
+                        is_core_of = UKA
+                        region = 131
+                        area = 85
+                    }
+                }
+                add_core_of = ROOT
+            }
+            every_owned_state = {
+                add_claim_by = ROOT
             }
         }
     }
