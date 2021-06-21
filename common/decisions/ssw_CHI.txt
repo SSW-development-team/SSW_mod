@@ -1042,3 +1042,38 @@ CHI_deci_cate_fede_country_found = {
         }
     }
 }
+CHI_deci_cate_integrate = {
+    CHI_deci_integrate_claim = {
+        icon = infiltrate_state
+        state_target = yes
+        on_map_mode = map_and_decisions_view
+        available = {
+            FROM = {
+                is_owned_by = ROOT
+            }
+        }
+        visible = {
+            FROM = {
+                is_claimed_by = ROOT
+                NOT = {is_core_of = ROOT}
+            }
+        }
+        target_array = owned_states
+        target_trigger = {
+            FROM = {
+                is_claimed_by = ROOT
+                NOT = {is_core_of = ROOT}
+            }
+        }
+        cost = 50
+        days_remove = 40
+        ai_will_do = {
+            factor = 10
+        }
+        remove_effect = {
+            FROM = {
+                add_core_of = ROOT
+            }
+        }
+    }
+}
