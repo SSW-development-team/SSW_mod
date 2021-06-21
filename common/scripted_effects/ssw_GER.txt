@@ -5,7 +5,7 @@ set_GER_Leader_Goering = {
 		picture = "gfx/leaders/HGR/Portrait_HGR_Hermann_Goring.tga"
 		expire = "1980.1.1"
 		ideology = national_socialism_ideology
-		traits = { Air_Force_founder dictator }
+		traits = { dictator  Air_Force_founder }
 	}
 }
 set_GER_Leader_Himmler = {
@@ -40,51 +40,10 @@ set_GER_Leader_Bormann = {
 }
 
 start_german_civil_war = {
-	all_controlled_state = {
+	every_owned_state = {
 		add_core_of = HGR
 		add_core_of = HLH
 		add_core_of = MBR
-		add_core_of = GER
-	}
-	delete_unit_template_and_units = {
-		division_template = "Infanterie-Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Gebirgs-Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Fallschirmjager-Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Infanterie-Division (mot.)"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Leichte Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Panzer-Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "SS-Regiment"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Kavallerie-Brigade"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Sicherungs-Division"
-		disband = yes
-	}
-	delete_unit_template_and_units = {
-		division_template = "Ratte-Division"
-		disband = yes
 	}
 }
 
@@ -121,6 +80,46 @@ Declare_war_on_GER_Everyone = {
 			type = annex_everything
 		}
 		set_GER_Leader_Goebbels = yes
+		delete_unit_template_and_units = {
+			division_template = "Infanterie-Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Gebirgs-Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Fallschirmjager-Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Infanterie-Division (mot.)"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Leichte Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Panzer-Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "SS-Regiment"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Kavallerie-Brigade"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Sicherungs-Division"
+			disband = yes
+		}
+		delete_unit_template_and_units = {
+			division_template = "Ratte-Division"
+			disband = yes
+		}
 	}
 	MBR = {
 		set_GER_Leader_Bormann = yes
@@ -137,10 +136,10 @@ state_owner_change = {
 			HGR ={
 				transfer_state = PREV
 				load_template_GCW = yes
-				Check_load_oob_Goering = yes
+				Check_load_oob_GCW = yes
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				who_is_Best = yes
 				check_variable = { Winner_Var = 2 }
@@ -148,10 +147,10 @@ state_owner_change = {
 			HLH ={
 				transfer_state = PREV
 				load_template_GCW = yes
-				Check_load_oob_Himmler = yes
+				Check_load_oob_GCW = yes
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				who_is_Best = yes
 				check_variable = { Winner_Var = 3 }
@@ -159,10 +158,10 @@ state_owner_change = {
 			GER ={
 				transfer_state = PREV
 				load_template_GCW = yes
-				Check_load_oob_Goebbels = yes
+				Check_load_oob_GCW = yes
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				who_is_Best = yes
 				check_variable = { Winner_Var = 4 }
@@ -170,223 +169,78 @@ state_owner_change = {
 			MBR ={
 				transfer_state = PREV
 				load_template_GCW = yes
-				Check_load_oob_Bormann = yes
+				Check_load_oob_GCW = yes
 			}
 		}
 	}
 }
 
-Check_load_oob_Goering = {
+Check_load_oob_GCW = {
 	PREV = {
 		if = {
 			limit = { 
-				check_variable = { Current_Goering_Influence > 6 }
+				check_variable = { temp1^i > 10 }
 			}
-			load_oob_militia = yes
 			load_oob_light_armor = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goering_Influence > 5 }
+				check_variable = { temp1^i > 9 }
 			}
-			load_oob_militia = yes
 			load_oob_motorized = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goering_Influence > 4 }
+				check_variable = { temp1^i > 8 }
 			}
-			load_oob_militia = yes
-			load_oob_cavalry = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Goering_Influence > 3 }
-			}
-			load_oob_militia = yes
-			load_oob_mountaineers = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Goering_Influence > 2 }
-			}
-			load_oob_militia = yes
 			load_oob_infantry = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goering_Influence > 1 }
+				check_variable = { temp1^i > 7 }
 			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Goering_Influence > 0 }
-			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-	}
-}
-
-Check_load_oob_Himmler = {
-	PREV = {
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 6 }
-			}
-			load_oob_militia = yes
-			load_oob_light_armor = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 5 }
-			}
-			load_oob_militia = yes
 			load_oob_motorized = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Himmler_Influence > 4 }
+				check_variable = { temp1^i > 6 }
 			}
-			load_oob_militia = yes
-			load_oob_cavalry = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 3 }
-			}
-			load_oob_militia = yes
-			load_oob_mountaineers = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 2 }
-			}
-			load_oob_militia = yes
-			load_oob_infantry = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 1 }
-			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Himmler_Influence > 0 }
-			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-	}
-}
-
-Check_load_oob_Goebbels = {
-	PREV = {
-		if = {
-			limit = { 
-				check_variable = { Current_Goebbels_Influence > 6 }
-			}
-			load_oob_militia = yes
-			load_oob_light_armor = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Goebbels_Influence > 5 }
-			}
-			load_oob_militia = yes
 			load_oob_motorized = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goebbels_Influence > 4 }
+				check_variable = { temp1^i > 5 }
 			}
-			load_oob_militia = yes
 			load_oob_cavalry = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goebbels_Influence > 3 }
+				check_variable = { temp1^i > 4 }
 			}
-			load_oob_militia = yes
 			load_oob_mountaineers = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goebbels_Influence > 2 }
+				check_variable = { temp1^i > 3 }
 			}
-			load_oob_militia = yes
 			load_oob_infantry = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Goebbels_Influence > 1 }
+				check_variable = { temp1^i > 2 }
 			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Goebbels_Influence > 0 }
-			}
-			load_oob_militia = yes
-			load_oob_militia = yes
-		}
-	}
-}
-
-Check_load_oob_Bormann = {
-	PREV = {
-		if = {
-			limit = { 
-				check_variable = { Current_Bormann_Influence > 6 }
-			}
-			load_oob_militia = yes
-			load_oob_light_armor = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Bormann_Influence > 5 }
-			}
-			load_oob_militia = yes
-			load_oob_motorized = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Bormann_Influence > 4 }
-			}
-			load_oob_militia = yes
-			load_oob_cavalry = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Bormann_Influence > 3 }
-			}
-			load_oob_militia = yes
-			load_oob_mountaineers = yes
-		}
-		if = {
-			limit = { 
-				check_variable = { Current_Bormann_Influence > 2 }
-			}
-			load_oob_militia = yes
 			load_oob_infantry = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Bormann_Influence > 1 }
+				check_variable = { temp1^i > 1 }
 			}
-			load_oob_militia = yes
 			load_oob_militia = yes
 		}
 		if = {
 			limit = { 
-				check_variable = { Current_Bormann_Influence > 0 }
+				check_variable = { temp1^i > 0 }
 			}
-			load_oob_militia = yes
 			load_oob_militia = yes
 		}
 	}

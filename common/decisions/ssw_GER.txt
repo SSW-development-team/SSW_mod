@@ -42,39 +42,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Goering_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goering_Influence = 2 }
-					}
-				}
-				random_list = {
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Himmler_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Himmler_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goebbels_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goebbels_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Bormann_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Bormann_Influence = -1 }
-							}
-						}
+						add_to_variable = { Current_Goering_Influence = 1 }
 					}
 				}
 			}
@@ -98,39 +66,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Himmler_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Himmler_Influence = 2 }
-					}
-				}
-				random_list = {
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goering_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goering_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goebbels_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goebbels_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Bormann_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Bormann_Influence = -1 }
-							}
-						}
+						add_to_variable = { Current_Himmler_Influence = 1 }
 					}
 				}
 			}
@@ -154,39 +90,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						has_variable = Current_Goebbels_Influence
 					}
 					every_neighbor_state = {
-						add_to_variable = { Current_Goebbels_Influence = 2 }
-					}
-				}
-				random_list = {
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Himmler_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Himmler_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goering_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goering_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Bormann_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Bormann_Influence = -1 }
-							}
-						}
+						add_to_variable = { Current_Goebbels_Influence = 1 }
 					}
 				}
 			}
@@ -213,38 +117,6 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 						add_to_variable = { Current_Bormann_Influence = 1 }
 					}
 				}
-				random_list = {
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Himmler_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Himmler_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goering_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goering_Influence = -1 }
-							}
-						}
-					}
-					1 = {
-						every_controlled_state = {
-							limit = {
-								has_variable = Current_Goebbels_Influence
-							}
-							every_neighbor_state = {
-								add_to_variable = { Current_Goebbels_Influence = -1 }
-							}
-						}
-					}
-				}
 			}
 			log = "updated"
 		}
@@ -252,7 +124,7 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 	GER_upgrade_one = {###MAP down anothers
 		icon = ger_mefo_bills
 		fire_only_once = yes
-		cost = 40
+		cost = 10
 		on_map_mode = map_only 
 		state_target = yes
 		highlight_color_while_active = 1
@@ -270,43 +142,34 @@ GER_Before_Civil_War_Power_Struggle_Categories = {
 			}
 		}
 		days_remove = 20
+		ai_will_do = {
+			base = 99
+		}
 		remove_effect = {
 			hidden_effect = {
 				if = {
 					limit = {
 						has_country_flag = Goering_is_Successor
 					}
-					add_to_variable = { Current_Goering_Influence = 1 }
-					add_to_variable = { Current_Himmler_Influence = -1 }
-					add_to_variable = { Current_Goebbels_Influence = -1 }
-					add_to_variable = { Current_Bormann_Influence = -1 }
+					add_to_variable = { Current_Goering_Influence = 2 }
 				}
-				if = {
+				else_if = {
 					limit = {
 						has_country_flag = Himmler_is_Successor
 					}
-					add_to_variable = { Current_Goering_Influence = -1 }
-					add_to_variable = { Current_Himmler_Influence = 1 }
-					add_to_variable = { Current_Goebbels_Influence = -1 }
-					add_to_variable = { Current_Bormann_Influence = -1 }
+					add_to_variable = { Current_Himmler_Influence = 2 }
 				}
-				if = {
+				else_if = {
 					limit = {
 						has_country_flag = Goebbels_is_Successor
 					}
-					add_to_variable = { Current_Goering_Influence = -1 }
-					add_to_variable = { Current_Himmler_Influence = -1 }
-					add_to_variable = { Current_Goebbels_Influence = 1 }
-					add_to_variable = { Current_Bormann_Influence = -1 }
+					add_to_variable = { Current_Goebbels_Influence = 2 }
 				}
-				if = {
+				else_if = {
 					limit = {
 						has_country_flag = Bormann_is_Successor
 					}
-					add_to_variable = { Current_Goering_Influence = -1 }
-					add_to_variable = { Current_Himmler_Influence = -1 }
-					add_to_variable = { Current_Goebbels_Influence = -1 }
-					add_to_variable = { Current_Bormann_Influence = 1 }
+					add_to_variable = { Current_Bormann_Influence = 2 }
 				}
 			}
 		}
