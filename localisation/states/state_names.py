@@ -4,7 +4,7 @@ import re
 lang_keys = set(["def"])
 lang_keys=lang_keys.union(set(input("言語キーのリストを,で区切って入力してください(例：fra,ger,...)\n").split(",")))
 print("ステート名のキーバリューリスト（改行区切り）を入力してください。終わったらendと入力してください\n例\n STATE_1:0 \"コルシカ\"\n STATE_2:0 \"ラティウム\"")
-f = open("state_names_output.yml","w")
+f = open("state_names_output.txt","w")
 f.write("l_english:\n")
 import re
 while True:
