@@ -1,116 +1,116 @@
-on_actions = {
-	on_annex = {	#国家を併合した時
-		effect = {
-			every_country = {
-				if = {
-					limit = {
-						has_global_flag = GER_civil_war
-					}
-				else_if = {
-				limit = {
-					original_colony_tag = yes
-					is_puppet = no
-				}
-				abandon_colony_tag = yes
-				}
-				}
-			}
-		}
-	}
-	on_subject_free = {	#傀儡国が独立した時
-		effect = {
-			if = {
-				limit = {
-					original_colony_tag = yes
-				}
-				abandon_colony_tag = yes
-			}
-		}
-	}
-	on_release_as_free = {	#独立国として解放した時
-		effect = {
-			if = {
-				limit = {	original_colony_tag = yes	}
-				abandon_colony_tag = yes
-			}
-		}
-	}
+# on_actions = {
+# 	on_annex = {	#国家を併合した時
+# 		effect = {
+# 			every_country = {
+# 				if = {
+# 					limit = {
+# 						has_global_flag = GER_civil_war
+# 					}
+# 				else_if = {
+# 				limit = {
+# 					original_colony_tag = yes
+# 					is_puppet = no
+# 				}
+# 				abandon_colony_tag = yes
+# 				}
+# 				}
+# 			}
+# 		}
+# 	}
+# 	on_subject_free = {	#傀儡国が独立した時
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					original_colony_tag = yes
+# 				}
+# 				abandon_colony_tag = yes
+# 			}
+# 		}
+# 	}
+# 	on_release_as_free = {	#独立国として解放した時
+# 		effect = {
+# 			if = {
+# 				limit = {	original_colony_tag = yes	}
+# 				abandon_colony_tag = yes
+# 			}
+# 		}
+# 	}
 	
-#	on_puppet = {	#講和会議での傀儡国樹立の時
-#		effect = {}
-#	}
-#	on_release_as_puppet = {	#傀儡国として解放した時
-#		effect = {}
-#	}
-}
+# #	on_puppet = {	#講和会議での傀儡国樹立の時
+# #		effect = {}
+# #	}
+# #	on_release_as_puppet = {	#傀儡国として解放した時
+# #		effect = {}
+# #	}
+# }
 
-on_actions = {
-	on_annex = {
-		effect = {
-			if = {
-				limit = {
-					AND = {
-						tag = CZE
-						CZE = {
-							owns_state = 70
-							owns_state = 71
-						}
-						SLO = {	exists = no	}
-					}
-				}
-				set_cosmetic_tag = CZEandSLO
-			}
-			if = {
-				limit = {
-					AND = {
-						tag = MEN
-						MEN = {
-							owns_state = 330
-						}
-						MON = {	exists = no	}
-					}
-				}
-				set_cosmetic_tag = Great_Mongol
-			}
-		}
-	}
-	on_release_as_free = {
-		effect = {
-			if = {
-				limit = {
-					AND = {
-						tag = MEN
-						MON = {	exists = yes	}
-					}
-				}
-				MEN = {	drop_cosmetic_tag = yes	}
-			}
-		}
-	}
-	on_release_as_puppet = {
-		effect = {
-			if = {
-				limit = {
-					AND = {
-						tag = MEN
-						MON = {	exists = yes	}
-					}
-				}
-				MEN = {	drop_cosmetic_tag = yes	}
-			}
-		}
-	}
-	on_puppet = {
-		effect = {
-			if = {
-				limit = {
-					AND = {
-						tag = MEN
-						MON = {	exists = yes	}
-					}
-				}
-				MEN = {	drop_cosmetic_tag = yes	}
-			}
-		}
-	}
-}
+# on_actions = {
+# 	on_annex = {
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						tag = CZE
+# 						CZE = {
+# 							owns_state = 70
+# 							owns_state = 71
+# 						}
+# 						SLO = {	exists = no	}
+# 					}
+# 				}
+# 				set_cosmetic_tag = CZEandSLO
+# 			}
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						tag = MEN
+# 						MEN = {
+# 							owns_state = 330
+# 						}
+# 						MON = {	exists = no	}
+# 					}
+# 				}
+# 				set_cosmetic_tag = GREAT-MONGOLIA_empire
+# 			}
+# 		}
+# 	}
+# 	on_release_as_free = {
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						tag = MEN
+# 						MON = {	exists = yes	}
+# 					}
+# 				}
+# 				MEN = {	drop_cosmetic_tag = yes	}
+# 			}
+# 		}
+# 	}
+# 	on_release_as_puppet = {
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						tag = MEN
+# 						MON = {	exists = yes	}
+# 					}
+# 				}
+# 				MEN = {	drop_cosmetic_tag = yes	}
+# 			}
+# 		}
+# 	}
+# 	on_puppet = {
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						tag = MEN
+# 						MON = {	exists = yes	}
+# 					}
+# 				}
+# 				MEN = {	drop_cosmetic_tag = yes	}
+# 			}
+# 		}
+# 	}
+# }

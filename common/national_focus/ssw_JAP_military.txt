@@ -2,7 +2,7 @@ shared_focus = {
 	id = JAP_Reforming_disarmament_policy
 	icon = GFX_goal_unknown
 	cost = 2
-	x = 6
+	x = 17
 	y = 0
 	mutually_exclusive = {
 		focus = JAP_Abandoning_Disarmament
@@ -27,7 +27,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Using_the_Experience_of_the_Great_War"
-		JAP_Upgrade_JAP_disarmament_program_effect = yes
+		swap_ideas = {
+			remove_idea = JAP_disarmament_momentum_rework
+			add_idea = JAP_disarmament_momentum_rework_1
+		}
 	}
 }
 shared_focus = {
@@ -147,7 +150,7 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			category = tech_support
+			category = military_police_tech
 		}
 	}
 }
@@ -166,7 +169,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Efficient_Munitions_Production"
-		JAP_Upgrade_JAP_disarmament_program_effect = yes
+		swap_ideas = {
+			remove_idea = JAP_disarmament_momentum_rework_1
+			add_idea = JAP_disarmament_momentum_rework_2
+		}
 		random_owned_controlled_state = {
 			limit = {
 				is_core_of = JAP
@@ -203,7 +209,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Her_Majesty_s_Baby"
-		JAP_Upgrade_JAP_disarmament_program_effect = yes
+		
 	}
 }
 shared_focus = {
@@ -242,12 +248,12 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = light_fighter
+			category = light_air
 		}
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = naval_bomber
+			category = naval_air
 		}
 	}
 }
@@ -305,7 +311,7 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 1
 			uses = 2
-			technology = marines
+			category = marine_tech
 		}
 	}
 }
@@ -324,7 +330,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_End_of_Disarmament"
-		JAP_Clear_disarmament_program_All_effect = yes
+		remove_idea = JAP_disarmament_momentum_rework_2
 	}
 }
 shared_focus = {
@@ -376,22 +382,22 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = light_fighter
+			category = light_fighter
 		}
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = cas_bomber
+			category = cas_bomber
 		}
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = cat_heavy_fighter
+			category = cat_heavy_fighter
 		}
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = tactical_bomber
+			category = tactical_bomber
 		}
 	}
 }
@@ -415,12 +421,12 @@ shared_focus = {
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = artillery
+			category = artillery
 		}
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 2
-			technology = antitank
+			category = cat_anti_tank
 		}
 	}
 }
@@ -508,6 +514,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Moblilisation_Reservists"
+		add_ideas = JAP_armament_program_0
 	}
 }
 shared_focus = {
@@ -538,6 +545,21 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_More_Naval_Land_Forces"
+		load_template_Marine = yes
+		942 = {
+			create_unit = {
+				division = "division_template = \"Marine\" start_experience_factor = 1  start_equipment_factor = 1" owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Marine\" start_experience_factor = 1  start_equipment_factor = 1" owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Marine\" start_experience_factor = 1  start_equipment_factor = 1" owner = PREV
+			}
+			create_unit = {
+				division = "division_template = \"Marine\" start_experience_factor = 1  start_equipment_factor = 1" owner = PREV
+			}
+		}
 	}
 }
 shared_focus = {
@@ -546,7 +568,7 @@ shared_focus = {
 	cost = 2
 	relative_position_id = JAP_Abandoning_Disarmament
 	x = 0
-	y = 1.5
+	y = 1
 	prerequisite = {
 		focus = JAP_Abandoning_Disarmament
 	}
@@ -568,12 +590,16 @@ shared_focus = {
 	cost = 2
 	relative_position_id = JAP_Increase_in_budget_of_Navy_and_Army
 	x = 0
-	y = 1.5
+	y = 2
 	prerequisite = {
 		focus = JAP_Increase_in_budget_of_Navy_and_Army
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Increased_Military_Industry"
+		swap_ideas = {
+			remove_idea = JAP_disarmament_momentum_rework_1_1
+			add_idea = JAP_disarmament_momentum_rework_2_2
+		}
 	}
 }
 shared_focus = {
@@ -591,6 +617,12 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Mass_Assult_by_Tank"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		add_ideas = JAP_japanese_tank_doctrine
 	}
 }
 shared_focus = {
@@ -608,6 +640,16 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Ship_Across_the_Pacific"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = bb_tech
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = cl_tech
+		}
 	}
 }
 shared_focus = {
@@ -622,6 +664,50 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Re_scale_Wepon_Production"
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory 
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory 
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory 
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory 
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
 shared_focus = {
@@ -639,6 +725,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Expansion_Military_Academy"
+		swap_ideas = {
+			remove_idea = JAP_disarmament_momentum_rework_2_2
+			add_idea = JAP_disarmament_momentum_rework_3_3
+		}
 	}
 }
 shared_focus = {
@@ -656,6 +746,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_World_Largest_Navy"
+		add_ideas = JAP_World_Greatest_Navy
 	}
 }
 shared_focus = {
@@ -674,8 +765,14 @@ shared_focus = {
 	prerequisite = {
 		focus = JAP_World_Largest_Navy
 	}
-	completion_reward = {
+	completion_reward = { 
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Mechanisation_Imperial_Army"
+		remove_ideas = JAP_disarmament_momentum_rework_3_3
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = motorized_equipment
+		}
 	}
 }
 shared_focus = {
@@ -690,6 +787,16 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Strengthining_the_Air_Corps"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = cas_bomber
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = light_fighter
+		}
 	}
 }
 shared_focus = {
@@ -704,6 +811,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Active_Conscription_Outside_Country"
+		add_ideas = JAP_out_land_army
 	}
 }
 shared_focus = {
@@ -718,6 +826,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_More_Workers"
+		ssw_increase_economic_law = yes
+		add_ideas = JAP_Diligent_Worker
 	}
 }
 shared_focus = {
@@ -738,6 +848,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_People_and_Army"
+		ssw_increase_manpower_law = yes
+		add_manpower = 500000
 	}
 }
 shared_focus = {
@@ -752,6 +864,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Magnificent_Imperial_army"
+		add_ideas = JAP_Imperial_Army
 	}
 }
 shared_focus = {
@@ -760,13 +873,16 @@ shared_focus = {
 	cost = 2
 	relative_position_id = JAP_Magnificent_Imperial_army
 	x = -4
-	y = 2
+	y = 3
 	prerequisite = {
 		focus = JAP_Magnificent_Imperial_army
 		focus = JAP_Strong_soldiers_Advanced_Equipment
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_land_sea_sky"
+		army_experience = 10
+		navy_experience = 10
+		air_experience = 10
 	}
 }
 shared_focus = {
@@ -785,6 +901,9 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Air_Force_Create"
+		air_experience = 20
+		add_political_power = -50
+		add_ideas = JAP_Imperial_Airforce
 	}
 }
 shared_focus = {
@@ -799,6 +918,9 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Withdrawal_Personnel"
+		army_experience = -10
+		navy_experience = -10
+		add_manpower = -10000
 	}
 }
 shared_focus = {
@@ -813,6 +935,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Increased_research_Air_Warfare"
+		swap_ideas = {
+			remove_idea = JAP_Imperial_Airforce
+			add_idea = JAP_Imperial_Airforce_1
+		}
 	}
 }
 shared_focus = {
@@ -831,6 +957,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_More_Navy_Power"
+		navy_experience = 20
 	}
 }
 shared_focus = {
@@ -849,6 +976,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Focus_Army"
+		army_experience = 10
 	}
 }
 shared_focus = {
@@ -863,6 +991,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Tabletop_Strategy_Practice"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = land_doctrine
+		}
 	}
 }
 shared_focus = {
@@ -877,6 +1010,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Dominate_vastness_Land"
+		add_ideas = JAP_Land_Domination
 	}
 }
 shared_focus = {
@@ -891,6 +1025,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Protect_the_Route"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = dd_tech
+		}
 	}
 }
 shared_focus = {
@@ -905,6 +1044,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_We_must_Protect_Empire"
+		add_ideas = JAP_Sea_Domination
 	}
 }
 shared_focus = {
@@ -921,6 +1061,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Reform_huge_Organisation"
+		add_political_power = 100
 	}
 }
 shared_focus = {
@@ -939,6 +1080,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Good_Rivairy"
+		swap_ideas = {
+			remove_idea = JAP_army_and_navy_conflict_rework
+			add_idea = JAP_army_and_navy_good_rivaly
+		}
 	}
 }
 shared_focus = {
@@ -957,6 +1102,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Naval_Superiority"
+		swap_ideas = {
+			remove_idea = JAP_army_and_navy_conflict_rework
+			add_idea = JAP_army_and_navy_only_navy
+		}
 	}
 }
 shared_focus = {
@@ -974,7 +1123,11 @@ shared_focus = {
 		focus = JAP_Good_Rivairy
 	}
 	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus JAP_Naval_Superiority"
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Army_Superiority"
+		swap_ideas = {
+			remove_idea = JAP_army_and_navy_conflict_rework
+			add_idea = JAP_army_and_navy_only_army
+		}
 	}
 }
 shared_focus = {
@@ -991,6 +1144,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_New_Zero"
+		add_ideas = JAP_Memory_of_Zerosen
 	}
 }
 shared_focus = {
@@ -1007,6 +1161,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Pride_of_Battleship"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = bb_tech
+		}
 	}
 }
 shared_focus = {
@@ -1023,6 +1182,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Fuji_Fire_Drill"
+		add_war_support = 0.1
+		army_experience = 20
 	}
 }
 shared_focus = {
@@ -1043,6 +1204,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Lesson_from_the_landing_during_the_GEAW"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = tp_tech
+		}
 	}
 }
 shared_focus = {
@@ -1063,6 +1229,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Refining_the_Air_raid_Plan"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = heavy_air
+		}
 	}
 }
 shared_focus = {
@@ -1083,6 +1254,16 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Mechanizaion_Wars"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = motorized_equipment
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = armor
+		}
 	}
 }
 shared_focus = {
@@ -1103,6 +1284,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_A_Path_Life_Army_Paratroopers"
+		add_ideas = JAP_Army_of_Sky
 	}
 }
 shared_focus = {
@@ -1117,6 +1299,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Powerful_Bombers"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = tactical_bomber
+		}
 	}
 }
 shared_focus = {
@@ -1131,6 +1318,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Chemical_Warfare"
+		add_ideas = JAP_Research_Chemical_Warfare
 	}
 }
 shared_focus = {
@@ -1148,5 +1336,6 @@ shared_focus = {
 	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus JAP_Imperial_Honours"
+		add_ideas = JAP_Pride_of_Imperial_Army
 	}
 }

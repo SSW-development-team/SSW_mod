@@ -1,8 +1,8 @@
 ideas = {
 	country = {
-		JAP_disarmament_program_0 = {
+		JAP_japanese_tank_doctrine = {
 			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea JAP_disarmament_program"
+				log = "[GetDateText]: [Root.GetName]: add idea JAP_japanese_tank_doctrine"
 			}
 			allowed = { 
 				original_tag = JAP 
@@ -10,66 +10,13 @@ ideas = {
 			removal_cost = -1
 			#picture = 
 			modifier = {
+				army_org = 0.1
 			}
-			research_bonus = {
-				land_doctrine = -0.15
-				naval_doctrine = -0.15
-				air_doctrine = -0.15
-			}
-		}
-		JAP_disarmament_program_1 = {
-			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea JAP_disarmament_program_1"
-			}
-			allowed = { 
-				original_tag = JAP 
-			}
-			removal_cost = -1
-			#picture = 
-			modifier = {
-				production_speed_arms_factory_factor = 0.1
-			}
-			research_bonus = {
-				land_doctrine = -0.15
-				naval_doctrine = -0.15
-				air_doctrine = -0.15
-			}
-		}
-		JAP_disarmament_program_2 = {
-			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea JAP_disarmament_program_2"
-			}
-			allowed = { 
-				original_tag = JAP 
-			}
-			removal_cost = -1
-			#picture = 
-			modifier = {
-				production_speed_arms_factory_factor = 0.1
-			}
-			research_bonus = {
-				land_doctrine = -0.15
-				naval_doctrine = -0.15
-				air_doctrine = -0.15
-			}
-		}
-		JAP_disarmament_program_3 = {
-			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea JAP_disarmament_program_3"
-			}
-			allowed = { 
-				original_tag = JAP 
-			}
-			removal_cost = -1
-			#picture = 
-			modifier = {
-				production_speed_arms_factory_factor = 0.1
-				conscription_factor = 5
-			}
-			research_bonus = {
-				land_doctrine = -0.15
-				naval_doctrine = -0.15
-				air_doctrine = -0.15
+			equipment_bonus = {
+				armor = {
+					breakthrough = 0.05
+					build_cost_ic = -0.1
+				}
 			}
 		}
 		JAP_battle_ship_scrap = {
@@ -83,11 +30,29 @@ ideas = {
 			#picture = 
 			modifier = {
 				consumer_goods_factor = -0.05
-				production_cost_max_ship_hull_submarine = -0.3
-				production_cost_max_ship_hull_light = -0.3
-				production_cost_max_ship_hull_heavy = -0.3
-				production_cost_max_ship_hull_cruiser = -0.3
-				production_cost_max_ship_hull_carrier = -0.3
+				production_cost_max_ship_hull_submarine = -30
+				production_cost_max_ship_hull_light = -30
+				production_cost_max_ship_hull_heavy = -30
+				production_cost_max_ship_hull_cruiser = -30
+				production_cost_max_ship_hull_carrier = -30
+			}
+		}
+		JAP_World_Greatest_Navy = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea JAP_battle_ship_scrap"
+			}
+			allowed = { 
+				original_tag = JAP 
+			}
+			removal_cost = -1
+			#picture = 
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_cost_max_ship_hull_submarine = 5
+				production_cost_max_ship_hull_light = 5
+				production_cost_max_ship_hull_heavy = 15
+				production_cost_max_ship_hull_cruiser = 15
+				production_cost_max_ship_hull_carrier = 10
 			}
 		}
 		JAP_High_Performance_Battleship = {
@@ -100,11 +65,11 @@ ideas = {
 			removal_cost = -1
 			#picture = 
 			modifier = {
-				navy_screen_attack_factor = 0.1
-				navy_org = 10
-				navy_destroyer_attack_factor = 0.05
-				navy_destroyer_defence_factor = 0.05
-				naval_speed_factor = 5
+				naval_torpedo_hit_chance_factor = 0.03
+				navy_org = 3
+				navy_screen_attack_factor = 0.03
+				navy_screen_defence_factor = 0.03
+				naval_speed_factor = 0.03
 			}
 		}
 		JAP_Effective_Control_0 = {
@@ -118,7 +83,7 @@ ideas = {
 			#picture = 
 			modifier = {
 				army_org_regain = 0.05
-				max_planning = 10
+				max_planning = 0.1
 			}
 		}
 		JAP_Minority_Elites_Imperial_Army = {
@@ -168,11 +133,11 @@ ideas = {
 			#picture = 
 			equipment_bonus = {
 				infantry_weapons = {
-					offence = 0.1
+					breakthrough = 0.05
 					defence = 0.1
 				}
 				armor = {
-					offence = 0.1
+					breakthrough = 0.05
 					reliability = 0.3
 				}
 				light_fighter = {

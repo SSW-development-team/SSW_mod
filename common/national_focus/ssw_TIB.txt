@@ -846,7 +846,9 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
-			country_event = tibet.16
+			CHI = {
+				country_event = tibet.16
+			}
 		}
 		x = 29
 		y = 11
@@ -1824,7 +1826,49 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_the_trapchi_factory
 		}
+		available = {
+			OR = {
+				has_full_control_of_state = 757 #lhasa
+				has_full_control_of_state = 918 #ngari
+				has_full_control_of_state = 917 #nagqu
+			}			
+		}
 		ai_will_do = { factor = 2 }
+		completion_reward = {
+			if = {
+				limit = { has_full_control_of_state = 757 }
+				180 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1	
+				}
+			}
+			if = {
+				limit = { has_full_control_of_state = 918 }
+				180 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1	
+				}
+			}
+			if = {
+				limit = { has_full_control_of_state = 917 }
+				180 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1	
+				}
+			}
+		}
 		x = 46
 		y = 8
 
@@ -2396,9 +2440,6 @@ focus_tree = {
 			focus = TIB_red_potala
 			focus = TIB_fate_of_dalai_lama
 		}
-		prerequisite = {
-			focus = TIB_red_potala
-		}
 		ai_will_do = { factor = 2 }
 		x = 1
 		y = 8
@@ -2429,6 +2470,9 @@ focus_tree = {
 			focus = TIB_call_ccp
 		}
 		ai_will_do = { factor = 2 }
+		completion_reward = {
+			unlock_decision_category_tooltip = TIB_infiltrate_nationalist_areas
+		}
 		x = 7
 		y = 8
 
@@ -2522,10 +2566,6 @@ focus_tree = {
 			factor = 2
 		}
 		completion_reward = {
-			set_politics = {
-				elections_allowed = yes
-			}
-			add_political_power = 50
 		}
 		x = 0
 		y = 10
@@ -2539,6 +2579,15 @@ focus_tree = {
 			focus = TIB_call_ccp
 		}
 		ai_will_do = { factor = 2 }
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_core_of = ROOT
+			}
+			add_war_support = 0.1
+		}
 		x = 9
 		y = 8
 
@@ -2626,11 +2675,11 @@ focus_tree = {
 				limit = {
 					has_country_flag = TIB_ccp_flag_histolical
 				}
-				set_cosmetic_tag = TIB_ccp_unified_2
+				set_cosmetic_tag = CHI_people's_republic
 			}
 			else_if = {
 				limit = { has_country_flag = TIB_ccp_flag_alternative }
-				set_cosmetic_tag = TIB_ccp_unified_1
+				set_cosmetic_tag = CHI_people's_republic_1
 			}
 			hidden_effect = {
 			create_country_leader = {
@@ -2983,6 +3032,20 @@ focus_tree = {
 		cost = 7.00
 		prerequisite = {
 			focus = TIB_study_japanese_constitution
+		}
+		completion_reward = {
+			create_country_leader = {
+				name = "Lobsang Tashi"
+				desc = "POLITICS_LOBSANG_TASHI_DESC"
+				picture = "gfx/leaders/TIB/ssw_Portrait_Tibet_Lobsang_Tashi.dds"
+				ideology = authority_despotism_ideology     
+				traits = {
+					#
+				}
+				expire = "1988.1.1"
+			}
+			add_stability = 0.01
+			add_ideas = TIB_implement_reforms_idea
 		}
 		x = 23
 		y = 6
@@ -3718,7 +3781,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_war_support = 0.2
-			set_cosmetic_tag = TIB_tufan
+			set_cosmetic_tag = TIB_empire
 			every_state = {
 				limit = {
 					OR = {

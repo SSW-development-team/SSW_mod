@@ -1,52 +1,52 @@
-abandon_colony_tag = {
-	if = {	
-		limit = { is_subject = yes }
-		if = {
-			limit = {
-				original_tag = KOR
-				is_puppet_of = JAP
-			}
-			set_cosmetic_tag = KOR_JAP
-		}
-		else_if = {
-			limit = {
-				original_tag = PAO
-				is_puppet_of = JAP
-			}
-			set_cosmetic_tag = PAO_JAP
-		}
-		else_if = {
-			limit = {
-				original_tag = CZE
-				is_puppet_of = GER
-			}
-			set_cosmetic_tag = CZE_GER
-		}
-		else = { drop_cosmetic_tag = yes }
-	}
-	else_if = {
-		limit = { original_tag = CZE }
-		drop_cosmetic_tag = yes
-		69 = { add_core_of = CZE }
-		72 = { add_core_of = CZE }
-		74 = { add_core_of = CZE }
-		1042 = { add_core_of = CZE }
-	}
-	else_if = {
-		limit = { original_tag = POL }
-		drop_cosmetic_tag = yes
-		85 = { add_core_of = POL }
-		86 = { add_core_of = POL }
-		87 = { add_core_of = POL }
-		98 = { add_core_of = POL }
-		762 = { add_core_of = POL }
-		1207 = { add_core_of = POL }
-	}
-	else = { drop_cosmetic_tag = yes }
-}
-is_abandoned_colony_tag = {
-	if = {
-		limit = { tag = ROOT }
-		ROOT = { abandon_colony_tag = yes }
-	}
-}
+# abandon_colony_tag = {
+# 	if = {	
+# 		limit = { is_subject = yes }
+# 		if = {
+# 			limit = {
+# 				original_tag = KOR
+# 				is_puppet_of = JAP
+# 			}
+# 			set_cosmetic_tag = KOR_JAP
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				original_tag = PAO
+# 				is_puppet_of = JAP
+# 			}
+# 			set_cosmetic_tag = PAO_JAP
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				original_tag = CZE
+# 				is_puppet_of = GER
+# 			}
+# 			set_cosmetic_tag = CZE_GER
+# 		}
+# 		else = { drop_cosmetic_tag = yes }
+# 	}
+# 	else_if = {
+# 		limit = { original_tag = CZE }
+# 		drop_cosmetic_tag = yes
+# 		69 = { add_core_of = CZE }
+# 		72 = { add_core_of = CZE }
+# 		74 = { add_core_of = CZE }
+# 		1042 = { add_core_of = CZE }
+# 	}
+# 	else_if = {
+# 		limit = { original_tag = POL }
+# 		drop_cosmetic_tag = yes
+# 		85 = { add_core_of = POL }
+# 		86 = { add_core_of = POL }
+# 		87 = { add_core_of = POL }
+# 		98 = { add_core_of = POL }
+# 		762 = { add_core_of = POL }
+# 		1207 = { add_core_of = POL }
+# 	}
+# 	else = { drop_cosmetic_tag = yes }
+# }
+# is_abandoned_colony_tag = {
+# 	if = {
+# 		limit = { tag = ROOT }
+# 		ROOT = { abandon_colony_tag = yes }
+# 	}
+# }

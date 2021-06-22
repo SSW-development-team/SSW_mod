@@ -79,34 +79,6 @@ is_germany_mainland = {
 		state =56
 	}
 }
-Goering_is_Best = {
-	set_temp_variable = { who_temp = Current_Himmler_Influence }
-	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
-	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
-	divide_temp_variable = { who_temp = 3 }
-	check_variable = { Current_Goering_Influence > who_temp }
-}
-Himmler_is_Best = {
-	set_temp_variable = { who_temp = Current_Goering_Influence }
-	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
-	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
-	divide_temp_variable = { who_temp = 3 }
-	check_variable = { Current_Himmler_Influence > who_temp }
-}
-Goebbels_is_Best = {
-	set_temp_variable = { who_temp = Current_Goering_Influence }
-	add_to_temp_variable = { who_temp = Current_Himmler_Influence }
-	add_to_temp_variable = { who_temp = Current_Bormann_Influence }
-	divide_temp_variable = { who_temp = 3 }
-	check_variable = { Current_Goebbels_Influence > who_temp }
-}
-Bormann_is_Best = {
-	set_temp_variable = { who_temp = Current_Goering_Influence }
-	add_to_temp_variable = { who_temp = Current_Himmler_Influence }
-	add_to_temp_variable = { who_temp = Current_Goebbels_Influence }
-	divide_temp_variable = { who_temp = 3 }
-	check_variable = { Current_Bormann_Influence > who_temp }
-}
 
 who_is_Best = {
 	add_to_temp_array = { temp1 = Current_Goering_Influence }
@@ -118,65 +90,67 @@ who_is_Best = {
 		value = v
 		index = i
 	}
-	set_temp_variable = { test = temp1^i }
-	log = "[?v]"
-	log = "[?test]"
-	log = "-----------------------------"
+	set_temp_variable = { temp2 = temp1^i }
 	if = {
 		limit = {
-			check_variable = { Current_Goering_Influence = test }
+			check_variable = { Current_Goering_Influence = 0 }
+			check_variable = { Current_Himmler_Influence = 0 }
+			check_variable = { Current_Goebbels_Influence = 0 }
+			check_variable = { Current_Bormann_Influence = 0 }
+		}
+		set_temp_variable = { Winner_Var = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { Current_Goering_Influence = temp2 }
 		}
 		set_temp_variable = { Winner_Var = 1 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Himmler_Influence }
+			check_variable = { Current_Himmler_Influence = temp2 }
 		}
 		set_temp_variable = { Winner_Var = 2 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Goebbels_Influence }
+			check_variable = { Current_Goebbels_Influence = temp2 }
 		}
 		set_temp_variable = { Winner_Var = 3 }
 	}
 	else_if = {
 		limit = {
-			check_variable = { test = Current_Bormann_Influence }
+			check_variable = { Current_Bormann_Influence = temp2 }
 		}
 		set_temp_variable = { Winner_Var = 4 }
 	}
-	else = {
-		limit = {
-			check_variable = { test = 0 }
-		}
-		set_temp_variable = { Winner_Var = 5 }
-	}
-	clear_temp_array = temp1
-	log = "[?Winner_Var]"
-	log = "-----------------------------"
 }
 
 is_East_Prussia_Area = {
-	state = 1229
-	state = 97
-	state = 188
-	state = 763
-	state = 5
-	state = 1207
-	state = 98
+	OR = {
+		state = 1229
+		state = 97
+		state = 188
+		state = 763
+		state = 5
+		state = 1207
+		state = 98
+	}
 }
 is_West_Prussia_Area = {
-	state = 85
-	state = 86
-	state = 87
-	state = 66
-	state = 67
-	state = 74
-	state = 762
-	state = 1228
+	OR = {
+		state = 85
+		state = 86
+		state = 87
+		state = 66
+		state = 67
+		state = 74
+		state = 762
+		state = 1228
+	}
 }
 is_Berlin_Area = {
+	OR = {
 	state = 63
 	state = 68
 	state = 65
@@ -188,46 +162,59 @@ is_Berlin_Area = {
 	state =64
 	state =61
 	state =62
+	}
 }
 is_Hanover_Area = {
+	OR = {
 	state =812
 	state =58
 	state =59
 	state =56
 	state =60
+	}
 }
 is_Wien_Area = {
+	OR = {
 	state =981
 	state =102
 	state =4
 	state =1042
 	state =152
 	state =153
+	}
 }
 is_Munich_Area = {
+	OR = {
 	state =50
 	state =52
 	state =53
 	state =54
 	state =812
+	}
 }
 is_Alsace_Lorraine_Area = {
+	OR = {
 	state =28
 	state =8
 	state =42
 	state =1021
 	state =812
+	}
 }
 is_Rhein_Area = {
+	OR = {
 	state =938
 	state =1023
 	state =1022
 	state =51
 	state =57
 	state =55
+	}
 }
 is_Czech_Area = {
+	OR = {
 	state =9
 	state =75
 	state =72
+	}
 }
