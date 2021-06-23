@@ -29,12 +29,27 @@ country_event = { #日本の運命
 						is_core_of = ROOT
 						is_claimed_by = ROOT
 						state = 524
+						state = 525
+						state = 527
 						state = 537
 						state = 555
 						state = 655
 						state = 745
 						state = 842
+						state = 852
+						state = 853
+						state = 854
+						state = 855
+						state = 856
+						state = 857
+						state = 858
+						state = 859
+						state = 860
+						state = 936
+						state = 937
+						state = 1011
 						state = 1104
+						state = 1234
 					}
 				}
 				JPN = { transfer_state = PREV }
@@ -52,12 +67,27 @@ country_event = { #日本の運命
 						is_core_of = ROOT
 						is_claimed_by = ROOT
 						state = 524
+						state = 525
+						state = 527
 						state = 537
 						state = 555
 						state = 655
 						state = 745
 						state = 842
+						state = 852
+						state = 853
+						state = 854
+						state = 855
+						state = 856
+						state = 857
+						state = 858
+						state = 859
+						state = 860
+						state = 936
+						state = 937
+						state = 1011
 						state = 1104
+						state = 1234
 					}
 				}
 				JSF = { transfer_state = PREV }
@@ -75,12 +105,27 @@ country_event = { #日本の運命
 						is_core_of = ROOT
 						is_claimed_by = ROOT
 						state = 524
+						state = 525
+						state = 527
 						state = 537
 						state = 555
 						state = 655
 						state = 745
 						state = 842
+						state = 852
+						state = 853
+						state = 854
+						state = 855
+						state = 856
+						state = 857
+						state = 858
+						state = 859
+						state = 860
+						state = 936
+						state = 937
+						state = 1011
 						state = 1104
+						state = 1234
 					}
 				}
 				PRJ = { transfer_state = PREV }
@@ -112,13 +157,27 @@ country_event = { #日本の運命
 					is_core_of = ROOT
 					is_claimed_by = ROOT
 					state = 524
+					state = 525
+					state = 527
 					state = 537
 					state = 555
 					state = 655
 					state = 745
 					state = 842
-					state = 943
+					state = 852
+					state = 853
+					state = 854
+					state = 855
+					state = 856
+					state = 857
+					state = 858
+					state = 859
+					state = 860
+					state = 936
+					state = 937
+					state = 1011
 					state = 1104
+					state = 1234
 				}
 			}
 			JPN = { transfer_state = PREV }
@@ -127,7 +186,7 @@ country_event = { #日本の運命
 		KAN = {
 			transfer_state = 943
 			add_state_core = 943
-			set_cosmetic_tag = KAN_legation_cities
+			set_cosmetic_tag = YOKOHAMA_international_administrative_territory
 			give_military_access = ROOT
 		}
 		every_other_country = {
@@ -232,7 +291,7 @@ country_event = { #韓国の運命
 				}
 				DPK = {
 					transfer_state = PREV
-					set_cosmetic_tag = DPK_perfect
+					set_cosmetic_tag = CHOSON_republic
 				}
 				add_core_of = DPK
 			}
@@ -468,7 +527,7 @@ country_event = { #中国の運命
 			}
 			MAN = { transfer_state = PREV }
 			add_core_of = ROOT
-			set_cosmetic_tag = MAN_qing
+			set_cosmetic_tag = GREAT-QING_empire
 		}
 	}
 	option = {
@@ -2119,5 +2178,62 @@ country_event = { #台湾の運命
 		ai_chance = { base = 0 }
 		occupy_medium_country = yes
 		set_country_flag = continue_to_occupy_taiwan
+	}
+}
+country_event = { #インドネシアの運命
+	id = ssw_foc_asia.19
+	title = ssw_foc_asia.19.title
+	desc = ssw_foc_asia.19.desc
+	picture = GFX_report_event_second_vienna_award_pact
+	is_triggered_only = yes
+	option = {
+		name = ssw_foc_asia.19.a
+		ai_chance = { base = 10 }
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_INS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = IDN
+			IDN = { transfer_state = PREV }
+		}
+		puppet = IDN
+	}
+	option = {
+		name = ssw_foc_asia.19.b
+		ai_chance = { base = 10 }
+		trigger = {
+			OR = {
+				MAL = { is_subject_of = ROOT }
+				is_in_faction_with = MAL
+				original_tag = MAL
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_less_INS_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			add_core_of = MAL
+			MAL = {
+				transfer_state = PREV
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = MAJAPAHIT_empire
+			}
+		}
+	}
+	option = {
+		name = OCCUPY_TT
+		ai_chance = { base = 0 }
+		occupy_medium_country = yes
+		set_country_flag = continue_to_occupy_indonesia
 	}
 }

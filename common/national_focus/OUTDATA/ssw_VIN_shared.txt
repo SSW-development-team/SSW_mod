@@ -1,0 +1,953 @@
+#自国軍
+shared_focus = {
+    id = VIN_focus_fatherland_army
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 5
+    y = 0
+    completion_reward = {
+        add_war_support = 0.05
+        add_ideas = VIN_idea_2
+    }
+}
+#軍隊全般の強化
+shared_focus = {
+    id = VIN_focus_Strengthen_the_military_in_general
+    icon = GFX_focus_generic_strike_at_democracy1
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_fatherland_army
+    }
+    mutually_exclusive = {
+        focus = VIN_focus_focus_on_army
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 1
+    completion_reward = {
+        add_tech_bonus = {
+            bonus = 0.5
+            uses = 3
+            category = land_doctrine
+            category = naval_doctrine
+            category = air_doctrine
+        }
+    }
+}
+#陸軍の強化
+shared_focus = {
+    id = VIN_focus_Strengthening_Army
+    icon = GFX_goal_generic_army_doctrines
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthen_the_military_in_general
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 0
+    y = 2
+    completion_reward = {
+    }
+}
+#海軍の強化
+shared_focus = {
+    id = VIN_focus_Strengthening_navy
+    icon = GFX_goal_generic_navy_doctrines_tactics
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthen_the_military_in_general
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 2
+    completion_reward = {
+    }
+}
+#空軍の強化
+shared_focus = {
+    id = VIN_focus_Strengthening_airforce
+    icon = GFX_goal_generic_air_doctrine
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthen_the_military_in_general
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 4
+    y = 2
+    completion_reward = {
+    }
+}
+#陸軍に集中
+shared_focus = {
+    id = VIN_focus_focus_on_army
+    icon = GFX_goal_generic_axis_build_infantry
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_fatherland_army
+    }
+    mutually_exclusive = {
+        focus = VIN_focus_Strengthen_the_military_in_general
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 1
+    completion_reward = {
+        army_experience = 50
+        add_tech_bonus = {
+            bonus = 1.5
+            uses = 2
+            category = land_doctrine
+        }
+    }
+}
+#ゲリラ戦への特化
+shared_focus = {
+    id = VIN_focus_Specialization_in_guerrilla_warfare
+    icon = GFX_focus_por_luso_tropicalism
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_focus_on_army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 6
+    y = 2
+    completion_reward = {
+        swap_ideas= {
+            remove_idea = VIN_idea_1
+            add_idea = VIN_idea_3
+        }
+    }
+}
+#ベトナム式軍事教育
+shared_focus = {
+    id = VIN_focus_Vietnamstyle_military_education
+    icon = GFX_goal_demand_sudetenland
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_focus_on_army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 2
+    completion_reward = {
+        add_ideas = VIN_idea_4
+    }
+}
+#青年民族運動の開催
+shared_focus = {
+    id = VIN_focus_Organizing_the_Youth_National_Movement
+    icon = GFX_focus_prc_infiltration
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Vietnamstyle_military_education
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 3
+    completion_reward = {
+        add_war_support = 0.10
+        add_ideas = VIN_idea_5
+    }
+}
+#軍隊への理解
+shared_focus = {
+    id = VIN_focus_Understanding_military
+    icon = GFX_goal_generic_national_unity
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Organizing_the_Youth_National_Movement
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 4
+    completion_reward = {
+        add_stability = 0.20
+        add_war_support = 0.20
+        add_ideas = VIN_idea_6
+    }
+}
+#国民との支え合い
+shared_focus = {
+    id = VIN_focus_Supporting_each_other_and_the_people
+    icon = GFX_goal_generic_major_alliance
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Understanding_military
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 5
+    completion_reward = {
+    }
+}
+#ゲリラ部隊の拡大
+shared_focus = {
+    id = VIN_focus_Expansion_of_guerrilla_forces
+    icon = GFX_goal_generic_special_forces
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthening_Army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 0
+    y = 3
+    completion_reward = {
+    }
+}
+#直衛艦の建造
+shared_focus = {
+    id = VIN_focus_Construction_of_direct_defense_ships
+    icon = GFX_focus_generic_cruiser2
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthening_navy
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 3
+    completion_reward = {
+    }
+}
+#沿岸防衛
+shared_focus = {
+    id = VIN_focus_coastal_defense
+    icon = GFX_focus_hol_prepare_the_inundation_lines
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Construction_of_direct_defense_ships
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 4
+    completion_reward = {
+    }
+}
+#インドシナの守護者
+shared_focus = {
+    id = VIN_focus_Protector_of_Indochina
+    icon = GFX_focus_eng_imperial_federation
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_coastal_defense
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 5
+    completion_reward = {
+    }
+}
+#統合参謀本部の設立
+shared_focus = {
+    id = VIN_focus_Establishment_of_the_Joint_Chiefs_of_Staff
+    icon = GFX_focus_eng_chiefs_of_staff_committee
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Protector_of_Indochina
+    }
+    prerequisite = {
+        focus = VIN_focus_Weapon_Field
+    }
+    prerequisite = {
+        focus = VIN_focus_land_and_naval_collaboration
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 2
+    y = 6
+    completion_reward = {
+    }
+}
+#精強なるベトナム軍
+shared_focus = {
+    id = VIN_focus_mighty_Vietnamese_army
+    icon = GFX_goal_generic_axis_build_infantry
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Mass_mobilization_of_guerillas
+    }
+    prerequisite = {
+        focus = VIN_focus_Supporting_each_other_and_the_people
+    }
+    prerequisite = {
+        focus = VIN_focus_Thoroughness_of_roles
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 8
+    y = 6
+    completion_reward = {
+    }
+}
+#最低限の制空能力
+shared_focus = {
+    id = VIN_focus_Minimum_air_control_capability
+    icon = GFX_goal_generic_build_airforce
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthen_the_military_in_general
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 4
+    y = 3
+    completion_reward = {
+    }
+}
+#海上機の運用
+shared_focus = {
+    id = VIN_focus_Marine_aircraft_operations
+    icon = GFX_focus_usa_escort_fighters
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Minimum_air_control_capability
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 4
+    y = 4
+    completion_reward = {
+    }
+}
+#陸海共同
+shared_focus = {
+    id = VIN_focus_land_and_naval_collaboration
+    icon = GFX_goal_generic_amphibious_assault
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Marine_aircraft_operations
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 4
+    y = 5
+    completion_reward = {
+    }
+}
+#正規軍の編成
+shared_focus = {
+    id = VIN_focus_Formation_of_the_regular_army
+    icon = GFX_focus_generic_manpower
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Strengthening_Army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 0
+    y = 4
+    completion_reward = {
+    }
+}
+#武器の畑
+shared_focus = {
+    id = VIN_focus_Weapon_Field
+    icon = GFX_focus_secret_rearmament
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Formation_of_the_regular_army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 0
+    y = 5
+    completion_reward = {
+    }
+}
+#装備の適切化
+shared_focus = {
+    id = VIN_focus_Appropriate_equipment
+    icon = GFX_focus_generic_combined_arms
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Specialization_in_guerrilla_warfare
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 6
+    y = 3
+    completion_reward = {
+    }
+}
+#始祖からの指導
+shared_focus = {
+    id = VIN_focus_Guidance_from_the_Founders
+    icon = GFX_focus_spr_no_pasaran
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Appropriate_equipment
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 6
+    y = 4
+    completion_reward = {
+    }
+}
+#ゲリラの大量動員
+shared_focus = {
+    id = VIN_focus_Mass_mobilization_of_guerillas
+    icon = GFX_focus_generic_military_mission
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Guidance_from_the_Founders
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 6
+    y = 5
+    completion_reward = {
+    }
+}
+#海空軍の創設
+shared_focus = {
+    id = VIN_focus_Creation_of_the_Navy_and_AirForce
+    icon = GFX_focus_CZE_military_aeronautical_institute
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_focus_on_army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 10
+    y = 2
+    completion_reward = {
+    }
+}
+#補助的な役割
+shared_focus = {
+    id = VIN_focus_Auxiliary_role
+    icon = GFX_goal_generic_air_naval_bomber
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Creation_of_the_Navy_and_AirForce
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 10
+    y = 3
+    completion_reward = {
+    }
+}
+#最低限のコストで
+shared_focus = {
+    id = VIN_focus_Minimal_cost
+    icon = GFX_focus_hol_the_foundations_of_defense
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Auxiliary_role
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 10
+    y = 4
+    completion_reward = {
+    }
+}
+#役割の徹底
+shared_focus = {
+    id = VIN_focus_Thoroughness_of_roles
+    icon = GFX_focus_generic_air_defense
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Auxiliary_role
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 10
+    y = 5
+    completion_reward = {
+    }
+}
+#アジアそして世界へ
+shared_focus = {
+    id = VIN_focus_Asia_and_the_World
+    icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Establishment_of_the_Joint_Chiefs_of_Staff
+    }
+    prerequisite = {
+        focus = VIN_focus_mighty_Vietnamese_army
+    }
+    mutually_exclusive = {
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_POLITICAL }
+    x = 5
+    y = 7
+    completion_reward = {
+    }
+}
+#選挙の実施
+shared_focus = {
+    id = VIN_Conducting_election
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_change_to_constitutional_system
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 17
+    y = 1
+    completion_reward = {
+    }
+}
+#与党の勝利
+shared_focus = {
+    id = VIN_Ruling_party_wins
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_Conducting_election
+    }
+    mutually_exclusive = {
+        focus = VIN_Opposition_wins
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 15
+    y = 2
+    completion_reward = {
+    }
+}
+#帝国制の維持
+shared_focus = {
+    id = VIN_Maintaining_the_Empire
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = {
+        focus = VIN_change_to_constitutional_system
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 23
+    y = 0
+    completion_reward = {
+    }
+}
+#立憲制への移行
+shared_focus = {
+    id = VIN_change_to_constitutional_system
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = {
+        focus = VIN_Maintaining_the_Empire
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 19
+    y = 0
+    completion_reward = {
+    }
+}
+#野党の勝利
+shared_focus = {
+    id = VIN_Opposition_wins
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_Conducting_election
+    }
+    mutually_exclusive = {
+        focus = VIN_Ruling_party_wins
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 19
+    y = 2
+    completion_reward = {
+    }
+}

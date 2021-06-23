@@ -2406,7 +2406,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_focus_balbo_Learn_from_Germany
 	icon = GFX_ITA_Tank_Raid
-	cost = 6.00
+	cost = 8.00
 	prerequisite = {
 		focus = ITA_focus_balbo_Transition_to_Mobile_Warfare
 		}
@@ -2414,6 +2414,7 @@ shared_focus = {
 		focus = ITA_focus_balbo_General_Messes_plan
 	}
 	available = {
+		has_global_flag = GER_civil_war_end
 	}
 	ai_will_do = {
 		factor = 5
@@ -2427,10 +2428,54 @@ shared_focus = {
 	x = 33
 	y = 9
 	completion_reward = {
+		army_experience = 30
 		add_tech_bonus = {
 			bonus = 1.5
 			uses = 1
 			category = armor 
+		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = cat_mobile_warfare 
+		}
+		add_ideas = ITA_idea_89
+	}
+}
+#チーターの如く
+shared_focus = {
+	id = ITA_focus_balbo_like_cheetah
+	icon = GFX_ITA_Tank_Raid
+	cost = 4.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Learn_from_Germany
+		}
+	mutually_exclusive = {
+	}
+	available = {
+		has_global_flag = GER_civil_war_end
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 33
+	y = 10
+	completion_reward = {
+		army_experience = 5
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = cat_mobile_warfare 
+		}
+		swap_ideas = {
+			remove_idea = ITA_idea_89
+			add_idea = ITA_idea_91
 		}
 	}
 }
@@ -2459,11 +2504,49 @@ shared_focus = {
 	x = 31
 	y = 9
 	completion_reward = {
+		army_experience = 30
 		add_tech_bonus = {
 			bonus = 1.5
 			uses = 1
 			category = armor 
 		}
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = cat_mobile_warfare 
+		}
+		add_ideas = ITA_idea_90
+	}
+}
+#高度な適応能力
+shared_focus = {
+	id = ITA_focus_balbo_Highly_adaptable
+	icon = GFX_ITA_Tank_Raid
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_General_Messes_plan
+		}
+	available = {
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 31
+	y = 10
+	completion_reward = {
+		army_experience = 5
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 1
+			category = cat_mobile_warfare 
+		}
+		add_ideas = ITA_idea_92
 	}
 }
 #多様な戦術の導入
@@ -2500,6 +2583,36 @@ shared_focus = {
 			bonus = 1.5
 			uses = 1
 			category = infantry_tech 
+		}
+	}
+}
+#部隊運用の工夫
+shared_focus = {
+	id = ITA_focus_balbo_Devising_troop_operations
+	icon = GFX_ITA_Military_Pensions
+	cost = 6.00
+	prerequisite = {
+		focus = ITA_focus_balbo_Implement_variety_of_tactics
+		}
+	mutually_exclusive = {
+		}
+	available = {
+		always = no
+	}
+	ai_will_do = {
+		factor = 5
+	  }
+	  bypass = {
+	  }
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	x = 43
+	y = 8
+	completion_reward = {
+		country_event = {
+			id = SSW_ITA.ITA_focus_balbo_Devising_troop_operations
 		}
 	}
 }

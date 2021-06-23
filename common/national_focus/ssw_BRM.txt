@@ -4,7 +4,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = BRM
+			original_tag = BRM
 		}
 	}
 	default = no
@@ -55,7 +55,11 @@ focus_tree = {
 		cost = 10
 		x = 7
 		y = 15
+		available = {
+			always = no
+		}
 		allow_branch = {
+			has_completed_focus = brm_shining_democracy
 			NOT = {
 				has_global_flag = BRM_civil_war
 			}
@@ -68,9 +72,13 @@ focus_tree = {
 		x = 20
 		y = 15
 		allow_branch = {
+			has_completed_focus = brm_to_strong_burma
 			NOT = {
 				has_global_flag = BRM_civil_war
 			}
+		}
+		available = {
+			always = no
 		}
 	}
 	focus = {
@@ -80,6 +88,10 @@ focus_tree = {
 		x = 31
 		y = 15
 		allow_branch = {
+			has_completed_focus = brm_towards_further_socialism
+			has_country_leader = {
+				name = "Ne Win"
+			}
 			NOT = {
 				has_global_flag = BRM_civil_war
 			}
@@ -92,6 +104,10 @@ focus_tree = {
 		x = 39
 		y = 15
 		allow_branch = {
+			has_completed_focus = brm_towards_further_socialism
+			has_country_leader = {
+				name = "Aung San"
+			}
 			NOT = {
 				has_global_flag = BRM_civil_war
 			}
@@ -100,12 +116,12 @@ focus_tree = {
 	focus = {
 		id = BRM_civil_war
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		x = 38
 		y = 0
-		allow_branch = {
-			has_global_flag = BRM_civil_war
-		}
+		# allow_branch = {
+		# 	has_global_flag = BRM_civil_war
+		# }
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = -0.05
@@ -1369,7 +1385,7 @@ focus_tree = {
 	focus = {
 		id = BRM_eliminate_terrorists
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_civil_war
 		}
@@ -1386,7 +1402,7 @@ focus_tree = {
 	focus = {
 		id = BRM_dispute_initiative
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_civil_war
 		}
@@ -1401,7 +1417,7 @@ focus_tree = {
 	focus = {
 		id = BRM_minority_collaborators
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_eliminate_terrorists
 		}
@@ -1421,7 +1437,7 @@ focus_tree = {
 	focus = {
 		id = BRM_gather_weapons
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_civil_war
 		}
@@ -1438,7 +1454,7 @@ focus_tree = {
 	focus = {
 		id = BRM_buy_jap_weapons
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_gather_weapons
 		}
@@ -1475,7 +1491,7 @@ focus_tree = {
 	focus = {
 		id = BRM_our_weapons
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_minority_collaborators
 			focus = BRM_buy_jap_weapons
@@ -1496,7 +1512,7 @@ focus_tree = {
 	focus = {
 		id = BRM_call_bombing
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_buy_jap_weapons
 			focus = BRM_minority_collaborators
@@ -1528,7 +1544,7 @@ focus_tree = {
 	focus = {
 		id = BRM_jap_volunteers
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_call_bombing
 			focus = BRM_our_weapons
@@ -1664,7 +1680,7 @@ focus_tree = {
 	focus = {
 		id = BRM_minami_support
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_our_weapons
 			focus = BRM_call_bombing
@@ -1686,7 +1702,7 @@ focus_tree = {
 	focus = {
 		id = BRM_jap_naval_support
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_jap_volunteers
 			focus = BRM_minami_support
@@ -2202,6 +2218,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			remove_ideas = BRM_tired_economy6
+			complete_national_focus = BRM_continue_ba_mau
 		}
 	}
 	focus = {
@@ -2321,6 +2338,9 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			remove_ideas = BRM_tired_economy7
+			country_event = {
+				id = ssw_brm.23
+			}
 		}
 	}
 	focus = {
@@ -3553,7 +3573,7 @@ focus_tree = {
 	focus = {
 		id = BRM_battle_for_burnese
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_minami_support
 			focus = BRM_jap_volunteers
@@ -3570,7 +3590,7 @@ focus_tree = {
 	focus = {
 		id = BRM_preparation_war
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_battle_for_burnese
 			focus = BRM_jap_naval_support
@@ -3655,7 +3675,7 @@ focus_tree = {
 	focus = {
 		id = BRM_attack
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_preparation_war
 		}
@@ -3668,7 +3688,7 @@ focus_tree = {
 	focus = {
 		id = BRM_integrate_naga
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_attack
 		}
@@ -3676,15 +3696,17 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			NGL = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
 	focus = {
 		id = BRM_operation_necklace
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_attack
 		}
@@ -3713,7 +3735,7 @@ focus_tree = {
 	focus = {
 		id = BRM_operation_rock
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_integrate_naga
 			focus = BRM_operation_necklace
@@ -3744,7 +3766,7 @@ focus_tree = {
 	focus = {
 		id = BRM_deal_guerrilla
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_preparation_war
 		}
@@ -3754,7 +3776,7 @@ focus_tree = {
 	focus = {
 		id = BRM_operation_gold
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_deal_guerrilla
 		}
@@ -3783,7 +3805,7 @@ focus_tree = {
 	focus = {
 		id = BRM_coop_arakan
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_deal_guerrilla
 		}
@@ -3791,15 +3813,17 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			ARK = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
 	focus = {
 		id = BRM_incorporate_mon
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_operation_gold
 			focus = BRM_coop_arakan
@@ -3808,15 +3832,17 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			add_political_power = -100
-			country_event = {
-				id = ssw_brm.14
+			PEG = {
+				country_event = {
+					id = ssw_brm.14
+				}
 			}
 		}
 	}
 	focus = {
 		id = BRM_disupute_initiative
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 2
 		prerequisite = {
 			focus = BRM_operation_rock
 			focus = BRM_incorporate_mon
@@ -3826,9 +3852,20 @@ focus_tree = {
 		completion_reward = {
 			every_country = {
 				limit = {
-					original_tag = BRM
-					NOT = {
-						tag = ROOT
+					OR = {
+						AND = {
+							original_tag = BRM
+							NOT = {
+								tag = ROOT
+							}
+						}
+						tag = ARK
+						tag = KAC
+						tag = SHA
+						tag = NGL
+						tag = CHN
+						tag = KRE
+						tag = PEG
 					}
 				}
 				ROOT = {

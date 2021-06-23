@@ -456,6 +456,47 @@ on_actions = {
 				}
 				set_state_flag = maybe_less_NFR_GAMESTART
 			}
+			#インドネシア
+			every_state = {
+				limit = {
+					is_owned_by = INS
+					NOT = {
+						state = 333
+						state = 721
+						state = 960
+						state = 974
+						state = 1223
+					}
+				}
+				set_state_flag = maybe_less_INS_GAMESTART
+			}
+			#ロシア
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = RUS
+						is_owned_by = SOV
+					}
+					NOT = {
+						is_core_of = BLR
+						is_core_of = KAZ
+						is_core_of = TUV
+						is_core_of = WTR
+					}
+				}
+				set_state_flag = maybe_less_RUS_GAMESTART
+			}
+			#ウクライナ
+			every_state = {
+				limit = {
+					is_owned_by = UKR
+					NOT = {
+						state = 220
+						state = 240
+					}
+				}
+				set_state_flag = maybe_less_UKR_GAMESTART
+			}
 ##############################   その他   ##############################
 			#ロシア構成国
 			every_state = {
