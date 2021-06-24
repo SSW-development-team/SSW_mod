@@ -1,746 +1,656 @@
+#!gfx:interface\ssw_GER_goals.gfx
 shared_focus = {
-	id = GER_Breaking_Economic_Depression
-	icon = GFX_goal_unknown
-	cost = 1.00
-	x = 5
+	id = GER_Succesor_Problem
+	icon = GFX_emergency_budget
+	cost = 2
+	x = 0
 	y = 0
-	allow_branch = {
-		NOT = {
-			has_country_flag = Goering_is_Successor
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Succesor_Problem"
+		country_event = {#Select a Successor
+			id = GER_BGCW.0
+			days = 1
 		}
+		add_political_power = 50
+	}
+}
+shared_focus = {
+	id = GER_Reichsmarschall
+	icon = GFX_Goering
+	cost = 2
+	relative_position_id = GER_Succesor_Problem
+	x = -5
+	y = 1
+	available = {
+		has_country_flag = Goering_is_Successor
+	}
+	prerequisite = {
+		focus = GER_Succesor_Problem
 	}
 	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.0
-			days = 1
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reichsmarschall"
+		country_event = { #Goering's Speech
+			id = GER_BGCW.1
 		}
 	}
 }
 shared_focus = {
-	id = GER_We_need_Economic_Advisors
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	cost = 2.00
+	id = GER_New_Four_Year_Plan
+	icon = GFX_Four_Year_Plan
+	cost = 2
+	relative_position_id = GER_Reichsmarschall
 	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_Breaking_Economic_Depression
+		focus = GER_Reichsmarschall
 	}
 	completion_reward = {
-		add_ideas = GER_idea_Economic_Advisors
+		log = "[GetDateText]: [Root.GetName]: Focus GER_New_Four_Year_Plan"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = construction_tech
+		}
+		965 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }
 shared_focus = {
-	id = GER_Endless_Unemployment
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	cost = 2.00
-	x = -4
+	id = GER_Reichswerke_Hermann_Goering
+	icon = GFX_Development_Country
+	cost = 2
+	relative_position_id = GER_New_Four_Year_Plan
+	x = -1
 	y = 1
-	available = {
-		has_completed_focus = GER_We_need_Economic_Advisors
-	}
 	prerequisite = {
-		focus = GER_Breaking_Economic_Depression
+		focus = GER_New_Four_Year_Plan
 	}
 	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.1
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reichswerke_Hermann_Goering"
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory 
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = GER_Inspect_Forward_Unit
+	icon = GFX_Army_Control
+	cost = 2
+	relative_position_id = GER_New_Four_Year_Plan
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_New_Four_Year_Plan
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Inspect_Forward_Unit"
+		add_war_support = 0.02
+		add_timed_idea = {
+			idea = GER_idea_Goering_Influence_0
+			days = 30
+		}
+	}
+}
+shared_focus = {
+	id = GER_Expansion_of_Synthetic_Plants
+	icon = GFX_goal_generic_oil_refinery
+	cost = 2
+	relative_position_id = GER_Reichswerke_Hermann_Goering
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Reichswerke_Hermann_Goering
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Expansion_of_Synthetic_Plants"
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = GER_Conciliation_of_Opposition
+	icon = GFX_Divided_Wehrmacht
+	cost = 2
+	relative_position_id = GER_Inspect_Forward_Unit
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Inspect_Forward_Unit
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Conciliation_of_Opposition"
+		swap_ideas = {
+			remove_idea = GER_idea_Goering_Influence_0
+			add_idea = GER_idea_Goering_Influence_1
+		}
+		add_timed_idea = {
+			idea = GER_idea_Goering_Influence_1
+			days = 45
+		}
+	}
+}
+shared_focus = {
+	id = GER_End_of_Soldier
+	icon = GFX_Politican_Goering
+	cost = 2
+	relative_position_id = GER_Conciliation_of_Opposition
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Conciliation_of_Opposition
+	}
+	prerequisite = {
+		focus = GER_Expansion_of_Synthetic_Plants
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_End_of_Soldier"
+		country_event = { #Politican Goering
+			id = GER_BGCW.2
 			days = 1
 		}
 	}
 }
 shared_focus = {
-	id = GER_Expand_Education_Policy
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	cost = 2.00
+	id = GER_Reichsfuhrer_SS
+	icon = GFX_Successor_Himmler
+	cost = 2
+	relative_position_id = GER_Succesor_Problem
 	x = -2
 	y = 1
 	available = {
-		has_completed_focus = GER_We_need_Economic_Advisors
+		has_country_flag = Himmler_is_Successor
 	}
 	prerequisite = {
-		focus = GER_Breaking_Economic_Depression
+		focus = GER_Succesor_Problem
 	}
 	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.2
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reichsfuhrer_SS"
+		country_event = { #Politican Goering
+			id = GER_BGCW.3
 			days = 1
 		}
 	}
 }
 shared_focus = {
-	id = GER_Increased_Traffic
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	cost = 2.00
-	x = 2
+	id = GER_Fabricated_Documents
+	icon = GFX_document_with_SS
+	cost = 2
+	relative_position_id = GER_Reichsfuhrer_SS
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Reichsfuhrer_SS
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Fabricated_Documents"
+		add_timed_idea = {
+			idea = GER_idea_Himmler_Search_Evidence
+			days = 40
+		}
+	}
+}
+shared_focus = {
+	id = GER_Arrest_Order
+	icon = GFX_Peoples_Court
+	cost = 2
+	relative_position_id = GER_Reichsfuhrer_SS
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Reichsfuhrer_SS
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Arrest_Order"
+		add_ideas = GER_idea_Himmler_Influence_0
+	}
+}
+shared_focus = {
+	id = GER_A_Conspire
+	icon = GFX_Plot
+	cost = 2
+	relative_position_id = GER_Reichsfuhrer_SS
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_Arrest_Order
+	}
+	prerequisite = {
+		focus = GER_Fabricated_Documents
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_A_Conspire"
+		swap_ideas = {
+			remove_idea = GER_idea_Himmler_Influence_0
+			add_idea = GER_idea_Himmler_Influence_1
+		}
+	}
+}
+shared_focus = {
+	id = GER_Reinforce_SS_Troops
+	icon = GFX_Rainforce_SS
+	cost = 2
+	relative_position_id = GER_A_Conspire
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_A_Conspire
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reinforce_SS_Troops"
+		add_manpower = 500000
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory 
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = GER_Independent_Command_System
+	icon = GFX_SS_Command
+	cost = 2
+	relative_position_id = GER_Reinforce_SS_Troops
+	x = -1
+	y = 1
+	mutually_exclusive = {
+		focus = GER_Cooperation_with_OKW
+	}
+	prerequisite = {
+		focus = GER_Reinforce_SS_Troops
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Independent_Command_System"
+		add_ideas = GER_idea_SS_Command
+	}
+}
+shared_focus = {
+	id = GER_Cooperation_with_OKW
+	icon = GFX_SS_with_OKW
+	cost = 2
+	relative_position_id = GER_Reinforce_SS_Troops
+	x = 1
+	y = 1
+	mutually_exclusive = {
+		focus = GER_Independent_Command_System
+	}
+	prerequisite = {
+		focus = GER_Reinforce_SS_Troops
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Cooperation_with_OKW"
+		add_ideas = GER_idea_OKW_Command
+	}
+}
+shared_focus = {
+	id = GER_Reichsminister
+	icon = GFX_Goebbels
+	cost = 2
+	relative_position_id = GER_Succesor_Problem
+	x = 1
 	y = 1
 	available = {
-		has_completed_focus = GER_We_need_Economic_Advisors
+		has_country_flag = Goebbels_is_Successor
 	}
 	prerequisite = {
-		focus = GER_Breaking_Economic_Depression
+		focus = GER_Succesor_Problem
 	}
 	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.3
-			days = 1
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reichsminister"
+		965 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		966 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		64 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		978 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
 		}
 	}
 }
 shared_focus = {
-	id = GER_Increased_Power_Consumption
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	cost = 2.00
+	id = GER_Public_Speaking
+	icon = GFX_goal_generic_propaganda
+	cost = 2
+	relative_position_id = GER_Reichsminister
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Reichsminister
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Public_Speaking"
+		add_stability = 0.05
+		add_war_support = 0.07
+	}
+}
+shared_focus = {
+	id = GER_Broadcaster_Expansion
+	icon = GFX_Reich_Construction
+	cost = 2
+	relative_position_id = GER_Public_Speaking
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Public_Speaking
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Broadcaster_Expansion"
+		52 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		4 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		28 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		763 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		58 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = GER_Strengthen_Media_Control
+	icon = GFX_Consored_Documents
+	cost = 2
+	relative_position_id = GER_Public_Speaking
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Public_Speaking
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Strengthen_Media_Control"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = computing_tech
+		}
+	}
+}
+shared_focus = {
+	id = GER_Radio_Dissemination
+	icon = GFX_Radio_Tower
+	cost = 2
+	relative_position_id = GER_Public_Speaking
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_Strengthen_Media_Control
+	}
+	prerequisite = {
+		focus = GER_Broadcaster_Expansion
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Radio_Dissemination"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = electronics
+		}
+	}
+}
+shared_focus = {
+	id = GER_New_Culture
+	icon = GFX_Nazi_Dream
+	cost = 2
+	relative_position_id = GER_Radio_Dissemination
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Radio_Dissemination
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_New_Culture"
+		add_ideas = GER_idea_New_Arian_Culture
+	}
+}
+shared_focus = {
+	id = GER_Deputy_Fuhrer
+	icon = GFX_Hess
+	cost = 2
+	relative_position_id = GER_Succesor_Problem
 	x = 4
 	y = 1
 	available = {
-		has_completed_focus = GER_We_need_Economic_Advisors
+		has_country_flag = Hess_is_Successor
 	}
 	prerequisite = {
-		focus = GER_Breaking_Economic_Depression
+		focus = GER_Succesor_Problem
 	}
 	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.4
-			days = 1
-		}
-	}
-}
-shared_focus = {
-	id = GER_Currency_Reform
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Endless_Unemployment
-	cost = 2.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Endless_Unemployment
-	}
-	prerequisite = {
-		focus = GER_Expand_Education_Policy
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.5
-			days = 1
-		}
-	}
-}
-shared_focus = {
-	id = GER_Lower_Income_Tex
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Currency_Reform
-	cost = 2.00
-	x = -1
-	y = 1
-	available = {
-		has_country_flag = GER_Lower_Income_Tex_complete_tt
-	}
-	prerequisite = {
-		focus = GER_Currency_Reform
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Lower_Income_Tex_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_Price_Control_Discontinued
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Currency_Reform
-	cost = 2.00
-	x = 1
-	y = 1
-	available = {
-		has_country_flag = GER_Lower_Income_Tex_complete_tt
-	}
-	prerequisite = {
-		focus = GER_Currency_Reform
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Lower_Income_Tex_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_Promote_Consumption_Investment
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Currency_Reform
-	cost = 2.00
-	x = 0
-	y = 2
-	available = {
-		has_country_flag = GER_Lower_Income_Tex_complete_tt
-	}
-	prerequisite = {
-		focus = GER_Lower_Income_Tex
-	}
-	prerequisite = {
-		focus = GER_Price_Control_Discontinued
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Lower_Income_Tex_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_Training_Skilled_Workers
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Expand_Education_Policy
-	cost = 2.00
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_Expand_Education_Policy
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			bonus = 0.3
-			uses = 1
-			category = construction_tech
-		}
-	}
-}
-shared_focus = {
-	id = GER_Technical_School
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Training_Skilled_Workers
-	cost = 2.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Training_Skilled_Workers
-	}
-	completion_reward = {
-		add_ideas = GER_idea_Technical_Schools
-	}
-}
-shared_focus = {
-	id = GER_Autobahn_Construction
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Increased_Traffic
-	cost = 2.00
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_Increased_Traffic
-	}
-	completion_reward = {
-		unlock_decision_category_tooltip = GER_Before_Civil_War_Autobahn_Categories
-	}
-}
-shared_focus = {
-	id = GER_Support_Vehicle_Companies
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Autobahn_Construction
-	cost = 2.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Autobahn_Construction
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			bonus = 0.3
-			uses = 1
-			category = mortar_tech
-		}
-	}
-}
-shared_focus = {
-	id = GER_Automotive_Assemblyman
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Support_Vehicle_Companies
-	cost = 2.00
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_Support_Vehicle_Companies
-	}
-	prerequisite = {
-		focus = GER_Technical_School
-	}
-	completion_reward = {
-		add_ideas = GER_idea_Vehicle_Companies
-	}
-}
-shared_focus = {
-	id = GER_Construction_Subway
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Increased_Traffic
-	cost = 2.00
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_Increased_Traffic
-		focus = GER_Increased_Power_Consumption
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 1
-			category = construction_tech
-		}
-	}
-}
-shared_focus = {
-	id = GER_Deutsche_Reichsbahn_more_manpower
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Construction_Subway
-	cost = 2.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Construction_Subway
-	}
-	completion_reward = {
-		add_manpower = -1000000
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 1
-			category = construction_tech
-		}
-	}
-}
-shared_focus = {
-	id = GER_Construction_Power_Plants
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Increased_Power_Consumption
-	cost = 2.00
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_Increased_Power_Consumption
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Construction_Power_Plants_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_River_Development
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Construction_Power_Plants
-	cost = 2.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Construction_Power_Plants
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.7
-			days = 1
-		}
-	}
-}
-shared_focus = {
-	id = GER_Increase_Power_Production
-	icon = GFX_goal_unknown
-	relative_position_id = GER_River_Development
-	cost = 2.00
-	x = -1
-	y = 1
-	available = {
-		has_country_flag = GER_River_Development_complete_tt
-	}
-	prerequisite = {
-		focus = GER_River_Development
-	}
-	prerequisite = {
-		focus = GER_Deutsche_Reichsbahn_more_manpower
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Construction_Power_Plants_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_Rise_of_Reich
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Automotive_Assemblyman
-	cost = 2.00
-	x = 0
-	y = 1
-	available = {
-		has_country_flag = GER_Rise_of_Reich_complete_tt
-	}
-	prerequisite = {
-		focus = GER_Automotive_Assemblyman
-	}
-	prerequisite = {
-		focus = GER_Increase_Power_Production
-	}
-	prerequisite = {
-		focus = GER_Promote_Consumption_Investment
-	}
-	completion_reward = {
-		custom_effect_tooltip = GER_Rise_of_Reich_Fake_tt
-	}
-}
-shared_focus = {
-	id = GER_Goering_is_Fuhrer
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Breaking_Economic_Depression
-	offset = {
-		x = -10
-		y = 0
-		trigger = {
-			has_country_flag = Goering_is_Successor
-		}
-	}
-	cost = 2.00
-	x = 8
-	y = 0
-	allow_branch = {
-		has_country_flag = Goering_is_Successor
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.17
-		}
-		hidden_effect = {
-			random_list = {
-				990 = {
-				}
-				10 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Legacy_of_Hitler
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Goering_is_Fuhrer
-	cost = 4.00
-	x = 2
-	y = 1
-	prerequisite = {
-		focus = GER_Goering_is_Fuhrer
-	}
-	completion_reward = {
-		add_ideas = GER_idea_rightful_successor
-	}
-}
-shared_focus = {
-	id = GER_Goerings_Inauguration
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Goering_is_Fuhrer
-	cost = 4.00
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_Goering_is_Fuhrer
-	}
-	completion_reward = {
-		custom_effect_tooltip = Upgrade_in_Berlin
-		custom_effect_tooltip = Upgrade_in_Munich
-		Goering_Berlin_upgrade = yes
-		Goering_Munich_upgrade = yes
-		country_event = {
-			id = GER_Before_GCW.19
-		}
-		hidden_effect = {
-			random_list = {
-				980 = {
-				}
-				20 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Fuhrers_Directive_one
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Goerings_Inauguration
-	cost = 4.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Goerings_Inauguration
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.18
-		}
-		hidden_effect = {
-			random_list = {
-				960 = {
-				}
-				40 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Fuhrers_Directive_two
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Fuhrers_Directive_one
-	cost = 4.00
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_Fuhrers_Directive_one
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.18
-		}
-		hidden_effect = {
-			random_list = {
-				920 = {
-				}
-				80 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Revive_Order_Police_from_SS
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Fuhrers_Directive_two
-	cost = 4.00
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_Fuhrers_Directive_two
-	}
-	completion_reward = {
-		add_stability = 0.07
-		add_ideas = GER_idea_order_police
-		hidden_effect = {
-			random_list = {
-				840 = {
-				}
-				160 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Remove_Himmler_Admin_from_Police
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Fuhrers_Directive_two
-	cost = 4.00
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_Fuhrers_Directive_two
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.20
-		}
-		hidden_effect = {
-			random_list = {
-				680 = {
-				}
-				320 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Kill_Bormann
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Legacy_of_Hitler
-	cost = 4.00
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_Legacy_of_Hitler
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.21
-		}
-		hidden_effect = {
-			random_list = {
-				360 = {
-				}
-				640 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Curruption_Investigation
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Kill_Bormann
-	cost = 4.00
-	x = 0
-	y = 1
-	available = {
-		NOT = {
-			has_idea = GER_idea_Corruption_Investigation
-		}
-	}
-	prerequisite = {
-		focus = GER_Kill_Bormann
-	}
-	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reichsminister"
 		add_political_power = 100
-		Goering_Alsace_Lorraine_upgrade = yes
-		hidden_effect = {
-			random_list = {
-				2 = {
-				}
-				8 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
 	}
 }
 shared_focus = {
-	id = GER_Kill_Goebbels
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Legacy_of_Hitler
-	cost = 4.00
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_Legacy_of_Hitler
-	}
-	completion_reward = {
-		country_event = {
-			id = GER_Before_GCW.24
-		}
-		hidden_effect = {
-			random_list = {
-				1 = {
-				}
-				9 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_Guidelines_Mitigation
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Kill_Goebbels
-	cost = 4.00
+	id = GER_New_Movements
+	icon = GFX_focus_generic_little_entente
+	cost = 2
+	relative_position_id = GER_Deputy_Fuhrer
 	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_Kill_Goebbels
+		focus = GER_Deputy_Fuhrer
 	}
 	completion_reward = {
-		Goering_Wien_upgrade = yes
-		hidden_effect = {
-			random_list = {
-				1 = {
-				}
-				9 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
-			}
+		log = "[GetDateText]: [Root.GetName]: Focus GER_New_Movements"
+		country_event = { #Movement of Hess
+			id = GER_BGCW.4
 		}
 	}
 }
 shared_focus = {
-	id = GER_Enhance_Abwehr
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Guidelines_Mitigation
-	cost = 4.00
+	id = GER_Checks_and_Balances
+	icon = GFX_focus_hol_war_on_pacifism
+	cost = 2
+	relative_position_id = GER_New_Movements
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_New_Movements
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Checks_and_Balances"
+		add_stability = 0.10
+	}
+}
+shared_focus = {
+	id = GER_Expanding_Influence
+	icon = GFX_focus_purge_ss
+	cost = 2
+	relative_position_id = GER_Checks_and_Balances
 	x = -1
 	y = 1
 	prerequisite = {
-		focus = GER_Guidelines_Mitigation
-		focus = GER_Curruption_Investigation
+		focus = GER_Checks_and_Balances
 	}
 	completion_reward = {
-		add_ideas = GER_idea_Enhanced_Abwehr
-		hidden_effect = {
-			random_list = {
-				1 = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Expanding_Influence"
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_Munich_Area = yes
 				}
-				9 = {
-					country_event = {
-						id = GER_Before_GCW.22
-						days = 7
-					}
-				}
+			}
+			set_variable = { Current_Hess_Influence = 15 }
+			custom_effect_tooltip = Up_Hess_Influence_in_Munich_tt
+		}
+	}
+}
+shared_focus = {
+	id = GER_Popular_Leader
+	icon = GFX_continue_rule_kor
+	cost = 2
+	relative_position_id = GER_Checks_and_Balances
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Checks_and_Balances
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Popular_Leader"
+		every_country = {
+			limit = {
+				is_subject_of = GER
+			}
+			add_opinion_modifier = {
+				target = GER
+				modifier = SSW_friendly
 			}
 		}
 	}
 }
 shared_focus = {
-	id = GER_Neo_National_Socialism
-	icon = GFX_goal_unknown
-	relative_position_id = GER_Remove_Himmler_Admin_from_Police
-	cost = 4.00
-	x = 0
+	id = GER_Secretarys_Help
+	icon = GFX_Bormann
+	cost = 2
+	relative_position_id = GER_Expanding_Influence
+	x = 1
 	y = 1
 	prerequisite = {
-		focus = GER_Remove_Himmler_Admin_from_Police
+		focus = GER_Expanding_Influence
 	}
 	prerequisite = {
-		focus = GER_Enhance_Abwehr
-	}
-	prerequisite = {
-		focus = GER_Revive_Order_Police_from_SS
+		focus = GER_Popular_Leader
 	}
 	completion_reward = {
-		hidden_effect = {
-			retire_country_leader = yes
-			create_country_leader = {
-				name = "Hermann Göring"
-				desc = "POLITICS_HERMANN_GORING_DESC"
-				picture = "gfx/leaders/HGR/Portrait_HGR_Hermann_Goring.tga"
-				expire = "1980.1.1"
-				ideology = neo_national_socialism_idology
-				traits = { Air_Force_founder dictator }
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Secretarys_Help"
+		add_stability = -0.05
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_Munich_Area = yes
+				}
 			}
-			country_event = {
-				id = GER_Before_GCW.22
-				days = 7
-			}
+			set_variable = { Current_Hess_Influence = 15 }
+			custom_effect_tooltip = Up_Hess_Influence_in_Munich_tt
+		}
+	}
+}
+shared_focus = {
+	id = GER_Birthday_of_Hitler
+	icon = GFX_focus_germania_plan
+	cost = 2
+	relative_position_id = GER_New_Culture
+	x = -1
+	y = 1
+	available = {
+		date > 1950.4.20
+	}
+	prerequisite = {
+		focus = GER_New_Culture
+		focus = GER_Secretarys_Help
+		focus = GER_Cooperation_with_OKW
+		focus = GER_Independent_Command_System
+		focus = GER_End_of_Soldier
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Birthday_of_Hitler"
+		country_event = { #Birthday of Hitler
+			id = GER_BGCW.5
 		}
 	}
 }

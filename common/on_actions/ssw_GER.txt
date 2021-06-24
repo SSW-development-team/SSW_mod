@@ -2,9 +2,45 @@ on_actions = {
 	on_startup = {
 		effect = {
 			GER = {
-				country_event = { ###Hitlers Birthday
-					id = GER_Before_GCW.9
-					days = 109
+				#country_event = { ###Hitlers Birthday
+				#	id = GER_Before_GCW.9
+				#	days = 109
+				#}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_East_Prussia_Area = yes
+							is_West_Prussia_Area = yes
+						}
+					}
+					set_variable = { Current_Goering_Influence = 20 }
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_Berlin_Area = yes
+							is_Hanover_Area = yes
+						}
+					}
+					set_variable = { Current_Goebbels_Influence = 20 }
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_Wien_Area = yes
+							is_Alsace_Lorraine_Area = yes
+						}
+					}
+					set_variable = { Current_Himmler_Influence = 20 }
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_Rhein_Area = yes
+							is_Munich_Area = yes
+						}
+					}
+					set_variable = { Current_Hess_Influence = 20 }
 				}
 			}
 		}

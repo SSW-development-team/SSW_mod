@@ -84,7 +84,7 @@ who_is_Best = {
 	add_to_temp_array = { temp1 = Current_Goering_Influence }
 	add_to_temp_array = { temp1 = Current_Himmler_Influence }
 	add_to_temp_array = { temp1 = Current_Goebbels_Influence }
-	add_to_temp_array = { temp1 = Current_Bormann_Influence }
+	add_to_temp_array = { temp1 = Current_Hess_Influence }
 	find_highest_in_array = { 
 		array = temp1
 		value = v
@@ -96,7 +96,7 @@ who_is_Best = {
 			check_variable = { Current_Goering_Influence = 0 }
 			check_variable = { Current_Himmler_Influence = 0 }
 			check_variable = { Current_Goebbels_Influence = 0 }
-			check_variable = { Current_Bormann_Influence = 0 }
+			check_variable = { Current_Hess_Influence = 0 }
 		}
 		set_temp_variable = { Winner_Var = 0 }
 	}
@@ -120,7 +120,7 @@ who_is_Best = {
 	}
 	else_if = {
 		limit = {
-			check_variable = { Current_Bormann_Influence = temp2 }
+			check_variable = { Current_Hess_Influence = temp2 }
 		}
 		set_temp_variable = { Winner_Var = 4 }
 	}
@@ -151,26 +151,26 @@ is_West_Prussia_Area = {
 }
 is_Berlin_Area = {
 	OR = {
-	state = 63
-	state = 68
-	state = 65
-	state = 69
-	state = 978
-	state = 62
-	state =966
-	state =965
-	state =64
-	state =61
-	state =62
+		state = 63
+		state = 68
+		state = 65
+		state = 69
+		state = 978
+		state = 62
+		state =966
+		state =965
+		state =64
+		state =61
+		state =62
 	}
 }
 is_Hanover_Area = {
 	OR = {
-	state =812
-	state =58
-	state =59
-	state =56
-	state =60
+		state =812
+		state =58
+		state =59
+		state =56
+		state =60
 	}
 }
 is_Wien_Area = {
@@ -209,12 +209,5 @@ is_Rhein_Area = {
 	state =51
 	state =57
 	state =55
-	}
-}
-is_Czech_Area = {
-	OR = {
-	state =9
-	state =75
-	state =72
 	}
 }
