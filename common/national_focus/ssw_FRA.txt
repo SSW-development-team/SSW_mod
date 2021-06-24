@@ -53,20 +53,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = FRA_French_Foreign
-		icon = GFX_goal_unknown
-		cost = 5.00
-		x = 27
-		y = 12
-		available = {
-			always = no
-		}
-		completion_reward = {
-			add_political_power = 150
-		}
-
-	}
-	focus = {
 		id = FRA_return_democracy
 		icon = GFX_goal_unknown
 		cost = 5.00
@@ -611,23 +597,6 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -50
 			add_stability = 0.1
-		}
-
-	}
-	focus = {
-		id = FRA_Preparing_for_the_war
-		icon = GFX_goal_generic_propaganda
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Foreign
-		}
-		mutually_exclusive = {
-			focus = FRA_Territorial_negotiations_with_Germany
-		}
-		x = 26
-		y = 13
-		completion_reward = {
-			add_ideas = Preparing_for_war
 		}
 
 	}
@@ -1557,78 +1526,9 @@ focus_tree = {
 
 	}
 	focus = {
-		id = FRA_Territorial_negotiations_with_Germany
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_French_Foreign
-		}
-		mutually_exclusive = {
-			focus = FRA_Preparing_for_the_war
-		}
-		x = 28
-		y = 13
-		completion_reward = {
-			GER = {
-				country_event = {
-					id = SSW_FRA_for.1
-				days = 1
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Military_Plan
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Territorial_negotiations_with_Germany
-			focus = FRA_Preparing_for_the_war
-		}
-		x = 27
-		y = 14
-		completion_reward = {
-			add_timed_idea = {
-				idea = Military_plan
-				days = 180
-			}
-		}
-
-	}
-	focus = {
-		id = FRA_Operation_to_recapture_the_northern_part
-		icon = GFX_goal_unknown
-		cost = 5.00
-		prerequisite = {
-			focus = FRA_Military_Plan
-		}
-		x = 27
-		y = 15
-		completion_reward = {
-			declare_war_on = {
-				target = NFR
-				type = annex_everything
-				}
-			declare_war_on = {
-				target = BEL
-				type = annex_everything
-			}
-		}	
-		bypass = {
-			NFR = {
-			exists = no
-			}
-		}
-
-	}
-	focus = {
 		id = FRA_unnmeino_tennbinn
 		icon = GFX_goal_unknown
 		cost = 5.00
-		prerequisite = {
-			focus = FRA_Operation_to_recapture_the_northern_part
-		}
 		x = 27
 		y = 16
 		completion_reward = {
@@ -1882,7 +1782,10 @@ focus_tree = {
 		x = 27
 		y = 20
 		completion_reward = {
-
+			declare_war_on = {
+				target = SPR
+				type = annex_everything
+			}
 		}	
 
 	}
@@ -1897,7 +1800,14 @@ focus_tree = {
 		x = 29
 		y = 21
 		completion_reward = {
-
+			declare_war_on = {
+				target = HOL
+				type = annex_everything
+				}
+			declare_war_on = {
+				target = BEL
+				type = annex_everything
+			}	
 		}	
 
 	}
@@ -1911,7 +1821,10 @@ focus_tree = {
 		x = 29
 		y = 22
 		completion_reward = {
-
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
 		}	
 
 	}

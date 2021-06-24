@@ -553,11 +553,12 @@ scripted_gui = { #nuke_experiment_1
 								has_government = classical_communism  
 
 							}
+						}
 					} 
 					country_event = {
 						id = SSW_atomic.5
 					}
-			        }
+			    }
 				else_if = {
 					limit = {
 						ROOT = {
@@ -566,6 +567,7 @@ scripted_gui = { #nuke_experiment_1
 								has_government = social_liberalism   
 								has_government = social_conservatism  
 							}
+						}
 					} 
 					country_event = {
 						id = SSW_atomic.4
@@ -574,28 +576,27 @@ scripted_gui = { #nuke_experiment_1
 				else = {
 					random_list = {
 					    25 = {
-						country_event = {
-							id = SSW_atomic.2
-						}
+							country_event = {
+								id = SSW_atomic.2
+							}
 					    }
 					    25 = {
-						country_event = {
-							id = SSW_atomic.3
-						}
+							country_event = {
+								id = SSW_atomic.3
+							}
 					    }
 					    25 = {
-						country_event = {
-							id = SSW_atomic.4
-						}
+							country_event = {
+								id = SSW_atomic.4
+							}
 					    }
 					    25 = {
-						country_event = {
-							id = SSW_atomic.5
+							country_event = {
+								id = SSW_atomic.5
+							}
 						}
-					    }
 					}
 				}
-
 			}
 		}
 	}
@@ -621,7 +622,62 @@ scripted_gui = { #nuke_experiment_2
 			}
 		}
 		effects = {
-			Option_click = { clr_country_flag = big_event_nuke_experiment_2 }
+			Option_click = { 
+				clr_country_flag = big_event_nuke_experiment_2
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = anarchism 
+								has_government = progressive_communism  
+								has_government = classical_communism  
+
+							}
+						}
+					} 
+					country_event = {
+						id = SSW_atomic.5
+					}
+				}
+				else_if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = social_conservatism  
+								has_government = social_liberalism   
+								has_government = social_conservatism  
+							}
+						}
+					} 
+					country_event = {
+						id = SSW_atomic.4
+					}
+				}
+				else = {
+					random_list = {
+						25 = {
+						country_event = {
+							id = SSW_atomic.2
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.3
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.4
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.5
+						}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -646,7 +702,63 @@ scripted_gui = { #nuke_experiment_3
 			}
 		}
 		effects = {
-			Option_click = { clr_country_flag = big_event_nuke_experiment_3 }
+			Option_click = { 
+				clr_country_flag = big_event_nuke_experiment_3
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = anarchism 
+								has_government = progressive_communism  
+								has_government = classical_communism  
+
+							}
+						}
+					} 
+					country_event = {
+						id = SSW_atomic.5
+					}
+				}
+				else_if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = social_conservatism  
+								has_government = social_liberalism   
+								has_government = social_conservatism  
+							}
+						}
+					} 
+					country_event = {
+						id = SSW_atomic.4
+					}
+				}
+				else = {
+					random_list = {
+						25 = {
+						country_event = {
+							id = SSW_atomic.2
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.3
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.4
+						}
+						}
+						25 = {
+						country_event = {
+							id = SSW_atomic.5
+						}
+						}
+					}
+				}
+			}
+
 		}
 	}
 }
