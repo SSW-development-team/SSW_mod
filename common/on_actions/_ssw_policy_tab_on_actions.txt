@@ -3,25 +3,25 @@ on_actions = {
 		effect = {
 			every_country = {
 				limit = {
+					NOT = {
+						has_country_flag = set_country_policy_rate
+					}
 				}
 				set_variable = { country_tax_late = 38 }
+				set_variable = { country_debt_value = 6 }
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier}
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
-				set_variable = { country_industrialization_rate = 47 }
-				set_variable = { country_poverty_rate = 55 }
-				set_variable = { country_literacy_rate = 42 }
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_3 }
+				set_variable = { country_industrialization_rate = 55 }
+				set_variable = { country_poverty_rate = 52 }
+				set_variable = { country_literacy_rate = 48 }
 				set_variable = { country_research_institute_level = 3 }
 				set_variable = { country_industrial_complex_invest = 0.05 }
-				country_event = { id = ssw_policy_tab_event.1 }
 				set_variable = { country_inflation_late = 6 }
-			}
-		}
-	}
-	on_daily = {
-		effect = {
-			every_country = {
-				update_growth_rate = yes
+				calculate_country_inflation_rate = yes
+				calculate_country_tax_rate = yes
+				calculate_national_debt = yes
 			}
 		}
 	}
@@ -37,16 +37,9 @@ on_actions = {
 			}
 		}
 	}
-	on_monthly = { 
+	on_daily = { 
 		effect = {
-			every_country = {
-				limit = {
-					NOT = {
-						has_country_flag = policy_tab_flag
-					}
-				}
-				country_event = { id = ssw_policy_tab_event.1 }
-			}
+			update_growth_rate = yes
 		}
 	}
 	#いづれ月ごとに動かす
@@ -55,9 +48,22 @@ on_actions = {
 			every_country = {
 				limit = {
 					THIS = {
+						NOT = {
+							has_country_flag = ssw_policy_tab_industrialization_event_triggered
+						}
+					}
+				}
+				THIS = {
+					country_event = { id = ssw_policy_tab_event.1 }
+					set_country_flag = ssw_policy_tab_industrialization_event_triggered
+				}
+			}
+			every_country = {
+				limit = {
+					THIS = {
 						check_variable = { country_research_institute > 599 }
 						NOT = {
-							check_variable = { country_research_institute_level = 5 }
+							check_variable = { country_research_institute_level > 5 }
 							has_country_flag = ssw_research_institute_level_up_triggered
 						}
 					}
@@ -74,12 +80,14 @@ on_actions = {
 							has_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
 							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
+							has_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_3 }
 						}
 					}
 				}
 				add_dynamic_modifier = { modifier = ssw_country_social_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier }
 				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_2 }
+				add_dynamic_modifier = { modifier = ssw_country_economy_base_modifier_3 }
 			}
 		}
 	}

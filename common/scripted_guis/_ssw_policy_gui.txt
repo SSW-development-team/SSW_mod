@@ -76,14 +76,8 @@ scripted_gui = {
 			YES_button_Light_1_visible = {
 			check_variable = { corporate_law_Antitrust = 1 }
 			}
-			YES_button_Black_1_visible = {
-			check_variable = { corporate_law_Antitrust = 0 }
-			}
 			NO_button_Light_1_visible = {
 			check_variable = { corporate_law_Antitrust = 0 }
-			}
-			NO_button_Black_1_visible = {
-			check_variable = { corporate_law_Antitrust = 1 }
 			}
 			tax_rate_increase_click_enabled = {
 				NOT = {
@@ -97,13 +91,85 @@ scripted_gui = {
 				}
 				has_political_power > 5
 			}
+			economy_issue_national_debt_click_enabled = {
+				has_political_power > 15
+				NOT = {
+					check_variable = { country_debt_value = 50 }
+				}
+			}
+			economy_redemption_national_debt_click_enabled = {
+				has_political_power > 15
+				NOT = {
+					check_variable = { country_debt_value = 1 }
+				}
+			}
 		}
 		effects = {
-			YES_button_Light_1_click = {
-			set_variable = { corporate_law_Antitrust = 1 }
+			corporate_law_button_1_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_antitrust
+					}
+					remove_ideas = idea_economy_tab_corporate_law_antitrust
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_antitrust
+					}
+				}
 			}
-			NO_button_Black_1_click = {
-			set_variable = { corporate_law_Antitrust = 0 }
+			corporate_law_button_2_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_centralized_regulation
+					}
+					remove_ideas = idea_economy_tab_corporate_law_centralized_regulation
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_centralized_regulation
+					}
+				}
+			}
+			corporate_law_button_3_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_cartel_regulation
+					}
+					remove_ideas = idea_economy_tab_corporate_law_cartel_regulation
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_cartel_regulation
+					}
+				}
+			}
+			corporate_law_button_4_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_abuse_regulation
+					}
+					remove_ideas = idea_economy_tab_corporate_law_abuse_regulation
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_abuse_regulation
+					}
+				}
+			}
+			corporate_law_button_5_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_exemption_system
+					}
+					remove_ideas = idea_economy_tab_corporate_law_exemption_system
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_exemption_system
+					}
+				}
+			}
+			corporate_law_button_6_click = {
+				if = {
+					limit = {
+						has_idea = idea_economy_tab_corporate_law_regulations_concern
+					}
+					remove_ideas = idea_economy_tab_corporate_law_regulations_concern
+					else = {
+						add_ideas = idea_economy_tab_corporate_law_regulations_concern
+					}
+				}
 			}
 			back_button_click = {
 				set_variable = { selected_policy_button_economy = 0 }
@@ -132,12 +198,6 @@ scripted_gui = {
 			YES_button_Light_1_click = {
 				add_to_variable = { var = scrollbar_point1XPos value = 1 }
 			}
-			i_button_click = {
-				add_to_variable = { country_national_debt_degree_of_dependence = 1 }
-			}
-			i_button2_click = {
-				set_variable = { country_national_debt_degree_of_dependence = 0 }
-			}
 			tax_rate_increase_click = { 
 				add_to_variable = { country_tax_late = 1 }
 				calculate_country_tax_rate = yes
@@ -150,6 +210,16 @@ scripted_gui = {
 				clamp_variable = { var = country_tax_late min = 25 max = 50 }
 				add_political_power = -5
 			}
+			economy_issue_national_debt_click = {
+				add_political_power = -10
+				add_to_variable = { country_debt_value = 1 }
+				calculate_national_debt = yes
+			}
+			economy_redemption_national_debt_click = {
+				add_political_power = -10
+				subtract_from_variable = { country_debt_value = 1 }
+				calculate_national_debt = yes
+			}
 		}
 		properties = {
 			scrollbar_point = {
@@ -157,7 +227,7 @@ scripted_gui = {
 				y = scrollbar_point1YPos
 			}
 			poliy_tab_national_debt_degree_of_dependence = {
-				frame = country_national_debt_degree_of_dependence
+				frame = country_debt_value
 			}
 		}
 	}
