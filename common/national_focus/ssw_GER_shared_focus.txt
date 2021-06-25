@@ -676,7 +676,7 @@ shared_focus = {
 	icon = GFX_goal_unknown
 	cost = 2
 	relative_position_id = GER_Goebbels_is_Fuhrer
-	x = 1
+	x = -3
 	y = 1
 	prerequisite = {
 		focus = GER_Goebbels_is_Fuhrer
@@ -686,35 +686,166 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = GER_Economic_Problem_Solution
+	id = GER_Check_Internal_Bureaucracy
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Inner_Problem_Solution
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Inner_Problem_Solution
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Check_Internal_Bureaucracy"
+	}
+}
+shared_focus = {
+	id = GER_Disbandment_Bureaucracy
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Check_Internal_Bureaucracy
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Check_Internal_Bureaucracy
+	}
+	mutually_exclusive = {
+		focus = GER_Disbandment_Factionalism
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Disbandment_Bureaucracy"
+	}
+}
+shared_focus = {
+	id = GER_Disbandment_Factionalism
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Check_Internal_Bureaucracy
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Check_Internal_Bureaucracy
+	}
+	mutually_exclusive = {
+		focus = GER_Disbandment_Bureaucracy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Disbandment_Factionalism"
+	}
+}
+shared_focus = {
+	id = GER_Hierarchy
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Check_Internal_Bureaucracy
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_Disbandment_Bureaucracy
+		focus = GER_Disbandment_Factionalism
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Hierarchy"
+	}
+}
+shared_focus = {
+	id = GER_Change_Occupation_Policy
 	icon = GFX_goal_unknown
 	cost = 2
 	relative_position_id = GER_Goebbels_is_Fuhrer
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_Goebbels_is_Fuhrer
 	}
-	completion_reward = { ###Form Economic Advisor
-		log = "[GetDateText]: [Root.GetName]: Focus GER_Economic_Problem_Solution"
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Change_Occupation_Policy"
+	}
+}
+shared_focus = {
+	id = GER_SS_and_Police
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Change_Occupation_Policy
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Change_Occupation_Policy
+	}
+	mutually_exclusive = {
+		focus = GER_Control_Wehrmacht
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_SS_and_Police"
 	}
 }
 shared_focus = {
 	id = GER_Control_Wehrmacht
 	icon = GFX_goal_unknown
 	cost = 2
-	relative_position_id = GER_Goebbels_is_Fuhrer
-	x = -3
+	relative_position_id = GER_Change_Occupation_Policy
+	x = 1
 	y = 1
 	prerequisite = {
-		focus = GER_Goebbels_is_Fuhrer
+		focus = GER_Change_Occupation_Policy
 	}
-	completion_reward = { ###Great Purge Event - Politican Edition
-		log = "[GetDateText]: [Root.GetName]: Focus GER_Control_Wehrmacht"
+	mutually_exclusive = {
+		focus = GER_SS_and_Police
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_SS_and_Police"
 	}
 }
 shared_focus = {
-	id = GER_Clear_Resistance
+	id = GER_Reform_Reichskommissariat
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Change_Occupation_Policy
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_Change_Occupation_Policy
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Reform_Reichskommissariat"
+	}
+}
+shared_focus = {
+	id = GER_Order_Police
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Reform_Reichskommissariat
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Reform_Reichskommissariat
+	}
+	prerequisite = {
+		focus = GER_SS_and_Police
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Order_Police"
+	}
+}
+shared_focus = {
+	id = GER_Influence_of_Goering
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Reform_Reichskommissariat
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Reform_Reichskommissariat
+	}
+	prerequisite = {
+		focus = GER_Control_Wehrmacht
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Influence_of_Goering"
+	}
+}
+shared_focus = {
+	id = GER_Council_of_Business
 	icon = GFX_goal_unknown
 	cost = 2
 	relative_position_id = GER_Goebbels_is_Fuhrer
@@ -723,7 +854,91 @@ shared_focus = {
 	prerequisite = {
 		focus = GER_Goebbels_is_Fuhrer
 	}
-	completion_reward = { ###Great Purge Event - Politican Edition
-		log = "[GetDateText]: [Root.GetName]: Focus GER_Control_Wehrmacht"
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Council_of_Business"
+	}
+}
+shared_focus = {
+	id = GER_Conciliation
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Council_of_Business
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Council_of_Business
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Conciliation"
+	}
+}
+shared_focus = {
+	id = GER_Threat
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Conciliation
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Conciliation
+	}
+	mutually_exclusive = {
+		focus = GER_Re_Education
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Threat"
+	}
+}
+shared_focus = {
+	id = GER_Re_Education
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Conciliation
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Conciliation
+	}
+	mutually_exclusive = {
+		focus = GER_Threat
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Re_Education"
+	}
+}
+shared_focus = {
+	id = GER_Last_Option
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Threat
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Threat
+		focus = GER_Re_Education
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Last_Option"
+	}
+}
+shared_focus = {
+	id = GER_New_system
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Reform_Reichskommissariat
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = GER_Order_Police
+		focus = GER_Influence_of_Goering
+	}
+	prerequisite = {
+		focus = GER_Hierarchy
+	}
+	prerequisite = {
+		focus = GER_Last_Option
+	}
+	completion_reward = { 
+		log = "[GetDateText]: [Root.GetName]: Focus GER_New_system"
 	}
 }
