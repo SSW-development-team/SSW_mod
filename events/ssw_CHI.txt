@@ -201,7 +201,7 @@ country_event = { #憲法決定
 		complete_national_focus = CHI_birth_of_Union
 	}
 }
-country_event = { #選挙(中華民国)
+country_event = { #選挙(中華民国)DiedEvent
 	id = ssw_chi.7
 	title = ssw_chi.7.t
 	desc = ssw_chi.7.d
@@ -440,23 +440,11 @@ country_event = { #第二回国民大会
 	option = { #何事もなく終わればよいが
 		name = ssw_chi.15.a
 		hidden_effect = {
-			if = {
-				limit = {
-					has_country_leader = {
-						name = "Wang Jingwei"
-						ruling_only = yes
-					}
-				}
-				country_event = {id = ssw_chi.17 days = 7}
-			}
-			else = {
-				country_event = {id = ssw_chi.16 days = 7}
-			}
+			country_event = {id = ssw_chi.61 days = 3}
 		}
 	}
 }
-country_event = { #国民大会経過(仮)
-<<<<<<< HEAD
+country_event = { #国民大会経過(仮)顧祝同民国
     id = ssw_chi.16
     title = ssw_chi.16.t
     desc = ssw_chi.16.d
@@ -482,45 +470,22 @@ country_event = { #国民大会経過(仮)
             }
         }
     }
-    option = { #無事に
+    option = { #顧祝同
         name = ssw_chi.16.a
         set_country_flag = CHI_Gu_Zhutong_route_flag
         add_dynamic_modifier = {
             modifier = ssw_CHI_death_Wang
         }
     }
-    option = {
+    option = { #三人組
         name = ssw_chi.16.b
-        set_country_flag = CHI_Chen_route
+        set_country_flag = CHI_three_route
         add_dynamic_modifier = {
             modifier = ssw_CHI_death_Wang
         }
     }
-=======
-	id = ssw_chi.16
-	title = ssw_chi.16.t
-	desc = ssw_chi.16.d
-	is_triggered_only = yes
-	fire_only_once = yes
-	immediate = {
-		hidden_effect = {
-			load_focus_tree = {
-				tree = CHI_Rep_of_China_Gu_Zhutong_route
-				keep_completed = yes
-			}
-		}
-	}
-	option = { #無事に
-		name = ssw_chi.16.a
-		set_country_flag = CHI_Gu_Zhutong_route_flag
-	}
-	option = {
-		name = ssw_chi.16.b
-		set_country_flag = CHI_Chen_route
-	}
->>>>>>> コズメティック追加用
 }
-country_event = { #汪兆銘の暗殺
+country_event = { #国民党大会汪兆銘民国
 	id = ssw_chi.17
 	title = ssw_chi.17.t
 	desc = ssw_chi.17.d
@@ -973,6 +938,11 @@ country_event = { #第二回連邦代表大会
 		hidden_effect = {
 			set_country_flag = CHI_second_fede_congress
 		}
+		add_ideas = CHI_Bai_Chongxi_2
+		add_ideas = CHI_Wei_Tao_ming
+		add_ideas = CHI_Huang_Xuchu
+		add_ideas = CHI_Huang_Julu
+		add_ideas = CHI_He_Yingqin
 	}
 	option = {
 		name = ssw_chi.29.c
@@ -982,6 +952,16 @@ country_event = { #第二回連邦代表大会
 		}
 		hidden_effect = {
 			set_country_flag = CHI_second_fede_congress
+		}
+		if = {
+			limit = {
+				has_country_flag = CHI_fede_lower_power
+			}
+			add_ideas = CHI_Lu_Han_pl
+			add_ideas = CHI_Yulbars_Khan
+			add_ideas = CHI_Huang_Shaohong
+			add_ideas = CHI_Yan_Xishan_2
+			add_ideas = CHI_Feng_Yuxiang
 		}
 	}
 	option = {
@@ -993,6 +973,11 @@ country_event = { #第二回連邦代表大会
 		hidden_effect = {
 			set_country_flag = CHI_second_fede_congress
 		}
+		add_ideas = CHI_Xiong_Kewu
+		add_ideas = CHI_Yan_Xishan_mf
+		add_ideas = CHI_Su_Tiren
+		add_ideas = CHI_Li_Peiji
+		add_ideas = CHI_Dong_Qiwu
 	}
 	option = {
 		name = ssw_chi.29.f
@@ -1003,6 +988,11 @@ country_event = { #第二回連邦代表大会
 		hidden_effect = {
 			set_country_flag = CHI_second_fede_congress
 		}
+		add_ideas = CHI_He_Xiangning
+		add_ideas = CHI_Huang_Qixiang
+		add_ideas = CHI_He_Siyuan
+		add_ideas = CHI_Yang_Jie
+		add_ideas = CHI_Chen_Qiyou
 	}
 }
 
@@ -2470,5 +2460,51 @@ country_event = { #南京裁判
 		}
 		add_political_power = 100
 		army_experience = 15
+	}
+}
+country_event = { #ディシジョンステート管理用
+	id = ssw_chi.60
+	title = ssw_chi.60.t
+	desc = ssw_chi.60.d
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		always = yes
+		original_tag = CHI
+	}
+	immediate = {
+		every_state = {
+			limit = {
+				is_claimed_by = CHI
+			}
+			set_state_flag = CHI_start_claim_states
+		}
+	}
+	option = {
+		name = ssw_chi.60.a
+	}
+}
+country_event = { #汪兆銘の暗殺
+	id = ssw_chi.61
+	title = ssw_chi.61.t
+	desc = ssw_chi.61.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { #なんということだ！
+		name = ssw_chi.61.a
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_leader = {
+						name = "Wang Jingwei"
+						ruling_only = yes
+					}
+				}
+				country_event = {id = ssw_chi.17 days = 7}
+			}
+			else = {
+				country_event = {id = ssw_chi.16 days = 7}
+			}
+		}
 	}
 }

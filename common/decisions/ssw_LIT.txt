@@ -107,6 +107,9 @@ LIT_cate_establish_support = {
                 NOT = {has_country_flag = LIT_prepareing_military}
             }
         }
+        visible = {
+            has_country_flag = LIT_milirary_patienced
+        }
         cost = 30
         days_remove = 30
         days_re_enable = 30
@@ -120,12 +123,21 @@ LIT_cate_establish_support = {
                 popularity = 0.03
             }
             add_war_support = 0.01
+            if = {
+                limit = {
+                    NOT = {has_country_flag = LIT_milirary_patienced}
+                }
+                set_country_flag = LIT_milirary_patienced
+            }
         }
     }
     LIT_military_personnel_1 = {
         icon = generic_speech
         available = {
             has_war_support < 0.8
+        }
+        visible = {
+            NOT = {has_country_flag = LIT_milirary_patienced}
         }
         cost = 30
         days_remove = 30
@@ -155,7 +167,6 @@ LIT_cate_establish_support = {
                 has_stability < 0.95
                 authority_democracy < 0.9
             }
-            has_country_flag = LIT_milirary_patienced
         }
         cost = 30
         days_remove = 25
@@ -172,6 +183,7 @@ LIT_cate_establish_support = {
         icon = eng_propaganda_campaigns
         available = {
             num_of_civilian_factories_available_for_projects > 0
+            has_country_flag = LIT_milirary_patienced
         }
         cost = 50
         days_remove = 30
