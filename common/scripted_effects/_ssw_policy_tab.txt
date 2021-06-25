@@ -28,6 +28,18 @@ calculate_country_tax_rate = {
 	add_to_variable = { country_tax_late_for_stability_factor = ecotemp5 }
 	multiply_variable = { country_tax_late_for_stability_factor = 0.01 }
 }
+calculate_national_debt = {
+	clamp_variable = { var = country_debt_value mix = 1 max = 50 }
+	set_temp_variable = { ecotemp6 = country_debt_value }
+	set_temp_variable = { ecotemp7 = country_debt_value }
+	multiply_temp_variable = { ecotemp6 = 0.2845 }
+	multiply_temp_variable = { ecotemp6 = 0.0001 }
+	set_variable = { country_debt_value_for_consumer_good_factor = ecotemp6 }
+	multiply_temp_variable = { ecotemp7 = 0.65 }
+	multiply_temp_variable = { ecotemp7 = 0.80 }
+	multiply_temp_variable = { ecotemp7 = 0.01 }
+	set_variable = { country_debt_value_for_production_speed_buildings_factor = ecotemp7 }
+}
 #社会タブ
 update_growth_rate = {
 	set_variable = { country_industrialization_growth_rate_2 = 0 }

@@ -79,7 +79,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "SSW_Policy_tab_economy"
 		position = { x=545 y=120 }
-		size = { width = 1050 height = 680 }
+		size = { width = 950 height = 680 }
 		
 		background = {
 			name = "Background"		
@@ -96,20 +96,6 @@ guiTypes = {
 			name = "SSW_Policy_tab_economy_inflation_rate"
 			position = { x=20 y=50 }
 			size = { width = 530 height = 70 }
-			buttonType = {
-				name = "i_button"
-				position = { x = 8 y = 8 }
-				orientation = upper_left
-				quadTextureSprite = "GFX_backbutton32"
-				shortcut = "ESCAPE"
-			}
-			buttonType = {
-				name = "i_button2"
-				position = { x = 8 y = 30 }
-				orientation = upper_left
-				quadTextureSprite = "GFX_backbutton32"
-				shortcut = "ESCAPE"
-			}
 			background = {
 				name = "Background"		
 				spriteType ="GFX_tiled_decisions_bg_small"
@@ -317,7 +303,7 @@ guiTypes = {
 			}
 		}
 		containerWindowType = {
-			name = "SSW_Policy_tab_economy_GDP"
+			name = "SSW_Policy_tab_economy_national_debt"
 			position = { x = 20 y = 400 }
 			size = { width = 530 height = 250 }
 			background = {
@@ -336,7 +322,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "country_national_debt_value"
-				position = { x = 40 y = 100 }
+				position = { x = 40 y = 80 }
 				font = "hoi_36header"
 				borderSize = {x = 0 y = 0}
 				text = "NATIONAL_DEBT_VALUE_TEXT"
@@ -344,16 +330,55 @@ guiTypes = {
 				maxHeight = 20
 				pdx_tooltip = "DESC_TAX_rate_TEXT"
 			}
+			buttonType = {
+				name = "economy_issue_national_debt"
+				position = { x = 50 y = 110 }
+				quadTextureSprite = "GFX_button_148x34"
+				orientation = upper_left
+				buttonFont = "hoi_16mbs"
+				buttonText = ""
+				pdx_tooltip = "economy_issue_national_debt_desc"
+			}
+			instantTextboxType = {
+				name = "country_national_debt_text"
+				position = { x = -77 y = 118 }
+				font = "hoi_20mbs"
+				text = "NATIONAL_DEBT_ISSUE_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				format = center
+				alwaystransparent = yes
+			}
+			buttonType = {
+				name = "economy_redemption_national_debt"
+				position = { x = 50 y = 170 }
+				quadTextureSprite = "GFX_button_148x34"
+				orientation = upper_left
+				buttonFont = "hoi_16mbs"
+				buttonText = ""
+				pdx_tooltip = "economy_redemption_national_debt_desc"
+			}
+			instantTextboxType = {
+				name = "country_national_debt_redemption_text"
+				position = { x = -77 y = 178 }
+				font = "hoi_20mbs"
+				text = "NATIONAL_DEBT_REDEMPTION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				format = center
+				alwaystransparent = yes
+			}
 			iconType = {
 				name = "poliy_tab_national_debt_degree_of_dependence"
-				spriteType = "GFX_PAC_MAN"
-				position = { x = 300 y = 20 }
+				spriteType = "GFX_CIRCLE_GUI"
+				position = { x = 300 y = 19 }
+				pdx_tooltip = "economy_national_debt_degree_of_dependence_desc"
 			}
 		}
 		containerWindowType = {
 			name = "SSW_Policy_tab_economy_corporate_law"
 			position = { x = 555 y = 10 }
-			size = { width = 480 height = 650 }
+			size = { width = 385 height = 650 }
 			background = {
 				name = "Background"		
 				spriteType ="GFX_tiled_decisions_bg_small"
@@ -376,35 +401,153 @@ guiTypes = {
 				text = "CORPORATE_LAW_ANTITRUSET_TEXT"
 				maxWidth = 400
 				maxHeight = 20
-				pdx_tooltip = "DESC_TAX_rate_TEXT"
 			}
 			buttonType = {
-			name = "YES_button_Black_1"
-			position = { x = 250 y = 75 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Black_YesButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_1"
+				position = { x = 250 y = 103 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_Antitrust_button_text"
+				position = { x = 292 y = 107 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ANTITRUSET_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_centralized_regulation_text"
+				position = { x = 30 y = 182 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CENTRALIZED_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "YES_button_light_1"
-			position = { x = 250 y = 75 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Light_YesButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_2"
+				position = { x = 250 y = 182 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_centralized_regulation_button_text"
+				position = { x = 292 y = 186 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CENTRALIZED_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_cartel_regulation_text"
+				position = { x = 30 y = 267 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CARTEL_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "NO_button_Black_1"
-			position = { x = 250 y = 120 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Black_NoButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_3"
+				position = { x = 250 y = 267 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_cartel_regulation_button_text"
+				position = { x = 292 y = 271 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CARTEL_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_abuse_regulation_text"
+				position = { x = 30 y = 347 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ABUSE_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "NO_button_light_1"
-			position = { x = 250 y = 120 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Light_NoButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_4"
+				position = { x = 250 y = 347 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_abuse_regulation_button_text"
+				position = { x = 292 y = 351 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ABUSE_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_exemption_system_text"
+				position = { x = 30 y = 437 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_EXEMPTION_SYSTEM_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			buttonType = {
+				name = "corporate_law_button_5"
+				position = { x = 250 y = 437 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_exemption_system_button_text"
+				position = { x = 292 y = 441 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_EXEMPTION_SYSTEM_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_regulations_concern_text"
+				position = { x = 30 y = 527 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_REGULAION_COCERN_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			buttonType = {
+				name = "corporate_law_button_6"
+				position = { x = 250 y = 527 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_regulations_concern_button_text"
+				position = { x = 292 y = 531 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_REGULATION_CONCERN_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
 			}
 		}
 	}
