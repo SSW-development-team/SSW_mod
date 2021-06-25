@@ -76,7 +76,7 @@ equipment_modules = {
 	}
 	ship_anti_air_4 = {
 		category = ship_anti_air
-		parent = ship_anti_air_2
+		parent = ship_anti_air_3
 		sfx = sfx_ui_sd_module_turret
 
 		add_equipment_type = anti_air
@@ -101,5 +101,54 @@ equipment_modules = {
 			convert_cost_ic = 50
 		}
 	}
+	ship_anti_air_5 = {
+		category = ship_anti_air
+		parent = ship_anti_air_4
+		sfx = sfx_ui_sd_module_turret
+
+		add_equipment_type = anti_air
+		add_stats = {
+			anti_air_attack = 4
+			build_cost_ic = 210
+		}
+		
+		multiply_stats = {
+			naval_speed = -0.01
+			build_cost_ic = 0.025
+			anti_air_attack = 0.2
+		}
+
+		can_convert_from = {
+			module_category = ship_anti_air
+			convert_cost_ic = 120
+		}
+
+		can_convert_from = {
+			module = ship_anti_air_4
+			convert_cost_ic = 50
+		}
+	}
 #ciws
+	ship_ciws_1 = {
+		category = ship_ciws
+		sfx = sfx_ui_sd_module_turret
+
+		add_equipment_type = anti_air
+		add_stats = {
+			anti_air_attack = 10
+			build_cost_ic = 300
+		}
+		
+		multiply_stats = {
+			naval_speed = -0.03
+			build_cost_ic = 0.03
+			anti_air_attack = 0.5
+		}
+
+		can_convert_from = {
+			module_category = ship_ciws
+			convert_cost_ic = 200
+		}
+	}
+
 }
