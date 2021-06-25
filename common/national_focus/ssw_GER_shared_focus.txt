@@ -654,3 +654,76 @@ shared_focus = {
 		}
 	}
 }
+shared_focus = {
+	id = GER_Goebbels_is_Fuhrer
+	icon = GFX_goal_unknown
+	cost = 2
+	#allow_branch = {
+	#	has_country_flag = Goebbels_is_Successor
+	#}
+	relative_position_id = GER_Birthday_of_Hitler
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_Birthday_of_Hitler
+	}
+	completion_reward = { ## add idea Fuhrer Goebbels
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Goebbels_is_Fuhrer"
+	}
+}
+shared_focus = {
+	id = GER_Inner_Problem_Solution
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Goebbels_is_Fuhrer
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_Goebbels_is_Fuhrer
+	}
+	completion_reward = { ###Great Purge Event - Politican Edition
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Inner_Problem_Goebbels"
+	}
+}
+shared_focus = {
+	id = GER_Economic_Problem_Solution
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Goebbels_is_Fuhrer
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_Goebbels_is_Fuhrer
+	}
+	completion_reward = { ###Form Economic Advisor
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Economic_Problem_Solution"
+	}
+}
+shared_focus = {
+	id = GER_Control_Wehrmacht
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Goebbels_is_Fuhrer
+	x = -3
+	y = 1
+	prerequisite = {
+		focus = GER_Goebbels_is_Fuhrer
+	}
+	completion_reward = { ###Great Purge Event - Politican Edition
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Control_Wehrmacht"
+	}
+}
+shared_focus = {
+	id = GER_Clear_Resistance
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = GER_Goebbels_is_Fuhrer
+	x = 3
+	y = 1
+	prerequisite = {
+		focus = GER_Goebbels_is_Fuhrer
+	}
+	completion_reward = { ###Great Purge Event - Politican Edition
+		log = "[GetDateText]: [Root.GetName]: Focus GER_Control_Wehrmacht"
+	}
+}
