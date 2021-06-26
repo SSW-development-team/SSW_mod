@@ -226,6 +226,7 @@ set_popularities = {
 	national_socialism = 100
 }
 set_country_flag = GER_true_countryflag
+
 create_country_leader = {
 	name = "Adolf Hitler"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
@@ -235,6 +236,105 @@ create_country_leader = {
 	traits = {
 		Drug_addict
 		Charisma
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = corporatocracism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = corporatocracism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = national_fascism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = authority_despotism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = authority_democracy_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_conservatism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_liberalism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_democracy_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = classical_communism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = progressive_communism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = anarchism_ideology
+	traits = {
 	}
 }
 
@@ -1190,300 +1290,4 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 3
 	logistics_skill = 2
-}
-
-########## 分裂国家 ##########
-create_dynamic_country = { #ライン共和国
-	original_tag = GER
-	set_country_flag = GER_rhine_countryflag
-	set_cosmetic_tag = GER_rhine_republic
-	set_politics = {
-		ruling_party = social_conservatism
-		last_election = "1950.1.1"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-	set_popularities = { social_conservatism = 100 }
-	set_capital = 1023
-	every_state = {
-		limit = { is_core_of = PREV }
-		remove_core_of = PREV
-	}
-	load_focus_tree = generic_focus
-	reserve_dynamic_country = yes
-}
-create_equipment_variant = {
-	name = "Graf Zeppelin Class"
-	type = ship_hull_carrier_1
-	name_group = GER_CV_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_deck_slot_1 = ship_deck_space
-		fixed_ship_deck_slot_2 = ship_deck_space
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = carrier_ship_engine_4
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		front_1_custom_slot = ship_deck_space
-	}
-}
-
-create_equipment_variant = {
-	name = "Scharnhorst Class"
-	type = ship_hull_heavy_1
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_2
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bc_1
-		front_1_custom_slot = ship_heavy_battery_1
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = empty
-		rear_1_custom_slot = ship_heavy_battery_1
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Bismarck Class"
-	type = ship_hull_heavy_2
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_3
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bb_2
-		front_1_custom_slot = ship_heavy_battery_1
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = ship_heavy_battery_1
-		rear_1_custom_slot = ship_heavy_battery_1
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Friedrich der Grose Class"
-	type = ship_hull_heavy_3
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_4
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bb_2
-		front_1_custom_slot = ship_heavy_battery_2
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = ship_heavy_battery_2
-		rear_1_custom_slot = ship_heavy_battery_2
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Deutschland Class"
-	type = ship_hull_cruiser_1
-	name_group = GER_CA_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_medium_battery_4
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		front_1_custom_slot = ship_medium_battery_4
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_torpedo_1
-		rear_1_custom_slot = ship_airplane_launcher_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Admiral Hipper Class"
-	type = ship_hull_cruiser_2
-	name_group = GER_CA_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_medium_battery_4
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_2
-		front_1_custom_slot = ship_medium_battery_4
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_medium_battery_4
-		rear_1_custom_slot = ship_medium_battery_4
-	}
-}
-create_equipment_variant = {
-	name = "Leipzig Class"
-	type = ship_hull_cruiser_1
-	name_group = GER_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		front_1_custom_slot = ship_light_medium_battery_1
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_light_medium_battery_1
-		rear_1_custom_slot = ship_airplane_launcher_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Emden Class"
-	type = ship_hull_cruiser_2
-	name_group = GER_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_3
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_3
-		fixed_ship_armor_slot = ship_armor_cruiser_2
-		front_1_custom_slot = ship_light_medium_battery_3
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_anti_air_2
-		rear_1_custom_slot = ship_light_medium_battery_3
-	}
-}
-create_equipment_variant = {
-	name = "Z1 Class"
-	type = ship_hull_light_1
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_engine_slot = light_ship_engine_2
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z5 Class"
-	type = ship_hull_light_1
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_3
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z17 Class"
-	type = ship_hull_light_2
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_3
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z23 Class"
-	type = ship_hull_light_3
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_4
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-}
-####ミスあり注意！！！！
-
-create_equipment_variant = {
-	name = "IIA Class"
-	type = ship_hull_submarine_1
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		fixed_ship_radar_slot = ship_radar_1
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_1
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "IIB Class"
-	type = ship_hull_submarine_1
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "VIIA Class"
-	type = ship_hull_submarine_2
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_2
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "VIIC Class"
-	type = ship_hull_submarine_3
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_2
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
 }
