@@ -491,36 +491,149 @@ scripted_gui = {
 		}
 
 		triggers = {
-
-		}
-		effects = {
-			close_button_click = {
-				set_variable = { selected_policy_button_military = 0 }
+			SSW_Policy_tab_military_army_law_conscription_law_select_box_visible = {
+				always = no
 			}
-		}
-	}
-	SSW_Policy_tab_military_view_army_law = {
-		window_name = "SSW_Policy_tab_military_army_law"
-		context_type = player_context 
-		visible = {
-			check_variable = { selected_policy_button_military = 1 }
-		}
-
-		ai_enabled = {
-			always = no
-		}
-
-		triggers = {
-
 		}
 		effects = {
 			close_button_click = {
 				set_variable = { selected_policy_button_military = 0 }
 			}
 			military_tab_conscription_law_box_click = {
-				ROOT = {
-					add_ideas = military_tab_conscription_scraping_the_barrel
+				set_variable = { selected_policy_button_military_law_1 = 1 }
+			}
+			military_tab_agree_female_conscription_box_click = {
+				set_variable = { selected_policy_button_military_law_2 = 1 }
+			}
+			military_tab_colony_conscription_box_click = {
+				set_variable = { selected_policy_button_military_law_3 = 1 }
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_1 = {
+		window_name = "SSW_Policy_tab_military_army_law_conscription_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_1 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			conscription_law_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_single_racial_army
+					has_political_power < 75
 				}
+			}
+			conscription_law_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_ethnic_units
+					has_political_power < 75
+				}
+			}
+			conscription_law_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_mixed_army
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_1 = 0 }
+			}
+			conscription_law_title_box_1_click = {
+				add_political_power = -75
+				set_conscription_single_racial_army = yes
+			}
+			conscription_law_title_box_2_click = {
+				add_political_power = -75
+				set_conscription_ethnic_units = yes
+			}
+			conscription_law_title_box_3_click = {
+				add_political_power = -75
+				set_conscription_mixed_army = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_2 = {
+		window_name = "SSW_Policy_tab_military_army_law_female_conscription_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_2 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			female_conscription_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_agree_female_conscription
+					has_political_power < 75
+				}
+			}
+			female_conscription_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_disagree_female_conscription
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_2 = 0 }
+			}
+			female_conscription_title_box_1_click = {
+				add_political_power = -75
+				set_exemption_agree_female_conscription = yes
+			}
+			female_conscription_title_box_2_click = {
+				add_political_power = -75
+				set_exemption_disagree_female_conscription = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_3 = {
+		window_name = "SSW_Policy_tab_military_army_law_colony_conscription_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_3 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			colony_conscription_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_agree_female_conscription
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_disagree_female_conscription
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_3 = 0 }
+			}
+			colony_conscription_title_box_1_click = {
+				add_political_power = -75
+				set_exemption_agree_female_conscription = yes
+			}
+			colony_conscription_title_box_2_click = {
+				add_political_power = -75
+				set_exemption_disagree_female_conscription = yes
 			}
 		}
 	}
