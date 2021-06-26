@@ -184,13 +184,9 @@ defined_text = {
 		trigger = {
 			NOT = {
 				OR = {
-					has_idea = military_tab_conscription_disarmed_nation
-					has_idea = military_tab_conscription_volunteer_only
-					has_idea = military_tab_conscription_limited_conscription
-					has_idea = military_tab_conscription_extensive_conscription
-					has_idea = military_tab_conscription_service_by_requirement
-					has_idea = military_tab_conscription_all_adults_serve
-					has_idea = military_tab_conscription_scraping_the_barrel
+					has_idea = idea_military_tab_single_racial_army
+					has_idea = idea_military_tab_ethnic_units
+					has_idea = idea_military_tab_mixed_army
 				}
 			}
 		}
@@ -198,46 +194,48 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			has_idea = military_tab_conscription_disarmed_nation
+			has_idea = idea_military_tab_single_racial_army
 		}
-		localization_key = "CONSCRIPTION_LAW_DISARMED_NATION_TEXT"
+		localization_key = "military_tab_conscription_law_text_1"
 	}
 	text = {
 		trigger = {
-			has_idea = military_tab_conscription_volunteer_only
+			has_idea = idea_military_tab_ethnic_units
 		}
-		localization_key = "CONSCRIPTION_LAW_VOLUNTEER_ONLY_TEXT"
+		localization_key = "military_tab_conscription_law_text_2"
 	}
 	text = {
 		trigger = {
-			has_idea = military_tab_conscription_limited_conscription
+			has_idea = idea_military_tab_mixed_army
 		}
-		localization_key = "CONSCRIPTION_LAW_LIMITED_CONSCRIPTION_TEXT"
+		localization_key = "military_tab_conscription_law_text_3"
+	}
+}
+defined_text = {
+	name = MILITARY_FEMALE_CONSCRIPTION
+	text = {
+		trigger = {
+			NOT = {
+				OR = {
+					has_idea = idea_military_tab_agree_female_conscription
+					has_idea = idea_military_tab_disagree_female_conscription
+				}
+			}
+		}
+		localization_key = "CONSCRIPTION_LAW_ERROR_TEXT"
 	}
 	text = {
 		trigger = {
-			has_idea = military_tab_conscription_extensive_conscription
+			has_idea = idea_military_tab_agree_female_conscription
 		}
-		localization_key = "CONSCRIPTION_LAW_EXTENSIVE_CONSCRIPTION_TEXT"
+		localization_key = "military_tab_female_conscription_text_1"
 	}
 	text = {
 		trigger = {
-			has_idea = military_tab_conscription_service_by_requirement
+			has_idea = idea_military_tab_disagree_female_conscription
 		}
-		localization_key = "CONSCRIPTION_LAW_SERVICE_BY_REQUIREMENT_TEXT"
+		localization_key = "military_tab_female_conscription_text_2"
 	}
-	text = {
-		trigger = {
-			has_idea = military_tab_conscription_all_adults_serve
-		}
-		localization_key = "CONSCRIPTION_LAW_ALL_ADULTS_SERVE_TEXT"
-	}
-	text = {
-		trigger = {
-			has_idea = military_tab_conscription_scraping_the_barrel
-		}
-		localization_key = "CONSCRIPTION_LAW_SCRAPING_THE_BARREL_TEXT"
-	}	
 }
 defined_text = {
 	name = PLUS_STABILITY_TEXT
