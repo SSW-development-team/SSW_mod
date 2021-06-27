@@ -396,25 +396,81 @@ set_conscription_mixed_army = {
 	add_ideas = idea_military_tab_mixed_army
 }
 #免除規定
-set_exemption_agree_female_conscription = {
+set_agree_female_conscription = {
 	remove_ideas = {
 		idea_military_tab_disagree_female_conscription
 	}
 	add_ideas = idea_military_tab_agree_female_conscription
 }
-set_exemption_disagree_female_conscription = {
+set_disagree_female_conscription = {
 	remove_ideas = {
 		idea_military_tab_agree_female_conscription
 	}
 	add_ideas = idea_military_tab_disagree_female_conscription
 }
-set_exemption_exclusion_disability = {
+set_colony_not_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_not_mobilization
 }
-set_exemption_exclusion_minister = {
+set_colony_small_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_small_scale_mobilization
 }
-set_exemption_exclusion_placeman = {
+set_colony_medium_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_medium_scale_mobilization
 }
-set_exemption_exclusion_under_25yearsold = {
+set_colony_large_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_large_scale_mobilization
+}
+set_no_exemption = {
+	remove_ideas = {
+		idea_military_tab_exempt_educators
+		idea_military_tab_allow_conscientious_objection
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_no_exemption
+}
+set_exempt_educators = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_allow_conscientious_objection
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_exempt_educators
+}
+set_allow_conscientious_objection = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_exempt_educators
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_allow_conscientious_objection
+}
+set_exempt_placeman = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_exempt_educators
+		idea_military_tab_allow_conscientious_objection
+	}
+	add_ideas = idea_military_tab_exempt_placeman
 }
 #old script
 add_and_refresh_line_graph = {
