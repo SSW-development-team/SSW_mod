@@ -500,14 +500,52 @@ scripted_gui = {
 				set_variable = { selected_policy_button_military = 0 }
 			}
 			military_tab_conscription_law_box_click = {
-				set_variable = { selected_policy_button_military_law_1 = 1 }
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_1 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_1 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_1 = 1 }
+					}
+				}
 			}
 			military_tab_agree_female_conscription_box_click = {
-				set_variable = { selected_policy_button_military_law_2 = 1 }
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_2 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_2 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_2 = 1 }
+					}
+				}
 			}
 			military_tab_colony_conscription_box_click = {
-				set_variable = { selected_policy_button_military_law_3 = 1 }
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_3 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_3 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_3 = 1 }
+					}
+				}
 			}
+			military_tab_conscription_exemption_box_click = {
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_4 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_4 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_4 = 1 }
+					}
+				}
+			}
+		}
+		properties = {
+			country_army_flag = { image = "[This.GetFlag]" }
 		}
 	}
 	SSW_Policy_tab_military_view_army_law_select_box_1 = {
@@ -590,11 +628,11 @@ scripted_gui = {
 			}
 			female_conscription_title_box_1_click = {
 				add_political_power = -75
-				set_exemption_agree_female_conscription = yes
+				set_agree_female_conscription = yes
 			}
 			female_conscription_title_box_2_click = {
 				add_political_power = -75
-				set_exemption_disagree_female_conscription = yes
+				set_disagree_female_conscription = yes
 			}
 		}
 	}
@@ -612,13 +650,25 @@ scripted_gui = {
 		triggers = {
 			colony_conscription_title_box_1_click_enabled = {
 				NOT = {
-					has_idea = idea_military_tab_agree_female_conscription
+					has_idea = idea_military_tab_colony_not_mobilization
 					has_political_power < 75
 				}
 			}
 			colony_conscription_title_box_2_click_enabled = {
 				NOT = {
-					has_idea = idea_military_tab_disagree_female_conscription
+					has_idea = idea_military_tab_colony_small_scale_mobilization
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_medium_scale_mobilization
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_4_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_large_scale_mobilization
 					has_political_power < 75
 				}
 			}
@@ -629,11 +679,78 @@ scripted_gui = {
 			}
 			colony_conscription_title_box_1_click = {
 				add_political_power = -75
-				set_exemption_agree_female_conscription = yes
+				set_colony_not_mobilization = yes
 			}
 			colony_conscription_title_box_2_click = {
 				add_political_power = -75
-				set_exemption_disagree_female_conscription = yes
+				set_colony_small_scale_mobilization = yes
+			}
+			colony_conscription_title_box_3_click = {
+				add_political_power = -75
+				set_colony_medium_scale_mobilization = yes
+			}
+			colony_conscription_title_box_4_click = {
+				add_political_power = -75
+				set_colony_large_scale_mobilization = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_4 = {
+		window_name = "SSW_Policy_tab_military_army_law_conscription_exemption_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_4 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			conscription_exemption_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_no_exemption
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_exempt_educators
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_allow_conscientious_objection
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_4_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_exempt_placeman
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_4 = 0 }
+			}
+			conscription_exemption_title_box_1_click = {
+				add_political_power = -75
+				set_no_exemption = yes
+			}
+			conscription_exemption_title_box_2_click = {
+				add_political_power = -75
+				set_exempt_educators = yes
+			}
+			conscription_exemption_title_box_3_click = {
+				add_political_power = -75
+				set_allow_conscientious_objection = yes
+			}
+			conscription_exemption_title_box_4_click = {
+				add_political_power = -75
+				set_exempt_placeman = yes
 			}
 		}
 	}
