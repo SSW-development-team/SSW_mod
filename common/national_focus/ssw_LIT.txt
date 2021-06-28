@@ -922,6 +922,7 @@ focus_tree = {
                 expire = "1990.1.1"
                 ideology = authority_democracy_ideology
             }
+            set_cosmetic_tag = LIT_kingdom
         }
     }
     focus = { #リトアニア貴族から
@@ -3903,16 +3904,20 @@ focus_tree = {
             factor = 10
         }
         available = {
-            OR = {
-                NOT = {has_completed_focus = LIT_baltic_fede}
-                AND = {
-                    has_completed_focus = LIT_baltic_fede
-                    has_completed_focus = LIT_baltic_independent
+            AND = {
+                OR = {
+                    NOT = {has_completed_focus = LIT_baltic_fede}
+                    AND = {
+                        has_completed_focus = LIT_baltic_fede
+                        has_completed_focus = LIT_baltic_independent
+                    }
                 }
-                NOT = {has_completed_focus = LIT_grand_duchy_lithuania}
-                AND = {
-                    has_completed_focus = LIT_grand_duchy_lithuania
-                    has_completed_focus = LIT_belarusi_integrate
+                OR = {
+                    NOT = {has_completed_focus = LIT_grand_duchy_lithuania}
+                    AND = {
+                        has_completed_focus = LIT_grand_duchy_lithuania
+                        has_completed_focus = LIT_belarusi_integrate
+                    }
                 }
             }
         }
@@ -4564,32 +4569,35 @@ focus_tree = {
         }
         x = 60
         y = 6
-        if = {
-            limit = {
-                country_exists = LAT
-            }
-            annex_country = {
-                target = LAT
-                transfer_troops = yes
-            }
-        }
-        if = {
-            limit = {
-                country_exists = EST
-            }
-            annex_country = {
-                target = EST
-                transfer_troops = yes
-            }
-        }
-        every_state = {
-            limit = {
-                OR = {
-                    is_core_of = LAT
-                    is_core_of = EST
+        completion_reward = {
+            if = {
+                limit = {
+                    country_exists = LAT
+                }
+                annex_country = {
+                    target = LAT
+                    transfer_troops = yes
                 }
             }
-            add_core_of = ROOT
+            if = {
+                limit = {
+                    country_exists = EST
+                }
+                annex_country = {
+                    target = EST
+                    transfer_troops = yes
+                }
+            }
+            every_state = {
+                limit = {
+                    OR = {
+                        is_core_of = LAT
+                        is_core_of = EST
+                    }
+                }
+                add_core_of = ROOT
+            }
+            set_cosmetic_tag = BAL_federal_republic
         }
     }
     focus = { #三民族の国家
@@ -5127,6 +5135,7 @@ focus_tree = {
             every_owned_state = {
                 add_claim_by = ROOT
             }
+            set_cosmetic_tag = LIT_duchy
         }
     }
 }
