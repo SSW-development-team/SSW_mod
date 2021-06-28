@@ -57,3 +57,54 @@ country_event = { #標準軌の部分統一
         }
     }
 }
+country_event = { #チュノムの復活論争
+    id = ssw_tok.4
+    title = ssw_tok.4.t
+    desc = ssw_tok.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #復活させよう
+        name = ssw_tok.4.a
+        add_stability = -0.05
+        reverse_add_opinion_modifier = {
+            target = CHI
+            modifier = TOK_op_chunom_rivival
+        }
+    }
+    option = { #今更不要だ
+        name = ssw_tok.4.b
+        add_stability = 0.05
+        reverse_add_opinion_modifier = {
+            target = CHI
+            modifier = TOK_chunom_void
+        }
+    }
+}
+country_event = { #タイ人の指導者
+    id = ssw_tok.5
+    title = ssw_tok.5.t
+    desc = ssw_tok.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これからも仲良く……な？
+        name = ssw_tok.5.a
+        add_ideas = TOK_opium_traffick_thai
+        complete_national_focus = TOK_maintain_thai_fede
+    }
+    option = { #奴らを粉砕せよ
+        name = ssw_tok.5.b
+        add_stability = -0.05
+        complete_national_focus = TOK_break_thai_fede
+    }
+}
+country_event = { #タイ人の同化
+    id = ssw_tok.6
+    title = ssw_tok.6.t
+    desc = ssw_tok.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #完璧だ！
+        name = ssw_tok.6.a
+        complete_national_focus = TOK_solve_problem
+    }
+}

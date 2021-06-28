@@ -25,4 +25,172 @@ GER_is_debug = {
 }
 
 GER_Before_Civil_War_Power_Struggle_Categories = {
+	Milirary_Down_Goering_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Goering_Military_Influence > 9 }
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+		}
+	}
+	Milirary_Down_Himmler_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Himmler_Military_Influence > 9 }
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+		}
+	}
+	Milirary_Down_Goebbels_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Goebbels_Military_Influence > 9 }
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+		}
+	}
+	Milirary_Down_Hess_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Hess_Military_Influence > 9 }
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+		}
+	}
+	Milirary_Up_Goering_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Goering_Military_Influence < 91 }
+			has_country_flag = Goering_is_Successor
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+			add_to_variable = { Goering_Military_Influence = 10 }
+		}
+	}
+	Milirary_Up_Himmler_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Himmler_Military_Influence < 91 }
+			has_country_flag = Himmler_is_Successor
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+			add_to_variable = { Himmler_Military_Influence = 10 }
+		}
+	}
+	Milirary_Up_Goebbels_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Goebbels_Military_Influence < 91 }
+			has_country_flag = Goebbels_is_Successor
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+			add_to_variable = { Goebbels_Military_Influence = 10 }
+		}
+	}
+	Milirary_Up_Hess_Influence = {
+		visible = {
+			OR = {
+				has_country_flag = BGCW_Military_Clicked
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+			}
+			check_variable = { Hess_Military_Influence < 91 }
+			has_country_flag = Hess_is_Successor
+		}
+		available ={
+			NOT = { has_country_flag = BGCW_Military_Clicked }
+		}
+		cost = 0
+		days_remove = 7
+		complete_effect = {
+			set_country_flag = BGCW_Military_Clicked
+		}
+		remove_effect = {
+			clr_country_flag = BGCW_Military_Clicked
+			add_to_variable = { Hess_Military_Influence = 10 }
+		}
+	}
 }
