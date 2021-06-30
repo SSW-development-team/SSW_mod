@@ -474,6 +474,11 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.1
+			}
+			add_ideas = TIB_tashi_dorje_phunkhang
 		}
 		x = 17
 		y = 7
@@ -541,6 +546,7 @@ focus_tree = {
 		bypass = {}
 		ai_will_do = { factor = 2 }
 		completion_reward = {
+			
 		}
 		x = 14
 		y = 8
@@ -1136,7 +1142,18 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_mongol_penetration
 		}
+		available = {
+			MEN = {
+				controls_state = 1239
+			}
+		}
 		ai_will_do = { factor = 2 }
+		completion_reward = {
+			1239 = {
+				add_resistance = 25
+				add_compliance = -10
+			}
+		}
 		x = 37
 		y = 9
 
@@ -3006,7 +3023,30 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_full_control_monastries
 		}
-
+		completion_reward = {
+			all_state　= {
+				limit = {
+					is_core_of = TIB
+				}
+				add_core_of = CHI
+			}
+			if = {
+				limit = {
+					TIB = {
+						is_subject_of = CHI
+					}
+				}
+				every_unit_leader = {
+					set_nationality = CHI
+				}
+				CHI = {
+					annex_country = {
+						target = TIB
+						transfer_troops = yes
+					}
+				}
+			}
+		}
 		x = 15
 		y = 11
 
