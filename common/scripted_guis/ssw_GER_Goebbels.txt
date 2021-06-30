@@ -278,41 +278,72 @@ scripted_gui = {
 		}
 	}
 	
-	GER_Government_Structure = {
-		window_name = "GER_Government_Structure"
+	GER_GDP_Opener = {
+		window_name = "GER_GDP_Opener"
 		context_type = player_context
 		parent_window_token = politics_tab
 
 		visible = {
 			is_ai = no
 			tag = GER
+			is_debug = yes
 		}
 
 		effects = {
 			GS_button_click = {
 				if = {
-					limit = { has_country_flag = GS_opened }
-					clr_country_flag = GS_opened
+					limit = { has_country_flag = GER_GDP_opened }
+					clr_country_flag = GER_GDP_opened
+					clear_array = global.GDP_All_Country_List
 				}
 				else = {
-					set_country_flag = GS_opened
+					set_country_flag = GER_GDP_opened
+					every_country = {
+						limit = { is_major = yes }
+						add_to_array = { global.GDP_All_Country_List = THIS }
+						GDP_Culculate_Total_Pop = yes
+					}
 				}
 			}
 		}
 	}
-	GER_Government_Structure_main = {
-		window_name = "GER_Government_Structure_main"
+	GER_GDP_Main = {
+		window_name = "GER_GDP_Main"
 		context_type = player_context
 
 		visible = {
 			is_ai = no
 			tag = GER
-			has_country_flag = GS_opened
+			has_country_flag = GER_GDP_opened
 		}
-
+		
+		dynamic_lists = {
+			Name_Gridbox = {
+				array = global.GDP_All_Country_List
+				change_scope = yes
+				entry_container = GDP_Name_Gridbox_Entry
+			}
+		}
 		effects = {
 			close_button_click = {
-				clr_country_flag = GS_opened
+				clr_country_flag = GER_GDP_opened
+			}
+			Rank_click = {
+				every_country = {
+					limit = { is_major = yes }
+					GDP_Culculate_Total_GDP = yes
+					GDP_Culculate_Average_GDP = yes
+					GDP_Culculate_Infra_worker = yes
+					GDP_Culculate_Industry_worker = yes
+				}
+			}
+		}
+		properties = {
+			Main_Flag = {
+				image = [THIS.GetFlag]
+			}
+			small_Flag = {
+				image = [THIS.GetFlag]
 			}
 		}
 	}
