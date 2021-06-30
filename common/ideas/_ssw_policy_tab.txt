@@ -337,6 +337,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = 0.00
+				army_org_factor = 0.10
+				army_morale = 0.15
 			}
 		}
 		idea_military_tab_ethnic_units = { #少数の他民族部隊
@@ -346,6 +349,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = 0.05
+				training_time_army_factor = 0.07
+				army_org_factor = -0.07
+				army_morale = -0.05
 			}
 		}
 		idea_military_tab_mixed_army = { #混成軍
@@ -355,6 +362,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = 0.10
+				training_time_army_factor = 0.15
+				army_org_factor = -0.10
+				army_morale = -0.10
 			}
 		}
 		idea_military_tab_agree_female_conscription = { #女性徴兵の許可
@@ -364,6 +375,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = 0.05
 			}
 		}
 		idea_military_tab_disagree_female_conscription = { #女性徴兵を不許可
@@ -382,6 +394,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				ai_desired_divisions_factor = -0.10
+				non_core_manpower = 0.00
+				mobilization_speed = 0.15
 			}
 		}
 		idea_military_tab_colony_small_scale_mobilization = { #植民地:小規模動員
@@ -391,6 +406,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				ai_desired_divisions_factor = 0.05
+				non_core_manpower = 0.10
+				mobilization_speed = 0.05
 			}
 		}
 		idea_military_tab_colony_medium_scale_mobilization = { #植民地:中規模動員
@@ -400,6 +418,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				ai_desired_divisions_factor = 0.10
+				non_core_manpower = 0.15
+				mobilization_speed = -0.10
 			}
 		}
 		idea_military_tab_colony_large_scale_mobilization = { #植民地:大規模動員
@@ -409,6 +430,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				ai_desired_divisions_factor = 0.12
+				non_core_manpower = 0.20
+				mobilization_speed = -0.15
 			}
 		}
 		idea_military_tab_no_exemption = { #免除無し
@@ -418,6 +442,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = 0.10
 			}
 		}
 		idea_military_tab_exempt_educators = { #教育関係者を免除
@@ -427,6 +452,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = -0.05
+				research_speed_factor = 0.05
 			}
 		}
 		idea_military_tab_allow_conscientious_objection = { #宗教的忌避を容認
@@ -436,6 +463,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription_factor = -0.05
+				stability_factor = 0.10
 			}
 		}
 		idea_military_tab_exempt_placeman = { #公職者を免除
@@ -445,6 +474,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				conscription = -0.02
+				political_power_factor = 0.15
 			}
 		}
 		idea_politics_tab_no_constitution = { #憲法なし
@@ -454,6 +485,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_factor = -0.15
+				stability_factor = -0.25
+				war_support_factor = -0.25
 			}
 		}
 		idea_politics_tab_dead_letter = { #死文化
@@ -463,6 +497,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.15
+				war_support_factor = -0.10
 			}
 		}
 		idea_politics_tab_enacted= { #制定済み
@@ -472,6 +509,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+				war_support_factor = 0.10
 			}
 		}
 		idea_politics_tab_absolute_constitution = { #絶対的憲法
@@ -481,6 +521,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_factor = 0.25
+				stability_factor = 0.15
+				war_support_factor = 0.15
 			}
 		}
 		idea_politics_tab_no_social_securty = { #社会保障なし
@@ -490,6 +533,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = -0.10
+				stability_factor = -0.20
+				monthly_population = -0.20
+				political_power_factor = 0.10
 			}
 		}
 		idea_politics_tab_insurance_system = { #保険制度
@@ -499,6 +546,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.00
+				stability_factor = -0.10
+				monthly_population = -0.10
 			}
 		}
 		idea_politics_tab_life_security = { #生活保障
@@ -508,6 +558,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.10
+				stability_factor = 0.10
+				monthly_population = 0.10
 			}
 		}
 		idea_politics_tab_generous_welfare = { #手厚い福祉
@@ -517,15 +570,21 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.15
+				stability_factor = 0.20
+				monthly_population = 0.30
 			}
 		}
-		idea_politics_tab_no_regulation = { #社会保障なし
+		idea_politics_tab_no_regulation = { #規制なし
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.15
+				industrial_capacity_factory = 0.15
+				production_speed_buildings_factor = 0.15
 			}
 		}
 		idea_politics_tab_minimum_wage_guarantee = { #最低賃金の保障
@@ -535,6 +594,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = 0.10
+				production_speed_buildings_factor = 0.10
 			}
 		}
 		idea_politics_tab_working_hours_regulation = { #労働時間規制
@@ -544,6 +606,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.10
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
 			}
 		}
 		idea_politics_tab_two_regulations = { #最低賃金の保障と労働時間規制
@@ -553,6 +618,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.15
+				industrial_capacity_factory = -0.10
+				production_speed_buildings_factor = -0.10
 			}
 		}
 		idea_politics_tab_prohibition_form_labor_unions = { #労働組合結成禁止
@@ -562,6 +630,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.10
+				political_power_factor = 0.10
+				economy_cost_factor = -0.25
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
 			}
 		}
 		idea_politics_tab_prohibite_only_public_servant = { #公務員のみ結成禁止
@@ -571,6 +644,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+				economy_cost_factor = -0.12
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
 			}
 		}
 		idea_politics_tab_allowed_form_labor_union = { #労働組合結成を許可
@@ -580,6 +658,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.12
+				political_power_factor = -0.10
+				economy_cost_factor = 0.05
+				industrial_capacity_factory = -0.10
+				industrial_capacity_dockyard = -0.10
 			}
 		}
 		idea_politics_tab_no_compulsory_education = { #義務教育なし
@@ -589,6 +672,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.00
+				research_speed_factor = -0.15
+				production_factory_max_efficiency_factor = -0.20
+				literacy_growth_rate_factor = -0.10
 			}
 		}
 		idea_politics_tab_compulsory_primary_education = { #初等教育までの義務教育
@@ -598,6 +685,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.03
+				research_speed_factor = -0.07
+				production_factory_max_efficiency_factor = -0.10
+				literacy_growth_rate_factor = 0.00
 			}
 		}
 		idea_politics_tab_compulsory_secondary_education = { #中等教育までの義務教育
@@ -607,6 +698,10 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.05
+				research_speed_factor = 0.00
+				production_factory_max_efficiency_factor = 0.05
+				literacy_growth_rate_factor = 0.10
 			}
 		}
 		idea_politics_tab_compulsory_higher_education = { #高等教育までの義務教育
@@ -616,15 +711,21 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				consumer_goods_factor = 0.10
+				research_speed_factor = 0.05
+				production_factory_max_efficiency_factor = 0.15
+				literacy_growth_rate_factor = 0.20
 			}
 		}
-		idea_politics_tab_no_human_rights_guarantee = { #初等教育までの義務教育
+		idea_politics_tab_no_human_rights_guarantee = { #人権保障なし
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.30
+				compliance_growth_on_our_occupied_states = -0.20
 			}
 		}
 		idea_politics_tab_guarantee_by_law = { #法律による保証
@@ -634,6 +735,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.10
+				compliance_growth_on_our_occupied_states = -0.05
 			}
 		}
 		idea_politics_tab_guarantee_by_constitution = { #憲法による保証
@@ -643,6 +746,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.10
+				compliance_growth_on_our_occupied_states = 0.10
 			}
 		}
 		idea_ethnic_policy_genocide = { #虐殺
@@ -652,6 +757,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				compliance_growth_on_our_occupied_states = 0.25
+				resistance_target_on_our_occupied_states = 0.20
+				resistance_growth_on_our_occupied_states = 1.0
 			}
 		}
 		idea_ethnic_policy_brainwashing = { #洗脳
@@ -661,6 +769,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				compliance_growth_on_our_occupied_states = 0.15
+				resistance_target_on_our_occupied_states = 0.10
+				resistance_growth_on_our_occupied_states = 0.35
 			}
 		}
 		idea_ethnic_policy_discrimination = { #差別
@@ -670,6 +781,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				compliance_growth_on_our_occupied_states = 0.05
+				resistance_target_on_our_occupied_states = 0.05
+				resistance_growth_on_our_occupied_states = 0.15
 			}
 		}
 		idea_ethnic_policy_coexistence = { #共存
@@ -679,6 +793,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				compliance_growth_on_our_occupied_states = 0.10
+				resistance_target_on_our_occupied_states =- 0.05
+				resistance_growth_on_our_occupied_states = 0.00
 			}
 		}
 		idea_ethnic_state_atheism = { #国家無神論
@@ -688,6 +805,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.20
+				political_power_factor = 0.15
 			}
 		}
 		idea_ethnic_religious_persecution = { #宗教弾圧
@@ -697,6 +816,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.10
+				political_power_factor = 0.10
 			}
 		}
 		idea_ethnic_separation_of_church_and_state = { #政教分離
@@ -706,6 +827,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.00
 			}
 		}
 		idea_ethnic_religious_liberty = { #信教の自由
@@ -715,6 +838,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.10
+				political_power_factor = 0.10
 			}
 		}
 		idea_ethnic_border_closure = { #国境閉鎖
@@ -724,6 +849,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				monthly_population = -0.10
+				stability_factor = 0.10
 			}
 		}
 		idea_ethnic_strict_restrictions = { #厳しい制限
@@ -733,6 +860,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				monthly_population = 0.00
+				stability_factor = 0.05
 			}
 		}
 		idea_ethnic_loose_restrictions = { #緩い制限
@@ -742,6 +871,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				monthly_population = 0.10
+				stability_factor = -0.10
 			}
 		}
 		idea_ethnic_freeing = { #自由化
@@ -751,6 +882,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				monthly_population = 0.20
+				stability_factor = -0.15
 			}
 		}
 		idea_ethnic_approve_slave = { #認可
@@ -760,6 +893,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.10
+				production_factory_max_efficiency_factor = 0.10
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.15
+				consumer_goods_factor = -0.05
 			}
 		}
 		idea_ethnic_limited_approve = { #限定的認可
@@ -769,6 +907,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.05
+				production_factory_max_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.07
+				industrial_capacity_factory = 0.07
+				consumer_goods_factor = 0.03
 			}
 		}
 		idea_ethnic_only_goverment_owned_slave = { #公用奴隷
@@ -778,6 +921,11 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.00
+				production_factory_max_efficiency_factor = 0.00
+				production_speed_buildings_factor = 0.04
+				industrial_capacity_factory = 0.04
+				consumer_goods_factor = 0.03
 			}
 		}
 		idea_ethnic_outlawed = { #非合法化
@@ -787,6 +935,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.05
 			}
 		}
 		idea_no_election = { #選挙なし
@@ -796,6 +945,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_gain = 0.25
 			}
 		}
 		idea_limited_election = { #制限選挙
@@ -805,6 +955,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_gain = 0.15
 			}
 		}
 		idea_free_election = { #自由選挙
@@ -814,6 +965,7 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				political_power_gain = 0.05
 			}
 		}
 		idea_no_paliament = { #議会無し
@@ -823,6 +975,9 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				mobilization_laws_cost_factor = -0.15
+				trade_laws_cost_factor = -0.15
+				economy_cost_factor = -0.15
 			}
 		}
 		idea_puppet_paliament = { #傀儡の議会
@@ -832,15 +987,19 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				mobilization_laws_cost_factor = -0.25
+				trade_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
 			}
 		}
-		idea_paliament_system = { #傀儡の議会
+		idea_paliament_system = { #議会制
 			picture = SSW_vacancy
 			removal_cost = -1
 			allowed = {
 				always = yes
 			}
 			modifier = {
+				political_power_factor = 0.10
 			}
 		}
 		idea_peoples_trial = { #人民裁判
@@ -850,6 +1009,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.10
+				political_power_factor = 0.15
 			}
 		}
 		idea_interference_by_cabinet = { #内閣による干渉
@@ -859,6 +1020,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = -0.05
+				political_power_factor = 0.05
 			}
 		}
 		idea_independent_judiciary = { #独立した司法
@@ -868,6 +1031,8 @@ ideas = {
 				always = yes
 			}
 			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.10
 			}
 		}
 	}
