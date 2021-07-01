@@ -294,15 +294,9 @@ scripted_gui = {
 				if = {
 					limit = { has_country_flag = GER_GDP_opened }
 					clr_country_flag = GER_GDP_opened
-					clear_array = global.GDP_All_Country_List
 				}
 				else = {
 					set_country_flag = GER_GDP_opened
-					every_country = {
-						limit = { is_major = yes }
-						add_to_array = { global.GDP_All_Country_List = THIS }
-						GDP_Culculate_Total_Pop = yes
-					}
 				}
 			}
 		}
@@ -318,32 +312,23 @@ scripted_gui = {
 		}
 		
 		dynamic_lists = {
-			Name_Gridbox = {
-				array = global.GDP_All_Country_List
-				change_scope = yes
-				entry_container = GDP_Name_Gridbox_Entry
+			state_container = {
+				array = map_x_position
+				change_scope = no
+				entry_container = state_entry
+				index = i
 			}
 		}
 		effects = {
 			close_button_click = {
 				clr_country_flag = GER_GDP_opened
 			}
-			Rank_click = {
-				every_country = {
-					limit = { is_major = yes }
-					GDP_Culculate_Total_GDP = yes
-					GDP_Culculate_Average_GDP = yes
-					GDP_Culculate_Infra_worker = yes
-					GDP_Culculate_Industry_worker = yes
-				}
-			}
 		}
 		properties = {
-			Main_Flag = {
-				image = [THIS.GetFlag]
-			}
-			small_Flag = {
-				image = [THIS.GetFlag]
+			state_icon = {
+				x = map_x_position^i
+				y = map_y_position^i
+				frame = state_frame^i
 			}
 		}
 	}
