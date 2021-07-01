@@ -31,8 +31,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 3
+        x = 13
         y = 0
+        relative_position_id = TOK_vietnam_three_principle
         search_filters = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_RESEARCH
@@ -68,8 +69,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 1
+        x = -2
         y = 1
+        relative_position_id = TOK_check_economy_condition
         prerequisite = {
             focus = TOK_check_economy_condition
         }
@@ -100,8 +102,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 0
-        y = 2
+        x = -1
+        y = 1
+        relative_position_id  = TOK_dealing_famine
         prerequisite = {
             focus = TOK_dealing_famine
         }
@@ -139,8 +142,9 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_MANPOWER
         }
-        x = 2
-        y = 2
+        x = 1
+        y = 1
+        relative_position_id = TOK_dealing_famine
         prerequisite = {
             focus = TOK_dealing_famine
         }
@@ -180,7 +184,8 @@ focus_tree = {
             FOCUS_FILTER_MANPOWER
         }
         x = 0
-        y = 3
+        y = 1
+        relative_position_id = TOK_expand_farm
         prerequisite = {
             focus = TOK_expand_farm
         }
@@ -214,8 +219,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 2
-        y = 3
+        x = 0
+        y = 1
+        relative_position_id = TOK_import_food_from_CHI
         prerequisite = {
             focus = TOK_import_food_from_CHI
         }
@@ -248,7 +254,8 @@ focus_tree = {
             FOCUS_FILTER_STABILITY
         }
         x = 0
-        y = 4
+        y = 1
+        relative_position_id = TOK_recommend_grow_edible_crop
         prerequisite = {
             focus = TOK_recommend_grow_edible_crop
             focus = TOK_promot_mutual_trade
@@ -282,8 +289,9 @@ focus_tree = {
             FOCUS_FILTER_MANPOWER
             FOCUS_FILTER_STABILITY
         }
-        x = 2
-        y = 4
+        x = 0
+        y = 1
+        relative_position_id = TOK_promot_mutual_trade
         prerequisite = {
             focus = TOK_recommend_grow_edible_crop
             focus = TOK_promot_mutual_trade
@@ -333,7 +341,8 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
         }
         x = 0
-        y = 5
+        y = 1
+        relative_position_id = TOK_establish_agri_cooperative
         prerequisite = {
             focus = TOK_establish_agri_cooperative
         }
@@ -381,8 +390,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 2
-        y = 5
+        x = 0
+        y = 1
+        relative_position_id = TOK_establish_agri_fund
         prerequisite = {
             focus = TOK_establish_agri_fund
         }
@@ -419,7 +429,8 @@ focus_tree = {
             FOCUS_FILTER_STABILITY
         }
         x = 1
-        y = 6
+        y = 1
+        relative_position_id = TOK_self_sufficiency_support
         prerequisite = {
             focus = TOK_self_sufficiency_support
         }
@@ -453,8 +464,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 4
+        x = 1
         y = 1
+        relative_position_id = TOK_check_economy_condition
         prerequisite = {
             focus = TOK_check_economy_condition
         }
@@ -509,8 +521,9 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_STABILITY
         }
-        x = 4
-        y = 2
+        x = 0
+        y = 1
+        relative_position_id = TOK_dev_base_infra
         prerequisite = {
             focus = TOK_dev_base_infra
         }
@@ -542,8 +555,9 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_RESEARCH
         }
-        x = 6
-        y = 2
+        x = 2
+        y = 1
+        relative_position_id = TOK_dev_base_infra
         prerequisite = {
             focus = TOK_dev_base_infra
         }
@@ -553,20 +567,31 @@ focus_tree = {
                 uses = 1
                 category = industry
             }
-            random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = industrial_complex
-                        size > 1
-                        include_locked = no
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
                     }
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
                 }
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 2
-                    instant_build = yes
+            }
+            1236 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
                 }
-                add_extra_state_shared_building_slots = 2
             }
         }
     }
@@ -593,8 +618,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 4
-        y = 3
+        x = 0
+        y = 1
+        relative_position_id = TOK_unify_standard_gauge_china
         prerequisite = {
             focus = TOK_unify_standard_gauge_china
         }
@@ -632,8 +658,9 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_STABILITY
         }
-        x = 6
-        y = 3
+        x = 0
+        y = 1
+        relative_position_id = TOK_establish_industrial_base
         prerequisite = {
             focus = TOK_establish_industrial_base
         }
@@ -654,8 +681,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 8
-        y = 3
+        x = 2
+        y = 1
+        relative_position_id = TOK_establish_industrial_base
         prerequisite = {
             focus = TOK_establish_industrial_base
         }
@@ -696,8 +724,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 5
-        y = 4
+        x = 1
+        y = 1
+        relative_position_id = TOK_extension_vietnam_railway
         prerequisite = {
             focus = TOK_extension_vietnam_railway
         }
@@ -721,8 +750,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 7
-        y = 4
+        x = 1
+        y = 1
+        relative_position_id = TOK_protect_local_industry
         prerequisite = {
             focus = TOK_protect_local_industry
         }
@@ -746,26 +776,25 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 4
-        y = 5
+        x = -1
+        y = 1
+        relative_position_id = TOK_modernize_plan
         prerequisite = {
             focus = TOK_modernize_plan
         }
         completion_reward = {
-            random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = industrial_complex
-                        size > 1
-                        include_locked = no
+            1237 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
                     }
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 2
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 2
                 }
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 2
-                    instant_build = yes
-                }
-                add_extra_state_shared_building_slots = 2
             }
         }
     }
@@ -782,8 +811,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 6
-        y = 5
+        x = 1
+        y = 1
+        relative_position_id = TOK_modernize_plan
         prerequisite = {
             focus = TOK_modernize_plan
         }
@@ -819,8 +849,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 3
-        y = 6
+        x = -1
+        y = 1
+        relative_position_id = TOK_enhance_light_industry
         prerequisite = {
             focus = TOK_enhance_light_industry
         }
@@ -858,8 +889,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 5
-        y = 6
+        x = 1
+        y = 1
+        relative_position_id = TOK_enhance_light_industry
         prerequisite = {
             focus = TOK_enhance_light_industry
         }
@@ -867,25 +899,23 @@ focus_tree = {
             focus = TOK_expand_hai_phong_port
         }
         completion_reward = {
-            random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = industrial_complex
-                        size > 1
-                        include_locked = no
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
                     }
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 2
                 }
-                add_building_construction = {
-                    type = industrial_complex
-                    level = 1
-                    instant_build = yes
-                }
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes
-                }
-                add_extra_state_shared_building_slots = 2
             }
         }
     }
@@ -902,8 +932,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 7
-        y = 6
+        x = 1
+        y = 1
+        relative_position_id = TOK_expand_hai_phong_port
         prerequisite = {
             focus = TOK_expand_hai_phong_port
         } 
@@ -925,8 +956,9 @@ focus_tree = {
             FOCUS_FILTER_INDUSTRY
             FOCUS_FILTER_STABILITY
         }
-        x = 4
-        y = 7
+        x = -1
+        y = 1
+        relative_position_id = TOK_construct_industry_park
         prerequisite = {
             focus = TOK_solve_famine
         }
@@ -958,8 +990,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 14
-        y = 0
+        x = 1
+        y = -1
+        relative_position_id = TOK_our_way
         completion_reward = {
             army_experience = 30
         }
@@ -978,8 +1011,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 13
-        y = 1
+        x = 0
+        y = -1
+        relative_position_id = TOK_establish_army_officer_school
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1012,8 +1046,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 15
+        x = 1
         y = 1
+        relative_position_id = TOK_army_reform
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1046,8 +1081,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 13
-        y = 2
+        x = 1
+        y = -1
+        relative_position_id = TOK_search_new_rifle
         prerequisite = {
             focus = TOK_our_way
         } 
@@ -1069,8 +1105,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 15
-        y = 2
+        x = 0
+        y = 1
+        relative_position_id = TOK_learn_from_CHI
         prerequisite = {
             focus = TOK_learn_from_CHI
         } 
@@ -1088,8 +1125,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 10
-        y = 3
+        x = 1
+        y = -1
+        relative_position_id = TOK_field_gun_product_factory
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1114,8 +1152,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 12
-        y = 3
+        x = 2
+        y = 0
+        relative_position_id = TOK_field_gun_dev
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1144,8 +1183,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 14
-        y = 3
+        x = 1
+        y = 1
+        relative_position_id = TOK_establish_army_officer_school
         prerequisite = {
             focus = TOK_establish_army_officer_school
             focus = TOK_study_abroad_officer
@@ -1164,8 +1204,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 16
-        y = 3
+        x = 1
+        y = 1
+        relative_position_id = TOK_study_abroad_officer
         prerequisite = {
             focus = TOK_study_abroad_officer
         }
@@ -1182,8 +1223,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 18
-        y = 3
+        x = 2
+        y = 0
+        relative_position_id = TOK_buy_weapon_from_CHI
         search_filters = {
             FOCUS_FILTER_MANPOWER
         }
@@ -1210,8 +1252,9 @@ focus_tree = {
         search_filters = {
             FOCUS_FILTER_INDUSTRY
         }
-        x = 9
-        y = 4
+        x = 1
+        y = 1
+        relative_position_id = TOK_invest_W_mine
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1222,20 +1265,18 @@ focus_tree = {
             focus = TOK_invest_W_mine
         }
         completion_reward = {
-            random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = arms_factory
-                        size > 0
-                        include_locked = no
+            1236 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
                     }
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 1
                 }
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes
-                }
-                add_extra_state_shared_building_slots = 1
             }
             add_tech_bonus = {
                 bonus = 1
@@ -1254,8 +1295,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 11
-        y = 4
+        x = 2
+        y = 0
+        relative_position_id = TOK_field_gun_product_factory
         prerequisite = {
             focus = TOK_field_gun_dev
         }
@@ -1276,8 +1318,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 14
-        y = 4
+        x = 0
+        y = 1
+        relative_position_id = TOK_finish_reform
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1302,8 +1345,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 16
-        y = 4
+        x = 0
+        y = 1
+        relative_position_id = TOK_buy_weapon_from_CHI
         prerequisite = {
             focus = TOK_buy_weapon_from_CHI
         }
@@ -1338,8 +1382,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 18
-        y = 4
+        x = 0
+        y = 1
+        relative_position_id = TOK_accept_chinese_advisor_group
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1364,8 +1409,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 11
-        y = 5
+        x = 0
+        y = 1
+        relative_position_id = TOK_streamlining_weapon_product
         prerequisite = {
             focus = TOK_field_gun_product_factory
         }
@@ -1373,20 +1419,18 @@ focus_tree = {
             focus = TOK_streamlining_weapon_product
         }
         completion_reward = {
-            random_owned_state = {
-                limit = {
-                    free_building_slots = {
-                        building = arms_factory
-                        size > 1
-                        include_locked = no
+            671 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
                     }
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 2
+                        instant_build = yes
+                    }
+                    add_extra_state_shared_building_slots = 2
                 }
-                add_building_construction = {
-                    type = arms_factory
-                    level = 2
-                    instant_build = yes
-                }
-                add_extra_state_shared_building_slots = 2
             }
         }
     }
@@ -1404,8 +1448,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 13
-        y = 5
+        x = 2
+        y = 0
+        relative_position_id = TOK_expand_arms_factory
         prerequisite = {
             focus = TOK_search_tactic
         }
@@ -1430,8 +1475,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 15
-        y = 5
+        x = 1
+        y = 1
+        relative_position_id = TOK_search_tactic
         prerequisite = {
             focus = TOK_search_tactic
         }
@@ -1452,8 +1498,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 17
-        y = 5
+        x = 1
+        y = 1
+        relative_position_id = TOK_military_invest_from_CHI
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1493,8 +1540,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 11
-        y = 6
+        x = 0
+        y = 1
+        relative_position_id = TOK_expand_arms_factory
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1522,8 +1570,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 13
-        y = 6
+        x = 0
+        y = 1
+        relative_position_id = TOK_adopt_guerilla_warfare
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1548,8 +1597,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 15
-        y = 6
+        x = 0
+        y = 1
+        relative_position_id = TOK_burn_out_firepower
         prerequisite = {
             focus = TOK_burn_out_firepower
         }
@@ -1567,8 +1617,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 17
-        y = 6
+        x = 0
+        y = 1
+        relative_position_id = TOK_mechanize_support
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1596,8 +1647,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 11
-        y = 7
+        x = 0
+        y = 1
+        relative_position_id = TOK_product_mobile_support_equip
         prerequisite = {
             focus = TOK_product_mobile_support_equip
         }
@@ -1617,8 +1669,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 16
-        y = 7
+        x = 1
+        y = 1
+        relative_position_id = TOK_increase_product_field_gun
         prerequisite = {
             focus = TOK_increase_product_field_gun
         }
@@ -1642,8 +1695,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 22
-        y = 0
+        x = 0
+        y = -1
+        relative_position_id = TOK_airfield_maintenance
         completion_reward = {
             air_experience = 20
         }
@@ -1658,8 +1712,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 20
-        y = 1
+        x = 2
+        y = -2
+        relative_position_id = TOK_accept_chinese_advisor_group
         prerequisite = {
             focus = TOK_establish_air_force
         }
@@ -1678,8 +1733,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 22
-        y = 1
+        x = 2
+        y = 0
+        relative_position_id = TOK_pilot_training
         prerequisite = {
             focus = TOK_establish_air_force
         }
@@ -1708,8 +1764,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 24
-        y = 1
+        x = 2
+        y = 0
+        relative_position_id = TOK_airfield_maintenance
         prerequisite = {
             focus = TOK_establish_air_force
         }
@@ -1738,8 +1795,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 22
-        y = 2
+        x = 0
+        y = 1
+        relative_position_id = TOK_airfield_maintenance
         prerequisite = {
             focus = TOK_airfield_maintenance
         } 
@@ -1763,8 +1821,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 21
-        y = 3
+        x = -1
+        y = 1
+        relative_position_id = TOK_buy_used_aircraft
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1789,8 +1848,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 23
-        y = 3
+        x = 1
+        y = 1
+        relative_position_id = TOK_buy_used_aircraft
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -1813,8 +1873,9 @@ focus_tree = {
         ai_will_do = {
             factor = 10
         }
-        x = 22
-        y = 4
+        x = 1
+        y = 1
+        relative_position_id = TOK_air_control_mission
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
@@ -1838,8 +1899,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 29
-        y = 0
+        x = 0
+        y = -1
+        relative_position_id = TOK_maintenance_naval_base
         completion_reward = {
             navy_experience = 35
         }
@@ -1854,8 +1916,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 29
-        y = 1
+        x = 0
+        y = -1
+        relative_position_id = TOK_guardian_gulf_tonkin
         prerequisite = {
             focus = TOK_create_navy
         }
@@ -1898,8 +1961,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 31
-        y = 1
+        x = 2
+        y = 0
+        relative_position_id = TOK_maintenance_naval_base
         prerequisite = {
             focus = TOK_create_navy
         }
@@ -1929,8 +1993,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 27
-        y = 2
+        x = 3
+        y = 1
+        relative_position_id = TOK_prepare_air_raid
         prerequisite = {
             focus = TOK_maintenance_naval_base
         }
@@ -1960,8 +2025,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 29
-        y = 2
+        x = 2
+        y = 0
+        relative_position_id = TOK_expand_fuel_depot
         prerequisite = {
             focus = TOK_maintenance_naval_base
         }
@@ -1982,8 +2048,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 31
-        y = 2
+        x = 2
+        y = 0
+        relative_position_id = TOK_guardian_gulf_tonkin
         prerequisite = {
             focus = TOK_capital_invest_shipyard
         }
@@ -2013,8 +2080,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 28
-        y = 3
+        x = 1
+        y = 1
+        relative_position_id = TOK_expand_fuel_depot
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -2040,8 +2108,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 30
-        y = 3
+        x = 2
+        y = 0
+        relative_position_id = TOK_enhance_small_ship
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -2066,8 +2135,9 @@ focus_tree = {
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
-        x = 29
-        y = 4
+        x = 1
+        y = 1
+        relative_position_id = TOK_enhance_small_ship
         search_filters = {
             FOCUS_FILTER_RESEARCH
         }
@@ -2095,6 +2165,836 @@ focus_tree = {
                         level = 2
                         instant_build = yes
                     }
+                }
+            }
+        }
+    }
+    focus = { #ベトナムの三民主義
+        id = TOK_vietnam_three_principle
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 5
+        y = 0
+        completion_reward = {
+            add_political_power = 120
+        }
+    }
+    focus = { #憲法制定
+        id = TOK_constitutional_law
+        icon = GFX_focus_CHI_invitation_constitutional_scho
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -3
+        y = 1
+        relative_position_id = TOK_vietnam_three_principle
+        prerequisite = {
+            focus = TOK_vietnam_three_principle
+        }
+        completion_reward = {
+            add_political_power = 100
+        }
+    }
+    focus = { #農地改革
+        id = TOK_land_reform
+        icon = GFX_goal_generic_construction2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -2
+        y = 1
+        relative_position_id = TOK_constitutional_law
+        prerequisite = {
+            focus = TOK_constitutional_law
+        }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = construction_tech
+            }
+            1236 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_extra_state_shared_building_slots = 2
+                }
+            }
+            1237 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_extra_state_shared_building_slots = 2
+                }
+            }
+            1235 = {
+                if = {
+                    limit = {
+                        is_owned_by = ROOT
+                    }
+                    add_extra_state_shared_building_slots = 2
+                }
+            }
+        }
+    }
+    focus = { #社会福祉の充実
+        id = TOK_enhance_social_welfare
+        icon = GFX_goal_generic_consumer_goods
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_constitutional_law
+        prerequisite = {
+            focus = TOK_constitutional_law
+        }
+        completion_reward = {
+            add_ideas = TOK_social_welfare
+        }
+    }
+    focus = { #農民へ浸透
+        id = TOK_penetrate_farmer
+        icon = GFX_goal_generic_demand_territory
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 1
+        y = 1
+        relative_position_id = TOK_land_reform
+        prerequisite = {
+            focus = TOK_land_reform
+        }
+        prerequisite = {
+            focus = TOK_enhance_social_welfare
+        }
+        completion_reward = {
+            set_temp_variable ={maj = TOK.highest_party_ideology}
+            add_popularity = {
+                ideology = var:maj
+                popularity = 0.1
+            }
+        }
+    }
+    focus = { #農民のための政府
+        id = TOK_gov_for_farmer
+        icon = GFX_focus_generic_self_management
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 1
+        y = 1
+        relative_position_id = TOK_penetrate_farmer
+        prerequisite = {
+            focus = TOK_penetrate_farmer
+        }
+        prerequisite = {
+            focus = TOK_break_feudal_convention
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_social_welfare
+                add_idea = TOK_social_welfare_2
+            }
+        }
+    }
+    focus = { #反共民主主義
+        id = TOK_anticommunism_democracy
+        icon = GFX_goal_anti_comintern_pact
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -1
+        y = 1
+        relative_position_id = TOK_penetrate_farmer
+        prerequisite = {
+            focus = TOK_penetrate_farmer
+        }
+        completion_reward = {
+            add_popularity = {
+                ideology = classical_communism
+                popularity = -0.1
+            }
+            add_popularity = {
+                ideology = progressive_communism
+                popularity = -0.1
+            }
+        }
+    }
+    focus = { #ベトミンの完全な鎮圧
+        id = TOK_complete_suppress_vietminh
+        icon = GFX_goal_demand_sudetenland
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_anticommunism_democracy
+        prerequisite = {
+            focus = TOK_anticommunism_democracy
+        }
+        completion_reward = {
+            remove_ideas = TOK_viet_minh_resistans
+        }
+    }
+    focus = { #国内の安定化
+        id = TOK_domestic_stabilization
+        icon = GFX_goal_generic_neutrality_focus
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 2
+        y = 1
+        relative_position_id = TOK_complete_suppress_vietminh
+        prerequisite = {
+            focus = TOK_complete_suppress_vietminh
+        }
+        completion_reward = {
+            add_stability = 0.1
+        }
+    }
+    focus = { #戦争に向けての動員体制
+        id = TOK_mobilize_system_war
+        icon = GFX_focus_secret_rearmament
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_domestic_stabilization
+        prerequisite = {
+            focus = TOK_domestic_stabilization
+        }
+        completion_reward = {
+            add_ideas = war_economy
+        }
+    }
+    focus = { #徴兵の強化
+        id = TOK_strength_conscription
+        icon = GFX_focus_generic_manpower
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_mobilize_system_war
+        prerequisite = {
+            focus = TOK_mobilize_system_war
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_strength_conscription
+        }
+    }
+    focus = { #帝国主義から同胞の解放を
+        id = TOK_liberate_imperialism
+        icon = GFX_goal_generic_major_war
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 2
+        y = 1
+        relative_position_id = TOK_mobilize_system_war
+        prerequisite = {
+            focus = TOK_mobilize_system_war
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = VIN
+                type = annex_everything
+            }
+        }
+    }
+    focus = { #自力文団の再興
+        id = TOK_rivial_SSLU
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_vietnam_three_principle
+        prerequisite = {
+            focus = TOK_vietnam_three_principle
+        }
+        completion_reward = {
+            add_ideas = TOK_SSLU
+        }
+    }
+    focus = { #教育機関の整備
+        id = TOK_dev_education_institution
+        icon = GFX_focus_hol_the_foundations_of_defense
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_rivial_SSLU
+        prerequisite = {
+            focus = TOK_rivial_SSLU
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_SSLU
+                add_idea = TOK_SSLU_1
+            }
+        }
+    }
+    focus = { #封建的因習の打破を掲げる
+        id = TOK_break_feudal_convention
+        icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -1
+        y = 1
+        relative_position_id = TOK_dev_education_institution
+        prerequisite = {
+            focus = TOK_dev_education_institution
+        }
+        completion_reward = {
+            add_stability = -0.1
+        }
+    }
+    focus = { #国語教育の充実
+        id = TOK_enhance_national_language_edu
+        icon = GFX_focus_generic_support_the_left_right
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_break_feudal_convention
+        prerequisite = {
+            focus = TOK_break_feudal_convention
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_SSLU_1
+                add_idea = TOK_SSLU_2
+            }
+        }
+    }
+    focus = { #女性解放
+        id = TOK_woman_liberate
+        icon = GFX_focus_generic_military_mission
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 1
+        y = 1
+        relative_position_id = TOK_dev_education_institution
+        prerequisite = {
+            focus = TOK_dev_education_institution
+        }
+        completion_reward = {
+            add_stability = 0.05
+            set_rule = {
+                can_generate_female_aces = yes
+            }
+        }
+    }
+    focus = { #インドシナ大学
+        id = TOK_indochina_university
+        icon = GFX_focus_research
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_woman_liberate
+        prerequisite = {
+            focus = TOK_woman_liberate
+        }
+        completion_reward = {
+            add_research_slot = 1
+        }
+    }
+    focus = { #チュノムの復活？
+        id = TOK_revival_chunom
+        #icon = 
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 3
+        relative_position_id = TOK_dev_education_institution
+        prerequisite = {
+            focus = TOK_enhance_national_language_edu
+        }
+        prerequisite = {
+            focus = TOK_dev_education_institution
+        }
+        prerequisite = {
+            focus = TOK_indochina_university
+        }
+        completion_reward = {
+            country_event = {id = ssw_tok.4}
+        }
+    }
+    focus = { #重要産業の国有化
+        id = TOK_nationalize_important_industry
+        icon = GFX_focus_generic_industry_2
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 3
+        y = 1
+        relative_position_id = TOK_vietnam_three_principle
+        prerequisite = {
+            focus = TOK_vietnam_three_principle
+        }
+        completion_reward = {
+            add_ideas = TOK_industry_nationalize
+        }
+    }
+    focus = { #ベトナム国立銀行の設置
+        id = TOK_establish_state_bank_vietnam
+        icon = GFX_focus_usa_reestablish_the_gold_standard
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_nationalize_important_industry
+        prerequisite = {
+            focus = TOK_nationalize_important_industry
+        }
+        completion_reward = {
+            add_ideas = TOK_state_bank_vietnam
+        }
+    }
+    focus = { #新しい通過の発行
+        id = TOK_issuance_new_currency
+        icon = GFX_focus_mex_privatisation
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_establish_state_bank_vietnam
+        prerequisite = {
+            focus = TOK_establish_state_bank_vietnam
+        }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = TOK_state_bank_vietnam
+                add_idea = TOK_state_bank_vietnam_2
+            }
+        }
+    }
+    focus = { #国内のタイ人問題
+        id = TOK_domestic_thai_problem
+        icon = GFX_goal_generic_forceful_treaty
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 6
+        y = 1
+        relative_position_id = TOK_vietnam_three_principle
+        prerequisite = {
+            focus = TOK_vietnam_three_principle
+        }
+        completion_reward = {
+            add_stability = -0.1
+        }
+    }
+    focus = { #指導者との交渉
+        id = TOK_negotiate_leaders
+        icon = GFX_goal_generic_dangerous_deal
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_domestic_thai_problem
+        prerequisite = {
+            focus = TOK_domestic_thai_problem
+        }
+        completion_reward = {
+            country_event = {id = ssw_tok.5}
+        }
+    }
+    focus = { #タイ連盟の維持
+        id = TOK_maintain_thai_fede
+        icon = GFX_goal_generic_improve_relations
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            always = no
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -1
+        y = 1
+        relative_position_id = TOK_negotiate_leaders
+        prerequisite = {
+            focus = TOK_negotiate_leaders
+        }
+        mutually_exclusive = {
+            focus = TOK_break_thai_fede
+        }
+        completion_reward = {
+            add_stability = 0.05
+        }
+    }
+    focus = { #タイ人労働者の積極的徴用
+        id = TOK_active_recruite_thai_worker
+        icon = GFX_goal_generic_production
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_maintain_thai_fede
+        prerequisite = {
+            focus = TOK_maintain_thai_fede
+        }
+        completion_reward = {
+            add_ideas = TOK_thai_worker
+        }
+    }
+    focus = { #時間をかけた同化政策
+        id = TOK_time_consume_assimilate_policy
+        icon = GFX_focus_generic_concessions
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_active_recruite_thai_worker
+        prerequisite = {
+            focus = TOK_active_recruite_thai_worker
+        }
+        completion_reward = {
+            add_ideas = TOK_thai_assimilate_long
+            add_timed_idea = {
+                idea = TOK_thai_assimilate_long
+                days = 360
+            }
+        }
+    }
+    focus = { #タイ連盟の解体
+        id = TOK_break_thai_fede
+        icon = GFX_goal_generic_political_pressure
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            always = no
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 1
+        y = 1
+        relative_position_id = TOK_negotiate_leaders
+        prerequisite = {
+            focus = TOK_negotiate_leaders
+        }
+        mutually_exclusive = {
+            focus = TOK_maintain_thai_fede
+        }
+        completion_reward = {
+            add_stability = -0.05
+        }
+    }
+    focus = { #追放
+        id = TOK_ban
+        icon = GFX_focus_hol_war_on_pacifism
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_break_thai_fede
+        prerequisite = {
+            focus = TOK_break_thai_fede
+        }
+        completion_reward = {
+            add_stability = -0.1
+        }
+    }
+    focus = { #積極的入植
+        id = TOK_active_settle
+        icon = GFX_goal_generic_territory_or_war
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 0
+        y = 1
+        relative_position_id = TOK_ban
+        prerequisite = {
+            focus = TOK_ban
+        }
+        completion_reward = {
+            add_timed_idea = {
+                idea = TOK_settle_kin_people
+                days = 120
+            }
+        }
+    }
+    focus = { #ベトナムの米どころ
+        id = TOK_vietnam_rice
+        icon = GFX_goal_JAP_expansion_of_the_scope_of_application_of_the_relief_act
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = -1
+        y = 1
+        relative_position_id = TOK_time_consume_assimilate_policy
+        prerequisite = {
+            focus = TOK_time_consume_assimilate_policy
+            focus = TOK_active_settle
+        }
+        completion_reward = {
+            add_ideas = TOK_idea_vietnam_rice
+        }
+    }
+    focus = { #問題の解消
+        id = TOK_solve_problem
+        icon = GFX_focus_generic_diplomatic_treaty
+        cost = 5
+        ai_will_do = {
+            factor = 10
+        }
+        available = {
+            always = no
+        }
+        cancel_if_invalid = yes
+	    continue_if_invalid = no
+	    available_if_capitulated = no
+        search_filters = {
+            FOCUS_FILTER_POLITICAL
+        }
+        x = 1
+        y = 1
+        relative_position_id = TOK_time_consume_assimilate_policy
+        prerequisite = {
+            focus = TOK_time_consume_assimilate_policy
+            focus = TOK_active_settle
+        }
+        completion_reward = {
+            remove_ideas = TOK_idea_thai_fede
+            1235 = {
+                remove_dynamic_modifier = {
+                    modifier = TOK_Thai_authonomy
                 }
             }
         }

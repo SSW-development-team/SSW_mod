@@ -62,7 +62,7 @@ guiTypes = {
 				scale = 0.8
 			}
 			buttonType = {
-				name = "diplomacy_focus_icon_button"
+				name = "politics_focus_icon_button"
 				spriteType = "GFX_Policy_diplomacy"
 				position = { x = 340 y = 330 }
 				scale = 0.8
@@ -79,7 +79,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "SSW_Policy_tab_economy"
 		position = { x=545 y=120 }
-		size = { width = 1050 height = 680 }
+		size = { width = 950 height = 680 }
 		
 		background = {
 			name = "Background"		
@@ -96,20 +96,6 @@ guiTypes = {
 			name = "SSW_Policy_tab_economy_inflation_rate"
 			position = { x=20 y=50 }
 			size = { width = 530 height = 70 }
-			buttonType = {
-				name = "i_button"
-				position = { x = 8 y = 8 }
-				orientation = upper_left
-				quadTextureSprite = "GFX_backbutton32"
-				shortcut = "ESCAPE"
-			}
-			buttonType = {
-				name = "i_button2"
-				position = { x = 8 y = 30 }
-				orientation = upper_left
-				quadTextureSprite = "GFX_backbutton32"
-				shortcut = "ESCAPE"
-			}
 			background = {
 				name = "Background"		
 				spriteType ="GFX_tiled_decisions_bg_small"
@@ -317,7 +303,7 @@ guiTypes = {
 			}
 		}
 		containerWindowType = {
-			name = "SSW_Policy_tab_economy_GDP"
+			name = "SSW_Policy_tab_economy_national_debt"
 			position = { x = 20 y = 400 }
 			size = { width = 530 height = 250 }
 			background = {
@@ -336,7 +322,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "country_national_debt_value"
-				position = { x = 40 y = 100 }
+				position = { x = 40 y = 80 }
 				font = "hoi_36header"
 				borderSize = {x = 0 y = 0}
 				text = "NATIONAL_DEBT_VALUE_TEXT"
@@ -344,16 +330,55 @@ guiTypes = {
 				maxHeight = 20
 				pdx_tooltip = "DESC_TAX_rate_TEXT"
 			}
+			buttonType = {
+				name = "economy_issue_national_debt"
+				position = { x = 50 y = 110 }
+				quadTextureSprite = "GFX_button_148x34"
+				orientation = upper_left
+				buttonFont = "hoi_16mbs"
+				buttonText = ""
+				pdx_tooltip = "economy_issue_national_debt_desc"
+			}
+			instantTextboxType = {
+				name = "country_national_debt_text"
+				position = { x = -77 y = 118 }
+				font = "hoi_20mbs"
+				text = "NATIONAL_DEBT_ISSUE_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				format = center
+				alwaystransparent = yes
+			}
+			buttonType = {
+				name = "economy_redemption_national_debt"
+				position = { x = 50 y = 170 }
+				quadTextureSprite = "GFX_button_148x34"
+				orientation = upper_left
+				buttonFont = "hoi_16mbs"
+				buttonText = ""
+				pdx_tooltip = "economy_redemption_national_debt_desc"
+			}
+			instantTextboxType = {
+				name = "country_national_debt_redemption_text"
+				position = { x = -77 y = 178 }
+				font = "hoi_20mbs"
+				text = "NATIONAL_DEBT_REDEMPTION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				format = center
+				alwaystransparent = yes
+			}
 			iconType = {
 				name = "poliy_tab_national_debt_degree_of_dependence"
-				spriteType = "GFX_PAC_MAN"
-				position = { x = 300 y = 20 }
+				spriteType = "GFX_CIRCLE_GUI"
+				position = { x = 300 y = 19 }
+				pdx_tooltip = "economy_national_debt_degree_of_dependence_desc"
 			}
 		}
 		containerWindowType = {
 			name = "SSW_Policy_tab_economy_corporate_law"
 			position = { x = 555 y = 10 }
-			size = { width = 480 height = 650 }
+			size = { width = 385 height = 650 }
 			background = {
 				name = "Background"		
 				spriteType ="GFX_tiled_decisions_bg_small"
@@ -376,35 +401,588 @@ guiTypes = {
 				text = "CORPORATE_LAW_ANTITRUSET_TEXT"
 				maxWidth = 400
 				maxHeight = 20
-				pdx_tooltip = "DESC_TAX_rate_TEXT"
 			}
 			buttonType = {
-			name = "YES_button_Black_1"
-			position = { x = 250 y = 75 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Black_YesButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_1"
+				position = { x = 250 y = 103 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_Antitrust_button_text"
+				position = { x = 292 y = 107 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ANTITRUSET_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_centralized_regulation_text"
+				position = { x = 30 y = 182 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CENTRALIZED_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "YES_button_light_1"
-			position = { x = 250 y = 75 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Light_YesButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_2"
+				position = { x = 250 y = 182 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_centralized_regulation_button_text"
+				position = { x = 292 y = 186 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CENTRALIZED_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_cartel_regulation_text"
+				position = { x = 30 y = 267 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CARTEL_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "NO_button_Black_1"
-			position = { x = 250 y = 120 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Black_NoButton"
-			shortcut = "ESCAPE"
+				name = "corporate_law_button_3"
+				position = { x = 250 y = 267 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_cartel_regulation_button_text"
+				position = { x = 292 y = 271 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_CARTEL_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_abuse_regulation_text"
+				position = { x = 30 y = 347 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ABUSE_REGULATION_TEXT"
+				maxWidth = 400
+				maxHeight = 20
 			}
 			buttonType = {
-			name = "NO_button_light_1"
-			position = { x = 250 y = 120 }
-			orientation = upper_left
-			quadTextureSprite = "GFX_95x40_Light_NoButton"
+				name = "corporate_law_button_4"
+				position = { x = 250 y = 347 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_abuse_regulation_button_text"
+				position = { x = 292 y = 351 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_ABUSE_REGULATION_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_exemption_system_text"
+				position = { x = 30 y = 437 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_EXEMPTION_SYSTEM_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			buttonType = {
+				name = "corporate_law_button_5"
+				position = { x = 250 y = 437 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_exemption_system_button_text"
+				position = { x = 292 y = 441 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_EXEMPTION_SYSTEM_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_regulations_concern_text"
+				position = { x = 30 y = 527 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_REGULAION_COCERN_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			buttonType = {
+				name = "corporate_law_button_6"
+				position = { x = 250 y = 527 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_diplo_filter_entry"
+				frame = 2
+			}
+			instantTextboxType = {
+				name = "country_corporate_law_regulations_concern_button_text"
+				position = { x = 292 y = 531 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "CORPORATE_LAW_REGULATION_CONCERN_BUTTON_TEXT"
+				maxWidth = 400
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+		}
+	}
+	containerWindowType  = {
+		name = "SSW_Policy_tab_politics_tab"
+		position = { x=545 y=120 }
+		size = { width = 700 height = 500 }
+
+		background = {
+			name = "Background"		
+			spriteType ="GFX_tiled_decisions_bg_small"
+		}
+		buttonType = {
+			name = "close_button"
+			position = { x = -45 y = 8 }
+			orientation = upper_right
+			quadTextureSprite = "GFX_closebutton"
 			shortcut = "ESCAPE"
+		}
+		containerWindowType  = {
+			name = "SSW_Policy_tab_politics_law"
+			position = { x= 50 y=50 }
+			size = { width = 600 height = 200 }
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "politics_law_title"
+				position = { x = 20 y = 10 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_law_title_text"
+				maxWidth = 350
+				maxHeight = 200
+			}
+			instantTextboxType = {
+				name = "politics_tab_constitution_law_text"
+				position = { x = -20 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_constitution_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_constitution_law_box"
+				position = { x = 95 y = 49 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_constitution_law_status"
+				position = { x = 100 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_CONSTITUTION_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_social_security_law_text"
+				position = { x = -20 y = 95 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_social_security_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_social_security_law_box"
+				position = { x = 95 y = 89 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_social_security_law_status"
+				position = { x = 100 y = 95 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_SOCIAL_SECURITY_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_labor_law_text"
+				position = { x = -20 y = 135 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_labor_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_labor_law_box"
+				position = { x = 95 y = 129 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_labor_law_status"
+				position = { x = 100 y = 135 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_LABOR_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_labor_union_law_text"
+				position = { x = 270 y = 135 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_labor_union_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_labor_union_law_box"
+				position = { x = 375 y = 129 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_labor_union_law_status"
+				position = { x = 380 y = 135 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_LABOR_UNION_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_education_law_text"
+				position = { x = 270 y = 95 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_education_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "military_tab_education_law_box"
+				position = { x = 375 y = 90 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_education_law_text"
+				position = { x = 270 y = 95 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_education_law_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_education_law_box"
+				position = { x = 375 y = 90 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_education_law_status"
+				position = { x = 380 y = 95 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_EDUCATION_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_human_rights_text"
+				position = { x = 270 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_human_rights_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_human_rights_box"
+				position = { x = 375 y = 50 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_human_rights_status"
+				position = { x = 380 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_HUMAN_RIGHTS_LAW_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+		}
+		containerWindowType  = {
+			name = "SSW_Policy_tab_political_system"
+			position = { x= 370 y=250 }
+			size = { width = 280 height = 200 }
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "political_system_title"
+				position = { x = 20 y = 10 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "political_system_title_text"
+				maxWidth = 350
+				maxHeight = 200
+			}
+			instantTextboxType = {
+				name = "politics_tab_election_text"
+				position = { x = -45 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_election_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_election_box"
+				position = { x = 60 y = 50 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_election_status"
+				position = { x = 60 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_ELECTION_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_paliament_text"
+				position = { x = -45 y = 100 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_paliament_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_paliament_box"
+				position = { x = 60 y = 95 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_paliament_status"
+				position = { x = 60 y = 100 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_PALIMENT_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_judiciary_text"
+				position = { x = -45 y = 145 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_judiciary_text"
+				maxWidth = 100
+				maxHeight = 20
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_judiciary_box"
+				position = { x = 60 y = 140 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_judiciary_status"
+				position = { x = 60 y = 145 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_JUDICIARY_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+		}
+		containerWindowType  = {
+			name = "SSW_Policy_tab_ethnic_policy"
+			position = { x= 50 y=250 }
+			size = { width = 320 height = 200 }
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "ethnic_policy_title"
+				position = { x = 20 y = 10 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "ethnic_policy_title_text"
+				maxWidth = 350
+				maxHeight = 200
+			}
+			instantTextboxType = {
+				name = "politics_tab_integration_policy_text"
+				position = { x = -20 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_integration_policy_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_integration_policy_box"
+				position = { x = 95 y = 49 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_integration_policy_status"
+				position = { x = 100 y = 55 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_INTEGRATION_POLICY_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_religious_policy_text"
+				position = { x = -20 y = 85 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_religious_policy_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_religious_policy_box"
+				position = { x = 95 y = 79 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_religious_policy_status"
+				position = { x = 100 y = 85 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_RELIGIOUS_POLICY_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_immigration_policy_text"
+				position = { x = -20 y = 115 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_immigration_policy_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_immigration_policy_box"
+				position = { x = 95 y = 109 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_immigration_policy_status"
+				position = { x = 100 y = 115 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_IMMIGRATION_POLICY_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
+			}
+			instantTextboxType = {
+				name = "politics_tab_slave_policy_text"
+				position = { x = -20 y = 145 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_slave_policy_text"
+				maxWidth = 100
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = right
+			}
+			buttontype = {
+				name = "politics_tab_slave_policy_box"
+				position = { x = 95 y = 139 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_generic_text_bg_203"
+			}
+			instantTextboxType = {
+				name = "politics_tab_slave_policy_status"
+				position = { x = 100 y = 145 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "POLITICS_SLAVE_POLICY_TEXT"
+				maxWidth = 195
+				maxHeight = 20
+				format = center
 			}
 		}
 	}
@@ -1371,7 +1949,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "SSW_Policy_tab_military_tab"
 		position = { x=545 y=120 }
-		size = { width = 1050 height = 780 }
+		size = { width = 450 height = 580 }
 		
 		background = {
 			name = "Background"		
@@ -1451,9 +2029,10 @@ guiTypes = {
 				position = { x = 120 y = 125 }
 				font = "hoi_18mbs"
 				borderSize = {x = 0 y = 0}
-				text = "MILITARY_FEMALE_CONSCRIPTION_TEXT"
+				text = "SL_MILITARY_FEMALE_CONSCRIPTION_TEXT"
 				maxWidth = 195
 				maxHeight = 20
+				format = center
 			}
 			instantTextboxType = {
 				name = "military_tab_colony_conscription_text"
@@ -1473,12 +2052,13 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "military_tab_colony_conscription_status"
-				position = { x = 100 y = 175 }
+				position = { x = 120 y = 175 }
 				font = "hoi_18mbs"
 				borderSize = {x = 0 y = 0}
-				text = "MILITARY_COLONY_CONSCRIPTION_TEXT"
+				text = "SL_MILITARY_COLONY_CONSCRIPTION_TEXT"
 				maxWidth = 195
 				maxHeight = 20
+				format = center
 			}
 			instantTextboxType = {
 				name = "military_tab_conscription_exemption_text"
@@ -1488,7 +2068,6 @@ guiTypes = {
 				text = "military_tab_conscription_exemption_text"
 				maxWidth = 100
 				maxHeight = 20
-				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
 			}
 			buttontype = {
 				name = "military_tab_conscription_exemption_box"
@@ -1498,13 +2077,1838 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "military_tab_conscription_exemption_status"
-				position = { x = 100 y = 225 }
+				position = { x = 120 y = 225 }
 				font = "hoi_18mbs"
 				borderSize = {x = 0 y = 0}
 				text = "MILITARY_CONSCRIPTION_EXEMPTION_TEXT"
 				maxWidth = 195
 				maxHeight = 20
+				format = center
 			}
 		}
+		containerWindowType = {
+			name = "SSW_Policy_tab_military_country_army"
+			position = { x= 20 y= 330 }
+			size = { width = 420 height = 240 }
+			clipping = yes
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_decisions_bg_small"
+			}
+			instantTextboxType = {
+				name = "country_army_law_title"
+				position = { x = 40 y = 10 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "country_army_title_text"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+			}
+			iconType = {
+				name = "country_army_flag"
+				quadTextureSprite ="GFX_shield_medium"
+				position = { x= 170 y = 8 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "country_army_flag_frame"
+				quadTextureSprite ="GFX_country_flag_frame_policy_tab"
+				position = { x= 169 y = 8 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "country_army_law_status"
+				position = { x = 20 y = 70 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "country_army_status_text"
+				maxWidth = 380
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+				format = center
+			}
+			containerWindowType  = {
+				name = "ssw_Policy_tab_military_country_army_modifier_list"
+				position = { x= 20 y= 110 }
+				size = { width = 380 height = 120 }
+
+				background = {
+					name = "Background"		
+					spriteType ="GFX_tiled_decisions_bg_small"
+				}
+				instantTextboxType = {
+					name = "military_tab_country_army_modifier_list"
+					position = { x = 20 y = 10 }
+					font = "hoi_18mbs"
+					borderSize = {x = 0 y = 0}
+					text = "country_army_modifier_list"
+					maxWidth = 350
+					maxHeight = 200
+				}
+			}
+		}
+	}
+		containerWindowType = {
+			name = "SSW_Policy_tab_military_army_law_conscription_law_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "conscription_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_army_law_title"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "military_tab_conscription_law_text"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+			}
+			containerWindowType = {
+				name = "military_tab_conscription_law_idea_list"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "conscription_law_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_cost_text"
+					position = { x = 265 y = 77 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "conscription_law_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_cost_text_2"
+					position = { x = 265 y = 137 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "conscription_law_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_law_title_box_cost_text_3"
+					position = { x = 265 y = 197 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+		}
+	containerWindowType = {
+			name = "SSW_Policy_tab_military_army_law_female_conscription_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "conscription_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_army_law_title_2"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "military_tab_agree_female_conscription_text"
+				maxWidth = 400
+				maxHeight = 20
+				pdx_tooltip = "DESC_INFLATION_rate_TEXT"
+			}
+			containerWindowType = {
+				name = "military_tab_conscription_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "female_conscription_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "female_conscription_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_female_conscription_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "female_conscription_title_box_cost_text"
+					position = { x = 265 y = 77 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "female_conscription_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "female_conscription_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_female_conscription_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "female_conscription_title_box_cost_text_2"
+					position = { x = 265 y = 137 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_military_army_law_colony_conscription_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "colony_conscription_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_army_law_title_3"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "military_tab_colony_conscription_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "military_tab_conscription_idea_list_3"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "colony_conscription_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_colony_conscription_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_cost_text"
+					position = { x = 265 y = 77 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "colony_conscription_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_colony_conscription_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_cost_text_2"
+					position = { x = 265 y = 137 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "colony_conscription_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_colony_conscription_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_cost_text_3"
+					position = { x = 265 y = 197 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "colony_conscription_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_colony_conscription_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "colony_conscription_title_box_cost_text_4"
+					position = { x = 265 y = 257 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_military_army_law_conscription_exemption_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "conscription_exemption_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_army_law_title_4"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "military_tab_conscription_exemption_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "military_tab_conscription_idea_list_4"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "conscription_exemption_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_exemption_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_cost_text"
+					position = { x = 265 y = 77 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "conscription_exemption_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_exemption_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_cost_text_2"
+					position = { x = 265 y = 137 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "conscription_exemption_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_exemption_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_cost_text_3"
+					position = { x = 265 y = 197 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "conscription_exemption_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_exemption_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				instantTextboxType = {
+					name = "conscription_exemption_title_box_cost_text_4"
+					position = { x = 265 y = 257 }
+					font = "hoi_20b"
+					borderSize = {x = 0 y = 0}
+					text = "military_tab_conscription_law_text_1_cost"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_constitution_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "constitution_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_constitution_law_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_constitution_law_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_constitution_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "constitution_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "constitution_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_constitution_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "constitution_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "constitution_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_constitution_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "constitution_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "constitution_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_constitution_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "constitution_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "constitution_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_constitution_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_security_law_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "security_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_security_law_law_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_social_security_law_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_security_law_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider" 
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "security_law_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "security_law_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_security_law_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "security_law_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "security_law_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_security_law_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "security_law_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "security_law_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_security_law_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "security_law_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "security_law_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_security_law_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_labor_law_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "labor_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_labor_law_law_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_labor_law_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_labor_law_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "labor_law_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_law_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_law_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "labor_law_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_law_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_law_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "labor_law_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_law_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_law_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "labor_law_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_law_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_law_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_labor_union_law_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "labor_union_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_labor_union_law_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_labor_union_law_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_labor_union_law_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "labor_union_law_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_union_law_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_union_law_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "labor_union_law_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_union_law_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_union_law_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "labor_union_law_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "labor_union_law_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_labor_union_law_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_education_law_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "education_law_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_education_law_law_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_education_law_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_education_law_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "education_law_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "education_law_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_education_law_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "education_law_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "education_law_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_education_law_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "education_law_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "education_law_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_education_law_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "education_law_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "education_law_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_education_law_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_politics_law_human_rights_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "human_rights_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_human_rights_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_human_rights_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_human_rights_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "human_rights_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "human_rights_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_human_rights_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "human_rights_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "human_rights_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_human_rights_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "human_rights_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "human_rights_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_human_rights_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_ethnic_policy_integration_policy_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "integration_policy_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_integration_policy_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_integration_policy_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_integration_policy_idea_list_1"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "integration_policy_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "integration_policy_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_integration_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "integration_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "integration_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_integration_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "integration_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "integration_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_integration_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "integration_policy_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "integration_policy_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_integration_policy_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_ethnic_policy_religious_policy_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "religious_policy_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_religious_policy_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_religious_policy_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_religious_policy_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "religious_policy_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "religious_policy_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_religious_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "religious_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "religious_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_religious_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "religious_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "religious_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_religious_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "religious_policy_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "religious_policy_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_religious_policy_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_ethnic_policy_immigration_policy_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "immigration_policy_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_immigration_policy_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_immigration_policy_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_immigration_policy_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "immigration_policy_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "immigration_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_immigration_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "immigration_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "immigration_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_immigration_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "immigration_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "immigration_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_immigration_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "immigration_policy_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "immigration_policy_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_immigration_policy_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_ethnic_policy_slave_policy_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "slave_policy_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_slave_policy_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_slave_policy_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_slave_policy_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "slave_policy_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "slave_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_slave_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "slave_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "slave_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_slave_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "slave_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "slave_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_slave_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "slave_policy_title_box_4"
+					position = { x = 25 y = 245 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "slave_policy_title_box_text_4"
+					position = { x = 50 y = 252 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_slave_policy_text_4"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_political_system_electon_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "electon_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_electon_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_election_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_electon_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "electon_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "electon_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_electon_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "electon_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "electon_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_electon_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "electon_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "electon_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_electon_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_political_system_paliament_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "paliament_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_paliament_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_paliament_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_paliament_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "paliament_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "paliament_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_paliament_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "paliament_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "paliament_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_paliament_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "paliament_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "paliament_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_paliament_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
+	}
+	containerWindowType = {
+			name = "SSW_Policy_tab_political_system_judiciar_select_box"
+			position = { x= 1000 y= 120 }
+			moveable = yes
+			clipping = yes
+			size = { width = 390 height = 650 }
+			show_sound = menu_open_window
+
+			background = {
+				name = "Background"		
+				spriteType ="GFX_tiled_bg"
+			}
+			iconType = {
+				name = "judiciar_title_box"
+				position = { x = 15 y = 14 }
+				orientation = upper_left
+				quadTextureSprite = "GFX_selectbox_title"
+			}
+			instantTextboxType = {
+				name = "country_judiciar_title_1"
+				position = { x = 40 y = 17 }
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 0}
+				text = "politics_tab_judiciary_text"
+				maxWidth = 400
+				maxHeight = 20
+			}
+			containerWindowType = {
+				name = "politics_tab_judiciar_idea_list_2"
+				position = { x = 0 y = 0 }
+				size = { width=400 height=590}
+				verticalScrollbar = "right_vertical_slider"
+				buttonType = {
+					name = "close_button"
+					position = { x = 330 y = 20 }
+					quadTextureSprite = "GFX_closebutton"
+					shortcut = "ESCAPE"
+				}
+				buttonType = {
+					name = "judiciar_title_box_1"
+					position = { x = 25 y = 65 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "judiciar_title_box_text_1"
+					position = { x = 50 y = 72 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_judiciar_policy_text_1"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "judiciar_policy_title_box_2"
+					position = { x = 25 y = 125 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "judiciar_policy_title_box_text_2"
+					position = { x = 50 y = 132 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_judiciar_policy_text_2"
+					maxWidth = 400
+					maxHeight = 20
+				}
+				buttonType = {
+					name = "judiciar_policy_title_box_3"
+					position = { x = 25 y = 185 }
+					orientation = upper_left
+					quadTextureSprite = "GFX_selectbox_idea"
+					clicksound = assign_leader
+				}
+				instantTextboxType = {
+					name = "judiciar_policy_title_box_text_3"
+					position = { x = 50 y = 192 }
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "politics_tab_judiciar_policy_text_3"
+					maxWidth = 400
+					maxHeight = 20
+				}
+			}
 	}
 }

@@ -1,0 +1,186 @@
+equipment_modules = {
+
+
+#Fire control system
+	ship_fire_control_system_0 = {
+		category = ship_fire_control_system
+		gfx = ship_fire_control_system
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			build_cost_ic = 60
+		}
+		
+		multiply_stats = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+		}
+	}
+	ship_fire_control_system_1 = {
+		category = ship_fire_control_system
+	
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			build_cost_ic = 90
+		}
+		
+		multiply_stats = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+			anti_air_attack = 0.1
+			reliability = -0.05
+		}
+
+		can_convert_from = {
+			module = ship_fire_control_system_0
+			convert_cost_ic = 40
+		}
+	}
+	ship_fire_control_system_2 = {
+		category = ship_fire_control_system
+		sfx = sfx_ui_sd_module_sonar
+
+		
+		add_stats = {
+			build_cost_ic = 120
+		}
+		
+		multiply_stats = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+			anti_air_attack = 0.15
+			reliability = -0.075
+		}
+		can_convert_from = {
+			module = ship_fire_control_system_1
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_fire_control_system
+			convert_cost_ic = 100
+		}
+	}
+	ship_fire_control_system_3 = {
+		category = ship_fire_control_system
+		sfx = sfx_ui_sd_module_sonar
+
+		
+		add_stats = {
+			build_cost_ic = 180
+		}
+		
+		multiply_stats = {
+			lg_attack = 0.2
+			hg_attack = 0.2
+			anti_air_attack = 0.2
+			reliability = -0.1
+		}
+		can_convert_from = {
+			module = ship_fire_control_system_2
+			convert_cost_ic = 75
+		}
+		can_convert_from = {
+			module_category = ship_fire_control_system
+			convert_cost_ic = 100
+		}
+	}
+#radar
+	ship_radar_1 = {
+		category = ship_radar
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 80
+			surface_detection = 5
+		}
+	}
+	ship_radar_2 = {
+		category = ship_radar
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 110
+			surface_detection = 7
+			sub_detection = 2
+		}
+		
+		can_convert_from = {
+			module = ship_radar_1
+			convert_cost_ic = 30
+		}
+	}
+	ship_radar_3 = {
+		category = ship_radar
+		sfx = sfx_ui_sd_module_sonar
+		
+		multiply_stats = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+			anti_air_attack = 0.05
+		}
+		add_stats = {
+			
+			surface_detection = 12
+			sub_detection = 6
+			build_cost_ic = 140
+		}
+		can_convert_from = {
+			module = ship_radar_2
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = ship_radar
+			convert_cost_ic = 60
+		}
+	}
+	ship_radar_4 = {
+		category = ship_radar
+		sfx = sfx_ui_sd_module_sonar
+
+		multiply_stats = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+			anti_air_attack = 0.1
+		}
+		add_stats = {
+			
+			build_cost_ic = 170
+			surface_detection = 18
+			sub_detection = 14
+		}
+		can_convert_from = {
+			module = ship_radar_3
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = ship_radar
+			convert_cost_ic = 90
+		}
+	}
+#Sonar
+	ship_sonar_1 = {
+		category = ship_sonar
+		gfx = ship_sonar_1
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			sub_detection = 4
+			build_cost_ic = 40
+		}
+	}
+	ship_sonar_2 = {
+		category = ship_sonar
+		gfx = ship_sonar_2
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			sub_detection = 7.0
+			build_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_sonar
+			convert_cost_ic = 25
+		}
+	}
+}

@@ -12,6 +12,7 @@ ideas = {
                 stability_factor = -0.1
                 conscription_factor = -0.2
                 consumer_goods_factor = 0.2
+                custom_modifier_tooltip = TOK_cannot_change_economic_law
             }
         }
         TOK_effect_famine_1 = {
@@ -26,6 +27,7 @@ ideas = {
                 stability_factor = -0.1
                 conscription_factor = -0.1
                 consumer_goods_factor = 0.2
+                custom_modifier_tooltip = TOK_cannot_change_economic_law
             }
         }
         TOK_effect_famine_2 = {
@@ -40,6 +42,7 @@ ideas = {
                 stability_factor = -0.05
                 conscription_factor = -0.05
                 consumer_goods_factor = 0.2
+                custom_modifier_tooltip = TOK_cannot_change_economic_law
             }
         }
         TOK_effect_famine_3 = {
@@ -54,6 +57,7 @@ ideas = {
                 stability_factor = -0.1
                 conscription_factor = -0.1
                 consumer_goods_factor = 0.1
+                custom_modifier_tooltip = TOK_cannot_change_economic_law
             }
         }
         TOK_effect_famine_4 = {
@@ -63,11 +67,15 @@ ideas = {
             allowed_civil_war = {
                 always = no
             }
+            on_remove = {
+                clr_country_flag = economic_law_cannot_change
+            }
             picture = raj_risk_of_famine
             modifier = {
                 stability_factor = -0.05
                 conscription_factor = -0.05
                 consumer_goods_factor = 0.1
+                custom_modifier_tooltip = TOK_cannot_change_economic_law
             }
         }
         TOK_viet_minh_resistans = { #ベトミンの抵抗
@@ -93,6 +101,19 @@ ideas = {
             modifier = {
                 war_support_factor = -0.1
                 army_org_factor = -0.05
+            }
+        }
+        TOK_idea_thai_fede = { #タイ連盟
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = chi_war_of_resistance2
+            modifier = {
+                conscription_factor = -0.05
+                stability_factor = -0.05
             }
         }
         TOK_china_trade = { #中越貿易
@@ -243,7 +264,7 @@ ideas = {
             }
             picture = can_wartime_prices_and_trade_board
             modifier = {
-                consumer_goods_factor = -0.05
+                consumer_goods_factor = -0.02
             }
         }
         TOK_officer_school = { #士官学校
@@ -451,6 +472,198 @@ ideas = {
             picture = generic_navy_bonus
             modifier = {
                 industrial_capacity_dockyard = 0.1
+            }
+        }
+
+        TOK_social_welfare = { #社会福祉
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_political_support
+            modifier = {
+                stability_factor = 0.1
+                consumer_goods_factor = 0.05
+            }
+        }
+        TOK_social_welfare_2 = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_political_support
+            modifier = {
+                stability_factor = 0.15
+                consumer_goods_factor = 0.05
+                conscription_factor = 0.05
+            }
+        }
+        
+        TOK_idea_strength_conscription = { #徴兵の強化
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_infantry_bonus
+            modifier = {
+                conscription = 0.03
+            }
+        }
+
+        TOK_SSLU ={ #自力文団
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_constitutional_guarantees
+            modifier = {
+            }
+        }
+        TOK_SSLU_1 = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_constitutional_guarantees
+            modifier = {
+                research_speed_factor = 0.05
+            }
+        }
+        TOK_SSLU_2 = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_constitutional_guarantees
+            modifier = {
+                research_speed_factor = 0.05
+                literacy_growth_rate_factor = 0.04
+            }
+        }
+
+        TOK_industry_nationalize = { #重要産業の国有化
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = man_five_year_plan_industry
+            modifier = {
+                production_factory_max_efficiency_factor = 0.05
+                production_factory_efficiency_gain_factor = 0.05
+            }
+        }
+
+        TOK_state_bank_vietnam = { #ベトナム国立銀行
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = SPR_seize_the_gold_reserves
+            modifier = {
+                consumer_goods_factor = -0.02
+            }
+        }
+        TOK_state_bank_vietnam_2 = {
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = SPR_seize_the_gold_reserves
+            modifier = {
+                consumer_goods_factor = -0.05
+                stability_factor = 0.05
+            }
+        }
+
+        TOK_opium_traffick_thai = { #タイ人によるアヘン密売
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = prc_permit_opium_trade
+            modifier = {
+                stability_factor = -0.1
+                consumer_goods_factor = -0.05
+                army_org_factor = -0.1
+            }
+        }
+
+        TOK_thai_worker = { #タイ人労働者
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_production_bonus
+            modifier = {
+                consumer_goods_factor = 0.05
+                production_factory_max_efficiency_factor = 0.05
+            }
+        }
+
+        TOK_thai_assimilate_long = { #タイ人の同化
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            on_remove = {
+                country_event = {id = ssw_tok.6}
+            }
+            picture = generic_disjointed_gov
+            modifier = {
+                consumer_goods_factor = 0.1
+            }
+        }
+
+        TOK_settle_kin_people = { #キン人の入植
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            on_remove = {
+                country_event = {id = ssw_tok.6}
+            }
+            picture = ast_all_in
+            modifier = {
+                consumer_goods_factor = 0.05
+            }
+        }
+
+        TOK_idea_vietnam_rice = { #ベトナムの米どころ
+            allowed = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            picture = generic_agrarian_society
+            modifier = {
+                monthly_population = 0.3
             }
         }
     }

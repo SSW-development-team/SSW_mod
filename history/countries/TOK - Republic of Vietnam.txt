@@ -178,7 +178,7 @@ set_technology = {
 	basic_ship_hull_light = 1
 	improved_ship_hull_light = 1
 	advanced_ship_hull_light = 1
-	tech_ship_hull_light_5 = 1
+
 	smoke_generator = 1
 	basic_depth_charges = 1
 	improved_depth_charges = 1
@@ -191,7 +191,7 @@ set_technology = {
 	improved_ship_hull_cruiser = 1
 	basic_cruiser_armor_scheme = 1
 	advanced_ship_hull_cruiser = 1
-	tech_ship_hull_cruiser_5 = 1
+	
 	improved_cruiser_armor_scheme = 1
 	advanced_cruiser_armor_scheme = 1
 	# 大型艦船体
@@ -199,15 +199,15 @@ set_technology = {
 	basic_ship_hull_heavy = 1
 	improved_ship_hull_heavy = 1
 	advanced_ship_hull_heavy = 1
-	tech_ship_hull_super_heavy_2 = 1
-	tech_ship_hull_heavy_5 = 1
+	
+	
 	basic_heavy_armor_scheme = 1
 	improved_heavy_armor_scheme = 1
 	early_ship_hull_carrier = 1
 	basic_ship_hull_carrier = 1
 	improved_ship_hull_carrier = 1
 	advanced_ship_hull_carrier = 1
-	tech_ship_hull_carrier_5 = 1
+	
 	basic_torpedo = 1
 	magnetic_detonator = 1
 	homing_torpedo = 1
@@ -219,7 +219,7 @@ set_technology = {
 	basic_ship_hull_submarine = 1
 	improved_ship_hull_submarine = 1
 	advanced_ship_hull_submarine = 1
-	tech_ship_hull_submarine_5 = 1
+	
 	basic_submarine_snorkel = 1
 	improved_submarine_snorkel = 1
 	basic_battery = 1
@@ -357,23 +357,62 @@ add_ideas = {
 	TOK_effect_famine
 	TOK_viet_minh_resistans
 	TOK_chinese_dependent_army
+	TOK_idea_thai_fede
 }
 
-set_politics = {
-	ruling_party = authority_despotism
-	last_election = "1950.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	authority_despotism = 100
-}
+#set_politics = {
+#	ruling_party = social_liberalism
+#	last_election = "1950.1.1"
+#	election_frequency = 48
+#	elections_allowed = no
+#}
+#set_popularities = {
+#	anarchism=0
+#	progressive_communism=6
+#	classical_communism=10
+#	social_democracy=20
+#	social_liberalism=35
+#	social_conservatism=15
+#	authority_democracy=8
+#	authority_despotism=5
+#	national_fascism=0
+#	national_socialism=0
+#	corporatocracism=0
+#}
 create_country_leader = {
 	name = "Nguyen Tuong Tam"
 	desc = "POLITICS_NGUYEN_TUONG_TAM_DESC"
 	picture = "gfx/leaders/TOK/Portrait_Tonkin_Nhat_Linh.dds"
 	expire = "1963.7.7"
-	ideology = authority_despotism_ideology
+	ideology = social_liberalism_ideology 
 	traits = {
+	}
+}
+1235 = {
+	add_dynamic_modifier = {
+		modifier = TOK_Thai_authonomy
+		scope = TOK
+	}
+}
+set_country_flag = economic_law_cannot_change
+1949.12.30 = {
+	set_politics = {
+		ruling_party = social_liberalism
+		last_election = "1950.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		anarchism=0
+		progressive_communism=6
+		classical_communism=10
+		social_democracy=20
+		social_liberalism=35
+		social_conservatism=15
+		authority_democracy=8
+		authority_despotism=6
+		national_fascism=0
+		national_socialism=0
+		corporatocracism=0
 	}
 }

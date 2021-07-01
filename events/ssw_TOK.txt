@@ -57,3 +57,108 @@ country_event = { #標準軌の部分統一
         }
     }
 }
+country_event = { #チュノムの復活論争
+    id = ssw_tok.4
+    title = ssw_tok.4.t
+    desc = ssw_tok.4.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #復活させよう
+        name = ssw_tok.4.a
+        add_stability = -0.05
+        reverse_add_opinion_modifier = {
+            target = CHI
+            modifier = TOK_op_chunom_rivival
+        }
+    }
+    option = { #今更不要だ
+        name = ssw_tok.4.b
+        add_stability = 0.05
+        reverse_add_opinion_modifier = {
+            target = CHI
+            modifier = TOK_chunom_void
+        }
+    }
+}
+country_event = { #タイ人の指導者
+    id = ssw_tok.5
+    title = ssw_tok.5.t
+    desc = ssw_tok.5.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これからも仲良く……な？
+        name = ssw_tok.5.a
+        add_ideas = TOK_opium_traffick_thai
+        complete_national_focus = TOK_maintain_thai_fede
+    }
+    option = { #奴らを粉砕せよ
+        name = ssw_tok.5.b
+        add_stability = -0.05
+        complete_national_focus = TOK_break_thai_fede
+    }
+}
+country_event = { #タイ人の同化
+    id = ssw_tok.6
+    title = ssw_tok.6.t
+    desc = ssw_tok.6.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #完璧だ！
+        name = ssw_tok.6.a
+        complete_national_focus = TOK_solve_problem
+    }
+}
+country_event = { #ベトミンのクーデター
+    id = ssw_tok.7
+    title = ssw_tok.7.t
+    desc = ssw_tok.7.d
+    fire_only_once = yes
+    trigger = {
+        OR = {
+            has_idea = TOK_effect_famine
+            has_idea = TOK_effect_famine_1
+            has_idea = TOK_effect_famine_2
+            has_idea = TOK_effect_famine_3
+            has_idea = TOK_effect_famine_4
+        }
+        date > 1952.3.31
+    }
+    option = { #ホー・チ・ミン万歳！
+        name = ssw_tok.7.a
+        custom_effect_tooltip = TOK_event_7_tt
+        hidden_effect = {
+            every_state = {
+                limit = {
+                    OR = {
+                        is_core_of = TOK
+                        is_core_of = VIN
+                    }
+                }
+                add_core_of = SRV
+            }
+            SRV = {
+                set_politics = {
+                    ruling_party = classical_communism
+                    elections_allowed = no
+                }
+                set_political_party = {
+                    ideology = classical_communism
+                    popularity = 100
+                }
+                create_country_leader = {
+                    name = "Ho Chi Minh"
+                    desc = ""
+                    picture = "gfx/leaders/SRV/Portrait_Ho_Chi_Minh.dds"
+                    expire = "1990.1.1"
+                    ideology = classical_communism_ideology
+                    traits = {}
+                }
+                annex_country = {
+                    target = TOK
+                    transfer_troops = yes
+                }
+                change_tag_from = ROOT
+            }
+        }
+    }
+}

@@ -125,6 +125,150 @@ who_is_Best = {
 		set_temp_variable = { Winner_Var = 4 }
 	}
 }
+who_is_Best_in_Military = {
+	add_to_temp_array = { temp1 = GER_Military_Goering_Influence }
+	add_to_temp_array = { temp1 = GER_Military_Himmler_Influence }
+	add_to_temp_array = { temp1 = GER_Military_Goebbels_Influence }
+	add_to_temp_array = { temp1 = GER_Military_Hess_Influence }
+	find_highest_in_array = { 
+		array = temp1
+		value = v
+		index = i
+	}
+	set_temp_variable = { temp2 = temp1^i }
+	else_if = {
+		limit = {
+			check_variable = { GER_Military_Goering_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Military_Leader = 1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Military_Himmler_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Military_Leader = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Military_Goebbels_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Military_Leader = 3 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Military_Hess_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Military_Leader = 4 }
+	}
+}
+who_is_Best_in_SS = {
+	add_to_temp_array = { temp1 = GER_SS_Goering_Influence }
+	add_to_temp_array = { temp1 = GER_SS_Himmler_Influence }
+	add_to_temp_array = { temp1 = GER_SS_Goebbels_Influence }
+	add_to_temp_array = { temp1 = GER_SS_Hess_Influence }
+	find_highest_in_array = { 
+		array = temp1
+		value = v
+		index = i
+	}
+	set_temp_variable = { temp2 = temp1^i }
+	else_if = {
+		limit = {
+			check_variable = { GER_SS_Goering_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_SS_Leader = 1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_SS_Himmler_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_SS_Leader = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_SS_Goebbels_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_SS_Leader = 3 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_SS_Hess_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_SS_Leader = 4 }
+	}
+}
+who_is_Best_in_Politican = {
+	add_to_temp_array = { temp1 = GER_Politican_Goering_Influence }
+	add_to_temp_array = { temp1 = GER_Politican_Himmler_Influence }
+	add_to_temp_array = { temp1 = GER_Politican_Goebbels_Influence }
+	add_to_temp_array = { temp1 = GER_Politican_Hess_Influence }
+	find_highest_in_array = { 
+		array = temp1
+		value = v
+		index = i
+	}
+	set_temp_variable = { temp2 = temp1^i }
+	else_if = {
+		limit = {
+			check_variable = { GER_Politican_Goering_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Politican_Leader = 1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Politican_Himmler_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Politican_Leader = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Politican_Goebbels_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Politican_Leader = 3 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Politican_Hess_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Politican_Leader = 4 }
+	}
+}
+who_is_Best_in_Popular = {
+	add_to_temp_array = { temp1 = GER_Popular_Goering_Influence }
+	add_to_temp_array = { temp1 = GER_Popular_Himmler_Influence }
+	add_to_temp_array = { temp1 = GER_Popular_Goebbels_Influence }
+	add_to_temp_array = { temp1 = GER_Popular_Hess_Influence }
+	find_highest_in_array = { 
+		array = temp1
+		value = v
+		index = i
+	}
+	set_temp_variable = { temp2 = temp1^i }
+	else_if = {
+		limit = {
+			check_variable = { GER_Popular_Goering_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Popular_Leader = 1 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Popular_Himmler_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Popular_Leader = 2 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Popular_Goebbels_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Popular_Leader = 3 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { GER_Popular_Hess_Influence = temp2 }
+		}
+		set_temp_variable = { GER_Current_Popular_Leader = 4 }
+	}
+}
 
 is_East_Prussia_Area = {
 	OR = {
