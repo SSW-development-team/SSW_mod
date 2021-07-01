@@ -1,14 +1,10 @@
 focus_tree = {
-	id = ssw_BRM_communist
+	id = ssw_BCP
 	country = {
-		factor = 0
-		modifier = {
-			add = 5
-			original_tag = BRM
-		}
+		base = 0
 		modifier = {
 			add = 10
-			has_country_flag = communist
+			original_tag = BCP
 		}
 	}
 	default = no
@@ -367,6 +363,151 @@ focus_tree = {
 			declare_war_on = {
 				target = BRM
 				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = BRM_food_for_fight
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = -2
+		y = 1
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = BRM_mobilization_of_students
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = 0
+		y = 1
+		completion_reward = {
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = BRM_volunteers_from_thai
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = 2
+		y = 1
+		completion_reward = {
+			country_event = {
+				id = ssw_brm.29
+			}
+		}
+	}
+	focus = {
+		id = BRM_more_money
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_mobilization_of_students
+		}
+		prerequisite = {
+			focus = BRM_food_for_fight
+		}
+		prerequisite = {
+			focus = BRM_volunteers_from_thai
+		}
+		relative_position_id = BRM_mobilization_of_students
+		x = 0
+		y = 1
+		completion_reward = {
+			add_political_power = -25
+		}
+	}
+	focus = {
+		id = BRM_smuggling_from_india
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_more_money
+		}
+		relative_position_id = BRM_more_money
+		x = -1
+		y = 1
+		completion_reward = {
+			add_political_power = -30
+			add_equipment_to_stockpile = {
+				amount = 500
+				producer = IND
+				type = infantry_equipment
+			}
+			IND = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = SSW_dislike
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_peoples_arms_land
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_more_money
+		}
+		relative_position_id = BRM_more_money
+		x = 1
+		y = 1
+		completion_reward = {
+			add_stability = -0.08
+			add_equipment_to_stockpile = {
+				amount = 1000
+				producer = ROOT
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 50
+				producer = ROOT
+				type = anti_tank_equipment
+			}
+			capital_scope = {
+				add_building_construction = {
+					instant_build = yes
+					level = 3
+					type = bunker
+					province = {
+						all_provinces = yes
+						limit_to_victory_point = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_great_offensive
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_smuggling_from_india
+		}
+		prerequisite = {
+			focus = BRM_peoples_arms_land
+		}
+		relative_position_id = BRM_more_money
+		x = 0
+		y = 2
+		completion_reward = {
+			add_timed_idea = {
+				idea = BRM_great_offensive
+				days = 90
 			}
 		}
 	}
