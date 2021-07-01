@@ -1,0 +1,166 @@
+generate_global_state_array = {
+	every_state = {
+		limit = {
+			#### Add any conditions here to exclude states from ever appearing on the map. Eg: forbidden strat region or overlapping states
+			always = yes
+		}
+		add_to_array = { global.states = THIS.id }
+	}
+}
+
+d_open_custom_mapmode = {
+	clear_array = selected_filter_array
+	add_to_array = { selected_filter_array = 1 }
+	set_country_flag = custom_map_mode_visible
+}
+open_custom_mapmode = {
+	clear_array = selected_filter_array
+	add_to_array = { selected_filter_array = temp_filter_to_open }
+	meta_effect = {
+		text = {
+			[FILTER_EFFECT_INDEX] = yes
+		}
+		FILTER_EFFECT_INDEX = "custom_map_mode_filter_initialize_[?temp_filter_to_open|0]"
+	}
+	add_to_variable = { custom_map_mode_update_tick = 1 }
+	set_country_flag = custom_map_mode_visible
+}
+clear_custom_map_mode_setup = {
+	every_state = {
+		clr_state_flag = mapmode_state_visible
+		clr_state_flag = mapmode_state_hashed_visible
+		clear_variable = state_frame_number_hashed
+		clear_variable = state_frame_number
+		clr_state_flag = custom_map_state_is_button
+		clr_state_flag = mapmode_state_click_disabled
+		clr_state_flag = custom_mapmode_tooltip
+		clr_state_flag = custom_mapmode_tooltip_delayed
+	}
+	every_country = {
+		clr_country_flag = mapmode_shield_visible
+	}
+}
+
+my_custom_effect = {
+	log = "EFFECT"
+}
+
+calculate_country_center_point_quick = {
+	set_variable = {
+		x_composite = 0
+	}
+	set_variable = {
+		y_composite = 0
+	}
+	for_each_scope_loop = {
+		array = controlled_states
+		add_to_variable = { PREV.x_composite = THIS.map_x_position }
+		add_to_variable = { PREV.y_composite = THIS.map_y_position }
+	}
+	divide_variable = { x_composite = controlled_states^num }
+	divide_variable = { y_composite = controlled_states^num }
+}
+calculate_country_shield_capital = {
+	capital_scope = {
+		CONTROLLER = {
+			set_variable = {
+				x_composite = PREV.map_x_position
+			}
+			set_variable = {
+				y_composite = PREV.map_y_position
+			}
+		}
+	}
+}
+calculate_country_shield_capital_all = {
+	every_country = {
+		calculate_country_shield_capital = yes
+	}
+}
+calculate_country_center_point_quick_all = {
+	every_country = {
+		calculate_country_center_point_quick = yes
+	}
+}
+d_state_country_centers = {
+	every_country = {
+		calculate_country_center_point_quick = yes
+	}
+}
+
+find_color_graph = {
+	clear_variable = global.colors_assigned
+	clear_variable = global.max_color_found
+	every_country = {
+		clear_array = global.temp_neighbor_colors
+		every_neighbor_country = {
+			add_to_array = {
+				global.temp_neighbor_colors = custom_map_color
+			}
+		}
+		set_variable = { custom_map_color = 1 }
+		while_loop_effect = {
+			break = while_break
+			limit = {
+				check_variable = { custom_map_color < 12 }
+			}
+			if = {
+				limit = {
+					is_in_array = {
+						array = global.temp_neighbor_colors
+						value = custom_map_color
+					 }
+				}
+				add_to_variable = { custom_map_color = 1 }
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { custom_map_color > global.max_color_found }
+					}
+					set_variable = { global.max_color_found = custom_map_color }
+				}
+				add_to_variable = { global.colors_assigned = 1 }
+				set_temp_variable = { while_break = 1 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = debug_colors }
+		}
+		log = "[?global.colors_assigned|0] colors assigned, max color: [?global.max_color_found|0]. Please make sure you have the the the same, or more than the 'max colors' defined in the HOI4 Geoparser"
+		set_global_flag = debug_colors
+	}
+
+}
+clear_color_arrays_and_vars = {
+	every_country = {
+		clear_variable = custom_map_color
+	}
+}
+assign_owner_color_to_state = {
+	OWNER = { set_variable = { PREV.state_frame_number = custom_map_color } }
+}
+assign_controller_color_to_state = {
+	CONTROLLER = { set_variable = { PREV.state_frame_number = custom_map_color } }
+}
+enable_custom_mapmode_state_buttons = {
+	for_each_scope_loop = {
+		array = global.states
+		set_state_flag = custom_map_state_is_button
+	}
+}
+
+disable_custom_mapmode_state_buttons = {
+	for_each_scope_loop = {
+		array = global.states
+		clr_state_flag = custom_map_state_is_button
+	}
+}
+
+
+d_clear_state_map = {
+	clear_array = global.states
+	add_to_array = { global.states = 1 }
+}
