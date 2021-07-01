@@ -25,4 +25,981 @@ GER_is_debug = {
 }
 
 GER_Before_Civil_War_Power_Struggle_Categories = {
+	Refresh_Goering_Influence = {
+		allowed = { 
+			always = no 
+		}
+		available = {
+			always = no
+		}
+		is_good = yes
+		days_mission_timeout = 7
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = Refresh_Goering_Influence
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Goering_Influence
+					}
+					add_to_variable = { Current_Goering_Influence = 5 }
+				}
+			}
+		}
+	}
+	Refresh_Himmler_Influence = {
+		allowed = { 
+			always = no 
+		}
+		available = {
+			always = no
+		}
+		is_good = yes
+		days_mission_timeout = 7
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = Refresh_Himmler_Influence
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Himmler_Influence
+					}
+					add_to_variable = { Current_Himmler_Influence = 5 }
+				}
+			}
+		}
+	}
+	Refresh_Goebbels_Influence = {
+		allowed = { 
+			always = no 
+		}
+		available = {
+			always = no
+		}
+		is_good = yes
+		days_mission_timeout = 7
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = Refresh_Goebbels_Influence
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Goebbels_Influence
+					}
+					add_to_variable = { Current_Goebbels_Influence = 5 }
+				}
+			}
+		}
+	}
+	Refresh_Hess_Influence = {
+		allowed = { 
+			always = no 
+		}
+		available = {
+			always = no
+		}
+		is_good = yes
+		days_mission_timeout = 7
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = Refresh_Hess_Influence
+				every_controlled_state = {
+					limit = {
+						has_variable = Current_Hess_Influence
+					}
+					add_to_variable = { Current_Hess_Influence = 5 }
+				}
+			}
+		}
+	}
+	debug_start_setting = {
+		cost = 0
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			### Military ###
+			set_variable = { GER_Military_Goering_Influence = 30 }
+			set_variable = { GER_Military_Himmler_Influence = 10 }
+			set_variable = { GER_Military_Goebbels_Influence = 15 }
+			set_variable = { GER_Military_Hess_Influence = 0 }
+			### SS ###
+			set_variable = { GER_SS_Goering_Influence = 10 }
+			set_variable = { GER_SS_Himmler_Influence = 50 }
+			set_variable = { GER_SS_Goebbels_Influence = 5 }
+			set_variable = { GER_SS_Hess_Influence = 5 }
+			### Politican ###
+			set_variable = { GER_Politican_Goering_Influence = 20 }
+			set_variable = { GER_Politican_Himmler_Influence = 10 }
+			set_variable = { GER_Politican_Goebbels_Influence = 30 }
+			set_variable = { GER_Politican_Hess_Influence = 10 }
+			### Popular ###
+			set_variable = { GER_Popular_Goering_Influence = 20 }
+			set_variable = { GER_Popular_Himmler_Influence = 0 }
+			set_variable = { GER_Popular_Goebbels_Influence = 30 }
+			set_variable = { GER_Popular_Hess_Influence = 35 }
+		}
+	}
+	debug_start_setting_Goering_is_Successor = {
+		cost = 0
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			set_country_flag = Goering_is_Successor
+			clr_country_flag = Himmler_is_Successor
+			clr_country_flag = Goebbels_is_Successor
+			clr_country_flag = Hess_is_Successor
+			activate_mission = Refresh_Himmler_Influence
+			activate_mission = Refresh_Goebbels_Influence
+			activate_mission = Refresh_Hess_Influence
+		}
+	}
+	debug_start_setting_Himmler_is_Successor = {
+		cost = 0
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			clr_country_flag = Goering_is_Successor
+			set_country_flag = Himmler_is_Successor
+			clr_country_flag = Goebbels_is_Successor
+			clr_country_flag = Hess_is_Successor
+			activate_mission = Refresh_Goering_Influence
+			activate_mission = Refresh_Goebbels_Influence
+			activate_mission = Refresh_Hess_Influence
+		}
+	}
+	debug_start_setting_Goebbels_is_Successor = {
+		cost = 0
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			clr_country_flag = Goering_is_Successor
+			clr_country_flag = Himmler_is_Successor
+			set_country_flag = Goebbels_is_Successor
+			clr_country_flag = Hess_is_Successor
+			activate_mission = Refresh_Goering_Influence
+			activate_mission = Refresh_Himmler_Influence
+			activate_mission = Refresh_Hess_Influence
+		}
+	}
+	debug_start_setting_Hess_is_Successor = {
+		cost = 0
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			clr_country_flag = Goering_is_Successor
+			clr_country_flag = Himmler_is_Successor
+			clr_country_flag = Goebbels_is_Successor
+			set_country_flag = Hess_is_Successor
+			activate_mission = Refresh_Goering_Influence
+			activate_mission = Refresh_Himmler_Influence
+			activate_mission = Refresh_Goebbels_Influence
+		}
+	}
+	Regional_Influence_Investment_Goering = {
+		cost = 0
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_germany_mainland = yes
+			}
+		}
+		visible = {
+			has_country_flag = Goering_is_Successor
+		}
+		cost = 5
+		days_remove = 7
+		highlight_color_while_active = 1
+		remove_effect = {
+			add_to_variable = { Current_Goering_Influence = 10 }
+		}
+	}
+	Regional_Influence_Investment_Himmler = {
+		cost = 0
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_germany_mainland = yes
+			}
+		}
+		visible = {
+			has_country_flag = Himmler_is_Successor
+		}
+		cost = 5
+		days_remove = 7
+		highlight_color_while_active = 1
+		remove_effect = {
+			add_to_variable = { Current_Himmler_Influence = 10 }
+		}
+	}
+	Regional_Influence_Investment_Goebbels = {
+		cost = 0
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_germany_mainland = yes
+			}
+		}
+		visible = {
+			has_country_flag = Goebbels_is_Successor
+		}
+		cost = 5
+		days_remove = 7
+		highlight_color_while_active = 1
+		remove_effect = {
+			add_to_variable = { Current_Goebbels_Influence = 10 }
+		}
+	}
+	Regional_Influence_Investment_Hess = {
+		cost = 0
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_germany_mainland = yes
+			}
+		}
+		visible = {
+			has_country_flag = Hess_is_Successor
+		}
+		cost = 5
+		days_remove = 7
+		highlight_color_while_active = 1
+		remove_effect = {
+			add_to_variable = { Current_Hess_Influence = 10 }
+		}
+	}
+	GER_BGCW_Military_Supply_Contract = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 0 }
+				has_decision = GER_BGCW_Military_Supply_Contract
+			}
+		}
+		days_remove = 30
+		cost = 15
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+		remove_effect = {
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	GER_BGCW_Military_Meals_with_Generals = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 0 }
+				has_decision = GER_BGCW_Military_Meals_with_Generals
+			}
+		}
+		days_remove = 7
+		cost = 20
+		modifier = {
+			consumer_goods_factor = 0.01
+		}
+		remove_effect = {
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Military_Unit_Inspection = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 0 }
+				has_decision = GER_BGCW_Military_Unit_Inspection
+			}
+		}
+		days_remove = 15
+		cost = 0
+		modifier = {
+			consumer_goods_factor = 0.01
+		}
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		custom_cost_text = GER_command_power_more_than_25
+		remove_effect = {
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Military_Unit_Additional_Supply = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 0 }
+				has_decision = GER_BGCW_Military_Unit_Additional_Supply
+			}
+		}
+		days_remove = 60
+		cost = 0
+		modifier = {
+			consumer_goods_factor = 0.05
+			supply_consumption_factor = 0.15
+		}
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		complete_effect = {
+			add_command_power = -50
+		}
+		custom_cost_text = GER_command_power_more_than_50
+		remove_effect = {
+			add_war_support = 0.05
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Military_Additional_Arms = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 0 }
+				has_decision = GER_BGCW_Military_Additional_Arms
+			}
+		}
+		days_remove = 60
+		cost = 0
+		modifier = {
+			political_power_cost = 0.05
+		}
+		custom_cost_trigger = {
+			has_stability > 0.05
+		}
+		complete_effect = {
+			add_stability = -0.05
+		}
+		custom_cost_text = GER_stability_more_than_5
+		remove_effect = {
+			add_war_support = 0.05
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_SS_More_Manpower = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+				has_decision = GER_BGCW_SS_More_Manpower
+			}
+		}
+		days_remove = 30
+		cost = 0
+		modifier = {
+		}
+		custom_cost_trigger = {
+			has_manpower > 4999
+		}
+		complete_effect = {
+			add_manpower = -5000
+		}
+		custom_cost_text = GER_Manpower_more_than_5000
+		remove_effect = {
+			add_war_support = 0.02
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_SS_More_Independence = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+				has_decision = GER_BGCW_SS_More_Independence
+			}
+		}
+		days_remove = 45
+		cost = 40
+		modifier = {
+		}
+		remove_effect = {
+			add_war_support = 0.06
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_SS_March = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+				has_decision = GER_BGCW_SS_March
+			}
+		}
+		days_remove = 60
+		cost = 0
+		modifier = {
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		custom_cost_text = GER_command_power_more_than_25
+		remove_effect = {
+			army_experience = 10
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_SS_Pilot = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+				has_decision = GER_BGCW_SS_Pilot
+			}
+		}
+		days_remove = 150
+		cost = 0
+		modifier = {
+			consumer_goods_factor = 0.01
+		}
+		custom_cost_trigger = {
+			num_of_military_factories > 0
+		}
+		complete_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_extra_state_shared_building_slots = -1
+				add_building_construction = {
+					type = arms_factory 
+					level = -1
+					instant_build = yes
+				}
+			}
+		}
+		custom_cost_text = GER_arms_factory_more_than_1
+		remove_effect = {
+			air_experience = 10
+			add_ace = {
+				name = "Waffen SS"
+				callsign = "Professional"
+				surname = "Pilot"
+				type = fighter_genius
+				is_female = no
+			}
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_SS_Additional_Arms = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 1 }
+				has_decision = GER_BGCW_SS_Additional_Arms
+			}
+		}
+		days_remove = 75
+		cost = 0
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = GER
+			}
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Politican_Lobby = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Politican_Lobby
+			}
+		}
+		days_remove = 80
+		cost = 45
+		modifier = {
+			consumer_goods_factor = 0.01
+		}
+		remove_effect = {
+			add_political_power = 20
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Politican_Political_Speech_in_Reichstag = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Politican_Political_Speech_in_Reichstag
+			}
+		}
+		days_remove = 30
+		cost = 10
+		modifier = {
+			political_power_cost = 0.01
+		}
+		remove_effect = {
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Politican_Eastern_Front_Speech_in_Reichstag = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Politican_Eastern_Front_Speech_in_Reichstag
+			}
+		}
+		days_remove = 30
+		cost = 10
+		modifier = {
+			political_power_cost = 0.01
+		}
+		remove_effect = {
+			add_war_support = 0.03
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Politican_Western_Front_Speech_in_Reichstag = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Politican_Western_Front_Speech_in_Reichstag
+			}
+		}
+		days_remove = 30
+		cost = 10
+		modifier = {
+			political_power_cost = 0.01
+		}
+		remove_effect = {
+			add_stability = 0.03
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Politican_Ethnic_Speech_in_Reichstag = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Politican_Ethnic_Speech_in_Reichstag
+			}
+		}
+		days_remove = 30
+		cost = 15
+		modifier = {
+			political_power_cost = 0.01
+		}
+		remove_effect = {
+			add_stability = 0.04
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Popular_Ethnic_Speech_in_Public = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 2 }
+				has_decision = GER_BGCW_Popular_Ethnic_Speech_in_Public
+			}
+		}
+		days_remove = 30
+		cost = 15
+		modifier = {
+			political_power_cost = 0.01
+		}
+		remove_effect = {
+			add_stability = 0.04
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Popular_New_Company = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 3 }
+				has_decision = GER_BGCW_Popular_New_Company
+			}
+		}
+		days_remove = 30
+		cost = 5
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+		remove_effect = {
+			add_stability = 0.02
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex 
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Popular_New_Policy_Welfare = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 3 }
+				has_decision = GER_BGCW_Popular_New_Policy_Welfare
+			}
+		}
+		days_remove = 30
+		cost = 10
+		modifier = {
+			consumer_goods_factor = 0.02
+		}
+		remove_effect = {
+			add_stability = 0.01
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_building_construction = {
+					type = infrastructure 
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Popular_New_Policy_Peace = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 3 }
+				has_decision = GER_BGCW_Popular_New_Policy_Peace
+			}
+		}
+		days_remove = 30
+		cost = 10
+		modifier = {
+			war_support_weekly = -0.001
+		}
+		remove_effect = {
+			add_stability = 0.05
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
+	GER_BGCW_Popular_New_Policy_Child_Birth = {
+		visible = {
+			OR = {
+				check_variable = { GER_Power_Game_BGCW_Select = 3 }
+				has_decision = GER_BGCW_Popular_New_Policy_Child_Birth
+			}
+		}
+		days_remove = 100
+		cost = 25
+		modifier = {
+			weekly_manpower = 100
+		}
+		remove_effect = {
+			add_stability = -0.05
+			if = {
+				limit = { has_country_flag = Goering_is_Successor }
+				add_to_variable = { GER_Military_Goering_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Himmler_is_Successor }
+				add_to_variable = { GER_Military_Himmler_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Goebbels_is_Successor }
+				add_to_variable = { GER_Military_Goebbels_Influence = 5 }
+			}
+			if = {
+				limit = { has_country_flag = Hess_is_Successor }
+				add_to_variable = { GER_Military_Hess_Influence = 5 }
+			}
+		}
+	}
 }

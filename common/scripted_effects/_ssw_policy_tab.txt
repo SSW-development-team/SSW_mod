@@ -373,31 +373,480 @@ delete_all_research_institute_idea = {
 		idea_social_tab_research_institute_level_5
 	}
 }
-#徴兵法
-set_conscription_slave_abuse = {
+#徴兵人種
+set_conscription_single_racial_army = {
+	custom_effect_tooltip = set_debug_1
+	remove_ideas = {
+		idea_military_tab_ethnic_units
+		idea_military_tab_mixed_army
+	}
+	add_ideas = idea_military_tab_single_racial_army
 }
-set_conscription_unlimited_conscription = {
+set_conscription_ethnic_units = {
+	remove_ideas = {
+		idea_military_tab_single_racial_army
+		idea_military_tab_mixed_army
+	}
+	add_ideas = idea_military_tab_ethnic_units
 }
-set_conscription_forced_conscription = {
-}
-set_conscription_conscription_relaxation = {
-}
-set_conscription_only_volunteer_soldier = {
-}
-set_conscription_disarmed = {
+set_conscription_mixed_army = {
+	remove_ideas = {
+		idea_military_tab_single_racial_army
+		idea_military_tab_ethnic_units
+	}
+	add_ideas = idea_military_tab_mixed_army
 }
 #免除規定
-set_exemption_no_exception = {
+set_agree_female_conscription = {
+	remove_ideas = {
+		idea_military_tab_disagree_female_conscription
+	}
+	add_ideas = idea_military_tab_agree_female_conscription
 }
-set_exemption_exclusion_educators = {
+set_disagree_female_conscription = {
+	remove_ideas = {
+		idea_military_tab_agree_female_conscription
+	}
+	add_ideas = idea_military_tab_disagree_female_conscription
 }
-set_exemption_exclusion_disability = {
+set_colony_not_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_not_mobilization
 }
-set_exemption_exclusion_minister = {
+set_colony_small_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_small_scale_mobilization
 }
-set_exemption_exclusion_placeman = {
+set_colony_medium_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_large_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_medium_scale_mobilization
 }
-set_exemption_exclusion_under_25yearsold = {
+set_colony_large_scale_mobilization = {
+	remove_ideas = {
+		idea_military_tab_colony_not_mobilization
+		idea_military_tab_colony_small_scale_mobilization
+		idea_military_tab_colony_medium_scale_mobilization
+	}
+	add_ideas = idea_military_tab_colony_large_scale_mobilization
+}
+#徴兵免除
+set_no_exemption = {
+	remove_ideas = {
+		idea_military_tab_exempt_educators
+		idea_military_tab_allow_conscientious_objection
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_no_exemption
+}
+set_exempt_educators = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_allow_conscientious_objection
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_exempt_educators
+}
+set_allow_conscientious_objection = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_exempt_educators
+		idea_military_tab_exempt_placeman
+	}
+	add_ideas = idea_military_tab_allow_conscientious_objection
+}
+set_exempt_placeman = {
+	remove_ideas = {
+		idea_military_tab_no_exemption
+		idea_military_tab_exempt_educators
+		idea_military_tab_allow_conscientious_objection
+	}
+	add_ideas = idea_military_tab_exempt_placeman
+}
+#憲法
+set_no_constitution = {
+	remove_ideas = {
+		idea_politics_tab_dead_letter
+		idea_politics_tab_enacted
+		idea_politics_tab_absolute_constitution
+	}
+	add_ideas = idea_politics_tab_no_constitution
+}
+set_dead_letter = {
+	remove_ideas = {
+		idea_politics_tab_no_constitution
+		idea_politics_tab_enacted
+		idea_politics_tab_absolute_constitution
+	}
+	add_ideas = idea_politics_tab_dead_letter
+}
+set_enacted = {
+	remove_ideas = {
+		idea_politics_tab_no_constitution
+		idea_politics_tab_dead_letter
+		idea_politics_tab_absolute_constitution
+	}
+	add_ideas = idea_politics_tab_enacted
+}
+set_absolute_constitution = {
+	remove_ideas = {
+		idea_politics_tab_no_constitution
+		idea_politics_tab_dead_letter
+		idea_politics_tab_enacted
+	}
+	add_ideas = idea_politics_tab_absolute_constitution
+}
+#社会保障
+set_no_social_securty = {
+	remove_ideas = {
+		idea_politics_tab_insurance_system
+		idea_politics_tab_life_security
+		idea_politics_tab_generous_welfare
+	}
+	add_ideas = idea_politics_tab_no_social_securty
+}
+set_insurance_system = {
+	remove_ideas = {
+		idea_politics_tab_no_social_securty
+		idea_politics_tab_life_security
+		idea_politics_tab_generous_welfare
+	}
+	add_ideas = idea_politics_tab_insurance_system
+}
+set_life_security = {
+	remove_ideas = {
+		idea_politics_tab_no_social_securty
+		idea_politics_tab_life_security
+		idea_politics_tab_generous_welfare
+	}
+	add_ideas = idea_politics_tab_insurance_system
+}
+set_generous_welfare = {
+	remove_ideas = {
+		idea_politics_tab_no_social_securty
+		idea_politics_tab_life_security
+		idea_politics_tab_insurance_system
+	}
+	add_ideas = idea_politics_tab_generous_welfare
+}
+#労働法
+set_no_regulation = {
+	remove_ideas = {
+		idea_politics_tab_minimum_wage_guarantee
+		idea_politics_tab_working_hours_regulation
+		idea_politics_tab_two_regulations
+	}
+	add_ideas = idea_politics_tab_no_regulation
+}
+set_minimum_wage_guarantee = {
+	remove_ideas = {
+		idea_politics_tab_no_regulation
+		idea_politics_tab_working_hours_regulation
+		idea_politics_tab_two_regulations
+	}
+	add_ideas = idea_politics_tab_minimum_wage_guarantee
+}
+set_working_hours_regulation = {
+	remove_ideas = {
+		idea_politics_tab_no_regulation
+		idea_politics_tab_minimum_wage_guarantee
+		idea_politics_tab_two_regulations
+	}
+	add_ideas = idea_politics_tab_working_hours_regulation
+}
+set_two_regulations = {
+	remove_ideas = {
+		idea_politics_tab_no_regulation
+		idea_politics_tab_minimum_wage_guarantee
+		idea_politics_tab_working_hours_regulation
+	}
+	add_ideas = idea_politics_tab_two_regulations
+}
+#労働組合法
+set_prohibition_form_labor_unions = {
+	remove_ideas = {
+		idea_politics_tab_prohibite_only_public_servant
+		idea_politics_tab_allowed_form_labor_union
+	}
+	add_ideas = idea_politics_tab_prohibition_form_labor_unions
+}
+set_prohibite_only_public_servant= {
+	remove_ideas = {
+		idea_politics_tab_prohibition_form_labor_unions
+		idea_politics_tab_allowed_form_labor_union
+	}
+	add_ideas = idea_politics_tab_prohibite_only_public_servant
+}
+set_prohibite_allowed_form_labor_union = {
+	remove_ideas = {
+		idea_politics_tab_prohibition_form_labor_unions
+		idea_politics_tab_prohibite_only_public_servant
+	}
+	add_ideas = idea_politics_tab_allowed_form_labor_union
+}
+#教育法
+set_no_compulsory_education = {
+	remove_ideas = {
+		idea_politics_tab_compulsory_primary_education
+		idea_politics_tab_compulsory_secondary_education
+		idea_politics_tab_allowed_form_higher_education
+	}
+	add_ideas = idea_politics_tab_no_compulsory_education
+}
+set_compulsory_primary_education = {
+	remove_ideas = {
+		idea_politics_tab_no_compulsory_education
+		idea_politics_tab_compulsory_secondary_education
+		idea_politics_tab_compulsory_higher_education
+	}
+	add_ideas = idea_politics_tab_compulsory_primary_education
+}
+set_compulsory_secondary_education = {
+	remove_ideas = {
+		idea_politics_tab_no_compulsory_education
+		idea_politics_tab_compulsory_primary_education
+		idea_politics_tab_compulsory_higher_education
+	}
+	add_ideas = idea_politics_tab_compulsory_secondary_education
+}
+set_compulsory_higher_education = {
+	remove_ideas = {
+		idea_politics_tab_no_compulsory_education
+		idea_politics_tab_compulsory_primary_education
+		idea_politics_tab_compulsory_secondary_education
+	}
+	add_ideas =idea_politics_tab_compulsory_higher_education
+}
+#人権
+set_no_human_rights_guarantees = {
+	remove_ideas = {
+		idea_politics_tab_guarantee_by_law
+		idea_politics_tab_guarantee_by_constitution
+	}
+	add_ideas = idea_politics_tab_no_human_rights_guarantee
+}
+set_guarantee_by_law = {
+	remove_ideas = {
+		idea_politics_tab_no_human_rights_guarantees
+		idea_politics_tab_guarantee_by_constitution
+	}
+	add_ideas = idea_politics_tab_guarantee_by_law
+}
+set_guarantee_by_constitution = {
+	remove_ideas = {
+		idea_politics_tab_no_human_rights_guarantees
+		idea_politics_tab_guarantee_by_law
+	}
+	add_ideas = idea_politics_tab_guarantee_by_constitution
+}
+#統合政策
+set_genocide = {
+	remove_ideas = {
+		idea_ethnic_policy_discrimination
+		idea_ethnic_policy_brainwashing
+		idea_ethnic_policy_coexistence
+	}
+	add_ideas = idea_ethnic_policy_genocide
+}
+set_brainwashing = {
+	remove_ideas = {
+		idea_ethnic_policy_discrimination
+		idea_ethnic_policy_genocide
+		idea_ethnic_policy_coexistence
+	}
+	add_ideas = idea_ethnic_policy_brainwashing
+}
+set_discrimination = {
+	remove_ideas = {
+		idea_ethnic_policy_brainwashing
+		idea_ethnic_policy_genocide
+		idea_ethnic_policy_coexistence
+	}
+	add_ideas = idea_ethnic_policy_discrimination
+}
+set_coexistence = {
+	remove_ideas = {
+		idea_ethnic_policy_brainwashing
+		idea_ethnic_policy_genocide
+		idea_ethnic_policy_discrimination
+	}
+	add_ideas = idea_ethnic_policy_coexistence
+}
+#宗教制作
+set_state_atheism = {
+	remove_ideas = {
+		idea_ethnic_religious_persecution
+		idea_ethnic_separation_of_church_and_state
+		idea_ethnic_religious_liberty
+	}
+	add_ideas = idea_ethnic_state_atheism
+}
+set_religious_persecution = {
+	remove_ideas = {
+		idea_ethnic_state_atheism
+		idea_ethnic_separation_of_church_and_state
+		idea_ethnic_religious_liberty
+	}
+	add_ideas = idea_ethnic_religious_persecution
+}
+set_separation_of_church_and_state = {
+	remove_ideas = {
+		idea_ethnic_state_atheism
+		idea_ethnic_religious_persecution
+		idea_ethnic_religious_liberty
+	}
+	add_ideas = idea_ethnic_separation_of_church_and_state
+}
+set_religious_liberty = {
+	remove_ideas = {
+		idea_ethnic_state_atheism
+		idea_ethnic_religious_persecution
+		idea_ethnic_separation_of_church_and_state
+	}
+	add_ideas = idea_ethnic_religious_liberty
+}
+#移民政策
+set_border_closure = {
+	remove_ideas = {
+		idea_ethnic_strict_restrictions
+		idea_ethnic_loose_restrictions
+		idea_ethnic_freeing
+	}
+	add_ideas = idea_ethnic_border_closure 
+}
+set_strict_restrictions = {
+	remove_ideas = {
+		idea_ethnic_border_closure
+		idea_ethnic_loose_restrictions
+		idea_ethnic_freeing
+	}
+	add_ideas = idea_ethnic_strict_restrictions
+}
+set_strict_restrictions = {
+	remove_ideas = {
+		idea_ethnic_border_closure
+		idea_ethnic_strict_restrictions
+		idea_ethnic_freeing
+	}
+	add_ideas = idea_ethnic_loose_restrictions
+}
+set_freeing = {
+	remove_ideas = {
+		idea_ethnic_border_closure
+		idea_ethnic_strict_restrictions
+		idea_ethnic_loose_restrictions
+	}
+	add_ideas = idea_ethnic_freeing
+}
+#奴隷制度
+set_approve_slave = {
+	remove_ideas = {
+		idea_ethnic_limited_approve
+		idea_ethnic_only_goverment_owned_slave
+		idea_ethnic_outlawed
+	}
+	add_ideas = idea_ethnic_approve_slave
+}
+set_limited_approve = {
+	remove_ideas = {
+		idea_ethnic_approve_slave
+		idea_ethnic_only_goverment_owned_slave
+		idea_ethnic_outlawed
+	}
+	add_ideas = idea_ethnic_limited_approve
+}
+set_goverment_owned_slave = {
+	remove_ideas = {
+		idea_ethnic_approve_slave
+		idea_ethnic_limited_approve
+		idea_ethnic_outlawed
+	}
+	add_ideas = idea_ethnic_only_goverment_owned_slave
+}
+set_outlawed = {
+	remove_ideas = {
+		idea_ethnic_approve_slave
+		idea_ethnic_limited_approve
+		idea_ethnic_only_goverment_owned_slave
+	}
+	add_ideas = idea_ethnic_outlawed
+}
+#選挙
+set_no_election = {
+	remove_ideas = {
+		idea_limited_election
+		idea_free_election
+	}
+	add_ideas = idea_no_election
+}
+set_limited_election = {
+	remove_ideas = {
+		idea_no_election
+		idea_free_election
+	}
+	add_ideas = idea_limited_election
+}
+set_free_election = {
+	remove_ideas = {
+		idea_no_election
+		idea_limited_election
+	}
+	add_ideas = idea_free_election
+}
+#議会
+set_no_paliament = {
+	remove_ideas = {
+		idea_puppet_paliament
+		idea_paliament_system
+	}
+	add_ideas = idea_no_paliament
+}
+set_puppet_paliament = {
+	remove_ideas = {
+		idea_no_paliament
+		idea_paliament_system
+	}
+	add_ideas = idea_puppet_paliament
+}
+set_paliament_system = {
+	remove_ideas = {
+		idea_no_paliament
+		idea_puppet_paliament
+	}
+	add_ideas = idea_paliament_system
+}
+#司法
+set_peoples_trial= {
+	remove_ideas = {
+		idea_independent_judiciary
+		idea_interference_by_cabinet
+	}
+	add_ideas = idea_peoples_trial
+}
+set_interference_by_cabinet = {
+	remove_ideas = {
+		idea_peoples_trial
+		idea_independent_judiciary
+	}
+	add_ideas = idea_interference_by_cabinet
+}
+set_independent_judiciary = {
+	remove_ideas = {
+		idea_peoples_trial
+		idea_interference_by_cabinet
+	}
+	add_ideas = idea_independent_judiciary
 }
 #old script
 add_and_refresh_line_graph = {

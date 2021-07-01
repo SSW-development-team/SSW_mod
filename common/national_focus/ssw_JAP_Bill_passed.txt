@@ -1,0 +1,847 @@
+shared_focus = { #貴族院令改正の成功！
+	id = JAP_success_in_revising_the_house_of_lords_order
+	icon = GFX_goal_unknown
+	x = 10
+	y = 0
+	cost = 4.4
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available_if_capitulated = yes
+	ai_will_do = { factor = 10 }
+	completion_reward = {
+		add_stability = 0.05
+		add_political_power = 15	
+	}
+}
+shared_focus = { #東亜の平穏への注力
+	id = JAP_focus_on_peace_in_east_asia
+		icon = GFX_focus_usa_focus_on_asia
+		prerequisite = { focus = JAP_success_in_revising_the_house_of_lords_order }
+		x = -2
+		y = 1
+		relative_position_id = JAP_success_in_revising_the_house_of_lords_order
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 15
+		}
+	}
+	shared_focus = { #財閥との取引
+		id = JAP_dealings_with_congromerates
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = JAP_success_in_revising_the_house_of_lords_order }
+		x = 2
+		y = 1
+		relative_position_id = JAP_success_in_revising_the_house_of_lords_order
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = JAP_cooperative_Zaibathu
+				days = 300
+			}
+		}
+	}
+	shared_focus = { #インドへの特使
+		id = JAP_envoys_to_india
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		prerequisite = { focus = JAP_focus_on_peace_in_east_asia }
+		prerequisite = { focus = JAP_dealings_with_congromerates }
+		x = -2
+		y = 1
+		relative_position_id = JAP_dealings_with_congromerates
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			IND = {
+				country_event = {id = ssw_japan.100 days = 1}
+			}
+		}
+	}
+	shared_focus = { #戦中の女性達
+		id = JAP_women_in_the_war
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = JAP_envoys_to_india }
+		x = -2
+		y = 1
+		relative_position_id = JAP_envoys_to_india
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+	shared_focus = { #婦人参政権
+		id = JAP_granting_of_womens_suffrage
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_women_in_the_war }
+		x = 0
+		y = 1
+		relative_position_id = JAP_women_in_the_war
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_women_suffrage
+		}
+	}
+	shared_focus = { #貴族院の掌握
+		id = JAP_seizing_the_house_of_lords
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = JAP_envoys_to_india }
+		x = 2
+		y = 1
+		relative_position_id = JAP_envoys_to_india
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.05
+			}
+			add_political_power = 20
+		}
+	}
+	shared_focus = { #引退の準備
+		id = JAP_preparing_for_retirement
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_seizing_the_house_of_lords }
+		x = 0
+		y = 1
+		relative_position_id = JAP_seizing_the_house_of_lords
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = {id = ssw_japan.101}
+		}
+	}
+	shared_focus = { #芳沢の次
+		id = JAP_next_to_yoshizawa
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_granting_of_womens_suffrage }
+		prerequisite = { focus = JAP_preparing_for_retirement }
+		x = -2
+		y = 1
+		relative_position_id = JAP_preparing_for_retirement
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = {id = ssw_japan.102}
+		}
+	}
+	shared_focus = { #芦田均首相
+		id = JAP_prime_minister_hitoshi_ashida
+		icon = GFX_goal_unknown
+		available = {
+			always = no
+		}
+		prerequisite = { focus = JAP_next_to_yoshizawa }
+		mutually_exclusive = { focus = JAP_prime_minister_tsuruhei_matsuno }
+		x = -6
+		y = 1
+		relative_position_id = JAP_next_to_yoshizawa
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Hitoshi Ashida"
+				desc = ""
+				picture = "gfx/leaders/JAP/Potrait_Ashida_hitoshi.dds"
+				expire = "1990.1.1"
+				ideology = social_conservatism_ideology
+			}
+		}
+	}
+	shared_focus = { #松野鶴平首相
+		id = JAP_prime_minister_tsuruhei_matsuno
+		icon = GFX_goal_unknown
+		available = {
+			always = no
+		}
+		prerequisite = { focus = JAP_next_to_yoshizawa }
+		mutually_exclusive = { focus = JAP_prime_minister_hitoshi_ashida }
+		x = 6
+		y = 1
+		relative_position_id = JAP_next_to_yoshizawa
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Tsuruhei Matsuno"
+				desc = ""
+				picture = "gfx/leaders/JAP/Portrait_Tsuruhei_Matsuno.dds"
+				expire = "1990.1.1"
+				ideology = social_conservatism_ideology
+			}
+		}
+	}
+	shared_focus = { #社会党との連携
+		id = JAP_working_with_the_socialist_party
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = JAP_prime_minister_hitoshi_ashida }
+		x = -2
+		y = 1
+		relative_position_id = JAP_prime_minister_hitoshi_ashida
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.1
+			}
+		}
+	}
+	shared_focus = { #政友会右派の弱体化
+		id = JAP_weakening_of_the_right_wing_of_the_political_fraternity
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = JAP_working_with_the_socialist_party }
+		x = 0
+		y = 1
+		relative_position_id = JAP_working_with_the_socialist_party
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = authority_democracy
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democracy
+				popularity = 0.05
+			}
+			add_political_power = 100
+		}
+	}
+	shared_focus = { #貴族院からの抗議
+		id = JAP_rejection_of_security_legislation
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = JAP_prime_minister_hitoshi_ashida }
+		x = 2
+		y = 1
+		relative_position_id = JAP_prime_minister_hitoshi_ashida
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			country_event = {id = ssw_japan.103}
+		}
+	}
+	shared_focus = { #労働組合に自由を！
+		id = JAP_freedom_for_trade_unions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = JAP_rejection_of_security_legislation }
+		x = 0
+		y = 1
+		relative_position_id = JAP_rejection_of_security_legislation
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	shared_focus = { #軍部の影響力と対峙
+		id = JAP_military_influence_and_confrontation
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = JAP_weakening_of_the_right_wing_of_the_political_fraternity }
+		prerequisite = { focus = JAP_freedom_for_trade_unions }
+		x = -2
+		y = 1
+		relative_position_id = JAP_weakening_of_the_right_wing_of_the_political_fraternity
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = -0.05
+			add_stability = 0.1
+		}
+	}
+	shared_focus = { #急進的自由化
+		id = JAP_radical_liberalisation
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = JAP_weakening_of_the_right_wing_of_the_political_fraternity }
+		prerequisite = { focus = JAP_freedom_for_trade_unions }
+		x = 2
+		y = 1
+		relative_position_id = JAP_weakening_of_the_right_wing_of_the_political_fraternity
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = JAP_rapid_liberalization
+				days = 400
+			}
+		}
+	}
+	shared_focus = { #労働組合の成長
+		id = JAP_trade_union_growth
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_weakening_of_the_right_wing_of_the_political_fraternity }
+		prerequisite = { focus = JAP_freedom_for_trade_unions }
+		x = 6
+		y = 1
+		relative_position_id = JAP_weakening_of_the_right_wing_of_the_political_fraternity
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_freedom_trade_union
+		}
+	}
+	shared_focus = { #新しい教育
+		id = JAP_new_education
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_military_influence_and_confrontation }
+		prerequisite = { focus = JAP_radical_liberalisation }
+		prerequisite = { focus = JAP_trade_union_growth }
+		x = -6
+		y = 1
+		relative_position_id = JAP_trade_union_growth
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_liberalism_education_reform
+		}
+	}
+	shared_focus = { #国営企業の躍進
+		id = JAP_breakthrough_for_state_owned_enterprises
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = JAP_military_influence_and_confrontation }
+		prerequisite = { focus = JAP_radical_liberalisation }
+		prerequisite = { focus = JAP_trade_union_growth }
+		x = -2
+		y = 1
+		relative_position_id = JAP_trade_union_growth
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			942 = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			1019 = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			843 = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	shared_focus = { #学生運動との接触
+		id = JAP_contact_with_student_movement
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_new_education }
+		x = 0
+		y = 1
+		relative_position_id = JAP_new_education
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = classical_communism
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.01
+			}
+		}
+	}
+	shared_focus = { #発電の活性化
+		id = JAP_revitalisation_of_power_stations
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = JAP_breakthrough_for_state_owned_enterprises }
+		x = 0
+		y = 1
+		relative_position_id = JAP_breakthrough_for_state_owned_enterprises
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 1094
+						state = 535
+						state = 843
+						state = 1103
+						state = 524
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	shared_focus = { #警察組織の改革
+		id = JAP_reform_of_the_police_organisation
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = JAP_contact_with_student_movement }
+		prerequisite = { focus = JAP_revitalisation_of_power_stations }
+		x = -2
+		y = 1
+		relative_position_id = JAP_contact_with_student_movement
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	shared_focus = { #憲兵隊を抑制
+		id = JAP_kenpeitai_in_check
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_contact_with_student_movement }
+		prerequisite = { focus = JAP_revitalisation_of_power_stations }
+		x = 2
+		y = 1
+		relative_position_id = JAP_contact_with_student_movement
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_idea_control_military
+		}
+	}
+	shared_focus = { #中小企業を支援
+		id = JAP_supporting_smes
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = JAP_contact_with_student_movement }
+		prerequisite = { focus = JAP_revitalisation_of_power_stations }
+		x = 2
+		y = 1
+		relative_position_id = JAP_revitalisation_of_power_stations
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_equal_economic_growth
+		}
+	}
+	shared_focus = { #日本共産党への姿勢
+		id = JAP_attitude_towards_the_jcp
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = JAP_reform_of_the_police_organisation }
+		prerequisite = { focus = JAP_kenpeitai_in_check }
+		prerequisite = { focus = JAP_supporting_smes }
+		x = 0
+		y = 1
+		relative_position_id = JAP_kenpeitai_in_check
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = { #ズル平の政党戦略
+		id = JAP_zuruheis_party_strategy
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_prime_minister_tsuruhei_matsuno }
+		x = -2
+		y = 1
+		relative_position_id = JAP_prime_minister_tsuruhei_matsuno
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.2
+			}
+		}
+	}
+	shared_focus = { #投資の奨励
+		id = JAP_investment_increntives
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = JAP_prime_minister_tsuruhei_matsuno }
+		x = 2
+		y = 1
+		relative_position_id = JAP_prime_minister_tsuruhei_matsuno
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = JAP_stock_price_rise
+				days = 1000
+			}
+		}
+	}
+	shared_focus = { #芳沢路線の継続
+		id = JAP_continuation_of_the_yoshizawa_route
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_zuruheis_party_strategy }
+		prerequisite = { focus = JAP_investment_increntives }
+		x = -2
+		y = 1
+		relative_position_id = JAP_investment_increntives
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = {
+				ideology = social_conservatism
+				popularity = 0.05
+			}
+		}
+	}
+	shared_focus = { #政友会内部の平穏
+		id = JAP_peace_within_the_political_fraternity
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = JAP_continuation_of_the_yoshizawa_route }
+		x = 0
+		y = 2
+		relative_position_id = JAP_continuation_of_the_yoshizawa_route
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 200
+		}
+	}
+	shared_focus = { #風営法の施行
+		id = JAP_enforcement_of_the_public_entertainment_law
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_continuation_of_the_yoshizawa_route }
+		x = -2
+		y = 1
+		relative_position_id = JAP_continuation_of_the_yoshizawa_route
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.1
+		}
+	}
+	shared_focus = { #テロ行為の防止
+		id = JAP_preventing_acts_of_terrorism
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = JAP_continuation_of_the_yoshizawa_route }
+		x = 2
+		y = 1
+		relative_position_id = JAP_continuation_of_the_yoshizawa_route
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_security_legislate
+		}
+	}
+	shared_focus = { #社会保障改革の続行
+		id = JAP_continuing_social_security_reform
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = JAP_enforcement_of_the_public_entertainment_law }
+		x = 0
+		y = 2
+		relative_position_id = JAP_enforcement_of_the_public_entertainment_law
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_social_security_attempt_rework
+				add_idea = JAP_social_security_policy
+			}
+		}
+	}
+	shared_focus = { #特別警備隊の拡大
+		id = JAP_expansion_of_special_security_forces
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = JAP_preventing_acts_of_terrorism }
+		x = 0
+		y = 2
+		relative_position_id = JAP_preventing_acts_of_terrorism
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+	shared_focus = { #鉄道建設を指導
+		id = JAP_guiding_the_construction_of_the_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = JAP_peace_within_the_political_fraternity }
+		x = 0
+		y = 2
+		relative_position_id = JAP_peace_within_the_political_fraternity
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_interregional_transport_reform
+		}
+	}
+	shared_focus = { #税率の引き上げ
+		id = JAP_increase_in_tax_rates
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = JAP_continuing_social_security_reform }
+		prerequisite = { focus = JAP_expansion_of_special_security_forces }
+		x = -2
+		y = 1
+		relative_position_id = JAP_continuing_social_security_reform
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			swap_ideas = {
+				remove_idea = JAP_social_security_policy
+				add_idea = JAP_social_security_policy_2
+			}
+		}
+	}
+	shared_focus = { #学生運動を制圧
+		id = JAP_control_of_the_student_movement
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = JAP_continuing_social_security_reform }
+		prerequisite = { focus = JAP_expansion_of_special_security_forces }
+		x = 2
+		y = 1
+		relative_position_id = JAP_expansion_of_special_security_forces
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = classical_communism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = progressive_communism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.1
+			}
+		}
+	}
+	shared_focus = { #財閥の権限を保障
+		id = JAP_guaranteed_powers_for_conglomerates
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = JAP_increase_in_tax_rates }
+		prerequisite = { focus = JAP_guiding_the_construction_of_the_railway }
+		prerequisite = { focus = JAP_control_of_the_student_movement }
+		x = 1
+		y = 1
+		relative_position_id = JAP_increase_in_tax_rates
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_guarantee_for_Zaibathu
+		}
+	}
+	shared_focus = { #汽車から電車へ
+		id = JAP_from_train_to_train
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_increase_in_tax_rates }
+		prerequisite = { focus = JAP_guiding_the_construction_of_the_railway }
+		prerequisite = { focus = JAP_control_of_the_student_movement }
+		x = 0
+		y = 1
+		relative_position_id = JAP_guiding_the_construction_of_the_railway
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 532
+						state = 1096
+						state = 1095
+						state = 1019
+						state = 531
+						state = 942
+						state = 1094
+						state = 1082
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	shared_focus = { #集団就職への支援
+		id = JAP_support_for_group_employment
+		icon = GFX_goal_unknown
+		prerequisite = { focus = JAP_increase_in_tax_rates }
+		prerequisite = { focus = JAP_guiding_the_construction_of_the_railway }
+		prerequisite = { focus = JAP_control_of_the_student_movement }
+		x = -1
+		y = 1
+		relative_position_id = JAP_control_of_the_student_movement
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			942 = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			943 = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 4
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			country_event = {id = ssw_japan.104}
+		}
+	}
+	shared_focus = { #日本の安定的成長
+		id = JAP_stable_growth_in_japan
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = JAP_guaranteed_powers_for_conglomerates }
+		prerequisite = { focus = JAP_from_train_to_train }
+		prerequisite = { focus = JAP_support_for_group_employment }
+		x = 0
+		y = 1
+		relative_position_id = JAP_from_train_to_train
+		cost = 4.4
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = JAP_idea_stable_growth
+		}
+	}

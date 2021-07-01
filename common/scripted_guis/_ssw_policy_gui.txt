@@ -59,6 +59,9 @@ scripted_gui = {
 			military_focus_icon_button_click = {
 				set_variable = { selected_policy_button_military = 1 }
 			}
+			politics_focus_icon_button_click = {
+				set_variable = { selected_policy_button_politics = 1 }
+			}
 		}
 	}
 	SSW_Policy_tab_economy_view = {
@@ -491,19 +494,69 @@ scripted_gui = {
 		}
 
 		triggers = {
-
+			SSW_Policy_tab_military_army_law_conscription_law_select_box_visible = {
+				always = no
+			}
 		}
 		effects = {
 			close_button_click = {
 				set_variable = { selected_policy_button_military = 0 }
 			}
+			military_tab_conscription_law_box_click = {
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_1 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_1 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_1 = 1 }
+					}
+				}
+			}
+			military_tab_agree_female_conscription_box_click = {
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_2 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_2 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_2 = 1 }
+					}
+				}
+			}
+			military_tab_colony_conscription_box_click = {
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_3 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_3 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_3 = 1 }
+					}
+				}
+			}
+			military_tab_conscription_exemption_box_click = {
+				if = {
+					limit = {
+						check_variable = { selected_policy_button_military_law_4 = 1 }
+					}
+					set_variable = { selected_policy_button_military_law_4 = 0 }
+					else = {
+						set_variable = { selected_policy_button_military_law_4 = 1 }
+					}
+				}
+			}
+		}
+		properties = {
+			country_army_flag = { image = "[This.GetFlag]" }
 		}
 	}
-	SSW_Policy_tab_military_view_army_law = {
-		window_name = "SSW_Policy_tab_military_army_law"
+	SSW_Policy_tab_politics_view = {
+		window_name = "SSW_Policy_tab_politics_tab"
 		context_type = player_context 
+
 		visible = {
-			check_variable = { selected_policy_button_military = 1 }
+			check_variable = { selected_policy_button_politics = 1 }
 		}
 
 		ai_enabled = {
@@ -511,15 +564,669 @@ scripted_gui = {
 		}
 
 		triggers = {
-
+			SSW_Policy_tab_military_army_law_conscription_law_select_box_visible = {
+				always = no
+			}
 		}
 		effects = {
 			close_button_click = {
-				set_variable = { selected_policy_button_military = 0 }
+				set_variable = { selected_policy_button_politics = 0 }
 			}
-			military_tab_conscription_law_box_click = {
+			politics_tab_constitution_law_box_click = {
+				set_variable = { selected_policy_button_politics_law_1 = 1 }
+			}
+			politics_tab_social_security_law_box_click = {
+				set_variable = { selected_policy_button_politics_law_2 = 1 }
+			}
+			politics_tab_labor_law_box_click = {
+				set_variable = { selected_policy_button_politics_law_3 = 1 }
+			}
+			politics_tab_labor_union_law_box_click = {
+				set_variable = { selected_policy_button_politics_law_4 = 1 }
+			}
+			politics_tab_education_law_box_click = {
+				set_variable = { selected_policy_button_politics_law_5 = 1 }
+			}
+			politics_tab_human_rights_box_click = {
+				set_variable = { selected_policy_button_politics_law_6 = 1 }
+			}
+			politics_tab_integration_policy_box_click = {
+				set_variable = { selected_policy_button_ehinic_policy_1 = 1 }
+			}
+			politics_tab_religious_policy_box_click = {
+				set_variable = { selected_policy_button_ehinic_policy_2 = 1 }
+			}
+			politics_tab_immigration_policy_box_click = {
+				set_variable = { selected_policy_button_ehinic_policy_3 = 1 }
+			}
+			politics_tab_slave_policy_box_click = {
+				set_variable = { selected_policy_button_ehinic_policy_4 = 1 }
+			}
+			politics_tab_election_box_click = {
+				set_variable = { selected_policy_button_political_system_1 = 1 }
+			}
+			politics_tab_paliament_box_click = {
+				set_variable = { selected_policy_button_political_system_2 = 1 }
+			}
+			politics_tab_judiciary_box_click = {
+				set_variable = { selected_policy_button_political_system_3 = 1 }
+			}
+		}
+		properties = {
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_1 = {
+		window_name = "SSW_Policy_tab_military_army_law_conscription_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_1 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			conscription_law_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_single_racial_army
+					has_political_power < 75
+				}
+			}
+			conscription_law_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_ethnic_units
+					has_political_power < 75
+				}
+			}
+			conscription_law_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_mixed_army
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_1 = 0 }
+			}
+			conscription_law_title_box_1_click = {
+				add_political_power = -75
+				set_conscription_single_racial_army = yes
+			}
+			conscription_law_title_box_2_click = {
+				add_political_power = -75
+				set_conscription_ethnic_units = yes
+			}
+			conscription_law_title_box_3_click = {
+				add_political_power = -75
+				set_conscription_mixed_army = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_2 = {
+		window_name = "SSW_Policy_tab_military_army_law_female_conscription_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_2 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			female_conscription_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_agree_female_conscription
+					has_political_power < 75
+				}
+			}
+			female_conscription_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_disagree_female_conscription
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_2 = 0 }
+			}
+			female_conscription_title_box_1_click = {
+				add_political_power = -75
+				set_agree_female_conscription = yes
+			}
+			female_conscription_title_box_2_click = {
+				add_political_power = -75
+				set_disagree_female_conscription = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_3 = {
+		window_name = "SSW_Policy_tab_military_army_law_colony_conscription_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_3 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			colony_conscription_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_not_mobilization
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_small_scale_mobilization
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_medium_scale_mobilization
+					has_political_power < 75
+				}
+			}
+			colony_conscription_title_box_4_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_colony_large_scale_mobilization
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_3 = 0 }
+			}
+			colony_conscription_title_box_1_click = {
+				add_political_power = -75
+				set_colony_not_mobilization = yes
+			}
+			colony_conscription_title_box_2_click = {
+				add_political_power = -75
+				set_colony_small_scale_mobilization = yes
+			}
+			colony_conscription_title_box_3_click = {
+				add_political_power = -75
+				set_colony_medium_scale_mobilization = yes
+			}
+			colony_conscription_title_box_4_click = {
+				add_political_power = -75
+				set_colony_large_scale_mobilization = yes
+			}
+		}
+	}
+	SSW_Policy_tab_military_view_army_law_select_box_4 = {
+		window_name = "SSW_Policy_tab_military_army_law_conscription_exemption_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_military_law_4 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			conscription_exemption_title_box_1_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_no_exemption
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_2_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_exempt_educators
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_3_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_allow_conscientious_objection
+					has_political_power < 75
+				}
+			}
+			conscription_exemption_title_box_4_click_enabled = {
+				NOT = {
+					has_idea = idea_military_tab_exempt_placeman
+					has_political_power < 75
+				}
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_military_law_4 = 0 }
+			}
+			conscription_exemption_title_box_1_click = {
+				add_political_power = -75
+				set_no_exemption = yes
+			}
+			conscription_exemption_title_box_2_click = {
+				add_political_power = -75
+				set_exempt_educators = yes
+			}
+			conscription_exemption_title_box_3_click = {
+				add_political_power = -75
+				set_allow_conscientious_objection = yes
+			}
+			conscription_exemption_title_box_4_click = {
+				add_political_power = -75
+				set_exempt_placeman = yes
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_1 = {
+		window_name = "SSW_Policy_tab_politics_law_constitution_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_1 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			constitution_title_box_1_click_enabled = {
+				always = no
+			}
+			constitution_title_box_2_click_enabled = {
+				always = no
+			}
+			constitution_title_box_3_click_enabled = {
+				always = no
+			}
+			constitution_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_politics_law_1 = 0 }
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_2 = {
+		window_name = "SSW_Policy_tab_politics_law_security_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_2 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			security_law_title_box_1_click_enabled = {
+				always = no
+			}
+			security_law_title_box_2_click_enabled = {
+				always = no
+			}
+			security_law_title_box_4_click_enabled = {
+				always = no
+			}
+			security_law_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				set_variable = { selected_policy_button_politics_law_2 = 0 }
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_3 = {
+		window_name = "SSW_Policy_tab_politics_law_labor_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_3 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			labor_law_title_box_1_click_enabled = {
+				always = no
+			}
+			labor_law_title_box_2_click_enabled = {
+				always = no
+			}
+			labor_law_title_box_4_click_enabled = {
+				always = no
+			}
+			labor_law_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
 				ROOT = {
-					add_ideas = military_tab_conscription_scraping_the_barrel
+					set_variable = { selected_policy_button_politics_law_3 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_4 = {
+		window_name = "SSW_Policy_tab_politics_law_labor_union_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_4 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			labor_union_law_title_box_1_click_enabled = {
+				always = no
+			}
+			labor_union_law_title_box_2_click_enabled = {
+				always = no
+			}
+			labor_union_law_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_politics_law_4 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_5 = {
+		window_name = "SSW_Policy_tab_politics_law_education_law_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_5 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			education_law_title_box_1_click_enabled = {
+				always = no
+			}
+			education_law_title_box_2_click_enabled = {
+				always = no
+			}
+			education_law_title_box_3_click_enabled = {
+				always = no
+			}
+			education_law_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_politics_law_5 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_politics_law_select_box_6 = {
+		window_name = "SSW_Policy_tab_politics_law_human_rights_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_politics_law_6 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			human_rights_title_box_1_click_enabled = {
+				always = no
+			}
+			human_rights_title_box_2_click_enabled = {
+				always = no
+			}
+			human_rights_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_politics_law_6 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_ehinic_policy_select_box_1 = {
+		window_name = "SSW_Policy_tab_ethnic_policy_integration_policy_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_ehinic_policy_1 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			integration_policy_title_box_1_click_enabled = {
+				always = no
+			}
+			integration_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			integration_policy_title_box_3_click_enabled = {
+				always = no
+			}
+			integration_policy_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_ehinic_policy_1 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_ehinic_policy_select_box_2 = {
+		window_name = "SSW_Policy_tab_ethnic_policy_religious_policy_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_ehinic_policy_2 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			religious_policy_title_box_1_click_enabled = {
+				always = no
+			}
+			religious_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			religious_policy_title_box_3_click_enabled = {
+				always = no
+			}
+			religious_policy_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_ehinic_policy_2 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_ehinic_policy_select_box_3 = {
+		window_name = "SSW_Policy_tab_ethnic_policy_immigration_policy_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_ehinic_policy_3 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			immigration_policy_title_box_1_click_enabled = {
+				always = no
+			}
+			immigration_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			immigration_policy_title_box_3_click_enabled = {
+				always = no
+			}
+			immigration_policy_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_ehinic_policy_3 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_ehinic_policy_select_box_4 = {
+		window_name = "SSW_Policy_tab_ethnic_policy_slave_policy_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_ehinic_policy_4 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			slave_policy_title_box_1_click_enabled = {
+				always = no
+			}
+			slave_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			slave_policy_title_box_3_click_enabled = {
+				always = no
+			}
+			slave_policy_title_box_4_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_ehinic_policy_4 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_political_system_select_box_1 = {
+		window_name = "SSW_Policy_tab_political_system_electon_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_political_system_1 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			electon_title_box_1_click_enabled = {
+				always = no
+			}
+			electon_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			electon_policy_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_political_system_1 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_political_system_select_box_2 = {
+		window_name = "SSW_Policy_tab_political_system_paliament_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_political_system_2 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			paliament_title_box_1_click_enabled = {
+				always = no
+			}
+			paliament_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			paliament_policy_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_political_system_2 = 0 }
+				}
+			}
+		}
+	}
+	SSW_Policy_tab_politics_view_political_system_select_box_3 = {
+		window_name = "SSW_Policy_tab_political_system_judiciar_select_box"
+		context_type = player_context 
+		visible = {
+			check_variable = { selected_policy_button_political_system_3 = 1 }
+		}
+
+		ai_enabled = { 
+			always = no
+		}
+
+		triggers = {
+			judiciar_title_box_1_click_enabled = {
+				always = no
+			}
+			judiciar_policy_title_box_2_click_enabled = {
+				always = no
+			}
+			judiciar_policy_title_box_3_click_enabled = {
+				always = no
+			}
+		}
+		effects = {
+			close_button_click = {
+				ROOT = {
+					set_variable = { selected_policy_button_political_system_3 = 0 }
 				}
 			}
 		}

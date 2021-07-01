@@ -16,25 +16,24 @@ country_event = { #Select a Successor
 		name = GER_BGCW.0.a
 		ai_chance = { base = 3 }
 		set_country_flag = Goering_is_Successor
-		add_stability = 0.06
+		add_stability = 0.04
 	}
 	option = { #Himmler
 		name = GER_BGCW.0.b
 		ai_chance = { base = 1 }
 		set_country_flag = Himmler_is_Successor
-		add_stability = -0.03
+		add_stability = -0.01
 	}
 	option = { #Goebbels
 		name = GER_BGCW.0.c
 		ai_chance = { base = 2 }
 		set_country_flag = Goebbels_is_Successor
-		add_war_support = 0.07
+		add_war_support = 0.01
 	}
 	option = { #Hess
 		name = GER_BGCW.0.d
 		ai_chance = { base = 1 }
 		set_country_flag = Hess_is_Successor
-		add_stability = 0.1
 	}
 }
 
@@ -124,6 +123,12 @@ country_event = { #Birthday of Hitler
 	id = GER_BGCW.5
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_BGCW.5"
+		hidden_effect = {
+			country_event = {
+				id = GER_BGCW.6
+				days = 7
+			}
+		}
 	}
 	title = GER_BGCW.5.t
 	desc = GER_BGCW.5.desc
@@ -132,29 +137,37 @@ country_event = { #Birthday of Hitler
 	is_triggered_only = yes
 	fire_only_once = yes
 	
-	option = { #
+	option = { #Announcement of Succesor Goering
 		name = GER_BGCW.5.a
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Goering_is_Successor
+		}
 	}
-	option = { #
+	option = { #Announcement of Succesor Himmler
 		name = GER_BGCW.5.b
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Himmler_is_Successor
+		}
 	}
-	option = { #
+	option = { #Announcement of Succesor Goebbels
 		name = GER_BGCW.5.c
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Goebbels_is_Successor
+		}
 	}
-	option = { #
+	option = { #Announcement of Succesor Hess
 		name = GER_BGCW.5.d
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Hess_is_Successor
+		}
 	}
 }
 
-country_event = { #
+country_event = { #Hitler is Dead!!!
 	id = GER_BGCW.6
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event GER_BGCW.6"
@@ -169,12 +182,38 @@ country_event = { #
 	option = { #
 		name = GER_BGCW.6.a
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Goering_is_Successor
+		}
+		kill_country_leader = yes
+		set_GER_Leader_Goering = yes
 	}
 	option = { #
 		name = GER_BGCW.6.b
 		ai_chance = { base = 1 }
-		
+		trigger = {
+			has_country_flag = Himmler_is_Successor
+		}
+		kill_country_leader = yes
+		set_GER_Leader_Himmler = yes
+	}
+	option = { #
+		name = GER_BGCW.6.c
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Goebbels_is_Successor
+		}
+		kill_country_leader = yes
+		set_GER_Leader_Goebbels = yes
+	}
+	option = { #
+		name = GER_BGCW.6.d
+		ai_chance = { base = 1 }
+		trigger = {
+			has_country_flag = Hess_is_Successor
+		}
+		kill_country_leader = yes
+		set_GER_Leader_Hess = yes
 	}
 }
 
