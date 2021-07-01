@@ -1,0 +1,729 @@
+add_namespace = ssw.IND
+
+country_event = { #やるべきこと
+	id = ssw.IND.1
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.1"
+	}
+	title = ssw.IND.1.t
+	desc = ssw.IND.1.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.1.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #ベンガル問題
+	id = ssw.IND.2
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.2"
+	}
+	title = ssw.IND.2.t
+	desc = ssw.IND.2.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.2.a
+		ai_chance = { base = 1 }
+		add_stability = -0.1
+	}
+
+}
+
+country_event = { #輸出先の模索
+	id = ssw.IND.3
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.3"
+	}
+	title = ssw.IND.3.t
+	desc = ssw.IND.3.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.3.a
+		ai_chance = { base = 1 }
+		add_opinion_modifier = {
+			target = ENG
+			modifier = medium_increase
+		}
+	}
+	option = { #
+		name = ssw.IND.3.b
+		ai_chance = { base = 1 }
+		add_opinion_modifier = {
+			target = JAP
+			modifier = medium_increase
+		}
+	}
+	option = { #
+		name = ssw.IND.3.c
+		ai_chance = { base = 1 }
+		add_opinion_modifier = {
+			target = CHI
+			modifier = medium_increase
+		}
+	}
+}
+
+country_event = { #嵐が収まる
+	id = ssw.IND.4
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.4"
+	}
+	title = ssw.IND.4.t
+	desc = ssw.IND.4.desc
+	#picture = 
+	trigger = {
+		has_country_flag = complete_industry
+		has_country_flag = complete_govament
+		has_country_flag = complete_miritary
+
+	}
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.4.a
+		ai_chance = { base = 1 }
+		hidden_effect = {
+			country_event = {
+				id = ssw.IND.5
+				days = 30
+			}
+		}
+	}
+
+}
+
+country_event = { #異変
+	id = ssw.IND.5
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.5"
+	}
+	title = ssw.IND.5.t
+	desc = ssw.IND.5.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.5.a
+		ai_chance = { base = 1 }
+		hidden_effect = {
+			country_event = {
+				id = ssw.IND.6
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { #平和の渡し舟
+	id = ssw.IND.6
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.6"
+	}
+	title = ssw.IND.6.t
+	desc = ssw.IND.6.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.6.a
+		ai_chance = { base = 1 }
+		hidden_effect = {
+			country_event = {
+				id = ssw.IND.7
+				days = 2
+			}
+		}	
+	}
+}
+
+country_event = { #ガンジー暗殺
+	id = ssw.IND.7
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.7"
+	}
+	title = ssw.IND.7.t
+	desc = ssw.IND.7.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.7.a
+		ai_chance = { base = 1 }
+		remove_ideas = IND_have_ganzi
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = ssw.IND.8
+				days = 15
+			}
+		}
+	}
+}
+
+country_event = { #ベンガル大暴動
+	id = ssw.IND.8
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.8"
+	}
+	title = ssw.IND.8.t
+	desc = ssw.IND.8.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.8.a
+		ai_chance = { base = 1 }
+		hidden_effect = {
+			country_event = {
+				id = ssw.IND.9
+				days = 5
+			}
+		}
+	}
+}
+
+country_event = { #広がる混沌
+	id = ssw.IND.9
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.9"
+	}
+	title = ssw.IND.9.t
+	desc = ssw.IND.9.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.9.a
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.10
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.10"
+	}
+	title = ssw.IND.10.t
+	desc = ssw.IND.10.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.10.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.10.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.11
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.11"
+	}
+	title = ssw.IND.11.t
+	desc = ssw.IND.11.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.11.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.11.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.12
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.12"
+	}
+	title = ssw.IND.12.t
+	desc = ssw.IND.12.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.12.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.12.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.13
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.13"
+	}
+	title = ssw.IND.13.t
+	desc = ssw.IND.13.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.13.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.13.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.14
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.14"
+	}
+	title = ssw.IND.14.t
+	desc = ssw.IND.14.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.14.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.14.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.15
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.15"
+	}
+	title = ssw.IND.15.t
+	desc = ssw.IND.15.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.15.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.15.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.16
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.16"
+	}
+	title = ssw.IND.16.t
+	desc = ssw.IND.16.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.16.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.16.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.17
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.17"
+	}
+	title = ssw.IND.17.t
+	desc = ssw.IND.17.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.17.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.17.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.18
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.18"
+	}
+	title = ssw.IND.18.t
+	desc = ssw.IND.18.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.18.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.18.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.19
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.19"
+	}
+	title = ssw.IND.19.t
+	desc = ssw.IND.19.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.19.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.19.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.20
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.20"
+	}
+	title = ssw.IND.20.t
+	desc = ssw.IND.20.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.20.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.20.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.21
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.21"
+	}
+	title = ssw.IND.21.t
+	desc = ssw.IND.21.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.21.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.21.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.22
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.22"
+	}
+	title = ssw.IND.22.t
+	desc = ssw.IND.22.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.22.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.22.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.23
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.23"
+	}
+	title = ssw.IND.23.t
+	desc = ssw.IND.23.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.23.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.23.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.24
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.24"
+	}
+	title = ssw.IND.24.t
+	desc = ssw.IND.24.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.24.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.24.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.25
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.25"
+	}
+	title = ssw.IND.25.t
+	desc = ssw.IND.25.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.25.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.25.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.26
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.26"
+	}
+	title = ssw.IND.26.t
+	desc = ssw.IND.26.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.26.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.26.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.27
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.27"
+	}
+	title = ssw.IND.27.t
+	desc = ssw.IND.27.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.27.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.27.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.28
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.28"
+	}
+	title = ssw.IND.28.t
+	desc = ssw.IND.28.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.28.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.28.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.29
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.29"
+	}
+	title = ssw.IND.29.t
+	desc = ssw.IND.29.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.29.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.29.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
+country_event = { #
+	id = ssw.IND.30
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ssw.IND.30"
+	}
+	title = ssw.IND.30.t
+	desc = ssw.IND.30.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = ssw.IND.30.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw.IND.30.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+
