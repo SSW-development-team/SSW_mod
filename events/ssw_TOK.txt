@@ -162,3 +162,25 @@ country_event = { #ベトミンのクーデター
         }
     }
 }
+country_event = { #タイ人の蜂起
+    id = ssw_tok.8
+    title = ssw_tok.8.t
+    desc = ssw_tok.8.d
+    is_triggered_only = yes
+    fire_only_once = yes
+    immediate = {
+        hidden_effect = {
+            SCT = {
+                transfer_state = 1235
+                add_state_core = 1235
+            }
+        }
+    }
+    option = { #抑え込め！
+        name = ssw_tok.8.a
+        declare_war_on = {
+            target = SCT
+            type = annex_everything
+        }
+    }
+}

@@ -478,6 +478,10 @@ focus_tree = {
 				ideology = social_conservatism
 				popularity = 0.1
 			}
+			add_popularity = {
+				ideology = social_liberalism
+				popularity = 0.1
+			}
 			add_ideas = TIB_tashi_dorje_phunkhang
 		}
 		x = 17
@@ -569,6 +573,7 @@ focus_tree = {
 		ai_will_do = { factor = 2 }
 		completion_reward = {
 			add_ideas = TIB_effort_edu
+			add_research_slot = 1
 		}
 		x = 16
 		y = 9
@@ -746,6 +751,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			TIB_temple_gov_idea = yes
+			add_research_slot = 1
 		}
 		ai_will_do = { factor = 2 }
 		x = 28
@@ -1130,6 +1136,7 @@ focus_tree = {
 					modifier = TIB_trade_mission
 				}
 			}
+			add_research_slot = 1
 		}
 		x = 33
 		y = 8
@@ -1777,6 +1784,7 @@ focus_tree = {
 				remove_idea = TIB_unmodernization_industries
 				add_idea = TIB_improving_industries
 			}
+			add_research_slot = 1
 		}
 		x = 45
 		y = 7
@@ -2076,6 +2084,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			remove_ideas = TIB_improving_industries
+			add_research_slot = 1
 		}
 		x = 45
 		y = 11
@@ -2336,6 +2345,12 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_maoism
 		}
+		mutually_exclusive = {
+			focus = TIB_legal_leftist_government
+		}
+		mutually_exclusive = {
+			focus = TIB_fate_of_dalai_lama
+		}
 		ai_will_do = { factor = 2 }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2394,6 +2409,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = TIB_legal_leftist_government
 		}
+		mutually_exclusive = {
+			focus = TIB_call_ccp
+		}
 		ai_will_do = { factor = 2 }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2422,6 +2440,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = TIB_fate_of_dalai_lama
+		}
+		mutually_exclusive = {
+			focus = TIB_call_ccp
 		}
 		available = {
 			has_political_power > 49
@@ -2456,6 +2477,8 @@ focus_tree = {
 		prerequisite = {
 			focus = TIB_red_potala
 			focus = TIB_fate_of_dalai_lama
+			focus = TIB_legal_leftist_government
+			focus = TIB_call_ccp
 		}
 		ai_will_do = { factor = 2 }
 		x = 1
@@ -2551,6 +2574,16 @@ focus_tree = {
 			focus = TIB_step_with_japan
 		}
 		ai_will_do = { factor = 2 }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CHI
+			}
+			add_timed_idea = {
+				idea = TIB_kick_kuomintang_idea
+				days = 365
+			}
+		}
 		x = 8
 		y = 10
 
@@ -2583,6 +2616,27 @@ focus_tree = {
 			factor = 2
 		}
 		completion_reward = {
+			add_stability = 0.08
+			add_war_support = 0.02
+			if = {
+				limit = {
+					OR = {
+						has_ideas = civilian_economy
+						has_ideas = low_economic_mobilisation
+					}
+				}
+				add_ideas = partial_economic_mobilisation
+			}
+			if = {
+				limit = {
+					OR = {
+						has_ideas = partial_economic_mobilisation
+						has_ideas = war_economy
+						has_ideas = tot_economic_mobilisation
+					}
+				}
+				add_political_power = 150
+			}
 		}
 		x = 0
 		y = 10
@@ -2724,6 +2778,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TIB_tibetan_parliament
+		}
+		completion_reward = {
+			add_research_slot = 1
 		}
 		x = 1
 		y = 11
@@ -3189,6 +3246,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = TIB_dual_education
+			add_research_slot = 1
 		}
 		x = 24
 		y = 8
