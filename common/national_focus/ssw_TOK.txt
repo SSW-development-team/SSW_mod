@@ -2867,7 +2867,7 @@ focus_tree = {
     }
     focus = { #タイ連盟の解体
         id = TOK_break_thai_fede
-        icon = GFX_goal_generic_political_pressure
+        icon = GFX_focus_TOK_break_thai_fede
         cost = 5
         ai_will_do = {
             factor = 10
@@ -2892,6 +2892,18 @@ focus_tree = {
         }
         completion_reward = {
             add_stability = -0.05
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = TOK_effect_famine
+                        has_idea = TOK_effect_famine_1
+                        has_idea = TOK_effect_famine_2
+                        has_idea = TOK_effect_famine_3
+                        has_idea = TOK_effect_famine_4
+                    }
+                }
+                country_event = {id = ssw_tok.8 days = 1}
+            }
         }
     }
     focus = { #追放
