@@ -20,6 +20,30 @@ shared_focus = { #中国の産業
     }
     x = 46
     y = 0
+    offset = {
+        x = -8
+        y = 0
+        trigger = {
+            has_focus_tree = CHI_politic_tree_one
+        }
+    }
+    offset = {
+        x = -9
+        y = 0
+        trigger = {
+            OR = {
+                has_focus_tree = CHI_Rep_of_China_Wang_Zhao_Ming_route
+                has_focus_tree = CHI_Rep_of_China_Gu_Zhutong_route
+            }
+        }
+    }
+    offset = {
+        x = -7
+        y = 0
+        trigger = {
+            has_focus_tree = CHI_war_china_coup_route
+        }
+    }
     completion_reward = {
         add_tech_bonus = {
             bonus = 1
@@ -61,8 +85,9 @@ shared_focus = { #地方主体の産業発展
     prerequisite = {
         focus = CHI_industry_china
     }
-    x = 45
+    x = -1
     y = 1
+    relative_position_id = CHI_industry_china
     completion_reward = {
         if = {
             limit = {
@@ -152,8 +177,9 @@ shared_focus = { #地方経済の重視
     prerequisite = {
         focus = CHI_local_industry_dev
     }
-    x = 42
-    y = 2
+    x = -3
+    y = 1
+    relative_position_id = CHI_local_industry_dev
     completion_reward = {
         add_ideas = CHI_dev_local_economy_1
     }
@@ -174,8 +200,9 @@ shared_focus = { #地方の産業を拡大
     prerequisite = {
         focus = CHI_emphasis_local_economy
     }
-    x = 41
-    y = 3
+    x = -1
+    y = 1
+    relative_position_id = CHI_emphasis_local_economy
     completion_reward = {
         if = {
             limit = {
@@ -255,8 +282,9 @@ shared_focus = { #地域間の連携
     prerequisite = {
         focus = CHI_emphasis_local_economy
     }
-    x = 43
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_emphasis_local_economy
     completion_reward = {
         if = {
             limit = {
@@ -294,8 +322,9 @@ shared_focus = { #地域間ネットワークの充実
     prerequisite = {
         focus = CHI_expand_local_industry
     }
-    x = 41
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_expand_local_industry
     completion_reward = {
         if = {
             limit = {
@@ -333,8 +362,9 @@ shared_focus = { #最新の農業技術を伝播
     prerequisite = {
         focus = CHI_inter_region_cooperate
     }
-    x = 43
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_inter_region_cooperate
     completion_reward = {
         add_ideas = CHI_agri_reform_1
     }
@@ -358,8 +388,9 @@ shared_focus = { #農村の発展
     prerequisite = {
         focus = CHI_propagate_late_agri_tech
     }
-    x = 42
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_enhance_interregion_network
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_agri_reform_1
@@ -383,8 +414,9 @@ shared_focus = { #モータリゼーションの試み
     prerequisite = {
         focus = CHI_rural_dev
     }
-    x = 41
-    y = 6
+    x = -1
+    y = 1
+    relative_position_id = CHI_rural_dev
     completion_reward = {
         custom_effect_tooltip = CHI_attempt_motorization_tt
     }
@@ -405,8 +437,9 @@ shared_focus = { #識字率の向上
     prerequisite = {
         focus = CHI_rural_dev
     }
-    x = 43
-    y = 6
+    x = 1
+    y = 1
+    relative_position_id = CHI_rural_dev
     completion_reward = {
         add_research_slot = 1
     }
@@ -430,8 +463,9 @@ shared_focus = { #美しき田舎
     prerequisite = {
         focus = CHI_improve_literacy
     }
-    x = 42
-    y = 7
+    x = 1
+    y = 1
+    relative_position_id = CHI_attempt_motorization
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_dev_local_economy_3
@@ -467,8 +501,9 @@ shared_focus = { #中央政府の指導
     prerequisite = {
         focus = CHI_industry_china
     }
-    x = 47
+    x = 1
     y = 1
+    relative_position_id = CHI_industry_china
     completion_reward = {
         add_ideas = CHI_chinese_plan_economy_1
     }
@@ -489,8 +524,9 @@ shared_focus = { #都市経済の重視
     prerequisite = {
         focus = CHI_central_gov_guidance
     }
-    x = 50
-    y = 2
+    x = 3
+    y = 1
+    relative_position_id = CHI_central_gov_guidance
     completion_reward = {
         if = {
             limit = {
@@ -570,8 +606,9 @@ shared_focus = { #三峡ダムの建設開始
     prerequisite = {
         focus = CHI_emphasis_urban_economic_good
     }
-    x = 49
-    y = 3
+    x = -1
+    y = 1
+    relative_position_id = CHI_emphasis_urban_economic_good
     completion_reward = {
         custom_effect_tooltip = CHI_construct_three_gorges_dam_begin_tt
     }
@@ -592,8 +629,9 @@ shared_focus = { #都市間の交通網
     prerequisite = {
         focus = CHI_emphasis_urban_economic_good
     }
-    x = 51
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_emphasis_urban_economic_good
     completion_reward = {
         if = {
             limit = {
@@ -697,8 +735,9 @@ shared_focus = { #国有企業
     prerequisite = {
         focus = CHI_construct_three_gorges_dam_begin
     }
-    x = 49
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_construct_three_gorges_dam_begin
     completion_reward = {
         if = {
             limit = {
@@ -736,8 +775,9 @@ shared_focus = { #電化！
     prerequisite = {
         focus = CHI_inter_city_transport_network
     }
-    x = 51
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_inter_city_transport_network
     completion_reward = {
         if = {
             limit = {
@@ -778,8 +818,9 @@ shared_focus = { #都市部への人口流入
     prerequisite = {
         focus = CHI_electrification
     }
-    x = 50
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_state_own_enterprise
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_chinese_plan_economy_3
@@ -803,8 +844,9 @@ shared_focus = { #栄華を誇る東洋のパリ
     prerequisite = {
         focus = CHI_population_influx_urban_area
     }
-    x = 49
-    y = 6
+    x = -1
+    y = 1
+    relative_position_id = CHI_population_influx_urban_area
     completion_reward = {
         if = {
             limit = {
@@ -844,8 +886,9 @@ shared_focus = { #国立中央大学の成長
     prerequisite = {
         focus = CHI_population_influx_urban_area
     }
-    x = 51
-    y = 6
+    x = 1
+    y = 1
+    relative_position_id = CHI_population_influx_urban_area
     completion_reward = {
         add_research_slot = 1
     }
@@ -869,8 +912,9 @@ shared_focus = { #都市の輝き
     prerequisite = {
         focus = CHI_growth_natio_centrak_univ
     }
-    x = 50
-    y = 7
+    x = 1
+    y = 1
+    relative_position_id = CHI_paris_orient_all_glory
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_chinese_plan_economy_4
@@ -902,8 +946,9 @@ shared_focus = { #工場労働者の救済
         focus = CHI_local_industry_dev
         focus = CHI_central_gov_guidance
     }
-    x = 46
-    y = 2
+    x = 1
+    y = 1
+    relative_position_id = CHI_local_industry_dev
     completion_reward = {
         custom_effect_tooltip = CHI_relief_factory_worker_tt
         add_to_variable = {
@@ -935,8 +980,9 @@ shared_focus = { #児童労働を制限
     prerequisite = {
         focus = CHI_relief_factory_worker
     }
-    x = 45
-    y = 3
+    x = -1
+    y = 1
+    relative_position_id = CHI_relief_factory_worker
     completion_reward = {
         custom_effect_tooltip = CHI_limit_child_labor_tt
         add_to_variable = {
@@ -967,8 +1013,9 @@ shared_focus = { #立地の法的規制
     prerequisite = {
         focus = CHI_relief_factory_worker
     }
-    x = 47
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_relief_factory_worker
     completion_reward = {
         custom_effect_tooltip = CHI_legal_restrict_location_tt
         add_to_variable = {
@@ -999,8 +1046,9 @@ shared_focus = { #工具の輸入
     prerequisite = {
         focus = CHI_relief_factory_worker
     }
-    x = 46
-    y = 4
+    x = 0
+    y = 2
+    relative_position_id = CHI_relief_factory_worker
     completion_reward = {
         custom_effect_tooltip = CHI_import_tools_tt
         add_to_variable = {
@@ -1031,8 +1079,9 @@ shared_focus = { #製造機械の輸入
     prerequisite = {
         focus = CHI_import_tools
     }
-    x = 46
-    y = 5
+    x = 0
+    y = 1
+    relative_position_id = CHI_import_tools
     completion_reward = {
         custom_effect_tooltip = CHI_import_manufacture_machinery_tt
         add_to_variable = {
@@ -1063,8 +1112,9 @@ shared_focus = { #労働者を育成
     prerequisite = {
         focus = CHI_limit_child_labor
     }
-    x = 45
-    y = 6
+    x = 0
+    y = 3
+    relative_position_id = CHI_limit_child_labor
     completion_reward = {
         custom_effect_tooltip = CHI_training_worker_tt
         add_to_variable = {
@@ -1095,8 +1145,9 @@ shared_focus = { #鉱業の拡大
     prerequisite = {
         focus = CHI_legal_restrict_location
     }
-    x = 47
-    y = 6
+    x = 0
+    y = 3
+    relative_position_id = CHI_legal_restrict_location
     completion_reward = {
         if = {
             limit = {
@@ -1167,8 +1218,9 @@ shared_focus = { #工場労働者の規律
     prerequisite = {
         focus = CHI_import_manufacture_machinery
     }
-    x = 46
-    y = 7
+    x = 0
+    y = 2
+    relative_position_id = CHI_import_manufacture_machinery
     completion_reward = {
         custom_effect_tooltip = CHI_discipline_factory_worker_tt
         hidden_effect = {
@@ -1198,8 +1250,9 @@ shared_focus = { #安全性の改善
     prerequisite = {
         focus = CHI_discipline_factory_worker
     }
-    x = 45
-    y = 8
+    x = -1
+    y = 1
+    relative_position_id = CHI_discipline_factory_worker
     completion_reward = {
         if = {
             limit = {
@@ -1237,8 +1290,9 @@ shared_focus = { #豊富な労働力
     prerequisite = {
         focus = CHI_discipline_factory_worker
     }
-    x = 47
-    y = 8
+    x = 1
+    y = 1
+    relative_position_id = CHI_discipline_factory_worker
     completion_reward = {
         if = {
             limit = {
@@ -1279,8 +1333,9 @@ shared_focus = { #中國製造
     prerequisite = {
         focus = CHI_abundant_labor_force
     }
-    x = 46
-    y = 9
+    x = 1
+    y = 1
+    relative_position_id = CHI_improve_safety
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_innovative_industry_3
@@ -1303,8 +1358,9 @@ shared_focus = { #中国軍の改革
     search_filters = {
         FOCUS_FILTER_MANPOWER
     }
-    x = 61
+    x = 15
     y = 0
+    relative_position_id = CHI_industry_china
     completion_reward = {
         army_experience = 50
         navy_experience = 10
@@ -1333,8 +1389,9 @@ shared_focus = { #中国連邦軍
     mutually_exclusive = {
         focus = CHI_natio_revo_army
     }
-    x = 57
+    x = -4
     y = 1
+    relative_position_id = CHI_reform_chinese_military
     completion_reward = {
         add_dynamic_modifier = {
             modifier = ssw_CHI_fede_army
@@ -1409,8 +1466,9 @@ shared_focus = { #中華航空部隊
     prerequisite = {
         focus = CHI_chinese_federal_army
     }
-    x = 56
-    y = 2
+    x = -1
+    y = 1
+    relative_position_id = CHI_chinese_federal_army
     completion_reward = {
         custom_effect_tooltip = CHI_chinese_air_force_tt
         add_to_variable = {
@@ -1439,8 +1497,9 @@ shared_focus = { #新生連邦陸軍
     prerequisite = {
         focus = CHI_chinese_federal_army
     }
-    x = 58
-    y = 2
+    x = 1
+    y = 1
+    relative_position_id = CHI_chinese_federal_army
     completion_reward = {
         custom_effect_tooltip = CHI_new_federal_army_tt
         add_to_variable = {
@@ -1465,8 +1524,9 @@ shared_focus = { #航空基地の拡大
     prerequisite = {
         focus = CHI_chinese_air_force
     }
-    x = 56
-    y = 3
+    x = 0
+    y = 1
+    relative_position_id = CHI_chinese_air_force
     completion_reward = {
         if = {
             limit = {
@@ -1528,8 +1588,9 @@ shared_focus = { #保定陸軍軍官学校
     prerequisite = {
         focus = CHI_new_federal_army
     }
-    x = 58
-    y = 3
+    x = 0
+    y = 1
+    relative_position_id = CHI_new_federal_army
     completion_reward = {
         custom_effect_tooltip = CHI_baod_military_academy_tt
         add_to_variable = {
@@ -1554,8 +1615,9 @@ shared_focus = { #空軍将校の育成
     prerequisite = {
         focus = CHI_expansion_base
     }
-    x = 56
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_expansion_base
     completion_reward = {
         custom_effect_tooltip = CHI_air_force_officer_training_tt
         add_to_variable = {
@@ -1580,8 +1642,9 @@ shared_focus = { #連邦民兵隊
     prerequisite = {
         focus = CHI_baod_military_academy
     }
-    x = 58
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_baod_military_academy
     completion_reward = {
         army_experience = 30
     }
@@ -1602,8 +1665,9 @@ shared_focus = { #海上空襲構想
     prerequisite = {
         focus = CHI_air_force_officer_training
     }
-    x = 55
-    y = 5
+    x = -1
+    y = 1
+    relative_position_id = CHI_air_force_officer_training
     completion_reward = {
         add_tech_bonus = {
             bonus = 1
@@ -1637,8 +1701,9 @@ shared_focus = { #郷土を守る意思
     prerequisite = {
         focus = CHI_federal_militia
     }
-    x = 57
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_air_force_officer_training
     completion_reward = {
         custom_effect_tooltip = CHI_will_defend_homeland_tt
         add_to_variable = {
@@ -1671,8 +1736,9 @@ shared_focus = { #民兵組織の拡大
     prerequisite = {
         focus = CHI_federal_militia
     }
-    x = 59
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_federal_militia
     completion_reward = {
         custom_effect_tooltip = CHI_expansion_militia_tt
         add_to_variable = {
@@ -1703,8 +1769,9 @@ shared_focus = { #独立型司令部
     prerequisite = {
         focus = CHI_expansion_militia
     }
-    x = 57
-    y = 6
+    x = 0
+    y = 1
+    relative_position_id = CHI_will_defend_homeland
     completion_reward = {
         custom_effect_tooltip = CHI_independent_command_tt
         add_to_variable = {
@@ -1743,8 +1810,9 @@ shared_focus = { #国民革命軍
     mutually_exclusive = {
         focus = CHI_chinese_federal_army
     }
-    x = 65
+    x = 4
     y = 1
+    relative_position_id = CHI_reform_chinese_military
     completion_reward = {
         add_dynamic_modifier = {
             modifier = ssw_CHI_natio_revo_army
@@ -1815,8 +1883,9 @@ shared_focus = { #南洋艦隊
     prerequisite = {
         focus = CHI_natio_revo_army
     }
-    x = 64
-    y = 2
+    x = -1
+    y = 1
+    relative_position_id = CHI_natio_revo_army
     completion_reward = {
         add_tech_bonus = {
             bonus = 0.5
@@ -1846,8 +1915,9 @@ shared_focus = { #革命教育
     prerequisite = {
         focus = CHI_natio_revo_army
     }
-    x = 66
-    y = 2
+    x = 1
+    y = 1
+    relative_position_id = CHI_natio_revo_army
     completion_reward = {
         add_war_support = 0.15
         custom_effect_tooltip = CHI_revolutionary_edu_tt
@@ -1873,8 +1943,9 @@ shared_focus = { #上海海軍工廠
     prerequisite = {
         focus = CHI_nanyang_fleet
     }
-    x = 64
-    y = 3
+    x = 0
+    y = 1
+    relative_position_id = CHI_nanyang_fleet
     completion_reward = {
         if = {
             limit = {
@@ -1915,8 +1986,9 @@ shared_focus = { #戦車への興味
     prerequisite = {
         focus = CHI_revolutionary_edu
     }
-    x = 66
-    y = 3
+    x = 0
+    y = 1
+    relative_position_id = CHI_revolutionary_edu
     completion_reward = {
         add_tech_bonus = {
             bonus = 0.5
@@ -1941,8 +2013,9 @@ shared_focus = { #提督の育成
     prerequisite = {
         focus = CHI_Shanghai_navy_arsenal
     }
-    x = 64
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_Shanghai_navy_arsenal
     completion_reward = {
         custom_effect_tooltip = CHI_training_admiral_tt
         add_to_variable = {
@@ -1971,8 +2044,9 @@ shared_focus = { #集団訓練
     prerequisite = {
         focus = CHI_interest_tank
     }
-    x = 66
-    y = 4
+    x = 0
+    y = 1
+    relative_position_id = CHI_interest_tank
     completion_reward = {
         custom_effect_tooltip = CHI_group_training_tt
         add_to_variable = {
@@ -2005,8 +2079,9 @@ shared_focus = { #海軍陸戦隊を組織
     prerequisite = {
         focus = CHI_training_admiral
     }
-    x = 63
-    y = 5
+    x = -1
+    y = 1
+    relative_position_id = CHI_training_admiral
     completion_reward = {
         add_tech_bonus = {
             bonus = 1
@@ -2039,8 +2114,9 @@ shared_focus = { #夜襲
     prerequisite = {
         focus = CHI_group_training
     }
-    x = 65
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_training_admiral
     completion_reward = {
         custom_effect_tooltip = CHI_night_raid_tt
         add_to_variable = {
@@ -2065,8 +2141,9 @@ shared_focus = { #航空産業の拡大
     prerequisite = {
         focus = CHI_group_training
     }
-    x = 67
-    y = 5
+    x = 1
+    y = 1
+    relative_position_id = CHI_group_training
     completion_reward = {
         if = {
             limit = {
@@ -2120,8 +2197,9 @@ shared_focus = { #統一の軍隊
     prerequisite = {
         focus = CHI_expansion_aviation_industry
     }
-    x = 65
-    y = 6
+    x = 0
+    y = 1
+    relative_position_id = CHI_night_raid
     completion_reward = {
         custom_effect_tooltip = CHI_army_unity_tt
         add_to_variable = {
@@ -2165,8 +2243,9 @@ shared_focus = { #ドイツ人顧問を再招待
     prerequisite = {
         focus = CHI_reform_chinese_military
     }
-    x = 61
+    x = 0
     y = 2
+    relative_position_id = CHI_reform_chinese_military
     completion_reward = {
         if = {
             limit = {
@@ -2258,8 +2337,9 @@ shared_focus = { #上海の要塞化
     prerequisite = {
         focus = CHI_GER_adviser_invite_back
     }
-    x = 60
-    y = 3
+    x = -1
+    y = 1
+    relative_position_id = CHI_GER_adviser_invite_back
     completion_reward = {
         if = {
             limit = {
@@ -2300,8 +2380,9 @@ shared_focus = { #中華ジークフリート線
     prerequisite = {
         focus = CHI_GER_adviser_invite_back
     }
-    x = 62
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_GER_adviser_invite_back
     completion_reward = {
         if = {
             limit = {
@@ -2384,8 +2465,9 @@ shared_focus = { #陸軍委員会
     prerequisite = {
         focus = CHI_GER_adviser_invite_back
     }
-    x = 61
-    y = 4
+    x = 0
+    y = 2
+    relative_position_id = CHI_GER_adviser_invite_back
     completion_reward = {
         custom_effect_tooltip = CHI_army_commission_tt
     }
@@ -2406,8 +2488,9 @@ shared_focus = { #50師団計画
     prerequisite = {
         focus = CHI_army_commission
     }
-    x = 61
-    y = 5
+    x = 0
+    y = 1
+    relative_position_id = CHI_army_commission
     completion_reward = {
         custom_effect_tooltip = CHI_fifty_division_plan_tt
     }
@@ -2428,8 +2511,9 @@ shared_focus = { #調査統計局
     prerequisite = {
         focus = CHI_make_Shanghai_fortress
     }
-    x = 60
-    y = 6
+    x = 0
+    y = 3
+    relative_position_id = CHI_make_Shanghai_fortress
     completion_reward = {
         add_ideas = CHI_survey_and_statistic_bureau
     }
@@ -2450,8 +2534,9 @@ shared_focus = { #黄埔軍官学校
     prerequisite = {
         focus = CHI_Siegfried_line_china
     }
-    x = 62
-    y = 6
+    x = 0
+    y = 3
+    relative_position_id = CHI_Siegfried_line_china
     completion_reward = {
         add_tech_bonus = {
             bonus = 0.5
@@ -2479,8 +2564,9 @@ shared_focus = { #我有一把槍
     prerequisite = {
         focus = CHI_huangpu_military_officer_school
     }
-    x = 61
-    y = 7
+    x = 1
+    y = 1
+    relative_position_id = CHI_survey_statistic_bureau
     completion_reward = {
         add_ideas = CHI_with_gun_in_hand
     }
@@ -2497,8 +2583,9 @@ shared_focus = { #中国外交
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 72
+    x = 11
     y = 0
+    relative_position_id = CHI_reform_chinese_military
     completion_reward = {
         add_political_power = 100
     }
@@ -2523,8 +2610,9 @@ shared_focus = { #南京反帝国主義国共同会議
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 72
+    x = 0
     y = 1
+    relative_position_id = CHI_chinese_diplomacy
     prerequisite = {
         focus = CHI_chinese_diplomacy
     }
@@ -2551,8 +2639,9 @@ shared_focus = { #パキスタンの友
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 71
-    y = 2
+    x = -1
+    y = 1
+    relative_position_id = CHI_anti_imperialist_nati_co_co
     prerequisite = {
         focus = CHI_anti_imperialist_nati_co_co
     }
@@ -2583,8 +2672,9 @@ shared_focus = { #資金と武器を
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 71
-    y = 4
+    x = 0
+    y = 2
+    relative_position_id = CHI_friend_Pakistan
     prerequisite = {
         focus = CHI_friend_Pakistan
     }
@@ -2619,8 +2709,9 @@ shared_focus = { #東南アジアの同胞
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 73
-    y = 2
+    x = 1
+    y = 1
+    relative_position_id = CHI_anti_imperialist_nati_co_co
     prerequisite = {
         focus = CHI_anti_imperialist_nati_co_co
     }
@@ -2647,8 +2738,9 @@ shared_focus = { #反帝国主義闘争の扇動
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 73
-    y = 4
+    x = 0
+    y = 2
+    relative_position_id = CHI_compatriot_south_east_asis
     prerequisite = {
         focus = CHI_compatriot_south_east_asis
     }
@@ -2691,8 +2783,9 @@ shared_focus = { #日本との決戦
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 72
-    y = 3
+    x = 0
+    y = 2
+    relative_position_id = CHI_anti_imperialist_nati_co_co
     prerequisite = {
         focus = CHI_anti_imperialist_nati_co_co
     }
@@ -2720,8 +2813,9 @@ shared_focus = { #中国の世紀
     cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-    x = 72
-    y = 5
+    x = 0
+    y = 2
+    relative_position_id = CHI_decisive_battle_JAP
     prerequisite = {
         focus = CHI_decisive_battle_JAP
     }
@@ -2755,8 +2849,9 @@ shared_focus = { #チベットとの交渉
     prerequisite = {
         focus = CHI_chinese_century
     }
-    x = 71
-    y = 6
+    x = -1
+    y = 1
+    relative_position_id = CHI_chinese_century
     completion_reward = {
         TIB = {
             country_event = {id = ssw_chi.21}
@@ -2789,8 +2884,9 @@ shared_focus = { #チベット侵攻！
     prerequisite = {
         focus = CHI_negotiate_Tibet
     }
-    x = 71
-    y = 7
+    x = 0
+    y = 1
+    relative_position_id = CHI_negotiate_Tibet
     completion_reward = {
         declare_war_on = {
             target = TIB
@@ -2832,8 +2928,9 @@ shared_focus = { #外蒙古の回収
     prerequisite = {
         focus = CHI_chinese_century
     }
-    x = 73
-    y = 6
+    x = 1
+    y = 1
+    relative_position_id = CHI_chinese_century
     completion_reward = {
         declare_war_on = {
             target = MON
@@ -2896,8 +2993,9 @@ shared_focus = { #唐努鳥梁海の要求交渉
     prerequisite = {
         focus = CHI_recovery_outer_Mongolia
     }
-    x = 73
-    y = 7
+    x = 0
+    y = 1
+    relative_position_id = CHI_recovery_outer_Mongolia
     completion_reward = {
         329 = {
             add_claim_by = CHI
@@ -2972,8 +3070,9 @@ shared_focus = { #二つの太陽
         FOCUS_FILTER_WAR_SUPPORT
         FOCUS_FILTER_WAR_SUPPORT
     }
-    x = 79
+    x = 7
     y = 0
+    relative_position_id = CHI_chinese_diplomacy
     completion_reward = {
         add_war_support = 0.1
         add_political_power = 100
@@ -2995,8 +3094,9 @@ shared_focus = { #抗日大戦
     prerequisite = {
         focus = CHI_two_sun
     }
-    x = 79
+    x = 0
     y = 1
+    relative_position_id = CHI_two_sun
     completion_reward = {
         add_ideas = CHI_anti_JAP
     }
@@ -3017,8 +3117,9 @@ shared_focus = { #国外の友
     prerequisite = {
         focus = CHI_anti_JAP_war
     }
-    x = 78
-    y = 2
+    x = -1
+    y = 1
+    relative_position_id = CHI_anti_JAP_war
     completion_reward = {
         if = {
             limit = {
@@ -3052,8 +3153,9 @@ shared_focus = { #ドイツからの兵器購入
     prerequisite = {
         focus = CHI_anti_JAP_war
     }
-    x = 80
-    y = 2
+    x = 1
+    y = 1
+    relative_position_id = CHI_anti_JAP_war
     completion_reward = {
         custom_effect_tooltip = CHI_purchase_weapon_GER_tt
         hidden_effect = {
@@ -3082,8 +3184,9 @@ shared_focus = { #戦争経済への移行
     prerequisite = {
         focus = CHI_friend_from_abroad
     }
-    x = 77
-    y = 3
+    x = -1
+    y = 1
+    relative_position_id = CHI_friend_from_abroad
     completion_reward = {
         ssw_increase_economic_law = yes
     }
@@ -3107,8 +3210,9 @@ shared_focus = { #ゲリラ戦の展開
     prerequisite = {
         focus = CHI_purchase_weapon_GER
     }
-    x = 79
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_friend_from_abroad
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_anti_JAP
@@ -3141,8 +3245,9 @@ shared_focus = { #偽満州の同胞
     prerequisite = {
         focus = CHI_purchase_weapon_GER
     }
-    x = 81
-    y = 3
+    x = 1
+    y = 1
+    relative_position_id = CHI_purchase_weapon_GER
     completion_reward = {
         MAN = {
             add_ideas = CHI_active_anti_JAP_MAN_molecule
@@ -3175,8 +3280,9 @@ shared_focus = { #一面交渉、一面抵抗
     mutually_exclusive = {
         focus = CHI_resolute_defence
     }
-    x = 78
-    y = 4
+    x = 1
+    y = 1
+    relative_position_id = CHI_transition_war_economy
     completion_reward = {
         add_stability = 0.2
     }
@@ -3206,8 +3312,9 @@ shared_focus = { #断固たる抗戦
     mutually_exclusive = {
         focus = CHI_fight_side_resist_other
     }
-    x = 80
-    y = 4
+    x = 2
+    y = 0
+    relative_position_id = CHI_fight_side_resist_other
     completion_reward = {
         add_war_support = 0.2
     }
@@ -3228,8 +3335,9 @@ shared_focus = { #産業の保護
     prerequisite = {
         focus = CHI_fight_side_resist_other
     }
-    x = 78
-    y = 5
+    x = 0
+    y = 1
+    relative_position_id = CHI_fight_side_resist_other
     completion_reward = {
         add_ideas = CHI_protect_factory
     }
@@ -3250,8 +3358,9 @@ shared_focus = { #督戦隊の編成
     prerequisite = {
         focus = CHI_resolute_defence
     }
-    x = 80
-    y = 5
+    x = 0
+    y = 1
+    relative_position_id = CHI_resolute_defence
     completion_reward = {
         add_ideas = CHI_rangers
     }
@@ -3273,8 +3382,9 @@ shared_focus = { #継戦
         focus = CHI_industry_protect
         focus = CHI_formation_viceroy_army
     }
-    x = 79
-    y = 6
+    x = 1
+    y = 1
+    relative_position_id = CHI_industry_protect
     completion_reward = {
         swap_ideas = {
             remove_idea = CHI_anti_JAP_2
