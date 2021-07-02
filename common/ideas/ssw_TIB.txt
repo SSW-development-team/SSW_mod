@@ -520,6 +520,19 @@ ideas = {
 				social_conservatism_drift = 0.01
 			}
 		}
+		TIB_kick_kuomintang_idea = {
+			picture = jap_intervene_in_china
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.2
+				defense_bonus_against = -0.1
+			}
+		}
 		###kham tax
 		TIB_tax_to_kham_none = {
 			picture = chi_hyper_inflation
@@ -876,14 +889,18 @@ ideas = {
 		}
 		TIB_peter_aufschnaiter = {
 			picture = peter_aufschnaiter
-			
 			allowed = {
 				original_tag = TIB
 			}
+			removal_cost = -1
 			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
 			}
 			traits = {  }
-
+			cancel_if_invalid = no
 			ai_will_do = {
 				factor = 1
 			}
