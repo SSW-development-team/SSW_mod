@@ -578,6 +578,10 @@ USA_policy = {
 		remove_effect = {
 			clr_country_flag = adding_state_core
 			FROM = { add_core_of = ROOT }
+			if = {
+				limit = { original_tag = LFF }
+				FROM = { add_manpower = -5000 }
+			}
 		}
 	}
 	capital_washington_d_c = {
@@ -653,7 +657,7 @@ USA_policy = {
 SSW_foreign_support = {
 	release_the_nation = {
 		icon = generic_prepare_civil_war
-		cost = 77
+		cost = 0
 		available = {
 			any_state = {
 				is_owned_and_controlled_by = ROOT
@@ -747,7 +751,7 @@ SSW_foreign_support = {
 				exists = yes
 			}
 		}
-		cost = 25
+		cost = 0
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		complete_effect = {
@@ -795,7 +799,7 @@ SSW_foreign_support = {
 				exists = yes
 			}
 		}
-		cost = 25
+		cost = 0
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		complete_effect = {
