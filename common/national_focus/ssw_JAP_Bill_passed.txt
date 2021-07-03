@@ -59,7 +59,7 @@ shared_focus = { #東亜の平穏への注力
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			IND = {
-				country_event = {id = ssw_japan.100 days = 1}
+				country_event = {id = ssw_jap.100 days = 1}
 			}
 		}
 	}
@@ -125,7 +125,7 @@ shared_focus = { #東亜の平穏への注力
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			country_event = {id = ssw_japan.101}
+			country_event = {id = ssw_jap.101}
 		}
 	}
 	shared_focus = { #芳沢の次
@@ -141,14 +141,19 @@ shared_focus = { #東亜の平穏への注力
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			country_event = {id = ssw_japan.102}
+			country_event = {id = ssw_jap.102}
 		}
 	}
 	shared_focus = { #芦田均首相
 		id = JAP_prime_minister_hitoshi_ashida
 		icon = GFX_goal_unknown
 		available = {
-			always = no
+			has_country_flag = JAP_elected_Ashida
+			custom_trigger_tooltip = {
+				tooltip = JAP_next_to_yoshizawa_tt
+				has_country_flag = JAP_ft_election_finished
+				has_country_flag = JAP_ft_election_maintain_victory
+			}
 		}
 		prerequisite = { focus = JAP_next_to_yoshizawa }
 		mutually_exclusive = { focus = JAP_prime_minister_tsuruhei_matsuno }
@@ -174,7 +179,12 @@ shared_focus = { #東亜の平穏への注力
 		id = JAP_prime_minister_tsuruhei_matsuno
 		icon = GFX_goal_unknown
 		available = {
-			always = no
+			has_country_flag = JAP_elected_Mathuno
+			custom_trigger_tooltip = {
+				tooltip = JAP_next_to_yoshizawa_tt
+				has_country_flag = JAP_ft_election_finished
+				has_country_flag = JAP_ft_election_maintain_victory
+			}
 		}
 		prerequisite = { focus = JAP_next_to_yoshizawa }
 		mutually_exclusive = { focus = JAP_prime_minister_hitoshi_ashida }
@@ -253,7 +263,7 @@ shared_focus = { #東亜の平穏への注力
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		completion_reward = {
-			country_event = {id = ssw_japan.103}
+			country_event = {id = ssw_jap.103}
 		}
 	}
 	shared_focus = { #労働組合に自由を！
@@ -825,7 +835,7 @@ shared_focus = { #東亜の平穏への注力
 					}
 				}
 			}
-			country_event = {id = ssw_japan.104}
+			country_event = {id = ssw_jap.104}
 		}
 	}
 	shared_focus = { #日本の安定的成長
