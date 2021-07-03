@@ -890,15 +890,21 @@ country_event = { #第二回連邦代表大会
 		}
 		mark_focus_tree_layout_dirty = yes
 	}
-	option = {
+	option = { #顧祝同
 		name = ssw_chi.29.a
 		trigger = {
 			has_country_flag = CHI_fede_lower_power
 		}
+		ai_chance = {
+			base = 20
+		}
 		set_country_flag = CHI_Gu_Zhutong_route_flag
 	}
-	option = {
+	option = { #李宋仁
 		name = ssw_chi.29.b
+		ai_chance = {
+			base = 20
+		}
 		set_politics = {
 			ruling_party = authority_democracy
 			elections_allowed = no
@@ -919,8 +925,11 @@ country_event = { #第二回連邦代表大会
 		add_ideas = CHI_Huang_Julu
 		add_ideas = CHI_He_Yingqin
 	}
-	option = {
+	option = { #竜雲
 		name = ssw_chi.29.c
+		ai_chance = {
+			base = 20
+		}
 		set_politics = {
 			ruling_party = social_conservatism
 			elections_allowed = no
@@ -939,8 +948,11 @@ country_event = { #第二回連邦代表大会
 			add_ideas = CHI_Feng_Yuxiang
 		}
 	}
-	option = {
+	option = { #傅作義
 		name = ssw_chi.29.e
+		ai_chance = {
+			base = 20
+		}
 		set_politics = {
 			ruling_party = social_liberalism
 			elections_allowed = no
@@ -954,8 +966,11 @@ country_event = { #第二回連邦代表大会
 		add_ideas = CHI_Li_Peiji
 		add_ideas = CHI_Dong_Qiwu
 	}
-	option = {
+	option = { #胡耀邦
 		name = ssw_chi.29.f
+		ai_chance = {
+			base = 20
+		}
 		set_politics = {
 			ruling_party = progressive_communism
 			elections_allowed = no
@@ -1959,8 +1974,8 @@ country_event = { #救国政変(hidden)
 		has_country_flag = CHI_Asian_war
 		NOT = {
 			OR = {
-				has_full_control_of_state = 608
-				has_full_control_of_state = 613
+				controls_state = 608
+				controls_state = 613
 			}
 		}
 	}
