@@ -9,11 +9,12 @@ country_event = { #先祖伝来の地
 		original_tag = ROM
 		OR = {
 			has_global_flag = GER_civil_war
-			has_start_date > 1951.01.01
+			date > 1951.1.1
 		}
 		NOT = {
 			has_global_flag = Danubian_war
 			has_global_flag = ancestors_land
+			has_global_flag = avoidance_danubian_war
 		}
 	}
 	mean_time_to_happen = { days = 2 }
@@ -32,7 +33,7 @@ country_event = { #先祖伝来の地
 	option = { #彼らとは相容れない
 		name = Danubian_war.1.b
 		ai_chance = { base = 1 }
-		set_global_flag = ancestors_land
+		set_global_flag = avoidance_danubian_war
 	}
 }
 country_event = { #ニシュ会談
@@ -67,6 +68,7 @@ country_event = { #ニシュ会談
 	option = { #リスクが大き過ぎる
 		name = Danubian_war.2.b
 		ai_chance = { base = 1 }
+		set_global_flag = avoidance_danubian_war
 	}
 }
 country_event = { #ルーマニアとセルビアが国境付近で軍事演習
