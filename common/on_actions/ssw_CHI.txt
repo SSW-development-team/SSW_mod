@@ -18,8 +18,41 @@ on_actions = {
                             tag = MEN
                         }
                     }
+                    NOT = {has_global_flag = CHI_marco_polo_bridge_incident}
                 }
                 country_event = {id = ssw_chi_jap_war.9}
+            }
+        }
+    }
+    on_state_control_changed = {
+        effect = {
+            if = {
+                limit = {
+                    FROM.FROM = {
+                        OR = {
+                            state = 608
+                            state = 613
+                        }
+                    }
+                    FROM = {
+                        tag = CHI
+                    }
+                    CHI = {
+                        has_country_flag = CHI_Asian_war
+                    }
+                    NOT = {has_global_flag = CHI_Asia_war_finished}
+                }
+                if = {
+                    limit = {
+                        CHI = {
+                            NOT = {controls_state = 608}
+                            NOT = {controls_state = 613}
+                        }
+                    }
+                    CHI = {
+                        country_event = {id = ssw_chi.40}
+                    }
+                }
             }
         }
     }
