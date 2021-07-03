@@ -7,7 +7,10 @@ country_event = { #先祖伝来の地
 	picture = GFX_Ancestral_land
 	trigger = {
 		original_tag = ROM
-		has_global_flag = GER_civil_war
+		OR = {
+			has_global_flag = GER_civil_war
+			has_start_date > 1951.01.01
+		}
 		NOT = {
 			has_global_flag = Danubian_war
 			has_global_flag = ancestors_land
