@@ -1,0 +1,696 @@
+#Yokusankai Route
+#国民会の躍進
+shared_focus = {
+    id = JAP_Yokuanki_A_breakthrough_for_the_Kokuminkai
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 0
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_A_breakthrough_for_the_Kokuminkai"
+    }
+}
+#再軍備の方針
+shared_focus = {
+    id = JAP_Yokuanki_Guidelines_for_rearmament
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_A_breakthrough_for_the_Kokuminkai
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 48
+    y = 1
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Guidelines_for_rearmament"
+        army_experience = 30
+    }
+}
+#軍部との連携を強化
+shared_focus = {
+    id = JAP_Yokuanki_Strengthening_ties_with_the_military
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Guidelines_for_rearmament
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 48
+    y = 2
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Strengthening_ties_with_the_military"
+        add_political_power = -50
+        add_ideas = JAP_Bureaucratic_Morning
+    }
+}
+#自由化の誤りを修正
+shared_focus = {
+    id = JAP_Yokuanki_Correction_of_liberalisation_error
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_A_breakthrough_for_the_Kokuminkai
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 1
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Correction_of_liberalisation_error"
+        add_popularity = {
+            ideology = social_democracy
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = -0.08
+        }
+    }
+}
+#党内の足並み
+shared_focus = {
+    id = JAP_Yokuanki_Party_alignment
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Correction_of_liberalisation_error
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 2
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Party_alignment"
+        add_political_power = 150
+    }
+}
+#経済議論
+shared_focus = {
+    id = JAP_Yokuanki_Economic_debate
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_A_breakthrough_for_the_Kokuminkai
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 52
+    y = 1
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Economic_debate"
+        add_political_power = -50
+    }
+}
+#商工省の大規模化
+shared_focus = {
+    id = JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Economic_debate
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 52
+    y = 2
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry"
+        add_political_power = -15
+    }
+}
+#官僚の団結を施す
+shared_focus = {
+    id = JAP_Yokuanki_Unite_the_bureaucracy
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Strengthening_ties_with_the_military
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Party_alignment
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 47
+    y = 3
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Unite_the_bureaucracy"
+        country_event = {
+            id = SSW_JAP_YOKUSANKAI.0
+        }
+    }
+}
+#元政友会党員を取り込む
+shared_focus = {
+    id = JAP_Yokuanki_Take_in_former_members_of_the_political_party
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Strengthening_ties_with_the_military
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Party_alignment
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 49
+    y = 3
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Take_in_former_members_of_the_political_party"
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.03
+        }
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = social_conservatism
+            popularity = -0.03
+        }
+    }
+}
+#貴族院からの支持
+shared_focus = {
+    id = JAP_Yokuanki_Support_from_the_House_of_Lords
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Strengthening_ties_with_the_military
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Party_alignment
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 51
+    y = 3
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Support_from_the_House_of_Lords"
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.05
+        }
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.05
+        }
+    }
+}
+#官僚による産業発展
+shared_focus = {
+    id = JAP_Yokuanki_Industrial_development_by_bureaucracy
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Strengthening_ties_with_the_military
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Party_alignment
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Ministry_of_expansion_Commerce_and_Industry
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 53
+    y = 3
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Industrial_development_by_bureaucracy"
+        add_ideas = JAP_Bureaucrats_plans
+    }
+}
+#国民会の権力闘争
+shared_focus = {
+    id = JAP_Yokuanki_The_power_struggle_in_Kokuminkai
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Take_in_former_members_of_the_political_party
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Support_from_the_House_of_Lords
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 4
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_The_power_struggle_in_Kokuminkai"
+        add_political_power = 100
+    }
+}
+#保守せよ
+shared_focus = {
+    id = JAP_Yokuanki_Maintenance
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_The_power_struggle_in_Kokuminkai
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_Proposals_from_the_spectres_of_the_Showa_era
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_A_strong_democracy
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 5
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Maintenance"
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.15
+        }
+    }
+}
+#昭和の妖怪からの提案
+shared_focus = {
+    id = JAP_Yokuanki_Proposals_from_the_spectres_of_the_Showa_era
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_The_power_struggle_in_Kokuminkai
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_Maintenance
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_A_strong_democracy
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 48
+    y = 5
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Proposals_from_the_spectres_of_the_Showa_era"
+        add_popularity = {
+            ideology = national_fascism
+            popularity = 0.15
+        }
+    }
+}
+#朝鮮での訪問
+shared_focus = {
+    id = JAP_Yokuanki_Visits_in_Korea
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Proposals_from_the_spectres_of_the_Showa_era
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 48
+    y = 6
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Visits_in_Korea"
+        country_event = {
+            id = SSW_JAP_YOKUSANKAI.1
+        }
+    }
+}
+#計画経済の研究
+shared_focus = {
+    id = JAP_Yokuanki_Research_on_planned_economy
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Visits_in_Korea
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 48
+    y = 7
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Research_on_planned_economy"
+        add_ideas = JAP_Exploring_Planned_Economy
+    }
+}
+#党内の統一化を模索
+shared_focus = {
+    id = JAP_Yokuanki_Seeking_to_unify_the_party
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Maintenance
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 6
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Seeking_to_unify_the_party"
+        add_political_power = -50
+        add_popularity = {
+            ideology = authority_despotism
+            popularity = 0.10
+        }
+    }
+}
+#菊の王座の威信
+shared_focus = {
+    id = JAP_Yokuanki_Prestige_of_the_Chrysanthemum_Throne
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Seeking_to_unify_the_party
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 7
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Prestige_of_the_Chrysanthemum_Throne"
+        add_ideas = JAP_Power_of_the_chief_vassal
+    }
+}
+#強き民主主義
+shared_focus = {
+    id = JAP_Yokuanki_A_strong_democracy
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_The_power_struggle_in_Kokuminkai
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_Proposals_from_the_spectres_of_the_Showa_era
+    }
+    mutually_exclusive = {
+        focus = JAP_Yokuanki_Maintenance
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 52
+    y = 5
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_A_strong_democracy"
+        add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.15
+        }
+    }
+}
+#公共投資と税
+shared_focus = {
+    id = JAP_Yokuanki_Public_Investment_and_Taxes
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_A_strong_democracy
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 52
+    y = 6
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Public_Investment_and_Taxes"
+        add_ideas = JAP_Ikedas_economic_theory
+    }
+}
+#池田との会談
+shared_focus = {
+    id = JAP_Yokuanki_Meeting_with_Ikeda
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Public_Investment_and_Taxes
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        always = no
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 52
+    y = 7
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Meeting_with_Ikeda"
+        country_event = {
+            id = SSW_JAP_YOKUSANKAI.2
+        }
+    }
+}

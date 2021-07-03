@@ -38,6 +38,13 @@ country_event = { #法案の提出
 			limit = { check_variable = { JAP_revisionist_popularity > JAP_opponent_popularity } }
 			set_country_flag = revisionist_victory
 			mark_focus_tree_layout_dirty = yes
+			hidden_effect = {
+				load_focus_tree = {
+					tree = JAP_Bill_passed_seiyukai
+					keep_completed = yes
+				}
+			}
+			remove_ideas = JAP_house_of_peers_problem_rework
 		}
 		if = {
 			limit = { check_variable = { JAP_opponent_popularity > JAP_revisionist_popularity } }

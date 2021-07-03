@@ -1,0 +1,167 @@
+add_namespace = ssw_jap
+country_event = { #日本からの特使
+    id = ssw_jap.100
+    title = ssw_jap.100.t
+    desc = ssw_jap.100.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #歓迎しよう
+        name = ssw_jap.100.a
+        add_political_power = 100
+        add_opinion_modifier = {
+            target = FROM
+            modifier = JAP_op_friendship_IND
+        }
+        reverse_add_opinion_modifier = {
+            target = FROM
+            modifier = JAP_op_friendship_IND
+        }
+    }
+}
+country_event = { #辞任後の意図
+    id = ssw_jap.101
+    title = ssw_jap.101.t
+    desc = ssw_jap.101.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #松野を支持する
+        name = ssw_jap.101.a
+        set_country_flag = JAP_Mathuno_was_supported
+    }
+    option = { #芦田を支持する
+        name = ssw_jap.101.b
+        set_country_flag = JAP_Ashida_was_supported
+    }
+}
+country_event = { #芳沢首相が辞意を表明
+    id = ssw_jap.102
+    title = ssw_jap.102.t
+    desc = ssw_jap.102.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #芦田均が選出！
+        name = ssw_jap.102.a
+        trigger = {
+            has_country_flag = JAP_Ashida_was_supported
+        }
+        add_ideas = coalition_with_social_democracy
+        set_country_flag = JAP_elected_Ashida
+    }
+    option = { #松野鶴平が選出！
+        name = ssw_jap.102.b
+        trigger = {
+            has_country_flag = JAP_Mathuno_was_supported
+        }
+        set_country_flag = JAP_elected_Mathuno
+    }
+}
+country_event = { #貴族院からの抗議
+    id = ssw_jap.103
+    title = ssw_jap.103.t
+    desc = ssw_jap.103.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #無視しろ！
+        name = ssw_jap.103.a
+        add_political_power = 200
+        add_stability = -0.05
+    }
+    option = { #妥協的な治安立法を可決する
+        name = ssw_jap.103.b
+        add_political_power = -150
+        add_stability = 0.05
+    }
+}
+country_event = { #故郷を離れて
+    id = ssw_jap.104
+    title = ssw_jap.104.t
+    desc = ssw_jap.104.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #選択肢
+        name = ssw_jap.104.a
+        add_political_power = 20
+    }
+}
+country_event = { #1953年選挙
+    id = ssw_jap.105
+    title = ssw_jap.105.t
+    desc = ssw_jap.105.d
+    fire_only_once = yes
+    immediate = {
+        set_country_flag = JAP_ft_election_finished
+    }
+    trigger = {
+        date > 1953.06.01
+        tag = JAP
+        has_country_flag = revisionist_victory
+        has_focus_tree = JAP_Bill_passed_seiyukai
+    }
+    option = { #政友会の続投
+        name = ssw_jap.105.a
+        set_country_flag = JAP_ft_election_maintain_victory
+    }
+    option = { #社会党の勝利
+        name = ssw_jap.105.b
+        set_country_flag = JAP_ft_election_socialist_party_victory
+    }
+    option = { #民政党の勝利
+        name = ssw_jap.105.c
+        set_country_flag = JAP_ft_election_g_g_party_victory
+        hidden_effect = {
+            load_focus_tree = {
+                tree = JAP_Minseto_route
+                keep_completed = yes
+            }
+        }
+        set_politics = {
+            ruling_party = social_liberalism
+            elections_allowed = no
+        }
+    }
+}
+country_event = { #三木か松村か
+    id = ssw_jap.106
+    title = ssw_jap.106.t
+    desc = ssw_jap.106.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #商工業に重点を置いた三木の案を採用しよう
+        name = ssw_jap.106.a
+        set_country_flag = JAP_Miki_economic_plan
+    }
+    option = { #国の基礎は農業にあり。松村の案を採用しよう。
+        name = ssw_jap.106.b
+        set_country_flag = JAP_Matsumura_economic_plan
+    }
+}
+country_event = { #組合との会談
+    id = ssw_jap.107
+    title = ssw_jap.107.t
+    desc = ssw_jap.107.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #しっかりと話し合おう
+        name = ssw_jap.107.a
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.03
+        }
+    }
+}
+country_event = { #農民たちの声
+    id = ssw_jap.108
+    title = ssw_jap.108.t
+    desc = ssw_jap.108.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = { #これもまた繁栄だ
+        name = ssw_jap.108.a
+        add_political_power = 50
+        add_stability = 0.05
+        add_popularity = {
+            ideology = social_liberalism
+            popularity = 0.03
+        }
+    }
+}

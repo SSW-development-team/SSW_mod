@@ -294,7 +294,7 @@ shared_focus = { #反攻派の権力掌握
 }
 shared_focus = { #三人組の中で
     id = CHI_in_group_three
-    #icon = 
+    icon = GFX_focus_CHI_in_group_three
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -327,7 +327,7 @@ shared_focus = { #三人組の中で
 }
 shared_focus = { #戴笠の野望
     id = CHI_Dai_li_ambition
-    #icon = 
+    icon = GFX_focus_CHI_Dai_li_ambition
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -360,7 +360,7 @@ shared_focus = { #戴笠の野望
         focus = CHI_Chiang_Kai_resurgence
     }
     mutually_exclusive = {
-        focus = CHI_negotiation_Cheung_Kong
+        focus = CHI_negotiation_Zhang_Qun
     }
     prerequisite = {
         focus = CHI_in_group_three
@@ -484,7 +484,7 @@ shared_focus = { #蒋介石の再起
         focus = CHI_Dai_li_ambition
     }
     mutually_exclusive = {
-        focus = CHI_negotiation_Cheung_Kong
+        focus = CHI_negotiation_Zhang_Qun
     }
     prerequisite = {
         focus = CHI_in_group_three
@@ -572,8 +572,8 @@ shared_focus = { #国家の安定化に向けて
     }
 }
 shared_focus = { #張群の交渉
-    id = CHI_negotiation_Cheung_Kong
-    #icon = 
+    id = CHI_negotiation_Zhang_Qun
+    icon = GFX_focus_CHI_negotiation_Zhang_Qun
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -591,8 +591,8 @@ shared_focus = { #張群の交渉
     }
     available = {
         custom_trigger_tooltip = {
-            tooltip = CHI_negotiation_Cheung_Kong_t_tt
-            has_country_flag = CHI_Cheung_Kong_route
+            tooltip = CHI_negotiation_Zhang_Qun_t_tt
+            has_country_flag = CHI_Zhang_Qun_route
         }
     }
     cancel_if_invalid = yes
@@ -647,7 +647,7 @@ shared_focus = { #民主化の約束
         FOCUS_FILTER_WAR_SUPPORT
     }
     prerequisite = {
-        focus = CHI_negotiation_Cheung_Kong
+        focus = CHI_negotiation_Zhang_Qun
     }
     x = 27
     y = 3
@@ -690,7 +690,7 @@ shared_focus = { #融和の主張
     x = 27
     y = 4
     completion_reward = {
-        add_ideas = CHI_Cheung_Kong_mercy
+        add_ideas = CHI_Zhang_Qun_mercy
     }
 }
 shared_focus = { #新政権に向けて
@@ -734,7 +734,7 @@ shared_focus = { #新政権に向けて
 }
 shared_focus = { #一人の総統
     id = CHI_one_president
-    #icon = 
+    icon = GFX_focus_CHI_one_president
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -755,20 +755,21 @@ shared_focus = { #一人の総統
     y = 6
     completion_reward = {
         add_political_power = 50
+        country_event = {id = ssw_chi.62}
     }
 }
 
 #戴笠ルート
 shared_focus = { #戴笠総統
     id = CHI_Dai_li_president
-    #icon = 
+    icon = GFX_focus_CHI_Dai_li_president
     cost = 7.2
     ai_will_do = {
         factor = 10
     }
     available = {
         has_completed_focus = CHI_one_president
-        has_completed_focus = CHI_Dai_li_ambition
+        has_country_flag = CHI_Dai_Li_get_power
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -892,7 +893,7 @@ shared_focus = { #国有化運動
 }
 shared_focus = { #蜘蛛の巣
     id = CHI_spider_web
-    #icon = 
+    icon = GFX_focus_CHI_spider_web
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1072,7 +1073,7 @@ shared_focus = { #思想教育
 }
 shared_focus = { #藍色の民国
     id = CHI_blue_Rep
-    #icon = 
+    icon = GFX_focus_CHI_blue_Rep
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1109,7 +1110,7 @@ shared_focus = { #蒋介石の復権
     }
     available = {
         has_completed_focus = CHI_one_president
-        has_completed_focus = CHI_Chiang_Kai_resurgence
+        has_country_flag = CHI_Chiang_Kai_get_power
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1137,7 +1138,7 @@ shared_focus = { #蒋介石の復権
 }
 shared_focus = { #軍閥時代の終焉
     id = CHI_end_age_warlord
-    #icon = 
+    icon = GFX_focus_CHI_end_age_warlord
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1228,7 +1229,7 @@ shared_focus = { #党内での覇権
 }
 shared_focus = { #英雄としての蒋介石
     id = CHI_Chiang_kai_shek_hero
-    #icon = 
+    icon = GFX_focus_CHI_Chiang_kai_shek_hero
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1333,7 +1334,7 @@ shared_focus = { #戒厳令の継続
 }
 shared_focus = { #聡明な妻
     id = CHI_inteligent_wife
-    #icon = 
+    icon = GFX_focus_CHI_inteligent_wife
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1355,7 +1356,7 @@ shared_focus = { #聡明な妻
 }
 shared_focus = { #絶対的指導者
     id = CHI_absolute_leader
-    #icon = 
+    icon = GFX_focus_CHI_absolute_leader
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -1414,7 +1415,7 @@ shared_focus = { #張群の指導
     }
     available = {
         has_completed_focus = CHI_one_president
-        has_completed_focus = CHI_negotiation_Cheung_Kong
+        has_country_flag = CHI_Zhang_Qun_get_power
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no

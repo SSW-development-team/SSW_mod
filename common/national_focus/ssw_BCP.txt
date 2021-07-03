@@ -1,0 +1,518 @@
+focus_tree = {
+	id = ssw_BCP
+	country = {
+		base = 0
+		modifier = {
+			add = 10
+			original_tag = BCP
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 800
+		y = 100
+	}
+	focus = {
+		id = BRM_liberation_war
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 4
+		y = 0
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = BRM_red_guards
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberation_war
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+			division_template = {
+				name = "Red Guard"
+				regiments = {
+					militia = {
+						x = 0
+						y = 0
+					}
+					militia = {
+						x = 0
+						y = 1
+					}
+					militia = {
+						x = 0
+						y = 2
+					}
+					militia = {
+						x = 0
+						y = 3
+					}
+					militia = {
+						x = 1
+						y = 0
+					}
+					militia = {
+						x = 1
+						y = 1
+					}
+					militia = {
+						x = 1
+						y = 2
+					}
+					militia = {
+						x = 1
+						y = 3
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Red Guard\" division_template = \"Red Guard\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guard\" division_template = \"Red Guard\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guard\" division_template = \"Red Guard\" start_experience_factor = 0.5"
+					owner = ROOT
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_raide_depot
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberation_war
+		}
+		x = 4
+		y = 1
+		completion_reward = {
+			add_manpower = -500
+			add_equipment_to_stockpile = {
+				amount = 2000
+				producer = BRM
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 50
+				producer = BRM
+				type = support_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 30
+				producer = BRM
+				type = artillery_equipment
+			}
+		}
+	}
+	focus = {
+		id = BRM_prepare_attack
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberation_war
+		}
+		x = 6
+		y = 1
+		completion_reward = {
+			#add_building_construction = {
+			#	type = bunker
+			#	level = 3
+			#	instant_build = yes
+			#	province = 1218
+			#}
+			288 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10344
+				}
+			}
+			640 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10386
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_liberation_front
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_red_guards
+		}
+		prerequisite = {
+			focus = BRM_raide_depot
+		}
+		prerequisite = {
+			focus = BRM_prepare_attack
+		}
+		x = 4
+		y = 2
+		completion_reward = {
+			create_faction = BRM_liberation_front
+			# add_to_faction = MON
+			# add_to_faction = KRN
+		}
+	}
+	focus = {
+		id = BRM_liberate_ayeyarwady
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberation_front
+		}
+		x = 3
+		y = 3
+		completion_reward = {
+			1193 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = BRM_ask_chinese
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberate_ayeyarwady
+		}
+		x = 2
+		y = 4
+		completion_reward = {
+			CHI = {
+				country_event = {
+					id = ssw_brm.22
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_anti_imperialism
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_ask_chinese
+		}
+		x = 1
+		y = 5
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = BRM_intervene_shan
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberation_front
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+			# SHAN = {
+			# 	country_event = {
+			# 		id = ssw_brm.20
+			# 	}
+			# }
+		}
+	}
+	focus = {
+		id = BRM_miorities_west
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_liberate_ayeyarwady
+		}
+		prerequisite = {
+			focus = BRM_intervene_shan
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = BRM
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = ssw_brm.21
+					random_hours = 48
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_mobilize_students
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_intervene_shan
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+			1193 = {
+				create_unit = {
+					division = "name = \"Red Guard\" division_template = \"Red Guard\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guard\" division_template = \"Red Guard\" start_experience_factor = 0.1"
+					owner = ROOT
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_call_kachin
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_miorities_west
+		}
+		prerequisite = {
+			focus = BRM_mobilize_students
+		}
+		x = 5
+		y = 5
+		completion_reward = {
+			# KACHIN = {
+			# 	country_event = {
+			# 		id = ssw_brm.21
+			# 		random_hours = 48
+			# 	}
+			# }
+		}
+	}
+	focus = {
+		id = BRM_workers_efforts
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_ask_chinese
+		}
+		prerequisite = {
+			focus = BRM_miorities_west
+		}
+		x = 3
+		y = 5
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					instant_build = yes
+					level = 2
+					type = arms_factory
+				}
+				add_building_construction = {
+					instant_build = yes
+					level = 1
+					type = industrial_complex
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_promote_red_guards
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_mobilize_students
+		}
+		x = 7
+		y = 5
+		completion_reward = {
+			add_ideas = BRM_red_guards
+		}
+	}
+	focus = {
+		id = BRM_towards_liberation
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_anti_imperialism
+		}
+		prerequisite = {
+			focus = BRM_workers_efforts
+		}
+		prerequisite = {
+			focus = BRM_call_kachin
+		}
+		prerequisite = {
+			focus = BRM_promote_red_guards
+		}
+		x = 4
+		y = 6
+		completion_reward = {
+			declare_war_on = {
+				target = BRM
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = BRM_food_for_fight
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = -2
+		y = 1
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = BRM_mobilization_of_students
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = 0
+		y = 1
+		completion_reward = {
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = BRM_volunteers_from_thai
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_towards_liberation
+		}
+		relative_position_id = BRM_towards_liberation
+		x = 2
+		y = 1
+		completion_reward = {
+			country_event = {
+				id = ssw_brm.29
+			}
+		}
+	}
+	focus = {
+		id = BRM_more_money
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_mobilization_of_students
+		}
+		prerequisite = {
+			focus = BRM_food_for_fight
+		}
+		prerequisite = {
+			focus = BRM_volunteers_from_thai
+		}
+		relative_position_id = BRM_mobilization_of_students
+		x = 0
+		y = 1
+		completion_reward = {
+			add_political_power = -25
+		}
+	}
+	focus = {
+		id = BRM_smuggling_from_india
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_more_money
+		}
+		relative_position_id = BRM_more_money
+		x = -1
+		y = 1
+		completion_reward = {
+			add_political_power = -30
+			add_equipment_to_stockpile = {
+				amount = 500
+				producer = IND
+				type = infantry_equipment
+			}
+			IND = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = SSW_dislike
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_peoples_arms_land
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_more_money
+		}
+		relative_position_id = BRM_more_money
+		x = 1
+		y = 1
+		completion_reward = {
+			add_stability = -0.08
+			add_equipment_to_stockpile = {
+				amount = 1000
+				producer = ROOT
+				type = infantry_equipment
+			}
+			add_equipment_to_stockpile = {
+				amount = 50
+				producer = ROOT
+				type = anti_tank_equipment
+			}
+			capital_scope = {
+				add_building_construction = {
+					instant_build = yes
+					level = 3
+					type = bunker
+					province = {
+						all_provinces = yes
+						limit_to_victory_point = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = BRM_great_offensive
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = BRM_smuggling_from_india
+		}
+		prerequisite = {
+			focus = BRM_peoples_arms_land
+		}
+		relative_position_id = BRM_more_money
+		x = 0
+		y = 2
+		completion_reward = {
+			add_timed_idea = {
+				idea = BRM_great_offensive
+				days = 90
+			}
+		}
+	}
+}

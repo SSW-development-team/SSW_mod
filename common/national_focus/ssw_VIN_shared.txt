@@ -45,8 +45,37 @@ shared_focus = {
     continue_if_invalid = no
     available_if_capitulated = no
     search_filters = { FOCUS_FILTER_WAR_SUPPORT }
-    x = 5
+    x = 6
     y = 1
+    completion_reward = {
+        custom_effect_tooltip = VIN_focus_Infrastructure_development_projects_in_Mekong_Delta_tt
+        set_country_flag = VIN_start_dev_of_Mekong_Delta
+    }
+}
+#護岸工事
+shared_focus = {
+    id = VIN_focus_seawall_construction
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = VIN_focus_Infrastructure_development_projects_in_Mekong_Delta
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+        has_country_flag = VIN_start_dev_of_Mekong_Delta
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 6
+    y = 2
     completion_reward = {
     }
 }

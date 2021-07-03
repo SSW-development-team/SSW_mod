@@ -51,6 +51,50 @@ fate_of_countries_category_eastern_europe = {
 		}
 		ai_will_do = { factor = 100 }
 	}
+	fate_of_tuva = { #トゥヴァの運命
+		icon = generic_operation
+		selectable_mission = yes
+		days_mission_timeout = 60
+		is_good = no
+		cost = 0
+		fire_only_once = no
+		activation = {
+			is_not_germany_of_nazism = yes
+			NOT = { country_exists = TUV }
+			any_state = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_core_TUV_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			TUV = { capital_scope = { is_owned_and_controlled_by = ROOT } }
+			hidden_trigger = {
+				always = yes
+				NOT = { has_country_flag = continue_to_occupy_tuva }
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				original_tag = GER
+				original_tag = HGR
+				original_tag = HLH
+				original_tag = MBR
+				has_government = anarchism
+				is_subject = yes
+				country_exists = TUV
+				TUV = { capital_scope = { is_valid_annexation_state = no } }
+				hidden_trigger = { has_country_flag = continue_to_occupy_tuva }
+			}
+		}
+		complete_effect = { country_event = { id = ssw_foc_eastern_europe.1 } }
+		timeout_effect = {
+			occupy_medium_country = yes
+			set_country_flag = continue_to_occupy_tuva
+		}
+		ai_will_do = { factor = 100 }
+	}
 	fate_of_poland = { #�|�[�����h�̉^��
 		icon = generic_operation
 		selectable_mission = yes

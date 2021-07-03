@@ -1,0 +1,742 @@
+shared_focus = { #民政党の返り咲き
+	id = JAP_Return_of_Minseto
+	icon = GFX_goal_unknown
+	cost = 2
+	available = {
+		always = no
+	}
+	x = 0
+	y = 0
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Return_of_Minseto"
+		set_politics = {
+			ruling_party = social_liberalism
+			elections_allowed = no
+		}
+	}
+}
+shared_focus = { #若きリーダー
+	id = JAP_Young_Leader
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Return_of_Minseto
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Return_of_Minseto
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Young_Leader"
+		add_political_power = 150
+	}
+}
+shared_focus = { #資金調達の活発化
+	id = JAP_Increased_Fundraising
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Young_Leader
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Young_Leader
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Increased_Fundraising"
+		add_political_power = -50
+	}
+}
+shared_focus = { #森コンツェルンから
+	id = JAP_From_Mori_Concern
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Increased_Fundraising
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Increased_Fundraising
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_From_Mori_Concern"
+		add_stability = 0.03
+	}
+}
+shared_focus = { #三菱から
+	id = JAP_From_Mitsubishi
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Increased_Fundraising
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Increased_Fundraising
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_From_Mitsubishi"
+		add_stability = 0.03
+	}
+}
+shared_focus = { #党利より国益を
+	id = JAP_Putting_National_Interest_Before_Party_Interests
+	icon = GFX_focus_generic_self_management
+	cost = 2
+	relative_position_id = JAP_From_Mori_Concern
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_From_Mori_Concern
+	}
+	prerequisite = {
+		focus = JAP_From_Mitsubishi
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Putting_National_Interest_Before_Party_Interests"
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.05
+		}
+	}
+}
+shared_focus = { #反汚職の意思
+	id = JAP_Anti_Corruption_Intentions
+	icon = GFX_focus_hol_abandon_the_gold_standard
+	cost = 2
+	relative_position_id = JAP_From_Mori_Concern
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_From_Mori_Concern
+	}
+	prerequisite = {
+		focus = JAP_From_Mitsubishi
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Anti_Corruption_Intentions"
+		add_stability = 0.05
+		add_political_power = -50
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.05
+		}
+	}
+}
+shared_focus = { #以前の失敗から
+	id = JAP_From_Previous_Mistakes
+	icon = GFX_goal_generic_demand_territory
+	cost = 2
+	relative_position_id = JAP_From_Mitsubishi
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_From_Mori_Concern
+	}
+	prerequisite = {
+		focus = JAP_From_Mitsubishi
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_From_Previous_Mistakes"
+		add_political_power = 200
+	}
+}
+shared_focus = { #経済論争
+	id = JAP_Economic_Controversy
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Anti_Corruption_Intentions
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Putting_National_Interest_Before_Party_Interests
+	}
+	prerequisite = {
+		focus = JAP_Anti_Corruption_Intentions
+	}
+	prerequisite = {
+		focus = JAP_From_Previous_Mistakes
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Economic_Controversy"
+		country_event = {id = ssw_jap.106}
+	}
+}
+shared_focus = { #三木の経済戦略
+	id = JAP_Mikis_Economic_Strategy
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Economic_Controversy
+	x = -3
+	y = 1
+	mutually_exclusive = {
+		focus = JAP_Matsumuras_Proposal
+	}
+	available = {
+		has_country_flag = JAP_Miki_economic_plan
+	}
+	prerequisite = {
+		focus = JAP_Economic_Controversy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Mikis_Economic_Strategy"
+		add_political_power = 100
+	}
+}
+shared_focus = { #中小商工業者との協議
+	id = JAP_Consultation_Businesses
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
+	cost = 2
+	relative_position_id = JAP_Mikis_Economic_Strategy
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Economic_Strategy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Consultation_Businesses"
+		country_event = {id = ssw_jap.107}
+	}
+}
+shared_focus = { #国防と経済
+	id = JAP_National_Defense_and_Economy
+	icon = GFX_focus_generic_tank_production
+	cost = 2
+	relative_position_id = JAP_Mikis_Economic_Strategy
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Economic_Strategy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_National_Defense_and_Economy"
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 1018
+					state = 531
+					state = 1082
+				}
+			}
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = { #独占禁止法の改正
+	id = JAP_Revision_of_Antimonopoly_Act
+	icon = GFX_focus_generic_treaty
+	cost = 2
+	relative_position_id = JAP_Mikis_Economic_Strategy
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Economic_Strategy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Revision_of_Antimonopoly_Act"
+		add_political_power = -50
+	}
+}
+shared_focus = { #国民の為の軍需産業
+	id = JAP_Military_Industry_for_People
+	icon = GFX_goal_generic_construct_mil_factory
+	cost = 2
+	relative_position_id = JAP_Consultation_Businesses
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Consultation_Businesses
+	}
+	prerequisite = {
+		focus = JAP_National_Defense_and_Economy
+	}
+	prerequisite = {
+		focus = JAP_Revision_of_Antimonopoly_Act
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Military_Industry_for_People"
+		add_offsite_building = {
+			type = arms_factory
+			level = 3
+		}
+	}
+}
+shared_focus = { #中小企業への支援金
+	id = JAP_Support_Enterprises
+	icon = GFX_goal_generic_consumer_goods
+	cost = 2
+	relative_position_id = JAP_Consultation_Businesses
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Consultation_Businesses
+	}
+	prerequisite = {
+		focus = JAP_National_Defense_and_Economy
+	}
+	prerequisite = {
+		focus = JAP_Revision_of_Antimonopoly_Act
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Support_Enterprises"
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 1019
+					state = 1099
+					state = 1094
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = { #修正資本主義
+	id = JAP_Modified_Capitalism
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Consultation_Businesses
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = JAP_Military_Industry_for_People
+	}
+	prerequisite = {
+		focus = JAP_Support_Enterprises
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Modified_Capitalism"
+		add_ideas = JAP_idea_modified_capitalism
+	}
+}
+shared_focus = { #松村案を採用
+	id = JAP_Matsumuras_Proposal
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Economic_Controversy
+	x = 3
+	y = 1
+	mutually_exclusive = {
+		focus = JAP_Mikis_Economic_Strategy
+	}
+	available = {
+		has_country_flag = JAP_Matsumura_economic_plan
+	}
+	prerequisite = {
+		focus = JAP_Economic_Controversy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Matsumuras_Proposal"
+		add_stability = 0.05
+	}
+}
+shared_focus = { #トラクターの導入
+	id = JAP_Introduction_of_Tractors
+	icon = GFX_focus_NZL_bob_semple_tank
+	cost = 2
+	relative_position_id = JAP_Matsumuras_Proposal
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = JAP_Matsumuras_Proposal
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Introduction_of_Tractors"
+		add_timed_idea = {
+			idea = JAP_agri_machine_product
+			days = 120
+		}
+	}
+}
+shared_focus = { #農林省の見直し
+	id = JAP_Review_Ministry_of_Agriculture
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Matsumuras_Proposal
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Matsumuras_Proposal
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Review_Ministry_of_Agriculture"
+		add_political_power = -50
+	}
+}
+shared_focus = { #朝鮮半島での稲作
+	id = JAP_Rice_Cultivation_in_Korean_Peninsula
+	icon = GFX_goal_JAP_expansion_of_the_scope_of_application_of_the_relief_act
+	cost = 2
+	relative_position_id = JAP_Matsumuras_Proposal
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = JAP_Matsumuras_Proposal
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Rice_Cultivation_in_Korean_Peninsula"
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 525
+					state = 859
+				}
+			}
+			add_extra_state_shared_building_slots = 4
+		}
+	}
+}
+shared_focus = { #新たな農法を研究
+	id = JAP_Researching_New_Methods
+	icon = GFX_goal_generic_construction2
+	cost = 2
+	relative_position_id = JAP_Review_Ministry_of_Agriculture
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Introduction_of_Tractors
+	}
+	prerequisite = {
+		focus = JAP_Review_Ministry_of_Agriculture
+	}
+	prerequisite = {
+		focus = JAP_Rice_Cultivation_in_Korean_Peninsula
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Researching_New_Methods"
+		add_stability = 0.03
+	}
+}
+shared_focus = { #新農村繁栄運動
+	id = JAP_New_Rural_Prosperity_Movement
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Review_Ministry_of_Agriculture
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Introduction_of_Tractors
+	}
+	prerequisite = {
+		focus = JAP_Review_Ministry_of_Agriculture
+	}
+	prerequisite = {
+		focus = JAP_Rice_Cultivation_in_Korean_Peninsula
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_New_Rural_Prosperity_Movement"
+		country_event = {id = ssw_jap.108}
+	}
+}
+shared_focus = { #農業立国への道
+	id = JAP_Road_to_Agricultural_Nation
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Review_Ministry_of_Agriculture
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = JAP_Researching_New_Methods
+	}
+	prerequisite = {
+		focus = JAP_New_Rural_Prosperity_Movement
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Road_to_Agricultural_Nation"
+		add_ideas = JAP_agrarianism_economy
+	}
+}
+shared_focus = { #三木の未来像
+	id = JAP_Mikis_Future_Vision
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Road_to_Agricultural_Nation
+	x = -3
+	y = 1
+	prerequisite = {
+		focus = JAP_Road_to_Agricultural_Nation
+		focus = JAP_Modified_Capitalism
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Mikis_Future_Vision"
+		add_political_power = 50
+	}
+}
+shared_focus = { #民政党の国防論
+	id = JAP_Minseto_of_National_Defense
+	icon = GFX_goal_generic_defence
+	cost = 2
+	relative_position_id = JAP_Mikis_Future_Vision
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Future_Vision
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Minseto_of_National_Defense"
+		add_political_power = -30
+	}
+}
+shared_focus = { #軍産複合体の発展
+	id = JAP_Development_of_Mili_Industrial_Complex
+	icon = GFX_goal_generic_small_arms
+	cost = 2
+	relative_position_id = JAP_Minseto_of_National_Defense
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Minseto_of_National_Defense
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Development_of_Mili_Industrial_Complex"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+	}
+}
+shared_focus = { #国防の意識
+	id = JAP_Awareness_of_National_Defense
+	icon = GFX_goal_generic_military_sphere
+	cost = 2
+	relative_position_id = JAP_Minseto_of_National_Defense
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Minseto_of_National_Defense
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Awareness_of_National_Defense"
+		add_war_support = 0.1
+		add_ideas = JAP_idea_awarent_national_defence
+	}
+}
+shared_focus = { #共栄圏の軍事支援
+	id = JAP_Coprosperity_Sphere_Military_Support
+	icon = GFX_focus_secret_rearmament
+	cost = 2
+	relative_position_id = JAP_Minseto_of_National_Defense
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = JAP_Development_of_Mili_Industrial_Complex
+	}
+	prerequisite = {
+		focus = JAP_Awareness_of_National_Defense
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Coprosperity_Sphere_Military_Support"
+		every_country = {
+			limit = {
+				OR = {
+					tag = VIN
+					tag = PHI
+					tag = INS
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = JAP
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = JAP
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_anti_tank_equipment
+				amount = 200
+				producer = JAP
+			}
+		}
+	}
+}
+shared_focus = { #クリーンな政治
+	id = JAP_Clean_Politics
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Mikis_Future_Vision
+	x = -4
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Future_Vision
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Clean_Politics"
+		add_stability = 0.1
+	}
+}
+shared_focus = { #金権政治批判
+	id = JAP_Criticism_of_Money_Politics
+	icon = GFX_focus_hol_abandon_the_gold_standard
+	cost = 2
+	relative_position_id = JAP_Clean_Politics
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Clean_Politics
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Criticism_of_Money_Politics"
+		add_political_power = -50
+	}
+}
+shared_focus = { #汚職の監視
+	id = JAP_Monitoring_Corruption
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Clean_Politics
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Clean_Politics
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Monitoring_Corruption"
+		add_political_power = -50
+		add_stability = 0.03
+	}
+}
+shared_focus = { #国民からの信頼
+	id = JAP_Trust_of_Public
+	icon = GFX_focus_generic_support_the_left_right
+	cost = 2
+	relative_position_id = JAP_Clean_Politics
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = JAP_Criticism_of_Money_Politics
+	}
+	prerequisite = {
+		focus = JAP_Monitoring_Corruption
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Trust_of_Public"
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.05
+		}
+	}
+}
+shared_focus = { #協同主義経済
+	id = JAP_Cooperativist_Economy
+	icon = GFX_goal_generic_improve_relations
+	cost = 2
+	relative_position_id = JAP_Mikis_Future_Vision
+	x = 4
+	y = 1
+	prerequisite = {
+		focus = JAP_Mikis_Future_Vision
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Cooperativist_Economy"
+		custom_effect_tooltip = JAP_Cooperativist_Economy_tt
+		hidden_effect = {
+			add_ideas = JAP_Cooperativist_Economy_modifier_poverty_growth
+		}
+	}
+}
+shared_focus = { #集合住宅
+	id = JAP_Housing_Complex
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Cooperativist_Economy
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = JAP_Cooperativist_Economy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Housing_Complex"
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 943
+					state = 1095
+					state = 848
+					state = 1091
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+}
+shared_focus = { #財閥と中小企業の協調
+	id = JAP_Cooperation_Zaibatsu_SMEs
+	icon = GFX_goal_unknown
+	cost = 2
+	relative_position_id = JAP_Cooperativist_Economy
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = JAP_Cooperativist_Economy
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Cooperation_Zaibatsu_SMEs"
+		add_stability = 0.05
+	}
+}
+shared_focus = { #新たな福祉
+	id = JAP_New_Welfare
+	icon = GFX_focus_generic_concessions
+	cost = 2
+	relative_position_id = JAP_Cooperativist_Economy
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = JAP_Housing_Complex
+	}
+	prerequisite = {
+		focus = JAP_Cooperation_Zaibatsu_SMEs
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Cooperation_Zaibatsu_SMEs"
+		swap_ideas = {
+			remove_idea = JAP_social_security_attempt_rework
+			add_idea = JAP_cooperative_welfare
+		}
+	}
+}
+shared_focus = { #自由主義改革へ
+	id = JAP_Toward_Liberal_Reform
+	icon = GFX_focus_focus_fra_revolution_utmost
+	cost = 2
+	relative_position_id = JAP_Coprosperity_Sphere_Military_Support
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = JAP_Coprosperity_Sphere_Military_Support
+	}
+	prerequisite = {
+		focus = JAP_New_Welfare
+	}
+	prerequisite = {
+		focus = JAP_Trust_of_Public
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus JAP_Toward_Liberal_Reform"
+		add_popularity = {
+			ideology = social_liberalism
+			popularity = 0.1
+		}
+		add_political_power = 200
+	}
+}

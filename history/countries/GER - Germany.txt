@@ -2,8 +2,8 @@ capital = 965
 set_cosmetic_tag = GER_state
 oob = "GER_1950"
 
-set_convoys = 240
-
+set_convoys = 500
+add_manpower = 500000000
 set_technology = {
 	infantry_weapons = 1
 	improved_infantry_weapons = 1
@@ -158,6 +158,14 @@ add_ideas = {
 	GER_idea_Inner_Problem
 }
 
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency = {
+		name = "Reichssicherheitshauptamt" 
+		icon = "GFX_agency_logo_SS" 
+	}
+}
+
 create_faction = Germania_Accords
 add_to_faction = GER
 add_to_faction = CZE
@@ -226,6 +234,7 @@ set_popularities = {
 	national_socialism = 100
 }
 set_country_flag = GER_true_countryflag
+
 create_country_leader = {
 	name = "Adolf Hitler"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
@@ -235,6 +244,105 @@ create_country_leader = {
 	traits = {
 		Drug_addict
 		Charisma
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = corporatocracism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = corporatocracism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = national_fascism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = authority_despotism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = authority_democracy_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_conservatism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_liberalism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = social_democracy_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = classical_communism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = progressive_communism_ideology
+	traits = {
+	}
+}
+create_country_leader = {
+	name = "Vacant"
+	desc = "POLITICS_VACANT_DESC"
+	picture = "gfx/leaders/Generic/Portrait_Generic_Fallen_Government.dds"
+	expire = "1965.1.1"
+	ideology = anarchism_ideology
+	traits = {
 	}
 }
 
@@ -333,7 +441,7 @@ create_field_marshal = {
 	}
 	skill = 5
 	attack_skill = 5
-	defense_skill = 3
+	defense_skill = 4
 	planning_skill = 4
 	logistics_skill = 3
 }
@@ -380,9 +488,9 @@ create_corps_commander = {
 		panzer_leader
 	}
 	skill = 4
-	attack_skill = 5
+	attack_skill = 4
 	defense_skill = 5
-	planning_skill = 4
+	planning_skill = 3
 	logistics_skill = 4
 }
 create_corps_commander = {
@@ -817,298 +925,382 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 
-########## 分裂国家 ##########
-create_dynamic_country = { #ライン共和国
-	original_tag = GER
-	set_country_flag = GER_rhine_countryflag
-	set_cosmetic_tag = GER_rhine_republic
-	set_politics = {
-		ruling_party = social_conservatism
-		last_election = "1950.1.1"
-		election_frequency = 48
-		elections_allowed = yes
+########## SS ##########
+create_field_marshal = {
+	name = "Karl Hanke"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Oberstgruppenfuhrer
+		armor_officer
+		organisational_leader
 	}
-	set_popularities = { social_conservatism = 100 }
-	set_capital = 1023
-	every_state = {
-		limit = { is_core_of = PREV }
-		remove_core_of = PREV
-	}
-	load_focus_tree = generic_focus
-	reserve_dynamic_country = yes
+	skill = 5
+	attack_skill = 5
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
 }
-create_equipment_variant = {
-	name = "Graf Zeppelin Class"
-	type = ship_hull_carrier_1
-	name_group = GER_CV_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_deck_slot_1 = ship_deck_space
-		fixed_ship_deck_slot_2 = ship_deck_space
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = carrier_ship_engine_4
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		front_1_custom_slot = ship_deck_space
+create_field_marshal = {
+	name = "Paul Hausser"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Oberstgruppenfuhrer
+		thorough_planner
+		harsh_leader
 	}
+	skill = 5
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_field_marshal = {
+	name = "Joseph Dietrich"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Oberstgruppenfuhrer
+		armor_officer
+		inspirational_leader
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Gottlob berger"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		harsh_leader
+		old_guard
+	}
+	skill = 4
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Matthias Kleinheisterkamp"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		urban_assault_specialist
+	}
+	skill = 4
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Walter Krüger"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		organizer
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Friedrich Krüger"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		trait_mountaineer
+		harsh_leader
+	}
+	skill = 4
+	attack_skill = 5
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Jürgen Stroop"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		urban_assault_specialist 
+		harsh_leader
+	}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Erich von dem Bach-Zelewski"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		urban_assault_specialist 
+		harsh_leader
+		commando
+	}
+	skill = 3
+	attack_skill = 4
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Theodor Eicke"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		organizer
+		harsh_leader
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Felix Steiner"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		armor_officer
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Wilhelm Rediess"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		harsh_leader
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Wilhelm Bittrich"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+		organizer
+		trait_engineer
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Karl Oberg"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Obergruppenfuhrer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "Hermann Fegelein"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+		cavalry_officer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Karl Brandt"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+		harsh_leader
+	}
+	skill = 2
+	attack_skill = 5
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Karl Gebhardt"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+	}
+	skill = 2
+	attack_skill = 4
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Werner Ostendorff"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+		armor_officer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Heinz Reinefarth"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Heinz Lammerding"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Gruppenfuhrer
+		harsh_leader
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "Gustav Lombard"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		trait_mountaineer
+	}
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Erich Naumann"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		harsh_leader
+		trait_cautious
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Sylvester Stadler"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		trait_engineer
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "Kurt Meyer"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		infantry_officer
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Wilhelm Mohnke"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		infantry_officer
+		harsh_leader
+	}
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+create_corps_commander = {
+	name = "Heinz Harmel"
+	picture = "leader_unknown.dds"
+	traits = {
+		GER_Schutzstaffel_officer
+		GER_Schutzstaffel_Brigadefuhrer
+		infantry_officer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
 }
 
-create_equipment_variant = {
-	name = "Scharnhorst Class"
-	type = ship_hull_heavy_1
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_2
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bc_1
-		front_1_custom_slot = ship_heavy_battery_1
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = empty
-		rear_1_custom_slot = ship_heavy_battery_1
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Bismarck Class"
-	type = ship_hull_heavy_2
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_3
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bb_2
-		front_1_custom_slot = ship_heavy_battery_1
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = ship_heavy_battery_1
-		rear_1_custom_slot = ship_heavy_battery_1
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Friedrich der Grose Class"
-	type = ship_hull_heavy_3
-	name_group = GER_BB_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_heavy_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_3
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_2
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = heavy_ship_engine_4
-		fixed_ship_secondaries_slot = ship_secondaries_2
-		fixed_ship_armor_slot = ship_armor_bb_2
-		front_1_custom_slot = ship_heavy_battery_2
-		mid_1_custom_slot = ship_anti_air_4
-		mid_2_custom_slot = ship_heavy_battery_2
-		rear_1_custom_slot = ship_heavy_battery_2
-		rear_2_custom_slot = ship_airplane_launcher_1
-	}
-}
-create_equipment_variant = {
-	name = "Deutschland Class"
-	type = ship_hull_cruiser_1
-	name_group = GER_CA_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_medium_battery_4
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		front_1_custom_slot = ship_medium_battery_4
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_torpedo_1
-		rear_1_custom_slot = ship_airplane_launcher_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Admiral Hipper Class"
-	type = ship_hull_cruiser_2
-	name_group = GER_CA_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_medium_battery_4
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_2
-		front_1_custom_slot = ship_medium_battery_4
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_medium_battery_4
-		rear_1_custom_slot = ship_medium_battery_4
-	}
-}
-create_equipment_variant = {
-	name = "Leipzig Class"
-	type = ship_hull_cruiser_1
-	name_group = GER_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_1
-		fixed_ship_anti_air_slot = ship_anti_air_1
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_1
-		fixed_ship_armor_slot = ship_armor_cruiser_1
-		front_1_custom_slot = ship_light_medium_battery_1
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_light_medium_battery_1
-		rear_1_custom_slot = ship_airplane_launcher_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Emden Class"
-	type = ship_hull_cruiser_2
-	name_group = GER_CL_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_medium_battery_3
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_4
-		fixed_ship_engine_slot = cruiser_ship_engine_3
-		fixed_ship_armor_slot = ship_armor_cruiser_2
-		front_1_custom_slot = ship_light_medium_battery_3
-		mid_1_custom_slot = ship_torpedo_1
-		mid_2_custom_slot = ship_anti_air_2
-		rear_1_custom_slot = ship_light_medium_battery_3
-	}
-}
-create_equipment_variant = {
-	name = "Z1 Class"
-	type = ship_hull_light_1
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_engine_slot = light_ship_engine_2
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z5 Class"
-	type = ship_hull_light_1
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_3
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z17 Class"
-	type = ship_hull_light_2
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_3
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-	obsolete = yes
-}
-create_equipment_variant = {
-	name = "Z23 Class"
-	type = ship_hull_light_3
-	name_group = JAP_DD_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_battery_slot = ship_light_battery_2
-		fixed_ship_anti_air_slot = ship_anti_air_2
-		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-		fixed_ship_radar_slot = ship_radar_3
-		fixed_ship_engine_slot = light_ship_engine_4
-		fixed_ship_torpedo_slot = ship_torpedo_1
-		mid_1_custom_slot = empty
-		rear_1_custom_slot = ship_depth_charge_1
-	}
-}
-####ミスあり注意！！！！
-
-create_equipment_variant = {
-	name = "IIA Class"
-	type = ship_hull_submarine_1
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		fixed_ship_radar_slot = ship_radar_1
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_1
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "IIB Class"
-	type = ship_hull_submarine_1
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_1
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "VIIA Class"
-	type = ship_hull_submarine_2
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_2
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
-create_equipment_variant = {
-	name = "VIIC Class"
-	type = ship_hull_submarine_3
-	name_group = GER_SS_HISTORICAL
-	parent_version = 0
-	modules = {
-		fixed_ship_torpedo_slot = ship_torpedo_sub_1
-		fixed_ship_engine_slot = sub_ship_engine_2
-		fixed_ship_radar_slot = ship_radar_2
-		fixed_ship_sub_snorkel_slot = empty
-		fixed_ship_sonar_slot = ship_sonar_2
-		rear_1_custom_slot = ship_torpedo_sub_1
-	}
-}
+set_variable = { GER_Current_Military_Leader = 1 }
+set_variable = { GER_Current_SS_Leader = 2 }
+set_variable = { GER_Current_Politican_Leader = 3 }
+set_variable = { GER_Current_Popular_Leader = 4 }

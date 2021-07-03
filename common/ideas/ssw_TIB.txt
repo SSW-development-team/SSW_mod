@@ -520,6 +520,19 @@ ideas = {
 				social_conservatism_drift = 0.01
 			}
 		}
+		TIB_kick_kuomintang_idea = {
+			picture = jap_intervene_in_china
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.1
+			}
+		}
 		###kham tax
 		TIB_tax_to_kham_none = {
 			picture = chi_hyper_inflation
@@ -710,6 +723,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_tashi_dorje_phunkhang = {
+			picture = tashi_dorje_phunkhang
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = head_of_gov_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	minister_of_foreign_affairs = {
 		TIB_tsepon_shakabpa_fa = {
@@ -860,14 +889,18 @@ ideas = {
 		}
 		TIB_peter_aufschnaiter = {
 			picture = peter_aufschnaiter
-			
 			allowed = {
 				original_tag = TIB
 			}
+			removal_cost = -1
 			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
 			}
 			traits = {  }
-
+			cancel_if_invalid = no
 			ai_will_do = {
 				factor = 1
 			}
@@ -1036,6 +1069,22 @@ ideas = {
 			traits = {
 			}
 		}
+		TIB_dingja = {
+			picture = dingja
+			removal_cost = -1
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			allowed = {
+					tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+			}
+		}
 	}
 	industrial_concern = {
 		TIB_ministry_of_communications = {
@@ -1105,6 +1154,7 @@ ideas = {
 		}
 	}
 	air_chief = {
+	}
 	high_command = {
 		TIB_yuthok_tashi_dhondup_sa = {
 			picture = yuthok_tashi_dhondup
