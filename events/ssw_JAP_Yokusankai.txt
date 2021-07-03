@@ -45,3 +45,60 @@ country_event = { #京都にて
         add_political_power = 50
 	}
 }
+country_event = { #第五回国民会選挙
+	id = SSW_JAP_YOKUSANKAI.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event SSW_JAP_YOKUSANKAI.3" }
+	title = SSW_JAP_YOKUSANKAI.3.t
+	desc = SSW_JAP_YOKUSANKAI.3.d
+	is_triggered_only = yes
+	option = { #岸信介が選出！
+		name = SSW_JAP_YOKUSANKAI.3.a
+		ai_chance = { base = 10 }
+		set_contry_flag = JAP_Select_Kishi_Nobusuke
+	}
+	option = { #木戸幸一が選出！
+		name = SSW_JAP_YOKUSANKAI.3.b
+		ai_chance = { base = 10 }
+		set_contry_flag = JAP_Select_Kido_Kouichi
+	}
+	option = { #池田勇人が選出！
+		name = SSW_JAP_YOKUSANKAI.3.c
+		ai_chance = { base = 10 }
+		set_contry_flag = JAP_Select_Ikeda_Hayato
+	}
+}
+country_event = { #木戸幸一の辞任
+	id = SSW_JAP_YOKUSANKAI.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event SSW_JAP_YOKUSANKAI.4" }
+	title = SSW_JAP_YOKUSANKAI.4.t
+	desc = SSW_JAP_YOKUSANKAI.4.d
+	is_triggered_only = yes
+	option = { #岸信介
+		name = SSW_JAP_YOKUSANKAI.4.a
+		ai_chance = { base = 10 }
+		trigger = {
+			has_country_flag = JAP_Select_Kishi_Nobusuke
+		}
+		add_popularity = {
+            ideology = national_fascism
+            popularity = 0.30
+        }
+		set_political_party = {
+			ideology = national_fascism
+		}
+	}
+	option = { #池田勇人
+		name = SSW_JAP_YOKUSANKAI.4.b
+		ai_chance = { base = 10 }
+		trigger = {
+			has_country_flag = JAP_Select_Ikeda_Hayato
+		}
+		add_popularity = {
+            ideology = authority_democracy
+            popularity = 0.30
+        }
+		set_political_party = {
+			ideology = authority_democracy
+		}
+	}
+}

@@ -965,13 +965,13 @@ shared_focus = {
     icon = GFX_goal_generic_major_war
     cost = 5.00
     prerequisite = {
-        focus = JAP_Yokuanki_Maintenance_of_national_roads
+        focus = JAP_Yokuanki_Efficiency_in_the_Ministry_of_Transport
     }
     prerequisite = {
-        focus = JAP_Yokuanki_Harnessing_the_wealth_of_conglomerates
+        focus = JAP_Yokuanki_Reasonable_economic_controls_in_place
     }
     prerequisite = {
-        focus = JAP_Yokuanki_Supporting_the_overseas_expansion_of_conglomerates
+        focus = JAP_Yokuanki_Regulation_of_new_religions
     }
     mutually_exclusive = { 
     }
@@ -1002,6 +1002,85 @@ shared_focus = {
                 idea = JAP_investment_from_japan
                 days = 600
             }
+        }
+    }
+}
+#防共
+shared_focus = {
+    id = JAP_Yokuanki_Anticommunist
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Efficiency_in_the_Ministry_of_Transport
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Reasonable_economic_controls_in_place
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Regulation_of_new_religions
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 51
+    y = 11
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Anticommunist"
+        add_popularity = {
+            ideology = classical_communism
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = progressive_communism
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = anarchism
+            popularity = -0.05
+        }
+        add_stability = 0.05
+    }
+}
+#党内の決着
+shared_focus = {
+    id = JAP_Yokuanki_Party_settlement
+    icon = GFX_goal_generic_major_war
+    cost = 5.00
+    prerequisite = {
+        focus = JAP_Yokuanki_Money_for_the_Philippines
+    }
+    prerequisite = {
+        focus = JAP_Yokuanki_Anticommunist
+    }
+    mutually_exclusive = { 
+    }
+    available = {
+    }
+    ai_will_do = {
+    factor = 5
+    }
+    bypass = {
+    }
+    cancel_if_invalid = yes
+    continue_if_invalid = no
+    available_if_capitulated = no
+    search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+    x = 50
+    y = 12
+    completion_reward = {
+        log = "[GetDateText]: [Root.GetName]: Focus JAP_Yokuanki_Party_settlement"
+        country_event = {
+            id = SSW_JAP_YOKUSANKAI.3
         }
     }
 }
