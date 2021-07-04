@@ -1524,7 +1524,7 @@ magnetic_recording_medium_1 = {#磁気記録システム１
 	early_computer_system = {#初期型コンピューター
 
 		# small boost to research speed
-		research_speed_factor = 0.16
+		research_speed_factor = 0.10
 		
 		path = {
 			leads_to_tech = developmental_program_1
@@ -1661,7 +1661,7 @@ magnetic_recording_medium_1 = {#磁気記録システム１
 	computer_system_1 = {#電子式コンピューター１
 
 		# small boost to research speed
-		research_speed_factor = 0.2
+		research_speed_factor = 0.15
 
 		path ={
 			leads_to_tech = developmental_program_2
@@ -1800,7 +1800,7 @@ magnetic_recording_medium_1 = {#磁気記録システム１
 	computer_system_2 = {#改良型電子コンピューター
 
 		# small boost to research speed
-		research_speed_factor = 0.25
+		research_speed_factor = 0.15
 
 		path ={
 			leads_to_tech = harddisk_drive
@@ -2777,223 +2777,4 @@ magnetic_recording_medium_1 = {#磁気記録システム１
 	}
 
 	
-	experimental_rockets = {
-
-		enable_building = {
-			building = rocket_site
-			level = 2
-		}
-		
-		path = {
-			leads_to_tech = rocket_engines 
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.0
-		start_year = 1943
-		
-		folder = {
-			name = electronics_folder
-			position = { x = 0 y = 0 }
-		}
-	
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			rocketry
-		}
-	}
-	
-	rocket_engines = {
-
-		show_equipment_icon = yes
-
-		# can build v1s/rocket planes
-		enable_equipments = {
-			rocket_interceptor_equipment_1
-			guided_missile_equipment_1
-		}
-		
-		rocket_artillery = {
-			soft_attack = 0.05
-		}
-		rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		mot_rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		motorized_rocket_brigade = {
-			soft_attack = 0.05
-		}
-		
-		path = {
-			leads_to_tech = improved_rocket_engines 
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = jet_engines 
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1
-		start_year = 1944
-		
-		folder = {
-			name = electronics_folder
-			position = { x = 0 y = 2 }
-		}
-			folder = {
-			name = secret_weapons_folder
-			position = { x = 10 y = 0 }
-		}
-		
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			rocketry
-		}		
-	}
-	
-	improved_rocket_engines = {
-
-		show_equipment_icon = yes
-		
-		# can build v2s
-		
-		enable_equipments = {
-			rocket_interceptor_equipment_2
-			guided_missile_equipment_2
-		}
-		
-		rocket_artillery = {
-			soft_attack = 0.05
-		}
-		rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		mot_rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		motorized_rocket_brigade = {
-			soft_attack = 0.05
-		}
-		
-		path = {
-			leads_to_tech = advanced_rocket_engines 
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.5
-		start_year = 1945
-		
-		folder = {
-			name = electronics_folder
-			position = { x = 0 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			rocketry
-		}
-	}
-	
-	advanced_rocket_engines = {
-
-		show_equipment_icon = yes
-
-		# can build ICBMs?
-		
-		enable_equipments = {
-			rocket_interceptor_equipment_3
-			guided_missile_equipment_3
-		}
-		
-		rocket_artillery = {
-			soft_attack = 0.05
-		}
-		rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		mot_rocket_artillery_brigade = {
-			soft_attack = 0.05
-		}
-		motorized_rocket_brigade = {
-			soft_attack = 0.05
-		}
-		
-		research_cost = 1.5
-		start_year = 1946
-		
-		folder = {
-			name = electronics_folder
-			position = { x = 0 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			rocketry
-		}
-	}
-	
-	jet_engines = {
-	
-		folder = {
-			name = electronics_folder
-			position = { x = 2 y = 2 }
-		}
-		
-		start_year = 1944
-		research_cost = 1.5
-
-		folder = {
-			name = air_techs_folder
-			position = { x = -3 y = 3 }
-		}
-		
-		desc = "JET_ENGINES_SPECIAL"
-
-		on_research_complete = {
-			custom_effect_tooltip = JET_ENGINES_RESEARCHED
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			rocketry
-			jet_technology
-		}
-	}
-	
-
-	lar_decryption_bonus_tech = {
-				
-		research_cost = 1.5 #Carrier Variant
-		start_year = 1944
-
-		# only from focus!!! #####
-		allow = {
-			always = no
-		}
-		decryption_power = 10
-
-		
-		ai_will_do = {
-			factor = 0
-		}
-		################
-	}
 }
