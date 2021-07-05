@@ -1,86 +1,111 @@
-GDP_Culculate_Total_Pop = { ##
-	every_controlled_state = {
-		add_to_temp_variable = { temp1 = state_population_k }
-	}
-	set_variable = { All_Pop = temp1 }
-}
-GDP_Culculate_Total_GDP = {
-	every_controlled_state = {
-		set_temp_variable = { temp1 = building_level@infrastructure }
-		multiply_temp_variable = { temp1 = 30 }
-		add_to_temp_variable = { temp15 = temp1 }
-		set_temp_variable = { temp2 = building_level@arms_factory }
-		multiply_temp_variable = { temp2 = 72 }
-		add_to_temp_variable = { temp15 = temp2 }
-		set_temp_variable = { temp3 = building_level@industrial_complex }
-		multiply_temp_variable = { temp3 = 10 }
-		add_to_temp_variable = { temp15 = temp3 }
-		set_temp_variable = { temp4 = building_level@air_base }
-		multiply_temp_variable = { temp4 = 12 }
-		add_to_temp_variable = { temp15 = temp4 }
-		set_temp_variable = { temp5 = building_level@naval_base }
-		multiply_temp_variable = { temp5 = 30 }
-		add_to_temp_variable = { temp15 = temp5 }
-		set_temp_variable = { temp6 = building_level@bunker }
-		multiply_temp_variable = { temp6 = 5 }
-		add_to_temp_variable = { temp15 = temp6 }
-		set_temp_variable = { temp7 = building_level@coastal_bunker }
-		multiply_temp_variable = { temp7 = 5 }
-		add_to_temp_variable = { temp15 = temp7 }
-		set_temp_variable = { temp8 = building_level@dockyard }
-		multiply_temp_variable = { temp8 = 64 }
-		add_to_temp_variable = { temp15 = temp8 }
-		set_temp_variable = { temp9 = building_level@anti_air_building }
-		multiply_temp_variable = { temp9 = 25 }
-		add_to_temp_variable = { temp15 = temp9 }
-		set_temp_variable = { temp10 = building_level@synthetic_refinery }
-		multiply_temp_variable = { temp10 = 145 }
-		add_to_temp_variable = { temp15 = temp10 }
-		set_temp_variable = { temp11 = building_level@fuel_silo }
-		multiply_temp_variable = { temp11 = 50 }
-		add_to_temp_variable = { temp15 = temp11 }
-		set_temp_variable = { temp12 = building_level@radar_station }
-		multiply_temp_variable = { temp12 = 33 }
-		add_to_temp_variable = { temp15 = temp12 }
-		set_temp_variable = { temp13 = building_level@rocket_site }
-		multiply_temp_variable = { temp13 = 64 }
-		add_to_temp_variable = { temp15 = temp13 }
-		set_temp_variable = { temp14 = building_level@nuclear_reactor }
-		multiply_temp_variable = { temp14 = 300 }
-		add_to_temp_variable = { temp15 = temp14 }
-	}
-	set_variable = { All_GDP = temp15 }
-}
-GDP_Culculate_Average_GDP = {
-	set_temp_variable = { temp1 = All_GDP }
-	divide_temp_variable = { temp1 = All_Pop }
-	set_variable = { Average_GDP = temp1 }
-}
-GDP_Culculate_Infra_worker = {
-	set_temp_variable = { temp4 = All_Pop }
-	every_controlled_state = {
-		add_to_temp_variable = { temp4 = building_level@infrastructure }
-		add_to_temp_variable = { temp4 = building_level@synthetic_refinery }
-		add_to_temp_variable = { temp4 = building_level@fuel_silo }
-		add_to_temp_variable = { temp4 = building_level@radar_station }
-		add_to_temp_variable = { temp4 = building_level@nuclear_reactor }
-	}
-	divide_temp_variable = { temp4 = num_controlled_states }
-	set_variable = { All_Infra = temp4 }
-}
-GDP_Culculate_Industry_worker = {
-	set_temp_variable = { temp5 = All_Pop }
-	every_controlled_state = {
-		add_to_temp_variable = { temp5 = building_level@arms_factory }
-		add_to_temp_variable = { temp5 = building_level@industrial_complex }
-		add_to_temp_variable = { temp5 = building_level@air_base }
-		add_to_temp_variable = { temp5 = building_level@naval_base }
-		add_to_temp_variable = { temp5 = building_level@bunker }
-		add_to_temp_variable = { temp5 = building_level@coastal_bunker }
-		add_to_temp_variable = { temp5 = building_level@dockyard }
-		add_to_temp_variable = { temp5 = building_level@anti_air_building }
-		add_to_temp_variable = { temp5 = building_level@rocket_site }
-	}
-	divide_temp_variable = { temp5 = num_controlled_states }
-	set_variable = { All_Industry = temp5 }
+update_PP_Chart_effects = {
+	set_temp_variable = { at = GER_PP_Chart1 }
+	add_to_temp_variable = { at = GER_PP_Chart2 }
+	add_to_temp_variable = { at = GER_PP_Chart3 }
+	add_to_temp_variable = { at = GER_PP_Chart4 }
+	add_to_temp_variable = { at = GER_PP_Chart5 }
+	add_to_temp_variable = { at = GER_PP_Chart6 }
+	add_to_temp_variable = { at = GER_PP_Chart7 }
+	add_to_temp_variable = { at = GER_PP_Chart8 }
+	add_to_temp_variable = { at = GER_PP_Chart9 }
+	add_to_temp_variable = { at = GER_PP_Chart10 }
+	
+	set_temp_variable = { chart_2_pop = GER_PP_Chart2 }
+	divide_temp_variable = { chart_2_pop = at }
+	multiply_temp_variable = { chart_2_pop = 100 }
+	round_temp_variable = chart_2_pop
+	
+	set_temp_variable = { chart_3_pop = GER_PP_Chart3 }
+	divide_temp_variable = { chart_3_pop = at }
+	multiply_temp_variable = { chart_3_pop = 100 }
+	round_temp_variable = chart_3_pop
+	
+	set_temp_variable = { chart_4_pop = GER_PP_Chart4 }
+	divide_temp_variable = { chart_4_pop = at }
+	multiply_temp_variable = { chart_4_pop = 100 }
+	round_temp_variable = chart_4_pop
+	
+	set_temp_variable = { chart_5_pop = GER_PP_Chart5 }
+	divide_temp_variable = { chart_5_pop = at }
+	multiply_temp_variable = { chart_5_pop = 100 }
+	round_temp_variable = chart_5_pop
+	
+	set_temp_variable = { chart_6_pop = GER_PP_Chart6 }
+	divide_temp_variable = { chart_6_pop = at }
+	multiply_temp_variable = { chart_6_pop = 100 }
+	round_temp_variable = chart_6_pop
+	
+	set_temp_variable = { chart_7_pop = GER_PP_Chart7 }
+	divide_temp_variable = { chart_7_pop = at }
+	multiply_temp_variable = { chart_7_pop = 100 }
+	round_temp_variable = chart_7_pop
+	
+	set_temp_variable = { chart_8_pop = GER_PP_Chart8 }
+	divide_temp_variable = { chart_8_pop = at }
+	multiply_temp_variable = { chart_8_pop = 100 }
+	round_temp_variable = chart_8_pop
+	
+	set_temp_variable = { chart_9_pop = GER_PP_Chart9 }
+	divide_temp_variable = { chart_9_pop = at }
+	multiply_temp_variable = { chart_9_pop = 100 }
+	round_temp_variable = chart_9_pop
+	
+	set_temp_variable = { chart_10_pop = GER_PP_Chart10 }
+	divide_temp_variable = { chart_10_pop = at }
+	multiply_temp_variable = { chart_10_pop = 100 }
+	round_temp_variable = chart_10_pop
+	
+	add_to_temp_variable = { chart_2_pop = chart_3_pop }
+	add_to_temp_variable = { chart_2_pop = chart_4_pop }
+	add_to_temp_variable = { chart_2_pop = chart_5_pop }
+	add_to_temp_variable = { chart_2_pop = chart_6_pop }
+	add_to_temp_variable = { chart_2_pop = chart_7_pop }
+	add_to_temp_variable = { chart_2_pop = chart_8_pop }
+	add_to_temp_variable = { chart_2_pop = chart_9_pop }
+	add_to_temp_variable = { chart_2_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_3_pop = chart_4_pop }
+	add_to_temp_variable = { chart_3_pop = chart_5_pop }
+	add_to_temp_variable = { chart_3_pop = chart_6_pop }
+	add_to_temp_variable = { chart_3_pop = chart_7_pop }
+	add_to_temp_variable = { chart_3_pop = chart_8_pop }
+	add_to_temp_variable = { chart_3_pop = chart_9_pop }
+	add_to_temp_variable = { chart_3_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_4_pop = chart_5_pop }
+	add_to_temp_variable = { chart_4_pop = chart_6_pop }
+	add_to_temp_variable = { chart_4_pop = chart_7_pop }
+	add_to_temp_variable = { chart_4_pop = chart_8_pop }
+	add_to_temp_variable = { chart_4_pop = chart_9_pop }
+	add_to_temp_variable = { chart_4_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_5_pop = chart_6_pop }
+	add_to_temp_variable = { chart_5_pop = chart_7_pop }
+	add_to_temp_variable = { chart_5_pop = chart_8_pop }
+	add_to_temp_variable = { chart_5_pop = chart_9_pop }
+	add_to_temp_variable = { chart_5_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_6_pop = chart_7_pop }
+	add_to_temp_variable = { chart_6_pop = chart_8_pop }
+	add_to_temp_variable = { chart_6_pop = chart_9_pop }
+	add_to_temp_variable = { chart_6_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_7_pop = chart_8_pop }
+	add_to_temp_variable = { chart_7_pop = chart_9_pop }
+	add_to_temp_variable = { chart_7_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_8_pop = chart_9_pop }
+	add_to_temp_variable = { chart_8_pop = chart_10_pop }
+	
+	add_to_temp_variable = { chart_9_pop = chart_10_pop }
+	
+	set_variable = { GER_PP_Chart2_C = chart_2_pop }
+	set_variable = { GER_PP_Chart3_C = chart_3_pop }
+	set_variable = { GER_PP_Chart4_C = chart_4_pop }
+	set_variable = { GER_PP_Chart5_C = chart_5_pop }
+	set_variable = { GER_PP_Chart6_C = chart_6_pop }
+	set_variable = { GER_PP_Chart7_C = chart_7_pop }
+	set_variable = { GER_PP_Chart8_C = chart_8_pop }
+	set_variable = { GER_PP_Chart9_C = chart_9_pop }
+	set_variable = { GER_PP_Chart10_C = chart_10_pop }
 }
