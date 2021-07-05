@@ -122,6 +122,7 @@ country_event = {
 	desc = SSW_ITA.5.d
 	option = {#実施する
 		name = SSW_ITA.5.a
+		ai_chance = { base = 1 }
 		add_to_variable = {
 			var = SSW_ITA_Public_Population_Support
 			value = 1
@@ -133,6 +134,7 @@ country_event = {
 	}
 	option = {#実施しない
 		name = SSW_ITA.5.b
+		ai_chance = { base = 100 }
 		add_to_variable = {
 			var = SSW_ITA_No_Public_Population_Support
 			value = 1
@@ -259,6 +261,7 @@ country_event = {
 	desc = SSW_ITA.9.d
 	option = {#実施
 		name = SSW_ITA.9.a
+		ai_chance = { base = 1 }
 		hidden_effect = {
 			country_event = {
 				id = SSW_ITA.8
@@ -271,6 +274,7 @@ country_event = {
 	}
 	option = {#実施しない
 		name = SSW_ITA.9.b
+		ai_chance = { base = 100 }
 		hidden_effect = {
 			country_event = {
 				id = SSW_ITA.5
@@ -431,7 +435,7 @@ country_event = {
 		custom_effect_tooltip = SSW_ITA_19_a_event
 		country_event = {
 			id = SSW_ITA.21
-			days = 7
+			days = 10
 		}
 		hidden_effect = {
 			country_event = {
@@ -454,12 +458,20 @@ country_event = {
 	desc = SSW_ITA.20.d
 	option = {#特別な支援者を手配しろ（裏工作）、軍事経済ルート
 		name = SSW_ITA.20.a
+		add_to_variable = {
+			var = ssw_no_Support_for_transformation_of_industrial_system_in_North_var
+			value = 1
+		}
 	}
-	option = {#民衆は現状からの解放を望んでいる（裏工作）、経済修正ルート
+	option = {#民衆は現状からの解放を望んでいる、経済修正ルート
 		name = SSW_ITA.20.b
+		add_to_variable = {
+			var = ssw_Support_for_transformation_of_industrial_system_in_North_var
+			value = 1
+		}
 	}
 }
-#南部での投票が開始
+#南部での中間結果
 country_event = {
     id = SSW_ITA.21
 	immediate = {
@@ -470,8 +482,19 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	desc = SSW_ITA.21.d
-	option = {
+	option = {#特別な支援者を手配しろ（裏工作）、軍事経済ルート
 		name = SSW_ITA.21.a
+		add_to_variable = {
+			var = ssw_no_Support_for_transformation_of_industrial_system_in_South_var
+			value = 1
+		}
+	}
+	option = {#民衆は現状からの解放を望んでいる、経済修正ルート
+		name = SSW_ITA.21.b
+		add_to_variable = {
+			var = ssw_Support_for_transformation_of_industrial_system_in_South_var
+			value = 1
+		}
 	}
 }
 #植民地軍の編成
@@ -514,5 +537,25 @@ country_event = {
 	option = {#防衛
 		name = SSW_ITA.23.c
 		unlock_national_focus = ITA_focus_balbo_Focus_on_defence_tank
+	}
+}
+#政治体制の選択
+country_event = {
+    id = SSW_ITA.24
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event SSW_ITA.24"
+	}
+	title = SSW_ITA.24.t
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = SSW_ITA.24.d
+	option = {#機動
+		name = SSW_ITA.24.a
+		unlock_national_focus = ITA_focus_balbo_Focus_on_mobile_tank
+	}
+	option = {#攻撃
+		name = SSW_ITA.24.b
+		unlock_national_focus = ITA_focus_balbo_Focus_on_attack_tank
 	}
 }
