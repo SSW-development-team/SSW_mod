@@ -2427,6 +2427,16 @@ focus_tree = {
         ai_will_do = {
             factor = 30
         }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = TOK_mobilize_system_war_tt
+                NOT = {has_idea = TOK_effect_famine}
+                NOT = {has_idea = TOK_effect_famine_1}
+                NOT = {has_idea = TOK_effect_famine_2}
+                NOT = {has_idea = TOK_effect_famine_3}
+                NOT = {has_idea = TOK_effect_famine_4}
+            }
+        }
         cancel_if_invalid = yes
 	    continue_if_invalid = no
 	    available_if_capitulated = no
@@ -2486,10 +2496,31 @@ focus_tree = {
             focus = TOK_mobilize_system_war
         }
         completion_reward = {
+            CHI = {
+                end_puppet = TOK
+            }
+            JAP = {
+                end_puppet = VIN
+            }
+            if = {
+                limit = {
+                    is_in_faction = yes
+                }
+                leave_faction = yes
+            }
+            VIN = {
+                if = {
+                    limit = {
+                        is_in_faction = yes
+                    }
+                    leave_faction = yes
+                }
+            }
             declare_war_on = {
                 target = VIN
                 type = annex_everything
             }
+            news_event = { id = ssw_tok_news.1}
         }
     }
     focus = { #自力文団の再興
@@ -2903,8 +2934,8 @@ focus_tree = {
                         	has_idea = TOK_effect_famine_4
                         }
                     }
+                    country_event = {id = ssw_tok.8 days = 1}
                 }
-                country_event = {id = ssw_tok.8 days = 1}
             }
         }
     }
