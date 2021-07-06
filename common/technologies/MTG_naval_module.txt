@@ -42,6 +42,14 @@ technologies = {
 	@mine_laying_heli = 25
 	@mine_sweeper = 27
 
+	@airplane_lancher = 29
+	@damage_control = 31
+	@fire_control = 33
+
+	@transport_ship_big = 35
+	@transport_ship = 36
+	@transport_ship_small = 37
+
 	torpedo_1940 = {
 		enable_equipment_modules = { 
 			ship_torpedo_1
@@ -3584,6 +3592,7 @@ technologies = {
 			naval_equipment
 		}
 	}
+
 	mine_laying_1940 = {
 		
 		research_cost = 2
@@ -4219,7 +4228,824 @@ technologies = {
 		}
 	}
 
+	airplane_lancher_1940 = {
+		
+		research_cost = 2
+
+		start_year = 1940
+		enable_equipment_modules = { 
+			ship_airplane_launcher_1
+			ship_deck_space
+		}
+		path = {
+			leads_to_tech = airplane_lancher_1945 
+			research_cost_coeff = 1
+		}
 
 
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @airplane_lancher y = @1940 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = ALF
+
+				}
+				factor = 7
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	airplane_lancher_1945 = {
+		
+		research_cost = 2
+
+		start_year = 1945
+		path = {
+			leads_to_tech = airplane_lancher_1950 
+			research_cost_coeff = 1
+		}
+		enable_equipment_modules = { 
+			ship_airplane_launcher_2
+		}
+
+
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @airplane_lancher y = @1945 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = ALF
+
+				}
+				factor = 7
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	airplane_lancher_1950 = {
+		
+		research_cost = 1
+		sortie_efficiency = 0.15
+		start_year = 1950
+		path = {
+			leads_to_tech = airplane_lancher_1955 
+			research_cost_coeff = 1
+		}
+
+
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @airplane_lancher y = @1950 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = ALF
+
+				}
+				factor = 7
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	airplane_lancher_1955 = {
+		
+		research_cost = 2
+
+		start_year = 1955
+		path = {
+			leads_to_tech = airplane_lancher_1960 
+			research_cost_coeff = 1
+		}
+		enable_equipment_modules = { 
+			ship_deck_space_2
+		}
+
+
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @airplane_lancher y = @1955 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = ALF
+
+				}
+				factor = 7
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	airplane_lancher_1960 = {
+		
+		research_cost = 1
+
+		start_year = 1960
+		carrier_traffic = 0.1
+		carrier_capacity_penalty_reduction = -0.05
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @airplane_lancher y = @1960 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = ALF
+
+				}
+				factor = 7
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+
+	damage_control_1940 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+
+		start_year = 1940
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @damage_control y = @1940 }
+		}
+		path = {
+			leads_to_tech = damage_control_1950 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fire_control_1940 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	damage_control_1950 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+
+		start_year = 1950
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @damage_control y = @1950 }
+		}
+		path = {
+			leads_to_tech = damage_control_1955 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	damage_control_1955 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+
+		start_year = 1955
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @damage_control y = @1955 }
+		}
+		path = {
+			leads_to_tech = damage_control_1960 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fire_control_1955 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	damage_control_1960 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+
+		start_year = 1960
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @damage_control y = @1960 }
+		}
+		path = {
+			leads_to_tech = damage_control_1970 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	damage_control_1970 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.0
+
+		research_cost = 1.5
+		critical_receive_chance = -0.15
+		naval_critical_effect_factor = -0.1
+
+		start_year = 1970
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @damage_control y = @1970 }
+		}
+		path = {
+			leads_to_tech = fire_control_1970 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+
+	fire_control_1940 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		battleship = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		battle_cruiser = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		heavy_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		light_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		destroyer = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+		}
+
+		start_year = 1940
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @fire_control y = @1940 }
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	fire_control_1955 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		battleship = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		battle_cruiser = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		heavy_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		light_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		destroyer = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+		}
+
+		start_year = 1955
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @fire_control y = @1955 }
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+	fire_control_1970 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		battleship = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		battle_cruiser = {
+			lg_attack = 0.15
+			hg_attack = 0.15
+		}
+		heavy_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		light_cruiser = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+		destroyer = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+		}
+
+		start_year = 1970
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @fire_control y = @1970 }
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+		}
+	}
+
+	transport_ship_1940 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1
+		transport_capacity = -0.25
+		naval_invasion_capacity = 15
+
+		start_year = 1940
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship y = @1940 }
+		}
+		path = {
+			leads_to_tech = transport_ship_big_1950 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = transport_ship_small_1950 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 0.25
+			}
+			modifier = {
+				tag = ITA
+				factor = 3
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_big_1950 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1.1
+		transport_capacity = -0.15
+
+		start_year = 1950
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_big y = @1950 }
+		}
+		path = {
+			leads_to_tech = transport_ship_big_1955 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.0
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_big_1955 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1.1
+		transport_capacity = -0.2
+
+		start_year = 1955
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_big y = @1955 }
+		}
+		path = {
+			leads_to_tech = transport_ship_big_1965 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.0
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_big_1965 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1.1
+		transport_capacity = -0.1
+
+		start_year = 1965
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_big y = @1965 }
+		}
+		path = {
+			leads_to_tech = transport_ship_big_1960 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.0
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_small_1950 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1.1
+		invasion_preparation = -0.2
+		amphibious_invasion_defence = 0.10
+		naval_invasion_capacity = 30
+		amphibious_invasion = 0.1
+
+		start_year = 1950
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_small y = @1950 }
+		}
+		path = {
+			leads_to_tech = transport_ship_small_1955 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.5
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_small_1955 = {
+		xp_research_type = navy
+		xp_research_cost = 50
+		xp_research_bonus = 1.25
+
+		research_cost = 1.15
+		invasion_preparation = -0.15
+		amphibious_invasion_defence = 0.15
+		naval_invasion_capacity = 20
+		amphibious_invasion = 0.05
+
+		start_year = 1955
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_small y = @1955 }
+		}
+		path = {
+			leads_to_tech = transport_ship_small_1965 
+			research_cost_coeff = 1
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.5
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	transport_ship_small_1965 = {
+		xp_research_type = navy
+		xp_research_cost = 100
+		xp_research_bonus = 1.25
+
+		research_cost = 1.5
+		invasion_preparation = -0.25
+		amphibious_invasion = 0.25
+		amphibious_invasion_defence = 0.35
+		naval_invasion_capacity = 60
+
+		start_year = 1965
+		folder = {
+			name = mtgnaval_module_folder
+			position = { x = @transport_ship_small y = @1965 }
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				tag = JAP
+				factor = 3.5
+			}
+			modifier = {
+				tag = ITA
+				factor = 1
+			}
+			modifier = {
+				has_war = yes
+				factor = 1
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
 
 }
