@@ -453,6 +453,20 @@ ideas = {
 				conscription_factor = 0.1
 			}
 		}
+		TIB_reeducation_the_monasts = {
+			picture = idea_jap_the_unthinkable_option
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				national_socialism_drift = -0.2
+				national_fascism_drift = -0.2
+				stability_factor = -0.05
+				political_power_factor = 0.05
+			}
+		}
 		TIB_dual_education = {
 			picture = none
 
@@ -603,9 +617,9 @@ ideas = {
 			picture = tsarong_dzasa
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
 				}
 			}
 			allowed = {
@@ -620,9 +634,9 @@ ideas = {
 			picture = yapshi_langdun
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
+				has_country_leader = {
+					name = "Langdun Kunga Wangchuk"
+					ruling_only = yes
 				}
 			}
 			allowed = {
@@ -637,10 +651,7 @@ ideas = {
 			picture = lobsang_tashi
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_completed_focus = TIB_strengthen_power_of_dalai_lama
 			}
 			allowed = {
 				tag = TIB
@@ -654,9 +665,9 @@ ideas = {
 			picture = lukhangwa
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
+				has_country_leader = {
+					name = "Lukhangwa Tsewang Labden"
+					ruling_only = yes
 				}
 			}
 			allowed = {
@@ -671,10 +682,7 @@ ideas = {
 			picture = reting_rinpoche
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_completed_focus = TIB_reting_rinpoche
 			}
 			allowed = {
 				tag = TIB
@@ -688,10 +696,7 @@ ideas = {
 			picture = taktra_rinpoche
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_completed_focus = TIB_taktra_rinpoche
 			}
 			allowed = {
 				tag = TIB
@@ -705,10 +710,7 @@ ideas = {
 			picture = zhou_enlai
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 				tag = TIB
@@ -792,10 +794,7 @@ ideas = {
 			picture = chen_yi_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			cancel_if_invalid = no
 			allowed = {
@@ -879,10 +878,7 @@ ideas = {
 			picture = bo_yibo
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
@@ -952,10 +948,10 @@ ideas = {
 			picture = ngapo_ngawang_jigme_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
+				NOT = {
+					has_country_flag = TIB_ngawang_jigme_excuted
 				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
@@ -1003,10 +999,7 @@ ideas = {
 			picture = phuntsok_wangyal
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_completed_focus = TIB_support_bapa_wangyal
 			}
 			allowed = {
 					tag = TIB
@@ -1020,10 +1013,7 @@ ideas = {
 			picture = sampho_tsewang_rigzin
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_ngawang_jigme_excuted
 			}
 			allowed = {
 					tag = TIB
@@ -1036,12 +1026,7 @@ ideas = {
 		TIB_thubten_kunphela = {
 			picture = thubten_kunphela
 			removal_cost = -1
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
-			}
+			
 			allowed = {
 					tag = TIB
 			}
@@ -1073,10 +1058,7 @@ ideas = {
 			picture = zhu_de_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
