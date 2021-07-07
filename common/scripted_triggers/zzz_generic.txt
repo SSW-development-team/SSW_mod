@@ -303,3 +303,9 @@ is_controlled_by_myself_or_subject = {
 		controller = { is_subject_of = ROOT }
 	}
 }
+is_owned_by_myself_or_subject = {
+	OR = {
+		is_owned_by = ROOT
+		owner = {is_subject_of = ROOT}
+	}
+}
