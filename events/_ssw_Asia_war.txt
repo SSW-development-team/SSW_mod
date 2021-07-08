@@ -9,6 +9,9 @@ country_event = {
         country_exists = JAP
         country_exists = CHI
         date > 1955.5.6
+        CHI = {
+            NOT = {has_country_flag = CHI_Asian_war}
+        }
     }
     immediate = {
         CHI = {
@@ -259,16 +262,21 @@ country_event = { #講和提案(日本の)
         }
     }
 }
-country_event = {
+country_event = { #勝手に始まった時用(hidden)
     id = ssw_chi_jap_war.9
     title = ssw_chi_jap_war.9.t
     desc = ssw_chi_jap_war.9.d
     fire_only_once = yes
     is_triggered_only = yes
+    hidden = yes
     option = {
         name = ssw_chi_jap_war.9.a
-    }
-    option = {
-        name = ssw_chi_jap_war.9.b
+        hidden_effect = {
+            set_global_flag = big_event_custom_start_of_asian_war
+            CHI = {
+                set_country_flag = CHI_Asian_war
+                mark_focus_tree_layout_dirty = yes
+            }
+        }
     }
 }

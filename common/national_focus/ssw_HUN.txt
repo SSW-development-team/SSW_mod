@@ -20,7 +20,13 @@
 	focus = {
 		id = HUN_1
 		icon = GFX_goal_generic_neutrality_focus
-		available = { has_global_flag = danubian_war_end }
+		available = {
+			OR = {
+				has_global_flag = danubian_war_end
+				has_global_flag = avoidance_danubian_war
+			}
+			NOT = { has_country_flag = lose_danubian_war }
+		}
 		allow_branch = { NOT = { has_country_flag = lose_danubian_war } }
 		x = 0
 		y = 0

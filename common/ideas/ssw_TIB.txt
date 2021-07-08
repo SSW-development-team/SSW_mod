@@ -453,6 +453,20 @@ ideas = {
 				conscription_factor = 0.1
 			}
 		}
+		TIB_reeducation_the_monasts = {
+			picture = idea_jap_the_unthinkable_option
+
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				national_socialism_drift = -0.2
+				national_fascism_drift = -0.2
+				stability_factor = -0.05
+				political_power_factor = 0.05
+			}
+		}
 		TIB_dual_education = {
 			picture = none
 
@@ -603,23 +617,9 @@ ideas = {
 			picture = tsarong_dzasa
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
-			}
-			allowed = {
-				tag = TIB
-			}
-			cancel_if_invalid = no
-		}
-		TIB_langdun = {
-			picture = yapshi_langdun
-			removal_cost = -1
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
+				has_country_leader = {
+					name = "Tsarong Dzasa"
+					ruling_only = yes
 				}
 			}
 			allowed = {
@@ -627,45 +627,47 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
-				TIB_from_lhasa
+				ssw_authority_despotist
+			}
+		}
+		TIB_langdun = {
+			picture = yapshi_langdun
+			removal_cost = -1
+			available = {
+				has_country_leader = {
+					name = "Langdun Kunga Wangchuk"
+					ruling_only = yes
+				}
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+				TIB_from_lhasa ssw_authority_despotist
 			}
 		}
 		TIB_lobsang_tashi_pm = {
 			picture = lobsang_tashi
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_completed_focus = TIB_strengthen_power_of_dalai_lama
 			}
 			allowed = {
 				tag = TIB
 			}
 			cancel_if_invalid = no
-			traits = {}
+			traits = {
+				ssw_authority_democrat
+			}
 		}
 		TIB_lukhangwa_pm = {
 			picture = lukhangwa
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
-			}
-			allowed = {
-				tag = TIB
-			}
-			cancel_if_invalid = no
-		}
-		TIB_reting_rinpoche_idea = {
-			picture = reting_rinpoche
-			removal_cost = -1
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
+				has_country_leader = {
+					name = "Lukhangwa Tsewang Labden"
+					ruling_only = yes
 				}
 			}
 			allowed = {
@@ -673,38 +675,49 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
+			}
+		}
+		TIB_reting_rinpoche_idea = {
+			picture = reting_rinpoche
+			removal_cost = -1
+			available = {
+				has_completed_focus = TIB_reting_rinpoche
+			}
+			allowed = {
+				tag = TIB
+			}
+			cancel_if_invalid = no
+			traits = {
+				ssw_national_socialist
 			}
 		}
 		TIB_taktra_rinpoche_idea = {
 			picture = taktra_rinpoche
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_completed_focus = TIB_taktra_rinpoche
 			}
 			allowed = {
 				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_national_fascist
 			}
 		}
 		TIB_zhou_enlai = {
 			picture = zhou_enlai
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = head_of_gov_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 				tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_classical_communist
 			}
 		}
 		TIB_pandatsang_rapga = {
@@ -721,6 +734,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_liberalist
 			}
 		}
 		TIB_tashi_dorje_phunkhang = {
@@ -737,6 +751,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_conservatist
 			}
 		}
 	}
@@ -755,6 +770,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 		TIB_gyalo_dhondup = {
@@ -771,22 +787,21 @@ ideas = {
 				tag = TIB
 			}
 			traits = {
+				ssw_authority_despotist
 			}
 		}
 		TIB_chen_yi_fa = {
 			picture = chen_yi_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			cancel_if_invalid = no
 			allowed = {
 					tag = TIB
 			}
 			traits = {
+				ssw_classical_communist
 			}
 		}
 		TIB_chang_wei_pei = {
@@ -803,6 +818,7 @@ ideas = {
 					tag = TIB
 			}
 			traits = {
+				ssw_social_democrat
 			}
 		}
 		TIB_heinrich_harrer = {
@@ -819,6 +835,7 @@ ideas = {
 					tag = TIB
 			}
 			traits = {
+				ssw_national_socialist
 			}
 		}
 	}
@@ -837,6 +854,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 		TIB_kyibu_ii = {
@@ -853,22 +871,21 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 		TIB_bo_yibo = {
 			picture = bo_yibo
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_classical_communist
 			}
 		}
 		TIB_vasily_gorbatov = {
@@ -885,6 +902,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_progressive_communist
 			}
 		}
 		TIB_peter_aufschnaiter = {
@@ -899,7 +917,9 @@ ideas = {
 					always = no
 				}
 			}
-			traits = {  }
+			traits = {  
+				ssw_national_socialist
+			}
 			cancel_if_invalid = no
 			ai_will_do = {
 				factor = 1
@@ -921,22 +941,24 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_conservatist
 			}
 		}
 		TIB_ngapo_ngawang_jigme_in = {
 			picture = ngapo_ngawang_jigme_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
+				NOT = {
+					has_country_flag = TIB_ngawang_jigme_excuted
 				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_democrat
 			}
 		}
 		TIB_geshe_sherab_gyatso = {
@@ -953,6 +975,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 		TIB_lhalu_tsewang_dorje_in = {
@@ -969,54 +992,47 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 		TIB_phuntsok_wangyal = {
 			picture = phuntsok_wangyal
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_completed_focus = TIB_support_bapa_wangyal
 			}
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_progressive_communist
 			}
 		}
 		TIB_sampho_rigzin_in = {
 			picture = sampho_tsewang_rigzin
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_ngawang_jigme_excuted
 			}
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_classical_communist
 			}
 		}
 		TIB_thubten_kunphela = {
 			picture = thubten_kunphela
 			removal_cost = -1
-			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
-			}
+			
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_liberalist
 			}
 		}
 	}
@@ -1035,22 +1051,21 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_despotist
 			}
 		}
 		TIB_zhu_de = {
 			picture = zhu_de_civil
 			removal_cost = -1
 			available = {
-				custom_trigger_tooltip = {
-					tooltip = minister_available
-					always = no
-				}
+				has_country_flag = TIB_government_ccp
 			}
 			allowed = {
 					tag = TIB
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_classical_communist
 			}
 		}
 		TIB_jigme_taring = {
@@ -1067,6 +1082,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_social_conservatist
 			}
 		}
 		TIB_dingja = {
@@ -1083,6 +1099,7 @@ ideas = {
 			}
 			cancel_if_invalid = no
 			traits = {
+				ssw_authority_democrat
 			}
 		}
 	}

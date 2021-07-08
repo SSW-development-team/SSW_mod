@@ -972,7 +972,7 @@ country_event = { #国家社会主義者が権力を確保
                 AND = {
                     national_socialism > 0.3
                     has_stability < 0.2
-                    has_global_flag = danubian_war_end
+                    OR = { has_global_flag = danubian_war_end has_global_flag = avoidance_danubian_war }
                     NOT = {has_idea = BUL_political_instability}
                 }
             }
@@ -985,7 +985,7 @@ country_event = { #国家社会主義者が権力を確保
                 AND = {
                     national_socialism > 0.3
                     has_stability < 0.2
-                    has_global_flag = danubian_war_end
+                    OR = { has_global_flag = danubian_war_end has_global_flag = avoidance_danubian_war }
                     NOT = {has_idea = BUL_political_instability}
                 }
             }
@@ -1009,7 +1009,7 @@ country_event = { #国家社会主義者が権力を確保
             AND = {
                 national_socialism > 0.3
                 has_stability < 0.2
-                has_global_flag = danubian_war_end
+                OR = { has_global_flag = danubian_war_end has_global_flag = avoidance_danubian_war }
                 NOT = {has_idea = BUL_political_instability}
             }
         }
@@ -2185,7 +2185,7 @@ country_event = { #イギリスへの外交的提案
     option = { #陣営への加入を求める
         name = ssw_bul.44.b
         trigger = {
-            has_global_flag = danubian_war_end
+            OR = { has_global_flag = danubian_war_end has_global_flag = avoidance_danubian_war }
             ENG = {
                 is_faction_leader = yes
             }

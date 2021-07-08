@@ -20,18 +20,6 @@ scripted_gui = {
 			wehrmacht = {
 				image = [Current_Wehrmacht_Influence]
 			}
-			test_1 = {
-				frame = 100
-			}
-			test_2 = {
-				frame = 90
-			}
-			test_3 = {
-				frame = 80
-			}
-			test_4 = {
-				frame = 70
-			}
 		}
 	}
 	
@@ -278,8 +266,8 @@ scripted_gui = {
 		}
 	}
 	
-	GER_GDP_Opener = {
-		window_name = "GER_GDP_Opener"
+	GER_PP_Opener = {
+		window_name = "GER_PP_Opener"
 		context_type = player_context
 		parent_window_token = politics_tab
 
@@ -290,46 +278,55 @@ scripted_gui = {
 		}
 
 		effects = {
-			GS_button_click = {
+			PP_button_click = {
 				if = {
-					limit = { has_country_flag = GER_GDP_opened }
-					clr_country_flag = GER_GDP_opened
+					limit = { has_country_flag = GER_PP_opened }
+					clr_country_flag = GER_PP_opened
 				}
 				else = {
-					set_country_flag = GER_GDP_opened
+					set_country_flag = GER_PP_opened
 				}
 			}
 		}
 	}
-	GER_GDP_Main = {
-		window_name = "GER_GDP_Main"
+	GER_PP_Main = {
+		window_name = "GER_PP_Main"
 		context_type = player_context
 
 		visible = {
 			is_ai = no
 			tag = GER
-			has_country_flag = GER_GDP_opened
+			has_country_flag = GER_PP_opened
 		}
 		
-		dynamic_lists = {
-			state_container = {
-				array = map_x_position
-				change_scope = no
-				entry_container = state_entry
-				index = i
-			}
-		}
 		effects = {
 			close_button_click = {
-				clr_country_flag = GER_GDP_opened
+				clr_country_flag = GER_PP_opened
+			}
+			chart_cover_click = {
+				set_variable = { GER_PP_Chart2 = random }
+				set_variable = { GER_PP_Chart3 = random }
+				set_variable = { GER_PP_Chart4 = random }
+				set_variable = { GER_PP_Chart5 = random }
+				set_variable = { GER_PP_Chart6 = random }
+				set_variable = { GER_PP_Chart7 = random }
+				set_variable = { GER_PP_Chart8 = random }
+				set_variable = { GER_PP_Chart9 = random }
+				set_variable = { GER_PP_Chart10 = random }
+				d_update_PP_Chart_effects = yes
 			}
 		}
 		properties = {
-			state_icon = {
-				x = map_x_position^i
-				y = map_y_position^i
-				frame = state_frame^i
-			}
+			chart_1 = { frame = 100 }
+			chart_2 = { frame = GER_PP_Chart2_C }
+			chart_3 = { frame = GER_PP_Chart3_C }
+			chart_4 = { frame = GER_PP_Chart4_C }
+			chart_5 = { frame = GER_PP_Chart5_C }
+			chart_6 = { frame = GER_PP_Chart6_C }
+			chart_7 = { frame = GER_PP_Chart7_C }
+			chart_8 = { frame = GER_PP_Chart8_C }
+			chart_9 = { frame = GER_PP_Chart9_C }
+			chart_10 = { frame = GER_PP_Chart10_C }
 		}
 	}
 }

@@ -1,0 +1,257 @@
+update_GER_PS_Military_piechart_effects = {
+	clear_array = pie_chart
+	resize_array = {
+		array = pie_chart
+		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
+		size = 100 # 100 pieces, each percent is one piece
+	}
+	set_temp_variable = { at = GER_Military_Goering_Influence }
+	add_to_temp_variable = { at = GER_Military_Himmler_Influence }
+	add_to_temp_variable = { at = GER_Military_Goebbels_Influence }
+	add_to_temp_variable = { at = GER_Military_Hess_Influence }
+	
+	set_temp_variable = { neutrality_pop = GER_Military_Goering_Influence }
+	divide_temp_variable = { neutrality_pop = at }
+	multiply_temp_variable = { neutrality_pop = 100 }
+	round_temp_variable = neutrality_pop
+
+	set_temp_variable = { communism_pop = GER_Military_Himmler_Influence }
+	divide_temp_variable = { communism_pop = at }
+	multiply_temp_variable = { communism_pop = 100 }
+	round_temp_variable = communism_pop 
+	set_variable = { ROOT.last_idx = neutrality_pop }
+	add_to_temp_variable = { communism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = communism_pop
+		set_variable = { pie_chart^v = 2 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { democratic_pop = GER_Military_Goebbels_Influence }
+	divide_temp_variable = { democratic_pop = at }
+	multiply_temp_variable = { democratic_pop = 100 }
+	round_temp_variable = democratic_pop
+	add_to_temp_variable = { democratic_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = democratic_pop
+		set_variable = { pie_chart^v = 3 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { fascism_pop = GER_Military_Hess_Influence }
+	divide_temp_variable = { fascism_pop = at }
+	multiply_temp_variable = { fascism_pop = 100 }
+	round_temp_variable = fascism_pop 
+	add_to_temp_variable = { fascism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = fascism_pop
+		set_variable = { pie_chart^v = 4 }
+	}
+	clear_variable = at
+	clear_variable = ROOT.last_idx
+	add_to_variable = { pie_chart_dirty = 1 }
+}
+
+update_GER_PS_SS_piechart_effects = {
+	clear_array = pie_chart
+	resize_array = {
+		array = pie_chart
+		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
+		size = 100 # 100 pieces, each percent is one piece
+	}
+	set_temp_variable = { at = GER_SS_Goering_Influence }
+	add_to_temp_variable = { at = GER_SS_Himmler_Influence }
+	add_to_temp_variable = { at = GER_SS_Goebbels_Influence }
+	add_to_temp_variable = { at = GER_SS_Hess_Influence }
+	
+	set_temp_variable = { neutrality_pop = GER_SS_Goering_Influence }
+	divide_temp_variable = { neutrality_pop = at }
+	multiply_temp_variable = { neutrality_pop = 100 }
+	round_temp_variable = neutrality_pop
+
+	set_temp_variable = { communism_pop = GER_SS_Himmler_Influence }
+	divide_temp_variable = { communism_pop = at }
+	multiply_temp_variable = { communism_pop = 100 }
+	round_temp_variable = communism_pop 
+	set_variable = { ROOT.last_idx = neutrality_pop }
+	add_to_temp_variable = { communism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = communism_pop
+		set_variable = { pie_chart^v = 2 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { democratic_pop = GER_SS_Goebbels_Influence }
+	divide_temp_variable = { democratic_pop = at }
+	multiply_temp_variable = { democratic_pop = 100 }
+	round_temp_variable = democratic_pop
+	add_to_temp_variable = { democratic_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = democratic_pop
+		set_variable = { pie_chart^v = 3 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { fascism_pop = GER_SS_Hess_Influence }
+	divide_temp_variable = { fascism_pop = at }
+	multiply_temp_variable = { fascism_pop = 100 }
+	round_temp_variable = fascism_pop 
+	add_to_temp_variable = { fascism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = fascism_pop
+		set_variable = { pie_chart^v = 4 }
+	}
+	clear_variable = at
+	clear_variable = ROOT.last_idx
+	add_to_variable = { pie_chart_dirty = 1 }
+}
+
+update_GER_PS_Politican_piechart_effects = {
+	clear_array = pie_chart
+	resize_array = {
+		array = pie_chart
+		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
+		size = 100 # 100 pieces, each percent is one piece
+	}
+	set_temp_variable = { at = GER_Politican_Goering_Influence }
+	add_to_temp_variable = { at = GER_Politican_Himmler_Influence }
+	add_to_temp_variable = { at = GER_Politican_Goebbels_Influence }
+	add_to_temp_variable = { at = GER_Politican_Hess_Influence }
+	
+	set_temp_variable = { neutrality_pop = GER_Politican_Goering_Influence }
+	divide_temp_variable = { neutrality_pop = at }
+	multiply_temp_variable = { neutrality_pop = 100 }
+	round_temp_variable = neutrality_pop
+
+	set_temp_variable = { communism_pop = GER_Politican_Himmler_Influence }
+	divide_temp_variable = { communism_pop = at }
+	multiply_temp_variable = { communism_pop = 100 }
+	round_temp_variable = communism_pop 
+	set_variable = { ROOT.last_idx = neutrality_pop }
+	add_to_temp_variable = { communism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = communism_pop
+		set_variable = { pie_chart^v = 2 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { democratic_pop = GER_Politican_Goebbels_Influence }
+	divide_temp_variable = { democratic_pop = at }
+	multiply_temp_variable = { democratic_pop = 100 }
+	round_temp_variable = democratic_pop
+	add_to_temp_variable = { democratic_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = democratic_pop
+		set_variable = { pie_chart^v = 3 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { fascism_pop = GER_Politican_Hess_Influence }
+	divide_temp_variable = { fascism_pop = at }
+	multiply_temp_variable = { fascism_pop = 100 }
+	round_temp_variable = fascism_pop 
+	add_to_temp_variable = { fascism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = fascism_pop
+		set_variable = { pie_chart^v = 4 }
+	}
+	clear_variable = at
+	clear_variable = ROOT.last_idx
+	add_to_variable = { pie_chart_dirty = 1 }
+}
+
+update_GER_PS_Popular_piechart_effects = {
+	clear_array = pie_chart
+	resize_array = {
+		array = pie_chart
+		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
+		size = 100 # 100 pieces, each percent is one piece
+	}
+	set_temp_variable = { at = GER_Popular_Goering_Influence }
+	add_to_temp_variable = { at = GER_Popular_Himmler_Influence }
+	add_to_temp_variable = { at = GER_Popular_Goebbels_Influence }
+	add_to_temp_variable = { at = GER_Popular_Hess_Influence }
+	
+	set_temp_variable = { neutrality_pop = GER_Popular_Goering_Influence }
+	divide_temp_variable = { neutrality_pop = at }
+	multiply_temp_variable = { neutrality_pop = 100 }
+	round_temp_variable = neutrality_pop
+
+	set_temp_variable = { communism_pop = GER_Popular_Himmler_Influence }
+	divide_temp_variable = { communism_pop = at }
+	multiply_temp_variable = { communism_pop = 100 }
+	round_temp_variable = communism_pop 
+	set_variable = { ROOT.last_idx = neutrality_pop }
+	add_to_temp_variable = { communism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = communism_pop
+		set_variable = { pie_chart^v = 2 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { democratic_pop = GER_Popular_Goebbels_Influence }
+	divide_temp_variable = { democratic_pop = at }
+	multiply_temp_variable = { democratic_pop = 100 }
+	round_temp_variable = democratic_pop
+	add_to_temp_variable = { democratic_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = democratic_pop
+		set_variable = { pie_chart^v = 3 }
+		add_to_variable = { ROOT.last_idx = 1 }
+	}
+
+	set_temp_variable = { fascism_pop = GER_Popular_Hess_Influence }
+	divide_temp_variable = { fascism_pop = at }
+	multiply_temp_variable = { fascism_pop = 100 }
+	round_temp_variable = fascism_pop 
+	add_to_temp_variable = { fascism_pop = ROOT.last_idx }
+	for_loop_effect = {
+		start = ROOT.last_idx
+		end = fascism_pop
+		set_variable = { pie_chart^v = 4 }
+	}
+	clear_variable = at
+	clear_variable = ROOT.last_idx
+	add_to_variable = { pie_chart_dirty = 1 }
+}
+
+update_GER_Pop_effects = {
+	set_temp_variable = { at = GER_Power_Game_BGCW_Select:Pop_of_Goering }
+	add_to_temp_variable = { at = GER_Power_Game_BGCW_Select:Pop_of_Himmler }
+	add_to_temp_variable = { at = GER_Power_Game_BGCW_Select:Pop_of_Goebbels }
+	add_to_temp_variable = { at = GER_Power_Game_BGCW_Select:Pop_of_Hess }
+	
+	set_temp_variable = { himmler_pop = GER_Power_Game_BGCW_Select:Pop_of_Himmler }
+	divide_temp_variable = { himmler_pop = at }
+	multiply_temp_variable = { himmler_pop = 100 }
+	round_temp_variable = himmler_pop
+	
+	set_temp_variable = { goebbels_pop = GER_Power_Game_BGCW_Select:Pop_of_Goebbels }
+	divide_temp_variable = { goebbels_pop = at }
+	multiply_temp_variable = { goebbels_pop = 100 }
+	round_temp_variable = goebbels_pop
+	
+	set_temp_variable = { hess_pop = GER_Power_Game_BGCW_Select:Pop_of_Hess }
+	divide_temp_variable = { hess_pop = at }
+	multiply_temp_variable = { hess_pop = 100 }
+	round_temp_variable = hess_pop
+	
+	add_to_temp_variable = { himmler_pop = goebbels_pop }
+	add_to_temp_variable = { himmler_pop = hess_pop }
+	add_to_temp_variable = { goebbels_pop = hess_pop }
+	
+	set_variable = { Complete_Himmler_Pop = himmler_pop }
+	set_variable = { Complete_Goebbels_Pop = goebbels_pop }
+	set_variable = { Complete_Hess_Pop = hess_pop }
+}

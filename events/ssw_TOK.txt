@@ -1,4 +1,5 @@
 add_namespace = ssw_tok
+add_namespace = ssw_tok_news
 country_event = { #標準軌の統一
     id = ssw_tok.1
     title = ssw_tok.1.t
@@ -182,5 +183,62 @@ country_event = { #タイ人の蜂起
             target = SCT
             type = annex_everything
         }
+    }
+}
+news_event = { #ベトナム戦争開戦
+    id = ssw_tok_news.1
+    title = ssw_tok_news.1.t
+    desc = ssw_tok_news.1.d
+    picture = GFX_news_event_039
+    major = yes
+    fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+        name = ssw_tok_news.1.a
+        trigger = {
+            NOT = {tag = TOK}
+            NOT = {tag = VIN}
+        }
+        if = {
+            limit = {
+                any_owned_state = {
+                    AND = {
+                        is_capital = yes
+                        OR = {
+                            region = 189
+                            region = 142
+                            region = 188
+                            region = 187
+                            region = 158
+                            region = 167
+                            region = 159
+                            region = 160
+                            region = 165
+                            region = 164
+                            region = 144
+                            region = 200
+                            region = 146
+                            region = 145
+                            region = 152
+                            region = 143
+                            region = 155
+                            region = 148
+                            region = 154
+                        }
+                    }
+                }
+            }
+            set_country_flag = big_event_start_of_vietnam_war
+        }
+    }
+    option = {
+        name = ssw_tok_news.1.b
+        trigger = {
+            OR = {
+                tag = TOK
+                tag = VIN
+            }
+        }
+        set_country_flag = big_event_start_of_vietnam_war
     }
 }
