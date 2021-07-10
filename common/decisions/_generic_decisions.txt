@@ -925,23 +925,16 @@ SSW_foreign_support = {
 		}
 		cost = 25
 		fire_only_once = no
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 1
-				FROM = {
-					free_building_slots = {
-						building = arms_factory
-						size < 1
-					}
-				}
-			}
-		}
+		ai_will_do = { base = 1 }
 		days_remove = 49
 		modifier = { political_power_gain = -1 }
 		visible = {
 			FROM = {
 				is_owned_by = ROOT
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+				}
 				OR = {
 					AND = {
 						has_state_category = wasteland
