@@ -2494,8 +2494,15 @@ shared_focus = { #安定的政権の確立
     y = 2
     completion_reward = {
         add_stability = 0.05
-        remove_dynamic_modifier = {
-            modifier = ssw_CHI_death_Wang
+        if = {
+            limit = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_death_Wang
+                }
+            }
+            remove_dynamic_modifier = {
+                modifier = ssw_CHI_death_Wang
+            }
         }
     }
 }
