@@ -13,2043 +13,421 @@ focus_tree = {
 		y = 1350
 	}
 	focus = {
-		#連合の課題
-		id = UTC_the_problem
+		#企業評議会の設立
+		id = UTC_the_corporate_council
 		icon = GFX_goal_generic_propaganda
 		cost = 5
 	ai_will_do = {
 	  factor = 10
    }
-		x = 7
+		x = 9
 		y = 0
-		completion_reward = {
-			add_political_power = 100
-		}
-		completion_reward = {
-		   country_event = {
-				id = SSW_UTC.1
-				}
-	}
- }
-	focus = {
-		#フォード社重視
-		id = UTC_focus_on_the_ford_company
-		icon = GFX_focus_UTC_ford_motor_company
-		cost = 2
-		prerequisite = {
-			focus = UTC_the_problem
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_the_gm_company
-			focus = UTC_focus_on_the_chrysler_company
-			focus = UTC_unity_of_the_three_companies
-		}
-		x = 2
-		y = 1
-		completion_reward = {
-		add_ideas = UTC_idea_2
-		}
-		ai_will_do = { factor = 10 }
-		available = {
-			hidden_trigger = { always = no }
-		}
-	}
-	focus = {
-		#新型砲戦車の実用化
-		id = UTC_practical_use_of_new_tank
-		icon = GFX_focus_generic_army_tanks2
-		cost = 10
-		prerequisite = {
-			focus = UTC_focus_on_the_ford_company
-		}
-		x = 2
-		y = 2
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			swap_ideas= {
- remove_idea = UTC_idea_2
-add_idea = UTC_idea_3
 }
-	}
-	}
 	focus = {
-		#戦車と航空機の連携
-		id = UTC_cooperation_between_tanks_and_aircraft
-		icon = GFX_focus_generic_army_tanks2
-		cost = 10
-		prerequisite = {
-			focus = UTC_practical_use_of_new_tank
-		}
-		x = 2
-		y = 3
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = cas_bomber
-	}
-		}
-	}
-	focus = {
-		#爆撃機の更なる改良
-		id = UTC_improved_bomber
-		icon = GFX_goal_generic_air_fighter
-		cost = 10
-		prerequisite = {
-			focus = UTC_cooperation_between_tanks_and_aircraft
-		}
-		x = 2
-		y = 4
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = cat_strategic_bomber
-	}
-		}
-	}
-	focus = {
-		#GM社重視
-		id = UTC_focus_on_the_gm_company
-		icon = GFX_focus_UTC_general_motors_company
-		cost = 2
-		prerequisite = {
-			focus = UTC_the_problem
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_the_ford_company
-			focus = UTC_focus_on_the_chrysler_company
-			focus = UTC_unity_of_the_three_companies
-		}
-		x = 5
-		y = 1
-		completion_reward = {
-		add_ideas = UTC_idea_4
-		}
-		ai_will_do = { factor = 10 }
-		available = {
-			hidden_trigger = { always = no }
-		}
-	}
-	focus = {
-		#世界各地の支社での販売
-		id = UTC_sales_at_branch_offices
-		icon = GFX_goal_generic_position_armies
-		cost = 10
-		prerequisite = {
-			focus = UTC_focus_on_the_gm_company
-		}
-		x = 5
-		y = 2
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			swap_ideas= {
- remove_idea = UTC_idea_1
-add_idea = UTC_idea_5
-}
-	}
-	}
-	focus = {
-		#銃器の生産ライン見直し
-		id = UTC_review_the_firearm_production_line
-		icon = GFX_goal_generic_military_sphere
-		cost = 10
-		prerequisite = {
-			focus = UTC_sales_at_branch_offices
-		}
-		x = 5
-		y = 3
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_4
-add_idea = UTC_idea_6
-}
-		}
-	}
-	focus = {
-		#機械化歩兵装備の開発
-		id = UTC_developed_mechanized_infanyry_equipment
-		icon = GFX_goal_generic_army_artillery
-		cost = 10
-		prerequisite = {
-			focus = UTC_review_the_firearm_production_line
-		}
-		x = 5
-		y = 4
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_tech_bonus = {
-        bonus = 1
-        uses = 1 
-        category = cat_mechanized_equipment
-		}
-    }
-	}
-	focus = {
-		#クライスラー社重視
-		id = UTC_focus_on_the_chrysler_company
-		icon = GFX_focus_UTC_chrysler
-		cost = 2
-		prerequisite = {
-			focus = UTC_the_problem
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_the_ford_company
-			focus = UTC_focus_on_the_gm_company
-			focus = UTC_unity_of_the_three_companies
-		}
-		x = 9
-		y = 1
-		completion_reward = {
-		add_ideas = UTC_idea_7
-		}
-		ai_will_do = { factor = 10 }
-		available = {
-			hidden_trigger = { always = no }
-		}
-	}
-	focus = {
-		#戦車の需要の調査
-		id = UTC_survey_tank_demand
-		icon = GFX_goal_continuous_armor_production
-		cost = 10
-		prerequisite = {
-			focus = UTC_focus_on_the_chrysler_company
-		}
-		x = 9
-		y = 2
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_7
-add_idea = UTC_idea_8
-		}
-}
-	}
-	focus = {
-		#民間車両重視
-		id = UTC_focus_on_private_vehicles
-		icon = GFX_focus_generic_the_giant_wakes
-		cost = 10
-		prerequisite = {
-			focus = UTC_survey_tank_demand
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_military_vehicles
-		}
-		x = 8
-		y = 3
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.05
-		}
-	}
-	focus = {
-		#軍用車両を重視
-		id = UTC_focus_on_military_vehicles
-		icon = GFX_goal_generic_production2
-		cost = 10
-		prerequisite = {
-			focus = UTC_survey_tank_demand
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_private_vehicles
-		}
-		x = 10
-		y = 3
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_1
-add_idea = UTC_idea_9
-}
-		}
-	}
-	focus = {
-		#自動車の利便性の向上
-		id = UTC_improving_vehicle_convenience
-		icon = GFX_goal_generic_build_tank
-		cost = 10
-		prerequisite = {
-			focus = UTC_focus_on_private_vehicles
-			focus = UTC_focus_on_military_vehicles
-		}
-		x = 9
-		y = 4
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_8
-add_idea = UTC_idea_16
-}
-		}
-	}
-	focus = {
-		#三社の団結
-		id = UTC_unity_of_the_three_companies
-		icon = GFX_focus_UTC_flag
-		cost = 2
-		prerequisite = {
-			focus = UTC_the_problem
-		}
-		mutually_exclusive = {
-			focus = UTC_focus_on_the_ford_company
-			focus = UTC_focus_on_the_gm_company
-			focus = UTC_focus_on_the_chrysler_company
-		}
-		x = 13
-		y = 1
-		completion_reward = {
-		add_ideas = UTC_idea_10
-		}
-		ai_will_do = { factor = 10 }
-		available = {
-			hidden_trigger = { always = no }
-		}
-	}
-	focus = {
-		#三社合同会議の開催
-		id = UTC_hold_the_joint_conference
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10
-		prerequisite = {
-			focus = UTC_unity_of_the_three_companies
-		}
-		x = 13
-		y = 2
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		   country_event = {
-				id = SSW_UTC.2
-		   }
-	}
-	}
-	focus = {
-		#三社の生産ラインの改善
-		id = UTC_improve_the_production_line
-		icon = GFX_goal_generic_production
-		cost = 10
-		prerequisite = {
-			focus = UTC_hold_the_joint_conference
-		}
-		x = 13
-		y = 3
-		ai_will_do = { factor = 10 }
-	completion_reward = {
-		   country_event = {
-				id = SSW_UTC.3
-		   }
-	}
-	}
-	focus = {
-		#3つの会社3つの絆
-		id = UTC_three_companies_three_bonds
-		icon = GFX_goal_generic_major_alliance
-		cost = 10
-		prerequisite = {
-			focus = UTC_improve_the_production_line
-		}
-		x = 13
-		y = 4
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			#consumer_goods_factor = -0.1
-			swap_ideas= {
- remove_idea = UTC_idea_10
-add_idea = UTC_idea_11
-}
-		}
-	}
-	focus = {
-		#連合の未来
-		id = UTC_the_future
-		icon = GFX_goal_generic_improve_relations
+		#フォードの優越
+		id = UTC_the_Ford_superiority
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		prerequisite = {
-			focus = UTC_three_companies_three_bonds
-			focus = UTC_improving_vehicle_convenience
-			focus = UTC_developed_mechanized_infanyry_equipment
-			focus = UTC_improved_bomber
+	ai_will_do = {
+	  factor = 10
+   }
+    prerequisite = {
+			focus = UTC_the_corporate_council
 		}
-		x = 7
-		y = 5
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#三社連合の工業化
-		id = UTC_the_industrialization
-		icon = GFX_goal_generic_construction
+	mutually_exclusive = {
+			focus = UTC_the_GM_Superiority
+			focus = UTC_the_Chrysler_superiority
+			focus = UTC_the_solidarity_of_three_companies
+		}
+		x = 2
+		y = 1
+}
+ 	focus = {
+		#社会学部門
+		id = UTC_the_Department_of_Sociology
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		mutually_exclusive = {
-			focus = UTC_the_agriculturalization
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Ford_superiority
+		}
+		x = 1
+		y = 2
+}
+focus = {
+		#サービス部門
+		id = UTC_the_Service_Department
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Ford_superiority
 		}
 		x = 3
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = industry
-			}
-		}
-	}
-	focus = {
-		#連合東部の工業化
-		id = UTC_the_eastern_industrialization
-		icon = GFX_focus_generic_industry_1
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_the_western_industrialization
+		y = 2
+}
+focus = {
+		#給与の削減
+		id = UTC_the_Salary_reduction
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Department_of_Sociology
 		}
 		x = 1
-		y = 7
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1111 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			392 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			908 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			391 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			907 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			909 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			394 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1039 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			395 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1123 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1112 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			396 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1122 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			393 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			1131 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			261 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
+		y = 3
+}
+focus = {
+		#フォーディズムの行き着く先
+		id = UTC_the_The_End_of_Fordism
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Service_Department
 		}
+		x = 3
+		y = 3
+}
+focus = {
+		#より多く、より安く
+		id = UTC_the_More_and_cheaper
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Salary_reduction
+		}
+	prerequisite = {
+		focus = UTC_the_The_End_of_Fordism
 	}
-	focus = {
-		#シカゴを拠点に
-		id = UTC_based_in_chicago
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_eastern_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_based_in_detroit
-		}
-		x = 0
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1122 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#デトロイトを拠点に
-		id = UTC_based_in_detroit
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_eastern_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_based_in_chicago
+		x = 2
+		y = 4
+}
+focus = {
+		#aaaaa
+		id = UTC_the_aaaaa
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_More_and_cheaper
 		}
 		x = 2
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1131 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#軍需工場の増加
-		id = UTC_expand_military_factory
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10
-		prerequisite = {
-			focus = UTC_based_in_detroit
-			focus = UTC_based_in_chicago
-		}
-		x = 1
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1131 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		} 
-	}
-	focus = {
-		#連合西部の工業化
-		id = UTC_the_western_industrialization
-		icon = GFX_focus_generic_industry_2
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_the_eastern_industrialization
-		}
-		x = 5
-		y = 7
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1110 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			384 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			912 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			390 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			389 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			906 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			388 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			381 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			1129 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		#グレートフォールズを拠点に
-		id = UTC_based_in_the_great_falls
-		icon = GFX_goal_generic_construct_civilian
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_western_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_based_in_the_rapid_city
-		}
-		x = 4
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			388 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#ラピッドシティを拠点に
-		id = UTC_based_in_the_rapid_city
-		icon = GFX_goal_generic_construct_civilian
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_western_industrialization
-		}
-		mutually_exclusive = {
-			focus = UTC_based_in_the_great_falls
-		}
-		x = 6
-		y = 8
-		mutually_exclusive = {
-			focus = UTC_based_in_the_great_falls
-		}
-		x = 6
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			390 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#民需工場の増加
-		id = UTC_expand_civilian_factory
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10
-		prerequisite = {
-			focus = UTC_based_in_the_great_falls
-			focus = UTC_based_in_the_rapid_city
-		}
-		x = 5
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			390 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		} 
-	}
-	focus = {
-		#三社連合の農業化
-		id = UTC_the_agriculturalization
-		icon = GFX_goal_generic_construction2
+		y = 5
+}
+focus = {
+		#GMの優越
+		id = UTC_the_GM_Superiority
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		mutually_exclusive = {
-			focus = UTC_the_industrialization
-		}
-		x = 11
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			weekly_manpower = 125
-		}
-	}
-	focus = {
-		#連合東部の農業化
-		id = UTC_the_eastern_agriculturalization
-		icon = GFX_goal_generic_consumer_goods
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_agriculturalization
+	ai_will_do = {
+	  factor = 10
+   }
+    prerequisite = {
+			focus = UTC_the_corporate_council
 		}
 		mutually_exclusive = {
-			focus = UTC_the_western_agriculturalization
+			focus = UTC_the_Ford_superiority
+			focus = UTC_the_Chrysler_superiority
+			focus = UTC_the_solidarity_of_three_companies
 		}
-		x = 9
-		y = 7
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_stability = 0.1
-		}
-	}
-	focus = {
-		#ミシシッピ川で
-		id = UTC_on_the_mississippi_river
-		icon = GFX_goal_generic_occupy_states_coastal
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_eastern_agriculturalization
-		}
-		x = 9
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_17
-		}
-	}
-	focus = {
-		#上流のミネアポリスで
-		id = UTC_in_minneapolis
-		icon = GFX_goal_generic_production
-		cost = 10
-		prerequisite = {
-			focus = UTC_on_the_mississippi_river
+		x = 6
+		y = 1
+}
+focus = {
+		#民間産業に投資
+		id = UTC_the_Invest_in_private_industry
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_GM_Superiority
 		}
 		mutually_exclusive = {
-			focus = UTC_in_saint_louis
+			focus = UTC_the_Raising_money_for_the_military
 		}
-		x = 8
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			391 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#下流のセントルイスで
-		id = UTC_in_saint_louis
-		icon = GFX_goal_generic_production
-		cost = 10
-		prerequisite = {
-			focus = UTC_on_the_mississippi_river
+		x = 5
+		y = 2
+}
+focus = {
+		#軍事費の捻出
+		id = UTC_the_Raising_money_for_the_military
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_GM_Superiority
 		}
 		mutually_exclusive = {
-			focus = UTC_in_minneapolis
+			focus = UTC_the_Invest_in_private_industry
 		}
-		x = 10
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			373 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
+		x = 7
+		y = 2
+}
+focus = {
+		#地域企業の吸収
+		id = UTC_the_Absorption_of_local_companies
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Invest_in_private_industry
+			focus = UTC_the_Raising_money_for_the_military
 		}
-	}
-	focus = {
-		#連合西部の農業化
-		id = UTC_the_western_agriculturalization
-		icon = GFX_goal_generic_consumer_goods
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_agriculturalization
+		x = 6
+		y = 3
+}
+focus = {
+		#戦闘機生産のノウハウ
+		id = UTC_the_expertise_of_fighter_production
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Absorption_of_local_companies
+		}
+		x = 5
+		y = 4
+}
+focus = {
+		#スプリングフィールドとの協力
+		id = UTC_the_Cooperation_with_Springfield
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Absorption_of_local_companies
+		}
+		x = 7
+		y = 4
+}
+focus = {
+		#砲の独自研究
+		id = UTC_the_Original_research_on_guns
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_expertise_of_fighter_production
+		}
+	prerequisite = {
+			focus =UTC_the_Cooperation_with_Springfield
+		}
+		x = 6
+		y = 5
+}
+focus = {
+		#クライスラーの優越
+		id = UTC_the_Chrysler_superiority
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   		prerequisite = {
+			focus = UTC_the_corporate_council
 		}
 		mutually_exclusive = {
-			focus = UTC_the_eastern_agriculturalization
-		}
-		x = 13
-		y = 7
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_stability = 0.1
-		}
-	}
-	focus = {
-		#ミズーリ川で
-		id = UTC_on_the_missouri_river
-		icon = GFX_goal_generic_occupy_states_coastal
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_western_agriculturalization
-		}
-		x = 13
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_17
-		}
-	}
-	focus = {
-		#上流のビスマークで
-		id = UTC_in_bismarck
-		icon = GFX_goal_generic_production2
-		cost = 10
-		prerequisite = {
-			focus = UTC_on_the_missouri_river
-		}
-		mutually_exclusive = {
-			focus = UTC_in_omaha
+			focus = UTC_the_Ford_superiority
+			focus = UTC_the_GM_Superiority
+			focus = UTC_the_solidarity_of_three_companies
 		}
 		x = 12
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			389 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#下流のオマハで
-		id = UTC_in_omaha
-		icon = GFX_goal_generic_production2
-		cost = 10
-		prerequisite = {
-			focus = UTC_on_the_missouri_river
-		}
-		mutually_exclusive = {
-			focus = UTC_in_bismarck
-		}
-		x = 14
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			384 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		#内戦再開の予兆
-		id = UTC_signs_of_requmption_of_civil_war
-		icon = GFX_goal_demand_sudetenland
-		cost = 2
-		x = 24
-		y = 0
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-		add_ideas = UTC_idea_21
-		army_experience = 50
-		}
-		bypass = {
-			OR = {
-				has_war_with = FSA
-				has_war_with = ALF
-			}
-		}
-	}
-	focus = {
-		#再軍備のための工場建築
-		id = UTC_factory_construction_for_rearmament
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 4
-		prerequisite = {
-			focus = UTC_signs_of_requmption_of_civil_war
-		}
-		x = 24
 		y = 1
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-		add_ideas = UTC_idea_22
-		}
-		
-		bypass = {
-			OR = {
-				has_war_with = FSA
-				has_war_with = ALF
-			}
-		}
-	}
-	focus = {
-		#自動車の製造
-		id = UTC_manufacture_vehicles
-		icon = GFX_goal_generic_army_motorized
-		cost = 4
-		prerequisite = {
-			focus = UTC_factory_construction_for_rearmament
-		}
-		x = 23
-		y = 2
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-			add_ideas = UTC_idea_20
-		}
-		
-		bypass = {
-			OR = {
-				has_war_with = FSA
-				has_war_with = ALF
-			}
-		}
-	}
-	focus = {
-		#新型戦闘機の開発
-		id = UTC_developed_new_fighter
-		icon = GFX_goal_generic_air_fighter
-		cost = 4
-		prerequisite = {
-			focus = UTC_factory_construction_for_rearmament
-		}
-		x = 25
-		y = 2
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = light_fighter
-			}
-			air_experience = 50
-		}
-		
-		bypass = {
-			OR = {
-				has_war_with = FSA
-				has_war_with = ALF
-			}
-		}
-	}
-	focus = {
-		#内戦の再開
-		id = UTC_resumption_of_civil_war
-		icon = GFX_focus_generic_combined_arms
-		cost = 1
-		prerequisite = {
-			focus = UTC_manufacture_vehicles
-		}
-		prerequisite = {
-			focus = UTC_developed_new_fighter
-		}
-		x = 24
-		y = 3
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-			add_stability = -0.05
-			add_ideas = UTC_idea_21
-		}
-		bypass = {
-			OR = {
-				has_war_with = FSA
-				has_war_with = ALF
-			}
-		}
-		completion_reward = {
-			add_ideas = partial_economic_mobilisation
-		}
-
-		completion_reward = {
-			add_ideas = limited_conscription
-		}
-	}
-	focus = {
-		#アメリカ連邦との戦争
-		id = UTC_the_war_with_the_fsa
-		icon = GFX_goal_generic_major_war
-		cost = 10
-		prerequisite = {
-			focus = UTC_resumption_of_civil_war
-		}
-		x = 22
-		y = 4
-		ai_will_do = { factor = 10 }
-			completion_reward = {
-		add_ideas = UTC_idea_18
-		}
-	}
-	focus = {
-		#アメリカ自由連盟との戦争
-		id = UTC_the_war_with_the_ALF
-		icon = GFX_goal_generic_major_war
-		cost = 10
-		prerequisite = {
-			focus = UTC_resumption_of_civil_war
-		}
-		x = 26
-		y = 4
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_19
-		}
-	}
-	focus = {
-		#オハイオ川での防衛
-		id = UTC_defense_of_the_ohio_river
-		icon = GFX_goal_continuous_def_against_influence
+}
+focus = {
+		#技術的革新
+		id = UTC_the_technological_innovation
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_Chrysler_superiority
+		}
+		x = 12
+		y = 2
+}
+focus = {
+		#尊大な要求
+		id = UTC_the_arrogant_demand
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_technological_innovation
+		}
+		x = 13
+		y = 3
+}
+focus = {
+		#軍需産業への特化
+		id = UTC_the_Specialization_in_military_industry
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_technological_innovation
+		}
+		x = 11
+		y = 3
+}
+focus = {
+		#戦車生産ラインを統一
+		id = UTC_the_Unify_tank_production_lines
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+    prerequisite = {
+			focus = UTC_the_arrogant_demand
+		}
+	prerequisite = {
+			focus = UTC_the_Specialization_in_military_industry
+		}
+		x = 12
+		y = 4
+}
+focus = {
+		#bbbbb
+		id = UTC_the_bbbbb
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+    prerequisite = {
+			focus = UTC_the_Unify_tank_production_lines
+		}
+		x = 12
+		y = 5
+}
+focus = {
+		#三社の結束
+		id = UTC_the_solidarity_of_three_companies
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_corporate_council
 		}
 		mutually_exclusive = {
-			focus = UTC_operation_from_the_ohio_river
+			focus = UTC_the_Ford_superiority
+			focus = UTC_the_GM_Superiority
+			focus = UTC_the_Chrysler_superiority
+		}
+		x = 16
+		y = 1
+}
+focus = {
+		#ccccc
+		id = UTC_the_ccccc
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_solidarity_of_three_companies
+		}
+		x = 16
+		y = 2
+}
+focus = {
+		#マニトワック造船への投資
+		id = UTC_the_Investment_in_Manitowoc_Shipbuilding
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_ccccc
+		}
+		mutually_exclusive = {
+			focus = UTC_the_with_Boeing
+		}
+		x = 15
+		y = 3
+}
+focus = {
+		#ボーイングと共に
+		id = UTC_the_with_Boeing
+		icon = GFX_goal_generic_propaganda
+		cost = 5
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+			focus = UTC_the_ccccc
+		}
+		mutually_exclusive = {
+			focus = UTC_the_Investment_in_Manitowoc_Shipbuilding
 		}
 		x = 17
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			swap_ideas= {
- remove_idea = UTC_idea_18
-add_idea = UTC_idea_23
+		y = 3
 }
-		}
-	}
-	focus = {
-		#オハイオ川からの渡河作戦
-		id = UTC_operation_from_the_ohio_river
-		icon = GFX_focus_generic_air_defense
+focus = {
+		#ddddd
+		id = UTC_the_ddddd
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
+	ai_will_do = {
+	  factor = 10
+   }
+   prerequisite = {
+	   		focus = UTC_the_Investment_in_Manitowoc_Shipbuilding
+			focus = UTC_the_with_Boeing
 		}
-		mutually_exclusive = {
-			focus = UTC_defense_of_the_ohio_river
-		}
-		x = 19
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-swap_ideas= {
- remove_idea = UTC_idea_18
-add_idea = UTC_idea_24
-}
-		}
-	}
-	focus = {
-		#オハイオ川の迂回
-		id = UTC_bypassing_the_ohio_river
-		icon = GFX_goal_generic_more_territorial_claims
-		cost = 5
-		prerequisite = {
-			focus = UTC_defense_of_the_ohio_river
-			focus = UTC_operation_from_the_ohio_river
-		}
-		x = 18
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_21
-add_idea = UTC_idea_25
-}
-		}
-	}
-	focus = {
-		#ルイジアナとともに
-		id = UTC_with_Louisiana
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
-		}
-		x = 21
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_opinion_modifier = { target = LUI modifier = SSW_generic_technology_licensing }
-			LUI = { add_opinion_modifier = { target = ROOT modifier = SSW_generic_technology_licensing } }
-	}
-	}
-	focus = {
-		#ルイジアナの石油を購入
-		id = UTC_buy_the_louisiana_oil
-		icon = GFX_goal_generic_oil_refinery
-		cost = 10
-		prerequisite = {
-			focus = UTC_with_Louisiana
-		}
-		x = 21
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_opinion_modifier = { target = LUI modifier = SSW_generic_technology_licensing }
-			LUI = { add_opinion_modifier = { target = ROOT modifier = SSW_generic_technology_licensing } }
-			}
-		}
-	focus = {
-		#天然資源の埋蔵量調査
-		id = UTC_survey_on_reserves_of_resources
-		icon = GFX_goal_generic_construct_civilian
-		cost = 5
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
-			focus = UTC_the_war_with_the_ALF
-		}
-		prerequisite = {
-			focus = UTC_the_war_with_the_ALF
-		}
-		prerequisite = {
-			focus = UTC_the_war_with_the_fsa
-		}
-		x = 24
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_resource = {
-					type = tungsten
-					amount = 41
-					state = 388
-				}
-		}
-	}
-	focus = {
-		#ゴムの製造工場の建設
-		id = UTC_bulid_rubber_manufacturing_factories
-		icon = GFX_goal_generic_army_motorized
-		cost = 5
-		prerequisite = {
-			focus = UTC_survey_on_reserves_of_resources
-		}
-		x = 23
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			1039 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			394 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			1122 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			396 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			396 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			1131 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-			261 = {
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 3
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		#石油の確保
-		id = UTC_secure_oil
-		icon = GFX_goal_generic_oil_refinery
-		cost = 5
-		prerequisite = {
-			focus = UTC_survey_on_reserves_of_resources
-		}
-		x = 25
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_resource = {
-					type = oil
-					amount = 50
-					state = 393
-				}
-		}
-	}
-	focus = {
-		#備蓄の活用
-		id = UTC_utilize_the_stockpile
-		icon = GFX_focus_generic_combined_arms
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_war_with_the_ALF
-		}
-		x = 27
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 10000
-			}
-		}
-	}
-	focus = {
-		#企業のための戦争
-		id = UTC_the_war_for_the_companies
-		icon = GFX_focus_spa_the_spanish_miracle
-		cost = 10
-		prerequisite = {
-			focus = UTC_utilize_the_stockpile
-		}
-		x = 27
-		y = 6
-		ai_will_do = { factor = 10 }
-	}
-
-	focus = {
-		#ロッキー山脈での防衛
-		id = UTC_defense_of_the_rocky_mountains
-		icon = GFX_goal_generic_defence
-		cost = 5
-		prerequisite = {
-			focus = UTC_the_war_with_the_ALF
-		}
-		mutually_exclusive = {
-			focus = UTC_operation_climbing_the_rocky_mountains
-		}
-		x = 29
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			swap_ideas= {
- remove_idea = UTC_idea_19
-add_idea = UTC_idea_26
-}
-		}
-	}
-	focus = {
-		#ロッキー山脈の登山作戦
-		id = UTC_operation_climbing_the_rocky_mountains
-		icon = GFX_goal_generic_position_armies
-		cost = 5
-		prerequisite = {
-			focus = UTC_the_war_with_the_ALF
-		}
-		mutually_exclusive = {
-			focus = UTC_defense_of_the_rocky_mountains
-		}
-		x = 31
-		y = 5
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_19
-add_idea = UTC_idea_27
-		}
-	}
-	}
-	focus = {
-		#山脈を利用した作戦の立案
-		id = UTC_planning_the_opetarion_using_the_mountains
-		icon = GFX_focus_secret_rearmament
-		cost = 5
-		prerequisite = {
-			focus = UTC_defense_of_the_rocky_mountains
-			focus = UTC_operation_climbing_the_rocky_mountains
-		}
-		x = 30
-		y = 6
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		swap_ideas= {
- remove_idea = UTC_idea_21
-add_idea = UTC_idea_28
-}
-		}
-	}
-	focus = {
-		#我々は絶対に屈しない！
-		id = UTC_we_will_never_give_in
-		icon = GFX_focus_generic_support_the_left_right
-		cost = 10
-		prerequisite = {
-			focus = UTC_bypassing_the_ohio_river
-		}
-		prerequisite = {
-			focus = UTC_bulid_rubber_manufacturing_factories
-		}
-		prerequisite = {
-			focus = UTC_secure_oil
-		}
-		prerequisite = {
-			focus = UTC_buy_the_louisiana_oil
-		}
-		prerequisite = {
-			focus = UTC_planning_the_opetarion_using_the_mountains
-		}
-		prerequisite = {
-			focus = UTC_the_war_for_the_companies
-		}
-		x = 24
-		y = 7
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#連邦戦の終了
-		id = UTC_end_of_the_war_with_the_fsa
-		icon = GFX_focus_generic_manpower
-		available = {
-		FSA = {
-				exists = no
-			}
-		}
-		cost = 2
-		x = 35
-		y = 0
-		ai_will_do = { factor = 80 }
-		}
-	focus = {
-		#自由連盟戦の終了
-		id = UTC_end_of_the_war_with_the_alf
-		icon = GFX_focus_generic_manpower
-		available = {
-		ALF = {
-				exists = no
-			}
-		}
-		cost = 2
-		x = 39
-		y = 0
-		ai_will_do = { factor = 80 }
-	}
-	focus = {
-		#完全な統一に向けて
-		id = UTC_for_perfect_unification
-		icon = GFX_goal_generic_alliance
-		cost = 20
-		prerequisite = {
-			focus = UTC_end_of_the_war_with_the_fsa
-		}
-		prerequisite = {
-			focus = UTC_end_of_the_war_with_the_alf
-		}
-		x = 37
-		y = 1
-		ai_will_do = { factor = 80 }
-		completion_reward = {
-			add_state_core = 880
-			add_state_core = 359
-			add_state_core = 1114
-			add_state_core = 361
-			add_state_core = 362
-			add_state_core = 1127
-			add_state_core = 369
-			add_state_core = 368
-			add_state_core = 1124
-			add_state_core = 1130
-			add_state_core = 363
-			add_state_core = 364
-			add_state_core = 365
-			add_state_core = 367
-			add_state_core = 370
-			add_state_core = 1125
-			add_state_core = 910
-			add_state_core = 366
-			add_state_core = 1115
-			add_state_core = 380
-			add_state_core = 387
-			add_state_core = 1128
-			add_state_core = 901
-			add_state_core = 386
-			add_state_core = 385
-			add_state_core = 900
-			add_state_core = 379
-			add_state_core = 899
-			add_state_core = 378
-			add_state_core = 895
-			add_state_core = 898
-			add_state_core = 896
-			add_state_core = 1135
-			add_state_core = 897
-			add_state_core = 1132
-			add_state_core = 360
-			add_state_core = 1126
-
-		add_ideas = UTC_debuff_1
-		}
-	}
-	focus = {
-		#南部旧領の回収
-		id = UTC_recover_the_southern_territories
-		icon = GFX_goal_generic_attack_allies
-		cost = 10
-		prerequisite = {
-			focus = UTC_for_perfect_unification
-		}
-			completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = LFF
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ANS
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = OKL
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = BLS
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = LUI
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = TEX
-			}
-		}
-		x = 37
-		y = 2
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#ニューイングランドとの協議
-		id = UTC_the_consultation_with_new_england
-		icon = GFX_goal_molotov_ribbentrop_pact
-		cost = 5
-		prerequisite = {
-			focus = UTC_recover_the_southern_territories
-		}
-		mutually_exclusive = {
-			focus = UTC_the_war_with_new_england
-		}
-		x = 35
+		x = 16
 		y = 4
-		ai_will_do = { factor = 50 }
-	}
-	focus = {
-		#ニューイングランドとの戦争
-		id = UTC_the_war_with_new_england
-		icon = GFX_focus_attack_britain
+}
+focus = {
+		#三つの企業、三つの絆
+		id = UTC_the_Three_Companies_Three_Ties
+		icon = GFX_goal_generic_propaganda
 		cost = 5
-		prerequisite = {
-			focus = UTC_recover_the_southern_territories
+	ai_will_do = {
+	  factor = 10
+   }
+    prerequisite = {
+	   		focus = UTC_the_ddddd
 		}
-		mutually_exclusive = {
-			focus = UTC_the_consultation_with_new_england
-		}
-		x = 39
-		y = 4
-		ai_will_do = { factor = 50 }
-		completion_reward = {
-		create_wargoal = {
-				type = annex_everything
-				target = NEL
-			}
-		}
-	}
-	focus = {
-		#ニューイングランドを完全編入
-		id = UTC_fully_incorporate_new_england
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_consultation_with_new_england
-			focus = UTC_the_war_with_new_england
-		}
-		x = 2
-		y = 1
-		ai_will_do = { factor = 80 }
-		relative_position_id = UTC_the_consultation_with_new_england
-		completion_reward = {
-			add_state_core = 914
-			add_state_core = 358
-			add_state_core = 357
-			add_state_core = 913
-			add_state_core = 1134
-			add_state_core = 1133
-			add_state_core = 1113
-		}
-	}
-	focus = {
-		#企業買収
-		id = UTC_acquisiton_of_companies
-		icon = GFX_focus_hol_the_foundations_of_defense
-		cost = 10
-		prerequisite = {
-			focus = UTC_fully_incorporate_new_england
-		}
-		x = 37
-		y = 6
-		ai_will_do = { factor = 80 }
-		available = {
-		LFF = {
-				exists = no
-			}
-			ANS = {
-				exists = no
-			}
-			OKL = {
-				exists = no
-			}
-			BLS = {
-				exists = no
-			}
-			LUI = {
-				exists = no
-			}
-			TEX = {
-				exists = no
-			}
-		}
-		completion_reward = {
-			add_state_core = 911
-			add_state_core = 371
-			add_state_core = 1117
-			add_state_core = 372
-			add_state_core = 373
-			add_state_core = 1119
-			add_state_core = 383
-			add_state_core = 1109
-			add_state_core = 1108
-			add_state_core = 1121
-			add_state_core = 382
-			add_state_core = 1120
-			add_state_core = 1106
-			add_state_core = 377
-			add_state_core = 376
-			add_state_core = 1116
-			add_state_core = 813
-			add_state_core = 374
-			add_state_core = 1118
-			add_state_core = 1107
-			add_state_core = 902
-			add_state_core = 375
-			add_state_core = 905
-			add_state_core = 904
-			add_state_core = 903
-		}
-	}
-	focus = {
-		#アメリカ企業連合
-		id = UTC_united_company_of_america
-		icon = GFX_focus_generic_support_the_left_right
-		cost = 10
-		prerequisite = {
-			focus = UTC_acquisiton_of_companies
-		}
-		x = 37
-		y = 7
-		ai_will_do = { factor = 100 }
-		completion_reward = {
-			set_major = yes
-			set_cosmetic_tag = AMERICA_united_companies
-		}
-	}
-	focus = {
-		#アメリカ統一
-		id = UTC_unification_of_america
-		icon = GFX_focus_chi_mission_to_the_us
-		cost = 2
-		prerequisite = {
-			focus = UTC_fully_incorporate_new_england
-		}
-		x = 45
-		y = 6
-		ai_will_do = { factor = 80 }
-		available = {
-			has_completed_focus = UTC_united_company_of_america
-		}
-		
-	}
-	focus = {
-		#孤独の道
-		id = UTC_road_of_loneliness
-		icon = GFX_goal_generic_demand_territory
-		cost = 10
-		prerequisite = {
-			focus = UTC_unification_of_america
-		}
-		x = 45
-		y = 7
-		ai_will_do = { factor = 80 }
-		set_politics = {
-                ruling_party = bennettism_ideology
-                elections_allowed = no
-            }
-		completion_reward = {
-			every_other_country = {
-				limit = {
-					NOT = { is_puppet_of = ROOT }
-				}
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = faction_traitor
-					}
-				reverse_add_opinion_modifier = {
-					target = ROOT
-					modifier = embargo
-				}
-			}
-		}
-	}
-	focus = {
-		#国内の安定化
-		id = UTC_domestic_stabilization
-		icon = GFX_goal_generic_national_unity
-		cost = 10
-		prerequisite = {
-			focus = UTC_road_of_loneliness
-		}
-		x = 41
-		y = 8
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			remove_ideas = UTC_debuff_1
-		}
-	}
-	focus = {
-		#完全な監視社会
-		id = UTC_complete_surveillance_society
-		icon = GFX_goal_continuous_boost_freedom
-		cost = 10
-		prerequisite = {
-			focus = UTC_domestic_stabilization
-		}
-		x = 41
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_ideas = UTC_debuff_2
-		}
-	}
-	focus = {
-		#三社による経済掌握
-		id = UTC_economic_control
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		cost = 10
-		prerequisite = {
-			focus = UTC_complete_surveillance_society
-		}
-		x = 39
-		y = 10
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_31
-		}
-	}
-	focus = {
-		#監視委員会の設立
-		id = UTC_established_the_surveillance_commission
-		icon = GFX_focus_spa_the_spanish_miracle
-		cost = 10
-		prerequisite = {
-			focus = UTC_complete_surveillance_society
-		}
-		x = 43
-		y = 10
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#幸福の義務
-		id = UTC_duty_of_happiness
-		icon = GFX_goal_continuous_boost_freedom
-		cost = 10
-		prerequisite = {
-			focus = UTC_economic_control
-		}
-		prerequisite = {
-			focus = UTC_established_the_surveillance_commission
-		}
-		x = 41
-		y = 11
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#反企業原理主義者を粛清
-		id = UTC_purge_anti_corporate_fundamentalist
-		icon = GFX_goal_continuous_restrict_freedom
-		cost = 10
-		prerequisite = {
-			focus = UTC_duty_of_happiness
-		}
-		x = 39
-		y = 12
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#非幸福者を粛清
-		id = UTC_purge_non_happy_people
-		icon = GFX_goal_generic_secret_weapon
-		cost = 10
-		prerequisite = {
-			focus = UTC_duty_of_happiness
-		}
-		x = 43
-		y = 12
-		ai_will_do = { factor = 10 }
-	}
-	focus = {
-		#ディストピアを破壊
-		id = UTC_destroy_dystopia
-		icon = GFX_focus_hol_war_on_pacifism
-		cost = 10
-		prerequisite = {
-			focus = UTC_purge_non_happy_people
-		}
-		prerequisite = {
-			focus = UTC_purge_anti_corporate_fundamentalist
-		}
-		x = 40
-		y = 13
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			create_wargoal = {
-				type = liberate_wargoal
-				target = GER
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = ITA
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = FRA
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = ENG
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = RUS
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = JAP
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = CHI
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = SOV
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = CAN
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = SPR
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = ROM
-			}
-			create_wargoal = {
-				type = liberate_wargoal
-				target = HUN
-			}
-		}
-	}
-	focus = {
-		#ユートピア構想
-		id = UTC_the_utopia_concept
-		icon = GFX_focus_usa_tank_destroyer_doctrine
-		cost = 10
-		prerequisite = {
-			focus = UTC_purge_non_happy_people
-		}
-		prerequisite = {
-			focus = UTC_purge_anti_corporate_fundamentalist
-		}
-		x = 42
-		y = 13
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_29
-		}
-	}
-	focus = {
-		#造船技術の獲得
-		id = UTC_acquire_shipbuilding_technology
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 10
-		prerequisite = {
-			focus = UTC_road_of_loneliness
-		}
-		x = 49
-		y = 8
-		ai_will_do = { factor = 10 }
-		available = {
-			any_owned_state = {
-				is_coastal = yes
-			}
-		}
-		completion_reward = {
-			ROOT = {
-			navy_experience = 100
-			}
-		}
-	}
-	focus = {
-		#巡洋艦の技術
-		id = UTC_the_cruiser_technology
-		icon = GFX_focus_generic_destroyer
-		cost = 10
-		prerequisite = {
-			focus = UTC_acquire_shipbuilding_technology
-		}
-		x = 47
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_tech_bonus = {
-        bonus = 1.5 
-        uses = 2
-        category = cl_tech
-		category = ca_tech
-    }
-	}
-	}
-	focus = {
-		#駆逐艦の技術
-		id = UTC_the_destroyer_technology
-		icon = GFX_focus_generic_cryptologic_bomb
-		cost = 10
-		prerequisite = {
-			focus = UTC_acquire_shipbuilding_technology
-		}
-		x = 51
-		y = 9
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_tech_bonus = {
-        bonus = 1.5 
-        uses = 1
-        category = dd_tech
-    }
-	}
-	}
-	focus = {
-		#潜水艦の技術
-		id = UTC_the_submarine_technology
-		icon = GFX_goal_generic_navy_submarine
-		cost = 10
-		prerequisite = {
-			focus = UTC_acquire_shipbuilding_technology
-		}
-		x = 49
-		y = 9
-		ai_will_do = { factor = 10 }
-			completion_reward = {
-		add_tech_bonus = {
-        bonus = 1.5 
-        uses = 1
-        category = ss_tech
-    }
-	}
-	}
-	focus = {
-		#アメリカ式の海軍
-		id = UTC_the_navy_of_american_style
-		icon = GFX_goal_generic_amphibious_assault
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_destroyer_technology
-		}
-		prerequisite = {
-			focus = UTC_the_submarine_technology
-		}
-		prerequisite = {
-			focus = UTC_the_cruiser_technology
-		}
-		x = 49
-		y = 10
-		ai_will_do = { factor = 10 }
-		add_tech_bonus = {
-        bonus = 1.0
-        uses = 3
-        category = naval_doctrine
-    }
-	}
-	focus = {
-		#空母の技術
-		id = UTC_the_carrier_technology
-		icon = GFX_goal_generic_navy_carrier
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_navy_of_american_style
-		}
-		x = 47
-		y = 11
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_tech_bonus = {
-        bonus = 1.5 
-        uses = 1
-        category = cv_tech
-    }
-	}
-	}
-	focus = {
-		#戦艦の技術
-		id = UTC_the_battleship_technology
-		icon = GFX_goal_generic_navy_battleship
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_navy_of_american_style
-		}
-		x = 51
-		y = 11
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_tech_bonus = {
-        bonus = 1.5 
-        uses = 1
-        category = bb_tech
-    }
-	}
-	}
-	focus = {
-		#コーポレート・ネイビーの創設
-		id = UTC_found_the_corporate_navy
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		cost = 10
-		prerequisite = {
-			focus = UTC_the_carrier_technology
-		}
-		prerequisite = {
-			focus = UTC_the_battleship_technology
-		}
-		x = 49
-		y = 12
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-		add_ideas = UTC_idea_30
-		}
-	}
+		x = 16
+		y = 5
+}
 }

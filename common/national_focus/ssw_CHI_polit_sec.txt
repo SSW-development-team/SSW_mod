@@ -288,7 +288,7 @@ shared_focus = { #反攻派の権力掌握
         custom_effect_tooltip = CHI_counter_offense_seizue_power_tt
         add_to_variable = {
             var = CHI_d_w_dm_ppf
-            value = 0.1
+            value = 0.05
         }
     }
 }
@@ -1934,7 +1934,7 @@ shared_focus = { #民権主義に目を
 }
 shared_focus = { #中華民族の団結
     id = CHI_unity_CHI_natio
-    icon = GFX_focus_chi_cooperation_with_the_nationalists
+    icon = GFX_focus_friendly_with_CHI
     cost = 7.2
     ai_will_do = {
         factor = 10
@@ -2034,6 +2034,11 @@ shared_focus = { #民族自治区の設置
     y = 4
     completion_reward = {
         add_political_power = 100
+        custom_effect_tooltip = CHI_establish_ethnic_autonomy_region_tt
+        add_to_variable = {
+            var = CHI_d_w_dm_s
+            value = 0.1
+        }
     }
 }
 shared_focus = { #中国語教育による団結
@@ -2494,8 +2499,15 @@ shared_focus = { #安定的政権の確立
     y = 2
     completion_reward = {
         add_stability = 0.05
-        remove_dynamic_modifier = {
-            modifier = ssw_CHI_death_Wang
+        if = {
+            limit = {
+                has_dynamic_modifier = {
+                    modifier = ssw_CHI_death_Wang
+                }
+            }
+            remove_dynamic_modifier = {
+                modifier = ssw_CHI_death_Wang
+            }
         }
     }
 }
