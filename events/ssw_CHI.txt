@@ -1,4 +1,5 @@
 add_namespace = ssw_chi
+add_namespace = ssw_chi_news
 country_event = { #憲法制定1
 	id = ssw_chi.1
 	title = ssw_chi.1.t
@@ -205,6 +206,7 @@ country_event = { #憲法決定
 	desc = ssw_chi.6.d
 	is_triggered_only = yes
 	fire_only_once = yes
+	hidden = yes
 	immediate = {
 		hidden_effect = {
 			load_focus_tree = {
@@ -220,6 +222,7 @@ country_event = { #憲法決定
 			check_variable = {var_CHI_infr_federalism < var_CHI_infr_KMT}
 		}
 		complete_national_focus = CHI_return_rep_of_China
+		news_event = {id = ssw_chi_news.1}
 	}
 	option = {
 		name = ssw_chi.6.b
@@ -230,6 +233,7 @@ country_event = { #憲法決定
 			}
 		}
 		complete_national_focus = CHI_birth_of_Union
+		news_event = {id = ssw_chi_news.2}
 	}
 }
 country_event = { #選挙(中華民国)DiedEvent
@@ -2101,6 +2105,7 @@ country_event = { #救国政変
 		}
 		mark_focus_tree_layout_dirty = yes
 		set_cosmetic_tag = CHI_national_salvation_government
+		set_global_flag = big_event_custom_china_salvation_struggle
 	}
 	option = { #反逆者に屈するな！
 		name = ssw_chi.40.b
@@ -2685,5 +2690,45 @@ country_event = { #張群の選出！
 	option = {
 		name = ssw_chi.65.a
 		set_country_flag = CHI_Zhang_Qun_get_power
+	}
+}
+news_event = { #憲法制定(国民党)
+	id = ssw_chi_news.1
+	title = ssw_chi_news.1.t
+	desc = ssw_chi_news.1.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_news_event_generic_read_write
+	option = {
+		name = ssw_chi_news.1.a
+		trigger = {
+			tag = CHI
+		}
+	}
+	option = {
+		name = ssw_chi_news.1.b
+		trigger = {
+			NOT = {tag = CHI}
+		}
+	}
+}
+news_event = { #憲法制定(連邦)
+	id = ssw_chi_news.2
+	title = ssw_chi_news.2.t
+	desc = ssw_chi_news.2.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_news_event_generic_sign_treaty1
+	option = {
+		name = ssw_chi_news.2.a
+		trigger = {
+			tag = CHI
+		}
+	}
+	option = {
+		name = ssw_chi_news.2.b
+		trigger = {
+			NOT = {tag = CHI}
+		}
 	}
 }
