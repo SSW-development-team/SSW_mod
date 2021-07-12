@@ -754,7 +754,17 @@ shared_focus = { #第二回国民大会
         date > 1955.12.31
     }
     ai_will_do = {
-        factor = 10
+        factor = 30
+        modifier = {
+            has_completed_focus = CHI_lesson_from_federalism
+            NOT = {has_completed_focus = CHI_president_of_past}
+            factor = 0
+        }
+        modifier = {
+            has_completed_focus = CHI_lesson_from_federalism
+            NOT = {has_completed_focus = CHI_learn_from_GER}
+            factor = 0.5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1509,7 +1519,17 @@ shared_focus = { #第二回全国連邦代表大会
     icon = GFX_focus_CHI_second_natio_fede_congress
     cost = 7.2
     ai_will_do = {
-        factor = 10
+        factor = 30
+        modifier = {
+            has_completed_focus = CHI_compromise_KMT
+            NOT = {has_completed_focus = CHI_president_of_past}
+            factor = 0
+        }
+        modifier = {
+            has_completed_focus = CHI_compromise_KMT
+            NOT = {has_completed_focus = CHI_learn_from_GER}
+            factor = 0.5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1547,6 +1567,10 @@ shared_focus = { #歴戦の大総統
             }
             factor = 6
         }
+        modifier = {
+            date > 1955.6.4
+            factor = 5
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1579,6 +1603,10 @@ shared_focus = { #持久戦の構想
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            date > 1955.8.3
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1618,6 +1646,10 @@ shared_focus = { #士官教育の教化
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            date > 1955.8.3
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -1657,6 +1689,10 @@ shared_focus = { #ドイツから学べ
     cost = 7.2
     ai_will_do = {
         factor = 10
+        modifier = {
+            date > 1955.11.12
+            factor = 6
+        }
     }
     cancel_if_invalid = yes
 	continue_if_invalid = no
