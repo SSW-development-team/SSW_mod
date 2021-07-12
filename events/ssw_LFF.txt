@@ -759,3 +759,230 @@ country_event = { #ブラウダーの演説
 		}
 	}
 }
+news_event = { #フォスターの死去、 そしてホールの台頭…
+	id = ssw_lff.18
+	title = ssw_lff.18.title
+	desc = ssw_lff.18.desc
+	trigger = {
+		date > 1958.7.7
+		NOT = { has_global_flag = foster_dead }
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1095 }
+	immediate = {
+		hidden_effect = {
+			set_global_flag = foster_dead
+			if = {
+				limit = {
+					CSA = {
+						has_country_leader = {
+							ruling_only = no
+							name = "William Z. Foster"
+						}
+					}
+				}
+				CSA = {
+					kill_ideology_leader = classical_communism
+					retire_ideology_leader = social_democracy
+					set_party_name = {
+						ideology = classical_communism
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					set_party_name = {
+						ideology = social_democracy
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = totalitarianism_ideology
+						traits = { LFF_red_monster }
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = social_democracy_ideology
+						traits = { LFF_red_monster }
+					}
+				}
+			}
+			if = {
+				limit = {
+					LFF = {
+						has_country_leader = {
+							ruling_only = no
+							name = "William Z. Foster"
+						}
+					}
+				}
+				LFF = {
+					kill_ideology_leader = classical_communism
+					retire_ideology_leader = social_democracy
+					set_party_name = {
+						ideology = classical_communism
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					set_party_name = {
+						ideology = social_democracy
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = totalitarianism_ideology
+						traits = { LFF_red_monster }
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = social_democracy_ideology
+						traits = { LFF_red_monster }
+					}
+					set_country_flag = president_hall
+					set_cosmetic_tag = AMERICA_united_states
+				}
+			}
+			if = {
+				limit = {
+					USA = {
+						has_country_leader = {
+							ruling_only = no
+							name = "William Z. Foster"
+						}
+					}
+				}
+				USA = {
+					kill_ideology_leader = classical_communism
+					retire_ideology_leader = social_democracy
+					set_party_name = {
+						ideology = classical_communism
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					set_party_name = {
+						ideology = social_democracy
+						long_name = LFF_classical_communism_party_gus_hall_long
+						name = LFF_classical_communism_party_gus_hall
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = totalitarianism_ideology
+						traits = { LFF_red_monster }
+					}
+					create_country_leader = {
+						name = "Gus Hall"
+						desc = "POLITICS_GUS_HALL_DESC"
+						picture = "gfx/leaders/LFF/portrait_lff_gus_hall.dds"
+						expire = "2000.10.13"
+						ideology = social_democracy_ideology
+						traits = { LFF_red_monster }
+					}
+				}
+			}
+		}
+	}
+	major = yes
+	option = {
+		name = ssw_lff.18.a
+		ai_chance = { base = 100 }
+		trigger = {
+			OR = {
+				has_government = progressive_communism
+				has_government = classical_communism
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LFF
+							has_country_flag = president_hall
+						}
+						AND = {
+							country_exists = CSA
+							CSA = {
+								OR = {
+									has_government = progressive_communism
+									has_government = classical_communism
+								}
+							}
+						}
+						AND = {
+							country_exists = USA
+							USA = {
+								OR = {
+									has_government = progressive_communism
+									has_government = classical_communism
+								}
+							}
+						}
+					}
+				}
+				every_country = {
+                	limit = { is_ai = no }
+                	set_country_flag = big_event_leftest_front_president_hall
+            	}
+			}
+		}
+	}
+	option = {
+		name = ssw_lff.18.b
+		ai_chance = { base = 100 }
+		trigger = {
+			NOT = {
+				has_government = progressive_communism
+				has_government = classical_communism
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LFF
+							has_country_flag = president_hall
+						}
+						AND = {
+							country_exists = CSA
+							CSA = {
+								OR = {
+									has_government = progressive_communism
+									has_government = classical_communism
+								}
+							}
+						}
+						AND = {
+							country_exists = USA
+							USA = {
+								OR = {
+									has_government = progressive_communism
+									has_government = classical_communism
+								}
+							}
+						}
+					}
+				}
+				every_country = {
+                	limit = { is_ai = no }
+                	set_country_flag = big_event_leftest_front_president_hall
+            	}
+			}
+		}
+	}
+}
