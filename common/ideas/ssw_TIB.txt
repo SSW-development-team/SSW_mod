@@ -367,7 +367,7 @@ ideas = {
 				}
 			}
 		}
-		TIB_pirot_trained = {
+		TIB_pilot_trained = {
 			picture = a
 			allowed = {
 				always = no
@@ -545,6 +545,23 @@ ideas = {
 				tag = CHI
 				attack_bonus_against = 0.2
 				defense_bonus_against = 0.1
+			}
+		}
+		TIB_japanese_military_techniques = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = TIB }
+
+			removal_cost = -1
+
+			modifier = {
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				army_org_factor = 0.4
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.1
 			}
 		}
 		###kham tax
@@ -1210,6 +1227,25 @@ ideas = {
 			available = {
 			}
 			traits = {  }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		TIB_mountain_buff = {
+			picture = mountains_tib
+			
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+			}
+			modifier = {
+				mountain = {
+					attack = 0.15
+					defence = 0.15
+				}
+			}
 
 			ai_will_do = {
 				factor = 1

@@ -1160,6 +1160,10 @@ focus_tree = {
 				add_resistance = 25
 				add_compliance = -10
 			}
+			add_opinion_modifier = {
+				target = JAP
+				modifier = TIB_anti_japan_move
+			}
 		}
 		x = 37
 		y = 9
@@ -1953,7 +1957,7 @@ focus_tree = {
 		bypass = {}
 		completion_reward = {
 			air_experience = 20
-			add_ideas = TIB_pirot_trained
+			add_ideas = TIB_pilot_trained
 		}
 		x = 47
 		y = 2
@@ -2542,6 +2546,21 @@ focus_tree = {
 		ai_will_do = { factor = 2 }
 		prerequisite = {
 			focus = TIB_accept_unity_of_china
+		}
+		available = {
+			OR = {
+				has_opinion = {
+					target = JAP
+					value > 60
+				}
+				JAP = {
+					has_war_with = CHI
+				}
+			}
+		}
+		completion_reward = {
+			add_ideas = TIB_japanese_military_techniques
+			add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 35000 producer = JAP }
 		}
 		x = 9
 		y = 9
