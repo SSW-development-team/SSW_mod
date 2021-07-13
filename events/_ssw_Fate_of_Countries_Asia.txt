@@ -8,131 +8,41 @@ country_event = { #日本の運命
 	option = {
 		name = ssw_foc_asia.0.a
 		ai_chance = { base = 10 }
-		if = {
+		every_state = {
 			limit = {
-				OR = {
-					has_government = social_democracy
-					has_government = social_liberalism
-					has_government = social_conservatism
-					has_government = authority_despotism
-					has_government = authority_democracy
-					has_government = national_fascism
-					has_government = national_socialism
-					has_government = corporatocracism
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = maybe_own_JAP_GAMESTART
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+					state = 524
+					state = 525
+					state = 527
+					state = 537
+					state = 555
+					state = 655
+					state = 745
+					state = 842
+					state = 852
+					state = 853
+					state = 854
+					state = 855
+					state = 856
+					state = 857
+					state = 858
+					state = 859
+					state = 860
+					state = 936
+					state = 937
+					state = 1011
+					state = 1104
+					state = 1234
 				}
 			}
-			every_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = maybe_own_JAP_GAMESTART
-					NOT = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-						state = 524
-						state = 525
-						state = 527
-						state = 537
-						state = 555
-						state = 655
-						state = 745
-						state = 842
-						state = 852
-						state = 853
-						state = 854
-						state = 855
-						state = 856
-						state = 857
-						state = 858
-						state = 859
-						state = 860
-						state = 936
-						state = 937
-						state = 1011
-						state = 1104
-						state = 1234
-					}
-				}
-				JPN = { transfer_state = PREV }
-				add_core_of = JPN
-			}
-			puppet = JPN
+			add_core_of = JPN
+			JPN = { transfer_state = PREV }
 		}
-		if = {
-			limit = { has_government = progressive_communism }
-			every_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = maybe_own_JAP_GAMESTART
-					NOT = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-						state = 524
-						state = 525
-						state = 527
-						state = 537
-						state = 555
-						state = 655
-						state = 745
-						state = 842
-						state = 852
-						state = 853
-						state = 854
-						state = 855
-						state = 856
-						state = 857
-						state = 858
-						state = 859
-						state = 860
-						state = 936
-						state = 937
-						state = 1011
-						state = 1104
-						state = 1234
-					}
-				}
-				JSF = { transfer_state = PREV }
-				add_core_of = JSF
-			}
-			puppet = JSF
-		}
-		if = {
-			limit = { has_government = classical_communism }
-			every_state = {
-				limit = {
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = maybe_own_JAP_GAMESTART
-					NOT = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-						state = 524
-						state = 525
-						state = 527
-						state = 537
-						state = 555
-						state = 655
-						state = 745
-						state = 842
-						state = 852
-						state = 853
-						state = 854
-						state = 855
-						state = 856
-						state = 857
-						state = 858
-						state = 859
-						state = 860
-						state = 936
-						state = 937
-						state = 1011
-						state = 1104
-						state = 1234
-					}
-				}
-				PRJ = { transfer_state = PREV }
-				add_core_of = PRJ
-			}
-			puppet = PRJ
-		}
+		puppet = JPN
 	}
 	option = {
 		name = ssw_foc_asia.0.b
