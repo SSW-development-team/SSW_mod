@@ -1,0 +1,959 @@
+shared_focus = {
+	id = JAP_the_challenge_of_the_socialist_party
+	icon = GFX_the_challenge_of_the_socialist_party
+	cost = 5
+	available = { always = no }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	x = 0
+	y = 0
+	offset = {
+		x = 0
+		y = 0
+		trigger = { always = no }
+	}
+	completion_reward = {
+		custom_effect_tooltip = ssw_unlock_focuses_tt
+	}
+}
+shared_focus = {
+	id = JAP_economic_liberation
+	icon = GFX_economic_liberation
+	cost = 5
+	available = {}
+	prerequisite = { focus = JAP_the_challenge_of_the_socialist_party }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_the_challenge_of_the_socialist_party
+	x = -4
+	y = 1
+	completion_reward = {
+		add_stability = 0.05
+	}
+}
+shared_focus = {
+	id = JAP_freedom_for_the_workers
+	icon = GFX_freedom_for_the_workers
+	cost = 5
+	prerequisite = { focus = JAP_economic_liberation }
+	mutually_exclusive = { focus = JAP_control_of_tradeunions }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_economic_liberation
+	x = 2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.03
+		}
+	}
+}
+shared_focus = {
+	id = JAP_control_of_tradeunions
+	icon = GFX_control_of_tradeunions
+	cost = 5
+	prerequisite = { focus = JAP_economic_liberation }
+	mutually_exclusive = { focus = JAP_freedom_for_the_workers }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_economic_liberation
+	x = -2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+	}
+}
+shared_focus = {
+	id = JAP_workers_rights
+	icon = GFX_workers_rights
+	cost = 5
+	prerequisite = {
+		focus = JAP_freedom_for_the_workers
+		focus = JAP_control_of_tradeunions
+	}
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_freedom_for_the_workers
+	x = -1
+	y = 1
+	completion_reward = {
+		add_ideas = jap_syakaito_ideas_0
+	}
+}
+shared_focus = {
+	id = JAP_start_of_the_social_democratic_struggle
+	icon = GFX_start_of_the_social_democratic_struggle
+	cost = 5
+	prerequisite = { focus = JAP_the_challenge_of_the_socialist_party }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_the_challenge_of_the_socialist_party
+	x = 4
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_political_power = 25
+	}
+}
+shared_focus = {
+	id = JAP_the_fight_against_conservatism
+	icon = GFX_the_fight_against_conservatism
+	cost = 5
+	prerequisite = { focus = JAP_start_of_the_social_democratic_struggle }
+	mutually_exclusive = { focus = JAP_claims_of_anti_communism }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_start_of_the_social_democratic_struggle
+	x = 2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authority_democracy
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = -0.05
+		}
+		add_war_support = 0.05
+	}
+}
+shared_focus = {
+	id = JAP_claims_of_anti_communism
+	icon = GFX_claims_of_anti_communism
+	cost = 5
+	prerequisite = { focus = JAP_start_of_the_social_democratic_struggle }
+	mutually_exclusive = { focus = JAP_the_fight_against_conservatism }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_start_of_the_social_democratic_struggle
+	x = -2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = classical_communism
+			popularity = -0.05
+		}
+		add_stability = 0.05
+	}
+}
+shared_focus = {
+	id = JAP_reflecting_on_the_past
+	icon = GFX_reflecting_on_the_past
+	cost = 5
+	prerequisite = {
+		focus = JAP_claims_of_anti_communism
+		focus = JAP_the_fight_against_conservatism
+	}
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_claims_of_anti_communism
+	x = 1
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.3 }
+	}
+}
+shared_focus = {
+	id = JAP_towards_an_emperor_socialism
+	icon = GFX_towards_an_emperor_socialism
+	cost = 5
+	prerequisite = { focus = JAP_workers_rights }
+	prerequisite = { focus = JAP_reflecting_on_the_past }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_workers_rights
+	x = 3
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = classical_communism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_stability = 0.1
+	}
+}
+shared_focus = {
+	id = JAP_people_of_greater_east_asia
+	icon = GFX_people_of_greater_east_asia
+	cost = 5
+	prerequisite = { focus = JAP_workers_rights }
+	prerequisite = { focus = JAP_reflecting_on_the_past }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_workers_rights
+	x = -7
+	y = 2
+	completion_reward = {
+		add_political_power = -50
+	}
+}
+shared_focus = {
+	id = JAP_right_to_life
+	icon = GFX_right_to_life
+	cost = 5
+	prerequisite = { focus = JAP_workers_rights }
+	prerequisite = { focus = JAP_reflecting_on_the_past }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_reflecting_on_the_past
+	x = 7
+	y = 2
+	completion_reward = {
+		add_to_variable = {
+			var = poverty_growth_rate_modifier
+			value = 0.05
+		}
+	}
+}
+shared_focus = {
+	id = JAP_increased_humanitarian_aid
+	icon = GFX_increased_humanitarian_aid
+	cost = 5
+	prerequisite = { focus = JAP_people_of_greater_east_asia }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_people_of_greater_east_asia
+	x = 2
+	y = 1
+	completion_reward = {
+		add_political_power = -100
+		286 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		327 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		335 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		808 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = JAP_organisation_of_the_greater_east_asia_socialist_conference
+	icon = GFX_organisation_of_the_greater_east_asia_socialist_conference
+	cost = 5
+	prerequisite = { focus = JAP_people_of_greater_east_asia }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_people_of_greater_east_asia
+	x = -2
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.4 }
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+				}
+				OR = {
+					tag = INS
+					tag = PHI
+					tag = BRM
+					tag = SIA
+					tag = IND
+					tag = LAO
+					tag = VIN
+					tag = MAL
+					tag = THA
+					tag = IDN
+					tag = PIN
+					tag = NIN
+					tag = MYP
+				}
+			}
+			country_event = { id = ssw_jap.4 }
+		}
+	}
+}
+shared_focus = {
+	id = JAP_joint_condemnation_of_china
+	icon = GFX_joint_condemnation_of_china
+	cost = 5
+	prerequisite = { focus = JAP_organisation_of_the_greater_east_asia_socialist_conference }
+	prerequisite = { focus = JAP_increased_humanitarian_aid }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_organisation_of_the_greater_east_asia_socialist_conference
+	x = 2
+	y = 1
+	completion_reward = {
+		add_war_support = 0.05
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+				}
+				OR = {
+					tag = INS
+					tag = PHI
+					tag = BRM
+					tag = MAN
+				}
+			}
+			add_war_support = 0.05
+		}
+		every_country = {
+			limit = {
+				exists = yes
+				tag = CHI
+			}
+			country_event = { id = ssw_jap.5 }
+		}
+	}
+}
+shared_focus = {
+	id = JAP_establishment_of_the_social_insurance_agency
+	icon = GFX_establishment_of_the_social_insurance_agency
+	cost = 5
+	prerequisite = { focus = JAP_right_to_life }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_right_to_life
+	x = 2
+	y = 1
+	completion_reward = {
+		add_stability = 0.05
+	}
+}
+shared_focus = {
+	id = JAP_more_than_a_political_fraternity
+	icon = GFX_more_than_a_political_fraternity
+	cost = 5
+	prerequisite = { focus = JAP_right_to_life }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_right_to_life
+	x = -2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = social_conservatism
+			popularity = -0.02
+		}
+	}
+}
+shared_focus = {
+	id = JAP_advanced_welfare
+	icon = GFX_advanced_welfare
+	cost = 5
+	prerequisite = { focus = JAP_establishment_of_the_social_insurance_agency }
+	prerequisite = { focus = JAP_more_than_a_political_fraternity }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_establishment_of_the_social_insurance_agency
+	x = -2
+	y = 1
+	completion_reward = {
+		if = {
+			limit = { has_idea = JAP_social_security_attempt_rework }
+			swap_ideas = {
+				remove_idea = JAP_social_security_attempt_rework
+				add_idea = jap_syakaito_ideas_1
+			}
+			else = { add_ideas = jap_syakaito_ideas_1 }
+		}
+	}
+}
+shared_focus = {
+	id = JAP_hope_for_democratisation
+	icon = GFX_hope_for_democratisation
+	cost = 5
+	prerequisite = { focus = JAP_workers_rights }
+	prerequisite = { focus = JAP_reflecting_on_the_past }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_workers_rights
+	x = -2
+	y = 1
+	completion_reward = {
+		add_political_power = 100
+	}
+}
+shared_focus = {
+	id = JAP_promotion_of_public_works
+	icon = GFX_promotion_of_public_works
+	cost = 5
+	prerequisite = { focus = JAP_workers_rights }
+	prerequisite = { focus = JAP_reflecting_on_the_past }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_reflecting_on_the_past
+	x = 2
+	y = 1
+	completion_reward = {
+		add_timed_idea = {
+			idea = jap_syakaito_ideas_2
+			days = 600
+		}
+	}
+}
+shared_focus = {
+	id = JAP_reforming_the_death_penalty
+	icon = GFX_reforming_the_death_penalty
+	cost = 5
+	prerequisite = { focus = JAP_towards_an_emperor_socialism }
+	prerequisite = { focus = JAP_hope_for_democratisation }
+	prerequisite = { focus = JAP_promotion_of_public_works }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_towards_an_emperor_socialism
+	x = 0
+	y = 1
+	completion_reward = {
+		add_stability = -0.03
+		add_political_power = 100
+		add_manpower = 100
+	}
+}
+shared_focus = {
+	id = JAP_the_concept_of_direct_democracy
+	icon = GFX_the_concept_of_direct_democracy
+	cost = 5
+	prerequisite = { focus = JAP_towards_an_emperor_socialism }
+	prerequisite = { focus = JAP_hope_for_democratisation }
+	prerequisite = { focus = JAP_promotion_of_public_works }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_hope_for_democratisation
+	x = -2
+	y = 1
+	completion_reward = {
+		add_political_power = -50
+	}
+}
+shared_focus = {
+	id = JAP_confrontation_with_the_house_of_lords
+	icon = GFX_confrontation_with_the_house_of_lords
+	cost = 5
+	prerequisite = { focus = JAP_towards_an_emperor_socialism }
+	prerequisite = { focus = JAP_hope_for_democratisation }
+	prerequisite = { focus = JAP_promotion_of_public_works }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_hope_for_democratisation
+	x = 2
+	y = 1
+	completion_reward = {
+		add_timed_idea = {
+			idea = jap_syakaito_ideas_3
+			days = 300
+		}
+	}
+}
+shared_focus = {
+	id = JAP_planned_industrialisation
+	icon = GFX_planned_industrialisation
+	cost = 5
+	prerequisite = { focus = JAP_towards_an_emperor_socialism }
+	prerequisite = { focus = JAP_hope_for_democratisation }
+	prerequisite = { focus = JAP_promotion_of_public_works }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_promotion_of_public_works
+	x = -2
+	y = 1
+	completion_reward = {
+		531 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		533 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		1082 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = JAP_construction_of_dams
+	icon = GFX_construction_of_dams
+	cost = 5
+	prerequisite = { focus = JAP_towards_an_emperor_socialism }
+	prerequisite = { focus = JAP_hope_for_democratisation }
+	prerequisite = { focus = JAP_promotion_of_public_works }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_promotion_of_public_works
+	x = 2
+	y = 1
+	completion_reward = {
+		535 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		847 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		1094 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		1096 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		1103 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+shared_focus = {
+	id = JAP_join_the_left
+	icon = GFX_join_the_left
+	cost = 5
+	prerequisite = { focus = JAP_the_concept_of_direct_democracy }
+	prerequisite = { focus = JAP_confrontation_with_the_house_of_lords }
+	mutually_exclusive = { focus = JAP_cooperation_with_the_right }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_confrontation_with_the_house_of_lords
+	x = -2
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.6 }
+	}
+}
+shared_focus = {
+	id = JAP_cooperation_with_the_right
+	icon = GFX_cooperation_with_the_right
+	cost = 5
+	prerequisite = { focus = JAP_planned_industrialisation }
+	prerequisite = { focus = JAP_construction_of_dams }
+	mutually_exclusive = { focus = JAP_join_the_left }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_construction_of_dams
+	x = -2
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.7 }
+	}
+}
+shared_focus = {
+	id = JAP_young_man_do_not_take_up_your_gun_again
+	icon = GFX_young_man_do_not_take_up_your_gun_again
+	cost = 5
+	prerequisite = { focus = JAP_join_the_left }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_join_the_left
+	x = 2
+	y = 1
+	completion_reward = {
+		add_ideas = jap_syakaito_ideas_4
+	}
+}
+shared_focus = {
+	id = JAP_memories_of_takao_saito
+	icon = GFX_memories_of_takao_saito
+	cost = 5
+	prerequisite = { focus = JAP_young_man_do_not_take_up_your_gun_again }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_young_man_do_not_take_up_your_gun_again
+	x = 0
+	y = 1
+	completion_reward = {
+		add_political_power = 150
+		add_popularity = {
+			ideology = authority_democracy
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = authority_despotism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = national_fascism
+			popularity = -0.03
+		}
+	}
+}
+shared_focus = {
+	id = JAP_protection_of_the_souhyou
+	icon = GFX_protection_of_the_souhyou
+	cost = 5
+	prerequisite = { focus = JAP_memories_of_takao_saito }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_memories_of_takao_saito
+	x = 0
+	y = 1
+	completion_reward = {
+		add_political_power = -20
+		add_tech_bonus = {
+			name = industrial_bonus
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+	}
+}
+shared_focus = {
+	id = JAP_intensifying_confrontation_with_conservative_forces
+	icon = GFX_intensifying_confrontation_with_conservative_forces
+	cost = 5
+	prerequisite = { focus = JAP_join_the_left }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_join_the_left
+	x = -2
+	y = 1
+	completion_reward = {
+		add_stability = -0.05
+		add_political_power = 200
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.02
+		}
+	}
+}
+shared_focus = {
+	id = JAP_calling_all_korean_workers
+	icon = GFX_calling_all_korean_workers
+	cost = 5
+	prerequisite = { focus = JAP_intensifying_confrontation_with_conservative_forces }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_intensifying_confrontation_with_conservative_forces
+	x = 0
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.8 }
+	}
+}
+shared_focus = {
+	id = JAP_pro_communist
+	icon = GFX_pro_communist
+	cost = 5
+	prerequisite = { focus = JAP_calling_all_korean_workers }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_calling_all_korean_workers
+	x = 0
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.9 }
+	}
+}
+shared_focus = {
+	id = JAP_peaceful_revolution
+	icon = GFX_peaceful_revolution
+	cost = 5
+	prerequisite = { focus = JAP_protection_of_the_souhyou }
+	prerequisite = { focus = JAP_pro_communist }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_pro_communist
+	x = 2
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_ideas = jap_syakaito_ideas_5
+	}
+}
+shared_focus = {
+	id = JAP_learning_from_the_uk
+	icon = GFX_learning_from_the_uk
+	cost = 5
+	prerequisite = { focus = JAP_cooperation_with_the_right }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_cooperation_with_the_right
+	x = 2
+	y = 1
+	completion_reward = {
+		add_political_power = 150
+	}
+}
+shared_focus = {
+	id = JAP_about_social_security
+	icon = GFX_about_social_security
+	cost = 5
+	prerequisite = { focus = JAP_learning_from_the_uk }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_learning_from_the_uk
+	x = 0
+	y = 1
+	completion_reward = {
+		add_political_power = -25
+	}
+}
+shared_focus = {
+	id = JAP_questions_to_kawakami
+	icon = GFX_questions_to_kawakami
+	cost = 5
+	prerequisite = { focus = JAP_about_social_security }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_about_social_security
+	x = 0
+	y = 1
+	completion_reward = {
+		country_event = { id = ssw_jap.10 }
+	}
+}
+shared_focus = {
+	id = JAP_reconciliation_between_the_classes
+	icon = GFX_reconciliation_between_the_classes
+	cost = 5
+	prerequisite = { focus = JAP_cooperation_with_the_right }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_cooperation_with_the_right
+	x = -2
+	y = 1
+	completion_reward = {
+		add_ideas = jap_syakaito_ideas_6
+	}
+}
+shared_focus = {
+	id = JAP_review_of_war_strategy
+	icon = GFX_review_of_war_strategy
+	cost = 5
+	prerequisite = { focus = JAP_reconciliation_between_the_classes }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_reconciliation_between_the_classes
+	x = 0
+	y = 1
+	completion_reward = {
+		add_war_support = 0.1
+		add_political_power = -50
+	}
+}
+shared_focus = {
+	id = JAP_expose_the_communists
+	icon = GFX_expose_the_communists
+	cost = 5
+	prerequisite = { focus = JAP_review_of_war_strategy }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_review_of_war_strategy
+	x = 0
+	y = 1
+	completion_reward = {
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = classical_communism
+			popularity = -0.05
+		}
+	}
+}
+shared_focus = {
+	id = JAP_the_peoples_party
+	icon = GFX_the_peoples_party
+	cost = 5
+	prerequisite = { focus = JAP_expose_the_communists }
+	prerequisite = { focus = JAP_questions_to_kawakami }
+	available = {}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 10 }
+	available_if_capitulated = yes
+	relative_position_id = JAP_expose_the_communists
+	x = 2
+	y = 1
+	completion_reward = {
+		add_ideas = jap_syakaito_ideas_7
+	}
+}

@@ -61,7 +61,7 @@ country_event = { #法案の提出
 		}
 	}
 }
-country_event = { #
+country_event = { #戦中の社会民主主義
 	id = ssw_jap.3
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.3" }
 	title = ssw_jap.3.title
@@ -70,15 +70,11 @@ country_event = { #
 	option = { #
 		name = ssw_jap.3.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.3.b
-		ai_chance = { base = 1 }
-		
+		add_political_power = 100
+		add_war_support = 0.05
 	}
 }
-country_event = { #
+country_event = { #大東亜社会主義者会議
 	id = ssw_jap.4
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.4" }
 	title = ssw_jap.4.title
@@ -87,15 +83,14 @@ country_event = { #
 	option = { #
 		name = ssw_jap.4.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.4.b
-		ai_chance = { base = 1 }
-		
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.03
+		}
+		add_political_power = 50
 	}
 }
-country_event = { #
+country_event = { #大東亜共栄圏各国が我が国を非難
 	id = ssw_jap.5
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.5" }
 	title = ssw_jap.5.title
@@ -104,15 +99,10 @@ country_event = { #
 	option = { #
 		name = ssw_jap.5.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.5.b
-		ai_chance = { base = 1 }
-		
+		add_political_power = -100
 	}
 }
-country_event = { #
+country_event = { #鈴木は左派として動く
 	id = ssw_jap.6
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.6" }
 	title = ssw_jap.6.title
@@ -121,15 +111,14 @@ country_event = { #
 	option = { #
 		name = ssw_jap.6.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.6.b
-		ai_chance = { base = 1 }
-		
+		add_popularity = {
+			ideology = progressive_communism
+			popularity = 0.03
+		}
+		add_political_power = -30
 	}
 }
-country_event = { #
+country_event = { #鈴木は社会党との融和を模索
 	id = ssw_jap.7
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.7" }
 	title = ssw_jap.7.title
@@ -138,15 +127,13 @@ country_event = { #
 	option = { #
 		name = ssw_jap.7.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.7.b
-		ai_chance = { base = 1 }
-		
+		add_popularity = {
+			ideology = social_democracy
+			popularity = 0.05
+		}
 	}
 }
-country_event = { #
+country_event = { #内鮮一体の闘争
 	id = ssw_jap.8
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.8" }
 	title = ssw_jap.8.title
@@ -155,15 +142,12 @@ country_event = { #
 	option = { #
 		name = ssw_jap.8.a
 		ai_chance = { base = 1 }
-		
-	}
-	option = { #
-		name = ssw_jap.8.b
-		ai_chance = { base = 1 }
-		
+		add_political_power = 50
+		add_stability = -0.02
+		add_manpower = 10000
 	}
 }
-country_event = { #
+country_event = { #東条英機の反共演説
 	id = ssw_jap.9
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.9" }
 	title = ssw_jap.9.title
@@ -171,16 +155,16 @@ country_event = { #
 	is_triggered_only = yes
 	option = { #
 		name = ssw_jap.9.a
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 	option = { #
 		name = ssw_jap.9.b
-		ai_chance = { base = 1 }
+		ai_chance = { base = 50 }
 		
 	}
 }
-country_event = { #
+country_event = { #河上への質問
 	id = ssw_jap.10
 	immediate = { log = "[GetDateText]: [Root.GetName]: event ssw_jap.10" }
 	title = ssw_jap.10.title
@@ -189,10 +173,165 @@ country_event = { #
 	option = { #
 		name = ssw_jap.10.a
 		ai_chance = { base = 1 }
+		add_political_power = 100
+	}
+}
+country_event = { #
+	id = ssw_jap.11
+	title = ssw_jap.11.title
+	desc = ssw_jap.11.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.11.a
+		ai_chance = { base = 1 }
 		
 	}
 	option = { #
-		name = ssw_jap.10.b
+		name = ssw_jap.11.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.12
+	title = ssw_jap.12.title
+	desc = ssw_jap.12.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.12.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.12.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.13
+	title = ssw_jap.13.title
+	desc = ssw_jap.13.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.13.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.13.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.14
+	title = ssw_jap.14.title
+	desc = ssw_jap.14.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.14.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.14.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.15
+	title = ssw_jap.15.title
+	desc = ssw_jap.15.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.15.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.15.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.16
+	title = ssw_jap.16.title
+	desc = ssw_jap.16.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.16.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.16.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.17
+	title = ssw_jap.17.title
+	desc = ssw_jap.17.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.17.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.17.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.18
+	title = ssw_jap.18.title
+	desc = ssw_jap.18.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.18.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.18.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.19
+	title = ssw_jap.19.title
+	desc = ssw_jap.19.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.19.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.19.b
+		ai_chance = { base = 1 }
+		
+	}
+}
+country_event = { #
+	id = ssw_jap.20
+	title = ssw_jap.20.title
+	desc = ssw_jap.20.desc
+	is_triggered_only = yes
+	option = { #
+		name = ssw_jap.20.a
+		ai_chance = { base = 1 }
+		
+	}
+	option = { #
+		name = ssw_jap.20.b
 		ai_chance = { base = 1 }
 		
 	}

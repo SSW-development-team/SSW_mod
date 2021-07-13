@@ -602,7 +602,7 @@ USA_policy = {
 				is_fully_controlled_by = ROOT
 			}
 		}
-		cost = 150
+		cost = 50
 		ai_will_do = { factor = 10 }
 		visible = {
 			OR = {
@@ -848,7 +848,11 @@ SSW_foreign_support = {
 		available = {
 			NOT = { has_country_flag = adding_building_slot }
 			FROM = {
-				free_building_slots = { size = 0 }
+				free_building_slots = {
+					building = arms_factory
+					size < 0
+					include_locked = yes
+				}
 				is_owned_by = ROOT
 				OR = {
 					AND = {
@@ -938,7 +942,8 @@ SSW_foreign_support = {
 				is_owned_by = ROOT
 				free_building_slots = {
 					building = arms_factory
-					size < 1
+					size < 0
+					include_locked = yes
 				}
 				OR = {
 					AND = {
